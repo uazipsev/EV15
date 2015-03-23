@@ -12,7 +12,7 @@
 * @note  The Firmware shall:
 *               -Read in button inputs (O1-O8)
 *               -Set LED status (LED1-LED6)
-*               -Set LED Bar Graph -
+*               -Set LED Bar Graph - http://www.adafruit.com/products/1721
 *               -Read RS485 BUS for data and reply with expectied data (set requested LED states and rely with button states)
 *********************************************************************************************************
 
