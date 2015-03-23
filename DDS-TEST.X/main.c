@@ -1,4 +1,20 @@
 
+/**
+*********************************************************************************************************
+*
+* @brief        DDS - This device reads in button presses and sets LEDS / bar graph
+* @file         main.c
+* @author       Richard Johnson - Mark K
+* @moduleID
+* @ingroup
+*
+*********************************************************************************************************
+* @note  The Firmware shall:
+*               -Read in button inputs (O1-O8)
+*               -Set LED status (LED1-LED6)
+*               -Set LED Bar Graph -
+*               -Read RS485 BUS for data and reply with expectied data (set requested LED states and rely with button states)
+*********************************************************************************************************
 
 #include "mcc_generated_files/mcc.h"
 
