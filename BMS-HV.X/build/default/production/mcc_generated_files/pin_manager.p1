@@ -1,5 +1,5 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7774 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
+"7774 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _LATA `Vuc ~T0 @X0 0 e@3977 ]
 "8404
 [v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
@@ -31,12 +31,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
 "251
 [v _ANSELE `Vuc ~T0 @X0 0 e@3900 ]
+"17538
 [s S1106 :7 `uc 1 :1 `uc 1 ]
 [n S1106 . . NOT_RBPU ]
+"17542
 [s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1107 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
+"17552
 [s S1108 :7 `uc 1 :1 `uc 1 ]
 [n S1108 . . RBPU ]
+"17537
 [u S1105 `S1106 1 `S1107 1 `S1108 1 ]
 [n S1105 . . . . ]
 "17557
@@ -44,7 +48,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [; ;pic18f45k22.h: 49: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f45k22.h: 52: typedef union {

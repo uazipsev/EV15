@@ -1,19 +1,19 @@
-_PIN_MANAGER_Initialize: CODE, 580 0 88
-_TMR1_Initialize: CODE, 878 0 34
-_EUSART1_Initialize: CODE, 668 0 76
-_ADC_Initialize: CODE, 992 0 24
-_main: CODE, 1062 0 10
-_INTERRUPT_Initialize: CODE, 1050 0 12
-_ADC_GetConversionResult: CODE, 1016 0 20
-__initialization: CODE, 844 0 24
+_PIN_MANAGER_Initialize: CODE, 596 0 78
+_TMR1_Initialize: CODE, 860 0 34
+_EUSART1_Initialize: CODE, 674 0 60
+_ADC_Initialize: CODE, 972 0 24
+_main: CODE, 1042 0 10
+_INTERRUPT_Initialize: CODE, 1030 0 12
+_ADC_GetConversionResult: CODE, 996 0 20
+__initialization: CODE, 826 0 24
 _INTERRUPT_InterruptManager: CODE, 8 0 160
-_TMR1_CallBack: CODE, 1076 0 2
-_TMR1_StartTimer: CODE, 1072 0 4
-_ADC_StartConversion: CODE, 912 0 28
-_EUSART1_Receive_ISR: CODE, 796 0 48
-_OSCILLATOR_Initialize: CODE, 1036 0 14
-_SYSTEM_Initialize: CODE, 940 0 26
-_ADC_ISR: CODE, 172 0 408
-_EUSART1_Transmit_ISR: CODE, 744 0 52
-_TMR1_ISR: CODE, 966 0 26
-Total: 1056
+_TMR1_CallBack: CODE, 1056 0 2
+_TMR1_StartTimer: CODE, 1052 0 4
+_ADC_StartConversion: CODE, 946 0 26
+_EUSART1_Receive_ISR: CODE, 782 0 44
+_OSCILLATOR_Initialize: CODE, 1016 0 14
+_SYSTEM_Initialize: CODE, 894 0 26
+_ADC_ISR: CODE, 172 0 424
+_EUSART1_Transmit_ISR: CODE, 734 0 48
+_TMR1_ISR: CODE, 920 0 26
+Total: 1036
