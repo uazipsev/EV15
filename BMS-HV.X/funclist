@@ -1,0 +1,17 @@
+_PIN_MANAGER_Initialize: CODE, 172 0 78
+_TMR1_Initialize: CODE, 402 0 34
+_EUSART1_Initialize: CODE, 250 0 60
+_ADC_Initialize: CODE, 488 0 24
+_main: CODE, 556 0 10
+_INTERRUPT_Initialize: CODE, 544 0 12
+__initialization: CODE, 512 0 12
+_INTERRUPT_InterruptManager: CODE, 8 0 160
+_TMR1_CallBack: CODE, 574 0 2
+_TMR1_StartTimer: CODE, 566 0 4
+_EUSART1_Receive_ISR: CODE, 358 0 44
+_OSCILLATOR_Initialize: CODE, 530 0 14
+_SYSTEM_Initialize: CODE, 436 0 26
+_ADC_ISR: CODE, 570 0 4
+_EUSART1_Transmit_ISR: CODE, 310 0 48
+_TMR1_ISR: CODE, 462 0 26
+Total: 558
