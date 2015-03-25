@@ -8,16 +8,11 @@
 #ifndef BATTERY_H
 #define	BATTERY_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
 
+extern char Battery_Fault();
+extern void Battery_Read();
+extern int Battery_Get(int channelnum);
 
-
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* BATTERY_H */
 

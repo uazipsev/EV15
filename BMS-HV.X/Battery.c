@@ -1,13 +1,18 @@
+#include <xc.h>
 #include "Define.h"
 #include "Battery.h"
+#include "Global.h"
+#include "mcc_generated_files/adc.h"
 
-bool Battery_Fault()
+int Battery_Volt[10];
+
+char Battery_Fault()
 {
     // Init fault as if there is none
-    bool fault = 0;
+    char fault = 0;
     for(int i = 0;i<9;i++)
     {
-        if ((BATLOW < Battery[i]) && (BATHIGH > Battery[i]))
+        if ((BATLOW < Battery_Volt[i]) && (BATHIGH > Battery_Volt[i]))
         {
             fault = 1;
         }
@@ -15,3 +20,18 @@ bool Battery_Fault()
 
     return fault;
 }
+
+void Battery_Read()
+{
+  //Set the ADC interupt to start to fill in the Battery ADC Buffer
+  ADC_Buffer_Point = 0;
+  Volt_Aquire = 1;
+  ADCON1 = 0x81;
+  ADC_StartConversion(Battery1);
+}
+
+int Battery_Get(int channelnum)
+{
+   return  Battery_Volt[channelnum];
+}
+

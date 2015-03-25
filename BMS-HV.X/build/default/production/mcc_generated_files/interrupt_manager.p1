@@ -1,59 +1,42 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"16538 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [s S1034 :1 `uc 1 ]
 [n S1034 . NOT_BOR ]
-"16541
 [s S1035 :1 `uc 1 :1 `uc 1 ]
 [n S1035 . . NOT_POR ]
-"16545
 [s S1036 :2 `uc 1 :1 `uc 1 ]
 [n S1036 . . NOT_PD ]
-"16549
 [s S1037 :3 `uc 1 :1 `uc 1 ]
 [n S1037 . . NOT_TO ]
-"16553
 [s S1038 :4 `uc 1 :1 `uc 1 ]
 [n S1038 . . NOT_RI ]
-"16557
 [s S1039 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1039 . nBOR nPOR nPD nTO nRI . SBOREN IPEN ]
-"16567
 [s S1040 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1040 . BOR POR PD TO RI ]
-"16537
 [u S1033 `S1034 1 `S1035 1 `S1036 1 `S1037 1 `S1038 1 `S1039 1 `S1040 1 ]
 [n S1033 . . . . . . . . ]
-"16575
+"16575 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
 [v _RCONbits `VS1033 ~T0 @X0 0 e@4048 ]
-"9909
 [s S568 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S568 . TMR1IP TMR2IP CCP1IP SSP1IP TX1IP RC1IP ADIP ]
-"9918
 [s S569 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S569 . . SSPIP TXIP RCIP ]
-"9908
 [u S567 `S568 1 `S569 1 ]
 [n S567 . . . ]
 "9925
 [v _IPR1bits `VS567 ~T0 @X0 0 e@3999 ]
-"9757
 [s S562 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S562 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE ]
-"9766
 [s S563 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S563 . . SSPIE TXIE RCIE ]
-"9756
 [u S561 `S562 1 `S563 1 ]
 [n S561 . . . ]
 "9773
 [v _PIE1bits `VS561 ~T0 @X0 0 e@3997 ]
-"9833
 [s S565 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S565 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
-"9842
 [s S566 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S566 . . SSPIF TXIF RCIF ]
-"9832
 [u S564 `S565 1 `S566 1 ]
 [n S564 . . . ]
 "9849
@@ -71,7 +54,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
 [; ;pic18f45k22.h: 49: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f45k22.h: 52: typedef union {

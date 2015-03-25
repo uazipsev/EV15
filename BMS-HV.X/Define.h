@@ -14,6 +14,7 @@ extern "C" {
 
 #define BATHIGH 4.21
 #define BATLOW  3.00
+#define TEMPHIGH 60.5
 
 
 #ifdef	__cplusplus
