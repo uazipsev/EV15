@@ -1,0 +1,17 @@
+
+# 1 "Global.c"
+
+# 2 "Global.h"
+extern char Temp_Aquire;
+extern char Volt_Aquire;
+extern int Battery_Adc[10];
+extern int Temp_Adc[10];
+extern int ADC_Buffer_Point;
+
+# 13 "Global.c"
+char Temp_Get = 0;
+char Volt_Get = 0;
+int Battery_Adc[10] = 0;
+int Temp_Adc[10] = 0;
+int ADC_Buffer_Point = 0;
+
