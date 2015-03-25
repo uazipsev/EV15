@@ -1,0 +1,31 @@
+
+# 1 "main.c"
+
+# 24
+void main(void)
+{
+
+SYSTEM_Initialize();
+
+# 46
+INTERRUPT_GlobalInterruptEnable();
+
+
+INTERRUPT_PeripheralInterruptEnable();
+
+# 56
+int ADCNT = 0;
+INDICATOR_SetHigh();
+while (1)
+{
+ADCNT = ADC_GetConversion(Volume);
+
+printf("ADC Volume = %d",ADCNT);
+for(int i = 0; 50 > i ; i++)
+{
+__delay_ms(10);
+}
+
+}
+}
+
