@@ -1,13 +1,26 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"6 Global.h
+[v _ADC_Buffer_Point `i ~T0 @X0 0 e ]
+"2
+[v _Temp_Aquire `uc ~T0 @X0 0 e ]
+"13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+[v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
+"30 Tempeture.c
+[c E8844 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
+[n E8844 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
+"167 mcc_generated_files/adc.h
+[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8844 ]
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
 [; ;Global.h: 4: extern int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
+[; ;Global.h: 7: extern int Volt_Done;
+[; ;Global.h: 8: extern int Temp_Done;
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [; ;pic18f45k22.h: 49: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f45k22.h: 52: typedef union {
@@ -8235,3 +8248,131 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 278: void ADC_ISR(void);
+"7 Tempeture.c
+[v _Temp_DegF `i ~T0 @X0 -> 10 `i e ]
+[i _Temp_DegF
+:U ..
+-> 0 `i
+..
+]
+[; ;Tempeture.c: 7: int Temp_DegF[10] = 0;
+"9
+[v _Temp_Fault `(uc ~T0 @X0 1 ef ]
+"10
+{
+[; ;Tempeture.c: 9: char Temp_Fault()
+[; ;Tempeture.c: 10: {
+[e :U _Temp_Fault ]
+[f ]
+"12
+[v _fault `uc ~T0 @X0 1 a ]
+[; ;Tempeture.c: 12: char fault = 0;
+[e = _fault -> -> 0 `i `uc ]
+[; ;Tempeture.c: 13: for(int i = 0;i<9;i++)
+"13
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 9 `i 1179  ]
+[e $U 1180  ]
+"14
+[e :U 1179 ]
+[; ;Tempeture.c: 14: {
+{
+[; ;Tempeture.c: 15: if (60.5 > Temp_DegF[i])
+"15
+[e $ ! > .60.5 -> *U + &U _Temp_DegF * -> -> _i `ui `ux -> -> # *U &U _Temp_DegF `ui `ux `d 1182  ]
+[; ;Tempeture.c: 16: {
+"16
+{
+[; ;Tempeture.c: 17: fault = 1;
+"17
+[e = _fault -> -> 1 `i `uc ]
+"18
+}
+[e :U 1182 ]
+"19
+}
+"13
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 9 `i 1179  ]
+[e :U 1180 ]
+"19
+}
+[; ;Tempeture.c: 18: }
+[; ;Tempeture.c: 19: }
+[; ;Tempeture.c: 21: return fault;
+"21
+[e ) _fault ]
+[e $UE 1178  ]
+[; ;Tempeture.c: 22: }
+"22
+[e :UE 1178 ]
+}
+"24
+[v _Temp_Read `(v ~T0 @X0 1 ef ]
+"25
+{
+[; ;Tempeture.c: 24: void Temp_Read()
+[; ;Tempeture.c: 25: {
+[e :U _Temp_Read ]
+[f ]
+[; ;Tempeture.c: 27: ADC_Buffer_Point = 0;
+"27
+[e = _ADC_Buffer_Point -> 0 `i ]
+[; ;Tempeture.c: 28: Temp_Aquire = 1;
+"28
+[e = _Temp_Aquire -> -> 1 `i `uc ]
+[; ;Tempeture.c: 29: ADCON1 = 0x80;
+"29
+[e = _ADCON1 -> -> 128 `i `uc ]
+[; ;Tempeture.c: 30: ADC_StartConversion(Temp1);
+"30
+[e ( _ADC_StartConversion (1 -> . `E8844 9 `E8844 ]
+[; ;Tempeture.c: 31: }
+"31
+[e :UE 1183 ]
+}
+"33
+[v _Temp_Filter `(v ~T0 @X0 1 ef ]
+"34
+{
+[; ;Tempeture.c: 33: void Temp_Filter()
+[; ;Tempeture.c: 34: {
+[e :U _Temp_Filter ]
+[f ]
+[; ;Tempeture.c: 36: }
+"36
+[e :UE 1184 ]
+}
+"38
+[v _Temp_Convert `(v ~T0 @X0 1 ef ]
+"39
+{
+[; ;Tempeture.c: 38: void Temp_Convert()
+[; ;Tempeture.c: 39: {
+[e :U _Temp_Convert ]
+[f ]
+[; ;Tempeture.c: 41: }
+"41
+[e :UE 1185 ]
+}
+"43
+[v _Tempeture_Get `(i ~T0 @X0 1 ef1`i ]
+"44
+{
+[; ;Tempeture.c: 43: int Tempeture_Get(int channelnum)
+[; ;Tempeture.c: 44: {
+[e :U _Tempeture_Get ]
+"43
+[v _channelnum `i ~T0 @X0 1 r1 ]
+"44
+[f ]
+[; ;Tempeture.c: 45: return Temp_DegF[channelnum];
+"45
+[e ) *U + &U _Temp_DegF * -> -> _channelnum `ui `ux -> -> # *U &U _Temp_DegF `ui `ux ]
+[e $UE 1186  ]
+[; ;Tempeture.c: 46: }
+"46
+[e :UE 1186 ]
+}

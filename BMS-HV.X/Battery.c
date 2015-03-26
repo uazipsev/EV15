@@ -26,7 +26,7 @@ void Battery_Read()
   //Set the ADC interupt to start to fill in the Battery ADC Buffer
   ADC_Buffer_Point = 0;
   Volt_Aquire = 1;
-  ADCON1 = 0x81;
+  ADCON1 = 0x81; //Set up to run ADC from VDD to Vref- (2.5v)
   ADC_StartConversion(Battery1);
 }
 

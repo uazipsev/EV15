@@ -87,20 +87,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define Battery1_SetAnalogMode()   do { ANSA1 = 1; } while(0)
 #define Battery1_SetDigitalMode()   do { ANSA1 = 0; } while(0)
-// get/set VrefNeg aliases
-#define VrefNeg_TRIS               TRISA2
-#define VrefNeg_LAT                LATA2
-#define VrefNeg_PORT               PORTAbits.RA2
-#define VrefNeg_ANS                ANSA2
-#define VrefNeg_SetHigh()    do { LATA2 = 1; } while(0)
-#define VrefNeg_SetLow()   do { LATA2 = 0; } while(0)
-#define VrefNeg_Toggle()   do { LATA2 = ~LATA2; } while(0)
-#define VrefNeg_GetValue()         PORTAbits.RA2
-#define VrefNeg_SetDigitalInput()    do { TRISA2 = 1; } while(0)
-#define VrefNeg_SetDigitalOutput()   do { TRISA2 = 0; } while(0)
-
-#define VrefNeg_SetAnalogMode()   do { ANSA2 = 1; } while(0)
-#define VrefNeg_SetDigitalMode()   do { ANSA2 = 0; } while(0)
 // get/set Battery2 aliases
 #define Battery2_TRIS               TRISA3
 #define Battery2_LAT                LATA3

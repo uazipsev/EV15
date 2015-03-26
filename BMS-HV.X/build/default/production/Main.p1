@@ -8379,49 +8379,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Tempeture.h: 13: extern char Temp_Fault();
 [; ;Tempeture.h: 14: extern void Temp_Read();
 [; ;Tempeture.h: 15: extern int Tempeture_Get(int channelnum);
-"31 bms.c
+"31 Main.c
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 {
-[; ;bms.c: 31: int main(int argc, char** argv) {
+[; ;Main.c: 31: int main(int argc, char** argv) {
 [e :U _main ]
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;bms.c: 33: SYSTEM_Initialize();
+[; ;Main.c: 33: SYSTEM_Initialize();
 "33
 [e ( _SYSTEM_Initialize ..  ]
-[; ;bms.c: 52: (INTCONbits.GIE = 1);
+[; ;Main.c: 52: (INTCONbits.GIE = 1);
 "52
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;bms.c: 55: (INTCONbits.PEIE = 1);
+[; ;Main.c: 55: (INTCONbits.PEIE = 1);
 "55
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;bms.c: 64: while (1)
+[; ;Main.c: 64: while (1)
 "64
 [e :U 1185 ]
-[; ;bms.c: 65: {
+[; ;Main.c: 65: {
 "65
 {
-[; ;bms.c: 66: if (Temp_Done)
+[; ;Main.c: 66: if (Temp_Done)
 "66
 [e $ ! != _Temp_Done -> 0 `i 1187  ]
-[; ;bms.c: 67: {
+[; ;Main.c: 67: {
 "67
 {
-[; ;bms.c: 68: Temp_Fault();
+[; ;Main.c: 68: Temp_Fault();
 "68
 [e ( _Temp_Fault ..  ]
 "69
 }
 [e :U 1187 ]
-[; ;bms.c: 69: }
-[; ;bms.c: 70: if (Volt_Done)
+[; ;Main.c: 69: }
+[; ;Main.c: 70: if (Volt_Done)
 "70
 [e $ ! != _Volt_Done -> 0 `i 1188  ]
-[; ;bms.c: 71: {
+[; ;Main.c: 71: {
 "71
 {
-[; ;bms.c: 72: Battery_Fault();
+[; ;Main.c: 72: Battery_Fault();
 "72
 [e ( _Battery_Fault ..  ]
 "73
@@ -8433,13 +8433,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "64
 [e $U 1185  ]
 [e :U 1186 ]
-[; ;bms.c: 73: }
-[; ;bms.c: 74: }
-[; ;bms.c: 75: return (0);
+[; ;Main.c: 73: }
+[; ;Main.c: 74: }
+[; ;Main.c: 75: return (0);
 "75
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;bms.c: 76: }
+[; ;Main.c: 76: }
 "76
 [e :UE 1183 ]
 }

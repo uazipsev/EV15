@@ -10371,10 +10371,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 502 "mcc_generated_files/pin_manager.h"
+# 488 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 514
+# 500
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdint.h"
@@ -10703,21 +10703,50 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 26 "bms.c"
+# 12 "Battery.h"
+extern char Battery_Fault();
+extern void Battery_Read();
+extern int Battery_Get(int channelnum);
+
+# 12 "Functions.h"
+void Set_4051(int Channel);
+
+# 2 "Global.h"
+extern char Temp_Aquire;
+extern char Volt_Aquire;
+extern int Battery_Adc[10];
+extern int Temp_Adc[10];
+extern int ADC_Buffer_Point;
+extern int Volt_Done;
+extern int Temp_Done;
+
+# 13 "Tempeture.h"
+extern char Temp_Fault();
+extern void Temp_Read();
+extern int Tempeture_Get(int channelnum);
+
+# 31 "bms.c"
 int main(int argc, char** argv) {
 
 SYSTEM_Initialize();
 
-# 47
+# 52
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 59
+# 64
 while (1)
 {
-
+if (Temp_Done)
+{
+Temp_Fault();
+}
+if (Volt_Done)
+{
+Battery_Fault();
+}
 }
 return (0);
 }

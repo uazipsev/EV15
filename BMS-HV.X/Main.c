@@ -1,18 +1,19 @@
 /**
 *********************************************************************************************************
 *
-* @brief        DDS - This device reads in button presses and sets LEDS / bar graph
+* @brief        BMS - This device reads in voltages and temps. It controls bypass and sends data over RS485
 * @file         main.c
-* @author       Richard Johnson - Mark K
+* @author       Richard Johnson
 * @moduleID
 * @ingroup
 *
 *********************************************************************************************************
 * @note  The Firmware shall:
-*               -Read in button inputs (O1-O8)
-*               -Set LED status (LED1-LED6)
-*               -Set LED Bar Graph - http://www.adafruit.com/products/1721
-*               -Read RS485 BUS for data and reply with expectied data (set requested LED states and rely with button states)
+*               -Read in battery voltags (B1-B10)
+*               -Read in Temp voltags (T1-T2)
+*               -Set LED indicator
+*               -Set Bypass (C1-C10)
+*               -Read RS485 BUS for data and reply with expectied data
 *********************************************************************************************************
  */
 
@@ -20,6 +21,10 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "Battery.h"
+#include "Functions.h"
+#include "Global.h"
+#include "Tempeture.h"
 
 
 
@@ -58,7 +63,14 @@ int main(int argc, char** argv) {
     //INDICATOR_SetHigh();
     while (1)
     {
-
+        if (Temp_Done)
+        {
+            Temp_Fault();
+        }
+        if (Volt_Done)
+        {
+            Battery_Fault();
+        }
     }
     return (EXIT_SUCCESS);
 }

@@ -6,7 +6,6 @@
             <setting name="sorting" option="true"/>
             <resource customName="IO_RA0" digital="true" direction="OUTPUT" function="RA0" module="GPIO" name="RA0" start="false" type="pin" wpu="false"/>
             <resource customName="Battery1" digital="false" direction="INPUT" function="AN1" module="ADC" name="RA1" start="false" type="pin" wpu="false"/>
-            <resource customName="Vref-" digital="false" direction="INPUT" function="Vref-" module="ADC" name="RA2" start="false" type="pin" wpu="false"/>
             <resource customName="Battery2" digital="false" direction="INPUT" function="AN3" module="ADC" name="RA3" start="false" type="pin" wpu="false"/>
             <resource customName="Battery3" digital="false" direction="INPUT" function="AN4" module="ADC" name="RA5" start="false" type="pin" wpu="false"/>
             <resource customName="MUX_A" digital="true" direction="OUTPUT" function="RA6" module="GPIO" name="RA6" start="false" type="pin" wpu="false"/>
@@ -35,7 +34,7 @@
             <resource customName="Battery4" digital="false" direction="INPUT" function="AN5" module="ADC" name="RE0" start="false" type="pin" wpu="false"/>
             <resource customName="MODE_REDE" digital="true" direction="OUTPUT" function="RE1" module="GPIO" name="RE1" start="false" type="pin" wpu="false"/>
             <file checksum="3247152087" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="1454578855" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="424237382" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
@@ -114,7 +113,7 @@
                 <setting name="CHS" option="AN0" register="ADCON0"/>
                 <setting name="PVCFG" option="VDD" register="ADCON1"/>
                 <setting name="TRIGSEL" option="CTMU" register="ADCON1"/>
-                <setting name="NVCFG" option="external" register="ADCON1"/>
+                <setting name="NVCFG" option="VSS" register="ADCON1"/>
                 <setting name="ADFM" option="left" register="ADCON2"/>
                 <setting name="ADCS" option="FOSC/32" register="ADCON2"/>
                 <setting name="ACQT" option="2" register="ADCON2"/>
@@ -134,8 +133,7 @@
             <resource customName="Battery6" function="AN26" name="RD6" type="pin"/>
             <resource customName="Battery7" function="AN27" name="RD7" type="pin"/>
             <resource customName="Battery4" function="AN5" name="RE0" type="pin"/>
-            <resource customName="Vref-" function="Vref-" name="RA2" type="pin"/>
-            <file checksum="2827020537" modified="false" name="adc.c" path="mcc_generated_files/adc.c"/>
+            <file checksum="164606773" modified="true" name="adc.c" path="mcc_generated_files/adc.c"/>
             <file checksum="2346048111" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
         </module>
         <module generated="true" mode="GPIO" name="GPIO" order="1" reloadPin="manual" type="GPIO">

@@ -4,6 +4,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 4: extern int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
+[; ;Global.h: 7: extern int Volt_Done;
+[; ;Global.h: 8: extern int Temp_Done;
 "13 Global.c
 [v _Temp_Aquire `uc ~T0 @X0 1 e ]
 [i _Temp_Aquire
@@ -38,3 +40,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 [; ;Global.c: 17: int ADC_Buffer_Point = 0;
+"18
+[v _Temp_Done `i ~T0 @X0 1 e ]
+[i _Temp_Done
+-> 0 `i
+]
+[; ;Global.c: 18: int Temp_Done = 0;
+"19
+[v _Volt_Done `i ~T0 @X0 1 e ]
+[i _Volt_Done
+-> 0 `i
+]
+[; ;Global.c: 19: int Volt_Done = 0;

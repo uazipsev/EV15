@@ -10382,6 +10382,8 @@ extern char Volt_Aquire;
 extern int Battery_Adc[10];
 extern int Temp_Adc[10];
 extern int ADC_Buffer_Point;
+extern int Volt_Done;
+extern int Temp_Done;
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdint.h"
 typedef signed char int8_t;

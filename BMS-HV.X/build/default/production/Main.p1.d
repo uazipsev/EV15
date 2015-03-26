@@ -1,6 +1,6 @@
- build/default/production/bms.d  \
- build/default/production/bms.p1:  \
- bms.c  \
+ build/default/production/Main.d  \
+ build/default/production/Main.p1:  \
+ Main.c  \
 Global.h  \
 mcc_generated_files/mcc.h  \
 Functions.h  \
