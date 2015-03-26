@@ -10374,7 +10374,9 @@ extern __nonreentrant void _delay3(unsigned char);
 # 12 "Battery.h"
 extern char Battery_Fault();
 extern void Battery_Read();
-extern int Battery_Get(int channelnum);
+extern void Battery_Filter();
+extern void Battery_Convert();
+extern float Battery_Get(int channelnum);
 
 # 2 "Global.h"
 extern char Temp_Aquire;
@@ -10520,7 +10522,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 void ADC_ISR(void);
 
 # 7 "Battery.c"
-int Battery_Volt[10];
+float Battery_Volt[10];
 
 char Battery_Fault()
 {
@@ -10546,7 +10548,17 @@ ADCON1 = 0x81;
 ADC_StartConversion(Battery1);
 }
 
-int Battery_Get(int channelnum)
+void Battery_Filter()
+{
+
+}
+
+void Battery_Convert()
+{
+
+}
+
+float Battery_Get(int channelnum)
 {
 return Battery_Volt[channelnum];
 }

@@ -13,11 +13,11 @@
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.10.3
         Device            :  PIC18F45K22
         Version           :  1.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
+        Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X 2.26
 */
 
@@ -59,20 +59,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
-// get/set IO_RA0 aliases
-#define IO_RA0_TRIS               TRISA0
-#define IO_RA0_LAT                LATA0
-#define IO_RA0_PORT               PORTAbits.RA0
-#define IO_RA0_ANS                ANSA0
-#define IO_RA0_SetHigh()    do { LATA0 = 1; } while(0)
-#define IO_RA0_SetLow()   do { LATA0 = 0; } while(0)
-#define IO_RA0_Toggle()   do { LATA0 = ~LATA0; } while(0)
-#define IO_RA0_GetValue()         PORTAbits.RA0
-#define IO_RA0_SetDigitalInput()    do { TRISA0 = 1; } while(0)
-#define IO_RA0_SetDigitalOutput()   do { TRISA0 = 0; } while(0)
+// get/set Bypass10 aliases
+#define Bypass10_TRIS               TRISA0
+#define Bypass10_LAT                LATA0
+#define Bypass10_PORT               PORTAbits.RA0
+#define Bypass10_ANS                ANSA0
+#define Bypass10_SetHigh()    do { LATA0 = 1; } while(0)
+#define Bypass10_SetLow()   do { LATA0 = 0; } while(0)
+#define Bypass10_Toggle()   do { LATA0 = ~LATA0; } while(0)
+#define Bypass10_GetValue()         PORTAbits.RA0
+#define Bypass10_SetDigitalInput()    do { TRISA0 = 1; } while(0)
+#define Bypass10_SetDigitalOutput()   do { TRISA0 = 0; } while(0)
 
-#define IO_RA0_SetAnalogMode()   do { ANSA0 = 1; } while(0)
-#define IO_RA0_SetDigitalMode()   do { ANSA0 = 0; } while(0)
+#define Bypass10_SetAnalogMode()   do { ANSA0 = 1; } while(0)
+#define Bypass10_SetDigitalMode()   do { ANSA0 = 0; } while(0)
 // get/set Battery1 aliases
 #define Battery1_TRIS               TRISA1
 #define Battery1_LAT                LATA1
@@ -101,6 +101,17 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define Battery2_SetAnalogMode()   do { ANSA3 = 1; } while(0)
 #define Battery2_SetDigitalMode()   do { ANSA3 = 0; } while(0)
+// get/set Indicator aliases
+#define Indicator_TRIS               TRISA4
+#define Indicator_LAT                LATA4
+#define Indicator_PORT               PORTAbits.RA4
+#define Indicator_SetHigh()    do { LATA4 = 1; } while(0)
+#define Indicator_SetLow()   do { LATA4 = 0; } while(0)
+#define Indicator_Toggle()   do { LATA4 = ~LATA4; } while(0)
+#define Indicator_GetValue()         PORTAbits.RA4
+#define Indicator_SetDigitalInput()    do { TRISA4 = 1; } while(0)
+#define Indicator_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
+
 // get/set Battery3 aliases
 #define Battery3_TRIS               TRISA5
 #define Battery3_LAT                LATA5

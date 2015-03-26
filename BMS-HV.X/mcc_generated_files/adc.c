@@ -133,7 +133,7 @@ void ADC_ISR(void)
               Temp_Aquire = 0;
               Temp_Done = 1;
               break;
-        }
+}
         ADC_Buffer_Point++;
     }
     if (Volt_Aquire){

@@ -22,7 +22,7 @@ Battery7 27
 Battery4 5
 ]
 "30 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
-[e E8848 . `uc
+[e E8850 . `uc
 channel_CTMU 29
 channel_DAC 30
 channel_FVRBuf2 31
@@ -62,7 +62,11 @@ Battery4 5
 "24
 [v _Battery_Read Battery_Read `(v  1 e 0 0 ]
 "33
-[v _Battery_Get Battery_Get `(i  1 e 2 0 ]
+[v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
+"38
+[v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
+"43
+[v _Battery_Get Battery_Get `(f  1 e 3 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abmod.c
@@ -256,7 +260,7 @@ Battery4 5
 "43
 [v _Tempeture_Get Tempeture_Get `(i  1 e 2 0 ]
 "7 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
-[v _Battery_Volt Battery_Volt `[10]i  1 e 20 0 ]
+[v _Battery_Volt Battery_Volt `[10]f  1 e 30 0 ]
 "47 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "91
@@ -518,7 +522,7 @@ Battery4 5
 ]
 [u S544 . 1 `S529 1 . 1 0 `S532 1 . 1 0 `S541 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES544  1 e 1 @4081 ]
-[s S818 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S820 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -528,7 +532,7 @@ Battery4 5
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17648
-[s S827 . 1 `uc 1 . 1 0 :1:0 
+[s S829 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -537,12 +541,12 @@ Battery4 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S836 . 1 `uc 1 . 1 0 :6:0 
+[s S838 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S853 . 1 `S818 1 . 1 0 `S827 1 . 1 0 `S836 1 . 1 0 `S827 1 . 1 0 `S836 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES853  1 e 1 @4082 ]
+[u S855 . 1 `S820 1 . 1 0 `S829 1 . 1 0 `S838 1 . 1 0 `S829 1 . 1 0 `S838 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES855  1 e 1 @4082 ]
 "18985
 [v _LATA6 LATA6 `VEb  1 e 0 @31822 ]
 "19005
@@ -582,21 +586,21 @@ Battery4 5
 "57 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
 "7 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
-[v _Temp_DegF Temp_DegF `[10]i  1 e 20 0 ]
+[v _Temp_DegF Temp_DegF `[10]f  1 e 30 0 ]
 "31 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
 {
-[v main@argc argc `i  1 p 2 11 ]
-[v main@argv argv `*.2*.2uc  1 p 3 13 ]
+[v main@argc argc `i  1 p 2 12 ]
+[v main@argv argv `*.2*.2uc  1 p 3 14 ]
 "76
 } 0
 "9 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Fault Temp_Fault `(uc  1 e 1 0 ]
 {
 "13
-[v Temp_Fault@i i `i  1 a 2 9 ]
+[v Temp_Fault@i i `i  1 a 2 10 ]
 "12
-[v Temp_Fault@fault fault `uc  1 a 1 8 ]
+[v Temp_Fault@fault fault `uc  1 a 1 9 ]
 "22
 } 0
 "112 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/mcc.c
@@ -643,10 +647,20 @@ Battery4 5
 [v _Battery_Fault Battery_Fault `(uc  1 e 1 0 ]
 {
 "13
-[v Battery_Fault@i i `i  1 a 2 9 ]
+[v Battery_Fault@i i `i  1 a 2 10 ]
 "12
-[v Battery_Fault@fault fault `uc  1 a 1 8 ]
+[v Battery_Fault@fault fault `uc  1 a 1 9 ]
 "22
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 26 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 22 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 24 ]
+"53
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
@@ -654,23 +668,6 @@ Battery4 5
 [v ___ftge@ff1 ff1 `f  1 p 3 0 ]
 [v ___ftge@ff2 ff2 `f  1 p 3 3 ]
 "13
-} 0
-"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
-[v ___awtoft __awtoft `(f  1 e 3 0 ]
-{
-"34
-[v ___awtoft@sign sign `uc  1 a 1 33 ]
-"32
-[v ___awtoft@c c `i  1 p 2 30 ]
-"42
-} 0
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
-[v ___ftpack __ftpack `(f  1 e 3 0 ]
-{
-[v ___ftpack@arg arg `um  1 p 3 22 ]
-[v ___ftpack@exp exp `uc  1 p 1 25 ]
-[v ___ftpack@sign sign `uc  1 p 1 26 ]
-"86
 } 0
 "69 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]

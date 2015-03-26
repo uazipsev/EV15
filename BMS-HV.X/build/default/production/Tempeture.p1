@@ -8249,13 +8249,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 278: void ADC_ISR(void);
 "7 Tempeture.c
-[v _Temp_DegF `i ~T0 @X0 -> 10 `i e ]
+[v _Temp_DegF `f ~T0 @X0 -> 10 `i e ]
 [i _Temp_DegF
 :U ..
--> 0 `i
+-> -> 0 `i `f
 ..
 ]
-[; ;Tempeture.c: 7: int Temp_DegF[10] = 0;
+[; ;Tempeture.c: 7: float Temp_DegF[10] = 0;
 "9
 [v _Temp_Fault `(uc ~T0 @X0 1 ef ]
 "10
@@ -8370,7 +8370,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Tempeture.c: 45: return Temp_DegF[channelnum];
 "45
-[e ) *U + &U _Temp_DegF * -> -> _channelnum `ui `ux -> -> # *U &U _Temp_DegF `ui `ux ]
+[e ) -> *U + &U _Temp_DegF * -> -> _channelnum `ui `ux -> -> # *U &U _Temp_DegF `ui `ux `i ]
 [e $UE 1186  ]
 [; ;Tempeture.c: 46: }
 "46

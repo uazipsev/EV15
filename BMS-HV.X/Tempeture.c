@@ -4,7 +4,7 @@
 #include "Global.h"
 #include "mcc_generated_files/adc.h"
 
-int Temp_DegF[10] = 0;
+float Temp_DegF[10] = 0;
 
 char Temp_Fault()
 {

@@ -8207,8 +8207,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 488: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 500: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 511: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8367,7 +8367,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
 [; ;Battery.h: 12: extern char Battery_Fault();
 [; ;Battery.h: 13: extern void Battery_Read();
-[; ;Battery.h: 14: extern int Battery_Get(int channelnum);
+[; ;Battery.h: 14: extern void Battery_Filter();
+[; ;Battery.h: 15: extern void Battery_Convert();
+[; ;Battery.h: 16: extern float Battery_Get(int channelnum);
 [; ;Functions.h: 12: void Set_4051(int Channel);
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
@@ -8378,7 +8380,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 8: extern int Temp_Done;
 [; ;Tempeture.h: 13: extern char Temp_Fault();
 [; ;Tempeture.h: 14: extern void Temp_Read();
-[; ;Tempeture.h: 15: extern int Tempeture_Get(int channelnum);
+[; ;Tempeture.h: 15: extern void Temp_Filter();
+[; ;Tempeture.h: 16: extern void Temp_Convert();
+[; ;Tempeture.h: 17: extern float Tempeture_Get(int channelnum);
 "31 Main.c
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 {

@@ -4,7 +4,7 @@
 #include "Global.h"
 #include "mcc_generated_files/adc.h"
 
-int Battery_Volt[10];
+float Battery_Volt[10];
 
 char Battery_Fault()
 {
@@ -30,7 +30,17 @@ void Battery_Read()
   ADC_StartConversion(Battery1);
 }
 
-int Battery_Get(int channelnum)
+void Battery_Filter()
+{
+    
+}
+
+void Battery_Convert()
+{
+
+}
+
+float Battery_Get(int channelnum)
 {
    return  Battery_Volt[channelnum];
 }

@@ -11,7 +11,9 @@
 
 extern char Battery_Fault();
 extern void Battery_Read();
-extern int Battery_Get(int channelnum);
+extern void Battery_Filter();
+extern void Battery_Convert();
+extern float Battery_Get(int channelnum);
 
 
 #endif	/* BATTERY_H */

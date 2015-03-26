@@ -12,7 +12,9 @@
 
 extern char Temp_Fault();
 extern void Temp_Read();
-extern int Tempeture_Get(int channelnum);
+extern void Temp_Filter();
+extern void Temp_Convert();
+extern float Tempeture_Get(int channelnum);
 
 
 

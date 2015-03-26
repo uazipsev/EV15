@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<configuration device="PIC18F45K22" mcc_version="v2.10.2">
+<configuration device="PIC18F45K22" mcc_version="v2.10.3">
     <managers>
         <manager generated="true" name="Pin Manager" reloadPin="manual">
             <setting name="package" option="PDIP40"/>
             <setting name="sorting" option="true"/>
-            <resource customName="IO_RA0" digital="true" direction="OUTPUT" function="RA0" module="GPIO" name="RA0" start="false" type="pin" wpu="false"/>
+            <resource customName="Bypass10" digital="true" direction="OUTPUT" function="RA0" module="GPIO" name="RA0" start="false" type="pin" wpu="false"/>
             <resource customName="Battery1" digital="false" direction="INPUT" function="AN1" module="ADC" name="RA1" start="false" type="pin" wpu="false"/>
             <resource customName="Battery2" digital="false" direction="INPUT" function="AN3" module="ADC" name="RA3" start="false" type="pin" wpu="false"/>
+            <resource customName="Indicator" digital="true" direction="OUTPUT" function="RA4" module="GPIO" name="RA4" start="false" type="pin" wpu="false"/>
             <resource customName="Battery3" digital="false" direction="INPUT" function="AN4" module="ADC" name="RA5" start="false" type="pin" wpu="false"/>
             <resource customName="MUX_A" digital="true" direction="OUTPUT" function="RA6" module="GPIO" name="RA6" start="false" type="pin" wpu="false"/>
             <resource customName="Bypass7" digital="true" direction="OUTPUT" function="RB0" module="GPIO" name="RB0" start="false" type="pin" wpu="false"/>
@@ -33,19 +34,19 @@
             <resource customName="Battery7" digital="false" direction="INPUT" function="AN27" module="ADC" name="RD7" start="false" type="pin" wpu="false"/>
             <resource customName="Battery4" digital="false" direction="INPUT" function="AN5" module="ADC" name="RE0" start="false" type="pin" wpu="false"/>
             <resource customName="MODE_REDE" digital="true" direction="OUTPUT" function="RE1" module="GPIO" name="RE1" start="false" type="pin" wpu="false"/>
-            <file checksum="3247152087" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="424237382" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="3466173400" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="559219910" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
             <setting name="preemptLow" option="true"/>
             <setting name="useIPEN" option="false"/>
+            <file checksum="776690715" modified="false" name="interrupt_manager.c" path="mcc_generated_files/interrupt_manager.c"/>
+            <file checksum="2122725904" modified="false" name="interrupt_manager.h" path="mcc_generated_files/interrupt_manager.h"/>
             <interrupt module="EUSART1" name="RCI" priority="2"/>
             <interrupt module="ADC" name="ADI" priority="2"/>
             <interrupt module="TMR1" name="TMRI" priority="2"/>
             <interrupt module="EUSART1" name="TXI" priority="2"/>
-            <file checksum="472996889" modified="false" name="interrupt_manager.c" path="mcc_generated_files/interrupt_manager.c"/>
-            <file checksum="1742879246" modified="false" name="interrupt_manager.h" path="mcc_generated_files/interrupt_manager.h"/>
         </manager>
         <manager generated="true" name="System" reloadPin="manual">
             <initializer comment="" name="Initialize">
@@ -101,8 +102,8 @@
             <setting name="EBTR0" option="OFF"/>
             <setting name="EBTRB" option="OFF"/>
             <setting name="generateConfigBits" option="true"/>
-            <file checksum="2190687091" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
-            <file checksum="3926989432" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+            <file checksum="3019586421" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="4208269946" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
         </manager>
     </managers>
     <modules>
@@ -133,8 +134,8 @@
             <resource customName="Battery6" function="AN26" name="RD6" type="pin"/>
             <resource customName="Battery7" function="AN27" name="RD7" type="pin"/>
             <resource customName="Battery4" function="AN5" name="RE0" type="pin"/>
-            <file checksum="164606773" modified="true" name="adc.c" path="mcc_generated_files/adc.c"/>
-            <file checksum="2346048111" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
+            <file checksum="3716884019" modified="true" name="adc.c" path="mcc_generated_files/adc.c"/>
+            <file checksum="3155548785" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
         </module>
         <module generated="true" mode="GPIO" name="GPIO" order="1" reloadPin="manual" type="GPIO">
             <resource customName="Bypass1" digital="true" direction="OUTPUT" function="RC5" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
@@ -151,7 +152,8 @@
             <resource customName="Bypass7" digital="true" direction="OUTPUT" function="RB0" module="GPIO" name="RB0" start="false" type="pin" wpu="false"/>
             <resource customName="Bypass8" digital="true" direction="OUTPUT" function="RB1" module="GPIO" name="RB1" start="false" type="pin" wpu="false"/>
             <resource customName="Bypass9" digital="true" direction="OUTPUT" function="RB3" module="GPIO" name="RB3" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RA0" digital="true" direction="OUTPUT" function="RA0" module="GPIO" name="RA0" start="false" type="pin" wpu="false"/>
+            <resource customName="Bypass10" digital="true" direction="OUTPUT" function="RA0" module="GPIO" name="RA0" start="false" type="pin" wpu="false"/>
+            <resource customName="Indicator" digital="true" direction="OUTPUT" function="RA4" module="GPIO" name="RA4" start="false" type="pin" wpu="false"/>
         </module>
         <module generated="true" mode="EUSART Asynchronous(NRZ)" name="EUSART1" order="2" reloadPin="manual" type="uart_enh">
             <initializer comment="" name="Initialize">
@@ -189,8 +191,8 @@
             <setting name="inputBuffer" option="8"/>
             <setting name="outputBuffer" option="8"/>
             <setting name="stdio" option="true"/>
-            <file checksum="1531778109" modified="false" name="eusart1.c" path="mcc_generated_files/eusart1.c"/>
-            <file checksum="4055164723" modified="false" name="eusart1.h" path="mcc_generated_files/eusart1.h"/>
+            <file checksum="2176259135" modified="false" name="eusart1.c" path="mcc_generated_files/eusart1.c"/>
+            <file checksum="346285877" modified="false" name="eusart1.h" path="mcc_generated_files/eusart1.h"/>
         </module>
         <module generated="true" mode="Timer" name="TMR1" order="3" reloadPin="manual" type="tmr_timer1">
             <initializer comment="" name="Initialize">
@@ -216,8 +218,8 @@
             <setting name="TMRGI" option="false"/>
             <setting name="ticker" option="1"/>
             <setting name="hasGate" option="true"/>
-            <file checksum="4037811683" modified="false" name="tmr1.c" path="mcc_generated_files/tmr1.c"/>
-            <file checksum="173878261" modified="false" name="tmr1.h" path="mcc_generated_files/tmr1.h"/>
+            <file checksum="281746917" modified="false" name="tmr1.c" path="mcc_generated_files/tmr1.c"/>
+            <file checksum="1058352119" modified="false" name="tmr1.h" path="mcc_generated_files/tmr1.h"/>
         </module>
     </modules>
 </configuration>

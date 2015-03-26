@@ -10515,7 +10515,7 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 void ADC_ISR(void);
 
 # 7 "Tempeture.c"
-int Temp_DegF[10] = 0;
+float Temp_DegF[10] = 0;
 
 char Temp_Fault()
 {
