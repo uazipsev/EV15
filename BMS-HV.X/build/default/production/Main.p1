@@ -28,7 +28,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Temp_Fault `(uc ~T0 @X0 0 ef ]
 "7 Global.h
 [v _Volt_Done `i ~T0 @X0 0 e ]
-"12 Battery.h
+"15 Battery.h
+[v _Battery_Convert `(v ~T0 @X0 0 ef ]
+"12
 [v _Battery_Fault `(uc ~T0 @X0 0 ef ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
@@ -8425,25 +8427,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 71: {
 "71
 {
-[; ;Main.c: 72: Battery_Fault();
+[; ;Main.c: 72: Battery_Convert();
 "72
-[e ( _Battery_Fault ..  ]
+[e ( _Battery_Convert ..  ]
+[; ;Main.c: 73: Battery_Fault();
 "73
+[e ( _Battery_Fault ..  ]
+"74
 }
 [e :U 1188 ]
-"74
+"75
 }
 [e :U 1184 ]
 "64
 [e $U 1185  ]
 [e :U 1186 ]
-[; ;Main.c: 73: }
 [; ;Main.c: 74: }
-[; ;Main.c: 75: return (0);
-"75
+[; ;Main.c: 75: }
+[; ;Main.c: 76: return (0);
+"76
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 76: }
-"76
+[; ;Main.c: 77: }
+"77
 [e :UE 1183 ]
 }

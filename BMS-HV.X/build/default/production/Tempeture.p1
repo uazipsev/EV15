@@ -5,11 +5,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Temp_Aquire `uc ~T0 @X0 0 e ]
 "13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"30 Tempeture.c
+"33 Tempeture.c
 [c E8844 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
 [n E8844 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
 "167 mcc_generated_files/adc.h
 [v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8844 ]
+"5 Global.h
+[v _Temp_Adc `i ~T0 @X0 -> 0 `x e ]
+"16 C:\Program Files (x86)\Microchip\xc8\v1.33\include\plib\../math.h
+[v _log `(d ~T0 @X0 0 ef1`d ]
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
 [; ;Global.h: 4: extern int Battery_Adc[10];
@@ -8248,131 +8252,272 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 278: void ADC_ISR(void);
-"7 Tempeture.c
+[; ;math.h: 3: extern double fabs(double);
+[; ;math.h: 4: extern double floor(double);
+[; ;math.h: 5: extern double ceil(double);
+[; ;math.h: 6: extern double modf(double, double *);
+[; ;math.h: 7: extern double sqrt(double);
+[; ;math.h: 8: extern double atof(const char *);
+[; ;math.h: 9: extern double sin(double);
+[; ;math.h: 10: extern double cos(double);
+[; ;math.h: 11: extern double tan(double);
+[; ;math.h: 12: extern double asin(double);
+[; ;math.h: 13: extern double acos(double);
+[; ;math.h: 14: extern double atan(double);
+[; ;math.h: 15: extern double atan2(double, double);
+[; ;math.h: 16: extern double log(double);
+[; ;math.h: 17: extern double log10(double);
+[; ;math.h: 18: extern double pow(double, double);
+[; ;math.h: 19: extern double exp(double);
+[; ;math.h: 20: extern double sinh(double);
+[; ;math.h: 21: extern double cosh(double);
+[; ;math.h: 22: extern double tanh(double);
+[; ;math.h: 23: extern double eval_poly(double, const double *, int);
+[; ;math.h: 24: extern double frexp(double, int *);
+[; ;math.h: 25: extern double ldexp(double, int);
+[; ;math.h: 26: extern double fmod(double, double);
+[; ;math.h: 27: extern double trunc(double);
+[; ;math.h: 28: extern double round(double);
+"8 Tempeture.c
 [v _Temp_DegF `f ~T0 @X0 -> 10 `i e ]
 [i _Temp_DegF
 :U ..
 -> -> 0 `i `f
 ..
 ]
-[; ;Tempeture.c: 7: float Temp_DegF[10] = 0;
+[; ;Tempeture.c: 8: float Temp_DegF[10] = 0;
 "9
-[v _Temp_Fault `(uc ~T0 @X0 1 ef ]
+[v _TmpTemp_DegF `f ~T0 @X0 -> 10 `i e ]
+[i _TmpTemp_DegF
+:U ..
+-> -> 0 `i `f
+..
+]
+[; ;Tempeture.c: 9: float TmpTemp_DegF[10] = 0;
 "10
+[v _PrevTemp_DegF `f ~T0 @X0 -> 10 `i e ]
+[i _PrevTemp_DegF
+:U ..
+-> -> 0 `i `f
+..
+]
+[; ;Tempeture.c: 10: float PrevTemp_DegF[10] = 0;
+"12
+[v _Temp_Fault `(uc ~T0 @X0 1 ef ]
+"13
 {
-[; ;Tempeture.c: 9: char Temp_Fault()
-[; ;Tempeture.c: 10: {
+[; ;Tempeture.c: 12: char Temp_Fault()
+[; ;Tempeture.c: 13: {
 [e :U _Temp_Fault ]
 [f ]
-"12
+"15
 [v _fault `uc ~T0 @X0 1 a ]
-[; ;Tempeture.c: 12: char fault = 0;
+[; ;Tempeture.c: 15: char fault = 0;
 [e = _fault -> -> 0 `i `uc ]
-[; ;Tempeture.c: 13: for(int i = 0;i<9;i++)
-"13
+[; ;Tempeture.c: 16: for(int i = 0;i<9;i++)
+"16
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ < _i -> 9 `i 1179  ]
 [e $U 1180  ]
-"14
-[e :U 1179 ]
-[; ;Tempeture.c: 14: {
-{
-[; ;Tempeture.c: 15: if (60.5 > Temp_DegF[i])
-"15
-[e $ ! > .60.5 -> *U + &U _Temp_DegF * -> -> _i `ui `ux -> -> # *U &U _Temp_DegF `ui `ux `d 1182  ]
-[; ;Tempeture.c: 16: {
-"16
-{
-[; ;Tempeture.c: 17: fault = 1;
 "17
-[e = _fault -> -> 1 `i `uc ]
+[e :U 1179 ]
+[; ;Tempeture.c: 17: {
+{
+[; ;Tempeture.c: 18: if (60.5 > Temp_DegF[i])
 "18
+[e $ ! > .60.5 -> *U + &U _Temp_DegF * -> -> _i `ui `ux -> -> # *U &U _Temp_DegF `ui `ux `d 1182  ]
+[; ;Tempeture.c: 19: {
+"19
+{
+[; ;Tempeture.c: 20: fault = 1;
+"20
+[e = _fault -> -> 1 `i `uc ]
+"21
 }
 [e :U 1182 ]
-"19
+"22
 }
-"13
+"16
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 9 `i 1179  ]
 [e :U 1180 ]
-"19
+"22
 }
-[; ;Tempeture.c: 18: }
-[; ;Tempeture.c: 19: }
-[; ;Tempeture.c: 21: return fault;
-"21
+[; ;Tempeture.c: 21: }
+[; ;Tempeture.c: 22: }
+[; ;Tempeture.c: 24: return fault;
+"24
 [e ) _fault ]
 [e $UE 1178  ]
-[; ;Tempeture.c: 22: }
-"22
+[; ;Tempeture.c: 25: }
+"25
 [e :UE 1178 ]
 }
-"24
+"27
 [v _Temp_Read `(v ~T0 @X0 1 ef ]
-"25
+"28
 {
-[; ;Tempeture.c: 24: void Temp_Read()
-[; ;Tempeture.c: 25: {
+[; ;Tempeture.c: 27: void Temp_Read()
+[; ;Tempeture.c: 28: {
 [e :U _Temp_Read ]
 [f ]
-[; ;Tempeture.c: 27: ADC_Buffer_Point = 0;
-"27
-[e = _ADC_Buffer_Point -> 0 `i ]
-[; ;Tempeture.c: 28: Temp_Aquire = 1;
-"28
-[e = _Temp_Aquire -> -> 1 `i `uc ]
-[; ;Tempeture.c: 29: ADCON1 = 0x80;
-"29
-[e = _ADCON1 -> -> 128 `i `uc ]
-[; ;Tempeture.c: 30: ADC_StartConversion(Temp1);
+[; ;Tempeture.c: 30: ADC_Buffer_Point = 0;
 "30
-[e ( _ADC_StartConversion (1 -> . `E8844 9 `E8844 ]
-[; ;Tempeture.c: 31: }
+[e = _ADC_Buffer_Point -> 0 `i ]
+[; ;Tempeture.c: 31: Temp_Aquire = 1;
 "31
+[e = _Temp_Aquire -> -> 1 `i `uc ]
+[; ;Tempeture.c: 32: ADCON1 = 0x80;
+"32
+[e = _ADCON1 -> -> 128 `i `uc ]
+[; ;Tempeture.c: 33: ADC_StartConversion(Temp1);
+"33
+[e ( _ADC_StartConversion (1 -> . `E8844 9 `E8844 ]
+[; ;Tempeture.c: 34: }
+"34
 [e :UE 1183 ]
 }
-"33
+"36
 [v _Temp_Filter `(v ~T0 @X0 1 ef ]
-"34
+"37
 {
-[; ;Tempeture.c: 33: void Temp_Filter()
-[; ;Tempeture.c: 34: {
+[; ;Tempeture.c: 36: void Temp_Filter()
+[; ;Tempeture.c: 37: {
 [e :U _Temp_Filter ]
 [f ]
-[; ;Tempeture.c: 36: }
-"36
+"39
+[v _x `i ~T0 @X0 1 a ]
+[; ;Tempeture.c: 39: int x;
+[; ;Tempeture.c: 40: for(x = 0; x < 10; x++)
+"40
+{
+[e = _x -> 0 `i ]
+[e $ < _x -> 10 `i 1185  ]
+[e $U 1186  ]
+"41
+[e :U 1185 ]
+[; ;Tempeture.c: 41: {
+{
+[; ;Tempeture.c: 42: Temp_DegF[x] = (0.88*TmpTemp_DegF[x] + ((1- 0.88)*PrevTemp_DegF[x]));
+"42
+[e = *U + &U _Temp_DegF * -> -> _x `ui `ux -> -> # *U &U _Temp_DegF `ui `ux -> + * .0.88 -> *U + &U _TmpTemp_DegF * -> -> _x `ui `ux -> -> # *U &U _TmpTemp_DegF `ui `ux `d * - -> -> 1 `i `d .0.88 -> *U + &U _PrevTemp_DegF * -> -> _x `ui `ux -> -> # *U &U _PrevTemp_DegF `ui `ux `d `f ]
+"43
+}
+"40
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 10 `i 1185  ]
+[e :U 1186 ]
+"43
+}
+[; ;Tempeture.c: 43: }
+[; ;Tempeture.c: 44: for(x = 0; x < 10; x++)
+"44
+{
+[e = _x -> 0 `i ]
+[e $ < _x -> 10 `i 1188  ]
+[e $U 1189  ]
+"45
+[e :U 1188 ]
+[; ;Tempeture.c: 45: {
+{
+[; ;Tempeture.c: 46: PrevTemp_DegF[x] = Temp_DegF[x];
+"46
+[e = *U + &U _PrevTemp_DegF * -> -> _x `ui `ux -> -> # *U &U _PrevTemp_DegF `ui `ux *U + &U _Temp_DegF * -> -> _x `ui `ux -> -> # *U &U _Temp_DegF `ui `ux ]
+"47
+}
+"44
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 10 `i 1188  ]
+[e :U 1189 ]
+"47
+}
+[; ;Tempeture.c: 47: }
+[; ;Tempeture.c: 48: }
+"48
 [e :UE 1184 ]
 }
-"38
+"50
 [v _Temp_Convert `(v ~T0 @X0 1 ef ]
-"39
+"51
 {
-[; ;Tempeture.c: 38: void Temp_Convert()
-[; ;Tempeture.c: 39: {
+[; ;Tempeture.c: 50: void Temp_Convert()
+[; ;Tempeture.c: 51: {
 [e :U _Temp_Convert ]
 [f ]
-[; ;Tempeture.c: 41: }
-"41
-[e :UE 1185 ]
-}
-"43
-[v _Tempeture_Get `(i ~T0 @X0 1 ef1`i ]
-"44
+"52
+[v _x `i ~T0 @X0 1 a ]
+"53
+[v _steinhart `f ~T0 @X0 1 a ]
+[; ;Tempeture.c: 52: int x;
+[; ;Tempeture.c: 53: float steinhart;
+[; ;Tempeture.c: 54: for(x = 0; x < 10; x++)
+"54
 {
-[; ;Tempeture.c: 43: int Tempeture_Get(int channelnum)
-[; ;Tempeture.c: 44: {
+[e = _x -> 0 `i ]
+[e $ < _x -> 10 `i 1192  ]
+[e $U 1193  ]
+"55
+[e :U 1192 ]
+[; ;Tempeture.c: 55: {
+{
+[; ;Tempeture.c: 56: steinhart = (10000 / ((1023 / Temp_Adc[x]) - 1)) / 10000;
+"56
+[e = _steinhart -> / / -> 10000 `i - / -> 1023 `i *U + &U _Temp_Adc * -> -> _x `ui `ux -> -> # *U &U _Temp_Adc `ui `ux -> 1 `i -> 10000 `i `f ]
+[; ;Tempeture.c: 57: steinhart = log(steinhart);
+"57
+[e = _steinhart -> ( _log (1 -> _steinhart `d `f ]
+[; ;Tempeture.c: 58: steinhart /= 3950;
+"58
+[e =/ _steinhart -> -> 3950 `us `f ]
+[; ;Tempeture.c: 59: steinhart += 1.0 / (25 + 273.15);
+"59
+[e =+ _steinhart -> / .1.0 + -> -> 25 `i `d .273.15 `f ]
+[; ;Tempeture.c: 60: steinhart = 1.0 / steinhart;
+"60
+[e = _steinhart -> / .1.0 -> _steinhart `d `f ]
+[; ;Tempeture.c: 61: steinhart -= 273.15;
+"61
+[e =- _steinhart -> .273.15 `f ]
+[; ;Tempeture.c: 62: steinhart = (steinhart*1.800) + 32.00;
+"62
+[e = _steinhart -> + * -> _steinhart `d .1.800 .32.00 `f ]
+[; ;Tempeture.c: 63: TmpTemp_DegF[x] = steinhart;
+"63
+[e = *U + &U _TmpTemp_DegF * -> -> _x `ui `ux -> -> # *U &U _TmpTemp_DegF `ui `ux _steinhart ]
+"64
+}
+"54
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 10 `i 1192  ]
+[e :U 1193 ]
+"64
+}
+[; ;Tempeture.c: 64: }
+[; ;Tempeture.c: 65: Temp_Filter();
+"65
+[e ( _Temp_Filter ..  ]
+[; ;Tempeture.c: 66: }
+"66
+[e :UE 1191 ]
+}
+"68
+[v _Tempeture_Get `(f ~T0 @X0 1 ef1`i ]
+"69
+{
+[; ;Tempeture.c: 68: float Tempeture_Get(int channelnum)
+[; ;Tempeture.c: 69: {
 [e :U _Tempeture_Get ]
-"43
+"68
 [v _channelnum `i ~T0 @X0 1 r1 ]
-"44
+"69
 [f ]
-[; ;Tempeture.c: 45: return Temp_DegF[channelnum];
-"45
-[e ) -> *U + &U _Temp_DegF * -> -> _channelnum `ui `ux -> -> # *U &U _Temp_DegF `ui `ux `i ]
-[e $UE 1186  ]
-[; ;Tempeture.c: 46: }
-"46
-[e :UE 1186 ]
+[; ;Tempeture.c: 70: return Temp_DegF[channelnum];
+"70
+[e ) *U + &U _Temp_DegF * -> -> _channelnum `ui `ux -> -> # *U &U _Temp_DegF `ui `ux ]
+[e $UE 1195  ]
+[; ;Tempeture.c: 71: }
+"71
+[e :UE 1195 ]
 }

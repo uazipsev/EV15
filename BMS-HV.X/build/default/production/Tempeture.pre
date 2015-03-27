@@ -10514,8 +10514,38 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 278
 void ADC_ISR(void);
 
-# 7 "Tempeture.c"
+# 3 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\plib\../math.h"
+extern double fabs(double);
+extern double floor(double);
+extern double ceil(double);
+extern double modf(double, double *);
+extern double sqrt(double);
+extern double atof(const char *);
+extern double sin(double);
+extern double cos(double);
+extern double tan(double);
+extern double asin(double);
+extern double acos(double);
+extern double atan(double);
+extern double atan2(double, double);
+extern double log(double);
+extern double log10(double);
+extern double pow(double, double);
+extern double exp(double);
+extern double sinh(double);
+extern double cosh(double);
+extern double tanh(double);
+extern double eval_poly(double, const double *, int);
+extern double frexp(double, int *);
+extern double ldexp(double, int);
+extern double fmod(double, double);
+extern double trunc(double);
+extern double round(double);
+
+# 8 "Tempeture.c"
 float Temp_DegF[10] = 0;
+float TmpTemp_DegF[10] = 0;
+float PrevTemp_DegF[10] = 0;
 
 char Temp_Fault()
 {
@@ -10544,14 +10574,36 @@ ADC_StartConversion(Temp1);
 void Temp_Filter()
 {
 
+int x;
+for(x = 0; x < 10; x++)
+{
+Temp_DegF[x] = (0.88*TmpTemp_DegF[x] + ((1- 0.88)*PrevTemp_DegF[x]));
+}
+for(x = 0; x < 10; x++)
+{
+PrevTemp_DegF[x] = Temp_DegF[x];
+}
 }
 
 void Temp_Convert()
 {
-
+int x;
+float steinhart;
+for(x = 0; x < 10; x++)
+{
+steinhart = (10000 / ((1023 / Temp_Adc[x]) - 1)) / 10000;
+steinhart = log(steinhart);
+steinhart /= 3950;
+steinhart += 1.0 / (25 + 273.15);
+steinhart = 1.0 / steinhart;
+steinhart -= 273.15;
+steinhart = (steinhart*1.800) + 32.00;
+TmpTemp_DegF[x] = steinhart;
+}
+Temp_Filter();
 }
 
-int Tempeture_Get(int channelnum)
+float Tempeture_Get(int channelnum)
 {
 return Temp_DegF[channelnum];
 }

@@ -65,10 +65,12 @@ int main(int argc, char** argv) {
     {
         if (Temp_Done)
         {
+            Temp_Convert();
             Temp_Fault();
         }
         if (Volt_Done)
         {
+            Battery_Convert();
             Battery_Fault();
         }
     }

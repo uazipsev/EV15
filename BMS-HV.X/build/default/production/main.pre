@@ -10749,6 +10749,7 @@ Temp_Fault();
 }
 if (Volt_Done)
 {
+Battery_Convert();
 Battery_Fault();
 }
 }
