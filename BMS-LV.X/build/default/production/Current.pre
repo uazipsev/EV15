@@ -1,5 +1,5 @@
 
-# 1 "Main.c"
+# 1 "Current.c"
 
 # 21 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10371,11 +10371,21 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 502 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize (void);
+# 12 "Current.h"
+extern float Current_Get();
+void Current_Convert();
+void Current_Filter();
+void Current_Read();
+extern char Current_Fault();
 
-# 514
-void PIN_MANAGER_IOC(void);
+# 2 "Global.h"
+extern char Temp_Aquire;
+extern char Volt_Aquire;
+extern int Battery_Adc[10];
+extern int Temp_Adc[10];
+extern int ADC_Buffer_Point;
+extern int Volt_Done;
+extern int Temp_Done;
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdint.h"
 typedef signed char int8_t;
@@ -10470,12 +10480,6 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdbool.h"
 typedef unsigned char bool;
 
-# 110 "mcc_generated_files/interrupt_manager.h"
-void INTERRUPT_Initialize (void);
-
-# 122
-void interrupt INTERRUPT_InterruptManager (void);
-
 # 72 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
 
@@ -10517,243 +10521,53 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 278
 void ADC_ISR(void);
 
-# 7 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdarg.h"
-typedef void * va_list[1];
+# 7 "Current.c"
+float Battery_Current;
+float TempBattery_Current;
+float PrevBattery_Current;
 
-#pragma intrinsic(__va_start)
-extern void * __va_start(void);
-
-#pragma intrinsic(__va_arg)
-extern void * __va_arg(void *, ...);
-
-# 23 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h"
-extern int errno;
-
-# 54
-struct __prbuf
+char Current_Fault()
 {
-char * ptr;
-void (* func)(char);
-};
+char fault = 0;
 
-# 17 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\conio.h"
-extern int errno;
-
-
-extern void init_uart(void);
-
-extern char getch(void);
-extern char getche(void);
-extern void putch(char);
-extern void ungetch(char);
-
-extern __bit kbhit(void);
-
-# 31
-extern char * cgets(char *);
-extern void cputs(const char *);
-
-# 99 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h"
-extern int cprintf(char *, ...);
-#pragma printf_check(cprintf)
-
-
-
-extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-
-
-# 191
-#pragma printf_check(vprintf) const
-#pragma printf_check(vsprintf) const
-
-extern char * gets(char *);
-extern int puts(const char *);
-extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-
-#pragma printf_check(printf) const
-#pragma printf_check(sprintf) const
-extern int sprintf(char *, const char *, ...);
-extern int printf(const char *, ...);
-
-# 78 "mcc_generated_files/eusart1.h"
-extern volatile uint8_t eusart1TxBufferRemaining;
-extern volatile uint8_t eusart1RxCount;
-
-# 107
-void EUSART1_Initialize(void);
-
-# 127
-uint8_t EUSART1_Read(void);
-
-# 147
-void EUSART1_Write(uint8_t txData);
-
-# 168
-void EUSART1_Transmit_ISR(void);
-
-# 189
-void EUSART1_Receive_ISR(void);
-
-# 95 "mcc_generated_files/tmr1.h"
-void TMR1_Initialize(void);
-
-# 126
-void TMR1_StartTimer(void);
-
-# 156
-void TMR1_StopTimer(void);
-
-# 190
-uint16_t TMR1_ReadTimer(void);
-
-# 216
-void TMR1_WriteTimer(uint16_t timerVal);
-
-# 248
-void TMR1_Reload(void);
-
-# 289
-void TMR1_StartSinglePulseAcquisition(void);
-
-# 330
-uint8_t TMR1_CheckGateValueStatus(void);
-
-# 346
-void TMR1_ISR(void);
-
-# 365
-void TMR1_CallBack(void);
-
-# 71 "mcc_generated_files/mcc.h"
-void SYSTEM_Initialize(void);
-
-# 84
-void OSCILLATOR_Initialize(void);
-
-# 27 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdlib.h"
-typedef struct {
-int rem;
-int quot;
-} div_t;
-typedef struct {
-unsigned rem;
-unsigned quot;
-} udiv_t;
-typedef struct {
-long quot;
-long rem;
-} ldiv_t;
-typedef struct {
-unsigned long quot;
-unsigned long rem;
-} uldiv_t;
-
-# 65
-extern double atof(const char *);
-extern double strtod(const char *, const char **);
-extern int atoi(const char *);
-extern unsigned xtoi(const char *);
-extern long atol(const char *);
-extern long strtol(const char *, char **, int);
-
-extern int rand(void);
-extern void srand(unsigned int);
-extern void * calloc(size_t, size_t);
-extern div_t div(int numer, int denom);
-extern udiv_t udiv(unsigned numer, unsigned denom);
-extern ldiv_t ldiv(long numer, long denom);
-extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-extern unsigned int _rotl(unsigned int value, unsigned int shift);
-extern unsigned int _rotr(unsigned int value, unsigned int shift);
-
-
-
-
-extern void * malloc(size_t);
-extern void free(void *);
-extern void * realloc(void *, size_t);
-
-extern void abort(void);
-extern void exit(int);
-extern int atexit(void (*)(void));
-extern char * getenv(const char *);
-extern char ** environ;
-extern int system(char *);
-extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-extern int abs(int);
-extern long labs(long);
-
-
-extern char * itoa(char * buf, int val, int base);
-extern char * utoa(char * buf, unsigned val, int base);
-
-
-
-
-extern char * ltoa(char * buf, long val, int base);
-extern char * ultoa(char * buf, unsigned long val, int base);
-
-extern char * ftoa(float f, int * status);
-
-# 12 "Battery.h"
-extern char Battery_Fault();
-extern void Battery_Read();
-extern void Battery_Filter();
-extern void Battery_Convert();
-extern float Battery_Get(int channelnum);
-
-# 12 "Functions.h"
-void Set_4051(int Channel);
-
-# 2 "Global.h"
-extern char Temp_Aquire;
-extern char Volt_Aquire;
-extern int Battery_Adc[10];
-extern int Temp_Adc[10];
-extern int ADC_Buffer_Point;
-extern int Volt_Done;
-extern int Temp_Done;
-
-# 13 "Tempeture.h"
-extern char Temp_Fault();
-extern void Temp_Read();
-extern void Temp_Filter();
-extern void Temp_Convert();
-extern float Tempeture_Get(int channelnum);
-
-# 31 "Main.c"
-int main(int argc, char** argv) {
-
-SYSTEM_Initialize();
-
-# 52
-(INTCONbits.GIE = 1);
-
-
-(INTCONbits.PEIE = 1);
-
-# 64
-while (1)
-{
-if (Temp_Done)
-{
-Temp_Convert();
-Temp_Fault();
-}
-if (Volt_Done)
-{
-Battery_Convert();
-Battery_Fault();
-}
-}
-return (0);
+# 21
+return fault;
 }
 
+void Current_Read()
+{
+
+ADC_Buffer_Point = 0;
+
+ADCON1 = 0x80;
+
+}
+
+void Current_Filter()
+{
+
+int x;
+for(x = 0; x < 10; x++)
+{
+
+}
+for(x = 0; x < 10; x++)
+{
+
+}
+}
+
+void Current_Convert()
+{
+int x;
+for(x = 0; x < 10; x++)
+{
+
+}
+
+}
+
+float Current_Get()
+{
+return Battery_Current;
+}
