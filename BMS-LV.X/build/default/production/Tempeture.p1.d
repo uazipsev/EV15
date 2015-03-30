@@ -3,4 +3,5 @@
  Tempeture.c  \
 Global.h  \
 mcc_generated_files/adc.h  \
+Tempeture.h  \
 Define.h 

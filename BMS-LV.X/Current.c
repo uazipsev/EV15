@@ -4,20 +4,26 @@
 #include "Global.h"
 #include "mcc_generated_files/adc.h"
 
-float Battery_Current;
-float TempBattery_Current;
-float PrevBattery_Current;
+float Battery_Current[10] = 0;
+float TempBattery_Current[10] = 0;
+float PrevBattery_Current[10] = 0;
 
 char Current_Fault()
 {
     char fault = 0;      // Init fault as if there is none
-    //for(int i = 0;i<9;i++)
-    //{
-    //    if ((BATLOW < Battery_Volt[i]) && (BATHIGH > Battery_Volt[i]))
-    //    {
-    //        fault = 1;   // Set fault if found! Uh-Oh!!!!
-    //    }
-    //}
+    float temp = 0;
+    for(int i = 0;i<9;i++)
+    {
+        temp += Battery_Current[i];
+    }
+    temp = temp/10.0;
+    for(int i = 0;i<9;i++)
+    {
+        //if (CURRENTHIGH < Battery_Current[i])
+        //{
+        //    fault = 1;   // Set fault if found! Uh-Oh!!!!
+        //}
+    }
     return fault;
 }
 
@@ -27,7 +33,7 @@ void Current_Read()
   ADC_Buffer_Point = 0;
   //Volt_Aquire = 1;  //Set global flag for ADC ISR to trigger battery volt reads
   ADCON1 = 0x80; //Set up to run ADC from VDD to Vss
-  //ADC_StartConversion(Battery1);  //We need to get the ball rolling...
+  ADC_StartConversion(Asen);  //We need to get the ball rolling...
 }
 
 void Current_Filter()
@@ -56,5 +62,11 @@ void Current_Convert()
 
 float Current_Get()
 {
-    return  Battery_Current; 
+    float temp = 0;
+    for(int i = 0;i<9;i++)
+    {
+        temp += Battery_Current[i];
+    }
+    temp = temp/10.0;
+    return  temp;
 }

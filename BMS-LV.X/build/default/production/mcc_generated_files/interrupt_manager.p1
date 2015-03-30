@@ -60,12 +60,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _PIR1bits `VS564 ~T0 @X0 0 e@3998 ]
 "189 mcc_generated_files/eusart1.h
 [v _EUSART1_Receive_ISR `(v ~T0 @X0 0 ef ]
-"278 mcc_generated_files/adc.h
+"276 mcc_generated_files/adc.h
 [v _ADC_ISR `(v ~T0 @X0 0 ef ]
-"346 mcc_generated_files/tmr1.h
-[v _TMR1_ISR `(v ~T0 @X0 0 ef ]
 "168 mcc_generated_files/eusart1.h
 [v _EUSART1_Transmit_ISR `(v ~T0 @X0 0 ef ]
+"346 mcc_generated_files/tmr1.h
+[v _TMR1_ISR `(v ~T0 @X0 0 ef ]
 [; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
 [; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
@@ -8245,8 +8245,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 502: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 514: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 468: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 480: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8282,25 +8282,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 88: channel_CTMU = 0x1D,
 [; ;adc.h: 89: channel_DAC = 0x1E,
 [; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: Battery1 = 0x01,
-[; ;adc.h: 92: Battery2 = 0x03,
-[; ;adc.h: 93: Battery3 = 0x04,
-[; ;adc.h: 94: Battery8 = 0x08,
-[; ;adc.h: 95: Battery9 = 0x0B,
-[; ;adc.h: 96: Battery10 = 0x0D,
+[; ;adc.h: 91: AN_CELL7 = 0x00,
+[; ;adc.h: 92: AN_CELL6 = 0x01,
+[; ;adc.h: 93: AN_CELL5 = 0x03,
+[; ;adc.h: 94: AN_CELL4 = 0x04,
+[; ;adc.h: 95: Vexternal = 0x09,
+[; ;adc.h: 96: Asen = 0x0B,
 [; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: Temp2 = 0x14,
-[; ;adc.h: 99: Battery5 = 0x18,
-[; ;adc.h: 100: Battery6 = 0x1A,
-[; ;adc.h: 101: Battery7 = 0x1B,
-[; ;adc.h: 102: Battery4 = 0x05
-[; ;adc.h: 103: } adc_channel_t;
-[; ;adc.h: 138: void ADC_Initialize(void);
-[; ;adc.h: 167: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 199: bool ADC_IsConversionDone();
-[; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 278: void ADC_ISR(void);
+[; ;adc.h: 98: AN_CELL3 = 0x05,
+[; ;adc.h: 99: AN_CELL2 = 0x06,
+[; ;adc.h: 100: AN_CELL1 = 0x07
+[; ;adc.h: 101: } adc_channel_t;
+[; ;adc.h: 136: void ADC_Initialize(void);
+[; ;adc.h: 165: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 197: bool ADC_IsConversionDone();
+[; ;adc.h: 230: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 260: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 276: void ADC_ISR(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -8367,12 +8365,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;interrupt_manager.c: 62: IPR1bits.ADIP = 0;
 "62
 [e = . . _IPR1bits 0 6 -> -> 0 `i `uc ]
-[; ;interrupt_manager.c: 64: IPR1bits.TMR1IP = 0;
+[; ;interrupt_manager.c: 64: IPR1bits.TX1IP = 0;
 "64
-[e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
-[; ;interrupt_manager.c: 66: IPR1bits.TX1IP = 0;
-"66
 [e = . . _IPR1bits 0 4 -> -> 0 `i `uc ]
+[; ;interrupt_manager.c: 66: IPR1bits.TMR1IP = 0;
+"66
+[e = . . _IPR1bits 0 0 -> -> 0 `i `uc ]
 [; ;interrupt_manager.c: 67: }
 "67
 [e :UE 1179 ]
@@ -8415,28 +8413,28 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1184  ]
 "80
 [e :U 1183 ]
-[; ;interrupt_manager.c: 80: else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-[e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1185  ]
+[; ;interrupt_manager.c: 80: else if(PIE1bits.TX1IE == 1 && PIR1bits.TX1IF == 1)
+[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 1185  ]
 [; ;interrupt_manager.c: 81: {
 "81
 {
-[; ;interrupt_manager.c: 82: TMR1_ISR();
+[; ;interrupt_manager.c: 82: EUSART1_Transmit_ISR();
 "82
-[e ( _TMR1_ISR ..  ]
+[e ( _EUSART1_Transmit_ISR ..  ]
 "83
 }
 [; ;interrupt_manager.c: 83: }
 [e $U 1186  ]
 "84
 [e :U 1185 ]
-[; ;interrupt_manager.c: 84: else if(PIE1bits.TX1IE == 1 && PIR1bits.TX1IF == 1)
-[e $ ! && == -> . . _PIE1bits 0 4 `i -> 1 `i == -> . . _PIR1bits 0 4 `i -> 1 `i 1187  ]
+[; ;interrupt_manager.c: 84: else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+[e $ ! && == -> . . _PIE1bits 0 0 `i -> 1 `i == -> . . _PIR1bits 0 0 `i -> 1 `i 1187  ]
 [; ;interrupt_manager.c: 85: {
 "85
 {
-[; ;interrupt_manager.c: 86: EUSART1_Transmit_ISR();
+[; ;interrupt_manager.c: 86: TMR1_ISR();
 "86
-[e ( _EUSART1_Transmit_ISR ..  ]
+[e ( _TMR1_ISR ..  ]
 "87
 }
 [; ;interrupt_manager.c: 87: }

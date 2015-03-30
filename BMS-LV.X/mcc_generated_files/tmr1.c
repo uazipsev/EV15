@@ -1,48 +1,3 @@
-/**
-  TMR1 Generated Driver File
-
-  @Company
-    Microchip Technology Inc.
-
-  @File Name
-    tmr1.c
-
-  @Summary
-    This is the generated driver implementation file for the TMR1 driver using MPLAB® Code Configurator
-
-  @Description
-    This source file provides APIs for TMR1.
-    Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
-        Device            :  PIC18F45K22
-        Driver Version    :  2.00
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
-*/
-
-/*
-Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
-EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
-OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
-CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
-SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
 
 /**
   Section: Included Files
@@ -50,6 +5,9 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include <xc.h>
 #include "tmr1.h"
+#include "../Tempeture.h"
+#include "../Battery.h"
+#include "../Current.h"
 
 /**
   Section: Global Variable Definitions
@@ -64,17 +22,17 @@ void TMR1_Initialize(void)
 {
     //Set the Timer to the options selected in the GUI
 
-    //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:1; TMR1CS FOSC/4; T1SYNC synchronize; TMR1ON disabled; 
-    T1CON = 0x00;
+    //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:8; TMR1CS FOSC/4; T1SYNC do_not_synchronize; TMR1ON disabled; 
+    T1CON = 0x34;
 
     //T1GVAL disabled; T1GSPM disabled; T1GSS T1G; T1GTM disabled; T1GPOL low; TMR1GE disabled; T1GGO done; 
     T1GCON = 0x00;
 
-    //TMR1H 177; 
-    TMR1H = 0xB1;
+    //TMR1H 11; 
+    TMR1H = 0x0B;
 
-    //TMR1L 224; 
-    TMR1L = 0xE0;
+    //TMR1L 220; 
+    TMR1L = 0xDC;
 
     // Load the TMR value to reload variable
     timer1ReloadVal=TMR1;
@@ -156,6 +114,7 @@ uint8_t TMR1_CheckGateValueStatus(void)
 
 void TMR1_ISR(void)
 {
+    static volatile unsigned int CountCallBack = 0;
 
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
@@ -164,9 +123,28 @@ void TMR1_ISR(void)
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = (uint8_t) timer1ReloadVal;
 
-    // ticker function call;
-    // ticker is 1 -> Callback function gets called everytime this ISR executes
-    TMR1_CallBack();
+    // callback function - called every 4th pass
+    if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
+    {
+        // ticker function call
+        TMR1_CallBack();
+
+        // reset ticker counter
+        CountCallBack = 0;
+    }
+    if(CountCallBack == 1)
+    {
+        Current_Read();
+    }
+    if(CountCallBack == 2)
+    {
+        Battery_Read();
+    }
+    if(CountCallBack == 3)
+    {
+        Temp_Read();
+    }
+
     // Add your TMR1 interrupt custom code
 }
 

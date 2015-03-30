@@ -10371,35 +10371,35 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 502 "mcc_generated_files/pin_manager.h"
+# 468 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 514
+# 480
 void PIN_MANAGER_IOC(void);
 
 # 50 "mcc_generated_files/pin_manager.c"
 void PIN_MANAGER_Initialize(void)
 {
 LATA = 0x00;
-TRISA = 0xBE;
-ANSELA = 0x2E;
+TRISA = 0x2F;
+ANSELA = 0x2F;
 
 LATB = 0x00;
-TRISB = 0xF4;
-ANSELB = 0x34;
+TRISB = 0xF8;
+ANSELB = 0x38;
 WPUB = 0x00;
 
-LATC = 0x08;
-TRISC = 0xC4;
-ANSELC = 0x04;
+LATC = 0x00;
+TRISC = 0xD6;
+ANSELC = 0x14;
 
 LATD = 0x00;
-TRISD = 0xD1;
-ANSELD = 0xD1;
+TRISD = 0x03;
+ANSELD = 0x03;
 
 LATE = 0x00;
-TRISE = 0x05;
-ANSELE = 0x05;
+TRISE = 0x07;
+ANSELE = 0x07;
 
 INTCON2bits.nRBPU = 0x01;
 }

@@ -27,7 +27,7 @@ void Battery_Read()
   ADC_Buffer_Point = 0;
   Volt_Aquire = 1;  //Set global flag for ADC ISR to trigger battery volt reads
   ADCON1 = 0x81; //Set up to run ADC from VDD to Vref- (2.5v)
-  ADC_StartConversion(Battery1);  //We need to get the ball rolling...
+  ADC_StartConversion(AN_CELL1);  //We need to get the ball rolling...
 }
 
 void Battery_Filter()
@@ -49,7 +49,7 @@ void Battery_Convert()
     int x;
     for(x = 0; x < 10; x++)
     {
-        TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5) + 2.5; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
+        TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 2.5; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
     }
     Battery_Filter();
 }

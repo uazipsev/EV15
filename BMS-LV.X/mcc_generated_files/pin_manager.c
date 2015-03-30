@@ -13,11 +13,11 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.10.3
         Device            :  PIC18F45K22
         Driver Version    :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
+        Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X 2.26
 */
 
@@ -50,25 +50,25 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 void PIN_MANAGER_Initialize(void)
 {
     LATA = 0x00;
-    TRISA = 0xBE;
-    ANSELA = 0x2E;
+    TRISA = 0x2F;
+    ANSELA = 0x2F;
 
     LATB = 0x00;
-    TRISB = 0xF4;
-    ANSELB = 0x34;
+    TRISB = 0xF8;
+    ANSELB = 0x38;
     WPUB = 0x00;
 
-    LATC = 0x08;
-    TRISC = 0xC4;
-    ANSELC = 0x04;
+    LATC = 0x00;
+    TRISC = 0xD6;
+    ANSELC = 0x14;
 
     LATD = 0x00;
-    TRISD = 0xD1;
-    ANSELD = 0xD1;
+    TRISD = 0x03;
+    ANSELD = 0x03;
 
     LATE = 0x00;
-    TRISE = 0x05;
-    ANSELE = 0x05;
+    TRISE = 0x07;
+    ANSELE = 0x07;
 
     INTCON2bits.nRBPU = 0x01;
 }

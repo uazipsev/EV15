@@ -13,11 +13,11 @@
   @Description
     This header file provides APIs for driver for TMR1.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.10.3
         Device            :  PIC18F45K22
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
+        Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X 2.26
 */
 
@@ -60,7 +60,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #endif
 
-#define TMR1_INTERRUPT_TICKER_FACTOR    1
+#define TMR1_INTERRUPT_TICKER_FACTOR    4
 
 /**
   Section: TMR1 APIs

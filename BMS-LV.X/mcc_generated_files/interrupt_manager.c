@@ -15,11 +15,11 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.10.3
         Device            :  PIC18F45K22
         Driver Version    :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
+        Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X 2.26
 */
 
@@ -60,10 +60,10 @@ void  INTERRUPT_Initialize (void)
     IPR1bits.RC1IP = 0;
     // ADI
     IPR1bits.ADIP = 0;
-    // TMRI
-    IPR1bits.TMR1IP = 0;
     // TXI
     IPR1bits.TX1IP = 0;
+    // TMRI
+    IPR1bits.TMR1IP = 0;
 }
 
 void interrupt INTERRUPT_InterruptManager (void)
@@ -77,13 +77,13 @@ void interrupt INTERRUPT_InterruptManager (void)
     {
         ADC_ISR();
     }
-    else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-    {
-        TMR1_ISR();
-    }
     else if(PIE1bits.TX1IE == 1 && PIR1bits.TX1IF == 1)
     {
         EUSART1_Transmit_ISR();
+    }
+    else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
+    {
+        TMR1_ISR();
     }
     else
     {

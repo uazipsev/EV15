@@ -17,6 +17,8 @@
 #define BATLOW  3.00
 // Battery temp cutoff
 #define TEMPHIGH 60.5
+// Battery current cutoff
+#define CURRENTHIGH
 
 /*
  *  Avrage Alpha's

@@ -8222,8 +8222,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 502: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 514: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 468: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 480: void PIN_MANAGER_IOC(void);
 "50 mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
 "51
@@ -8235,51 +8235,51 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 52: LATA = 0x00;
 "52
 [e = _LATA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 53: TRISA = 0xBE;
+[; ;pin_manager.c: 53: TRISA = 0x2F;
 "53
-[e = _TRISA -> -> 190 `i `uc ]
-[; ;pin_manager.c: 54: ANSELA = 0x2E;
+[e = _TRISA -> -> 47 `i `uc ]
+[; ;pin_manager.c: 54: ANSELA = 0x2F;
 "54
-[e = _ANSELA -> -> 46 `i `uc ]
+[e = _ANSELA -> -> 47 `i `uc ]
 [; ;pin_manager.c: 56: LATB = 0x00;
 "56
 [e = _LATB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 57: TRISB = 0xF4;
+[; ;pin_manager.c: 57: TRISB = 0xF8;
 "57
-[e = _TRISB -> -> 244 `i `uc ]
-[; ;pin_manager.c: 58: ANSELB = 0x34;
+[e = _TRISB -> -> 248 `i `uc ]
+[; ;pin_manager.c: 58: ANSELB = 0x38;
 "58
-[e = _ANSELB -> -> 52 `i `uc ]
+[e = _ANSELB -> -> 56 `i `uc ]
 [; ;pin_manager.c: 59: WPUB = 0x00;
 "59
 [e = _WPUB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 61: LATC = 0x08;
+[; ;pin_manager.c: 61: LATC = 0x00;
 "61
-[e = _LATC -> -> 8 `i `uc ]
-[; ;pin_manager.c: 62: TRISC = 0xC4;
+[e = _LATC -> -> 0 `i `uc ]
+[; ;pin_manager.c: 62: TRISC = 0xD6;
 "62
-[e = _TRISC -> -> 196 `i `uc ]
-[; ;pin_manager.c: 63: ANSELC = 0x04;
+[e = _TRISC -> -> 214 `i `uc ]
+[; ;pin_manager.c: 63: ANSELC = 0x14;
 "63
-[e = _ANSELC -> -> 4 `i `uc ]
+[e = _ANSELC -> -> 20 `i `uc ]
 [; ;pin_manager.c: 65: LATD = 0x00;
 "65
 [e = _LATD -> -> 0 `i `uc ]
-[; ;pin_manager.c: 66: TRISD = 0xD1;
+[; ;pin_manager.c: 66: TRISD = 0x03;
 "66
-[e = _TRISD -> -> 209 `i `uc ]
-[; ;pin_manager.c: 67: ANSELD = 0xD1;
+[e = _TRISD -> -> 3 `i `uc ]
+[; ;pin_manager.c: 67: ANSELD = 0x03;
 "67
-[e = _ANSELD -> -> 209 `i `uc ]
+[e = _ANSELD -> -> 3 `i `uc ]
 [; ;pin_manager.c: 69: LATE = 0x00;
 "69
 [e = _LATE -> -> 0 `i `uc ]
-[; ;pin_manager.c: 70: TRISE = 0x05;
+[; ;pin_manager.c: 70: TRISE = 0x07;
 "70
-[e = _TRISE -> -> 5 `i `uc ]
-[; ;pin_manager.c: 71: ANSELE = 0x05;
+[e = _TRISE -> -> 7 `i `uc ]
+[; ;pin_manager.c: 71: ANSELE = 0x07;
 "71
-[e = _ANSELE -> -> 5 `i `uc ]
+[e = _ANSELE -> -> 7 `i `uc ]
 [; ;pin_manager.c: 73: INTCON2bits.nRBPU = 0x01;
 "73
 [e = . . _INTCON2bits 1 7 -> -> 1 `i `uc ]

@@ -10494,25 +10494,46 @@ void TMR1_ISR(void);
 # 365
 void TMR1_CallBack(void);
 
-# 57 "mcc_generated_files/tmr1.c"
+# 13 "mcc_generated_files/../Tempeture.h"
+extern char Temp_Fault();
+extern void Temp_Read();
+extern void Temp_Filter();
+extern void Temp_Convert();
+extern float Tempeture_Get(int channelnum);
+
+# 12 "mcc_generated_files/../Battery.h"
+extern char Battery_Fault();
+extern void Battery_Read();
+extern void Battery_Filter();
+extern void Battery_Convert();
+extern float Battery_Get(int channelnum);
+
+# 12 "mcc_generated_files/../Current.h"
+extern float Current_Get();
+void Current_Convert();
+void Current_Filter();
+void Current_Read();
+extern char Current_Fault();
+
+# 15 "mcc_generated_files/tmr1.c"
 volatile uint16_t timer1ReloadVal;
 
-# 63
+# 21
 void TMR1_Initialize(void)
 {
 
 
 
-T1CON = 0x00;
+T1CON = 0x34;
 
 
 T1GCON = 0x00;
 
 
-TMR1H = 0xB1;
+TMR1H = 0x0B;
 
 
-TMR1L = 0xE0;
+TMR1L = 0xDC;
 
 
 timer1ReloadVal=TMR1;
@@ -10594,6 +10615,7 @@ return T1GCONbits.T1GVAL;
 
 void TMR1_ISR(void)
 {
+static volatile unsigned int CountCallBack = 0;
 
 
 PIR1bits.TMR1IF = 0;
@@ -10603,8 +10625,27 @@ TMR1H = (timer1ReloadVal >> 8);
 TMR1L = (uint8_t) timer1ReloadVal;
 
 
+if (++CountCallBack >= 4)
+{
 
 TMR1_CallBack();
+
+
+CountCallBack = 0;
+}
+if(CountCallBack == 1)
+{
+Current_Read();
+}
+if(CountCallBack == 2)
+{
+Battery_Read();
+}
+if(CountCallBack == 3)
+{
+Temp_Read();
+}
+
 
 }
 

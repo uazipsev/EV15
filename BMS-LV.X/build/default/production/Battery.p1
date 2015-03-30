@@ -6,9 +6,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "30 Battery.c
-[c E8850 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
-[n E8850 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
-"167 mcc_generated_files/adc.h
+[c E8850 29 30 31 0 1 3 4 9 11 14 5 6 7 .. ]
+[n E8850 . channel_CTMU channel_DAC channel_FVRBuf2 AN_CELL7 AN_CELL6 AN_CELL5 AN_CELL4 Vexternal Asen Temp1 AN_CELL3 AN_CELL2 AN_CELL1  ]
+"165 mcc_generated_files/adc.h
 [v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8850 ]
 "4 Global.h
 [v _Battery_Adc `i ~T0 @X0 -> 0 `x e ]
@@ -8236,25 +8236,23 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 88: channel_CTMU = 0x1D,
 [; ;adc.h: 89: channel_DAC = 0x1E,
 [; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: Battery1 = 0x01,
-[; ;adc.h: 92: Battery2 = 0x03,
-[; ;adc.h: 93: Battery3 = 0x04,
-[; ;adc.h: 94: Battery8 = 0x08,
-[; ;adc.h: 95: Battery9 = 0x0B,
-[; ;adc.h: 96: Battery10 = 0x0D,
+[; ;adc.h: 91: AN_CELL7 = 0x00,
+[; ;adc.h: 92: AN_CELL6 = 0x01,
+[; ;adc.h: 93: AN_CELL5 = 0x03,
+[; ;adc.h: 94: AN_CELL4 = 0x04,
+[; ;adc.h: 95: Vexternal = 0x09,
+[; ;adc.h: 96: Asen = 0x0B,
 [; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: Temp2 = 0x14,
-[; ;adc.h: 99: Battery5 = 0x18,
-[; ;adc.h: 100: Battery6 = 0x1A,
-[; ;adc.h: 101: Battery7 = 0x1B,
-[; ;adc.h: 102: Battery4 = 0x05
-[; ;adc.h: 103: } adc_channel_t;
-[; ;adc.h: 138: void ADC_Initialize(void);
-[; ;adc.h: 167: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 199: bool ADC_IsConversionDone();
-[; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 278: void ADC_ISR(void);
+[; ;adc.h: 98: AN_CELL3 = 0x05,
+[; ;adc.h: 99: AN_CELL2 = 0x06,
+[; ;adc.h: 100: AN_CELL1 = 0x07
+[; ;adc.h: 101: } adc_channel_t;
+[; ;adc.h: 136: void ADC_Initialize(void);
+[; ;adc.h: 165: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 197: bool ADC_IsConversionDone();
+[; ;adc.h: 230: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 260: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 276: void ADC_ISR(void);
 "7 Battery.c
 [v _Battery_Volt `f ~T0 @X0 -> 10 `i e ]
 [; ;Battery.c: 7: float Battery_Volt[10];
@@ -8334,9 +8332,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Battery.c: 29: ADCON1 = 0x81;
 "29
 [e = _ADCON1 -> -> 129 `i `uc ]
-[; ;Battery.c: 30: ADC_StartConversion(Battery1);
+[; ;Battery.c: 30: ADC_StartConversion(AN_CELL1);
 "30
-[e ( _ADC_StartConversion (1 -> . `E8850 3 `E8850 ]
+[e ( _ADC_StartConversion (1 -> . `E8850 12 `E8850 ]
 [; ;Battery.c: 31: }
 "31
 [e :UE 1183 ]
@@ -8421,9 +8419,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1192 ]
 [; ;Battery.c: 51: {
 {
-[; ;Battery.c: 52: TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5) + 2.5;
+[; ;Battery.c: 52: TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 2.5;
 "52
-[e = *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux -> + -> * / *U + &U _Battery_Adc * -> -> _x `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> 1024 `i -> 5 `i `d .2.5 `f ]
+[e = *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux -> + * / -> *U + &U _Battery_Adc * -> -> _x `ui `ux -> -> # *U &U _Battery_Adc `ui `ux `d .1024.0 .5.0 .2.5 `f ]
 "53
 }
 "50

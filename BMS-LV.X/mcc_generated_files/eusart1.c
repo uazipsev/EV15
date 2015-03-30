@@ -13,11 +13,11 @@
   @Description
     This header file provides implementations for driver APIs for EUSART1.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.10.3
         Device            :  PIC18F45K22
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
+        Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X 2.26
 */
 
@@ -90,10 +90,10 @@ void EUSART1_Initialize(void)
     // CSRC slave_mode; TRMT TSR_empty; TXEN enabled; BRGH hi_speed; SYNC asynchronous; SENDB sync_break_complete; TX9D 0x0; TX9 8-bit; 
     TX1STA = 0x26;
 
-    // Baud Rate = 57600; SPBRGL 34; 
-    SPBRG1 = 0x22;
+    // Baud Rate = 19200; SPBRGL 103; 
+    SPBRG1 = 0x67;
 
-    // Baud Rate = 57600; SPBRGH 0; 
+    // Baud Rate = 19200; SPBRGH 0; 
     SPBRGH1 = 0x00;
 
     // TXREG 0; 

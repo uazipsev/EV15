@@ -10489,36 +10489,34 @@ typedef enum
 channel_CTMU = 0x1D,
 channel_DAC = 0x1E,
 channel_FVRBuf2 = 0x1F,
-Battery1 = 0x01,
-Battery2 = 0x03,
-Battery3 = 0x04,
-Battery8 = 0x08,
-Battery9 = 0x0B,
-Battery10 = 0x0D,
+AN_CELL7 = 0x00,
+AN_CELL6 = 0x01,
+AN_CELL5 = 0x03,
+AN_CELL4 = 0x04,
+Vexternal = 0x09,
+Asen = 0x0B,
 Temp1 = 0x0E,
-Temp2 = 0x14,
-Battery5 = 0x18,
-Battery6 = 0x1A,
-Battery7 = 0x1B,
-Battery4 = 0x05
+AN_CELL3 = 0x05,
+AN_CELL2 = 0x06,
+AN_CELL1 = 0x07
 } adc_channel_t;
 
-# 138
+# 136
 void ADC_Initialize(void);
 
-# 167
+# 165
 void ADC_StartConversion(adc_channel_t channel);
 
-# 199
+# 197
 bool ADC_IsConversionDone();
 
-# 232
+# 230
 adc_result_t ADC_GetConversionResult(void);
 
-# 262
+# 260
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-# 278
+# 276
 void ADC_ISR(void);
 
 # 7 "Battery.c"
@@ -10545,7 +10543,7 @@ void Battery_Read()
 ADC_Buffer_Point = 0;
 Volt_Aquire = 1;
 ADCON1 = 0x81;
-ADC_StartConversion(Battery1);
+ADC_StartConversion(AN_CELL1);
 }
 
 void Battery_Filter()
@@ -10567,7 +10565,7 @@ void Battery_Convert()
 int x;
 for(x = 0; x < 10; x++)
 {
-TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5) + 2.5;
+TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 2.5;
 }
 Battery_Filter();
 }

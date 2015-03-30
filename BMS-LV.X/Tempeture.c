@@ -1,6 +1,6 @@
 
 #include "Define.h"
-//#include "Tempeture.h"
+#include "Tempeture.h"
 #include "Global.h"
 #include "mcc_generated_files/adc.h"
 #include "../math.h"
@@ -15,7 +15,7 @@ char Temp_Fault()
     char fault = 0;
     for(int i = 0;i<9;i++)
     {
-        if (TEMPHIGH > Temp_DegF[i])
+        if (TEMPHIGH < Temp_DegF[i])
         {
             fault = 1;
         }
@@ -53,13 +53,13 @@ void Temp_Convert()
    float steinhart;
    for(x = 0; x < 10; x++)
    {
-       steinhart = (SERIESRESISTOR / ((1023 / Temp_Adc[x]) - 1)) / THERMISTORNOMINAL;  //Convert ADC counts to resistance/Ro
+       steinhart = (SERIESRESISTOR / ((1023.0 / Temp_Adc[x]) - 1)) / THERMISTORNOMINAL;  //Convert ADC counts to resistance/Ro
        steinhart = log(steinhart);                       // ln(R/Ro)
        steinhart /= BCOEFFICIENT;                        // 1/B * ln(R/Ro)
        steinhart += 1.0 / (TEMPERATURENOMINAL + 273.15); // + (1/To)
        steinhart = 1.0 / steinhart;                      // Invert
        steinhart -= 273.15;                              // convert to C
-       steinhart = (steinhart*1.800) + 32.00;            // convert to F
+       steinhart = (steinhart*1.8) + 32.0;            // convert to F
        TmpTemp_DegF[x] = steinhart;
    }
    Temp_Filter();

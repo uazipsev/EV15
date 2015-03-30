@@ -13,11 +13,11 @@
   @Description
     This header file provides APIs for driver for ADC.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.10.3
         Device            :  PIC18F45K22
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
+        Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X 2.26
 */
 
@@ -88,18 +88,16 @@ typedef enum
     channel_CTMU =  0x1D,
     channel_DAC =  0x1E,
     channel_FVRBuf2 =  0x1F,
-    Battery1 =  0x01,
-    Battery2 =  0x03,
-    Battery3 =  0x04,
-    Battery8 =  0x08,
-    Battery9 =  0x0B,
-    Battery10 =  0x0D,
+    AN_CELL7 =  0x00,
+    AN_CELL6 =  0x01,
+    AN_CELL5 =  0x03,
+    AN_CELL4 =  0x04,
+    Vexternal =  0x09,
+    Asen =  0x0B,
     Temp1 =  0x0E,
-    Temp2 =  0x14,
-    Battery5 =  0x18,
-    Battery6 =  0x1A,
-    Battery7 =  0x1B,
-    Battery4 =  0x05
+    AN_CELL3 =  0x05,
+    AN_CELL2 =  0x06,
+    AN_CELL1 =  0x07
 } adc_channel_t;
 
 /**

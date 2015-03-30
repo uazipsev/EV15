@@ -8356,9 +8356,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart1.c: 91: TX1STA = 0x26;
 "91
 [e = _TX1STA -> -> 38 `i `uc ]
-[; ;eusart1.c: 94: SPBRG1 = 0x22;
+[; ;eusart1.c: 94: SPBRG1 = 0x67;
 "94
-[e = _SPBRG1 -> -> 34 `i `uc ]
+[e = _SPBRG1 -> -> 103 `i `uc ]
 [; ;eusart1.c: 97: SPBRGH1 = 0x00;
 "97
 [e = _SPBRGH1 -> -> 0 `i `uc ]
