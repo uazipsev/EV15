@@ -150,7 +150,7 @@ void TMR0_ISR(void)
 void TMR0_CallBack(void)
 {
     INDICATOR_Toggle();
-    bit a = Button8_PORT;
+//    bit a = Button8_PORT;
     // Add your custom callback code here
     // this code executes every 1 TMR0 periods
 }

@@ -21,6 +21,9 @@
 /*
                          Main application
  */
+ #include "mcc_generated_files/mcc.h"
+#include <stdio.h>
+#include <stdlib.h>
 void main(void)
 {
     // Initialize the device

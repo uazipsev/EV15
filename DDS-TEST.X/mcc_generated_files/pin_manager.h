@@ -52,6 +52,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define HIGH    1
 #define LOW     0
+#define TOGGLE  2
 
 #define ANALOG      1
 #define DIGITAL     0
@@ -98,7 +99,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define Button8_GetValue()         PORTAbits.RA2
 #define Button8_SetDigitalInput()    do { TRISA2 = 1; } while(0)
 #define Button8_SetDigitalOutput()   do { TRISA2 = 0; } while(0)
-
 #define Button8_SetAnalogMode()   do { ANSA2 = 1; } while(0)
 #define Button8_SetDigitalMode()   do { ANSA2 = 0; } while(0)
 // get/set Button7 aliases
