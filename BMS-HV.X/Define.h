@@ -11,6 +11,8 @@
 /*
  *  Battery cutoffs
  */
+//Number of batteries
+#define NUMOFBATT 10
 // Battery volt high cutoff
 #define BATHIGH 4.21
 // Battery volt low cutoff

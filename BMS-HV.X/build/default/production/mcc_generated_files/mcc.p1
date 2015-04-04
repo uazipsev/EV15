@@ -11,7 +11,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
 "95 mcc_generated_files/tmr1.h
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-"16747 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+"16747 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
 [v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
 "16691
 [v _OSCCON2 `Vuc ~T0 @X0 0 e@4050 ]
@@ -98,7 +98,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.31\include\pic18f45k22.h
 [; ;pic18f45k22.h: 49: asm("ANSELA equ 0F38h");
 [; <" ANSELA equ 0F38h ;# ">
 [; ;pic18f45k22.h: 52: typedef union {

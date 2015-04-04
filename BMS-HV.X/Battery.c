@@ -11,7 +11,7 @@ float PrevBattery_Volt[10];
 char Battery_Fault()
 {
     char fault = 0;      // Init fault as if there is none
-    for(int i = 0;i<9;i++)
+    for(int i = 0;i<NUMOFBATT;i++)
     {
         if ((BATLOW < Battery_Volt[i]) && (BATHIGH > Battery_Volt[i]))
         {
@@ -58,4 +58,6 @@ float Battery_Get(int channelnum)
 {
     return  Battery_Volt[channelnum];
 }
+
+
 
