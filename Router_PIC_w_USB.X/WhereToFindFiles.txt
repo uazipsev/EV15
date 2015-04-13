@@ -1,0 +1,8 @@
+The files "main.c" and "usb_descriptors.c" are local to this project.
+
+Up-to-date versions of the other .c files can copied from:
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\USB\usb_device.c"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\USB\CDC Device Driver\usb_function_cdc.c"
+
+where {MICROCHIP_SOLUTIONS} represents the directory, or path to the 
+directory, that contains the Microchip Applications Library (MAL).

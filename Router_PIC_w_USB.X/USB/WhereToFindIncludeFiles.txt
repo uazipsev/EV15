@@ -1,0 +1,22 @@
+The files "HardwareProfile.h" and "usb_config.h" are local to this project.
+
+Up-to-date versions of the other .h files can be copied from:
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\Compiler.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_ch9.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_common.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_device.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\USB\usb_device_local.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_function_cdc.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_function_generic.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_function_hid.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_function_msd.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_hal.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_hal_pic32.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_host.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_host_generic.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_host_msd.h"
+    "C:\{MICROCHIP_SOLUTIONS}\Microchip\Include\USB\usb_host_msd_scsi.h"
+    
+where {MICROCHIP_SOLUTIONS} represents the directory, or path to the 
+directory, that contains the Microchip Applications Library (MAL).    
