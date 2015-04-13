@@ -5,7 +5,7 @@
             <name>Router_PIC_w_USB</name>
             <creation-uuid>41b6e073-36a0-4969-9a90-7f68a0eabec5</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions>c</c-extensions>
+            <c-extensions/>
             <cpp-extensions>cpp</cpp-extensions>
             <header-extensions>h</header-extensions>
             <asminc-extensions/>

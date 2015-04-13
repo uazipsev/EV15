@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED="USB stuff.c" usb_descriptors.c variables.cpp queue.cpp interrupt_handler.cpp initialize.cpp FastTransfer.cpp buffer.cpp main.cpp debug_handler.cpp
+SOURCEFILES_QUOTED_IF_SPACED=variables.cpp queue.cpp interrupt_handler.cpp initialize.cpp FastTransfer.cpp buffer.cpp main.cpp debug_handler.cpp
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED="${OBJECTDIR}/USB stuff.o" ${OBJECTDIR}/usb_descriptors.o ${OBJECTDIR}/variables.o ${OBJECTDIR}/queue.o ${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/initialize.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/buffer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/debug_handler.o
-POSSIBLE_DEPFILES="${OBJECTDIR}/USB stuff.o.d" ${OBJECTDIR}/usb_descriptors.o.d ${OBJECTDIR}/variables.o.d ${OBJECTDIR}/queue.o.d ${OBJECTDIR}/interrupt_handler.o.d ${OBJECTDIR}/initialize.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/buffer.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/debug_handler.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/variables.o ${OBJECTDIR}/queue.o ${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/initialize.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/buffer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/debug_handler.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/variables.o.d ${OBJECTDIR}/queue.o.d ${OBJECTDIR}/interrupt_handler.o.d ${OBJECTDIR}/initialize.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/buffer.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/debug_handler.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/USB\ stuff.o ${OBJECTDIR}/usb_descriptors.o ${OBJECTDIR}/variables.o ${OBJECTDIR}/queue.o ${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/initialize.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/buffer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/debug_handler.o
+OBJECTFILES=${OBJECTDIR}/variables.o ${OBJECTDIR}/queue.o ${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/initialize.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/buffer.o ${OBJECTDIR}/main.o ${OBJECTDIR}/debug_handler.o
 
 # Source Files
-SOURCEFILES=USB stuff.c usb_descriptors.c variables.cpp queue.cpp interrupt_handler.cpp initialize.cpp FastTransfer.cpp buffer.cpp main.cpp debug_handler.cpp
+SOURCEFILES=variables.cpp queue.cpp interrupt_handler.cpp initialize.cpp FastTransfer.cpp buffer.cpp main.cpp debug_handler.cpp
 
 
 CFLAGS=
@@ -94,31 +94,7 @@ endif
 # ------------------------------------------------------------------------------------
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
-${OBJECTDIR}/USB\ stuff.o: USB\ stuff.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/USB\ stuff.o.d 
-	@${RM} "${OBJECTDIR}/USB stuff.o" 
-	@${FIXDEPS} "${OBJECTDIR}/USB stuff.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I".." -I"../USB" -I"." -MMD -MF "${OBJECTDIR}/USB stuff.o.d" -o "${OBJECTDIR}/USB stuff.o" "USB stuff.c"   
-	
-${OBJECTDIR}/usb_descriptors.o: usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/usb_descriptors.o.d 
-	@${RM} ${OBJECTDIR}/usb_descriptors.o 
-	@${FIXDEPS} "${OBJECTDIR}/usb_descriptors.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC}  $(MP_EXTRA_CC_PRE) -g -D__DEBUG  -fframe-base-loclist  -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I".." -I"../USB" -I"." -MMD -MF "${OBJECTDIR}/usb_descriptors.o.d" -o ${OBJECTDIR}/usb_descriptors.o usb_descriptors.c   
-	
 else
-${OBJECTDIR}/USB\ stuff.o: USB\ stuff.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/USB\ stuff.o.d 
-	@${RM} "${OBJECTDIR}/USB stuff.o" 
-	@${FIXDEPS} "${OBJECTDIR}/USB stuff.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I".." -I"../USB" -I"." -MMD -MF "${OBJECTDIR}/USB stuff.o.d" -o "${OBJECTDIR}/USB stuff.o" "USB stuff.c"   
-	
-${OBJECTDIR}/usb_descriptors.o: usb_descriptors.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
-	@${RM} ${OBJECTDIR}/usb_descriptors.o.d 
-	@${RM} ${OBJECTDIR}/usb_descriptors.o 
-	@${FIXDEPS} "${OBJECTDIR}/usb_descriptors.o.d" $(SILENT) -rsi ${MP_CC_DIR}../  -c ${MP_CPPC}  $(MP_EXTRA_CC_PRE)  -g -x c -c -mprocessor=$(MP_PROCESSOR_OPTION)  -I".." -I"../USB" -I"." -MMD -MF "${OBJECTDIR}/usb_descriptors.o.d" -o ${OBJECTDIR}/usb_descriptors.o usb_descriptors.c   
-	
 endif
 
 # ------------------------------------------------------------------------------------

@@ -62,7 +62,6 @@ int main(void)
     
     // starts: uart, dma, settings ...
     initialize();
-    USBInit();
 
     while (1)
     {
@@ -82,8 +81,6 @@ int main(void)
 //        DMA_four.queue_send();
 //        DMA_five.queue_send();
 //        DMA_six.queue_send();
-
-        USBUpdate();
     }
 
     return 0;
