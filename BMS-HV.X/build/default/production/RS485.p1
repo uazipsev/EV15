@@ -1,50 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7776 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _LATA `Vuc ~T0 @X0 0 e@3977 ]
-"8406
-[v _TRISA `Vuc ~T0 @X0 0 e@3986 ]
-"49
-[v _ANSELA `Vuc ~T0 @X0 0 e@3896 ]
-"7908
-[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
-"8627
-[v _TRISB `Vuc ~T0 @X0 0 e@3987 ]
-"93
-[v _ANSELB `Vuc ~T0 @X0 0 e@3897 ]
-"2688
-[v _WPUB `Vuc ~T0 @X0 0 e@3937 ]
-"8040
-[v _LATC `Vuc ~T0 @X0 0 e@3979 ]
-"8848
-[v _TRISC `Vuc ~T0 @X0 0 e@3988 ]
-"142
-[v _ANSELC `Vuc ~T0 @X0 0 e@3898 ]
-"8172
-[v _LATD `Vuc ~T0 @X0 0 e@3980 ]
-"9069
-[v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
-"192
-[v _ANSELD `Vuc ~T0 @X0 0 e@3899 ]
-"8304
-[v _LATE `Vuc ~T0 @X0 0 e@3981 ]
-"9290
-[v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
-"253
-[v _ANSELE `Vuc ~T0 @X0 0 e@3900 ]
-"17540
-[s S1106 :7 `uc 1 :1 `uc 1 ]
-[n S1106 . . NOT_RBPU ]
-"17544
-[s S1107 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1107 . RBIP . TMR0IP . INTEDG2 INTEDG1 INTEDG0 nRBPU ]
-"17554
-[s S1108 :7 `uc 1 :1 `uc 1 ]
-[n S1108 . . RBPU ]
-"17539
-[u S1105 `S1106 1 `S1107 1 `S1108 1 ]
-[n S1105 . . . . ]
-"17559
-[v _INTCON2bits `VS1105 ~T0 @X0 0 e@4081 ]
+"15 RS485.c
+[v _EUSART1_Read `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8222,68 +8178,169 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 511: void PIN_MANAGER_IOC(void);
-"50 mcc_generated_files/pin_manager.c
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
+"9 RS485.c
+[v _dataprocess `(i ~T0 @X0 1 ef ]
+"10
+{
+[; ;RS485.c: 9: int dataprocess()
+[; ;RS485.c: 10: {
+[e :U _dataprocess ]
+[f ]
+"11
+[v _buffer `i ~T0 @X0 -> 30 `i a ]
+"12
+[v _i `i ~T0 @X0 1 a ]
+[; ;RS485.c: 11: int buffer[30];
+[; ;RS485.c: 12: int i = 0;
+[e = _i -> 0 `i ]
+"13
+[v _id `i ~T0 @X0 1 a ]
+[; ;RS485.c: 13: int id = 0;
+[e = _id -> 0 `i ]
+"14
+[v _datanum `i ~T0 @X0 1 a ]
+[; ;RS485.c: 14: int datanum = 0;
+[e = _datanum -> 0 `i ]
+[; ;RS485.c: 15: if ((0) == EUSART1_Read())
+"15
+[e $ ! == -> 0 `i ( _EUSART1_Read ..  1179  ]
+[; ;RS485.c: 16: {
+"16
+{
+[; ;RS485.c: 17: return 0;
+"17
+[e ) -> 0 `i ]
+[e $UE 1178  ]
+"18
+}
+[; ;RS485.c: 18: }
+[e $U 1180  ]
+"19
+[e :U 1179 ]
+[; ;RS485.c: 19: else
+[; ;RS485.c: 20: {
+"20
+{
+[; ;RS485.c: 21: while(0 != EUSART1_Read())
+"21
+[e $U 1181  ]
+[e :U 1182 ]
+[; ;RS485.c: 22: {
+"22
+{
+[; ;RS485.c: 23: buffer[i++] = EUSART1_Read();
+"23
+[e = *U + &U _buffer * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux ( _EUSART1_Read ..  ]
+"24
+}
+[e :U 1181 ]
+"21
+[e $ != -> 0 `i ( _EUSART1_Read ..  1182  ]
+[e :U 1183 ]
+"25
+}
+[e :U 1180 ]
+[; ;RS485.c: 24: }
+[; ;RS485.c: 25: }
+[; ;RS485.c: 32: for(i = 0;i<30;i++)
+"32
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 30 `i 1184  ]
+[e $U 1185  ]
+"33
+[e :U 1184 ]
+[; ;RS485.c: 33: {
+{
+"35
+}
+"32
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 30 `i 1184  ]
+[e :U 1185 ]
+"35
+}
+[; ;RS485.c: 35: }
+[; ;RS485.c: 36: for(i = 0; i <30; i++)
+"36
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 30 `i 1187  ]
+[e $U 1188  ]
+"37
+[e :U 1187 ]
+[; ;RS485.c: 37: {
+{
+[; ;RS485.c: 39: if (buffer[i] == 0x55)
+"39
+[e $ ! == *U + &U _buffer * -> -> _i `ui `ux -> -> # *U &U _buffer `ui `ux -> 85 `i 1190  ]
+[; ;RS485.c: 40: {
+"40
+{
+[; ;RS485.c: 42: if (buffer[i++] == 0xA7)
+"42
+[e $ ! == *U + &U _buffer * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> 167 `i 1191  ]
+[; ;RS485.c: 43: {
+"43
+{
+[; ;RS485.c: 45: if (buffer[i++] == 0x55)
+"45
+[e $ ! == *U + &U _buffer * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux -> 85 `i 1192  ]
+[; ;RS485.c: 46: {
+"46
+{
+[; ;RS485.c: 49: id = buffer[i++];
+"49
+[e = _id *U + &U _buffer * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux ]
+[; ;RS485.c: 50: if (id != 0x10)
+"50
+[e $ ! != _id -> 16 `i 1193  ]
+[; ;RS485.c: 51: {
 "51
 {
-[; ;pin_manager.c: 50: void PIN_MANAGER_Initialize(void)
-[; ;pin_manager.c: 51: {
-[e :U _PIN_MANAGER_Initialize ]
-[f ]
-[; ;pin_manager.c: 52: LATA = 0x00;
-"52
-[e = _LATA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 53: TRISA = 0xAE;
+[; ;RS485.c: 53: return 0;
 "53
-[e = _TRISA -> -> 174 `i `uc ]
-[; ;pin_manager.c: 54: ANSELA = 0x2E;
+[e ) -> 0 `i ]
+[e $UE 1178  ]
 "54
-[e = _ANSELA -> -> 46 `i `uc ]
-[; ;pin_manager.c: 56: LATB = 0x00;
+}
+[; ;RS485.c: 54: }
+[e $U 1194  ]
+"55
+[e :U 1193 ]
+[; ;RS485.c: 55: else
+[; ;RS485.c: 56: {
 "56
-[e = _LATB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 57: TRISB = 0xF4;
-"57
-[e = _TRISB -> -> 244 `i `uc ]
-[; ;pin_manager.c: 58: ANSELB = 0x34;
-"58
-[e = _ANSELB -> -> 52 `i `uc ]
-[; ;pin_manager.c: 59: WPUB = 0x00;
+{
+[; ;RS485.c: 59: datanum = buffer[i++];
 "59
-[e = _WPUB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 61: LATC = 0x08;
+[e = _datanum *U + &U _buffer * -> -> ++ _i -> 1 `i `ui `ux -> -> # *U &U _buffer `ui `ux ]
 "61
-[e = _LATC -> -> 8 `i `uc ]
-[; ;pin_manager.c: 62: TRISC = 0xC4;
+}
+[e :U 1194 ]
 "62
-[e = _TRISC -> -> 196 `i `uc ]
-[; ;pin_manager.c: 63: ANSELC = 0x04;
+}
+[e :U 1192 ]
 "63
-[e = _ANSELC -> -> 4 `i `uc ]
-[; ;pin_manager.c: 65: LATD = 0x00;
+}
+[e :U 1191 ]
+"64
+}
+[e :U 1190 ]
 "65
-[e = _LATD -> -> 0 `i `uc ]
-[; ;pin_manager.c: 66: TRISD = 0xD1;
-"66
-[e = _TRISD -> -> 209 `i `uc ]
-[; ;pin_manager.c: 67: ANSELD = 0xD1;
+}
+"36
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 30 `i 1187  ]
+[e :U 1188 ]
+"65
+}
+[; ;RS485.c: 61: }
+[; ;RS485.c: 62: }
+[; ;RS485.c: 63: }
+[; ;RS485.c: 64: }
+[; ;RS485.c: 65: }
+[; ;RS485.c: 67: }
 "67
-[e = _ANSELD -> -> 209 `i `uc ]
-[; ;pin_manager.c: 69: LATE = 0x00;
-"69
-[e = _LATE -> -> 0 `i `uc ]
-[; ;pin_manager.c: 70: TRISE = 0x05;
-"70
-[e = _TRISE -> -> 5 `i `uc ]
-[; ;pin_manager.c: 71: ANSELE = 0x05;
-"71
-[e = _ANSELE -> -> 5 `i `uc ]
-[; ;pin_manager.c: 73: INTCON2bits.nRBPU = 0x01;
-"73
-[e = . . _INTCON2bits 1 7 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 74: }
-"74
 [e :UE 1178 ]
 }

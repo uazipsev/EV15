@@ -1,14 +1,5 @@
 
-# 1 "Tempeture.c"
-
-# 2 "Global.h"
-extern char Temp_Aquire;
-extern char Volt_Aquire;
-extern int Battery_Adc[10];
-extern int Temp_Adc[10];
-extern int ADC_Buffer_Point;
-extern int Volt_Done;
-extern int Temp_Done;
+# 1 "RS485.c"
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -10382,230 +10373,59 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdint.h"
-typedef signed char int8_t;
-
-# 20
-typedef signed int int16_t;
-
-# 28
-typedef signed short long int int24_t;
-
-# 36
-typedef signed long int int32_t;
-
-# 43
-typedef unsigned char uint8_t;
-
-# 49
-typedef unsigned int uint16_t;
-
-# 56
-typedef unsigned short long int uint24_t;
-
-# 63
-typedef unsigned long int uint32_t;
-
-# 71
-typedef signed char int_least8_t;
-
-# 78
-typedef signed int int_least16_t;
-
-# 90
-typedef signed short long int int_least24_t;
-
-# 98
-typedef signed long int int_least32_t;
-
-# 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
-typedef unsigned char bool;
-
-# 72 "mcc_generated_files/adc.h"
-typedef uint16_t adc_result_t;
-
-# 86
-typedef enum
+# 9 "RS485.c"
+int dataprocess()
 {
-channel_CTMU = 0x1D,
-channel_DAC = 0x1E,
-channel_FVRBuf2 = 0x1F,
-Battery1 = 0x01,
-Battery2 = 0x03,
-Battery3 = 0x04,
-Battery8 = 0x08,
-Battery9 = 0x0B,
-Battery10 = 0x0D,
-Temp1 = 0x0E,
-Temp2 = 0x14,
-Battery5 = 0x18,
-Battery6 = 0x1A,
-Battery7 = 0x1B,
-Battery4 = 0x05
-} adc_channel_t;
-
-# 138
-void ADC_Initialize(void);
-
-# 167
-void ADC_StartConversion(adc_channel_t channel);
-
-# 199
-bool ADC_IsConversionDone();
-
-# 232
-adc_result_t ADC_GetConversionResult(void);
-
-# 262
-adc_result_t ADC_GetConversion(adc_channel_t channel);
-
-# 278
-void ADC_ISR(void);
-
-# 30 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\plib\../math.h"
-extern double fabs(double);
-extern double floor(double);
-extern double ceil(double);
-extern double modf(double, double *);
-extern double sqrt(double);
-extern double atof(const char *);
-extern double sin(double) ;
-extern double cos(double) ;
-extern double tan(double) ;
-extern double asin(double) ;
-extern double acos(double) ;
-extern double atan(double);
-extern double atan2(double, double) ;
-extern double log(double);
-extern double log10(double);
-extern double pow(double, double) ;
-extern double exp(double) ;
-extern double sinh(double) ;
-extern double cosh(double) ;
-extern double tanh(double);
-extern double eval_poly(double, const double *, int);
-extern double frexp(double, int *);
-extern double ldexp(double, int);
-extern double fmod(double, double);
-extern double trunc(double);
-extern double round(double);
-
-# 8 "Tempeture.c"
-float Temp_DegF[10] = 0;
-float TmpTemp_DegF[10] = 0;
-float PrevTemp_DegF[10] = 0;
-
-char Temp_Fault()
+int buffer[30];
+int i = 0;
+int id = 0;
+int datanum = 0;
+if ((0) == EUSART1_Read())
 {
-
-char fault = 0;
-for(int i = 0;i<9;i++)
+return 0;
+}
+else
 {
-if (60.5 > Temp_DegF[i])
+while(0 != EUSART1_Read())
 {
-fault = 1;
+buffer[i++] = EUSART1_Read();
 }
 }
 
-return fault;
-}
-
-void Temp_Read()
+# 32
+for(i = 0;i<30;i++)
 {
 
-ADC_Buffer_Point = 0;
-Temp_Aquire = 1;
-ADCON1 = 0x80;
-ADC_StartConversion(Temp1);
 }
-
-void Temp_Filter()
+for(i = 0; i <30; i++)
 {
 
-int x;
-for(x = 0; x < 10; x++)
+if (buffer[i] == 0x55)
 {
-Temp_DegF[x] = (0.88*TmpTemp_DegF[x] + ((1- 0.88)*PrevTemp_DegF[x]));
+
+if (buffer[i++] == 0xA7)
+{
+
+if (buffer[i++] == 0x55)
+{
+
+
+id = buffer[i++];
+if (id != 0x10)
+{
+
+return 0;
 }
-for(x = 0; x < 10; x++)
+else
 {
-PrevTemp_DegF[x] = Temp_DegF[x];
+
+
+datanum = buffer[i++];
+
+}
+}
+}
 }
 }
 
-void Temp_Convert()
-{
-int x;
-float steinhart;
-for(x = 0; x < 10; x++)
-{
-steinhart = (10000 / ((1023 / Temp_Adc[x]) - 1)) / 10000;
-steinhart = log(steinhart);
-steinhart /= 3950;
-steinhart += 1.0 / (25 + 273.15);
-steinhart = 1.0 / steinhart;
-steinhart -= 273.15;
-steinhart = (steinhart*1.800) + 32.00;
-TmpTemp_DegF[x] = steinhart;
-}
-Temp_Filter();
-}
-
-float Tempeture_Get(int channelnum)
-{
-return Temp_DegF[channelnum];
 }
