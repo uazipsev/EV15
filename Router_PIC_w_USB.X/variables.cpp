@@ -1,7 +1,6 @@
 #include "constants.h"
 #include "queue.h"
 #include "FastTransfer.h"
-#include "debug_handler.h"
 
 
 // prototype for input ring buffer
@@ -64,7 +63,5 @@ Queue_handler DMA_three;
 Queue_handler DMA_four;
 Queue_handler DMA_five;
 Queue_handler DMA_six;
-
-DebugOut USBOut;
 
 void (*FunctionPoint[7])(unsigned char * _where, unsigned char how_many, unsigned char where, unsigned char from_where);

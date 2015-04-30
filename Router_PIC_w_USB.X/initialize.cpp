@@ -6,7 +6,6 @@
 #include "queue.h"
 #include "buffer.h"
 #include "FastTransfer.h"
-#include "debug_handler.h"
 #include "variables.h"
 
 struct dmaSettings

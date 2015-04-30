@@ -53,8 +53,6 @@ extern "C" {
     extern Queue_handler DMA_five;
     extern Queue_handler DMA_six;
 
-    extern DebugOut USBOut;
-
     extern void (*FunctionPoint[7])(unsigned char * _where, unsigned char how_many, unsigned char where, unsigned char from_where);
 
 #endif	/* VARIABLES_H */

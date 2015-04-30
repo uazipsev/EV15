@@ -1,7 +1,6 @@
 #include <xc.h>
 #include <string.h>
 #include "constants.h"
-#include "main.h"
 #include "buffer.h"
 
 struct ringBuff

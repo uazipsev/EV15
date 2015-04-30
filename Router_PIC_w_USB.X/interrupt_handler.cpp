@@ -6,7 +6,6 @@
 #include "constants.h"
 #include "queue.h"
 #include "FastTransfer.h"
-#include "debug_handler.h"
 #include "variables.h"
 
 void __ISR(_UART_1_VECTOR, IPL1AUTO) Uart1Handler(void)
@@ -44,13 +43,3 @@ void __ISR(_UART_6_VECTOR, IPL1AUTO) Uart6Handler(void)
     ring_buff_put(&buffer_six, U6RXREG);
     IFS2CLR = _IFS2_U6RXIF_MASK;
 }
-
-//void __ISR(_TIMER_1_VECTOR, IPL7SRS) Timer1Handler(void){
-//    static int count = 0;
-//    count++;
-//    if (count >= 100){
-//        count = 0;
-//        LATEbits.LATE4 ^= 1;
-//    }
-//    IFS0CLR = _IFS0_T1IF_MASK;
-//}
