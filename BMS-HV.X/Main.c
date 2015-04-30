@@ -72,6 +72,7 @@ int main(int argc, char** argv) {
         {
             Battery_Convert();
             Battery_Fault();
+            RunBypas();
         }
     }
     return (EXIT_SUCCESS);

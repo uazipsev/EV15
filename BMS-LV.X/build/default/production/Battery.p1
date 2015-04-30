@@ -1,16 +1,16 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6 Global.h
+"10 Global.h
 [v _ADC_Buffer_Point `i ~T0 @X0 0 e ]
-"3
+"6
 [v _Volt_Aquire `uc ~T0 @X0 0 e ]
 "13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "30 Battery.c
-[c E8850 29 30 31 0 1 3 4 9 11 14 5 6 7 .. ]
-[n E8850 . channel_CTMU channel_DAC channel_FVRBuf2 AN_CELL7 AN_CELL6 AN_CELL5 AN_CELL4 Vexternal Asen Temp1 AN_CELL3 AN_CELL2 AN_CELL1  ]
+[c E8851 29 30 31 0 1 3 4 9 11 14 5 6 7 .. ]
+[n E8851 . channel_CTMU channel_DAC channel_FVRBuf2 AN_CELL7 AN_CELL6 AN_CELL5 AN_CELL4 Vexternal Asen Temp1 AN_CELL3 AN_CELL2 AN_CELL1  ]
 "165 mcc_generated_files/adc.h
-[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8850 ]
-"4 Global.h
+[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8851 ]
+"8 Global.h
 [v _Battery_Adc `i ~T0 @X0 -> 0 `x e ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
@@ -8194,13 +8194,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Battery.h: 14: extern void Battery_Filter();
 [; ;Battery.h: 15: extern void Battery_Convert();
 [; ;Battery.h: 16: extern float Battery_Get(int channelnum);
-[; ;Global.h: 2: extern char Temp_Aquire;
-[; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
-[; ;Global.h: 5: extern int Temp_Adc[10];
-[; ;Global.h: 6: extern int ADC_Buffer_Point;
-[; ;Global.h: 7: extern int Volt_Done;
-[; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 5: extern char Temp_Aquire;
+[; ;Global.h: 6: extern char Volt_Aquire;
+[; ;Global.h: 7: extern char Current_Aquire;
+[; ;Global.h: 8: extern int Battery_Adc[10];
+[; ;Global.h: 9: extern int Temp_Adc[10];
+[; ;Global.h: 10: extern int ADC_Buffer_Point;
+[; ;Global.h: 11: extern int Volt_Done;
+[; ;Global.h: 12: extern int Temp_Done;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8334,7 +8335,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ADCON1 -> -> 129 `i `uc ]
 [; ;Battery.c: 30: ADC_StartConversion(AN_CELL1);
 "30
-[e ( _ADC_StartConversion (1 -> . `E8850 12 `E8850 ]
+[e ( _ADC_StartConversion (1 -> . `E8851 12 `E8851 ]
 [; ;Battery.c: 31: }
 "31
 [e :UE 1183 ]

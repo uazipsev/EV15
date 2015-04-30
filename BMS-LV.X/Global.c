@@ -12,6 +12,7 @@
 
 char Temp_Aquire = 0;
 char Volt_Aquire = 0;
+char Current_Aquire = 0;
 int Battery_Adc[10] = 0;
 int Temp_Adc[10] = 0;
 int ADC_Buffer_Point = 0;

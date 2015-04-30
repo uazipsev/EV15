@@ -22,13 +22,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1109 . . . . . . ]
 "17648
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
-"8 Global.h
+"12 Global.h
 [v _Temp_Done `i ~T0 @X0 0 e ]
 "16 Tempeture.h
 [v _Temp_Convert `(v ~T0 @X0 0 ef ]
 "13
 [v _Temp_Fault `(uc ~T0 @X0 0 ef ]
-"7 Global.h
+"11 Global.h
 [v _Volt_Done `i ~T0 @X0 0 e ]
 "15 Battery.h
 [v _Battery_Convert `(v ~T0 @X0 0 ef ]
@@ -8373,13 +8373,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Battery.h: 15: extern void Battery_Convert();
 [; ;Battery.h: 16: extern float Battery_Get(int channelnum);
 [; ;Functions.h: 12: void Set_4051(int Channel);
-[; ;Global.h: 2: extern char Temp_Aquire;
-[; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
-[; ;Global.h: 5: extern int Temp_Adc[10];
-[; ;Global.h: 6: extern int ADC_Buffer_Point;
-[; ;Global.h: 7: extern int Volt_Done;
-[; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 5: extern char Temp_Aquire;
+[; ;Global.h: 6: extern char Volt_Aquire;
+[; ;Global.h: 7: extern char Current_Aquire;
+[; ;Global.h: 8: extern int Battery_Adc[10];
+[; ;Global.h: 9: extern int Temp_Adc[10];
+[; ;Global.h: 10: extern int ADC_Buffer_Point;
+[; ;Global.h: 11: extern int Volt_Done;
+[; ;Global.h: 12: extern int Temp_Done;
 [; ;Tempeture.h: 13: extern char Temp_Fault();
 [; ;Tempeture.h: 14: extern void Temp_Read();
 [; ;Tempeture.h: 15: extern void Temp_Filter();

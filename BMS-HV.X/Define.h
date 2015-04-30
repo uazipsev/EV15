@@ -15,9 +15,13 @@
  *  Battery cutoffs
  */
 //Number of batteries
-#define NUMOFBATT 10
+#define NUMOFBATT 9 // Num of cells - 1
 // Battery volt high cutoff
 #define BATHIGH 4.21
+// Battery volt high cutoff
+#define BATBYPON 4.18
+// Battery volt high cutoff
+#define BATBYPOFF 4.15
 // Battery volt low cutoff
 #define BATLOW  3.00
 // Battery temp cutoff
@@ -44,6 +48,12 @@
 #define BCOEFFICIENT 3950
 // the value of the 'other' resistor
 #define SERIESRESISTOR 10000
+
+/*
+ *
+ */
+#define ON = 1;
+#define OFF = 0;
 
 
 #endif	/* DEFINE_H */

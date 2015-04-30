@@ -19,10 +19,10 @@ char Current_Fault()
     temp = temp/10.0;
     for(int i = 0;i<9;i++)
     {
-        //if (CURRENTHIGH < Battery_Current[i])
-        //{
-        //    fault = 1;   // Set fault if found! Uh-Oh!!!!
-        //}
+        if ((CURRENTHIGH < Battery_Current[i]) && (CURRENTHIGH < temp)) // I need to add the ability to check other packets
+        {
+            fault = 1;
+        }
     }
     return fault;
 }
@@ -31,7 +31,7 @@ void Current_Read()
 {
   //Set the ADC interupt to start to fill in the Battery ADC Buffer
   ADC_Buffer_Point = 0;
-  //Volt_Aquire = 1;  //Set global flag for ADC ISR to trigger battery volt reads
+  Current_Aquire = 1;  //Set global flag for ADC ISR to trigger battery volt reads
   ADCON1 = 0x80; //Set up to run ADC from VDD to Vss
   ADC_StartConversion(Asen);  //We need to get the ball rolling...
 }
@@ -42,11 +42,11 @@ void Current_Filter()
    int x;
    for(x = 0; x < 10; x++)
    {
-      // Battery_Volt[x] = (BATALPHA*TempBattery_Volt[x] + ((1- BATALPHA)*PrevBattery_Volt[x]));
+      Battery_Current[x] = (BATALPHA*TempBattery_Current[x] + ((1- BATALPHA)*PrevBattery_Current[x]));
    }
    for(x = 0; x < 10; x++)
    {
-      // PrevBattery_Volt[x] = Battery_Volt[x];
+      PrevBattery_Current[x] = Battery_Current[x];
    }
 }
 
@@ -55,9 +55,9 @@ void Current_Convert()
     int x;
     for(x = 0; x < 10; x++)
     {
-       // TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5) + 2.5; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
+        TempBattery_Current[x] = ((Battery_Adc[x]/1024)*5) + 2.5; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
     }
-    //Battery_Filter();
+    Current_Filter();
 }
 
 float Current_Get()

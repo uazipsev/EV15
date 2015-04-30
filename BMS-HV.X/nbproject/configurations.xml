@@ -19,6 +19,7 @@
       <itemPath>Global.h</itemPath>
       <itemPath>Tempeture.h</itemPath>
       <itemPath>Functions.h</itemPath>
+      <itemPath>Bypass.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -42,6 +43,7 @@
       <itemPath>Tempeture.c</itemPath>
       <itemPath>Functions.c</itemPath>
       <itemPath>Main.c</itemPath>
+      <itemPath>Bypass.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

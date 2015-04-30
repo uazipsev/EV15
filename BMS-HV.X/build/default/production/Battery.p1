@@ -8189,11 +8189,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;Battery.h: 12: extern char Battery_Fault();
-[; ;Battery.h: 13: extern void Battery_Read();
-[; ;Battery.h: 14: extern void Battery_Filter();
-[; ;Battery.h: 15: extern void Battery_Convert();
-[; ;Battery.h: 16: extern float Battery_Get(int channelnum);
+[; ;Battery.h: 11: extern char Battery_Fault();
+[; ;Battery.h: 12: extern void Battery_Read();
+[; ;Battery.h: 13: extern void Battery_Filter();
+[; ;Battery.h: 14: extern void Battery_Convert();
+[; ;Battery.h: 15: extern float Battery_Get(int channelnum);
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
 [; ;Global.h: 4: extern int Battery_Adc[10];

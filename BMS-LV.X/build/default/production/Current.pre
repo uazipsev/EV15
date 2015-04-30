@@ -10378,9 +10378,10 @@ void Current_Filter();
 void Current_Read();
 extern char Current_Fault();
 
-# 2 "Global.h"
+# 5 "Global.h"
 extern char Temp_Aquire;
 extern char Volt_Aquire;
+extern char Current_Aquire;
 extern int Battery_Adc[10];
 extern int Temp_Adc[10];
 extern int ADC_Buffer_Point;
@@ -10535,10 +10536,10 @@ temp += Battery_Current[i];
 temp = temp/10.0;
 for(int i = 0;i<9;i++)
 {
-
-
-
-
+if ((25 < Battery_Current[i]) && (25 < temp))
+{
+fault = 1;
+}
 }
 return fault;
 }
@@ -10547,7 +10548,7 @@ void Current_Read()
 {
 
 ADC_Buffer_Point = 0;
-
+Current_Aquire = 1;
 ADCON1 = 0x80;
 ADC_StartConversion(Asen);
 }
@@ -10558,11 +10559,11 @@ void Current_Filter()
 int x;
 for(x = 0; x < 10; x++)
 {
-
+Battery_Current[x] = (0.88*TempBattery_Current[x] + ((1- 0.88)*PrevBattery_Current[x]));
 }
 for(x = 0; x < 10; x++)
 {
-
+PrevBattery_Current[x] = Battery_Current[x];
 }
 }
 
@@ -10571,9 +10572,9 @@ void Current_Convert()
 int x;
 for(x = 0; x < 10; x++)
 {
-
+TempBattery_Current[x] = ((Battery_Adc[x]/1024)*5) + 2.5;
 }
-
+Current_Filter();
 }
 
 float Current_Get()

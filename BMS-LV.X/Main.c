@@ -73,6 +73,11 @@ int main(int argc, char** argv) {
             Battery_Convert();
             Battery_Fault();
         }
+        if (Volt_Done)
+        {
+            Battery_Convert();
+            Battery_Fault();
+        }
     }
     return (EXIT_SUCCESS);
 }

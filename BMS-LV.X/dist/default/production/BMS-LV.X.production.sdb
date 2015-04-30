@@ -20,7 +20,7 @@ AN_CELL2 6
 AN_CELL1 7
 ]
 "30 C:\Zips EV 15\trunk\BMS-LV.X\Battery.c
-[e E8850 . `uc
+[e E8851 . `uc
 channel_CTMU 29
 channel_DAC 30
 channel_FVRBuf2 31
@@ -36,7 +36,7 @@ AN_CELL2 6
 AN_CELL1 7
 ]
 "33 C:\Zips EV 15\trunk\BMS-LV.X\Tempeture.c
-[e E8850 . `uc
+[e E8851 . `uc
 channel_CTMU 29
 channel_DAC 30
 channel_FVRBuf2 31
@@ -52,7 +52,7 @@ AN_CELL2 6
 AN_CELL1 7
 ]
 "36 C:\Zips EV 15\trunk\BMS-LV.X\Current.c
-[e E8849 . `uc
+[e E8850 . `uc
 channel_CTMU 29
 channel_DAC 30
 channel_FVRBuf2 31
@@ -556,7 +556,7 @@ AN_CELL1 7
 ]
 [u S545 . 1 `S530 1 . 1 0 `S533 1 . 1 0 `S542 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES545  1 e 1 @4081 ]
-[s S836 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S837 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -566,7 +566,7 @@ AN_CELL1 7
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17648
-[s S845 . 1 `uc 1 . 1 0 :1:0 
+[s S846 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -575,12 +575,12 @@ AN_CELL1 7
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S854 . 1 `uc 1 . 1 0 :6:0 
+[s S855 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S871 . 1 `S836 1 . 1 0 `S845 1 . 1 0 `S854 1 . 1 0 `S845 1 . 1 0 `S854 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES871  1 e 1 @4082 ]
+[u S872 . 1 `S837 1 . 1 0 `S846 1 . 1 0 `S855 1 . 1 0 `S846 1 . 1 0 `S855 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES872  1 e 1 @4082 ]
 "18985
 [v _LATA6 LATA6 `VEb  1 e 0 @31822 ]
 "18987
@@ -600,14 +600,16 @@ AN_CELL1 7
 "14
 [v _Volt_Aquire Volt_Aquire `uc  1 e 1 0 ]
 "15
-[v _Battery_Adc Battery_Adc `[10]i  1 e 20 0 ]
+[v _Current_Aquire Current_Aquire `uc  1 e 1 0 ]
 "16
-[v _Temp_Adc Temp_Adc `[10]i  1 e 20 0 ]
+[v _Battery_Adc Battery_Adc `[10]i  1 e 20 0 ]
 "17
-[v _ADC_Buffer_Point ADC_Buffer_Point `i  1 e 2 0 ]
+[v _Temp_Adc Temp_Adc `[10]i  1 e 20 0 ]
 "18
-[v _Temp_Done Temp_Done `i  1 e 2 0 ]
+[v _ADC_Buffer_Point ADC_Buffer_Point `i  1 e 2 0 ]
 "19
+[v _Temp_Done Temp_Done `i  1 e 2 0 ]
+"20
 [v _Volt_Done Volt_Done `i  1 e 2 0 ]
 "62 C:\Zips EV 15\trunk\BMS-LV.X\mcc_generated_files/eusart1.c
 [v _eusart1TxHead eusart1TxHead `uc  1 s 1 eusart1TxHead ]

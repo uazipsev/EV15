@@ -10703,7 +10703,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 12 "Battery.h"
+# 11 "Battery.h"
 extern char Battery_Fault();
 extern void Battery_Read();
 extern void Battery_Filter();
@@ -10745,12 +10745,14 @@ while (1)
 {
 if (Temp_Done)
 {
+Temp_Convert();
 Temp_Fault();
 }
 if (Volt_Done)
 {
 Battery_Convert();
 Battery_Fault();
+RunBypas();
 }
 }
 return (0);

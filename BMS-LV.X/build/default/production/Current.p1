@@ -1,13 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"6 Global.h
+"10 Global.h
 [v _ADC_Buffer_Point `i ~T0 @X0 0 e ]
+"7
+[v _Current_Aquire `uc ~T0 @X0 0 e ]
 "13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "36 Current.c
-[c E8849 29 30 31 0 1 3 4 9 11 14 5 6 7 .. ]
-[n E8849 . channel_CTMU channel_DAC channel_FVRBuf2 AN_CELL7 AN_CELL6 AN_CELL5 AN_CELL4 Vexternal Asen Temp1 AN_CELL3 AN_CELL2 AN_CELL1  ]
+[c E8850 29 30 31 0 1 3 4 9 11 14 5 6 7 .. ]
+[n E8850 . channel_CTMU channel_DAC channel_FVRBuf2 AN_CELL7 AN_CELL6 AN_CELL5 AN_CELL4 Vexternal Asen Temp1 AN_CELL3 AN_CELL2 AN_CELL1  ]
 "165 mcc_generated_files/adc.h
-[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8849 ]
+[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8850 ]
+"8 Global.h
+[v _Battery_Adc `i ~T0 @X0 -> 0 `x e ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8190,13 +8194,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Current.h: 14: void Current_Filter();
 [; ;Current.h: 15: void Current_Read();
 [; ;Current.h: 16: extern char Current_Fault();
-[; ;Global.h: 2: extern char Temp_Aquire;
-[; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
-[; ;Global.h: 5: extern int Temp_Adc[10];
-[; ;Global.h: 6: extern int ADC_Buffer_Point;
-[; ;Global.h: 7: extern int Volt_Done;
-[; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 5: extern char Temp_Aquire;
+[; ;Global.h: 6: extern char Volt_Aquire;
+[; ;Global.h: 7: extern char Current_Aquire;
+[; ;Global.h: 8: extern int Battery_Adc[10];
+[; ;Global.h: 9: extern int Temp_Adc[10];
+[; ;Global.h: 10: extern int ADC_Buffer_Point;
+[; ;Global.h: 11: extern int Volt_Done;
+[; ;Global.h: 12: extern int Temp_Done;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8326,6 +8331,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1182 ]
 [; ;Current.c: 21: {
 {
+[; ;Current.c: 22: if ((25 < Battery_Current[i]) && (25 < temp))
+"22
+[e $ ! && < -> -> 25 `i `f *U + &U _Battery_Current * -> -> _i `ui `ux -> -> # *U &U _Battery_Current `ui `ux < -> -> 25 `i `f _temp 1185  ]
+[; ;Current.c: 23: {
+"23
+{
+[; ;Current.c: 24: fault = 1;
+"24
+[e = _fault -> -> 1 `i `uc ]
+"25
+}
+[e :U 1185 ]
 "26
 }
 "20
@@ -8334,6 +8351,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1183 ]
 "26
 }
+[; ;Current.c: 25: }
 [; ;Current.c: 26: }
 [; ;Current.c: 27: return fault;
 "27
@@ -8354,15 +8372,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Current.c: 33: ADC_Buffer_Point = 0;
 "33
 [e = _ADC_Buffer_Point -> 0 `i ]
+[; ;Current.c: 34: Current_Aquire = 1;
+"34
+[e = _Current_Aquire -> -> 1 `i `uc ]
 [; ;Current.c: 35: ADCON1 = 0x80;
 "35
 [e = _ADCON1 -> -> 128 `i `uc ]
 [; ;Current.c: 36: ADC_StartConversion(Asen);
 "36
-[e ( _ADC_StartConversion (1 -> . `E8849 8 `E8849 ]
+[e ( _ADC_StartConversion (1 -> . `E8850 8 `E8850 ]
 [; ;Current.c: 37: }
 "37
-[e :UE 1185 ]
+[e :UE 1186 ]
 }
 "39
 [v _Current_Filter `(v ~T0 @X0 1 ef ]
@@ -8379,18 +8400,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "43
 {
 [e = _x -> 0 `i ]
-[e $ < _x -> 10 `i 1187  ]
-[e $U 1188  ]
+[e $ < _x -> 10 `i 1188  ]
+[e $U 1189  ]
 "44
-[e :U 1187 ]
+[e :U 1188 ]
 [; ;Current.c: 44: {
 {
+[; ;Current.c: 45: Battery_Current[x] = (0.88*TempBattery_Current[x] + ((1- 0.88)*PrevBattery_Current[x]));
+"45
+[e = *U + &U _Battery_Current * -> -> _x `ui `ux -> -> # *U &U _Battery_Current `ui `ux -> + * .0.88 -> *U + &U _TempBattery_Current * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Current `ui `ux `d * - -> -> 1 `i `d .0.88 -> *U + &U _PrevBattery_Current * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Current `ui `ux `d `f ]
 "46
 }
 "43
 [e ++ _x -> 1 `i ]
-[e $ < _x -> 10 `i 1187  ]
-[e :U 1188 ]
+[e $ < _x -> 10 `i 1188  ]
+[e :U 1189 ]
 "46
 }
 [; ;Current.c: 46: }
@@ -8398,24 +8422,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 "47
 {
 [e = _x -> 0 `i ]
-[e $ < _x -> 10 `i 1190  ]
-[e $U 1191  ]
+[e $ < _x -> 10 `i 1191  ]
+[e $U 1192  ]
 "48
-[e :U 1190 ]
+[e :U 1191 ]
 [; ;Current.c: 48: {
 {
+[; ;Current.c: 49: PrevBattery_Current[x] = Battery_Current[x];
+"49
+[e = *U + &U _PrevBattery_Current * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Current `ui `ux *U + &U _Battery_Current * -> -> _x `ui `ux -> -> # *U &U _Battery_Current `ui `ux ]
 "50
 }
 "47
 [e ++ _x -> 1 `i ]
-[e $ < _x -> 10 `i 1190  ]
-[e :U 1191 ]
+[e $ < _x -> 10 `i 1191  ]
+[e :U 1192 ]
 "50
 }
 [; ;Current.c: 50: }
 [; ;Current.c: 51: }
 "51
-[e :UE 1186 ]
+[e :UE 1187 ]
 }
 "53
 [v _Current_Convert `(v ~T0 @X0 1 ef ]
@@ -8432,24 +8459,30 @@ Version 3.2 HI-TECH Software Intermediate Code
 "56
 {
 [e = _x -> 0 `i ]
-[e $ < _x -> 10 `i 1194  ]
-[e $U 1195  ]
+[e $ < _x -> 10 `i 1195  ]
+[e $U 1196  ]
 "57
-[e :U 1194 ]
+[e :U 1195 ]
 [; ;Current.c: 57: {
 {
+[; ;Current.c: 58: TempBattery_Current[x] = ((Battery_Adc[x]/1024)*5) + 2.5;
+"58
+[e = *U + &U _TempBattery_Current * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Current `ui `ux -> + -> * / *U + &U _Battery_Adc * -> -> _x `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> 1024 `i -> 5 `i `d .2.5 `f ]
 "59
 }
 "56
 [e ++ _x -> 1 `i ]
-[e $ < _x -> 10 `i 1194  ]
-[e :U 1195 ]
+[e $ < _x -> 10 `i 1195  ]
+[e :U 1196 ]
 "59
 }
 [; ;Current.c: 59: }
+[; ;Current.c: 60: Current_Filter();
+"60
+[e ( _Current_Filter ..  ]
 [; ;Current.c: 61: }
 "61
-[e :UE 1193 ]
+[e :UE 1194 ]
 }
 "63
 [v _Current_Get `(f ~T0 @X0 1 ef ]
@@ -8468,10 +8501,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 9 `i 1198  ]
-[e $U 1199  ]
+[e $ < _i -> 9 `i 1199  ]
+[e $U 1200  ]
 "67
-[e :U 1198 ]
+[e :U 1199 ]
 [; ;Current.c: 67: {
 {
 [; ;Current.c: 68: temp += Battery_Current[i];
@@ -8481,8 +8514,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "66
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 9 `i 1198  ]
-[e :U 1199 ]
+[e $ < _i -> 9 `i 1199  ]
+[e :U 1200 ]
 "69
 }
 [; ;Current.c: 69: }
@@ -8492,8 +8525,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Current.c: 71: return temp;
 "71
 [e ) _temp ]
-[e $UE 1197  ]
+[e $UE 1198  ]
 [; ;Current.c: 72: }
 "72
-[e :UE 1197 ]
+[e :UE 1198 ]
 }

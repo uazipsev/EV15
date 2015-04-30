@@ -1,7 +1,7 @@
 _log: CODE, 3516 0 354
 _PIN_MANAGER_Initialize: CODE, 5634 0 78
 _TMR1_Initialize: CODE, 6138 0 34
-_Current_Read: CODE, 6296 0 20
+_Current_Read: CODE, 6272 0 24
 _EUSART1_Initialize: CODE, 5844 0 60
 _Temp_Filter: CODE, 2780 0 368
 _ADC_Initialize: CODE, 6224 0 24
@@ -9,23 +9,23 @@ ___ftpack: CODE, 4984 0 168
 _Battery_Convert: CODE, 4352 0 232
 _Temp_Convert: CODE, 2206 0 574
 _main: CODE, 6054 0 46
-_INTERRUPT_Initialize: CODE, 6330 0 12
+_INTERRUPT_Initialize: CODE, 6334 0 12
 ___ftadd: CODE, 1566 0 640
 _eval_poly: CODE, 3870 0 242
 __initialization: CODE, 5956 0 36
 _Temp_Read: CODE, 6248 0 24
 _frexp: CODE, 5152 0 146
 _INTERRUPT_InterruptManager: CODE, 8 0 160
-_TMR1_CallBack: CODE, 6350 0 2
+_TMR1_CallBack: CODE, 6354 0 2
 _Temp_Fault: CODE, 5442 0 106
-_TMR1_StartTimer: CODE, 6342 0 4
+_TMR1_StartTimer: CODE, 6346 0 4
 _ADC_StartConversion: CODE, 6198 0 26
 _EUSART1_Receive_ISR: CODE, 6006 0 48
-_OSCILLATOR_Initialize: CODE, 6316 0 14
+_OSCILLATOR_Initialize: CODE, 6320 0 14
 _SYSTEM_Initialize: CODE, 6172 0 26
-_Battery_Read: CODE, 6272 0 24
+_Battery_Read: CODE, 6296 0 24
 ___ftmul: CODE, 4112 0 240
-_ADC_ISR: CODE, 6346 0 4
+_ADC_ISR: CODE, 6350 0 4
 _Battery_Fault: CODE, 4810 0 174
 log@coeff: SMALLCONST, 1537 0 27
 ___awtoft: CODE, 5712 0 72
@@ -36,4 +36,4 @@ ___ftsub: CODE, 5784 0 60
 _Battery_Filter: CODE, 3148 0 368
 ___ftge: CODE, 5298 0 144
 ___ftdiv: CODE, 4584 0 226
-Total: 4959
+Total: 4963

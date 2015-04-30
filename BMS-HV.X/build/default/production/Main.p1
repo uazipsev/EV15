@@ -24,14 +24,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
 "8 Global.h
 [v _Temp_Done `i ~T0 @X0 0 e ]
-"13 Tempeture.h
+"16 Tempeture.h
+[v _Temp_Convert `(v ~T0 @X0 0 ef ]
+"13
 [v _Temp_Fault `(uc ~T0 @X0 0 ef ]
 "7 Global.h
 [v _Volt_Done `i ~T0 @X0 0 e ]
-"15 Battery.h
+"14 Battery.h
 [v _Battery_Convert `(v ~T0 @X0 0 ef ]
-"12
+"11
 [v _Battery_Fault `(uc ~T0 @X0 0 ef ]
+"75 Main.c
+[v _RunBypas `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8367,11 +8371,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-[; ;Battery.h: 12: extern char Battery_Fault();
-[; ;Battery.h: 13: extern void Battery_Read();
-[; ;Battery.h: 14: extern void Battery_Filter();
-[; ;Battery.h: 15: extern void Battery_Convert();
-[; ;Battery.h: 16: extern float Battery_Get(int channelnum);
+[; ;Battery.h: 11: extern char Battery_Fault();
+[; ;Battery.h: 12: extern void Battery_Read();
+[; ;Battery.h: 13: extern void Battery_Filter();
+[; ;Battery.h: 14: extern void Battery_Convert();
+[; ;Battery.h: 15: extern float Battery_Get(int channelnum);
 [; ;Functions.h: 12: void Set_4051(int Channel);
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
@@ -8414,41 +8418,47 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 67: {
 "67
 {
-[; ;Main.c: 68: Temp_Fault();
+[; ;Main.c: 68: Temp_Convert();
 "68
-[e ( _Temp_Fault ..  ]
+[e ( _Temp_Convert ..  ]
+[; ;Main.c: 69: Temp_Fault();
 "69
+[e ( _Temp_Fault ..  ]
+"70
 }
 [e :U 1187 ]
-[; ;Main.c: 69: }
-[; ;Main.c: 70: if (Volt_Done)
-"70
-[e $ ! != _Volt_Done -> 0 `i 1188  ]
-[; ;Main.c: 71: {
+[; ;Main.c: 70: }
+[; ;Main.c: 71: if (Volt_Done)
 "71
-{
-[; ;Main.c: 72: Battery_Convert();
+[e $ ! != _Volt_Done -> 0 `i 1188  ]
+[; ;Main.c: 72: {
 "72
-[e ( _Battery_Convert ..  ]
-[; ;Main.c: 73: Battery_Fault();
+{
+[; ;Main.c: 73: Battery_Convert();
 "73
-[e ( _Battery_Fault ..  ]
+[e ( _Battery_Convert ..  ]
+[; ;Main.c: 74: Battery_Fault();
 "74
+[e ( _Battery_Fault ..  ]
+[; ;Main.c: 75: RunBypas();
+"75
+[e ( _RunBypas ..  ]
+"76
 }
 [e :U 1188 ]
-"75
+"77
 }
 [e :U 1184 ]
 "64
 [e $U 1185  ]
 [e :U 1186 ]
-[; ;Main.c: 74: }
-[; ;Main.c: 75: }
-[; ;Main.c: 76: return (0);
-"76
+[; ;Main.c: 76: }
+[; ;Main.c: 77: }
+[; ;Main.c: 78: return (0);
+"78
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 77: }
-"77
+[; ;Main.c: 79: }
+"79
 [e :UE 1183 ]
 }
