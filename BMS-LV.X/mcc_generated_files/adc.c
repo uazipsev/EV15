@@ -50,6 +50,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #include <xc.h>
 #include "adc.h"
+#include "../Global.h"
+#include "../Functions.h"
 
 
 /**
@@ -129,6 +131,105 @@ void ADC_ISR(void)
 {
     // Clear the ADC interrupt flag
     PIR1bits.ADIF = 0;
+    int ADC_Result = 0;
+    if (Temp_Aquire){
+        //Do the temp sensor ADC
+        ADC_Result = ADC_GetConversionResult();
+        switch ( ADC_Buffer_Point )
+        {
+            case 0:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(0);
+              ADC_StartConversion(Temp1);
+              break;
+            case 1:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(1);
+              ADC_StartConversion(Temp1);
+              break;
+            case 2:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(2);
+              ADC_StartConversion(Temp1);
+              break;
+            case 3:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(3);
+              ADC_StartConversion(Temp1);
+              break;
+            case 4:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(4);
+              ADC_StartConversion(Temp1);
+              break;
+            case 5:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(5);
+              ADC_StartConversion(Temp1);
+              break;
+            case 6:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(6);
+              ADC_StartConversion(Temp1);
+              break;
+            case 7:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(7);
+              ADC_StartConversion(Temp1);
+              break;
+            case 8:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(0);
+             // ADC_StartConversion(Temp2);
+              break;
+            case 9:
+              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+              Set_4051(1);
+             // ADC_StartConversion(Temp2);
+              break;
+            case 10:
+              Temp_Aquire = 0;
+              Temp_Done = 1;
+              break;
+        }
+        ADC_Buffer_Point++;
+    }
+    if (Volt_Aquire){
+        //Do the Batt sensor ADC
+        ADC_Result = ADC_GetConversionResult();
+        switch ( ADC_Buffer_Point )
+        {
+            case 0:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL1);
+              break;
+            case 1:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL2);
+              break;
+            case 2:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL3);
+              break;
+            case 3:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL4);
+              break;
+            case 4:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL5);
+              break;
+            case 5:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL6);
+              break;
+            case 6:
+              Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(AN_CELL7);
+              break;
+        }
+        ADC_Buffer_Point++;
+    }
 }
 /**
  End of File

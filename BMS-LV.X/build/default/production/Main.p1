@@ -8440,19 +8440,35 @@ Version 3.2 HI-TECH Software Intermediate Code
 "75
 }
 [e :U 1188 ]
+[; ;Main.c: 75: }
+[; ;Main.c: 76: if (Volt_Done)
 "76
+[e $ ! != _Volt_Done -> 0 `i 1189  ]
+[; ;Main.c: 77: {
+"77
+{
+[; ;Main.c: 78: Battery_Convert();
+"78
+[e ( _Battery_Convert ..  ]
+[; ;Main.c: 79: Battery_Fault();
+"79
+[e ( _Battery_Fault ..  ]
+"80
+}
+[e :U 1189 ]
+"81
 }
 [e :U 1184 ]
 "64
 [e $U 1185  ]
 [e :U 1186 ]
-[; ;Main.c: 75: }
-[; ;Main.c: 76: }
-[; ;Main.c: 77: return (0);
-"77
+[; ;Main.c: 80: }
+[; ;Main.c: 81: }
+[; ;Main.c: 82: return (0);
+"82
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 78: }
-"78
+[; ;Main.c: 83: }
+"83
 [e :UE 1183 ]
 }

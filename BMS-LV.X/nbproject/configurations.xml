@@ -20,6 +20,7 @@
       <itemPath>Global.h</itemPath>
       <itemPath>Tempeture.h</itemPath>
       <itemPath>Current.h</itemPath>
+      <itemPath>Bypass.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -44,6 +45,7 @@
       <itemPath>Tempeture.c</itemPath>
       <itemPath>Main.c</itemPath>
       <itemPath>Current.c</itemPath>
+      <itemPath>Bypass.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -10503,7 +10503,20 @@ adc_result_t ADC_GetConversion(adc_channel_t channel);
 # 276
 void ADC_ISR(void);
 
-# 59 "mcc_generated_files/adc.c"
+# 5 "mcc_generated_files/../Global.h"
+extern char Temp_Aquire;
+extern char Volt_Aquire;
+extern char Current_Aquire;
+extern int Battery_Adc[10];
+extern int Temp_Adc[10];
+extern int ADC_Buffer_Point;
+extern int Volt_Done;
+extern int Temp_Done;
+
+# 12 "mcc_generated_files/../Functions.h"
+void Set_4051(int Channel);
+
+# 61 "mcc_generated_files/adc.c"
 void ADC_Initialize(void)
 {
 
@@ -10577,5 +10590,104 @@ void ADC_ISR(void)
 {
 
 PIR1bits.ADIF = 0;
+int ADC_Result = 0;
+if (Temp_Aquire){
+
+ADC_Result = ADC_GetConversionResult();
+switch ( ADC_Buffer_Point )
+{
+case 0:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(0);
+ADC_StartConversion(Temp1);
+break;
+case 1:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(1);
+ADC_StartConversion(Temp1);
+break;
+case 2:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(2);
+ADC_StartConversion(Temp1);
+break;
+case 3:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(3);
+ADC_StartConversion(Temp1);
+break;
+case 4:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(4);
+ADC_StartConversion(Temp1);
+break;
+case 5:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(5);
+ADC_StartConversion(Temp1);
+break;
+case 6:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(6);
+ADC_StartConversion(Temp1);
+break;
+case 7:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(7);
+ADC_StartConversion(Temp1);
+break;
+case 8:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(0);
+
+break;
+case 9:
+Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+Set_4051(1);
+
+break;
+case 10:
+Temp_Aquire = 0;
+Temp_Done = 1;
+break;
+}
+ADC_Buffer_Point++;
+}
+if (Volt_Aquire){
+
+ADC_Result = ADC_GetConversionResult();
+switch ( ADC_Buffer_Point )
+{
+case 0:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL1);
+break;
+case 1:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL2);
+break;
+case 2:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL3);
+break;
+case 3:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL4);
+break;
+case 4:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL5);
+break;
+case 5:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL6);
+break;
+case 6:
+Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+ADC_StartConversion(AN_CELL7);
+break;
+}
+ADC_Buffer_Point++;
+}
 }
 

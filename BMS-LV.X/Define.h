@@ -7,17 +7,29 @@
 
 #ifndef DEFINE_H
 #define	DEFINE_H
-
+/*
+ *  This is the RS485 ID
+ */
+#define RS485ID 0x10
 /*
  *  Battery cutoffs
  */
+//Number of batteries
+#define NUMOFBATT 6 // Num of cells - 1
 // Battery volt high cutoff
 #define BATHIGH 4.21
+// Battery volt high cutoff
+#define BATBYPON 4.18
+// Battery volt high cutoff
+#define BATBYPOFF 4.15
 // Battery volt low cutoff
 #define BATLOW  3.00
 // Battery temp cutoff
 #define TEMPHIGH 60.5
-// Battery current cutoff
+
+/*
+ * Current Cutouts
+ */
 #define CURRENTHIGH 25
 
 /*
