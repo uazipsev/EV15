@@ -22,6 +22,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1109 . . . . . . ]
 "17648
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
+"206 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "8 Global.h
 [v _Temp_Done `i ~T0 @X0 0 e ]
 "16 Tempeture.h
@@ -34,8 +36,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Battery_Convert `(v ~T0 @X0 0 ef ]
 "11
 [v _Battery_Fault `(uc ~T0 @X0 0 ef ]
-"75 Main.c
+"80 Main.c
 [v _RunBypas `(i ~T0 @X0 0 ef ]
+"15 Battery.h
+[v _Battery_Get `(f ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8213,8 +8217,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 511: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 455: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 467: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8406,59 +8410,108 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 55: (INTCONbits.PEIE = 1);
 "55
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;Main.c: 64: while (1)
+[; ;Main.c: 64: printf("Hi Mother Fucker");
 "64
-[e :U 1185 ]
-[; ;Main.c: 65: {
+[e ( _printf :s 1C ]
+[; ;Main.c: 65: while (1)
 "65
-{
-[; ;Main.c: 66: if (Temp_Done)
+[e :U 1185 ]
+[; ;Main.c: 66: {
 "66
-[e $ ! != _Temp_Done -> 0 `i 1187  ]
-[; ;Main.c: 67: {
-"67
 {
-[; ;Main.c: 68: Temp_Convert();
+[; ;Main.c: 67: if (Temp_Done)
+"67
+[e $ ! != _Temp_Done -> 0 `i 1187  ]
+[; ;Main.c: 68: {
 "68
-[e ( _Temp_Convert ..  ]
-[; ;Main.c: 69: Temp_Fault();
+{
+[; ;Main.c: 69: Temp_Convert();
 "69
-[e ( _Temp_Fault ..  ]
+[e ( _Temp_Convert ..  ]
+[; ;Main.c: 70: Temp_Fault();
 "70
+[e ( _Temp_Fault ..  ]
+[; ;Main.c: 71: for (int x = 0;x<10;x++)
+"71
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 10 `i 1188  ]
+[e $U 1189  ]
+"72
+[e :U 1188 ]
+[; ;Main.c: 72: {
+{
+"74
+}
+"71
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 10 `i 1188  ]
+[e :U 1189 ]
+"74
+}
+"75
 }
 [e :U 1187 ]
-[; ;Main.c: 70: }
-[; ;Main.c: 71: if (Volt_Done)
-"71
-[e $ ! != _Volt_Done -> 0 `i 1188  ]
-[; ;Main.c: 72: {
-"72
-{
-[; ;Main.c: 73: Battery_Convert();
-"73
-[e ( _Battery_Convert ..  ]
-[; ;Main.c: 74: Battery_Fault();
-"74
-[e ( _Battery_Fault ..  ]
-[; ;Main.c: 75: RunBypas();
-"75
-[e ( _RunBypas ..  ]
+[; ;Main.c: 74: }
+[; ;Main.c: 75: }
+[; ;Main.c: 76: if (Volt_Done)
 "76
-}
-[e :U 1188 ]
+[e $ ! != _Volt_Done -> 0 `i 1191  ]
+[; ;Main.c: 77: {
 "77
+{
+[; ;Main.c: 78: Battery_Convert();
+"78
+[e ( _Battery_Convert ..  ]
+[; ;Main.c: 79: Battery_Fault();
+"79
+[e ( _Battery_Fault ..  ]
+[; ;Main.c: 80: RunBypas();
+"80
+[e ( _RunBypas ..  ]
+[; ;Main.c: 81: for (int x = 0;x<10;x++)
+"81
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 10 `i 1192  ]
+[e $U 1193  ]
+"82
+[e :U 1192 ]
+[; ;Main.c: 82: {
+{
+[; ;Main.c: 83: printf("Battery %d = %f \r\n", x,Battery_Get(x));
+"83
+[e ( _printf , , (. :s 2C _x -> ( _Battery_Get (1 _x `d ]
+"84
+}
+"81
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 10 `i 1192  ]
+[e :U 1193 ]
+"84
+}
+"85
+}
+[e :U 1191 ]
+"87
 }
 [e :U 1184 ]
-"64
+"65
 [e $U 1185  ]
 [e :U 1186 ]
-[; ;Main.c: 76: }
-[; ;Main.c: 77: }
-[; ;Main.c: 78: return (0);
-"78
+[; ;Main.c: 84: }
+[; ;Main.c: 85: }
+[; ;Main.c: 87: }
+[; ;Main.c: 88: return (0);
+"88
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 79: }
-"79
+[; ;Main.c: 89: }
+"89
 [e :UE 1183 ]
 }
+[p f _printf 8396928 ]
+[a 1C 72 105 32 77 111 116 104 101 114 32 70 117 99 107 101 114 0 ]
+[a 2C 66 97 116 116 101 114 121 32 37 100 32 61 32 37 102 32 13 10 0 ]

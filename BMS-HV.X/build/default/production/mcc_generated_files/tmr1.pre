@@ -10494,10 +10494,10 @@ void TMR1_ISR(void);
 # 365
 void TMR1_CallBack(void);
 
-# 499 "mcc_generated_files/pin_manager.h"
+# 455 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 511
+# 467
 void PIN_MANAGER_IOC(void);
 
 # 9 "mcc_generated_files/tmr1.c"
@@ -10509,16 +10509,16 @@ void TMR1_Initialize(void)
 
 
 
-T1CON = 0x00;
+T1CON = 0x34;
 
 
 T1GCON = 0x00;
 
 
-TMR1H = 0xB1;
+TMR1H = 0x0B;
 
 
-TMR1L = 0xE0;
+TMR1L = 0xDC;
 
 
 timer1ReloadVal=TMR1;
@@ -10600,6 +10600,7 @@ return T1GCONbits.T1GVAL;
 
 void TMR1_ISR(void)
 {
+static volatile unsigned int CountCallBack = 0;
 
 
 PIR1bits.TMR1IF = 0;
@@ -10609,14 +10610,31 @@ TMR1H = (timer1ReloadVal >> 8);
 TMR1L = (uint8_t) timer1ReloadVal;
 
 
+if (++CountCallBack >= 4)
+{
 
-TMR1_CallBack();
+do { LATA4 = ~LATA4; } while(0);
 
+
+CountCallBack = 0;
+}
+if(CountCallBack == 1)
+{
+
+}
+if(CountCallBack == 2)
+{
+Battery_Read();
+}
+if(CountCallBack == 3)
+{
+Temp_Read();
+}
 }
 
 void TMR1_CallBack(void)
 {
 
-do { LATA4 = ~LATA4; } while(0);
+
 }
 

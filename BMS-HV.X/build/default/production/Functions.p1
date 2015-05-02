@@ -89,8 +89,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 109: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
-[; ;pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 511: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 455: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 467: void PIN_MANAGER_IOC(void);
 [; ;Functions.h: 12: void Set_4051(int Channel);
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);

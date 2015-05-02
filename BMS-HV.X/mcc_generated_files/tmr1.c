@@ -16,17 +16,17 @@ void TMR1_Initialize(void)
 {
     //Set the Timer to the options selected in the GUI
 
-    //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:1; TMR1CS FOSC/4; T1SYNC synchronize; TMR1ON disabled; 
-    T1CON = 0x00;
+    //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:8; TMR1CS FOSC/4; T1SYNC do_not_synchronize; TMR1ON disabled;
+    T1CON = 0x34;
 
-    //T1GVAL disabled; T1GSPM disabled; T1GSS T1G; T1GTM disabled; T1GPOL low; TMR1GE disabled; T1GGO done; 
+    //T1GVAL disabled; T1GSPM disabled; T1GSS T1G; T1GTM disabled; T1GPOL low; TMR1GE disabled; T1GGO done;
     T1GCON = 0x00;
 
-    //TMR1H 177; 
-    TMR1H = 0xB1;
+    //TMR1H 11;
+    TMR1H = 0x0B;
 
-    //TMR1L 224; 
-    TMR1L = 0xE0;
+    //TMR1L 220;
+    TMR1L = 0xDC;
 
     // Load the TMR value to reload variable
     timer1ReloadVal=TMR1;
@@ -108,24 +108,42 @@ uint8_t TMR1_CheckGateValueStatus(void)
 
 void TMR1_ISR(void)
 {
+    static volatile unsigned int CountCallBack = 0;
 
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
-    
+
     // Write to the Timer1 register
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = (uint8_t) timer1ReloadVal;
 
-    // ticker function call;
-    // ticker is 1 -> Callback function gets called everytime this ISR executes
-    TMR1_CallBack();
-    // Add your TMR1 interrupt custom code
+    // callback function - called every 4th pass
+    if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
+    {
+        // ticker function call
+        Indicator_Toggle();
+
+        // reset ticker counter
+        CountCallBack = 0;
+    }
+    if(CountCallBack == 1)
+    {
+        //Current_Read();
+    }
+    if(CountCallBack == 2)
+    {
+        Battery_Read();
+    }
+    if(CountCallBack == 3)
+    {
+        Temp_Read();
+    }
 }
 
 void TMR1_CallBack(void)
 {
     // Add your custom callback code here
-    Indicator_Toggle();
+    
 }
 
 /**

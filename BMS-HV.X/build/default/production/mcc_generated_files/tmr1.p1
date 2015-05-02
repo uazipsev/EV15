@@ -67,10 +67,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1019 . . . . . ]
 "16312
 [v _T1GCONbits `VS1019 ~T0 @X0 0 e@4044 ]
-"365 mcc_generated_files/tmr1.h
-[v _TMR1_CallBack `(v ~T0 @X0 0 ef ]
-"18981 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+"18981
 [v _LATA4 `Vb ~T0 @X0 0 e@31820 ]
+"135 mcc_generated_files/tmr1.c
+[v _Battery_Read `(i ~T0 @X0 0 ef ]
+"139
+[v _Temp_Read `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8287,8 +8289,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
 [; ;tmr1.h: 346: void TMR1_ISR(void);
 [; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 511: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 455: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 467: void PIN_MANAGER_IOC(void);
 "9 mcc_generated_files/tmr1.c
 [v _timer1ReloadVal `Vui ~T0 @X0 1 e ]
 [; ;tmr1.c: 9: volatile uint16_t timer1ReloadVal;
@@ -8300,18 +8302,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 16: {
 [e :U _TMR1_Initialize ]
 [f ]
-[; ;tmr1.c: 20: T1CON = 0x00;
+[; ;tmr1.c: 20: T1CON = 0x34;
 "20
-[e = _T1CON -> -> 0 `i `uc ]
+[e = _T1CON -> -> 52 `i `uc ]
 [; ;tmr1.c: 23: T1GCON = 0x00;
 "23
 [e = _T1GCON -> -> 0 `i `uc ]
-[; ;tmr1.c: 26: TMR1H = 0xB1;
+[; ;tmr1.c: 26: TMR1H = 0x0B;
 "26
-[e = _TMR1H -> -> 177 `i `uc ]
-[; ;tmr1.c: 29: TMR1L = 0xE0;
+[e = _TMR1H -> -> 11 `i `uc ]
+[; ;tmr1.c: 29: TMR1L = 0xDC;
 "29
-[e = _TMR1L -> -> 224 `i `uc ]
+[e = _TMR1L -> -> 220 `i `uc ]
 [; ;tmr1.c: 32: timer1ReloadVal=TMR1;
 "32
 [e = _timer1ReloadVal -> _TMR1 `ui ]
@@ -8502,38 +8504,90 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 110: {
 [e :U _TMR1_ISR ]
 [f ]
-[; ;tmr1.c: 113: PIR1bits.TMR1IF = 0;
-"113
+"111
+[v F8877 `Vui ~T0 @X0 1 s CountCallBack ]
+[i F8877
+-> -> 0 `i `ui
+]
+[; ;tmr1.c: 111: static volatile unsigned int CountCallBack = 0;
+[; ;tmr1.c: 114: PIR1bits.TMR1IF = 0;
+"114
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;tmr1.c: 116: TMR1H = (timer1ReloadVal >> 8);
-"116
-[e = _TMR1H -> >> _timer1ReloadVal -> 8 `i `uc ]
-[; ;tmr1.c: 117: TMR1L = (uint8_t) timer1ReloadVal;
+[; ;tmr1.c: 117: TMR1H = (timer1ReloadVal >> 8);
 "117
+[e = _TMR1H -> >> _timer1ReloadVal -> 8 `i `uc ]
+[; ;tmr1.c: 118: TMR1L = (uint8_t) timer1ReloadVal;
+"118
 [e = _TMR1L -> _timer1ReloadVal `uc ]
-[; ;tmr1.c: 121: TMR1_CallBack();
+[; ;tmr1.c: 121: if (++CountCallBack >= 4)
 "121
-[e ( _TMR1_CallBack ..  ]
-[; ;tmr1.c: 123: }
-"123
-[e :UE 1188 ]
-}
-"125
-[v _TMR1_CallBack `(v ~T0 @X0 1 ef ]
-"126
+[e $ ! >= =+ F8877 -> -> 1 `i `ui -> -> 4 `i `ui 1189  ]
+[; ;tmr1.c: 122: {
+"122
 {
-[; ;tmr1.c: 125: void TMR1_CallBack(void)
-[; ;tmr1.c: 126: {
-[e :U _TMR1_CallBack ]
-[f ]
-[; ;tmr1.c: 128: do { LATA4 = ~LATA4; } while(0);
-"128
+[; ;tmr1.c: 124: do { LATA4 = ~LATA4; } while(0);
+"124
 [e :U 1192 ]
 {
 [e = _LATA4 -> ~ -> _LATA4 `ui `b ]
 }
 [e :U 1191 ]
-[; ;tmr1.c: 129: }
+[; ;tmr1.c: 127: CountCallBack = 0;
+"127
+[e = F8877 -> -> 0 `i `ui ]
+"128
+}
+[e :U 1189 ]
+[; ;tmr1.c: 128: }
+[; ;tmr1.c: 129: if(CountCallBack == 1)
 "129
-[e :UE 1189 ]
+[e $ ! == F8877 -> -> 1 `i `ui 1193  ]
+[; ;tmr1.c: 130: {
+"130
+{
+"132
+}
+[e :U 1193 ]
+[; ;tmr1.c: 132: }
+[; ;tmr1.c: 133: if(CountCallBack == 2)
+"133
+[e $ ! == F8877 -> -> 2 `i `ui 1194  ]
+[; ;tmr1.c: 134: {
+"134
+{
+[; ;tmr1.c: 135: Battery_Read();
+"135
+[e ( _Battery_Read ..  ]
+"136
+}
+[e :U 1194 ]
+[; ;tmr1.c: 136: }
+[; ;tmr1.c: 137: if(CountCallBack == 3)
+"137
+[e $ ! == F8877 -> -> 3 `i `ui 1195  ]
+[; ;tmr1.c: 138: {
+"138
+{
+[; ;tmr1.c: 139: Temp_Read();
+"139
+[e ( _Temp_Read ..  ]
+"140
+}
+[e :U 1195 ]
+[; ;tmr1.c: 140: }
+[; ;tmr1.c: 141: }
+"141
+[e :UE 1188 ]
+}
+"143
+[v _TMR1_CallBack `(v ~T0 @X0 1 ef ]
+"144
+{
+[; ;tmr1.c: 143: void TMR1_CallBack(void)
+[; ;tmr1.c: 144: {
+[e :U _TMR1_CallBack ]
+[f ]
+[; ;tmr1.c: 147: }
+"147
+[e :UE 1196 ]
 }

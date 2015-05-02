@@ -10371,10 +10371,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 499 "mcc_generated_files/pin_manager.h"
+# 455 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
-# 511
+# 467
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdint.h"
@@ -10741,19 +10741,29 @@ SYSTEM_Initialize();
 (INTCONbits.PEIE = 1);
 
 # 64
+printf("Hi Mother Fucker");
 while (1)
 {
 if (Temp_Done)
 {
 Temp_Convert();
 Temp_Fault();
+for (int x = 0;x<10;x++)
+{
+
+}
 }
 if (Volt_Done)
 {
 Battery_Convert();
 Battery_Fault();
 RunBypas();
+for (int x = 0;x<10;x++)
+{
+printf("Battery %d = %f \r\n", x,Battery_Get(x));
 }
+}
+
 }
 return (0);
 }

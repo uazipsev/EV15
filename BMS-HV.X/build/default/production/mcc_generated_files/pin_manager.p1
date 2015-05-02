@@ -8222,68 +8222,68 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 499: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 511: void PIN_MANAGER_IOC(void);
-"50 mcc_generated_files/pin_manager.c
+[; ;pin_manager.h: 455: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 467: void PIN_MANAGER_IOC(void);
+"6 mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
-"51
+"7
 {
-[; ;pin_manager.c: 50: void PIN_MANAGER_Initialize(void)
-[; ;pin_manager.c: 51: {
+[; ;pin_manager.c: 6: void PIN_MANAGER_Initialize(void)
+[; ;pin_manager.c: 7: {
 [e :U _PIN_MANAGER_Initialize ]
 [f ]
-[; ;pin_manager.c: 52: LATA = 0x00;
-"52
+[; ;pin_manager.c: 8: LATA = 0x00;
+"8
 [e = _LATA -> -> 0 `i `uc ]
-[; ;pin_manager.c: 53: TRISA = 0xAE;
-"53
+[; ;pin_manager.c: 9: TRISA = 0xAE;
+"9
 [e = _TRISA -> -> 174 `i `uc ]
-[; ;pin_manager.c: 54: ANSELA = 0x2E;
-"54
+[; ;pin_manager.c: 10: ANSELA = 0x2E;
+"10
 [e = _ANSELA -> -> 46 `i `uc ]
-[; ;pin_manager.c: 56: LATB = 0x00;
-"56
+[; ;pin_manager.c: 12: LATB = 0x00;
+"12
 [e = _LATB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 57: TRISB = 0xF4;
-"57
+[; ;pin_manager.c: 13: TRISB = 0xF4;
+"13
 [e = _TRISB -> -> 244 `i `uc ]
-[; ;pin_manager.c: 58: ANSELB = 0x34;
-"58
+[; ;pin_manager.c: 14: ANSELB = 0x34;
+"14
 [e = _ANSELB -> -> 52 `i `uc ]
-[; ;pin_manager.c: 59: WPUB = 0x00;
-"59
+[; ;pin_manager.c: 15: WPUB = 0x00;
+"15
 [e = _WPUB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 61: LATC = 0x08;
-"61
+[; ;pin_manager.c: 17: LATC = 0x08;
+"17
 [e = _LATC -> -> 8 `i `uc ]
-[; ;pin_manager.c: 62: TRISC = 0xC4;
-"62
+[; ;pin_manager.c: 18: TRISC = 0xC4;
+"18
 [e = _TRISC -> -> 196 `i `uc ]
-[; ;pin_manager.c: 63: ANSELC = 0x04;
-"63
+[; ;pin_manager.c: 19: ANSELC = 0x04;
+"19
 [e = _ANSELC -> -> 4 `i `uc ]
-[; ;pin_manager.c: 65: LATD = 0x00;
-"65
+[; ;pin_manager.c: 21: LATD = 0x00;
+"21
 [e = _LATD -> -> 0 `i `uc ]
-[; ;pin_manager.c: 66: TRISD = 0xD1;
-"66
+[; ;pin_manager.c: 22: TRISD = 0xD1;
+"22
 [e = _TRISD -> -> 209 `i `uc ]
-[; ;pin_manager.c: 67: ANSELD = 0xD1;
-"67
+[; ;pin_manager.c: 23: ANSELD = 0xD1;
+"23
 [e = _ANSELD -> -> 209 `i `uc ]
-[; ;pin_manager.c: 69: LATE = 0x00;
-"69
+[; ;pin_manager.c: 25: LATE = 0x00;
+"25
 [e = _LATE -> -> 0 `i `uc ]
-[; ;pin_manager.c: 70: TRISE = 0x05;
-"70
+[; ;pin_manager.c: 26: TRISE = 0x05;
+"26
 [e = _TRISE -> -> 5 `i `uc ]
-[; ;pin_manager.c: 71: ANSELE = 0x05;
-"71
+[; ;pin_manager.c: 27: ANSELE = 0x05;
+"27
 [e = _ANSELE -> -> 5 `i `uc ]
-[; ;pin_manager.c: 73: INTCON2bits.nRBPU = 0x01;
-"73
+[; ;pin_manager.c: 29: INTCON2bits.nRBPU = 0x01;
+"29
 [e = . . _INTCON2bits 1 7 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 74: }
-"74
+[; ;pin_manager.c: 30: }
+"30
 [e :UE 1178 ]
 }

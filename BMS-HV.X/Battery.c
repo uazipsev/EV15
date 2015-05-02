@@ -8,26 +8,25 @@ float Battery_Volt[10];
 float TempBattery_Volt[10];
 float PrevBattery_Volt[10];
 
-char Battery_Fault()
-{
-    char fault = 0;      // Init fault as if there is none
-    for(int i = 0;i<NUMOFBATT;i++)
-    {
-        if ((BATLOW < Battery_Volt[i]) && (BATHIGH > Battery_Volt[i]))
-        {
-            fault = 1;   // Set fault if found! Uh-Oh!!!!
-        }
-    }
-    return fault;
-}
 
 void Battery_Read()
 {
+  //printf("Get Battery Voltage");
   //Set the ADC interupt to start to fill in the Battery ADC Buffer
   ADC_Buffer_Point = 0;
   Volt_Aquire = 1;  //Set global flag for ADC ISR to trigger battery volt reads
-  ADCON1 = 0x81; //Set up to run ADC from VDD to Vref- (2.5v)
+  ADCON1 = 0x80; //Set up to run ADC from VDD to Vref- (2.5v) Put back to 0x81
   ADC_StartConversion(Battery1);  //We need to get the ball rolling...
+}
+
+void Battery_Convert()
+{
+    int x;
+    for(x = 0; x < 10; x++)
+    {
+        TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5); //+ 2.5; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
+    }
+    Battery_Filter();
 }
 
 void Battery_Filter()
@@ -44,14 +43,17 @@ void Battery_Filter()
    }
 }
 
-void Battery_Convert()
+char Battery_Fault()
 {
-    int x;
-    for(x = 0; x < 10; x++)
+    char fault = 0;      // Init fault as if there is none
+    for(int i = 0;i<NUMOFBATT;i++)
     {
-        TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5) + 2.5; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
+        if ((BATLOW < Battery_Volt[i]) && (BATHIGH > Battery_Volt[i]))
+        {
+            fault = 1;   // Set fault if found! Uh-Oh!!!!
+        }
     }
-    Battery_Filter();
+    return fault;
 }
 
 float Battery_Get(int channelnum)

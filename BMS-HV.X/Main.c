@@ -61,19 +61,29 @@ int main(int argc, char** argv) {
     //INTERRUPT_PeripheralInterruptDisable();
     //int ADCNT = 0;
     //INDICATOR_SetHigh();
+    printf("Hi Mother Fucker");
     while (1)
     {
         if (Temp_Done)
         {
             Temp_Convert();
             Temp_Fault();
+            for (int x = 0;x<12;x++)
+            {
+                //printf("Temp %d = %f \r\n", x,Tempeture_Get(x));
+            }
         }
         if (Volt_Done)
         {
             Battery_Convert();
             Battery_Fault();
             RunBypas();
+            for (int x = 0;x<10;x++)
+            {
+                printf("Battery %d = %f \r\n", x,Battery_Get(x));
+            }
         }
+        
     }
     return (EXIT_SUCCESS);
 }
