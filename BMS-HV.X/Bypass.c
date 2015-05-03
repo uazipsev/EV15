@@ -5,13 +5,23 @@
 #include "Battery.h"
 #include "mcc_generated_files/pin_manager.h"
 
-int SetBypas(int pin, int state)
+
+
+
+/*******************************************************************
+ * @brief           Controls Bypass
+ * @param[in]       pin - what battery to control the bypass on
+ * @param[in]       state - turn bypass on or off
+ * @return          nothing
+ * @note            Like to make this fcm better
+ *******************************************************************/
+int SetBypass(int pin, int state)
 {
-    switch (pin) {
+    switch (pin) {                   //<! sellects proper pin to control
         case 0:
             if (state)
             {
-                Bypass1_SetHigh();
+                Bypass1_SetHigh();   //<! sets high to turn on or low to turn off
             }
             else
             {
@@ -111,25 +121,31 @@ int SetBypas(int pin, int state)
     }
 }
 
+/*******************************************************************
+ * @brief           Controls Bypass
+ * @param[in]       pin - what battery to control the bypass on
+ * @param[in]       state - turn bypass on or off
+ * @return          did we need a bypass? returns 1 if yes 0 if no
+ * @note            works well with diffrent size systems
+ *******************************************************************/
 int RunBypas()
 {
     int cellbyp = 0;
     int i = 0;
     float batvolt = 0;
 
-    for(i = 0; i<NUMOFBATT;i++)
+    for(i = 0; i<NUMOFBATT;i++)      //<! runs threw num of batteries
     {
-        batvolt = Battery_Get(i);
+        batvolt = Battery_Get(i);    //<! gets battery voltage
 
-        if(batvolt >= BATBYPON)
+        if(batvolt >= BATBYPON)      //<! if bypass needs enabled..
         {
-           SetBypas(i,1);
+           SetBypass(i,1);           //<! sets bypass on
            cellbyp = 1;
         }
-        if(batvolt <= BATBYPOFF)
+        if(batvolt <= BATBYPOFF)     //<! if bypass needs turned off...
         {
-           SetBypas(i,0);
-           cellbyp = 1;
+           SetBypass(i,0);           //<! sets bypass off
         }
     }
     return cellbyp;

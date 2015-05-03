@@ -10711,7 +10711,8 @@ extern void Battery_Convert();
 extern float Battery_Get(int channelnum);
 
 # 12 "Functions.h"
-void Set_4051(int Channel);
+extern void Set_4051(int Channel);
+extern void Delay(long int d_lenth);
 
 # 2 "Global.h"
 extern char Temp_Aquire;
@@ -10722,6 +10723,10 @@ extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
 
+# 11 "Bypass.h"
+extern int SetBypass(int pin,int state);
+extern int RunBypas();
+
 # 13 "Tempeture.h"
 extern char Temp_Fault();
 extern void Temp_Read();
@@ -10729,18 +10734,18 @@ extern void Temp_Filter();
 extern void Temp_Convert();
 extern float Tempeture_Get(int channelnum);
 
-# 31 "Main.c"
+# 30 "Main.c"
 int main(int argc, char** argv) {
 
 SYSTEM_Initialize();
 
-# 52
+# 51
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 64
+# 63
 printf("Hi Mother Fucker");
 while (1)
 {
@@ -10748,7 +10753,7 @@ if (Temp_Done)
 {
 Temp_Convert();
 Temp_Fault();
-for (int x = 0;x<10;x++)
+for (int x = 0;x<12;x++)
 {
 
 }
@@ -10762,6 +10767,16 @@ for (int x = 0;x<10;x++)
 {
 printf("Battery %d = %f \r\n", x,Battery_Get(x));
 }
+}
+Delay(1000);
+for(int i = 0;i<10;i++)
+{
+SetBypass(i,1);
+}
+Delay(1000);
+for(int i = 0;i<10;i++)
+{
+SetBypass(i,0);
 }
 
 }

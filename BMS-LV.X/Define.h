@@ -7,6 +7,7 @@
 
 #ifndef DEFINE_H
 #define	DEFINE_H
+
 /*
  *  This is the RS485 ID
  */

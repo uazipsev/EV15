@@ -21,7 +21,7 @@ Battery6 26
 Battery7 27
 Battery4 5
 ]
-"19 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"25 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [e E8850 . `uc
 channel_CTMU 29
 channel_DAC 30
@@ -57,19 +57,19 @@ Battery6 26
 Battery7 27
 Battery4 5
 ]
-"12 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"18 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Read Battery_Read `(i  1 e 2 0 ]
-"22
+"35
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
-"32
+"52
 [v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
-"46
+"73
 [v _Battery_Fault Battery_Fault `(uc  1 e 1 0 ]
-"59
+"94
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
-"8 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
-[v _SetBypas SetBypas `(i  1 e 2 0 ]
-"114
+"18 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
+[v _SetBypass SetBypass `(i  1 e 2 0 ]
+"131
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -213,9 +213,11 @@ Battery4 5
 [v ___asftsub __asftsub `(f  1 e 3 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\aslmul.c
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
-"7 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+"9 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
 [v _Set_4051 Set_4051 `(v  1 e 0 0 ]
-"31 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
+"25
+[v _Delay Delay `(v  1 e 0 0 ]
+"30 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
 "13 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
@@ -550,7 +552,7 @@ Battery4 5
 ]
 [u S555 . 1 `S540 1 . 1 0 `S543 1 . 1 0 `S552 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES555  1 e 1 @4081 ]
-[s S852 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S861 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -560,7 +562,7 @@ Battery4 5
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17648
-[s S861 . 1 `uc 1 . 1 0 :1:0 
+[s S870 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -569,12 +571,12 @@ Battery4 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S870 . 1 `uc 1 . 1 0 :6:0 
+[s S879 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S887 . 1 `S852 1 . 1 0 `S861 1 . 1 0 `S870 1 . 1 0 `S861 1 . 1 0 `S870 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES887  1 e 1 @4082 ]
+[u S896 . 1 `S861 1 . 1 0 `S870 1 . 1 0 `S879 1 . 1 0 `S870 1 . 1 0 `S879 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES896  1 e 1 @4082 ]
 "18973
 [v _LATA0 LATA0 `VEb  1 e 0 @31816 ]
 "18981
@@ -649,17 +651,21 @@ Battery4 5
 [v _TmpTemp_DegF TmpTemp_DegF `[10]f  1 e 30 0 ]
 "10
 [v _PrevTemp_DegF PrevTemp_DegF `[10]f  1 e 30 0 ]
-"31 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
+"30 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"81
-[v main@x_963 x `i  1 a 2 67 ]
-"71
+"80
+[v main@x_979 x `i  1 a 2 71 ]
+"70
 [v main@x x `i  1 a 2 65 ]
-"31
+"91
+[v main@i_984 i `i  1 a 2 69 ]
+"86
+[v main@i i `i  1 a 2 67 ]
+"30
 [v main@argc argc `i  1 p 2 60 ]
 [v main@argv argv `*.2*.2uc  1 p 3 62 ]
-"89
+"98
 } 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
@@ -667,11 +673,11 @@ Battery4 5
 "1210
 [v printf@vd vd `ul  1 a 4 7 ]
 "1238
-[v printf@vd_1042 vd `ul  1 a 4 11 ]
-[s S1026 . 5 `*.39Cuc 1 _cp 3 0 `ui 1 _len 2 3 ]
+[v printf@vd_1060 vd `ul  1 a 4 11 ]
+[s S1044 . 5 `*.39Cuc 1 _cp 3 0 `ui 1 _len 2 3 ]
 "525
-[u S1029 . 5 `ul 1 _val 4 0 `S1026 1 _str 5 0 ]
-[v printf@_val _val `S1029  1 a 5 24 ]
+[u S1047 . 5 `ul 1 _val 4 0 `S1044 1 _str 5 0 ]
+[v printf@_val _val `S1047  1 a 5 24 ]
 "516
 [v printf@fval fval `d  1 a 3 31 ]
 [v printf@integ integ `d  1 a 3 19 ]
@@ -924,38 +930,47 @@ Battery4 5
 {
 "34
 } 0
-"114 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
+"131 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
 {
-"118
+"135
 [v RunBypas@batvolt batvolt `f  1 a 3 2 ]
-"117
+"134
 [v RunBypas@i i `i  1 a 2 5 ]
-"116
+"133
 [v RunBypas@cellbyp cellbyp `i  1 a 2 0 ]
-"136
+"152
 } 0
-"8
-[v _SetBypas SetBypas `(i  1 e 2 0 ]
+"18
+[v _SetBypass SetBypass `(i  1 e 2 0 ]
 {
-[v SetBypas@pin pin `i  1 p 2 22 ]
-[v SetBypas@state state `i  1 p 2 24 ]
-"112
+[v SetBypass@pin pin `i  1 p 2 22 ]
+[v SetBypass@state state `i  1 p 2 24 ]
+"122
 } 0
-"59 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"94 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
 {
 [v Battery_Get@channelnum channelnum `i  1 p 2 42 ]
-"62
+"97
 } 0
-"46
+"25 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+[v _Delay Delay `(v  1 e 0 0 ]
+{
+"27
+[v Delay@wait wait `l  1 a 4 27 ]
+"25
+[v Delay@d_lenth d_lenth `l  1 p 4 22 ]
+"32
+} 0
+"73 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Fault Battery_Fault `(uc  1 e 1 0 ]
 {
-"49
+"76
 [v Battery_Fault@i i `i  1 a 2 1 ]
-"48
+"75
 [v Battery_Fault@fault fault `uc  1 a 1 0 ]
-"57
+"84
 } 0
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
@@ -964,12 +979,12 @@ Battery4 5
 [v ___ftge@ff2 ff2 `f  1 p 3 45 ]
 "13
 } 0
-"22 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"35 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
 {
-"24
+"37
 [v Battery_Convert@x x `i  1 a 2 36 ]
-"30
+"43
 } 0
 "32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
@@ -993,12 +1008,12 @@ Battery4 5
 [v ___awdiv@divisor divisor `i  1 p 2 30 ]
 "42
 } 0
-"32 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"52 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
 {
-"35
+"55
 [v Battery_Filter@x x `i  1 a 2 49 ]
-"44
+"64
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -1061,10 +1076,10 @@ Battery4 5
 {
 "34
 } 0
-"12 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"18 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Read Battery_Read `(i  1 e 2 0 ]
 {
-"20
+"26
 } 0
 "173 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/eusart1.c
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
@@ -1083,11 +1098,11 @@ Battery4 5
 [v ADC_ISR@ADC_Result ADC_Result `i  1 a 2 6 ]
 "201
 } 0
-"7 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+"9 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
 [v _Set_4051 Set_4051 `(v  1 e 0 0 ]
 {
 [v Set_4051@Channel Channel `i  1 p 2 0 ]
-"21
+"23
 } 0
 "36 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_StartConversion ADC_StartConversion `(v  1 e 0 0 ]

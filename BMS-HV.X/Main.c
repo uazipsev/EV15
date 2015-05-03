@@ -16,7 +16,7 @@
 *               -Read RS485 BUS for data and reply with expectied data
 *********************************************************************************************************
  */
-
+#define _XTAL_FREQ 8000000
 #include "mcc_generated_files/mcc.h"
 
 #include <stdio.h>
@@ -24,9 +24,8 @@
 #include "Battery.h"
 #include "Functions.h"
 #include "Global.h"
+#include "Bypass.h"
 #include "Tempeture.h"
-
-
 
 int main(int argc, char** argv) {
     // Initialize the device
@@ -64,10 +63,10 @@ int main(int argc, char** argv) {
     printf("Hi Mother Fucker");
     while (1)
     {
-        if (Temp_Done)
+        if (Temp_Done)  //<! This alerts the user that we are done gathering data (Temp)
         {
-            Temp_Convert();
-            Temp_Fault();
+            Temp_Convert();  //<! Gets ADC counts and converts it to temp (F)
+            Temp_Fault();    //<! Detects over temp conditions
             for (int x = 0;x<12;x++)
             {
                 //printf("Temp %d = %f \r\n", x,Tempeture_Get(x));
@@ -75,13 +74,23 @@ int main(int argc, char** argv) {
         }
         if (Volt_Done)
         {
-            Battery_Convert();
-            Battery_Fault();
-            RunBypas();
+            Battery_Convert();     //<! Converts ADC counts to bat volts
+            Battery_Fault();       //<! Detects over volt conditions
+            RunBypas();            //<! Runs bypass on required batteries
             for (int x = 0;x<10;x++)
             {
                 printf("Battery %d = %f \r\n", x,Battery_Get(x));
             }
+        }
+        Delay(1000);
+        for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)
+        {
+            SetBypass(i,1);
+        }
+        Delay(1000);
+        for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them off)
+        {
+            SetBypass(i,0);
         }
         
     }

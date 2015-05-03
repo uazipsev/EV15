@@ -8317,7 +8317,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;
-[; ;Functions.h: 12: void Set_4051(int Channel);
+[; ;Functions.h: 12: extern void Set_4051(int Channel);
+[; ;Functions.h: 13: extern void Delay(long int d_lenth);
 "13 mcc_generated_files/adc.c
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
 "14

@@ -10526,7 +10526,7 @@ float Battery_Volt[10];
 float TempBattery_Volt[10];
 float PrevBattery_Volt[10];
 
-
+# 18
 void Battery_Read()
 {
 
@@ -10537,6 +10537,7 @@ ADCON1 = 0x80;
 ADC_StartConversion(Battery1);
 }
 
+# 35
 void Battery_Convert()
 {
 int x;
@@ -10547,6 +10548,7 @@ TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5);
 Battery_Filter();
 }
 
+# 52
 void Battery_Filter()
 {
 
@@ -10561,6 +10563,7 @@ PrevBattery_Volt[x] = Battery_Volt[x];
 }
 }
 
+# 73
 char Battery_Fault()
 {
 char fault = 0;
@@ -10574,6 +10577,7 @@ fault = 1;
 return fault;
 }
 
+# 94
 float Battery_Get(int channelnum)
 {
 return Battery_Volt[channelnum];

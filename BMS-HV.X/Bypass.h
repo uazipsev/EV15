@@ -8,7 +8,7 @@
 #ifndef BYPASS_H
 #define	BYPASS_H
 
-extern int SetBypas(int pin,int state);
+extern int SetBypass(int pin,int state);
 extern int RunBypas();
 
 #endif	/* BYPASS_H */

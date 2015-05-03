@@ -9,8 +9,8 @@
 #define	FUNCTIONS_H
 
 
-void Set_4051(int Channel);
-
+extern void Set_4051(int Channel);
+extern void Delay(long int d_lenth);
 
 #endif	/* FUNCTIONS_H */
 
