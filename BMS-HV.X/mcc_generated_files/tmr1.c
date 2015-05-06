@@ -2,6 +2,7 @@
 #include <xc.h>
 #include "tmr1.h"
 #include "pin_manager.h"
+#include "../Global.h"
 
 /**
   Section: Global Variable Definitions
@@ -16,16 +17,16 @@ void TMR1_Initialize(void)
 {
     //Set the Timer to the options selected in the GUI
 
-    //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:8; TMR1CS FOSC/4; T1SYNC do_not_synchronize; TMR1ON disabled;
-    T1CON = 0x34;
+    //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:8; TMR1CS FOSC/4; T1SYNC synchronize; TMR1ON disabled; 
+    T1CON = 0x30;
 
-    //T1GVAL disabled; T1GSPM disabled; T1GSS T1G; T1GTM disabled; T1GPOL low; TMR1GE disabled; T1GGO done;
+    //T1GVAL disabled; T1GSPM disabled; T1GSS T1G; T1GTM disabled; T1GPOL low; TMR1GE disabled; T1GGO done; 
     T1GCON = 0x00;
 
-    //TMR1H 11;
+    //TMR1H 11; 
     TMR1H = 0x0B;
 
-    //TMR1L 220;
+    //TMR1L 220; 
     TMR1L = 0xDC;
 
     // Load the TMR value to reload variable
@@ -108,11 +109,10 @@ uint8_t TMR1_CheckGateValueStatus(void)
 
 void TMR1_ISR(void)
 {
-    static volatile unsigned int CountCallBack = 0;
 
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
-
+    
     // Write to the Timer1 register
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = (uint8_t) timer1ReloadVal;
@@ -143,7 +143,6 @@ void TMR1_ISR(void)
 void TMR1_CallBack(void)
 {
     // Add your custom callback code here
-    
 }
 
 /**

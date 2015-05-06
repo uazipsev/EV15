@@ -8271,110 +8271,185 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-"9 Functions.c
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
+[; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 86: typedef enum
+[; ;adc.h: 87: {
+[; ;adc.h: 88: channel_CTMU = 0x1D,
+[; ;adc.h: 89: channel_DAC = 0x1E,
+[; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
+[; ;adc.h: 91: Battery1 = 0x01,
+[; ;adc.h: 92: Battery2 = 0x03,
+[; ;adc.h: 93: Battery3 = 0x04,
+[; ;adc.h: 94: Battery8 = 0x08,
+[; ;adc.h: 95: Battery9 = 0x0B,
+[; ;adc.h: 96: Battery10 = 0x0D,
+[; ;adc.h: 97: Temp1 = 0x0E,
+[; ;adc.h: 98: Temp2 = 0x14,
+[; ;adc.h: 99: Battery5 = 0x18,
+[; ;adc.h: 100: Battery6 = 0x1A,
+[; ;adc.h: 101: Battery7 = 0x1B,
+[; ;adc.h: 102: Battery4 = 0x05
+[; ;adc.h: 103: } adc_channel_t;
+[; ;adc.h: 138: void ADC_Initialize(void);
+[; ;adc.h: 167: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 199: bool ADC_IsConversionDone();
+[; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 278: void ADC_ISR(void);
+[; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
+[; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
+[; ;eusart1.h: 107: void EUSART1_Initialize(void);
+[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
+[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
+[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
+[; ;tmr1.h: 95: void TMR1_Initialize(void);
+[; ;tmr1.h: 126: void TMR1_StartTimer(void);
+[; ;tmr1.h: 156: void TMR1_StopTimer(void);
+[; ;tmr1.h: 190: uint16_t TMR1_ReadTimer(void);
+[; ;tmr1.h: 216: void TMR1_WriteTimer(uint16_t timerVal);
+[; ;tmr1.h: 248: void TMR1_Reload(void);
+[; ;tmr1.h: 289: void TMR1_StartSinglePulseAcquisition(void);
+[; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
+[; ;tmr1.h: 346: void TMR1_ISR(void);
+[; ;tmr1.h: 365: void TMR1_CallBack(void);
+[; ;mcc.h: 71: void SYSTEM_Initialize(void);
+[; ;mcc.h: 84: void OSCILLATOR_Initialize(void);
+"10 Functions.c
 [v _Set_4051 `(v ~T0 @X0 1 ef1`i ]
-"10
-{
-[; ;Functions.c: 9: void Set_4051(int Channel)
-[; ;Functions.c: 10: {
-[e :U _Set_4051 ]
-"9
-[v _Channel `i ~T0 @X0 1 r1 ]
-"10
-[f ]
-[; ;Functions.c: 11: if (Channel & 0x01)
 "11
-[e $ ! != & _Channel -> 1 `i -> 0 `i 1184  ]
-[; ;Functions.c: 12: {
-"12
 {
-[; ;Functions.c: 13: do { LATA6 = ~LATA6; } while(0);
+[; ;Functions.c: 10: void Set_4051(int Channel)
+[; ;Functions.c: 11: {
+[e :U _Set_4051 ]
+"10
+[v _Channel `i ~T0 @X0 1 r1 ]
+"11
+[f ]
+[; ;Functions.c: 12: if (Channel & 0x01)
+"12
+[e $ ! != & _Channel -> 1 `i -> 0 `i 1184  ]
+[; ;Functions.c: 13: {
 "13
+{
+[; ;Functions.c: 14: do { LATA6 = ~LATA6; } while(0);
+"14
 [e :U 1187 ]
 {
 [e = _LATA6 -> ~ -> _LATA6 `ui `b ]
 }
 [e :U 1186 ]
-"14
+"15
 }
 [e :U 1184 ]
-[; ;Functions.c: 14: }
-[; ;Functions.c: 15: if ((Channel>>1) & 0x01)
-"15
-[e $ ! != & >> _Channel -> 1 `i -> 1 `i -> 0 `i 1188  ]
-[; ;Functions.c: 16: {
+[; ;Functions.c: 15: }
+[; ;Functions.c: 16: if ((Channel>>1) & 0x01)
 "16
-{
-[; ;Functions.c: 17: do { LATC0 = ~LATC0; } while(0);
+[e $ ! != & >> _Channel -> 1 `i -> 1 `i -> 0 `i 1188  ]
+[; ;Functions.c: 17: {
 "17
+{
+[; ;Functions.c: 18: do { LATC0 = ~LATC0; } while(0);
+"18
 [e :U 1191 ]
 {
 [e = _LATC0 -> ~ -> _LATC0 `ui `b ]
 }
 [e :U 1190 ]
-"18
+"19
 }
 [e :U 1188 ]
-[; ;Functions.c: 18: }
-[; ;Functions.c: 19: if ((Channel>>2) & 0x01)
-"19
-[e $ ! != & >> _Channel -> 2 `i -> 1 `i -> 0 `i 1192  ]
-[; ;Functions.c: 20: {
+[; ;Functions.c: 19: }
+[; ;Functions.c: 20: if ((Channel>>2) & 0x01)
 "20
-{
-[; ;Functions.c: 21: do { LATC1 = ~LATC1; } while(0);
+[e $ ! != & >> _Channel -> 2 `i -> 1 `i -> 0 `i 1192  ]
+[; ;Functions.c: 21: {
 "21
+{
+[; ;Functions.c: 22: do { LATC1 = ~LATC1; } while(0);
+"22
 [e :U 1195 ]
 {
 [e = _LATC1 -> ~ -> _LATC1 `ui `b ]
 }
 [e :U 1194 ]
-"22
+"23
 }
 [e :U 1192 ]
-[; ;Functions.c: 22: }
 [; ;Functions.c: 23: }
-"23
+[; ;Functions.c: 24: }
+"24
 [e :UE 1183 ]
 }
-"25
+"26
 [v _Delay `(v ~T0 @X0 1 ef1`l ]
-"26
-{
-[; ;Functions.c: 25: void Delay(long int d_lenth)
-[; ;Functions.c: 26: {
-[e :U _Delay ]
-"25
-[v _d_lenth `l ~T0 @X0 1 r1 ]
-"26
-[f ]
 "27
+{
+[; ;Functions.c: 26: void Delay(long int d_lenth)
+[; ;Functions.c: 27: {
+[e :U _Delay ]
+"26
+[v _d_lenth `l ~T0 @X0 1 r1 ]
+"27
+[f ]
+"28
 [v _wait `l ~T0 @X0 1 a ]
-[; ;Functions.c: 27: long int wait = 0;
+[; ;Functions.c: 28: long int wait = 0;
 [e = _wait -> -> 0 `i `l ]
-[; ;Functions.c: 28: for(wait = 0;wait<d_lenth;wait++)
-"28
-{
-[e = _wait -> -> 0 `i `l ]
-[e $U 1200  ]
+[; ;Functions.c: 29: for(wait;wait<d_lenth;wait++)
 "29
-[e :U 1197 ]
-[; ;Functions.c: 29: {
 {
-[; ;Functions.c: 30: _delay(1);
+[e _wait ]
+[e $U 1200  ]
 "30
-[e ( __delay (1 -> -> -> 1 `i `l `ul ]
+[e :U 1197 ]
+[; ;Functions.c: 30: {
+{
+[; ;Functions.c: 31: _delay((unsigned long)((1)*(8000000/4000.0)));
 "31
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 8000000 `l `d .4000.0 `ul ]
+"32
 }
-"28
+"29
 [e ++ _wait -> -> 1 `i `l ]
 [e :U 1200 ]
 [e $ < _wait _d_lenth 1197  ]
 [e :U 1198 ]
-"31
-}
-[; ;Functions.c: 31: }
-[; ;Functions.c: 32: }
 "32
+}
+[; ;Functions.c: 32: }
+[; ;Functions.c: 33: }
+"33
 [e :UE 1196 ]
 }

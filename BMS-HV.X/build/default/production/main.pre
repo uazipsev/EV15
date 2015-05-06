@@ -10587,16 +10587,16 @@ extern volatile uint8_t eusart1RxCount;
 # 107
 void EUSART1_Initialize(void);
 
-# 127
+# 156
 uint8_t EUSART1_Read(void);
 
-# 147
+# 181
 void EUSART1_Write(uint8_t txData);
 
-# 168
+# 202
 void EUSART1_Transmit_ISR(void);
 
-# 189
+# 223
 void EUSART1_Receive_ISR(void);
 
 # 95 "mcc_generated_files/tmr1.h"
@@ -10705,7 +10705,7 @@ extern char * ftoa(float f, int * status);
 
 # 11 "Battery.h"
 extern char Battery_Fault();
-extern void Battery_Read();
+extern void Battery_Read(void);
 extern void Battery_Filter();
 extern void Battery_Convert();
 extern float Battery_Get(int channelnum);
@@ -10717,11 +10717,12 @@ extern void Delay(long int d_lenth);
 # 2 "Global.h"
 extern char Temp_Aquire;
 extern char Volt_Aquire;
-extern int Battery_Adc[10];
+extern long int Battery_Adc[10];
 extern int Temp_Adc[10];
 extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
+extern int CountCallBack;
 
 # 11 "Bypass.h"
 extern int SetBypass(int pin,int state);
@@ -10729,7 +10730,7 @@ extern int RunBypas();
 
 # 13 "Tempeture.h"
 extern char Temp_Fault();
-extern void Temp_Read();
+extern void Temp_Read(void);
 extern void Temp_Filter();
 extern void Temp_Convert();
 extern float Tempeture_Get(int channelnum);
@@ -10762,23 +10763,14 @@ if (Volt_Done)
 {
 Battery_Convert();
 Battery_Fault();
-RunBypas();
+
 for (int x = 0;x<10;x++)
 {
 printf("Battery %d = %f \r\n", x,Battery_Get(x));
 }
 }
-Delay(1000);
-for(int i = 0;i<10;i++)
-{
-SetBypass(i,1);
-}
-Delay(1000);
-for(int i = 0;i<10;i++)
-{
-SetBypass(i,0);
-}
 
+# 101
 }
 return (0);
 }

@@ -36,14 +36,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Battery_Convert `(v ~T0 @X0 0 ef ]
 "11
 [v _Battery_Fault `(uc ~T0 @X0 0 ef ]
-"12 Bypass.h
-[v _RunBypas `(i ~T0 @X0 0 ef ]
-"15 Battery.h
+"15
 [v _Battery_Get `(f ~T0 @X0 0 ef1`i ]
-"13 Functions.h
-[v _Delay `(v ~T0 @X0 0 ef1`l ]
-"11 Bypass.h
-[v _SetBypass `(i ~T0 @X0 0 ef2`i`i ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8312,10 +8306,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
 [; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
 [; ;eusart1.h: 107: void EUSART1_Initialize(void);
-[; ;eusart1.h: 127: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 147: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 168: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 189: void EUSART1_Receive_ISR(void);
+[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
+[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
+[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
 [; ;tmr1.h: 95: void TMR1_Initialize(void);
 [; ;tmr1.h: 126: void TMR1_StartTimer(void);
 [; ;tmr1.h: 156: void TMR1_StopTimer(void);
@@ -8380,7 +8374,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
 [; ;Battery.h: 11: extern char Battery_Fault();
-[; ;Battery.h: 12: extern void Battery_Read();
+[; ;Battery.h: 12: extern void Battery_Read(void);
 [; ;Battery.h: 13: extern void Battery_Filter();
 [; ;Battery.h: 14: extern void Battery_Convert();
 [; ;Battery.h: 15: extern float Battery_Get(int channelnum);
@@ -8388,15 +8382,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Functions.h: 13: extern void Delay(long int d_lenth);
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
+[; ;Global.h: 4: extern long int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
 [; ;Bypass.h: 11: extern int SetBypass(int pin,int state);
 [; ;Bypass.h: 12: extern int RunBypas();
 [; ;Tempeture.h: 13: extern char Temp_Fault();
-[; ;Tempeture.h: 14: extern void Temp_Read();
+[; ;Tempeture.h: 14: extern void Temp_Read(void);
 [; ;Tempeture.h: 15: extern void Temp_Filter();
 [; ;Tempeture.h: 16: extern void Temp_Convert();
 [; ;Tempeture.h: 17: extern float Tempeture_Get(int channelnum);
@@ -8474,9 +8469,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 78: Battery_Fault();
 "78
 [e ( _Battery_Fault ..  ]
-[; ;Main.c: 79: RunBypas();
-"79
-[e ( _RunBypas ..  ]
 [; ;Main.c: 80: for (int x = 0;x<10;x++)
 "80
 {
@@ -8502,73 +8494,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 "84
 }
 [e :U 1191 ]
-[; ;Main.c: 83: }
-[; ;Main.c: 84: }
-[; ;Main.c: 85: Delay(1000);
-"85
-[e ( _Delay (1 -> -> 1000 `i `l ]
-[; ;Main.c: 86: for(int i = 0;i<10;i++)
-"86
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 10 `i 1195  ]
-[e $U 1196  ]
-"87
-[e :U 1195 ]
-[; ;Main.c: 87: {
-{
-[; ;Main.c: 88: SetBypass(i,1);
-"88
-[e ( _SetBypass (2 , _i -> 1 `i ]
-"89
-}
-"86
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 10 `i 1195  ]
-[e :U 1196 ]
-"89
-}
-[; ;Main.c: 89: }
-[; ;Main.c: 90: Delay(1000);
-"90
-[e ( _Delay (1 -> -> 1000 `i `l ]
-[; ;Main.c: 91: for(int i = 0;i<10;i++)
-"91
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $ < _i -> 10 `i 1198  ]
-[e $U 1199  ]
-"92
-[e :U 1198 ]
-[; ;Main.c: 92: {
-{
-[; ;Main.c: 93: SetBypass(i,0);
-"93
-[e ( _SetBypass (2 , _i -> 0 `i ]
-"94
-}
-"91
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 10 `i 1198  ]
-[e :U 1199 ]
-"94
-}
-"96
+"101
 }
 [e :U 1184 ]
 "64
 [e $U 1185  ]
 [e :U 1186 ]
-[; ;Main.c: 94: }
-[; ;Main.c: 96: }
-[; ;Main.c: 97: return (0);
-"97
+[; ;Main.c: 83: }
+[; ;Main.c: 84: }
+[; ;Main.c: 101: }
+[; ;Main.c: 102: return (0);
+"102
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 98: }
-"98
+[; ;Main.c: 103: }
+"103
 [e :UE 1183 ]
 }
 [p f _printf 8396928 ]

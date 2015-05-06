@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include "mcc_generated_files/pin_manager.h"
 #include "Functions.h"
+#include "mcc_generated_files/mcc.h"
 #include <xc.h>
 
 
@@ -25,8 +26,8 @@ void Set_4051(int Channel)
 void Delay(long int d_lenth)
 {
     long int wait = 0;
-    for(wait = 0;wait<d_lenth;wait++)
+    for(wait;wait<d_lenth;wait++)
     {
-        _delay(1);
+        __delay_ms(1);
     }
 }

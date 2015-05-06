@@ -10587,16 +10587,16 @@ extern volatile uint8_t eusart1RxCount;
 # 107
 void EUSART1_Initialize(void);
 
-# 127
+# 156
 uint8_t EUSART1_Read(void);
 
-# 147
+# 181
 void EUSART1_Write(uint8_t txData);
 
-# 168
+# 202
 void EUSART1_Transmit_ISR(void);
 
-# 189
+# 223
 void EUSART1_Receive_ISR(void);
 
 # 95 "mcc_generated_files/tmr1.h"

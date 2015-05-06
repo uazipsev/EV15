@@ -8363,10 +8363,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
 [; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
 [; ;eusart1.h: 107: void EUSART1_Initialize(void);
-[; ;eusart1.h: 127: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 147: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 168: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 189: void EUSART1_Receive_ISR(void);
+[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
+[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
+[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
 [; ;tmr1.h: 95: void TMR1_Initialize(void);
 [; ;tmr1.h: 126: void TMR1_StartTimer(void);
 [; ;tmr1.h: 156: void TMR1_StopTimer(void);

@@ -27,6 +27,8 @@ void PIN_MANAGER_Initialize(void)
     ANSELE = 0x05;
 
     INTCON2bits.nRBPU = 0x01;
+
+        
 }
 /**
  End of File

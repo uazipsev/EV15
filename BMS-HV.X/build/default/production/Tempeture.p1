@@ -6,21 +6,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 "13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
 "33 Tempeture.c
-[c E8844 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
-[n E8844 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
+[c E8845 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
+[n E8845 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
 "167 mcc_generated_files/adc.h
-[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8844 ]
+[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8845 ]
 "5 Global.h
 [v _Temp_Adc `i ~T0 @X0 -> 0 `x e ]
 "16 C:\Program Files (x86)\Microchip\xc8\v1.33\include\plib\../math.h
 [v _log `(d ~T0 @X0 0 ef1`d ]
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
+[; ;Global.h: 4: extern long int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8374,7 +8375,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _ADCON1 -> -> 128 `i `uc ]
 [; ;Tempeture.c: 33: ADC_StartConversion(Temp1);
 "33
-[e ( _ADC_StartConversion (1 -> . `E8844 9 `E8844 ]
+[e ( _ADC_StartConversion (1 -> . `E8845 9 `E8845 ]
 [; ;Tempeture.c: 34: }
 "34
 [e :UE 1183 ]

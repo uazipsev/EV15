@@ -8283,7 +8283,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 29: INTCON2bits.nRBPU = 0x01;
 "29
 [e = . . _INTCON2bits 1 7 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 30: }
-"30
+[; ;pin_manager.c: 32: }
+"32
 [e :UE 1178 ]
 }

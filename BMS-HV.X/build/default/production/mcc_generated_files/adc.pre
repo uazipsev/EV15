@@ -10508,11 +10508,12 @@ void ADC_ISR(void);
 # 2 "mcc_generated_files/../Global.h"
 extern char Temp_Aquire;
 extern char Volt_Aquire;
-extern int Battery_Adc[10];
+extern long int Battery_Adc[10];
 extern int Temp_Adc[10];
 extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
+extern int CountCallBack;
 
 # 12 "mcc_generated_files/../Functions.h"
 extern void Set_4051(int Channel);
@@ -10530,7 +10531,7 @@ ADCON0 = 0x01;
 ADCON1 = 0x80;
 
 
-ADCON2 = 0x0A;
+ADCON2 = 0xA9;
 
 
 ADRESL = 0x00;

@@ -5,15 +5,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Volt_Aquire `uc ~T0 @X0 0 e ]
 "13982 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ADCON1 `Vuc ~T0 @X0 0 e@4033 ]
-"25 Battery.c
-[c E8850 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
-[n E8850 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
+"24 Battery.c
+[c E8852 29 30 31 1 3 4 8 11 13 14 20 24 26 27 5 .. ]
+[n E8852 . channel_CTMU channel_DAC channel_FVRBuf2 Battery1 Battery2 Battery3 Battery8 Battery9 Battery10 Temp1 Temp2 Battery5 Battery6 Battery7 Battery4  ]
 "167 mcc_generated_files/adc.h
-[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8850 ]
+[v _ADC_StartConversion `(v ~T0 @X0 0 ef1`E8852 ]
 "4 Global.h
-[v _Battery_Adc `i ~T0 @X0 -> 0 `x e ]
-"13 Battery.h
-[v _Battery_Filter `(v ~T0 @X0 0 ef ]
+[v _Battery_Adc `l ~T0 @X0 -> 0 `x e ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8192,17 +8190,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
 [; ;Battery.h: 11: extern char Battery_Fault();
-[; ;Battery.h: 12: extern void Battery_Read();
+[; ;Battery.h: 12: extern void Battery_Read(void);
 [; ;Battery.h: 13: extern void Battery_Filter();
 [; ;Battery.h: 14: extern void Battery_Convert();
 [; ;Battery.h: 15: extern float Battery_Get(int channelnum);
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
+[; ;Global.h: 4: extern long int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8274,188 +8273,185 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Battery.c: 19: {
 [e :U _Battery_Read ]
 [f ]
-[; ;Battery.c: 22: ADC_Buffer_Point = 0;
-"22
+[; ;Battery.c: 21: ADC_Buffer_Point = 0;
+"21
 [e = _ADC_Buffer_Point -> 0 `i ]
-[; ;Battery.c: 23: Volt_Aquire = 1;
-"23
+[; ;Battery.c: 22: Volt_Aquire = 1;
+"22
 [e = _Volt_Aquire -> -> 1 `i `uc ]
-[; ;Battery.c: 24: ADCON1 = 0x80;
+[; ;Battery.c: 23: ADCON1 = 0x81;
+"23
+[e = _ADCON1 -> -> 129 `i `uc ]
+[; ;Battery.c: 24: ADC_StartConversion(Battery1);
 "24
-[e = _ADCON1 -> -> 128 `i `uc ]
-[; ;Battery.c: 25: ADC_StartConversion(Battery1);
+[e ( _ADC_StartConversion (1 -> . `E8852 3 `E8852 ]
+[; ;Battery.c: 25: }
 "25
-[e ( _ADC_StartConversion (1 -> . `E8850 3 `E8850 ]
-[; ;Battery.c: 26: }
-"26
 [e :UE 1178 ]
 }
-"35
+"34
 [v _Battery_Convert `(v ~T0 @X0 1 ef ]
-"36
+"35
 {
-[; ;Battery.c: 35: void Battery_Convert()
-[; ;Battery.c: 36: {
+[; ;Battery.c: 34: void Battery_Convert()
+[; ;Battery.c: 35: {
 [e :U _Battery_Convert ]
 [f ]
-"37
+"36
 [v _x `i ~T0 @X0 1 a ]
-[; ;Battery.c: 37: int x;
-[; ;Battery.c: 38: for(x = 0; x < 10; x++)
-"38
+[; ;Battery.c: 36: int x;
+[; ;Battery.c: 37: for(x = 0; x < 10; x++)
+"37
 {
 [e = _x -> 0 `i ]
 [e $ < _x -> 10 `i 1180  ]
 [e $U 1181  ]
-"39
-[e :U 1180 ]
-[; ;Battery.c: 39: {
-{
-[; ;Battery.c: 40: TempBattery_Volt[x] = ((Battery_Adc[x]/1024)*5);
-"40
-[e = *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux -> * / *U + &U _Battery_Adc * -> -> _x `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> 1024 `i -> 5 `i `f ]
-"41
-}
 "38
+[e :U 1180 ]
+[; ;Battery.c: 38: {
+{
+[; ;Battery.c: 39: TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 2.34;
+"39
+[e = *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux -> + * / -> *U + &U _Battery_Adc * -> -> _x `ui `ux -> -> # *U &U _Battery_Adc `ui `ux `d .1024.0 .5.0 .2.34 `f ]
+"40
+}
+"37
 [e ++ _x -> 1 `i ]
 [e $ < _x -> 10 `i 1180  ]
 [e :U 1181 ]
-"41
+"40
 }
-[; ;Battery.c: 41: }
-[; ;Battery.c: 42: Battery_Filter();
+[; ;Battery.c: 40: }
+[; ;Battery.c: 42: }
 "42
-[e ( _Battery_Filter ..  ]
-[; ;Battery.c: 43: }
-"43
 [e :UE 1179 ]
 }
-"52
+"51
 [v _Battery_Filter `(v ~T0 @X0 1 ef ]
-"53
+"52
 {
-[; ;Battery.c: 52: void Battery_Filter()
-[; ;Battery.c: 53: {
+[; ;Battery.c: 51: void Battery_Filter()
+[; ;Battery.c: 52: {
 [e :U _Battery_Filter ]
 [f ]
-"55
+"54
 [v _x `i ~T0 @X0 1 a ]
-[; ;Battery.c: 55: int x;
-[; ;Battery.c: 56: for(x = 0; x < 10; x++)
-"56
+[; ;Battery.c: 54: int x;
+[; ;Battery.c: 55: for(x = 0; x < 10; x++)
+"55
 {
 [e = _x -> 0 `i ]
 [e $ < _x -> 10 `i 1184  ]
 [e $U 1185  ]
-"57
-[e :U 1184 ]
-[; ;Battery.c: 57: {
-{
-[; ;Battery.c: 58: Battery_Volt[x] = (0.88*TempBattery_Volt[x] + ((1- 0.88)*PrevBattery_Volt[x]));
-"58
-[e = *U + &U _Battery_Volt * -> -> _x `ui `ux -> -> # *U &U _Battery_Volt `ui `ux -> + * .0.88 -> *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux `d * - -> -> 1 `i `d .0.88 -> *U + &U _PrevBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Volt `ui `ux `d `f ]
-"59
-}
 "56
+[e :U 1184 ]
+[; ;Battery.c: 56: {
+{
+[; ;Battery.c: 57: Battery_Volt[x] = (0.88*TempBattery_Volt[x] + ((1- 0.88)*PrevBattery_Volt[x]));
+"57
+[e = *U + &U _Battery_Volt * -> -> _x `ui `ux -> -> # *U &U _Battery_Volt `ui `ux -> + * .0.88 -> *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux `d * - -> -> 1 `i `d .0.88 -> *U + &U _PrevBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Volt `ui `ux `d `f ]
+"58
+}
+"55
 [e ++ _x -> 1 `i ]
 [e $ < _x -> 10 `i 1184  ]
 [e :U 1185 ]
-"59
+"58
 }
-[; ;Battery.c: 59: }
-[; ;Battery.c: 60: for(x = 0; x < 10; x++)
-"60
+[; ;Battery.c: 58: }
+[; ;Battery.c: 59: for(x = 0; x < 10; x++)
+"59
 {
 [e = _x -> 0 `i ]
 [e $ < _x -> 10 `i 1187  ]
 [e $U 1188  ]
-"61
-[e :U 1187 ]
-[; ;Battery.c: 61: {
-{
-[; ;Battery.c: 62: PrevBattery_Volt[x] = Battery_Volt[x];
-"62
-[e = *U + &U _PrevBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Volt `ui `ux *U + &U _Battery_Volt * -> -> _x `ui `ux -> -> # *U &U _Battery_Volt `ui `ux ]
-"63
-}
 "60
+[e :U 1187 ]
+[; ;Battery.c: 60: {
+{
+[; ;Battery.c: 61: PrevBattery_Volt[x] = Battery_Volt[x];
+"61
+[e = *U + &U _PrevBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Volt `ui `ux *U + &U _Battery_Volt * -> -> _x `ui `ux -> -> # *U &U _Battery_Volt `ui `ux ]
+"62
+}
+"59
 [e ++ _x -> 1 `i ]
 [e $ < _x -> 10 `i 1187  ]
 [e :U 1188 ]
-"63
+"62
 }
+[; ;Battery.c: 62: }
 [; ;Battery.c: 63: }
-[; ;Battery.c: 64: }
-"64
+"63
 [e :UE 1183 ]
 }
-"73
+"72
 [v _Battery_Fault `(uc ~T0 @X0 1 ef ]
-"74
+"73
 {
-[; ;Battery.c: 73: char Battery_Fault()
-[; ;Battery.c: 74: {
+[; ;Battery.c: 72: char Battery_Fault()
+[; ;Battery.c: 73: {
 [e :U _Battery_Fault ]
 [f ]
-"75
+"74
 [v _fault `uc ~T0 @X0 1 a ]
-[; ;Battery.c: 75: char fault = 0;
+[; ;Battery.c: 74: char fault = 0;
 [e = _fault -> -> 0 `i `uc ]
-[; ;Battery.c: 76: for(int i = 0;i<9;i++)
-"76
+[; ;Battery.c: 75: for(int i = 0;i<9;i++)
+"75
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $ < _i -> 9 `i 1191  ]
 [e $U 1192  ]
-"77
+"76
 [e :U 1191 ]
-[; ;Battery.c: 77: {
+[; ;Battery.c: 76: {
 {
-[; ;Battery.c: 78: if ((3.00 < Battery_Volt[i]) && (4.21 > Battery_Volt[i]))
-"78
+[; ;Battery.c: 77: if ((3.00 < Battery_Volt[i]) && (4.21 > Battery_Volt[i]))
+"77
 [e $ ! && < .3.00 -> *U + &U _Battery_Volt * -> -> _i `ui `ux -> -> # *U &U _Battery_Volt `ui `ux `d > .4.21 -> *U + &U _Battery_Volt * -> -> _i `ui `ux -> -> # *U &U _Battery_Volt `ui `ux `d 1194  ]
-[; ;Battery.c: 79: {
-"79
+[; ;Battery.c: 78: {
+"78
 {
-[; ;Battery.c: 80: fault = 1;
-"80
+[; ;Battery.c: 79: fault = 1;
+"79
 [e = _fault -> -> 1 `i `uc ]
-"81
+"80
 }
 [e :U 1194 ]
-"82
+"81
 }
-"76
+"75
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 9 `i 1191  ]
 [e :U 1192 ]
-"82
+"81
 }
+[; ;Battery.c: 80: }
 [; ;Battery.c: 81: }
-[; ;Battery.c: 82: }
-[; ;Battery.c: 83: return fault;
-"83
+[; ;Battery.c: 82: return fault;
+"82
 [e ) _fault ]
 [e $UE 1190  ]
-[; ;Battery.c: 84: }
-"84
+[; ;Battery.c: 83: }
+"83
 [e :UE 1190 ]
 }
-"94
+"93
 [v _Battery_Get `(f ~T0 @X0 1 ef1`i ]
-"95
-{
-[; ;Battery.c: 94: float Battery_Get(int channelnum)
-[; ;Battery.c: 95: {
-[e :U _Battery_Get ]
 "94
+{
+[; ;Battery.c: 93: float Battery_Get(int channelnum)
+[; ;Battery.c: 94: {
+[e :U _Battery_Get ]
+"93
 [v _channelnum `i ~T0 @X0 1 r1 ]
-"95
+"94
 [f ]
-[; ;Battery.c: 96: return Battery_Volt[channelnum];
-"96
-[e ) *U + &U _Battery_Volt * -> -> _channelnum `ui `ux -> -> # *U &U _Battery_Volt `ui `ux ]
+[; ;Battery.c: 95: return TempBattery_Volt[channelnum];
+"95
+[e ) *U + &U _TempBattery_Volt * -> -> _channelnum `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux ]
 [e $UE 1195  ]
 [; ;Battery.c: 97: }
 "97

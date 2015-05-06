@@ -10512,7 +10512,202 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 9 "Functions.c"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdbool.h"
+typedef unsigned char bool;
+
+# 110 "mcc_generated_files/interrupt_manager.h"
+void INTERRUPT_Initialize (void);
+
+# 122
+void interrupt INTERRUPT_InterruptManager (void);
+
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 86
+typedef enum
+{
+channel_CTMU = 0x1D,
+channel_DAC = 0x1E,
+channel_FVRBuf2 = 0x1F,
+Battery1 = 0x01,
+Battery2 = 0x03,
+Battery3 = 0x04,
+Battery8 = 0x08,
+Battery9 = 0x0B,
+Battery10 = 0x0D,
+Temp1 = 0x0E,
+Temp2 = 0x14,
+Battery5 = 0x18,
+Battery6 = 0x1A,
+Battery7 = 0x1B,
+Battery4 = 0x05
+} adc_channel_t;
+
+# 138
+void ADC_Initialize(void);
+
+# 167
+void ADC_StartConversion(adc_channel_t channel);
+
+# 199
+bool ADC_IsConversionDone();
+
+# 232
+adc_result_t ADC_GetConversionResult(void);
+
+# 262
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 278
+void ADC_ISR(void);
+
+# 78 "mcc_generated_files/eusart1.h"
+extern volatile uint8_t eusart1TxBufferRemaining;
+extern volatile uint8_t eusart1RxCount;
+
+# 107
+void EUSART1_Initialize(void);
+
+# 156
+uint8_t EUSART1_Read(void);
+
+# 181
+void EUSART1_Write(uint8_t txData);
+
+# 202
+void EUSART1_Transmit_ISR(void);
+
+# 223
+void EUSART1_Receive_ISR(void);
+
+# 95 "mcc_generated_files/tmr1.h"
+void TMR1_Initialize(void);
+
+# 126
+void TMR1_StartTimer(void);
+
+# 156
+void TMR1_StopTimer(void);
+
+# 190
+uint16_t TMR1_ReadTimer(void);
+
+# 216
+void TMR1_WriteTimer(uint16_t timerVal);
+
+# 248
+void TMR1_Reload(void);
+
+# 289
+void TMR1_StartSinglePulseAcquisition(void);
+
+# 330
+uint8_t TMR1_CheckGateValueStatus(void);
+
+# 346
+void TMR1_ISR(void);
+
+# 365
+void TMR1_CallBack(void);
+
+# 71 "mcc_generated_files/mcc.h"
+void SYSTEM_Initialize(void);
+
+# 84
+void OSCILLATOR_Initialize(void);
+
+# 10 "Functions.c"
 void Set_4051(int Channel)
 {
 if (Channel & 0x01)
@@ -10532,8 +10727,8 @@ do { LATC1 = ~LATC1; } while(0);
 void Delay(long int d_lenth)
 {
 long int wait = 0;
-for(wait = 0;wait<d_lenth;wait++)
+for(wait;wait<d_lenth;wait++)
 {
-_delay(1);
+_delay((unsigned long)((1)*(8000000/4000.0)));
 }
 }

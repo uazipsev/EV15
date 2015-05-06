@@ -10534,16 +10534,16 @@ extern volatile uint8_t eusart1RxCount;
 # 107
 void EUSART1_Initialize(void);
 
-# 127
+# 156
 uint8_t EUSART1_Read(void);
 
-# 147
+# 181
 void EUSART1_Write(uint8_t txData);
 
-# 168
+# 202
 void EUSART1_Transmit_ISR(void);
 
-# 189
+# 223
 void EUSART1_Receive_ISR(void);
 
 # 62 "mcc_generated_files/eusart1.c"
@@ -10630,7 +10630,7 @@ while(0 == eusart1TxBufferRemaining)
 
 if(0 == PIE1bits.TX1IE)
 {
-TX1REG = txData;
+TXREG1 = txData;
 }
 else
 {
@@ -10661,7 +10661,7 @@ void EUSART1_Transmit_ISR(void)
 
 if(sizeof(eusart1TxBuffer) > eusart1TxBufferRemaining)
 {
-TX1REG = eusart1TxBuffer[eusart1TxTail++];
+TXREG1 = eusart1TxBuffer[eusart1TxTail++];
 if(sizeof(eusart1TxBuffer) <= eusart1TxTail)
 {
 eusart1TxTail = 0;
@@ -10685,7 +10685,7 @@ RC1STAbits.CREN = 1;
 }
 
 
-eusart1RxBuffer[eusart1RxHead++] = RC1REG;
+eusart1RxBuffer[eusart1RxHead++] = RCREG1;
 if(sizeof(eusart1RxBuffer) <= eusart1RxHead)
 {
 eusart1RxHead = 0;

@@ -16,7 +16,7 @@
 *               -Read RS485 BUS for data and reply with expectied data
 *********************************************************************************************************
  */
-#define _XTAL_FREQ 8000000
+
 #include "mcc_generated_files/mcc.h"
 
 #include <stdio.h>
@@ -76,23 +76,28 @@ int main(int argc, char** argv) {
         {
             Battery_Convert();     //<! Converts ADC counts to bat volts
             Battery_Fault();       //<! Detects over volt conditions
-            RunBypas();            //<! Runs bypass on required batteries
+            //RunBypas();            //<! Runs bypass on required batteries
             for (int x = 0;x<10;x++)
             {
                 printf("Battery %d = %f \r\n", x,Battery_Get(x));
             }
         }
-        Delay(1000);
+        /*
         for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)
         {
             SetBypass(i,1);
+            Delay(250);
         }
         Delay(1000);
         for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them off)
         {
             SetBypass(i,0);
+            Delay(250);
         }
-        
+        */
+        //Delay(1000);
+        //("Battery 2 = %d \r\n",ADC_GetConversion(Battery2));
+        //printf("Battery 8 = %d \r\n",ADC_GetConversion(Battery8));
     }
     return (EXIT_SUCCESS);
 }

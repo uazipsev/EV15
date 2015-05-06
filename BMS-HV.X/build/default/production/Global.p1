@@ -1,11 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
+[; ;Global.h: 4: extern long int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
 "13 Global.c
 [v _Temp_Aquire `uc ~T0 @X0 1 e ]
 [i _Temp_Aquire
@@ -19,13 +20,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 ]
 [; ;Global.c: 14: char Volt_Aquire = 0;
 "15
-[v _Battery_Adc `i ~T0 @X0 -> 10 `i e ]
+[v _Battery_Adc `l ~T0 @X0 -> 10 `i e ]
 [i _Battery_Adc
 :U ..
--> 0 `i
+-> -> 0 `i `l
 ..
 ]
-[; ;Global.c: 15: int Battery_Adc[10] = 0;
+[; ;Global.c: 15: long int Battery_Adc[10] = 0;
 "16
 [v _Temp_Adc `i ~T0 @X0 -> 10 `i e ]
 [i _Temp_Adc
@@ -52,3 +53,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 [; ;Global.c: 19: int Volt_Done = 0;
+"20
+[v _CountCallBack `i ~T0 @X0 1 e ]
+[i _CountCallBack
+-> 0 `i
+]
+[; ;Global.c: 20: int CountCallBack = 0;

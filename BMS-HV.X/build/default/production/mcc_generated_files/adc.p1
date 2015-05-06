@@ -76,7 +76,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "3
 [v _Volt_Aquire `uc ~T0 @X0 0 e ]
 "4
-[v _Battery_Adc `i ~T0 @X0 -> 0 `x e ]
+[v _Battery_Adc `l ~T0 @X0 -> 0 `x e ]
 "7
 [v _Volt_Done `i ~T0 @X0 0 e ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
@@ -8312,11 +8312,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 278: void ADC_ISR(void);
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
-[; ;Global.h: 4: extern int Battery_Adc[10];
+[; ;Global.h: 4: extern long int Battery_Adc[10];
 [; ;Global.h: 5: extern int Temp_Adc[10];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
 [; ;Functions.h: 12: extern void Set_4051(int Channel);
 [; ;Functions.h: 13: extern void Delay(long int d_lenth);
 "13 mcc_generated_files/adc.c
@@ -8333,9 +8334,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 21: ADCON1 = 0x80;
 "21
 [e = _ADCON1 -> -> 128 `i `uc ]
-[; ;adc.c: 24: ADCON2 = 0x0A;
+[; ;adc.c: 24: ADCON2 = 0xA9;
 "24
-[e = _ADCON2 -> -> 10 `i `uc ]
+[e = _ADCON2 -> -> 169 `i `uc ]
 [; ;adc.c: 27: ADRESL = 0x00;
 "27
 [e = _ADRESL -> -> 0 `i `uc ]
@@ -8682,7 +8683,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1204 ]
 [; ;adc.c: 155: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "155
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 156: ADC_StartConversion(Battery1);
 "156
 [e ( _ADC_StartConversion (1 -> . `E8837 3 `E8837 ]
@@ -8694,7 +8695,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1205 ]
 [; ;adc.c: 159: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "159
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 160: ADC_StartConversion(Battery2);
 "160
 [e ( _ADC_StartConversion (1 -> . `E8837 4 `E8837 ]
@@ -8706,7 +8707,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1206 ]
 [; ;adc.c: 163: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "163
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 164: ADC_StartConversion(Battery3);
 "164
 [e ( _ADC_StartConversion (1 -> . `E8837 5 `E8837 ]
@@ -8718,7 +8719,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1207 ]
 [; ;adc.c: 167: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "167
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 168: ADC_StartConversion(Battery4);
 "168
 [e ( _ADC_StartConversion (1 -> . `E8837 14 `E8837 ]
@@ -8730,7 +8731,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1208 ]
 [; ;adc.c: 171: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "171
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 172: ADC_StartConversion(Battery5);
 "172
 [e ( _ADC_StartConversion (1 -> . `E8837 11 `E8837 ]
@@ -8742,7 +8743,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1209 ]
 [; ;adc.c: 175: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "175
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 176: ADC_StartConversion(Battery6);
 "176
 [e ( _ADC_StartConversion (1 -> . `E8837 12 `E8837 ]
@@ -8754,7 +8755,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1210 ]
 [; ;adc.c: 179: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "179
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 180: ADC_StartConversion(Battery7);
 "180
 [e ( _ADC_StartConversion (1 -> . `E8837 13 `E8837 ]
@@ -8766,7 +8767,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1211 ]
 [; ;adc.c: 183: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "183
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 184: ADC_StartConversion(Battery8);
 "184
 [e ( _ADC_StartConversion (1 -> . `E8837 6 `E8837 ]
@@ -8778,7 +8779,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1212 ]
 [; ;adc.c: 187: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "187
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 188: ADC_StartConversion(Battery9);
 "188
 [e ( _ADC_StartConversion (1 -> . `E8837 7 `E8837 ]
@@ -8790,7 +8791,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1213 ]
 [; ;adc.c: 191: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "191
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
 [; ;adc.c: 192: ADC_StartConversion(Battery10);
 "192
 [e ( _ADC_StartConversion (1 -> . `E8837 8 `E8837 ]
