@@ -18,6 +18,7 @@ void StartUp595()
     Delay(10);
     //Init Config Done! Set for regular updates
     OUTEN_SetLow();
+    Clear595();
 }
 
 void SetPin595(int Reg, int pin, int value)
