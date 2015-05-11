@@ -22,7 +22,7 @@ Battery7 27
 Battery4 5
 ]
 "24 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
-[e E8852 . `uc
+[e E8851 . `uc
 channel_CTMU 29
 channel_DAC 30
 channel_FVRBuf2 31
@@ -151,6 +151,8 @@ Battery4 5
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 "44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbdiv.c
 [v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbmod.c
@@ -548,7 +550,7 @@ Battery4 5
 ]
 [u S553 . 1 `S538 1 . 1 0 `S541 1 . 1 0 `S550 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES553  1 e 1 @4081 ]
-[s S856 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S860 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -558,7 +560,7 @@ Battery4 5
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17648
-[s S865 . 1 `uc 1 . 1 0 :1:0 
+[s S869 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -567,12 +569,12 @@ Battery4 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S874 . 1 `uc 1 . 1 0 :6:0 
+[s S878 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S891 . 1 `S856 1 . 1 0 `S865 1 . 1 0 `S874 1 . 1 0 `S865 1 . 1 0 `S874 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES891  1 e 1 @4082 ]
+[u S895 . 1 `S860 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES895  1 e 1 @4082 ]
 "18973
 [v _LATA0 LATA0 `VEb  1 e 0 @31816 ]
 "18981
@@ -653,7 +655,7 @@ Battery4 5
 [v _main main `(i  1 e 2 0 ]
 {
 "80
-[v main@x_963 x `i  1 a 2 84 ]
+[v main@x_971 x `i  1 a 2 84 ]
 "70
 [v main@x x `i  1 a 2 82 ]
 "30
@@ -667,23 +669,26 @@ Battery4 5
 "1210
 [v printf@vd vd `ul  1 a 4 7 ]
 "1238
-[v printf@vd_1042 vd `ul  1 a 4 11 ]
-[s S1026 . 5 `*.39Cuc 1 _cp 3 0 `ui 1 _len 2 3 ]
+[v printf@vd_1055 vd `ul  1 a 4 11 ]
+[s S1039 . 5 `*.39Cuc 1 _cp 3 0 `ui 1 _len 2 3 ]
 "525
-[u S1029 . 5 `ul 1 _val 4 0 `S1026 1 _str 5 0 ]
-[v printf@_val _val `S1029  1 a 5 24 ]
+[u S1042 . 5 `ul 1 _val 4 0 `S1039 1 _str 5 0 ]
+[v printf@_val _val `S1042  1 a 5 20 ]
 "516
 [v printf@fval fval `d  1 a 3 31 ]
-[v printf@integ integ `d  1 a 3 19 ]
-[v printf@exp exp `i  1 a 2 29 ]
+[v printf@integ integ `d  1 a 3 17 ]
 "504
-[v printf@prec prec `i  1 a 2 22 ]
+[v printf@prec prec `i  1 a 2 34 ]
+"501
+[v printf@width width `i  1 a 2 29 ]
 "508
-[v printf@flag flag `us  1 a 2 17 ]
+[v printf@flag flag `us  1 a 2 27 ]
+"516
+[v printf@exp exp `i  1 a 2 25 ]
 "466
 [v printf@ap ap `[1]*.39v  1 a 2 15 ]
 "499
-[v printf@c c `c  1 a 1 34 ]
+[v printf@c c `c  1 a 1 36 ]
 "464
 [v printf@f f `*.25Cuc  1 p 2 55 ]
 "1550
@@ -713,6 +718,15 @@ Battery4 5
 [v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
 [v EUSART1_Write@txData txData `uc  1 a 1 26 ]
 "161
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
+[v _isdigit isdigit `(b  1 e 0 0 ]
+{
+[v isdigit@c c `uc  1 a 1 wreg ]
+[v isdigit@c c `uc  1 a 1 wreg ]
+"14
+[v isdigit@c c `uc  1 a 1 28 ]
+"15
 } 0
 "409 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
 [v _fround fround `(d  1 s 3 fround ]
@@ -932,6 +946,24 @@ Battery4 5
 {
 "34
 } 0
+"131 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
+[v _RunBypas RunBypas `(i  1 e 2 0 ]
+{
+"135
+[v RunBypas@batvolt batvolt `f  1 a 3 11 ]
+"134
+[v RunBypas@i i `i  1 a 2 14 ]
+"133
+[v RunBypas@cellbyp cellbyp `i  1 a 2 9 ]
+"152
+} 0
+"18
+[v _SetBypass SetBypass `(i  1 e 2 0 ]
+{
+[v SetBypass@pin pin `i  1 p 2 26 ]
+[v SetBypass@state state `i  1 p 2 28 ]
+"122
+} 0
 "93 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
 {
@@ -958,8 +990,39 @@ Battery4 5
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
 {
 "36
-[v Battery_Convert@x x `i  1 a 2 51 ]
+[v Battery_Convert@x x `i  1 a 2 53 ]
 "42
+} 0
+"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"52
+[v ___ftdiv@f3 f3 `f  1 a 3 7 ]
+"51
+[v ___ftdiv@sign sign `uc  1 a 1 11 ]
+[v ___ftdiv@exp exp `uc  1 a 1 10 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 6 ]
+"49
+[v ___ftdiv@f1 f1 `f  1 p 3 0 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 3 ]
+"78
+} 0
+"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+{
+"44
+[v ___altoft@sign sign `uc  1 a 1 43 ]
+[v ___altoft@exp exp `uc  1 a 1 42 ]
+"42
+[v ___altoft@c c `l  1 p 4 34 ]
+"57
+} 0
+"51 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+[v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
+{
+"54
+[v Battery_Filter@x x `i  1 a 2 49 ]
+"63
 } 0
 "15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
@@ -985,20 +1048,6 @@ Battery4 5
 [v ___ftmul@f2 f2 `f  1 p 3 15 ]
 "157
 } 0
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-{
-"52
-[v ___ftdiv@f3 f3 `f  1 a 3 7 ]
-"51
-[v ___ftdiv@sign sign `uc  1 a 1 11 ]
-[v ___ftdiv@exp exp `uc  1 a 1 10 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 6 ]
-"49
-[v ___ftdiv@f1 f1 `f  1 p 3 0 ]
-[v ___ftdiv@f2 f2 `f  1 p 3 3 ]
-"78
-} 0
 "86 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
 {
@@ -1010,16 +1059,6 @@ Battery4 5
 [v ___ftadd@f1 f1 `f  1 p 3 37 ]
 [v ___ftadd@f2 f2 `f  1 p 3 40 ]
 "148
-} 0
-"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
-[v ___altoft __altoft `(f  1 e 3 0 ]
-{
-"44
-[v ___altoft@sign sign `uc  1 a 1 43 ]
-[v ___altoft@exp exp `uc  1 a 1 42 ]
-"42
-[v ___altoft@c c `l  1 p 4 34 ]
-"57
 } 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]

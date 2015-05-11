@@ -1,0 +1,42 @@
+
+# 1 "Shift595.c"
+
+# 14 "Shift595.h"
+int registers[3 * 8];
+
+# 213 "mcc_generated_files/pin_manager.h"
+void PIN_MANAGER_Initialize (void);
+
+# 225
+void PIN_MANAGER_IOC(void);
+
+# 5 "Shift595.c"
+void SetPin595(int Reg, int pin, int value)
+{
+registers[((Reg-1)*8)+pin] = value;
+}
+
+void writeRegisters(){
+
+
+
+for(int i = 3 * 8 - 1; i >= 0; i--){
+
+
+int val = registers[i];
+if (val == 1 )
+{
+do { LATD6 = 1; } while(0);
+}
+if (val == 0 )
+{
+do { LATD6 = 0; } while(0);
+}
+
+
+
+}
+
+
+}
+

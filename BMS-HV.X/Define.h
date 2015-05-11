@@ -35,7 +35,7 @@
  */
 // Battery Alpha for filter
 #define BATALPHA 0.88
-// Temp Alpha for filter
+// Battery Alpha for filter
 #define TEMPALPHA 0.88
 
 /*

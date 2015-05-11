@@ -1,0 +1,13 @@
+_PIN_MANAGER_Initialize: CODE, 160 0 78
+_EUSART1_Initialize: CODE, 238 0 60
+_ADC_Initialize: CODE, 420 0 24
+_main: CODE, 480 0 10
+_INTERRUPT_Initialize: CODE, 490 0 10
+__initialization: CODE, 390 0 24
+_INTERRUPT_InterruptManager: CODE, 8 0 148
+_EUSART1_Receive_ISR: CODE, 346 0 44
+_OSCILLATOR_Initialize: CODE, 466 0 14
+_SYSTEM_Initialize: CODE, 444 0 22
+_ADC_ISR: CODE, 500 0 4
+_EUSART1_Transmit_ISR: CODE, 298 0 48
+Total: 486

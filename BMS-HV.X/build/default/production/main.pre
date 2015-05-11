@@ -10705,7 +10705,7 @@ extern char * ftoa(float f, int * status);
 
 # 11 "Battery.h"
 extern char Battery_Fault();
-extern void Battery_Read(void);
+extern void Battery_Read();
 extern void Battery_Filter();
 extern void Battery_Convert();
 extern float Battery_Get(int channelnum);
@@ -10754,7 +10754,7 @@ if (Temp_Done)
 {
 Temp_Convert();
 Temp_Fault();
-for (int x = 0;x<12;x++)
+for (int x = 0;x<9;x++)
 {
 
 }
@@ -10763,10 +10763,10 @@ if (Volt_Done)
 {
 Battery_Convert();
 Battery_Fault();
-
-for (int x = 0;x<10;x++)
+RunBypas();
+for (int x = 0;x<9;x++)
 {
-printf("Battery %d = %f \r\n", x,Battery_Get(x));
+printf("Battery %d = %0.02f \r\n", x,Battery_Get(x));
 }
 }
 

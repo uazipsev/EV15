@@ -67,7 +67,7 @@ int main(int argc, char** argv) {
         {
             Temp_Convert();  //<! Gets ADC counts and converts it to temp (F)
             Temp_Fault();    //<! Detects over temp conditions
-            for (int x = 0;x<12;x++)
+            for (int x = 0;x<9;x++)
             {
                 //printf("Temp %d = %f \r\n", x,Tempeture_Get(x));
             }
@@ -76,10 +76,10 @@ int main(int argc, char** argv) {
         {
             Battery_Convert();     //<! Converts ADC counts to bat volts
             Battery_Fault();       //<! Detects over volt conditions
-            //RunBypas();            //<! Runs bypass on required batteries
-            for (int x = 0;x<10;x++)
+            RunBypas();            //<! Runs bypass on required batteries
+            for (int x = 0;x<9;x++)
             {
-                printf("Battery %d = %f \r\n", x,Battery_Get(x));
+                printf("Battery %d = %0.02f \r\n", x,Battery_Get(x));
             }
         }
         /*

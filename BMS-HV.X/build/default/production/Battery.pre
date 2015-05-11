@@ -10373,7 +10373,7 @@ extern __nonreentrant void _delay3(unsigned char);
 
 # 11 "Battery.h"
 extern char Battery_Fault();
-extern void Battery_Read(void);
+extern void Battery_Read();
 extern void Battery_Filter();
 extern void Battery_Convert();
 extern float Battery_Get(int channelnum);
@@ -10533,7 +10533,7 @@ void Battery_Read()
 
 ADC_Buffer_Point = 0;
 Volt_Aquire = 1;
-ADCON1 = 0x81;
+ADCON1 = 0x80;
 ADC_StartConversion(Battery1);
 }
 
@@ -10541,11 +10541,11 @@ ADC_StartConversion(Battery1);
 void Battery_Convert()
 {
 int x;
-for(x = 0; x < 10; x++)
+for(x = 0; x < 9; x++)
 {
-TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 2.34;
+TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 0.05;
 }
-
+Battery_Filter();
 }
 
 # 51
@@ -10553,11 +10553,11 @@ void Battery_Filter()
 {
 
 int x;
-for(x = 0; x < 10; x++)
+for(x = 0; x < 9; x++)
 {
 Battery_Volt[x] = (0.88*TempBattery_Volt[x] + ((1- 0.88)*PrevBattery_Volt[x]));
 }
-for(x = 0; x < 10; x++)
+for(x = 0; x < 9; x++)
 {
 PrevBattery_Volt[x] = Battery_Volt[x];
 }
@@ -10580,7 +10580,7 @@ return fault;
 # 93
 float Battery_Get(int channelnum)
 {
-return TempBattery_Volt[channelnum];
 
+return Battery_Volt[channelnum];
 }
 
