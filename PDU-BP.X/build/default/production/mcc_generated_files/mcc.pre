@@ -10532,10 +10532,10 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdbool.h"
 typedef unsigned char bool;
 
-# 110 "mcc_generated_files/interrupt_manager.h"
+# 64 "mcc_generated_files/interrupt_manager.h"
 void INTERRUPT_Initialize (void);
 
-# 122
+# 76
 void interrupt INTERRUPT_InterruptManager (void);
 
 # 77 "mcc_generated_files/eusart1.h"

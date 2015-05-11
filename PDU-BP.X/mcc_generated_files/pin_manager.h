@@ -73,20 +73,20 @@
 #define OUTEN_ResetPullup()   do { WPUB1 = 0; } while(0)
 #define OUTEN_SetAnalogMode()   do { ANSB1 = 1; } while(0)
 #define OUTEN_SetDigitalMode()   do { ANSB1 = 0; } while(0)
-// get/set A1 aliases
-#define A1_TRIS               TRISC4
-#define A1_LAT                LATC4
-#define A1_PORT               PORTCbits.RC4
-#define A1_ANS                ANSC4
-#define A1_SetHigh()    do { LATC4 = 1; } while(0)
-#define A1_SetLow()   do { LATC4 = 0; } while(0)
-#define A1_Toggle()   do { LATC4 = ~LATC4; } while(0)
-#define A1_GetValue()         PORTCbits.RC4
-#define A1_SetDigitalInput()    do { TRISC4 = 1; } while(0)
-#define A1_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
+// get/set channel_AN16 aliases
+#define channel_AN16_TRIS               TRISC4
+#define channel_AN16_LAT                LATC4
+#define channel_AN16_PORT               PORTCbits.RC4
+#define channel_AN16_ANS                ANSC4
+#define channel_AN16_SetHigh()    do { LATC4 = 1; } while(0)
+#define channel_AN16_SetLow()   do { LATC4 = 0; } while(0)
+#define channel_AN16_Toggle()   do { LATC4 = ~LATC4; } while(0)
+#define channel_AN16_GetValue()         PORTCbits.RC4
+#define channel_AN16_SetDigitalInput()    do { TRISC4 = 1; } while(0)
+#define channel_AN16_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
 
-#define A1_SetAnalogMode()   do { ANSC4 = 1; } while(0)
-#define A1_SetDigitalMode()   do { ANSC4 = 0; } while(0)
+#define channel_AN16_SetAnalogMode()   do { ANSC4 = 1; } while(0)
+#define channel_AN16_SetDigitalMode()   do { ANSC4 = 0; } while(0)
 // get/set FLOW_CNTL aliases
 #define FLOW_CNTL_TRIS               TRISC5
 #define FLOW_CNTL_LAT                LATC5
@@ -129,34 +129,34 @@
 
 #define RX1_SetAnalogMode()   do { ANSC7 = 1; } while(0)
 #define RX1_SetDigitalMode()   do { ANSC7 = 0; } while(0)
-// get/set A3 aliases
-#define A3_TRIS               TRISD2
-#define A3_LAT                LATD2
-#define A3_PORT               PORTDbits.RD2
-#define A3_ANS                ANSD2
-#define A3_SetHigh()    do { LATD2 = 1; } while(0)
-#define A3_SetLow()   do { LATD2 = 0; } while(0)
-#define A3_Toggle()   do { LATD2 = ~LATD2; } while(0)
-#define A3_GetValue()         PORTDbits.RD2
-#define A3_SetDigitalInput()    do { TRISD2 = 1; } while(0)
-#define A3_SetDigitalOutput()   do { TRISD2 = 0; } while(0)
+// get/set channel_AN22 aliases
+#define channel_AN22_TRIS               TRISD2
+#define channel_AN22_LAT                LATD2
+#define channel_AN22_PORT               PORTDbits.RD2
+#define channel_AN22_ANS                ANSD2
+#define channel_AN22_SetHigh()    do { LATD2 = 1; } while(0)
+#define channel_AN22_SetLow()   do { LATD2 = 0; } while(0)
+#define channel_AN22_Toggle()   do { LATD2 = ~LATD2; } while(0)
+#define channel_AN22_GetValue()         PORTDbits.RD2
+#define channel_AN22_SetDigitalInput()    do { TRISD2 = 1; } while(0)
+#define channel_AN22_SetDigitalOutput()   do { TRISD2 = 0; } while(0)
 
-#define A3_SetAnalogMode()   do { ANSD2 = 1; } while(0)
-#define A3_SetDigitalMode()   do { ANSD2 = 0; } while(0)
-// get/set A2 aliases
-#define A2_TRIS               TRISD3
-#define A2_LAT                LATD3
-#define A2_PORT               PORTDbits.RD3
-#define A2_ANS                ANSD3
-#define A2_SetHigh()    do { LATD3 = 1; } while(0)
-#define A2_SetLow()   do { LATD3 = 0; } while(0)
-#define A2_Toggle()   do { LATD3 = ~LATD3; } while(0)
-#define A2_GetValue()         PORTDbits.RD3
-#define A2_SetDigitalInput()    do { TRISD3 = 1; } while(0)
-#define A2_SetDigitalOutput()   do { TRISD3 = 0; } while(0)
+#define channel_AN22_SetAnalogMode()   do { ANSD2 = 1; } while(0)
+#define channel_AN22_SetDigitalMode()   do { ANSD2 = 0; } while(0)
+// get/set channel_AN23 aliases
+#define channel_AN23_TRIS               TRISD3
+#define channel_AN23_LAT                LATD3
+#define channel_AN23_PORT               PORTDbits.RD3
+#define channel_AN23_ANS                ANSD3
+#define channel_AN23_SetHigh()    do { LATD3 = 1; } while(0)
+#define channel_AN23_SetLow()   do { LATD3 = 0; } while(0)
+#define channel_AN23_Toggle()   do { LATD3 = ~LATD3; } while(0)
+#define channel_AN23_GetValue()         PORTDbits.RD3
+#define channel_AN23_SetDigitalInput()    do { TRISD3 = 1; } while(0)
+#define channel_AN23_SetDigitalOutput()   do { TRISD3 = 0; } while(0)
 
-#define A2_SetAnalogMode()   do { ANSD3 = 1; } while(0)
-#define A2_SetDigitalMode()   do { ANSD3 = 0; } while(0)
+#define channel_AN23_SetAnalogMode()   do { ANSD3 = 1; } while(0)
+#define channel_AN23_SetDigitalMode()   do { ANSD3 = 0; } while(0)
 // get/set CLK aliases
 #define CLK_TRIS               TRISD5
 #define CLK_LAT                LATD5

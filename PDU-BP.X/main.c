@@ -45,6 +45,8 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 */
 
 #include "mcc_generated_files/mcc.h"
+#include "Shift595.h"
+#include "Functions.h"
 
 /*
                          Main application
@@ -53,6 +55,7 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
+    StartUp595();
 
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
@@ -84,6 +87,12 @@ void main(void)
 
     while (1)
     {
+        Delay(500);
+        SetPin595(2,3,HIGH);
+        LED1_SetHigh();
+        Delay(500);
+        SetPin595(2,3,LOW);
+        LED1_SetLow();
         // Add your application code
     }
 }

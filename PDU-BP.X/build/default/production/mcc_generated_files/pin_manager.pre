@@ -10377,14 +10377,14 @@ void PIN_MANAGER_Initialize (void);
 # 225
 void PIN_MANAGER_IOC(void);
 
-# 50 "mcc_generated_files/pin_manager.c"
+# 6 "mcc_generated_files/pin_manager.c"
 void PIN_MANAGER_Initialize(void)
 {
 LATA = 0x00;
 TRISA = 0xE7;
 ANSELA = 0x27;
 
-LATB = 0x00;
+LATB = 0x03;
 TRISB = 0xFC;
 ANSELB = 0x3C;
 WPUB = 0x00;

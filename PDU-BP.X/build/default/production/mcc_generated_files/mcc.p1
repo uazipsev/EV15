@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
 "213 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"110 mcc_generated_files/interrupt_manager.h
+"64 mcc_generated_files/interrupt_manager.h
 [v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
 "106 mcc_generated_files/eusart1.h
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
@@ -8301,8 +8301,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
-[; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
+[; ;interrupt_manager.h: 64: void INTERRUPT_Initialize (void);
+[; ;interrupt_manager.h: 76: void interrupt INTERRUPT_InterruptManager (void);
 [; ;eusart1.h: 77: extern volatile uint8_t eusart1TxBufferRemaining;
 [; ;eusart1.h: 78: extern volatile uint8_t eusart1RxCount;
 [; ;eusart1.h: 106: void EUSART1_Initialize(void);

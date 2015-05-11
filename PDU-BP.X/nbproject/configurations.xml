@@ -14,6 +14,7 @@
         <itemPath>mcc_generated_files/mcc.h</itemPath>
       </logicalFolder>
       <itemPath>Shift595.h</itemPath>
+      <itemPath>Functions.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -33,6 +34,7 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>Shift595.c</itemPath>
+      <itemPath>Functions.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

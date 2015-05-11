@@ -134,7 +134,9 @@ A2 23
 [v ___asftsub __asftsub `(f  1 e 3 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\aslmul.c
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
-"52 C:\Zips EV 15\trunk\PDU-BP.X\main.c
+"5 C:\Zips EV 15\trunk\PDU-BP.X\Functions.c
+[v _Delay Delay `(v  1 e 0 0 ]
+"54 C:\Zips EV 15\trunk\PDU-BP.X\main.c
 [v _main main `(v  1 e 0 0 ]
 "59 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
@@ -166,11 +168,15 @@ A2 23
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 "121
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
-"50 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/pin_manager.c
+"6 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"4 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+"7 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+[v _StartUp595 StartUp595 `(v  1 e 0 0 ]
+"23
 [v _SetPin595 SetPin595 `(v  1 e 0 0 ]
-"9
+"28
+[v _Clear595 Clear595 `(v  1 e 0 0 ]
+"36
 [v _writeRegisters writeRegisters `(v  1 e 0 0 ]
 "47 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
@@ -372,7 +378,7 @@ A2 23
 ]
 [u S339 . 1 `S324 1 . 1 0 `S327 1 . 1 0 `S336 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES339  1 e 1 @4081 ]
-[s S541 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S545 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -382,7 +388,7 @@ A2 23
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17648
-[s S550 . 1 `uc 1 . 1 0 :1:0 
+[s S554 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -391,12 +397,24 @@ A2 23
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S559 . 1 `uc 1 . 1 0 :6:0 
+[s S563 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S576 . 1 `S541 1 . 1 0 `S550 1 . 1 0 `S559 1 . 1 0 `S550 1 . 1 0 `S559 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES576  1 e 1 @4082 ]
+[u S580 . 1 `S545 1 . 1 0 `S554 1 . 1 0 `S563 1 . 1 0 `S554 1 . 1 0 `S563 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES580  1 e 1 @4082 ]
+"18979
+[v _LATA3 LATA3 `VEb  1 e 0 @31819 ]
+"18989
+[v _LATB0 LATB0 `VEb  1 e 0 @31824 ]
+"18991
+[v _LATB1 LATB1 `VEb  1 e 0 @31825 ]
+"19031
+[v _LATD5 LATD5 `VEb  1 e 0 @31845 ]
+"19033
+[v _LATD6 LATD6 `VEb  1 e 0 @31846 ]
+"19035
+[v _LATD7 LATD7 `VEb  1 e 0 @31847 ]
 "62 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/eusart1.c
 [v _eusart1TxHead eusart1TxHead `uc  1 s 1 eusart1TxHead ]
 "63
@@ -413,22 +431,44 @@ A2 23
 [v _eusart1RxBuffer eusart1RxBuffer `[32]uc  1 s 32 eusart1RxBuffer ]
 "70
 [v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
-"17 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.h
+"14 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.h
 [v _registers registers `[24]i  1 e 48 0 ]
-"52 C:\Zips EV 15\trunk\PDU-BP.X\main.c
+"54 C:\Zips EV 15\trunk\PDU-BP.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"89
+"98
+} 0
+"7 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+[v _StartUp595 StartUp595 `(v  1 e 0 0 ]
+{
+"21
+} 0
+"5 C:\Zips EV 15\trunk\PDU-BP.X\Functions.c
+[v _Delay Delay `(v  1 e 0 0 ]
+{
+"7
+[v Delay@i i `l  1 a 4 0 ]
+"5
+[v Delay@wait wait `l  1 p 4 14 ]
+"12
+} 0
+"23 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+[v _SetPin595 SetPin595 `(v  1 e 0 0 ]
+{
+[v SetPin595@Reg Reg `i  1 p 2 0 ]
+[v SetPin595@pin pin `i  1 p 2 2 ]
+[v SetPin595@value value `i  1 p 2 4 ]
+"26
 } 0
 "112 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 {
 "119
 } 0
-"50 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/pin_manager.c
+"6 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
 {
-"76
+"32
 } 0
 "121 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]

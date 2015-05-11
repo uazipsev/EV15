@@ -8,10 +8,15 @@
 #ifndef SHIFT595_H
 #define	SHIFT595_H
 
-#define number_of_74hc595s 3
-#define numOfRegisterPins number_of_74hc595s * 8
+#define num_of_595s 3
+#define RegPins num_of_595s * 8
 
-int registers[numOfRegisterPins];
+int registers[RegPins];
+
+extern void StartUp595();
+extern void SetPin595(int Reg, int pin, int value);
+extern void Clear595();
+extern void writeRegisters();
 
 
 #endif	/* SHIFT595_H */

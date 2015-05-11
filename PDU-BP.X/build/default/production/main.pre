@@ -10470,10 +10470,10 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdbool.h"
 typedef unsigned char bool;
 
-# 110 "mcc_generated_files/interrupt_manager.h"
+# 64 "mcc_generated_files/interrupt_manager.h"
 void INTERRUPT_Initialize (void);
 
-# 122
+# 76
 void interrupt INTERRUPT_InterruptManager (void);
 
 # 77 "mcc_generated_files/eusart1.h"
@@ -10533,21 +10533,39 @@ void SYSTEM_Initialize(void);
 # 83
 void OSCILLATOR_Initialize(void);
 
-# 52 "main.c"
+# 14 "Shift595.h"
+int registers[3 * 8];
+
+extern void StartUp595();
+extern void SetPin595(int Reg, int pin, int value);
+extern void Clear595();
+extern void writeRegisters();
+
+# 11 "Functions.h"
+extern void Delay(long int wait);
+
+# 54 "main.c"
 void main(void)
 {
 
 SYSTEM_Initialize();
+StartUp595();
 
-# 74
+# 77
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 85
+# 88
 while (1)
 {
+Delay(500);
+SetPin595(2,3,1);
+do { LATA3 = 1; } while(0);
+Delay(500);
+SetPin595(2,3,0);
+do { LATA3 = 0; } while(0);
 
 }
 }
