@@ -1,6 +1,7 @@
 #include "DigiPot.h"
 #include "xc.h"
 #include "PinDef.h"
+#include "Function.h"
 
 
 int prev_pos;
