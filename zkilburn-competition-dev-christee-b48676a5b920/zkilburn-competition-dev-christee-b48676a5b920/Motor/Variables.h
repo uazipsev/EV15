@@ -1,0 +1,3 @@
+FastTransfer communicationBoardIn;
+
+int bucketAngle; 
