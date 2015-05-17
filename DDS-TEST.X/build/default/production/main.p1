@@ -24,13 +24,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
 "18981
 [v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
-"63 main.c
-[c E8846 29 30 31 4 .. ]
-[n E8846 . channel_CTMU channel_DAC channel_FVRBuf2 Volume  ]
-"251 mcc_generated_files/adc.h
-[v _ADC_GetConversion `(ui ~T0 @X0 0 ef1`E8846 ]
 "207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"28 main.c
+[v _Delay `(v ~T0 @X0 0 ef1`i ]
 [v F8800 `(v ~T0 @X0 1 tf1`ul ]
 "161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
 [v __delay `JF8800 ~T0 @X0 0 e ]
@@ -8401,79 +8398,104 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
-"27 main.c
+[; ;main.c: 28: void Delay(int wait);
+"30 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"28
+"31
 {
-[; ;main.c: 27: void main(void)
-[; ;main.c: 28: {
+[; ;main.c: 30: void main(void)
+[; ;main.c: 31: {
 [e :U _main ]
 [f ]
-[; ;main.c: 30: SYSTEM_Initialize();
-"30
+[; ;main.c: 33: SYSTEM_Initialize();
+"33
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 49: (INTCONbits.GIE = 1);
-"49
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 52: (INTCONbits.PEIE = 1);
+[; ;main.c: 52: (INTCONbits.GIE = 1);
 "52
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;main.c: 55: (INTCONbits.PEIE = 1);
+"55
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"59
+"62
 [v _ADCNT `i ~T0 @X0 1 a ]
-[; ;main.c: 59: int ADCNT = 0;
+[; ;main.c: 62: int ADCNT = 0;
 [e = _ADCNT -> 0 `i ]
-[; ;main.c: 60: do { LATA3 = 1; } while(0);
-"60
+[; ;main.c: 63: do { LATA3 = 1; } while(0);
+"63
 [e :U 1187 ]
 {
 [e = _LATA3 -> -> 1 `i `b ]
 }
 [e :U 1186 ]
-[; ;main.c: 61: while (1)
-"61
+[; ;main.c: 64: while (1)
+"64
 [e :U 1189 ]
-[; ;main.c: 62: {
-"62
-{
-[; ;main.c: 63: ADCNT = ADC_GetConversion(Volume);
-"63
-[e = _ADCNT -> ( _ADC_GetConversion (1 . `E8846 3 `i ]
-[; ;main.c: 65: printf("ADC Volume = %d",ADCNT);
+[; ;main.c: 65: {
 "65
-[e ( _printf , (. :s 1C _ADCNT ]
-[; ;main.c: 66: for(int i = 0; 50 > i ; i++)
-"66
 {
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 1194  ]
-"67
-[e :U 1191 ]
-[; ;main.c: 67: {
-{
-[; ;main.c: 68: _delay((unsigned long)((10)*(16000000/4000.0)));
+[; ;main.c: 68: printf("ADC Volume = %d",ADCNT);
 "68
-[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[e ( _printf , (. :s 1C _ADCNT ]
+[; ;main.c: 69: Delay(250);
 "69
+[e ( _Delay (1 -> 250 `i ]
+[; ;main.c: 70: do { LATA3 = ~LATA3; } while(0);
+"70
+[e :U 1193 ]
+{
+[e = _LATA3 -> ~ -> _LATA3 `ui `b ]
 }
-"66
-[e ++ _i -> 1 `i ]
-[e :U 1194 ]
-[e $ > -> 50 `i _i 1191  ]
 [e :U 1192 ]
-"69
-}
 "71
 }
 [e :U 1188 ]
-"61
+"64
 [e $U 1189  ]
 [e :U 1190 ]
-[; ;main.c: 69: }
 [; ;main.c: 71: }
 [; ;main.c: 72: }
 "72
 [e :UE 1184 ]
+}
+"74
+[v _Delay `(v ~T0 @X0 1 ef1`i ]
+"75
+{
+[; ;main.c: 74: void Delay(int wait)
+[; ;main.c: 75: {
+[e :U _Delay ]
+"74
+[v _wait `i ~T0 @X0 1 r1 ]
+"75
+[f ]
+"76
+[v _x `i ~T0 @X0 1 a ]
+[; ;main.c: 76: int x;
+[; ;main.c: 77: for(x = 0;x<wait;x++)
+"77
+{
+[e = _x -> 0 `i ]
+[e $U 1198  ]
+"78
+[e :U 1195 ]
+[; ;main.c: 78: {
+{
+[; ;main.c: 79: _delay((unsigned long)((1)*(16000000/4000.0)));
+"79
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"80
+}
+"77
+[e ++ _x -> 1 `i ]
+[e :U 1198 ]
+[e $ < _x _wait 1195  ]
+[e :U 1196 ]
+"80
+}
+[; ;main.c: 80: }
+[; ;main.c: 81: }
+"81
+[e :UE 1194 ]
 }
 [p f _printf 8388736 ]
 [a 1C 65 68 67 32 86 111 108 117 109 101 32 61 32 37 100 0 ]

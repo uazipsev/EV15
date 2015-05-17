@@ -1,6 +1,10 @@
 #include <xc.h>
 #include <stdbool.h>
 #include "I2C_API.h"
+#include <i2c.h>
+
+#define USE_AND_OR	// To enable AND_OR mask setting for I2C.
+#define I2C_BRG	((Fcy/2/Fsck)-1)
 
 
 void I2C1Init(void)
@@ -12,6 +16,7 @@ void I2C1Init(void)
     I2C1CONbits.DISSLW = 1;  //Shut off slew rate
     I2C1CONbits.SMEN = 0;    //disable SMbus Logic levels
     I2C1CONbits.ACKDT = 0;   //Send ACk during Ack
+
 
 }
 
@@ -26,216 +31,188 @@ void I2C1RXEN(void)
 }
 
 
-void InitI2Cone(void)
+void Init_I2C_one(void)
 {
     I2C1BRG = 591; // set baud rate 
-    IPC4bits.MI2C1IP = 2; // priority level 2
-    IFS1bits.MI2C1IF = 0; // clear flag
-    IEC1bits.MI2C1IE = 1; // enable interrupt flag
     I2C1CONbits.I2CEN = 1; // enable i2c one
 }
 
-
-// initiates a send of an array containing a set number of data
-
-bool SendI2Cone(unsigned char s_address, unsigned char * dat, unsigned char how_much)
+/*
+void i2c_wait(unsigned int cnt)
 {
-    // see if a transmit or receive is in prograss
-    if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED))
-    {
-        //populate struct with needed data
-        I2C_1_values.slave_address = s_address;
-        I2C_1_values.data = dat;
-        I2C_1_values.how_much_data = how_much;
-        I2C_1_values.data_index = 0;
-        I2C_1_values.direction = TRANSMIT;
-        I2C_1_values.status = PENDING;
-        FunctionI2Cone = &SendSlaveAddressI2Cone; // load the send slave address function
-        I2C1CONbits.SEN = 1; // send start condition
-        return true; // return successful
-    } else
-    {
-        return false; // return failed if an i2c request is already running
-    }
+	while(--cnt)
+	{
+		asm( "nop" );
+		asm( "nop" );
+	}
 }
 
-// initiate a receive moving data to an array of a set number of data
+unsigned char SlaveAddress;
+	char i2cData[10];
+	int DataSz;
+	int Index = 0;
+	unsigned char *pWrite, *pRead;
+	unsigned char tx_data[] = {'P', 'I', 'C', '2', '4', 'F', '\0'};
 
-bool ReceiveI2Cone(unsigned char s_address, unsigned char d_address, unsigned char * dat, unsigned char how_much)
-{
-    //see if a transmit or receive is in prograss
-    if ((I2C_1_values.status == SUCCESS) || (I2C_1_values.status == FAILED))
-    {
-        //populate struct with needed data
-        I2C_1_values.slave_address = s_address;
-        I2C_1_values.data_address = d_address;
-        I2C_1_values.data = dat;
-        I2C_1_values.how_much_data = how_much;
-        I2C_1_values.data_index = 0;
-        I2C_1_values.direction = RECEIVE;
-        I2C_1_values.status = PENDING;
-        FunctionI2Cone = &SendSlaveAddressI2Cone; // load the send slave address function
-        I2C1CONbits.SEN = 1; // send start condition
-        return true; // return successful
-    } else
-    {
-        return false; // return failed if an i2c request is already running
-    }
+	unsigned char rx_data[10];
+	char status;
+	unsigned char i2cbyte;
+
+	//Enable channel
+
+
+	SlaveAddress = 0x50;	//0b1010000 Serial EEPROM address
+
+	i2cData[0] = (SlaveAddress << 1) | 0;	//Device Address & WR
+	i2cData[1] = 0x05;	//eeprom high address byte
+	i2cData[2] = 0x40;	//eeprom low address byte
+	i2cData[3] = 0xAC;	//data to write
+	DataSz = 4;
+
+
+	StartI2C1();	//Send the Start Bit
+	IdleI2C1();		//Wait to complete
+
+	while( DataSz )
+	{
+		MasterWriteI2C1( i2cData[Index++] );
+		IdleI2C1();		//Wait to complete
+
+		DataSz--;
+
+		//ACKSTAT is 0 when slave acknowledge,
+		//if 1 then slave has not acknowledge the data.
+		if( I2C1STATbits.ACKSTAT )
+			break;
+	}
+	status = MasterputsI2C1(pWrite);
+
+	if (status == -3)
+		while (1);
+
+	StopI2C1();	//Send the Stop condition
+	IdleI2C1();	//Wait to complete
+
+	// wait for eeprom to complete write process. poll the ack status
+	while(1)
+	{
+		i2c_wait(10);
+
+		StartI2C1();	//Send the Start Bit
+		IdleI2C1();		//Wait to complete
+
+		MasterWriteI2C1( i2cData[0] );
+		IdleI2C1();		//Wait to complete
+
+		if( I2C1STATbits.ACKSTAT == 0 )	//eeprom has acknowledged
+		{
+			StopI2C1();	//Send the Stop condition
+			IdleI2C1();	//Wait to complete
+			break;
+		}
+
+		StopI2C1();	//Send the Stop condition
+		IdleI2C1();	//Wait to complete
+	}
+
+	i2cData[0] = (SlaveAddress << 1) | 0;	//Device Address & WR
+	i2cData[1] = 0x05;	//eeprom high address byte
+	i2cData[2] = 0x40;	//eeprom low address byte
+	DataSz = 3;
+
+
+	StartI2C1();	//Send the Start Bit
+	IdleI2C1();		//Wait to complete
+
+	//send the address to read from the serial eeprom
+	Index = 0;
+	while( DataSz )
+	{
+		MasterWriteI2C1( i2cData[Index++] );
+		IdleI2C1();		//Wait to complete
+
+		DataSz--;
+
+		// ACKSTAT is 0 when slave acknowledge,
+		// if 1 then slave has not acknowledge the data.
+		if( I2C1STATbits.ACKSTAT )
+			break;
+	}
+
+	//now send a start sequence again
+	RestartI2C1();	//Send the Restart condition
+	i2c_wait(10);
+	//wait for this bit to go back to zero
+	IdleI2C1();	//Wait to complete
+
+	MasterWriteI2C1( (SlaveAddress << 1) | 1 ); //transmit read command
+	IdleI2C1();		//Wait to complete
+
+	i2cbyte = MasterReadI2C1();	// read one byte
+
+	StopI2C1();	//Send the Stop condition
+	IdleI2C1();	//Wait to complete
+	
+	 //	End reading one byte. [2]
+	 
+
+	// verify write and read I2C EEPROM (single byte)
+	if( i2cbyte != 0xAC )
+		while(1); //error: verify failed
+
+	
+	 // Now Readback several data from the serial eeprom. [3]
+	 
+#ifdef I2C_EEPROM_24256
+	i2cData[0] = (SlaveAddress << 1) | 0;	//Device Address & WR
+	i2cData[1] = 0x05;	//eeprom high address byte
+	i2cData[2] = 0x41;	//eeprom low address byte
+	DataSz = 3;
+#endif
+#ifdef I2C_EEPROM_2402
+	i2cData[0] = (SlaveAddress << 1) | 0;	//Device Address & WR
+	i2cData[1] = 0x11;	//eeprom low address byte
+	DataSz = 2;
+#endif
+
+	StartI2C1();	//Send the Start Bit
+	IdleI2C1();		//Wait to complete
+
+	//send the address to read from the serial eeprom
+	Index = 0;
+	while( DataSz )
+	{
+		MasterWriteI2C1( i2cData[Index++] );
+		IdleI2C1();		//Wait to complete
+
+		DataSz--;
+
+		// ACKSTAT is 0 when slave acknowledge,
+		// if 1 then slave has not acknowledge the data.
+		if( I2C1STATbits.ACKSTAT )
+			break;
+	}
+
+	//now send a start sequence again
+	RestartI2C1();	//Send the Restart condition
+	i2c_wait(10);
+	//wait for this bit to go back to zero
+	IdleI2C1();	//Wait to complete
+
+	MasterWriteI2C1( (SlaveAddress << 1) | 1 ); //transmit read command
+	IdleI2C1();		//Wait to complete
+
+	// read some bytes back
+	status = MastergetsI2C1(lenArray(tx_data), pRead, 20);
+
+	if (status!=0)
+		while(1);
+
+	StopI2C1();	//Send the Stop condition
+	IdleI2C1();	//Wait to complete
+	
+	 //	End reading several bytes. [3]
+	 
+
 }
-
-// send the slave address
-
-void SendSlaveAddressI2Cone(void)
-{
-    I2C1TRN = I2C_1_values.slave_address; // load slave address into buffer
-    FunctionI2Cone = &SendDataAddressI2Cone; // load the send data address function
-}
-
-// send data address if receivin or send firs byte if sending
-
-void SendDataAddressI2Cone(void)
-{
-    // if ack is recieved then slave responded
-    if (I2C1STATbits.ACKSTAT == 0) //ack received
-    {
-        // check the direction sending or receiving
-        if (I2C_1_values.direction == RECEIVE) // receiving
-        {
-            I2C1TRN = I2C_1_values.data_address; // load data address value
-            FunctionI2Cone = &SendRestartI2Cone; // load send restart function
-        } else if (I2C_1_values.direction == TRANSMIT) // transmitting
-        {
-            // check if something is sitting in the array
-            if (I2C_1_values.data_index < I2C_1_values.how_much_data) // data found
-            {
-                I2C1TRN = I2C_1_values.data[I2C_1_values.data_index]; // load data
-                I2C_1_values.data_index++; // increment index
-                FunctionI2Cone = &SendDataI2Cone; // load function that will continue sending
-            } else //all data has been sent
-            {
-                StopFunctionI2Cone(); // since all data hase been sent initiate stop
-                FunctionI2Cone = &SuccessFunctionI2Cone; // load sucess function
-            }
-        } else //neither transmit or receive (just in case)
-        {
-            StopFunctionI2Cone(); // initiate stop
-            FunctionI2Cone = &FailFunctionI2Cone; // load fail function
-        }
-    } else //nack received
-    {
-        StopFunctionI2Cone(); // since nack redeived stop the buss
-        FunctionI2Cone = &FailFunctionI2Cone; // load fail function
-    }
-}
-
-void SendDataI2Cone(void)
-{
-    if (I2C1STATbits.ACKSTAT == 0) //ack received
-    {
-        //if index is less than how much data, send data and increment index
-        if (I2C_1_values.data_index < I2C_1_values.how_much_data)
-        {
-            I2C1TRN = I2C_1_values.data[I2C_1_values.data_index]; // load data into buffer
-            I2C_1_values.data_index++; // increment index
-        } else //all data has been sent
-        {
-            StopFunctionI2Cone(); // since all data hase been sent initiate stop
-            FunctionI2Cone = &SuccessFunctionI2Cone; // load sucess function
-        }
-    } else //nack received
-    {
-        StopFunctionI2Cone(); // since nack redeived stop the buss
-        FunctionI2Cone = &FailFunctionI2Cone; // load fail function
-    }
-}
-
-// send a stop to then later send start
-
-void SendRestartI2Cone(void)
-{
-    I2C1CONbits.PEN = 1; //send stop
-    FunctionI2Cone = &SendStartI2Cone; // load start function
-}
-
-// send start as a followup to the restart
-
-void SendStartI2Cone(void)
-{
-    I2C1CONbits.SEN = 1; // send start condition
-    FunctionI2Cone = &SendReadRequestI2Cone; // load send read request function
-}
-
-// send read request
-
-void SendReadRequestI2Cone(void)
-{
-    I2C1TRN = (I2C_1_values.slave_address + 1); // send slave address plus 1
-    FunctionI2Cone = &FirstReceiveI2Cone; // load first receive function
-}
-
-void FirstReceiveI2Cone(void)
-{
-    if (I2C1STATbits.ACKSTAT == 0) //ack received
-    {
-        I2C1CONbits.RCEN = 1; // enable receive
-        FunctionI2Cone = &ReceiveByteI2Cone;
-    } else //nack received
-    {
-        StopFunctionI2Cone();
-        FunctionI2Cone = &FailFunctionI2Cone;
-    }
-}
-
-void ReceiveByteI2Cone(void)
-{
-    I2C_1_values.data[I2C_1_values.data_index] = I2C1RCV;
-    I2C_1_values.data_index++;
-    if (I2C_1_values.data_index < I2C_1_values.how_much_data)
-    {
-        I2C1CONbits.ACKEN = 1; // send ACK
-        FunctionI2Cone = &EnableReceiveI2Cone;
-    } else
-    {
-        StopFunctionI2Cone();
-        FunctionI2Cone = &SuccessFunctionI2Cone;
-    }
-}
-
-void EnableReceiveI2Cone(void)
-{
-    I2C1CONbits.RCEN = 1; // enable receive
-    FunctionI2Cone = &ReceiveByteI2Cone;
-}
-
-void StopFunctionI2Cone(void)
-{
-    I2C1CONbits.PEN = 1; //send stop
-}
-
-void FailFunctionI2Cone(void)
-{
-    I2C_1_values.status = FAILED;
-}
-
-void SuccessFunctionI2Cone(void)
-{
-    I2C_1_values.status = SUCCESS;
-}
-
-unsigned char StatusI2Cone(void)
-{
-    return I2C_1_values.status;
-}
-
-void __attribute__((interrupt, no_auto_psv)) _MI2C1Interrupt(void)
-{
-    if (I2C1STATbits.BCL == 1)
-    {
-        StopFunctionI2Cone();
-        FunctionI2Cone = &FailFunctionI2Cone;
-    } else
-    {
-        FunctionI2Cone();
-    }
-    IFS1bits.MI2C1IF = 0; // clear interrupt flag
-}
+*/

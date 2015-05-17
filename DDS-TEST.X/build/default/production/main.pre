@@ -10757,31 +10757,39 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 
 extern char * ftoa(float f, int * status);
 
-# 27 "main.c"
+# 28 "main.c"
+void Delay(int wait);
+
 void main(void)
 {
 
 SYSTEM_Initialize();
 
-# 49
+# 52
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 59
+# 62
 int ADCNT = 0;
 do { LATA3 = 1; } while(0);
 while (1)
 {
-ADCNT = ADC_GetConversion(Volume);
+
 
 printf("ADC Volume = %d",ADCNT);
-for(int i = 0; 50 > i ; i++)
-{
-_delay((unsigned long)((10)*(16000000/4000.0)));
+Delay(250);
+do { LATA3 = ~LATA3; } while(0);
+}
 }
 
+void Delay(int wait)
+{
+int x;
+for(x = 0;x<wait;x++)
+{
+_delay((unsigned long)((1)*(16000000/4000.0)));
 }
 }
 

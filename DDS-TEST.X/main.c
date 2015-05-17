@@ -21,9 +21,12 @@
 /*
                          Main application
  */
- #include "mcc_generated_files/mcc.h"
+#include "mcc_generated_files/mcc.h"
 #include <stdio.h>
 #include <stdlib.h>
+
+void Delay(int wait);
+
 void main(void)
 {
     // Initialize the device
@@ -60,14 +63,20 @@ void main(void)
     INDICATOR_SetHigh();
     while (1)
     {
-        ADCNT = ADC_GetConversion(Volume);
+       // ADCNT = ADC_GetConversion(Volume);
         // Add your application code
-        printf("ADC Volume = %d",ADCNT);
-        for(int i = 0; 50 > i ; i++)
-        {
-          __delay_ms(10);
-        }
+       printf("ADC Volume = %d",ADCNT);
+       Delay(250);
+       INDICATOR_Toggle();
+    }
+}
 
+void Delay(int wait)
+{
+    int x;
+    for(x = 0;x<wait;x++)
+    {
+       __delay_ms(1);
     }
 }
 /**

@@ -2,6 +2,8 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "FastTransfer.h"
+#include "PinDef.h"
+#include "Function.h"
 
 
 
@@ -50,7 +52,8 @@ unsigned char CRC8(const unsigned char * data, unsigned char len)
 
 void sendData(unsigned char whereToSend)
 {
-
+    //Enable RS485 TX
+    RS_RE_DE = 1;
     //calculate the crc
     unsigned char CS = CRC8(sendStructAddress, ring_buffer.count);
 
@@ -70,6 +73,10 @@ void sendData(unsigned char whereToSend)
 
     //send the crc
     serial_write(CS);
+
+    Delay(1);
+    //Disable RS485 TX
+    RS_RE_DE = 0;
 
     //record the sent message data for aknak check later
     crcBufS_put(&crc_buffer, whereToSend, CS, 0);

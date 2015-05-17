@@ -40,8 +40,12 @@ void PotSetpoint(int new_point)
         set_point = prev_pos - new_pos;
     }
 
-    for(;;)
+    int x;
+    for(x = 0;x < set_point;x++)
     {
+        DIGI_INC = 1;
+        Delay(1);
+        DIGI_INC = 0;
         Delay(1);
     }
     //We are done, let it go

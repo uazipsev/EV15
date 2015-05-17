@@ -9,6 +9,16 @@
 #define	PINDEF_H
 
 /*
+ *  RS485 Flow control
+ */
+#define RS_RE_DE PORTBbits.RB0
+
+/*
+ *    LED :)
+ */
+#define INDICATOR _LATB1
+
+/*
  *   Motor Control Pins
  */
 #define FORWARD PORTCbits.RC1

@@ -14,9 +14,7 @@
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
-        <itemPath>LEDs.h</itemPath>
       </logicalFolder>
-      <itemPath>ButtonScan.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -38,8 +36,6 @@
       </logicalFolder>
       <itemPath>main.c</itemPath>
       <itemPath>DDSBoardMain.c</itemPath>
-      <itemPath>ButtonScan.c</itemPath>
-      <itemPath>LEDs.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

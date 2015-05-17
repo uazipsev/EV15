@@ -1,3 +1,5 @@
 build/default/production/main.o:  \
 main.c  \
-Function.h 
+Function.h  \
+DigiPot.h  \
+PinDef.h 
