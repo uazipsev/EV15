@@ -13,12 +13,12 @@
   @Description
     This header file provides implementations for driver APIs for EUSART1.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.25
         Device            :  PIC18F45K22
         Driver Version    :  2.00
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
 */
 
 /*
@@ -145,7 +145,7 @@ void EUSART1_Write(uint8_t txData)
 
     if(0 == PIE1bits.TX1IE)
     {
-        TX1REG = txData;
+        TXREG1 = txData;
     }
     else
     {
@@ -176,7 +176,7 @@ void EUSART1_Transmit_ISR(void)
     // add your EUSART1 interrupt custom code
     if(sizeof(eusart1TxBuffer) > eusart1TxBufferRemaining)
     {
-        TX1REG = eusart1TxBuffer[eusart1TxTail++];
+        TXREG1 = eusart1TxBuffer[eusart1TxTail++];
         if(sizeof(eusart1TxBuffer) <= eusart1TxTail)
         {
             eusart1TxTail = 0;
@@ -200,7 +200,7 @@ void EUSART1_Receive_ISR(void)
     }
 
     // buffer overruns are ignored
-    eusart1RxBuffer[eusart1RxHead++] = RC1REG;
+    eusart1RxBuffer[eusart1RxHead++] = RCREG1;
     if(sizeof(eusart1RxBuffer) <= eusart1RxHead)
     {
         eusart1RxHead = 0;

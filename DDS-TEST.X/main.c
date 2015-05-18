@@ -24,6 +24,7 @@
 #include "mcc_generated_files/mcc.h"
 #include <stdio.h>
 #include <stdlib.h>
+#include "LED_BarGraph.h"
 
 void Delay(int wait);
 
@@ -60,6 +61,7 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
     int ADCNT = 0;
+    LEDbegin(0x70);
     INDICATOR_SetHigh();
     while (1)
     {
@@ -67,7 +69,21 @@ void main(void)
         // Add your application code
        printf("ADC Volume = %d",ADCNT);
        Delay(250);
-       INDICATOR_Toggle();
+        for (uint8_t b=0; b<24; b++) {
+           LEDsetBar(b, LED_RED);
+           LEDwriteDisplay(0x70);
+           Delay(50);
+           LEDsetBar(b, LED_OFF);
+           LEDwriteDisplay(0x70);
+         }
+          for (uint8_t b=0; b<24; b++) {
+           LEDsetBar(b, LED_GREEN);
+           LEDwriteDisplay(0x70);
+           Delay(50);
+           LEDsetBar(b, LED_OFF);
+           LEDwriteDisplay(0x70);
+         }
+       //INDICATOR_Toggle();
     }
 }
 

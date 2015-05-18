@@ -15,12 +15,12 @@
     For individual peripheral handlers please see the peripheral driver for
     all modules selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.25
         Device            :  PIC18F45K22
         Driver Version    :  1.02
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
 */
 
 /*

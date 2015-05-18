@@ -11,72 +11,81 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$dist/default/production\DDS-TEST.X.production.obj
-cinit CODE 0 CBC CBC 22 1
-text0 CODE 0 AF6 AF6 46 1
-text1 CODE 0 892 892 170 1
-text2 CODE 0 D7A D7A A 1
-text3 CODE 0 B3C B3C 40 1
-text4 CODE 0 A5E A5E 4C 1
-text5 CODE 0 A02 A02 5C 1
-text6 CODE 0 CDE CDE 1E 1
-text7 CODE 0 CFC CFC 1E 1
-text8 CODE 0 D8A D8A 4 1
-text9 CODE 0 AAA AAA 4C 1
-nvCOMRAM COMRAM 1 4A 4A 3 1
-text10 CODE 0 D6C D6C E 1
-text11 CODE 0 D4C D4C 10 1
-text12 CODE 0 C8E C8E 2E 1
-text13 CODE 0 BBC BBC 3C 1
-text14 CODE 0 D34 D34 18 1
-text15 CODE 0 BF8 BF8 34 1
-text17 CODE 0 D5C D5C 10 1
-text18 CODE 0 D84 D84 6 1
-text19 CODE 0 61C 61C 276 1
-text20 CODE 0 B7C B7C 40 1
-text21 CODE 0 D1A D1A 1A 1
-text22 CODE 0 D92 D92 2 1
-text23 CODE 0 C2C C2C 32 1
-text24 CODE 0 C5E C5E 30 1
-text25 CODE 0 D8E D8E 4 1
-cstackCOMRAM COMRAM 1 2B 2B 1F 1
-cstackBANK0 BANK0 1 70 70 E 1
-bssBANK0 BANK0 1 60 60 10 1
-intcode CODE 0 8 8 BA 1
-smallconst SMALLCONST 0 600 600 1C 1
-bssCOMRAM COMRAM 1 1 1 2A 1
-$C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-idloc IDLOC 0 200000 200000 8 1
+$C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+end_init CODE 0 C0 C0 4 1
 reset_vec CODE 0 0 0 4 1
-end_init CODE 0 C2 C2 4 1
+idloc IDLOC 0 200000 200000 8 1
 config CONFIG 0 300000 300000 E 1
+$dist/default/production\DDS-TEST.X.production.obj
+intcode CODE 0 8 8 B8 1
+smallconst SMALLCONST 0 600 600 1C 1
+text34 CODE 0 137A 137A 4 1
+text33 CODE 0 125E 125E 30 1
+text32 CODE 0 11F8 11F8 34 1
+text31 CODE 0 137E 137E 2 1
+text30 CODE 0 1332 1332 18 1
+text29 CODE 0 114A 114A 3E 1
+text28 CODE 0 61C 61C 252 1
+text27 CODE 0 1376 1376 4 1
+text26 CODE 0 122C 122C 32 1
+text24 CODE 0 11C4 11C4 34 1
+text23 CODE 0 D18 D18 AA 1
+text22 CODE 0 1086 1086 44 1
+text21 CODE 0 FF6 FF6 4A 1
+text20 CODE 0 1040 1040 46 1
+text19 CODE 0 E66 E66 5A 1
+text18 CODE 0 F12 F12 4E 1
+text17 CODE 0 DC2 DC2 A4 1
+text16 CODE 0 86E 86E 24A 1
+text15 CODE 0 FAC FAC 4A 1
+text14 CODE 0 131A 131A 18 1
+text13 CODE 0 1188 1188 3C 1
+text12 CODE 0 128E 128E 2E 1
+text11 CODE 0 134A 134A 10 1
+text10 CODE 0 135A 135A E 1
+text9 CODE 0 F60 F60 4C 1
+text8 CODE 0 1372 1372 4 1
+text7 CODE 0 12FC 12FC 1E 1
+text6 CODE 0 12DE 12DE 1E 1
+text5 CODE 0 EC0 EC0 52 1
+text4 CODE 0 10CA 10CA 42 1
+text3 CODE 0 110C 110C 3E 1
+text2 CODE 0 1368 1368 A 1
+text1 CODE 0 AB8 AB8 172 1
+text0 CODE 0 C2A C2A EE 1
+cstackCOMRAM COMRAM 1 1 1 24 1
+cstackBANK0 BANK0 1 7D 7D 10 1
+bssBANK0 BANK0 1 60 60 1D 1
+bssCOMRAM COMRAM 1 25 25 1D 1
+cinit CODE 0 12BC 12BC 22 1
+nvCOMRAM COMRAM 1 42 42 A 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
 # is described on a single line as follows:
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 7E-5FF 1
-SFR F38-FFF 1
-BANK0 7E-FF 1
-BANK1 100-1FF 1
-BANK2 200-2FF 1
-BANK3 300-3FF 1
-BANK4 400-4FF 1
-BANK5 500-5FF 1
-CONST 4-7 1
-CONST C6-5FF 1
-CONST D94-7FFF 1
-STACK 7E-5FF 1
-SMALLCONST D94-7FFF 1
-CODE 4-7 1
-CODE C6-5FF 1
-CODE D94-7FFF 1
-BIGRAM 4D-5F 1
-BIGRAM 7E-5FF 1
-COMRAM 4D-5F 1
+BANK0 00008D-0000FF 1
+BANK1 000100-0001FF 1
+BANK2 000200-0002FF 1
+BANK3 000300-0003FF 1
+BANK4 000400-0004FF 1
+BANK5 000500-0005FF 1
+BIGRAM 00004C-00005F 1
+BIGRAM 00008D-0005FF 1
+CODE 000004-000007 1
+CODE 0000C4-0005FF 1
+CODE 001380-007FFF 1
+COMRAM 00004C-00005F 1
+CONST 000004-000007 1
+CONST 0000C4-0005FF 1
+CONST 001380-007FFF 1
 EEDATA F00000-F000FF 1
-MEDIUMCONST D94-7FFF 1
+MEDIUMCONST 001380-007FFF 1
+RAM 00008D-0005FF 1
+SFR 000F38-000FFF 1
+SMALLCONST 001380-007FFF 1
+STACK 00008D-0005FF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -84,406 +93,474 @@ MEDIUMCONST D94-7FFF 1
 #   $foo.obj
 # Each line that follows describes a single mapping until the next
 # object file.  Mappings have the following format:
-#    <address> <psect name> <class name> ><line number>:<file name>
+#    <file name>:<line number> <address> <psect name> <class name>
 # The address is absolute and given given in unqualified hex 
 # in delta units of the psect. All mappings within an object file
 # are in ascending order of addresses.
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/production\DDS-TEST.X.production.obj
-8 intcode CODE >81:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-8 intcode CODE >73:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-40 intcode CODE >76:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-46 intcode CODE >78:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-4A intcode CODE >79:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-4C intcode CODE >80:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-52 intcode CODE >82:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-56 intcode CODE >83:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-58 intcode CODE >84:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-5E intcode CODE >86:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-62 intcode CODE >87:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-64 intcode CODE >88:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-6A intcode CODE >90:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-6E intcode CODE >91:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-70 intcode CODE >92:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-76 intcode CODE >94:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-7A intcode CODE >95:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-7C intcode CODE >96:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-82 intcode CODE >98:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-86 intcode CODE >103:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-88 intcode CODE >104:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-61C text19 CODE >234:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-61C text19 CODE >242:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-61E text19 CODE >246:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-622 text19 CODE >249:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-624 text19 CODE >250:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-628 text19 CODE >251:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-648 text19 CODE >254:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-650 text19 CODE >256:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-652 text19 CODE >260:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-654 text19 CODE >262:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-654 text19 CODE >264:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-658 text19 CODE >267:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-660 text19 CODE >268:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-66C text19 CODE >269:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-680 text19 CODE >271:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-688 text19 CODE >274:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-696 text19 CODE >277:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6A0 text19 CODE >282:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6A2 text19 CODE >285:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6B0 text19 CODE >288:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6B2 text19 CODE >289:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6B2 text19 CODE >292:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6B4 text19 CODE >295:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6B8 text19 CODE >298:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6BA text19 CODE >300:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6BA text19 CODE >305:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6BC text19 CODE >308:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6C0 text19 CODE >310:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6C2 text19 CODE >312:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6C2 text19 CODE >314:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6C6 text19 CODE >316:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6C8 text19 CODE >317:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6CE text19 CODE >318:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6D0 text19 CODE >322:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6DE text19 CODE >325:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6E2 text19 CODE >329:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6E6 text19 CODE >330:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6E8 text19 CODE >334:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6EC text19 CODE >338:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6EE text19 CODE >340:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6EE text19 CODE >342:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6F2 text19 CODE >344:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6F4 text19 CODE >345:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6FA text19 CODE >346:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6FC text19 CODE >347:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6FC text19 CODE >351:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-6FE text19 CODE >355:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-71E text19 CODE >358:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-720 text19 CODE >361:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-724 text19 CODE >364:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-728 text19 CODE >367:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-72A text19 CODE >382:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-730 text19 CODE >385:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-740 text19 CODE >386:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-754 text19 CODE >387:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-764 text19 CODE >391:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-76E text19 CODE >393:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-774 text19 CODE >398:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-77C text19 CODE >399:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-780 text19 CODE >400:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-782 text19 CODE >401:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-782 text19 CODE >404:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-786 text19 CODE >405:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-78A text19 CODE >407:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-78E text19 CODE >409:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-790 text19 CODE >410:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-790 text19 CODE >413:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-794 text19 CODE >414:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-798 text19 CODE >417:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-79C text19 CODE >418:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-79E text19 CODE >422:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7A2 text19 CODE >425:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7A4 text19 CODE >427:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7A4 text19 CODE >430:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7A8 text19 CODE >433:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7AA text19 CODE >436:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7AC text19 CODE >439:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7B2 text19 CODE >441:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7B4 text19 CODE >445:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7BC text19 CODE >450:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7C4 text19 CODE >453:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7C8 text19 CODE >455:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7CE text19 CODE >456:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7D0 text19 CODE >457:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7D0 text19 CODE >465:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7D2 text19 CODE >468:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7D6 text19 CODE >471:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7D8 text19 CODE >475:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7E8 text19 CODE >478:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7EA text19 CODE >480:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7EA text19 CODE >483:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7EE text19 CODE >487:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7F0 text19 CODE >490:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7F6 text19 CODE >493:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7F8 text19 CODE >494:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7FA text19 CODE >495:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7FA text19 CODE >497:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-7FC text19 CODE >498:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-800 text19 CODE >500:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-802 text19 CODE >507:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-806 text19 CODE >510:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-808 text19 CODE >512:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-80A text19 CODE >517:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-81A text19 CODE >520:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-822 text19 CODE >527:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-824 text19 CODE >530:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-828 text19 CODE >531:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-82A text19 CODE >532:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-82A text19 CODE >537:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-82C text19 CODE >539:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-832 text19 CODE >543:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-834 text19 CODE >544:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-836 text19 CODE >546:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-838 text19 CODE >550:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-83E text19 CODE >551:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-840 text19 CODE >557:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-842 text19 CODE >558:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-848 text19 CODE >561:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-84A text19 CODE >260:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-890 text19 CODE >562:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-892 text1 CODE >464:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-892 text1 CODE >533:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-89E text1 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8A0 text1 CODE >538:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8AA text1 CODE >541:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8B2 text1 CODE >542:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8B4 text1 CODE >548:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8BA text1 CODE >635:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8BC text1 CODE >638:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8BE text1 CODE >699:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8C0 text1 CODE >813:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8C2 text1 CODE >822:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8C4 text1 CODE >635:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-8EE text1 CODE >1259:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-908 text1 CODE >1261:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-90E text1 CODE >1262:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-914 text1 CODE >1263:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-920 text1 CODE >1305:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-934 text1 CODE >1306:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-95C text1 CODE >1307:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-95E text1 CODE >1305:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-964 text1 CODE >1438:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-972 text1 CODE >1439:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-97A text1 CODE >1472:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-97E text1 CODE >1474:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-980 text1 CODE >1489:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-9C6 text1 CODE >1524:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-9D0 text1 CODE >1474:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-9E0 text1 CODE >536:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-A00 text1 CODE >1541:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-A02 text5 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A02 text5 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A0A text5 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A12 text5 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A16 text5 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A18 text5 CODE >18:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A1E text5 CODE >19:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A22 text5 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A2A text5 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A30 text5 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A3C text5 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A44 text5 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A48 text5 CODE >27:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A4E text5 CODE >28:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A54 text5 CODE >29:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A54 text5 CODE >30:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A5C text5 CODE >31:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-A5E text4 CODE >8:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A5E text4 CODE >13:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A66 text4 CODE >14:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A6A text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A6C text4 CODE >16:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A72 text4 CODE >17:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A76 text4 CODE >15:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A7E text4 CODE >20:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A8A text4 CODE >21:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A94 text4 CODE >22:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-A9A text4 CODE >23:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-AA0 text4 CODE >24:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-AA0 text4 CODE >25:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-AA8 text4 CODE >26:C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-AAA text9 CODE >50:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AAA text9 CODE >52:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AAE text9 CODE >53:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AB2 text9 CODE >54:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AB8 text9 CODE >56:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-ABC text9 CODE >57:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AC0 text9 CODE >58:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AC6 text9 CODE >59:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-ACA text9 CODE >61:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-ACE text9 CODE >62:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AD0 text9 CODE >63:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AD6 text9 CODE >65:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-ADA text9 CODE >66:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-ADE text9 CODE >67:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AE4 text9 CODE >69:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AE8 text9 CODE >70:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AEC text9 CODE >71:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AF2 text9 CODE >73:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AF4 text9 CODE >74:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
-AF6 text0 CODE >30:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-AF6 text0 CODE >33:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-AFA text0 CODE >52:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-AFC text0 CODE >55:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-AFE text0 CODE >62:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B0A text0 CODE >63:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B0E text0 CODE >68:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B26 text0 CODE >69:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B34 text0 CODE >70:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B36 text0 CODE >64:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B38 text0 CODE >72:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-B3C text3 CODE >140:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B3E text3 CODE >142:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B46 text3 CODE >146:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B4A text3 CODE >148:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B4E text3 CODE >149:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B50 text3 CODE >150:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B50 text3 CODE >152:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B52 text3 CODE >153:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B68 text3 CODE >154:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B6E text3 CODE >156:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B74 text3 CODE >158:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B78 text3 CODE >160:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B7A text3 CODE >161:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-B7C text20 CODE >582:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-B7E text20 CODE >585:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-B80 text20 CODE >588:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-B94 text20 CODE >591:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-BB6 text20 CODE >595:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-BBA text20 CODE >597:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-BBC text13 CODE >76:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BBC text13 CODE >79:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BBE text13 CODE >80:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BC0 text13 CODE >85:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BC4 text13 CODE >88:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BC8 text13 CODE >91:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BCC text13 CODE >94:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BD0 text13 CODE >97:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BD4 text13 CODE >100:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BD8 text13 CODE >103:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BDC text13 CODE >107:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BE0 text13 CODE >108:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BE4 text13 CODE >109:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BE8 text13 CODE >111:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BEC text13 CODE >112:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BF0 text13 CODE >113:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BF4 text13 CODE >116:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BF6 text13 CODE >117:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-BF8 text15 CODE >74:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-BF8 text15 CODE >77:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-C02 text15 CODE >79:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-C12 text15 CODE >77:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-C2A text15 CODE >81:C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-C2C text23 CODE >173:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C2C text23 CODE >177:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C32 text23 CODE >179:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C48 text23 CODE >180:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C4E text23 CODE >182:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C54 text23 CODE >184:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C56 text23 CODE >185:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C58 text23 CODE >186:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C58 text23 CODE >188:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C5C text23 CODE >190:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C5E text24 CODE >192:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C5E text24 CODE >194:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C62 text24 CODE >198:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C64 text24 CODE >199:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C68 text24 CODE >203:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C7E text24 CODE >204:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C84 text24 CODE >206:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C8A text24 CODE >208:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C8C text24 CODE >209:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-C8E text12 CODE >199:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-C8E text12 CODE >201:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-C96 text12 CODE >202:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-C9E text12 CODE >203:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CA0 text12 CODE >204:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CA2 text12 CODE >206:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CA6 text12 CODE >209:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CAA text12 CODE >211:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CAE text12 CODE >213:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CB2 text12 CODE >215:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CB6 text12 CODE >219:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CB8 text12 CODE >221:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CBA text12 CODE >223:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-CBC cinit CODE >4971:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CBC cinit CODE >4973:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CBC cinit CODE >4976:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CBC cinit CODE >5026:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CC0 cinit CODE >5027:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CC2 cinit CODE >5028:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CC2 cinit CODE >5029:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CC4 cinit CODE >5030:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CC6 cinit CODE >5031:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CC8 cinit CODE >5034:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CCC cinit CODE >5035:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CCE cinit CODE >5036:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CCE cinit CODE >5037:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CD0 cinit CODE >5038:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CD2 cinit CODE >5039:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CD4 cinit CODE >5045:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CD4 cinit CODE >5047:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CD6 cinit CODE >5048:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CD8 cinit CODE >5049:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CDA cinit CODE >5050:C:\Users\RICHAR~1\AppData\Local\Temp\s28o.
-CDE text6 CODE >112:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CDE text6 CODE >114:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CE2 text6 CODE >115:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CE6 text6 CODE >116:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CEA text6 CODE >117:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CEE text6 CODE >118:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CF2 text6 CODE >119:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CF6 text6 CODE >120:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CFA text6 CODE >121:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-CFC text7 CODE >65:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-CFC text7 CODE >70:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D00 text7 CODE >73:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D04 text7 CODE >76:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D08 text7 CODE >79:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D10 text7 CODE >82:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D12 text7 CODE >85:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D14 text7 CODE >88:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D18 text7 CODE >89:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D1A text21 CODE >564:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D1A text21 CODE >568:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D22 text21 CODE >571:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D26 text21 CODE >573:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D2A text21 CODE >574:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D2C text21 CODE >577:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D32 text21 CODE >580:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D34 text14 CODE >59:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D34 text14 CODE >64:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D38 text14 CODE >67:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D3C text14 CODE >70:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D40 text14 CODE >73:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D44 text14 CODE >76:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D48 text14 CODE >79:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D4A text14 CODE >80:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D4C text11 CODE >52:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D4C text11 CODE >55:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D4E text11 CODE >60:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D50 text11 CODE >62:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D52 text11 CODE >64:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D54 text11 CODE >66:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D56 text11 CODE >68:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D58 text11 CODE >70:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D5A text11 CODE >71:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
-D5C text17 CODE >132:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D5C text17 CODE >136:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D5E text17 CODE >140:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D62 text17 CODE >141:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D66 text17 CODE >145:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D6A text17 CODE >148:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D6C text10 CODE >123:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-D6C text10 CODE >126:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-D70 text10 CODE >128:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-D74 text10 CODE >130:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-D78 text10 CODE >133:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
-D7A text2 CODE >168:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-D7C text2 CODE >170:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-D82 text2 CODE >171:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-D84 text18 CODE >150:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D84 text18 CODE >152:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D88 text18 CODE >156:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D8A text8 CODE >91:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D8A text8 CODE >94:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D8C text8 CODE >95:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
-D8E text25 CODE >128:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D8E text25 CODE >131:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D90 text25 CODE >132:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
-D92 text22 CODE >729:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
-D92 text22 CODE >732:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":97 8 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":73 8 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":76 40 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":78 46 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":79 4A intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":80 4C intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":82 52 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":83 56 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":84 58 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":86 5E intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":87 62 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":88 64 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":90 6A intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":91 6E intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":92 70 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":94 76 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":95 7A intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":96 7C intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":98 82 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":104 86 intcode CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":186 61C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":194 61C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":198 61E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":201 622 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":202 624 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":203 628 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":206 648 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":214 652 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":216 652 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":219 656 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":220 65E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":221 66A text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":223 67E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":226 686 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":229 6A4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":234 6AC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":237 6AE text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":240 6C2 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":244 6C4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":247 6C6 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":252 6CC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":257 6CC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":260 6CE text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":262 6D2 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":264 6D4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":266 6D4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":268 6D8 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":269 6DA text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":270 6E0 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":274 6E2 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":277 6F0 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":281 6F4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":282 6F8 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":286 6FA text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":292 700 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":294 700 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":296 704 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":297 706 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":298 70C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":299 70E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":303 70E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":307 710 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":310 72C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":313 72E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":316 732 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":334 738 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":337 73E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":338 74E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":339 762 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":362 772 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":365 772 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":366 776 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":369 77A text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":370 77E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":374 780 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":379 786 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":382 786 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":385 78A text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":388 78C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":391 78E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":393 794 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":397 796 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":402 79E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":405 7A6 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":407 7AA text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":408 7B0 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":409 7B2 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":417 7B2 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":420 7B4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":427 7BA text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":432 7CC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":435 7CC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":439 7D0 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":442 7D2 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":445 7D8 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":446 7DA text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":447 7DC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":449 7DC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":450 7DE text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":459 7E4 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":462 7E8 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":464 7EA text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":469 7EC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":472 7FC text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":479 804 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":482 806 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":483 80A text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":484 80C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":489 80C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":491 80E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":495 812 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":496 814 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":502 816 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":503 81C text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":509 81E text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":510 820 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":511 826 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":212 828 text28 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":43 86E text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":46 86E text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":47 882 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":49 898 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":51 8B8 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":52 8C0 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":53 8D0 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":56 8D8 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":58 8E0 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":60 912 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":61 954 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":63 960 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":64 9C0 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":66 9CA text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":67 A36 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":69 A42 text16 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":71 A7A text16 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":464 AB8 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":542 AB8 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":545 AC4 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":547 AC6 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":550 AD0 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":551 AD8 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":557 ADA text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":644 AE0 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1268 B0A text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1270 B2A text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1271 B40 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1272 B46 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1314 B52 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1315 B62 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1314 B94 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1447 B9A text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1448 BA8 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1481 BAE text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1483 BB2 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1498 BB4 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1533 BFA text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":1483 C02 text1 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c":545 C0E text1 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":31 C2A text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":34 C2A text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":53 C2E text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":56 C30 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":63 C32 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":64 C3E text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":65 C44 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":70 C46 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":71 C5A text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":72 C66 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":73 C6E text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":74 C82 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":75 C88 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":76 C94 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":77 CA8 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":72 CAE text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":79 CBA text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":80 CCA text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":81 CDE text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":82 CE4 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":83 CF0 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":84 D04 text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":79 D0A text0 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":594 D18 text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":595 D18 text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":601 D1A text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":603 D1E text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":605 D2A text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":606 D3E text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":607 D4A text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":608 D5E text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":611 D66 text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":614 D7C text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":619 D84 text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":622 D86 text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":625 D9C text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":631 DA0 text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":632 DAC text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":635 DAC text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":637 DBA text23 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":641 DBE text23 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":8 DC2 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":14 DC2 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":15 DC6 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":16 DDA text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":17 DE2 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":19 DE6 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":20 DFA text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":21 E02 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":23 E06 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":24 E0E text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":25 E16 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":26 E1A text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":27 E1C text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":28 E22 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":26 E24 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":31 E28 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":32 E2E text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":33 E3A text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":34 E42 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":36 E44 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":37 E4A text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":39 E4E text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":40 E54 text17 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c":41 E5C text17 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":14 E66 text19 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":15 E66 text19 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":16 E84 text19 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":17 EBE text19 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":8 EC0 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":14 EC0 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":15 EC8 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":16 ED0 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":17 ED4 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":18 ED6 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":19 EDC text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":17 EDE text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":22 EE2 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":23 EE8 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":24 EF4 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":25 EFC text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":27 EFE text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":28 F04 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":29 F08 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":30 F08 text5 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c":31 F10 text5 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":19 F12 text18 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":20 F16 text18 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":21 F36 text18 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":22 F4A text18 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":23 F5E text18 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":50 F60 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":52 F60 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":53 F64 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":54 F68 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":56 F6E text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":57 F72 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":58 F76 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":59 F7C text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":61 F80 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":62 F84 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":63 F86 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":65 F8C text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":66 F90 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":67 F94 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":69 F9A text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":70 F9E text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":71 FA2 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":73 FA8 text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c":76 FAA text9 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":25 FAC text15 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":26 FB0 text15 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":27 FD0 text15 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":35 FF4 text15 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":551 FF6 text21 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":560 FF6 text21 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":562 FFA text21 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":563 101A text21 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":564 1030 text21 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":567 1032 text21 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":9 1040 text20 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":10 1040 text20 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":11 105E text20 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c":12 1084 text20 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":660 1086 text22 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":666 1086 text22 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":667 10A4 text22 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":668 10B4 text22 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":669 10C8 text22 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":8 10CA text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":13 10CA text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":14 10D2 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":15 10D6 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":16 10D8 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":17 10DE text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":15 10E0 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":20 10E4 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":21 10F0 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":22 10F8 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":23 10FE text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":24 1102 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":25 1102 text4 CODE
+"C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c":26 110A text4 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":140 110C text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":142 110E text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":146 1114 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":148 1118 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":149 111C text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":150 111E text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":152 111E text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":153 1120 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":154 113A text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":156 1140 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":158 1144 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":160 1146 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":161 1148 text3 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":534 114A text29 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":537 114C text29 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":540 114E text29 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":543 1162 text29 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":547 1182 text29 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":549 1186 text29 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":76 1188 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":79 1188 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":80 118A text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":85 118C text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":88 1190 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":91 1194 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":94 1198 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":97 119C text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":100 11A0 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":103 11A4 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":107 11A8 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":108 11AC text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":109 11B0 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":111 11B4 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":112 11B8 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":113 11BC text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":116 11C0 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":117 11C2 text13 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":90 11C4 text24 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":93 11C4 text24 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":95 11CE text24 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":93 11DE text24 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":97 11F4 text24 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\main.c":93 11F6 text24 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":173 11F8 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":177 11F8 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":179 1200 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":180 121A text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":182 1220 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":184 1224 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":185 1226 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":186 1228 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":188 1228 text32 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":88 122C text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":93 122C text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":97 122E text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":98 123C text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":101 1240 text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":104 1250 text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":107 1254 text26 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":192 125E text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":194 125E text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":198 1262 text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":199 1264 text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":203 1266 text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":204 1280 text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":206 1286 text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":208 128A text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":209 128C text33 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":151 128E text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":153 128E text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":154 1296 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":155 129E text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":156 12A0 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":158 12A2 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":161 12A6 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":163 12AA text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":165 12AE text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":167 12B2 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":171 12B6 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":173 12B8 text12 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":175 12BA text12 CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5491 12BC cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5493 12BC cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5496 12BC cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5549 12BC cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5550 12C0 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5551 12C2 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5552 12C2 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5553 12C4 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5554 12C6 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5557 12C8 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5558 12CC cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5559 12CE cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5560 12CE cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5561 12D0 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5562 12D2 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5568 12D4 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5570 12D4 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5571 12D6 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5572 12D8 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s7f0.":5573 12DA cinit CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":112 12DE text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":114 12DE text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":115 12E2 text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":116 12E6 text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":117 12EA text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":118 12EE text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":119 12F2 text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":120 12F6 text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":121 12FA text6 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":21 12FC text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":26 12FC text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":29 1300 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":32 1304 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":35 1308 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":38 1310 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":41 1312 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":44 1314 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":45 1318 text7 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":59 131A text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":64 131A text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":67 131E text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":70 1322 text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":73 1326 text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":76 132A text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":79 132E text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":80 1330 text14 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":516 1332 text30 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":520 1332 text30 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":523 133A text30 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":525 133E text30 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":526 1342 text30 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":529 1344 text30 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":52 134A text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":55 134A text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":60 134C text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":62 134E text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":64 1350 text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":66 1352 text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":68 1354 text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":70 1356 text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c":71 1358 text11 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":123 135A text10 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":126 135A text10 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":128 135E text10 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":130 1362 text10 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c":133 1366 text10 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":168 1368 text2 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":170 136A text2 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c":171 1370 text2 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":47 1372 text8 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":50 1372 text8 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":51 1374 text8 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":113 1376 text27 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c":115 1376 text27 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":128 137A text34 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":131 137A text34 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c":132 137C text34 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":681 137E text31 CODE
+"C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c":684 137E text31 CODE
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -496,457 +573,540 @@ D92 text22 CODE >732:C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 # was defined in a psect then <psect> will be "-". File-name
 # is the name of the object file in which the symbol was defined.
 %SYMTAB
-___lwmod@counter 49 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\DDS-TEST.X.production.obj
-_I2C1_Initialize C8E 0 CODE 0 text12 dist/default/production\DDS-TEST.X.production.obj
-__Hspace_0 30000E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hspace_1 7E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hspace_2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_p_i2c1_trb_current C 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\DDS-TEST.X.production.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-_EUSART1_Initialize BBC 0 CODE 0 text13 dist/default/production\DDS-TEST.X.production.obj
-__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\DDS-TEST.X.production.obj
-__end_of_INTERRUPT_Initialize D5C 0 CODE 0 text11 dist/default/production\DDS-TEST.X.production.obj
-__Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+___lwdiv@dividend 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+___awdiv@counter 19 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+___lwdiv@counter 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_EUSART1_Receive_ISR 125E 0 CODE 0 text33 dist/default/production\DDS-TEST.X.production.obj
+__S0 30000E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__S1 8D 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__S2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hintentry 0 0 ABS 0 intentry dist/default/production\DDS-TEST.X.production.obj
+__Lintentry 0 0 ABS 0 intentry dist/default/production\DDS-TEST.X.production.obj
+__CFG_PLLCFG$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of___awdiv E66 0 CODE 0 text17 dist/default/production\DDS-TEST.X.production.obj
 _LATA F89 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _LATB F8A 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _LATC F8B 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _LATD F8C 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _LATE F8D 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _WPUB F61 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-_main AF6 0 CODE 0 text0 dist/default/production\DDS-TEST.X.production.obj
-start C2 0 CODE 0 init C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-__size_of_main 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of___lwdiv 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of___lwmod 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__size_of_EUSART1_Receive_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_I2C1_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-I2C1_ISR@i2c_10bit_address_restart E 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_p_i2c1_current A 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__CFG_CCP2MX$PORTC1 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-I2C1_ISR@i2c_address 29 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Hpowerup C2 0 CODE 0 powerup dist/default/production\DDS-TEST.X.production.obj
-printf@c 7B 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-printf@f 70 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-_T0CONbits FD5 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_CCP3MX$PORTB5 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-intlevel0 0 0 CODE 0 text C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-intlevel1 0 0 CODE 0 text C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-intlevel2 0 0 CODE 0 text C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-intlevel3 0 0 CODE 0 text C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-I2C1_ISR@pi2c_buf_ptr 8 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__size_of_ADC_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\DDS-TEST.X.production.obj
-__CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_RC1STAbits FAB 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_P2BMX$PORTD2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hifardata 0 0 CODE 0 ifardata dist/default/production\DDS-TEST.X.production.obj
-I2C1_ISR@i2c_bytes_left F 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-EUSART1_Write@txData 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Hclrtext 0 0 ABS 0 clrtext dist/default/production\DDS-TEST.X.production.obj
-_EUSART1_Receive_ISR C5E 0 CODE 0 text24 dist/default/production\DDS-TEST.X.production.obj
-__end_of_I2C1_FunctionComplete D34 0 CODE 0 text21 dist/default/production\DDS-TEST.X.production.obj
-printf@flag 77 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-printf@prec 78 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-__CFG_FOSC$INTIO67 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_timer0ReloadVal16bit 4A 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_ADCON0 FC2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ADCON1 FC1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ADCON2 FC0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ADRESH FC4 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ADRESL FC3 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ANSELA F38 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ANSELB F39 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ANSELC F3A 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ANSELD F3B 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_ANSELE F3C 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_I2C1_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-Delay@wait 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-_I2C1_ISR 61C 0 CODE 0 text19 dist/default/production\DDS-TEST.X.production.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-__end_of_INTERRUPT_InterruptManager C2 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
-__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\DDS-TEST.X.production.obj
-__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\DDS-TEST.X.production.obj
-__end_of_I2C1_ISR 892 0 CODE 0 text19 dist/default/production\DDS-TEST.X.production.obj
-_I2C1_FunctionComplete D1A 0 CODE 0 text21 dist/default/production\DDS-TEST.X.production.obj
-__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\DDS-TEST.X.production.obj
-?_printf 70 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-__Hintcodelo C2 0 CODE 0 intcodelo dist/default/production\DDS-TEST.X.production.obj
-___lwmod@divisor 47 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__end_of___lwdiv A5E 0 CODE 0 text5 dist/default/production\DDS-TEST.X.production.obj
-__end_of___lwmod AAA 0 CODE 0 text4 dist/default/production\DDS-TEST.X.production.obj
-_dpowers 601 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
-__size_of_Delay 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-___lwdiv@quotient 43 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__size_of_putch 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_i2c1_trb_count 16 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_INTCON2bits FF1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-___lwmod@dividend 45 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Lintcodelo C2 0 CODE 0 intcodelo dist/default/production\DDS-TEST.X.production.obj
-__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_PIN_MANAGER_Initialize AAA 0 CODE 0 text9 dist/default/production\DDS-TEST.X.production.obj
-start_initialization CBC 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
-__CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_OSCCON FD3 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\DDS-TEST.X.production.obj
-_ADC_ISR D8E 0 CODE 0 text25 dist/default/production\DDS-TEST.X.production.obj
-___rparam_used 1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_RC1REG FAE 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_RC1STA FAB 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_RCREG1 FAE 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__end_of_SYSTEM_Initialize CFC 0 CODE 0 text6 dist/default/production\DDS-TEST.X.production.obj
-__CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SPBRG1 FAF 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__pcstackBANK0 70 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-_IPR1bits F9F 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_IPR2bits FA2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_TX1REG FAD 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_TX1STA FAC 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_TXREG1 FAD 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-I2C1_MasterRead@trBlock 17 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__end_of_printf A02 0 CODE 0 text1 dist/default/production\DDS-TEST.X.production.obj
-__end_of_EUSART1_Receive_ISR C8E 0 CODE 0 text24 dist/default/production\DDS-TEST.X.production.obj
-__size_of_EUSART1_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_EUSART1_Write B3C 0 CODE 0 text3 dist/default/production\DDS-TEST.X.production.obj
-__Hbank0 0 0 ABS 0 bank0 dist/default/production\DDS-TEST.X.production.obj
-__Hbank1 0 0 ABS 0 bank1 dist/default/production\DDS-TEST.X.production.obj
-__Hbank2 0 0 ABS 0 bank2 dist/default/production\DDS-TEST.X.production.obj
-__Hbank3 0 0 ABS 0 bank3 dist/default/production\DDS-TEST.X.production.obj
-__Hbank4 0 0 ABS 0 bank4 dist/default/production\DDS-TEST.X.production.obj
-__Hbank5 0 0 ABS 0 bank5 dist/default/production\DDS-TEST.X.production.obj
-__Hcinit 0 0 ABS 0 cinit dist/default/production\DDS-TEST.X.production.obj
-__Hconst 0 0 CODE 0 const dist/default/production\DDS-TEST.X.production.obj
-__Hidata 0 0 CODE 0 idata dist/default/production\DDS-TEST.X.production.obj
-__Hidloc 200008 0 IDLOC 0 idloc dist/default/production\DDS-TEST.X.production.obj
-__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\DDS-TEST.X.production.obj
-__Hparam 0 0 COMRAM 1 rparam dist/default/production\DDS-TEST.X.production.obj
-__size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hrdata 0 0 COMRAM 1 rdata dist/default/production\DDS-TEST.X.production.obj
-__Hstack 0 0 STACK 2 stack dist/default/production\DDS-TEST.X.production.obj
-__Htext0 0 0 ABS 0 text0 dist/default/production\DDS-TEST.X.production.obj
-__Htext1 0 0 ABS 0 text1 dist/default/production\DDS-TEST.X.production.obj
-__Htext2 0 0 ABS 0 text2 dist/default/production\DDS-TEST.X.production.obj
-__Htext3 0 0 ABS 0 text3 dist/default/production\DDS-TEST.X.production.obj
-__Htext4 0 0 ABS 0 text4 dist/default/production\DDS-TEST.X.production.obj
-__Htext5 0 0 ABS 0 text5 dist/default/production\DDS-TEST.X.production.obj
-__Htext6 0 0 ABS 0 text6 dist/default/production\DDS-TEST.X.production.obj
-__Htext7 0 0 ABS 0 text7 dist/default/production\DDS-TEST.X.production.obj
-__Htext8 0 0 ABS 0 text8 dist/default/production\DDS-TEST.X.production.obj
-__Htext9 0 0 ABS 0 text9 dist/default/production\DDS-TEST.X.production.obj
-___lwdiv@counter 42 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-Delay@x 41 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__size_of_EUSART1_Transmit_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\DDS-TEST.X.production.obj
-__Hbigram 0 0 ABS 0 bigram dist/default/production\DDS-TEST.X.production.obj
-__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-_BAUD1CON FB8 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hcomram 0 0 ABS 0 comram dist/default/production\DDS-TEST.X.production.obj
-__Hconfig 30000E 0 CONFIG 0 config dist/default/production\DDS-TEST.X.production.obj
-__Lbank0 0 0 ABS 0 bank0 dist/default/production\DDS-TEST.X.production.obj
-__Lbank1 0 0 ABS 0 bank1 dist/default/production\DDS-TEST.X.production.obj
-__Lbank2 0 0 ABS 0 bank2 dist/default/production\DDS-TEST.X.production.obj
-__Lbank3 0 0 ABS 0 bank3 dist/default/production\DDS-TEST.X.production.obj
-__Lbank4 0 0 ABS 0 bank4 dist/default/production\DDS-TEST.X.production.obj
-__Lbank5 0 0 ABS 0 bank5 dist/default/production\DDS-TEST.X.production.obj
-__Lcinit 0 0 ABS 0 cinit dist/default/production\DDS-TEST.X.production.obj
-__Lconst 0 0 CODE 0 const dist/default/production\DDS-TEST.X.production.obj
-__Lidata 0 0 CODE 0 idata dist/default/production\DDS-TEST.X.production.obj
-__Lidloc 200000 0 IDLOC 0 idloc dist/default/production\DDS-TEST.X.production.obj
-__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\DDS-TEST.X.production.obj
-__Lparam 0 0 COMRAM 1 rparam dist/default/production\DDS-TEST.X.production.obj
-__Lrdata 0 0 COMRAM 1 rdata dist/default/production\DDS-TEST.X.production.obj
-_eusart1TxBufferRemaining 4C 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Lstack 0 0 STACK 2 stack dist/default/production\DDS-TEST.X.production.obj
-__Ltext0 0 0 ABS 0 text0 dist/default/production\DDS-TEST.X.production.obj
-__Ltext1 0 0 ABS 0 text1 dist/default/production\DDS-TEST.X.production.obj
-__Ltext2 0 0 ABS 0 text2 dist/default/production\DDS-TEST.X.production.obj
-__Ltext3 0 0 ABS 0 text3 dist/default/production\DDS-TEST.X.production.obj
-__Ltext4 0 0 ABS 0 text4 dist/default/production\DDS-TEST.X.production.obj
-__Ltext5 0 0 ABS 0 text5 dist/default/production\DDS-TEST.X.production.obj
-__Ltext6 0 0 ABS 0 text6 dist/default/production\DDS-TEST.X.production.obj
-__Ltext7 0 0 ABS 0 text7 dist/default/production\DDS-TEST.X.production.obj
-__Ltext8 0 0 ABS 0 text8 dist/default/production\DDS-TEST.X.production.obj
-__Ltext9 0 0 ABS 0 text9 dist/default/production\DDS-TEST.X.production.obj
-__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\DDS-TEST.X.production.obj
-__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\DDS-TEST.X.production.obj
-__CFG_T3CMX$PORTC0 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__end_of_EUSART1_Transmit_ISR C5E 0 CODE 0 text23 dist/default/production\DDS-TEST.X.production.obj
-_INTCONbits FF2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_INTERRUPT_Initialize D4C 0 CODE 0 text11 dist/default/production\DDS-TEST.X.production.obj
-__Habs1 0 0 ABS 0 abs1 dist/default/production\DDS-TEST.X.production.obj
-__Hdata 0 0 ABS 0 data dist/default/production\DDS-TEST.X.production.obj
-__Hinit C2 0 CODE 0 init dist/default/production\DDS-TEST.X.production.obj
-__Hrbit 0 0 COMRAM 1 rbit dist/default/production\DDS-TEST.X.production.obj
-__Hrbss 0 0 COMRAM 1 rbss dist/default/production\DDS-TEST.X.production.obj
-__Htemp 0 0 COMRAM 1 temp dist/default/production\DDS-TEST.X.production.obj
-__Htext 0 0 ABS 0 text dist/default/production\DDS-TEST.X.production.obj
-__Labs1 0 0 ABS 0 abs1 dist/default/production\DDS-TEST.X.production.obj
-__Ldata 0 0 ABS 0 data dist/default/production\DDS-TEST.X.production.obj
-__Linit C2 0 CODE 0 init dist/default/production\DDS-TEST.X.production.obj
-__Lrbit 0 0 COMRAM 1 rbit dist/default/production\DDS-TEST.X.production.obj
-__Lrbss 0 0 COMRAM 1 rbss dist/default/production\DDS-TEST.X.production.obj
-__Ltemp 0 0 COMRAM 1 temp dist/default/production\DDS-TEST.X.production.obj
-__Ltext 0 0 ABS 0 text dist/default/production\DDS-TEST.X.production.obj
-__CFG_XINST$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_I2C1_BusCollisionISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SSP1CON1 FC6 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SSP1CON3 FCB 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SSP1STAT FC7 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hintret 0 0 ABS 0 intret dist/default/production\DDS-TEST.X.production.obj
-__Hirdata 0 0 CODE 0 irdata dist/default/production\DDS-TEST.X.production.obj
-__S0 30000E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__S1 7E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__S2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_TMR0_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__pnvCOMRAM 4A 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__end_of_I2C1_BusCollisionISR D94 0 CODE 0 text22 dist/default/production\DDS-TEST.X.production.obj
-_TMR0_CallBack D84 0 CODE 0 text18 dist/default/production\DDS-TEST.X.production.obj
-__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\DDS-TEST.X.production.obj
-I2C1_Stop@completion_code 2D 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\DDS-TEST.X.production.obj
-_SYSTEM_Initialize CDE 0 CODE 0 text6 dist/default/production\DDS-TEST.X.production.obj
-__CFG_BORV$190 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lintentry 0 0 ABS 0 intentry dist/default/production\DDS-TEST.X.production.obj
-__Hramtop 600 0 RAM 0 ramtop dist/default/production\DDS-TEST.X.production.obj
-__Hrparam 0 0 COMRAM 1 rparam dist/default/production\DDS-TEST.X.production.obj
-__CFG_PWRTEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__activetblptr 2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hstruct 0 0 COMRAM 1 struct dist/default/production\DDS-TEST.X.production.obj
-__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
-__Htext10 0 0 ABS 0 text10 dist/default/production\DDS-TEST.X.production.obj
-__Htext11 0 0 ABS 0 text11 dist/default/production\DDS-TEST.X.production.obj
-__Htext12 0 0 ABS 0 text12 dist/default/production\DDS-TEST.X.production.obj
-__Htext13 0 0 ABS 0 text13 dist/default/production\DDS-TEST.X.production.obj
-__Htext14 0 0 ABS 0 text14 dist/default/production\DDS-TEST.X.production.obj
-__Htext15 0 0 ABS 0 text15 dist/default/production\DDS-TEST.X.production.obj
-__Htext17 0 0 ABS 0 text17 dist/default/production\DDS-TEST.X.production.obj
-__Htext18 0 0 ABS 0 text18 dist/default/production\DDS-TEST.X.production.obj
-__Htext19 0 0 ABS 0 text19 dist/default/production\DDS-TEST.X.production.obj
-__Htext20 0 0 ABS 0 text20 dist/default/production\DDS-TEST.X.production.obj
-__Htext21 0 0 ABS 0 text21 dist/default/production\DDS-TEST.X.production.obj
-__Htext22 0 0 ABS 0 text22 dist/default/production\DDS-TEST.X.production.obj
-__Htext23 0 0 ABS 0 text23 dist/default/production\DDS-TEST.X.production.obj
-__Htext24 0 0 ABS 0 text24 dist/default/production\DDS-TEST.X.production.obj
-__Htext25 0 0 ABS 0 text25 dist/default/production\DDS-TEST.X.production.obj
-_INTERRUPT_InterruptManager 8 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
-_ADC_Initialize D34 0 CODE 0 text14 dist/default/production\DDS-TEST.X.production.obj
-_PIE1bits F9D 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_PIE2bits FA0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_HFOFST$ON 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_EUSART1_Write 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_eusart1RxHead 11 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_eusart1RxTail 12 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_TMR0_ISR D5C 0 CODE 0 text17 dist/default/production\DDS-TEST.X.production.obj
-__ptext10 D6C 0 CODE 0 text10 dist/default/production\DDS-TEST.X.production.obj
-__ptext11 D4C 0 CODE 0 text11 dist/default/production\DDS-TEST.X.production.obj
-__ptext12 C8E 0 CODE 0 text12 dist/default/production\DDS-TEST.X.production.obj
-__ptext13 BBC 0 CODE 0 text13 dist/default/production\DDS-TEST.X.production.obj
-__ptext14 D34 0 CODE 0 text14 dist/default/production\DDS-TEST.X.production.obj
-__ptext15 BF8 0 CODE 0 text15 dist/default/production\DDS-TEST.X.production.obj
-__ptext17 D5C 0 CODE 0 text17 dist/default/production\DDS-TEST.X.production.obj
-__ptext18 D84 0 CODE 0 text18 dist/default/production\DDS-TEST.X.production.obj
-__ptext19 61C 0 CODE 0 text19 dist/default/production\DDS-TEST.X.production.obj
-__ptext20 B7C 0 CODE 0 text20 dist/default/production\DDS-TEST.X.production.obj
-__ptext21 D1A 0 CODE 0 text21 dist/default/production\DDS-TEST.X.production.obj
-__ptext22 D92 0 CODE 0 text22 dist/default/production\DDS-TEST.X.production.obj
-__ptext23 C2C 0 CODE 0 text23 dist/default/production\DDS-TEST.X.production.obj
-__ptext24 C5E 0 CODE 0 text24 dist/default/production\DDS-TEST.X.production.obj
-__ptext25 D8E 0 CODE 0 text25 dist/default/production\DDS-TEST.X.production.obj
-__end_of_PIN_MANAGER_Initialize AF6 0 CODE 0 text9 dist/default/production\DDS-TEST.X.production.obj
-__end_of_TMR0_Initialize D1A 0 CODE 0 text7 dist/default/production\DDS-TEST.X.production.obj
-__end_of_TMR0_StartTimer D8E 0 CODE 0 text8 dist/default/production\DDS-TEST.X.production.obj
-___lwdiv A02 0 CODE 0 text5 dist/default/production\DDS-TEST.X.production.obj
-___lwmod A5E 0 CODE 0 text4 dist/default/production\DDS-TEST.X.production.obj
-__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\DDS-TEST.X.production.obj
-__Lbigram 0 0 ABS 0 bigram dist/default/production\DDS-TEST.X.production.obj
-_eusart1TxHead 13 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_eusart1TxTail 14 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Lcomram 0 0 ABS 0 comram dist/default/production\DDS-TEST.X.production.obj
-__Lconfig 300000 0 CONFIG 0 config dist/default/production\DDS-TEST.X.production.obj
-__end_of_I2C1_Stop BBC 0 CODE 0 text20 dist/default/production\DDS-TEST.X.production.obj
-_printf 892 0 CODE 0 text1 dist/default/production\DDS-TEST.X.production.obj
-__end_of_TMR0_ISR D6C 0 CODE 0 text17 dist/default/production\DDS-TEST.X.production.obj
-__size_of_I2C1_Stop 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-main@ADCNT 7C 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-__size_of_I2C1_FunctionComplete 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\DDS-TEST.X.production.obj
-___lwdiv@divisor 40 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Lfardata 0 0 FARRAM 0 fardata dist/default/production\DDS-TEST.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-stacklo 7E 0 ABS 0 - C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-__end_of_EUSART1_Write B7C 0 CODE 0 text3 dist/default/production\DDS-TEST.X.production.obj
-__Lintcode 8 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
-_OSCCON2 FD2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_OSCTUNE F9B 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lintret 0 0 ABS 0 intret dist/default/production\DDS-TEST.X.production.obj
-__Lirdata 0 0 CODE 0 irdata dist/default/production\DDS-TEST.X.production.obj
-_ADCON0bits FC2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_I2C1_Stop B7C 0 CODE 0 text20 dist/default/production\DDS-TEST.X.production.obj
-__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lspace_0 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lspace_1 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lspace_2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__pbssCOMRAM 1 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__end_of_ADC_Initialize D4C 0 CODE 0 text14 dist/default/production\DDS-TEST.X.production.obj
-__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-_PIR1bits F9E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_PIR2bits FA1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lend_init C2 0 CODE 0 end_init dist/default/production\DDS-TEST.X.production.obj
-__size_of_TMR0_CallBack 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-I2C1_MasterWrite@trBlock 1D 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-printf@ap 75 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-_eusart1TxBuffer 68 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
-end_of_initialization CD4 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
-_TMR0_Initialize CFC 0 CODE 0 text7 dist/default/production\DDS-TEST.X.production.obj
-_TMR0_StartTimer D8A 0 CODE 0 text8 dist/default/production\DDS-TEST.X.production.obj
-__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\DDS-TEST.X.production.obj
-__Hintentry 0 0 ABS 0 intentry dist/default/production\DDS-TEST.X.production.obj
-__CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_RCONbits FD0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_printf 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-___lwdiv@dividend 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-?___lwdiv 3E 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-?___lwmod 45 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\DDS-TEST.X.production.obj
-__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
-__Lramtop 600 0 RAM 0 ramtop dist/default/production\DDS-TEST.X.production.obj
-__Lrparam 0 0 COMRAM 1 rparam dist/default/production\DDS-TEST.X.production.obj
-__pcinit CBC 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
-__ptext0 AF6 0 CODE 0 text0 dist/default/production\DDS-TEST.X.production.obj
-__ptext1 892 0 CODE 0 text1 dist/default/production\DDS-TEST.X.production.obj
-__ptext2 D7A 0 CODE 0 text2 dist/default/production\DDS-TEST.X.production.obj
-__ptext3 B3C 0 CODE 0 text3 dist/default/production\DDS-TEST.X.production.obj
-__ptext4 A5E 0 CODE 0 text4 dist/default/production\DDS-TEST.X.production.obj
-__ptext5 A02 0 CODE 0 text5 dist/default/production\DDS-TEST.X.production.obj
-__ptext6 CDE 0 CODE 0 text6 dist/default/production\DDS-TEST.X.production.obj
-__ptext7 CFC 0 CODE 0 text7 dist/default/production\DDS-TEST.X.production.obj
-__ptext8 D8A 0 CODE 0 text8 dist/default/production\DDS-TEST.X.production.obj
-__ptext9 AAA 0 CODE 0 text9 dist/default/production\DDS-TEST.X.production.obj
-__Lstruct 0 0 COMRAM 1 struct dist/default/production\DDS-TEST.X.production.obj
-__Ltext10 0 0 ABS 0 text10 dist/default/production\DDS-TEST.X.production.obj
-__Ltext11 0 0 ABS 0 text11 dist/default/production\DDS-TEST.X.production.obj
-__Ltext12 0 0 ABS 0 text12 dist/default/production\DDS-TEST.X.production.obj
-__Ltext13 0 0 ABS 0 text13 dist/default/production\DDS-TEST.X.production.obj
-__Ltext14 0 0 ABS 0 text14 dist/default/production\DDS-TEST.X.production.obj
-__Ltext15 0 0 ABS 0 text15 dist/default/production\DDS-TEST.X.production.obj
-__Ltext17 0 0 ABS 0 text17 dist/default/production\DDS-TEST.X.production.obj
-__Ltext18 0 0 ABS 0 text18 dist/default/production\DDS-TEST.X.production.obj
-__Ltext19 0 0 ABS 0 text19 dist/default/production\DDS-TEST.X.production.obj
-__Ltext20 0 0 ABS 0 text20 dist/default/production\DDS-TEST.X.production.obj
-__Ltext21 0 0 ABS 0 text21 dist/default/production\DDS-TEST.X.production.obj
-__Ltext22 0 0 ABS 0 text22 dist/default/production\DDS-TEST.X.production.obj
-__Ltext23 0 0 ABS 0 text23 dist/default/production\DDS-TEST.X.production.obj
-__Ltext24 0 0 ABS 0 text24 dist/default/production\DDS-TEST.X.production.obj
-__Ltext25 0 0 ABS 0 text25 dist/default/production\DDS-TEST.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\RICHAR~1\AppData\Local\Temp\s28o.obj
-__size_of_ADC_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__end_of_TMR0_CallBack D8A 0 CODE 0 text18 dist/default/production\DDS-TEST.X.production.obj
-__Lpowerup C2 0 CODE 0 powerup dist/default/production\DDS-TEST.X.production.obj
-__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\DDS-TEST.X.production.obj
-__psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
-_i2c1_state 15 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\DDS-TEST.X.production.obj
-___param_bank 10 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\DDS-TEST.X.production.obj
-__end_of__initialization CD4 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRT3$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Libigdata 0 0 CODE 0 ibigdata dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lclrtext 0 0 ABS 0 clrtext dist/default/production\DDS-TEST.X.production.obj
-_SSP1CON1bits FC6 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SSP1CON2bits FC5 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SPBRGH1 FB0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_i2c1_object 1 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_eusart1RxBuffer 60 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
-__pcstackCOMRAM 2B 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-_EUSART1_Transmit_ISR C2C 0 CODE 0 text23 dist/default/production\DDS-TEST.X.production.obj
-__end_of_I2C1_Initialize CBC 0 CODE 0 text12 dist/default/production\DDS-TEST.X.production.obj
-_SSP1ADD FC8 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_SSP1BUF FC9 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hend_init C6 0 CODE 0 end_init dist/default/production\DDS-TEST.X.production.obj
-__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-putch@txData 3F 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__end_of_main B3C 0 CODE 0 text0 dist/default/production\DDS-TEST.X.production.obj
-__pintcode 8 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
-__end_of_Delay C2C 0 CODE 0 text15 dist/default/production\DDS-TEST.X.production.obj
-printf@val 79 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
-__end_of_dpowers 60B 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
-_Delay BF8 0 CODE 0 text15 dist/default/production\DDS-TEST.X.production.obj
+__size_of_LEDbegin 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_PIN_MANAGER_Initialize FAC 0 CODE 0 text9 dist/default/production\DDS-TEST.X.production.obj
+_LEDBsetBrightness 1040 0 CODE 0 text20 dist/default/production\DDS-TEST.X.production.obj
+_main C2A 0 CODE 0 text0 dist/default/production\DDS-TEST.X.production.obj
+___sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+_I2C1_BusCollisionISR 137E 0 CODE 0 text31 dist/default/production\DDS-TEST.X.production.obj
+start C0 0 CODE 0 init C:\Users\Rick\AppData\Local\Temp\s7f0.obj
 _LATA3 7C4B 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_T0CON FD5 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_p_i2c1_current 29 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
 _TMR0H FD7 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+printf@ap 7F 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
 _TMR0L FD6 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _TRISA F92 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _TRISB F93 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _TRISC F94 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 _TRISD F95 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hirdata 0 0 CODE 0 irdata dist/default/production\DDS-TEST.X.production.obj
 _TRISE F96 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__end_of_putch D84 0 CODE 0 text2 dist/default/production\DDS-TEST.X.production.obj
-__size_of_TMR0_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_TMR0_StartTimer 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Lirdata 0 0 CODE 0 irdata dist/default/production\DDS-TEST.X.production.obj
 __HRAM 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hbss 0 0 RAM 1 bss dist/default/production\DDS-TEST.X.production.obj
-__Hram 0 0 ABS 0 ram dist/default/production\DDS-TEST.X.production.obj
-__Hsfr 0 0 ABS 0 sfr dist/default/production\DDS-TEST.X.production.obj
 __LRAM 1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Lbss 0 0 RAM 1 bss dist/default/production\DDS-TEST.X.production.obj
+_T0CON FD5 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_eusart1RxBuffer 60 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_BusCollisionISR 1380 0 CODE 0 text31 dist/default/production\DDS-TEST.X.production.obj
+_EUSART1_Write 110C 0 CODE 0 text3 dist/default/production\DDS-TEST.X.production.obj
+__end_of_EUSART1_Initialize 11C4 0 CODE 0 text13 dist/default/production\DDS-TEST.X.production.obj
+__CFG_WDTPS$32768 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_eusart1TxBuffer 68 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+__Hconfig 30000E 0 CONFIG 0 config dist/default/production\DDS-TEST.X.production.obj
+__Lconfig 300000 0 CONFIG 0 config dist/default/production\DDS-TEST.X.production.obj
+__CFG_FOSC$INTIO67 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+I2C1_Stop@completion_code 3 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+main@b 8B 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+?___lwmod 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Hbigram 0 0 ABS 0 bigram dist/default/production\DDS-TEST.X.production.obj
+__Lbigram 0 0 ABS 0 bigram dist/default/production\DDS-TEST.X.production.obj
+__Hrparam 0 0 ABS 0 rparam dist/default/production\DDS-TEST.X.production.obj
+__Lrparam 0 0 ABS 0 rparam dist/default/production\DDS-TEST.X.production.obj
+_LEDbegin F12 0 CODE 0 text18 dist/default/production\DDS-TEST.X.production.obj
+__Hram 0 0 ABS 0 ram dist/default/production\DDS-TEST.X.production.obj
 __Lram 0 0 ABS 0 ram dist/default/production\DDS-TEST.X.production.obj
+__Hcomram 0 0 ABS 0 comram dist/default/production\DDS-TEST.X.production.obj
+_putch 1368 0 CODE 0 text2 dist/default/production\DDS-TEST.X.production.obj
+__Lcomram 0 0 ABS 0 comram dist/default/production\DDS-TEST.X.production.obj
+__Hsfr 0 0 ABS 0 sfr dist/default/production\DDS-TEST.X.production.obj
 __Lsfr 0 0 ABS 0 sfr dist/default/production\DDS-TEST.X.production.obj
-__CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_PLLCFG$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_putch D7A 0 CODE 0 text2 dist/default/production\DDS-TEST.X.production.obj
-__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_eusart1RxCount 10 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__CFG_PRICLKEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_I2C1_BusCollisionISR D92 0 CODE 0 text22 dist/default/production\DDS-TEST.X.production.obj
-__end_of_EUSART1_Initialize BF8 0 CODE 0 text13 dist/default/production\DDS-TEST.X.production.obj
-__end_of_OSCILLATOR_Initialize D7A 0 CODE 0 text10 dist/default/production\DDS-TEST.X.production.obj
-__initialization CBC 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
-_i2c1_tr_queue 23 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
-__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
-__Hfardata 0 0 FARRAM 0 fardata dist/default/production\DDS-TEST.X.production.obj
-__Hsmallconst 61C 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
-__end_of_ADC_ISR D92 0 CODE 0 text25 dist/default/production\DDS-TEST.X.production.obj
-__Lifardata 0 0 CODE 0 ifardata dist/default/production\DDS-TEST.X.production.obj
+__end_of__stringdata 61B 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+__Hbss 0 0 RAM 1 bss dist/default/production\DDS-TEST.X.production.obj
+__CFG_STVREN$ON 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Lbss 0 0 RAM 1 bss dist/default/production\DDS-TEST.X.production.obj
+_Delay 11C4 0 CODE 0 text24 dist/default/production\DDS-TEST.X.production.obj
+__Hnvrram 0 0 COMRAM 1 nvrram dist/default/production\DDS-TEST.X.production.obj
+__Lnvrram 0 0 COMRAM 1 nvrram dist/default/production\DDS-TEST.X.production.obj
+__end_of_LEDblinkRate EC0 0 CODE 0 text19 dist/default/production\DDS-TEST.X.production.obj
+_RCREG1 FAE 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_TXREG1 FAD 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_SPBRG1 FAF 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_ADCON0 FC2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_ADCON1 FC1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_INTERRUPT_InterruptManager 8 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
+_ADCON2 FC0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_putch 1372 0 CODE 0 text2 dist/default/production\DDS-TEST.X.production.obj
+_PIE1bits F9D 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_PIE2bits FA0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\DDS-TEST.X.production.obj
+__Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/production\DDS-TEST.X.production.obj
+_PIR1bits F9E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_IPR1bits F9F 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_PIR2bits FA1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_IPR2bits FA2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\DDS-TEST.X.production.obj
-__CFG_MCLRE$EXTMCLR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-__Hintcode C2 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
+__Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/production\DDS-TEST.X.production.obj
+_ANSELA F38 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_RCONbits FD0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_ANSELB F39 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_ANSELC F3A 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_ANSELD F3B 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_RC1STA FAB 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hbigbss 0 0 BIGRAM 1 bigbss dist/default/production\DDS-TEST.X.production.obj
+__Lbigbss 0 0 BIGRAM 1 bigbss dist/default/production\DDS-TEST.X.production.obj
+_ANSELE F3C 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_I2C1_FunctionComplete 1332 0 CODE 0 text30 dist/default/production\DDS-TEST.X.production.obj
+?___awdiv 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Hintret 0 0 ABS 0 intret dist/default/production\DDS-TEST.X.production.obj
+_TX1STA FAC 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Lintret 0 0 ABS 0 intret dist/default/production\DDS-TEST.X.production.obj
+__Hramtop 600 0 RAM 0 ramtop dist/default/production\DDS-TEST.X.production.obj
+__Lramtop 600 0 RAM 0 ramtop dist/default/production\DDS-TEST.X.production.obj
+__Hstruct 0 0 COMRAM 1 struct dist/default/production\DDS-TEST.X.production.obj
+__Lstruct 0 0 COMRAM 1 struct dist/default/production\DDS-TEST.X.production.obj
+__Hbigdata 0 0 BIGRAM 1 bigdata dist/default/production\DDS-TEST.X.production.obj
+__Lbigdata 0 0 BIGRAM 1 bigdata dist/default/production\DDS-TEST.X.production.obj
+__Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\DDS-TEST.X.production.obj
+__end_of_ADC_Initialize 1332 0 CODE 0 text14 dist/default/production\DDS-TEST.X.production.obj
+__Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/production\DDS-TEST.X.production.obj
+?___lwdiv 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Hfarbss 0 0 FARRAM 0 farbss dist/default/production\DDS-TEST.X.production.obj
+__Lfarbss 0 0 FARRAM 0 farbss dist/default/production\DDS-TEST.X.production.obj
+__Hintcode C0 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
+__Lintcode 8 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
+__Hfardata 0 0 FARRAM 0 fardata dist/default/production\DDS-TEST.X.production.obj
+_ADRESH FC4 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Lfardata 0 0 FARRAM 0 fardata dist/default/production\DDS-TEST.X.production.obj
+__pintcode 8 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
+_OSCCON FD3 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Habs1 0 0 ABS 0 abs1 dist/default/production\DDS-TEST.X.production.obj
+__Labs1 0 0 ABS 0 abs1 dist/default/production\DDS-TEST.X.production.obj
+_ADRESL FC3 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_EBTR0$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_LEDsetBar 86E 0 CODE 0 text16 dist/default/production\DDS-TEST.X.production.obj
+__HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\DDS-TEST.X.production.obj
+__LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/production\DDS-TEST.X.production.obj
+__HnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__LnvCOMRAM 0 0 ABS 0 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_BusCollisionISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__pnvCOMRAM 42 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_EBTR1$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWriteTRBBuild@length 19 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+I2C1_ISR@i2c_10bit_address_restart 2D 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+TMR0_ISR@CountCallBack 27 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_CCP2MX$PORTC1 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_eusart1TxBufferRemaining 4B 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_EUSART1_Initialize 1188 0 CODE 0 text13 dist/default/production\DDS-TEST.X.production.obj
+LEDblinkRate@b 7D 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__CFG_EBTR2$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+main@b_1421 8C 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWrite@trBlock 36 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_CCP3MX$PORTB5 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_displaybuffer 70 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+__end_of_dpowers 60B 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+_eusart1RxCount 2F 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_MasterTRBInsert 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_FunctionComplete 134A 0 CODE 0 text30 dist/default/production\DDS-TEST.X.production.obj
+__Hdata 0 0 ABS 0 data dist/default/production\DDS-TEST.X.production.obj
+__Ldata 0 0 ABS 0 data dist/default/production\DDS-TEST.X.production.obj
+__CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+Delay@x 18 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+stackhi 5FF 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__HcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__LcstackBANK0 0 0 ABS 0 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+_printf AB8 0 CODE 0 text1 dist/default/production\DDS-TEST.X.production.obj
+__pcstackBANK0 7D 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+LEDsetBar@color 1F 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Htemp 0 0 COMRAM 1 temp dist/default/production\DDS-TEST.X.production.obj
+__Ltemp 0 0 COMRAM 1 temp dist/default/production\DDS-TEST.X.production.obj
+stacklo 8D 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__Hrbit 0 0 COMRAM 1 rbit dist/default/production\DDS-TEST.X.production.obj
+__Lrbit 0 0 COMRAM 1 rbit dist/default/production\DDS-TEST.X.production.obj
+_i2c1_object 42 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Hinit C0 0 CODE 0 init dist/default/production\DDS-TEST.X.production.obj
+__Linit C0 0 CODE 0 init dist/default/production\DDS-TEST.X.production.obj
+__Hintcodelo C0 0 CODE 0 intcodelo dist/default/production\DDS-TEST.X.production.obj
+__Lintcodelo C0 0 CODE 0 intcodelo dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWrite@address 21 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Hrbss 0 0 COMRAM 1 rbss dist/default/production\DDS-TEST.X.production.obj
+__end_of_main D18 0 CODE 0 text0 dist/default/production\DDS-TEST.X.production.obj
+__Lrbss 0 0 COMRAM 1 rbss dist/default/production\DDS-TEST.X.production.obj
+__Htext 0 0 ABS 0 text dist/default/production\DDS-TEST.X.production.obj
+__Ltext 0 0 ABS 0 text dist/default/production\DDS-TEST.X.production.obj
+__end_of_INTERRUPT_Initialize 135A 0 CODE 0 text11 dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterRead@trBlock 78 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+end_of_initialization 12D4 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
+I2C1_ISR@i2c_address 40 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+___awdiv@sign 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_I2C1_Stop 114A 0 CODE 0 text29 dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterTRBInsert@ptrb_list 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_SPBRGH1 FB0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_TMR0_StartTimer 1372 0 CODE 0 text8 dist/default/production\DDS-TEST.X.production.obj
+_OSCCON2 FD2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+printf@flag 81 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+Delay@wait 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_putch 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+printf@prec 82 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+_SSP1ADD FC8 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_T0CONbits FD5 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_SSP1BUF FC9 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_SYSTEM_Initialize 12DE 0 CODE 0 text6 dist/default/production\DDS-TEST.X.production.obj
+__Hibigdata 0 0 CODE 0 ibigdata dist/default/production\DDS-TEST.X.production.obj
+__Libigdata 0 0 CODE 0 ibigdata dist/default/production\DDS-TEST.X.production.obj
+_OSCTUNE F9B 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hifardata 0 0 CODE 0 ifardata dist/default/production\DDS-TEST.X.production.obj
+__Lifardata 0 0 CODE 0 ifardata dist/default/production\DDS-TEST.X.production.obj
+__Hbank0 0 0 ABS 0 bank0 dist/default/production\DDS-TEST.X.production.obj
+__Lbank0 0 0 ABS 0 bank0 dist/default/production\DDS-TEST.X.production.obj
+_EUSART1_Transmit_ISR 11F8 0 CODE 0 text32 dist/default/production\DDS-TEST.X.production.obj
+__Hbank1 0 0 ABS 0 bank1 dist/default/production\DDS-TEST.X.production.obj
+__Lbank1 0 0 ABS 0 bank1 dist/default/production\DDS-TEST.X.production.obj
+__size_of_EUSART1_Transmit_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hbank2 0 0 ABS 0 bank2 dist/default/production\DDS-TEST.X.production.obj
+__Lbank2 0 0 ABS 0 bank2 dist/default/production\DDS-TEST.X.production.obj
+__Hbank3 0 0 ABS 0 bank3 dist/default/production\DDS-TEST.X.production.obj
+__Lbank3 0 0 ABS 0 bank3 dist/default/production\DDS-TEST.X.production.obj
+__Hbank4 0 0 ABS 0 bank4 dist/default/production\DDS-TEST.X.production.obj
+__Lbank4 0 0 ABS 0 bank4 dist/default/production\DDS-TEST.X.production.obj
+_I2C1_MasterWrite FF6 0 CODE 0 text21 dist/default/production\DDS-TEST.X.production.obj
+__Hbank5 0 0 ABS 0 bank5 dist/default/production\DDS-TEST.X.production.obj
+__Lbank5 0 0 ABS 0 bank5 dist/default/production\DDS-TEST.X.production.obj
+__Hpowerup C0 0 CODE 0 powerup dist/default/production\DDS-TEST.X.production.obj
+__Lpowerup C0 0 CODE 0 powerup dist/default/production\DDS-TEST.X.production.obj
+LEDbegin@i2c_addr 82 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__Htext0 0 0 ABS 0 text0 dist/default/production\DDS-TEST.X.production.obj
+__Ltext0 0 0 ABS 0 text0 dist/default/production\DDS-TEST.X.production.obj
+__Htext1 0 0 ABS 0 text1 dist/default/production\DDS-TEST.X.production.obj
+__Ltext1 0 0 ABS 0 text1 dist/default/production\DDS-TEST.X.production.obj
+__ptext0 C2A 0 CODE 0 text0 dist/default/production\DDS-TEST.X.production.obj
+_ADC_ISR 137A 0 CODE 0 text34 dist/default/production\DDS-TEST.X.production.obj
+_INTCON2bits FF1 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Htext2 0 0 ABS 0 text2 dist/default/production\DDS-TEST.X.production.obj
+__Ltext2 0 0 ABS 0 text2 dist/default/production\DDS-TEST.X.production.obj
+__ptext1 AB8 0 CODE 0 text1 dist/default/production\DDS-TEST.X.production.obj
+__Htext3 0 0 ABS 0 text3 dist/default/production\DDS-TEST.X.production.obj
+__Ltext3 0 0 ABS 0 text3 dist/default/production\DDS-TEST.X.production.obj
+__ptext2 1368 0 CODE 0 text2 dist/default/production\DDS-TEST.X.production.obj
+__Htext4 0 0 ABS 0 text4 dist/default/production\DDS-TEST.X.production.obj
+__Ltext4 0 0 ABS 0 text4 dist/default/production\DDS-TEST.X.production.obj
+__ptext3 110C 0 CODE 0 text3 dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_MasterWriteTRBBuild 10CA 0 CODE 0 text22 dist/default/production\DDS-TEST.X.production.obj
+__Htext5 0 0 ABS 0 text5 dist/default/production\DDS-TEST.X.production.obj
+__CFG_P2BMX$PORTD2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Ltext5 0 0 ABS 0 text5 dist/default/production\DDS-TEST.X.production.obj
+__ptext4 10CA 0 CODE 0 text4 dist/default/production\DDS-TEST.X.production.obj
+__Htext6 0 0 ABS 0 text6 dist/default/production\DDS-TEST.X.production.obj
+__Ltext6 0 0 ABS 0 text6 dist/default/production\DDS-TEST.X.production.obj
+__ptext5 EC0 0 CODE 0 text5 dist/default/production\DDS-TEST.X.production.obj
+__Htext7 0 0 ABS 0 text7 dist/default/production\DDS-TEST.X.production.obj
+__Ltext7 0 0 ABS 0 text7 dist/default/production\DDS-TEST.X.production.obj
+__ptext6 12DE 0 CODE 0 text6 dist/default/production\DDS-TEST.X.production.obj
+__HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Htext8 0 0 ABS 0 text8 dist/default/production\DDS-TEST.X.production.obj
+__Ltext8 0 0 ABS 0 text8 dist/default/production\DDS-TEST.X.production.obj
+__ptext7 12FC 0 CODE 0 text7 dist/default/production\DDS-TEST.X.production.obj
+__pbssCOMRAM 25 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Htext9 0 0 ABS 0 text9 dist/default/production\DDS-TEST.X.production.obj
+__Ltext9 0 0 ABS 0 text9 dist/default/production\DDS-TEST.X.production.obj
+__ptext8 1372 0 CODE 0 text8 dist/default/production\DDS-TEST.X.production.obj
+__CFG_T3CMX$PORTC0 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__ptext9 F60 0 CODE 0 text9 dist/default/production\DDS-TEST.X.production.obj
+__Hclrtext 0 0 ABS 0 clrtext dist/default/production\DDS-TEST.X.production.obj
+__Lclrtext 0 0 ABS 0 clrtext dist/default/production\DDS-TEST.X.production.obj
+__size_of_TMR0_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__size_of_printf 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+printf@_val 83 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__CFG_HFOFST$ON 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+printf@c 88 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__end_of__initialization 12D4 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
+__CFG_PRICLKEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+printf@f 21 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__end_of___lwdiv F12 0 CODE 0 text5 dist/default/production\DDS-TEST.X.production.obj
+__size_of_TMR0_StartTimer 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_I2C1_MasterWriteTRBBuild 1086 0 CODE 0 text22 dist/default/production\DDS-TEST.X.production.obj
+_i2c1_state 34 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+I2C1_ISR@pi2c_buf_ptr 25 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__end_of_TMR0_CallBack 137A 0 CODE 0 text27 dist/default/production\DDS-TEST.X.production.obj
+_I2C1_Initialize 128E 0 CODE 0 text12 dist/default/production\DDS-TEST.X.production.obj
+__size_of_Delay 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_TMR0_Initialize 12FC 0 CODE 0 text7 dist/default/production\DDS-TEST.X.production.obj
+LEDwriteDisplay@i2c_addr 7D 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__Hidata 0 0 CODE 0 idata dist/default/production\DDS-TEST.X.production.obj
+__Lidata 0 0 CODE 0 idata dist/default/production\DDS-TEST.X.production.obj
+__Hrdata 0 0 COMRAM 1 rdata dist/default/production\DDS-TEST.X.production.obj
+__Lrdata 0 0 COMRAM 1 rdata dist/default/production\DDS-TEST.X.production.obj
+__Hidloc 200008 0 IDLOC 0 idloc dist/default/production\DDS-TEST.X.production.obj
+__Lidloc 200000 0 IDLOC 0 idloc dist/default/production\DDS-TEST.X.production.obj
+EUSART1_Write@txData 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__end_of_TMR0_StartTimer 1376 0 CODE 0 text8 dist/default/production\DDS-TEST.X.production.obj
+__CFG_PWRTEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hstack 0 0 STACK 2 stack dist/default/production\DDS-TEST.X.production.obj
+__Lstack 0 0 STACK 2 stack dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_FunctionComplete 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+___lwmod 10CA 0 CODE 0 text4 dist/default/production\DDS-TEST.X.production.obj
+__Hparam 0 0 ABS 0 rparam dist/default/production\DDS-TEST.X.production.obj
+__Lparam 0 0 ABS 0 rparam dist/default/production\DDS-TEST.X.production.obj
+__Hspace_0 30000E 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Lspace_0 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__pcstackCOMRAM 1 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+?_printf 21 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_ISR 86E 0 CODE 0 text28 dist/default/production\DDS-TEST.X.production.obj
+__Hspace_1 8D 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Lspace_1 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hsmallconst 61C 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+__Lsmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+__psmallconst 600 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+__Hspace_2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_i2c1_tr_queue 3B 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Lspace_2 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hnvbit 0 0 COMRAM 1 nvbit dist/default/production\DDS-TEST.X.production.obj
+__Lnvbit 0 0 COMRAM 1 nvbit dist/default/production\DDS-TEST.X.production.obj
+__Hcinit 0 0 ABS 0 cinit dist/default/production\DDS-TEST.X.production.obj
+__Lcinit 0 0 ABS 0 cinit dist/default/production\DDS-TEST.X.production.obj
+__pcinit 12BC 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
+__CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_eusart1RxHead 30 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+___awdiv DC2 0 CODE 0 text17 dist/default/production\DDS-TEST.X.production.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+___lwdiv EC0 0 CODE 0 text5 dist/default/production\DDS-TEST.X.production.obj
+__size_of_main 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_dpowers 601 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+__end_of_INTERRUPT_InterruptManager C0 0 CODE 0 intcode dist/default/production\DDS-TEST.X.production.obj
+_eusart1TxHead 32 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_TMR0_CallBack 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hconst 0 0 CODE 0 const dist/default/production\DDS-TEST.X.production.obj
+__Lconst 0 0 CODE 0 const dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWriteTRBBuild@ptrb 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_TMR0_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_PIN_MANAGER_Initialize F60 0 CODE 0 text9 dist/default/production\DDS-TEST.X.production.obj
+__end_of_EUSART1_Write 114A 0 CODE 0 text3 dist/default/production\DDS-TEST.X.production.obj
+__CFG_DEBUG$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_WRT0$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__size_of_SYSTEM_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_LEDwriteDisplay FF6 0 CODE 0 text15 dist/default/production\DDS-TEST.X.production.obj
+__CFG_WRT1$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+LEDBsetBrightness@b 7D 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__size_of___lwdiv 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
 __size_of_INTERRUPT_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
-_OSCILLATOR_Initialize D6C 0 CODE 0 text10 dist/default/production\DDS-TEST.X.production.obj
+putch@txData 16 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__HbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+__LbssBANK0 0 0 ABS 0 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+_SSP1CON1 FC6 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_MCLRE$EXTMCLR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_WRT2$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__pbssBANK0 60 0 BANK0 1 bssBANK0 dist/default/production\DDS-TEST.X.production.obj
+__end_of_EUSART1_Receive_ISR 128E 0 CODE 0 text33 dist/default/production\DDS-TEST.X.production.obj
+_SSP1CON3 FCB 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_OSCILLATOR_Initialize 1368 0 CODE 0 text10 dist/default/production\DDS-TEST.X.production.obj
+__CFG_WRT3$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_FCMEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_SYSTEM_Initialize 12FC 0 CODE 0 text6 dist/default/production\DDS-TEST.X.production.obj
+_INTERRUPT_Initialize 134A 0 CODE 0 text11 dist/default/production\DDS-TEST.X.production.obj
+__Htext10 0 0 ABS 0 text10 dist/default/production\DDS-TEST.X.production.obj
+__Ltext10 0 0 ABS 0 text10 dist/default/production\DDS-TEST.X.production.obj
+main@ADCNT 89 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterTRBInsert@pflag 17 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Htext20 0 0 ABS 0 text20 dist/default/production\DDS-TEST.X.production.obj
+__Ltext20 0 0 ABS 0 text20 dist/default/production\DDS-TEST.X.production.obj
+__ptext10 135A 0 CODE 0 text10 dist/default/production\DDS-TEST.X.production.obj
+__Htext30 0 0 ABS 0 text30 dist/default/production\DDS-TEST.X.production.obj
+__Htext11 0 0 ABS 0 text11 dist/default/production\DDS-TEST.X.production.obj
+__Ltext30 0 0 ABS 0 text30 dist/default/production\DDS-TEST.X.production.obj
+__Ltext11 0 0 ABS 0 text11 dist/default/production\DDS-TEST.X.production.obj
+__ptext20 1040 0 CODE 0 text20 dist/default/production\DDS-TEST.X.production.obj
+__Htext21 0 0 ABS 0 text21 dist/default/production\DDS-TEST.X.production.obj
+__Ltext21 0 0 ABS 0 text21 dist/default/production\DDS-TEST.X.production.obj
+__ptext11 134A 0 CODE 0 text11 dist/default/production\DDS-TEST.X.production.obj
+__ptext30 1332 0 CODE 0 text30 dist/default/production\DDS-TEST.X.production.obj
+__Htext31 0 0 ABS 0 text31 dist/default/production\DDS-TEST.X.production.obj
+__Htext12 0 0 ABS 0 text12 dist/default/production\DDS-TEST.X.production.obj
+__Ltext31 0 0 ABS 0 text31 dist/default/production\DDS-TEST.X.production.obj
+__Ltext12 0 0 ABS 0 text12 dist/default/production\DDS-TEST.X.production.obj
+__ptext21 FF6 0 CODE 0 text21 dist/default/production\DDS-TEST.X.production.obj
+__Htext22 0 0 ABS 0 text22 dist/default/production\DDS-TEST.X.production.obj
+_TMR0_CallBack 1376 0 CODE 0 text27 dist/default/production\DDS-TEST.X.production.obj
+__Ltext22 0 0 ABS 0 text22 dist/default/production\DDS-TEST.X.production.obj
+__ptext12 128E 0 CODE 0 text12 dist/default/production\DDS-TEST.X.production.obj
+__ptext31 137E 0 CODE 0 text31 dist/default/production\DDS-TEST.X.production.obj
+__size_of_LEDwriteDisplay 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Htext32 0 0 ABS 0 text32 dist/default/production\DDS-TEST.X.production.obj
+__Htext13 0 0 ABS 0 text13 dist/default/production\DDS-TEST.X.production.obj
+__Ltext32 0 0 ABS 0 text32 dist/default/production\DDS-TEST.X.production.obj
+__Ltext13 0 0 ABS 0 text13 dist/default/production\DDS-TEST.X.production.obj
+__ptext22 1086 0 CODE 0 text22 dist/default/production\DDS-TEST.X.production.obj
+__Htext23 0 0 ABS 0 text23 dist/default/production\DDS-TEST.X.production.obj
+__Ltext23 0 0 ABS 0 text23 dist/default/production\DDS-TEST.X.production.obj
+__ptext13 1188 0 CODE 0 text13 dist/default/production\DDS-TEST.X.production.obj
+__ptext32 11F8 0 CODE 0 text32 dist/default/production\DDS-TEST.X.production.obj
+__end_of_LEDBsetBrightness 1086 0 CODE 0 text20 dist/default/production\DDS-TEST.X.production.obj
+_ADCON0bits FC2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Htext33 0 0 ABS 0 text33 dist/default/production\DDS-TEST.X.production.obj
+__Htext14 0 0 ABS 0 text14 dist/default/production\DDS-TEST.X.production.obj
+__Ltext33 0 0 ABS 0 text33 dist/default/production\DDS-TEST.X.production.obj
+__Ltext14 0 0 ABS 0 text14 dist/default/production\DDS-TEST.X.production.obj
+__ptext23 D18 0 CODE 0 text23 dist/default/production\DDS-TEST.X.production.obj
+__size_of___awdiv 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Htext24 0 0 ABS 0 text24 dist/default/production\DDS-TEST.X.production.obj
+__Ltext24 0 0 ABS 0 text24 dist/default/production\DDS-TEST.X.production.obj
+__ptext14 131A 0 CODE 0 text14 dist/default/production\DDS-TEST.X.production.obj
+__ptext33 125E 0 CODE 0 text33 dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_MasterWrite 1040 0 CODE 0 text21 dist/default/production\DDS-TEST.X.production.obj
+__Htext34 0 0 ABS 0 text34 dist/default/production\DDS-TEST.X.production.obj
+__Htext15 0 0 ABS 0 text15 dist/default/production\DDS-TEST.X.production.obj
+__Ltext34 0 0 ABS 0 text34 dist/default/production\DDS-TEST.X.production.obj
+__Ltext15 0 0 ABS 0 text15 dist/default/production\DDS-TEST.X.production.obj
+__ptext24 11C4 0 CODE 0 text24 dist/default/production\DDS-TEST.X.production.obj
+__ptext15 FAC 0 CODE 0 text15 dist/default/production\DDS-TEST.X.production.obj
+__ptext34 137A 0 CODE 0 text34 dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_Initialize 12BC 0 CODE 0 text12 dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_Stop 1188 0 CODE 0 text29 dist/default/production\DDS-TEST.X.production.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__Htext16 0 0 ABS 0 text16 dist/default/production\DDS-TEST.X.production.obj
+__Ltext16 0 0 ABS 0 text16 dist/default/production\DDS-TEST.X.production.obj
+__Htext26 0 0 ABS 0 text26 dist/default/production\DDS-TEST.X.production.obj
+__Ltext26 0 0 ABS 0 text26 dist/default/production\DDS-TEST.X.production.obj
+__ptext16 86E 0 CODE 0 text16 dist/default/production\DDS-TEST.X.production.obj
+__Htext17 0 0 ABS 0 text17 dist/default/production\DDS-TEST.X.production.obj
+__Ltext17 0 0 ABS 0 text17 dist/default/production\DDS-TEST.X.production.obj
+__ptext26 122C 0 CODE 0 text26 dist/default/production\DDS-TEST.X.production.obj
+_I2C1_MasterTRBInsert D18 0 CODE 0 text23 dist/default/production\DDS-TEST.X.production.obj
+__Htext27 0 0 ABS 0 text27 dist/default/production\DDS-TEST.X.production.obj
+__Ltext27 0 0 ABS 0 text27 dist/default/production\DDS-TEST.X.production.obj
+__end_of_printf C2A 0 CODE 0 text1 dist/default/production\DDS-TEST.X.production.obj
+__ptext17 DC2 0 CODE 0 text17 dist/default/production\DDS-TEST.X.production.obj
+__Htext18 0 0 ABS 0 text18 dist/default/production\DDS-TEST.X.production.obj
+__end_of___lwmod 110C 0 CODE 0 text4 dist/default/production\DDS-TEST.X.production.obj
+__Ltext18 0 0 ABS 0 text18 dist/default/production\DDS-TEST.X.production.obj
+__ptext27 1376 0 CODE 0 text27 dist/default/production\DDS-TEST.X.production.obj
+___lwmod@divisor 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Htext28 0 0 ABS 0 text28 dist/default/production\DDS-TEST.X.production.obj
+__Ltext28 0 0 ABS 0 text28 dist/default/production\DDS-TEST.X.production.obj
+__ptext18 F12 0 CODE 0 text18 dist/default/production\DDS-TEST.X.production.obj
+_RC1STAbits FAB 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Htext19 0 0 ABS 0 text19 dist/default/production\DDS-TEST.X.production.obj
+__Ltext19 0 0 ABS 0 text19 dist/default/production\DDS-TEST.X.production.obj
+__ptext28 61C 0 CODE 0 text28 dist/default/production\DDS-TEST.X.production.obj
+__CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Htext29 0 0 ABS 0 text29 dist/default/production\DDS-TEST.X.production.obj
+__Ltext29 0 0 ABS 0 text29 dist/default/production\DDS-TEST.X.production.obj
+__ptext19 E66 0 CODE 0 text19 dist/default/production\DDS-TEST.X.production.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+_eusart1RxTail 31 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__ptext29 114A 0 CODE 0 text29 dist/default/production\DDS-TEST.X.production.obj
+_INTCONbits FF2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_eusart1TxTail 33 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__Hend_init C4 0 CODE 0 end_init dist/default/production\DDS-TEST.X.production.obj
+__Lend_init C0 0 CODE 0 end_init dist/default/production\DDS-TEST.X.production.obj
+__end_of_LEDbegin F60 0 CODE 0 text18 dist/default/production\DDS-TEST.X.production.obj
+__end_of_Delay 11F8 0 CODE 0 text24 dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWriteTRBBuild@pdata 17 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+___awdiv@divisor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+___lwdiv@divisor 17 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_ADC_Initialize 131A 0 CODE 0 text14 dist/default/production\DDS-TEST.X.production.obj
+__size_of_ADC_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_p_i2c1_trb_current 2B 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_LEDblinkRate E66 0 CODE 0 text19 dist/default/production\DDS-TEST.X.production.obj
+_OSCILLATOR_Initialize 135A 0 CODE 0 text10 dist/default/production\DDS-TEST.X.production.obj
+__CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__smallconst 600 0 SMALLCONST 0 smallconst C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\DDS-TEST.X.production.obj
+__end_of_ADC_ISR 137E 0 CODE 0 text34 dist/default/production\DDS-TEST.X.production.obj
+__Lreset_vec 0 0 CODE 0 reset_vec dist/default/production\DDS-TEST.X.production.obj
+__size_of_PIN_MANAGER_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_CP2$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_BAUD1CON FB8 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_CP3$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__size_of_EUSART1_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__stringdata 60B 0 SMALLCONST 0 smallconst dist/default/production\DDS-TEST.X.production.obj
+__CFG_BORV$190 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_timer0ReloadVal16bit 49 0 COMRAM 1 nvCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__accesstop 60 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__size_of_LEDBsetBrightness 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\DDS-TEST.X.production.obj
+__Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_MasterWriteTRBBuild 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWrite@pflag 23 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWrite@pdata 1E 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+intlevel0 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__end_of_TMR0_ISR 125E 0 CODE 0 text26 dist/default/production\DDS-TEST.X.production.obj
+LEDblinkRate@i2c_addr 7F 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+_SSP1STAT FC7 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+intlevel1 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+intlevel2 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__size_of_I2C1_Stop 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+intlevel3 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s7f0.obj
+__CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_SSP1CON1bits FC6 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_I2C1_MasterTRBInsert DC2 0 CODE 0 text23 dist/default/production\DDS-TEST.X.production.obj
+_SSP1CON2bits FC5 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_I2C1_ISR 61C 0 CODE 0 text28 dist/default/production\DDS-TEST.X.production.obj
+__end_of_LEDsetBar AB8 0 CODE 0 text16 dist/default/production\DDS-TEST.X.production.obj
+_TMR0_ISR 122C 0 CODE 0 text26 dist/default/production\DDS-TEST.X.production.obj
+__size_of_EUSART1_Write 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+LEDsetBar@bar 1D 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+LEDsetBar@a 23 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of___lwmod 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+_LEDwriteDisplay FAC 0 CODE 0 text15 dist/default/production\DDS-TEST.X.production.obj
+__CFG_CPD$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+start_initialization 12BC 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
+___awdiv@quotient 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+_i2c1_trb_count 35 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+___lwdiv@quotient 19 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_BOREN$SBORDIS 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__end_of_EUSART1_Transmit_ISR 122C 0 CODE 0 text32 dist/default/production\DDS-TEST.X.production.obj
+LEDsetBar@c 21 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_IESO$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__size_of_ADC_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+LEDBsetBrightness@i2c_addr 7F 0 BANK0 1 cstackBANK0 dist/default/production\DDS-TEST.X.production.obj
+__size_of_OSCILLATOR_Initialize 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWriteTRBBuild@address 1A 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_LEDsetBar 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterTRBInsert@count 1B 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_EUSART1_Receive_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__initialization 12BC 0 CODE 0 cinit dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_ISR 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+___lwmod@dividend 1C 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_LEDblinkRate 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+__activetblptr 2 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+___lwmod@counter 20 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__size_of_I2C1_MasterWrite 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+I2C1_MasterWrite@length 20 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__end_of_TMR0_Initialize 131A 0 CODE 0 text7 dist/default/production\DDS-TEST.X.production.obj
+I2C1_ISR@i2c_bytes_left 2E 0 COMRAM 1 bssCOMRAM dist/default/production\DDS-TEST.X.production.obj
+__CFG_LVP$OFF 0 0 ABS 0 - dist/default/production\DDS-TEST.X.production.obj
+___awdiv@dividend 15 0 COMRAM 1 cstackCOMRAM dist/default/production\DDS-TEST.X.production.obj
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
 # The beginning of the section is indicated by %SPLITSTAB.
-# Each line is a record a particular split, where the parent psect is on
+# Each line is a record a particular split, where the parent psect in on
 # the left and the child on the right.  Note that a child psect is always
 # split form the top of the parent psect. All splits from a given parent
 # are listed in the order in which they occurred.
@@ -967,11 +1127,11 @@ _OSCILLATOR_Initialize D6C 0 CODE 0 text10 dist/default/production\DDS-TEST.X.pr
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-idloc 0 200000 200000 8 1
-text19 0 61C 61C 778 1
 reset_vec 0 0 0 4 1
-bssBANK0 1 60 60 1E 1
-intcode 0 8 8 BE 1
+intcode 0 8 8 BC 1
 smallconst 0 600 600 1C 1
-bssCOMRAM 1 1 1 4C 1
 config 0 300000 300000 E 1
+idloc 0 200000 200000 8 1
+cstackCOMRAM 1 1 1 4B 1
+bssBANK0 1 60 60 2D 1
+text28 0 61C 61C D64 1

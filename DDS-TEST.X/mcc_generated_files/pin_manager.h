@@ -13,12 +13,12 @@
   @Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
+        Product Revision  :  MPLAB® Code Configurator - v2.25
         Device            :  PIC18F45K22
         Version           :  1.01
     The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
 */
 
 /*
@@ -99,6 +99,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define Button8_GetValue()         PORTAbits.RA2
 #define Button8_SetDigitalInput()    do { TRISA2 = 1; } while(0)
 #define Button8_SetDigitalOutput()   do { TRISA2 = 0; } while(0)
+
 #define Button8_SetAnalogMode()   do { ANSA2 = 1; } while(0)
 #define Button8_SetDigitalMode()   do { ANSA2 = 0; } while(0)
 // get/set Button7 aliases

@@ -1,48 +1,4 @@
-/**
-  TMR0 Generated Driver File
 
-  @Company
-    Microchip Technology Inc.
-
-  @File Name
-    tmr0.c
-
-  @Summary
-    This is the generated driver implementation file for the TMR0 driver using MPLAB® Code Configurator
-
-  @Description
-    This source file provides APIs for TMR0.
-    Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.2
-        Device            :  PIC18F45K22
-        Driver Version    :  2.00
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.33
-        MPLAB             :  MPLAB X 2.26
-*/
-
-/*
-Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
-EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
-OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
-CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
-SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
 
 /**
   Section: Included Files
@@ -69,14 +25,14 @@ void TMR0_Initialize(void)
     // TMR0ON enabled; T0SE Increment_hi_lo; PSA assigned; T0CS FOSC/4; T08BIT 16-bit; T0PS 1:32; 
     T0CON = 0x94;
 
-    // TMR0H 0; 
-    TMR0H = 0x00;
+    // TMR0H 207; 
+    TMR0H = 0xCF;
 
-    // TMR0L 100; 
-    TMR0L = 0x64;
+    // TMR0L 44; 
+    TMR0L = 0x2C;
 
     // Load TMR0 value to the 16-bit reload variable
-    timer0ReloadVal16bit = 100;
+    timer0ReloadVal16bit = 53036;
 
     // Clear Interrupt flag before enabling the interrupt
     INTCONbits.TMR0IF = 0;
@@ -131,6 +87,7 @@ void TMR0_Reload16bit(void)
 
 void TMR0_ISR(void)
 {
+    static volatile uint16_t CountCallBack = 0;
 
     // clear the TMR0 interrupt flag
     INTCONbits.TMR0IF = 0;
@@ -140,9 +97,15 @@ void TMR0_ISR(void)
     TMR0H = timer0ReloadVal16bit >> 8;
     TMR0L = (uint8_t) timer0ReloadVal16bit;
 
-    // ticker function call;
-    // ticker is 1 -> Callback function gets called every time this ISR executes
-    TMR0_CallBack();
+    // callback function - called every 5th pass
+    if (++CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)
+    {
+        // ticker function call
+        TMR0_CallBack();
+
+        // reset ticker counter
+        CountCallBack = 0;
+    }
 
     // add your TMR0 interrupt custom code
 }
@@ -152,7 +115,7 @@ void TMR0_CallBack(void)
     INDICATOR_Toggle();
 //    bit a = Button8_PORT;
     // Add your custom callback code here
-    // this code executes every 1 TMR0 periods
+    // this code executes every 5 TMR0 periods
 }
 /**
   End of File
