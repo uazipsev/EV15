@@ -26,7 +26,7 @@
 
 #define SEVENSEG_DIGITS 5
 
-char displaybuffer[8];
+long int displaybuffer[10];
 
 extern void LEDBsetBrightness(int b, char i2c_addr);
 extern void LEDblinkRate(int b, char i2c_addr);

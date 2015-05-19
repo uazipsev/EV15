@@ -1,12 +1,12 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"11 LED_BarGraph.c
+"16 LED_BarGraph.c
 [c E8852 0 1 2 3 4 5 6 .. ]
 [n E8852 . I2C1_MESSAGE_COMPLETE I2C1_MESSAGE_FAIL I2C1_MESSAGE_PENDING I2C1_STUCK_START I2C1_MESSAGE_ADDRESS_NO_ACK I2C1_DATA_NO_ACK I2C1_LOST_STATE  ]
 "216 mcc_generated_files/i2c1.h
 [v _I2C1_MasterWrite `(v ~T0 @X0 0 ef4`*uc`uc`ui`*E8852 ]
 "29 LED_BarGraph.h
-[v _displaybuffer `uc ~T0 @X0 -> 8 `i e ]
-[; ;LED_BarGraph.h: 29: char displaybuffer[8];
+[v _displaybuffer `l ~T0 @X0 -> 10 `i e ]
+[; ;LED_BarGraph.h: 29: long int displaybuffer[10];
 [; ;LED_BarGraph.h: 31: extern void LEDBsetBrightness(int b, char i2c_addr);
 [; ;LED_BarGraph.h: 32: extern void LEDblinkRate(int b, char i2c_addr);
 [; ;LED_BarGraph.h: 33: extern void LEDbegin(char i2c_addr);
@@ -8265,201 +8265,588 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c1.h: 642: bool I2C1_MasterQueueIsFull(void);
 [; ;i2c1.h: 643: void I2C1_BusCollisionISR( void );
 [; ;i2c1.h: 644: void I2C1_ISR ( void );
-"9 LED_BarGraph.c
+"11 LED_BarGraph.c
 [v _LEDBsetBrightness `(v ~T0 @X0 1 ef2`i`uc ]
 {
-[; ;LED_BarGraph.c: 9: void LEDBsetBrightness(int b, char i2c_addr) {
+[; ;LED_BarGraph.c: 11: void LEDBsetBrightness(int b, char i2c_addr) {
 [e :U _LEDBsetBrightness ]
 [v _b `i ~T0 @X0 1 r1 ]
 [v _i2c_addr `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;LED_BarGraph.c: 10: if (b > 15) b = 15;
-"10
+[; ;LED_BarGraph.c: 12: if (b > 15) b = 15;
+"12
 [e $ ! > _b -> 15 `i 1180  ]
 [e = _b -> 15 `i ]
 [e :U 1180 ]
-[; ;LED_BarGraph.c: 11: I2C1_MasterWrite( (0xE0 | b),1,i2c_addr,I2C1_MESSAGE_PENDING);
-"11
-[e ( _I2C1_MasterWrite (4 , , , -> | -> 224 `i _b `*uc -> -> 1 `i `uc -> _i2c_addr `ui -> . `E8852 2 `*E8852 ]
-[; ;LED_BarGraph.c: 12: }
-"12
+"13
+[v _writeBuffer `uc ~T0 @X0 -> 2 `i a ]
+"14
+[v _timeOut `ui ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 13: uint8_t writeBuffer[2];
+[; ;LED_BarGraph.c: 14: uint16_t timeOut;
+[; ;LED_BarGraph.c: 15: writeBuffer[0] = (0xE0 | b);
+"15
+[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> | -> 224 `i _b `uc ]
+"16
+[v _status `E8852 ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 16: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+[e = _status -> . `E8852 2 `E8852 ]
+[; ;LED_BarGraph.c: 18: timeOut = 0;
+"18
+[e = _timeOut -> -> 0 `i `ui ]
+[; ;LED_BarGraph.c: 19: while(status != I2C1_MESSAGE_FAIL)
+"19
+[e $U 1181  ]
+[e :U 1182 ]
+[; ;LED_BarGraph.c: 20: {
+"20
+{
+[; ;LED_BarGraph.c: 22: I2C1_MasterWrite( &writeBuffer,
+[; ;LED_BarGraph.c: 23: 1,
+[; ;LED_BarGraph.c: 24: 0x70,
+[; ;LED_BarGraph.c: 25: &status);
+"25
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[; ;LED_BarGraph.c: 28: while(status == I2C1_MESSAGE_PENDING);
+"28
+[e $U 1184  ]
+[e :U 1185 ]
+[e :U 1184 ]
+[e $ == -> _status `i -> . `E8852 2 `i 1185  ]
+[e :U 1186 ]
+[; ;LED_BarGraph.c: 30: if (status == I2C1_MESSAGE_COMPLETE)
+"30
+[e $ ! == -> _status `i -> . `E8852 0 `i 1187  ]
+[; ;LED_BarGraph.c: 31: break;
+"31
+[e $U 1183  ]
+[e :U 1187 ]
+[; ;LED_BarGraph.c: 32: if (timeOut == 100)
+"32
+[e $ ! == _timeOut -> -> 100 `i `ui 1188  ]
+[; ;LED_BarGraph.c: 33: break;
+"33
+[e $U 1183  ]
+[e :U 1188 ]
+[; ;LED_BarGraph.c: 34: if (status == I2C1_MESSAGE_FAIL)
+"34
+[e $ ! == -> _status `i -> . `E8852 1 `i 1189  ]
+[; ;LED_BarGraph.c: 35: break;
+"35
+[e $U 1183  ]
+[e $U 1190  ]
+"36
+[e :U 1189 ]
+[; ;LED_BarGraph.c: 36: else
+[; ;LED_BarGraph.c: 37: timeOut++;
+"37
+[e ++ _timeOut -> -> 1 `i `ui ]
+[e :U 1190 ]
+"38
+}
+[e :U 1181 ]
+"19
+[e $ != -> _status `i -> . `E8852 1 `i 1182  ]
+[e :U 1183 ]
+[; ;LED_BarGraph.c: 38: }
+[; ;LED_BarGraph.c: 40: }
+"40
 [e :UE 1179 ]
 }
-"14
+"42
 [v _LEDblinkRate `(v ~T0 @X0 1 ef2`i`uc ]
 {
-[; ;LED_BarGraph.c: 14: void LEDblinkRate(int b, char i2c_addr) {
+[; ;LED_BarGraph.c: 42: void LEDblinkRate(int b, char i2c_addr) {
 [e :U _LEDblinkRate ]
 [v _b `i ~T0 @X0 1 r1 ]
 [v _i2c_addr `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;LED_BarGraph.c: 15: if (b > 3) b = 0;
-"15
-[e $ ! > _b -> 3 `i 1182  ]
+[; ;LED_BarGraph.c: 43: if (b > 3) b = 0;
+"43
+[e $ ! > _b -> 3 `i 1192  ]
 [e = _b -> 0 `i ]
-[e :U 1182 ]
-[; ;LED_BarGraph.c: 16: I2C1_MasterWrite( (0x80 | 0x01 | (b << 1)),1,i2c_addr,I2C1_MESSAGE_PENDING);
-"16
-[e ( _I2C1_MasterWrite (4 , , , -> | | -> 128 `i -> 1 `i << _b -> 1 `i `*uc -> -> 1 `i `uc -> _i2c_addr `ui -> . `E8852 2 `*E8852 ]
-[; ;LED_BarGraph.c: 17: }
-"17
-[e :UE 1181 ]
+[e :U 1192 ]
+"44
+[v _writeBuffer `uc ~T0 @X0 -> 2 `i a ]
+"45
+[v _timeOut `ui ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 44: uint8_t writeBuffer[2];
+[; ;LED_BarGraph.c: 45: uint16_t timeOut;
+[; ;LED_BarGraph.c: 46: writeBuffer[0]= (0x80 | 0x01 | (b << 1));
+"46
+[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> | | -> 128 `i -> 1 `i << _b -> 1 `i `uc ]
+"47
+[v _status `E8852 ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 47: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+[e = _status -> . `E8852 2 `E8852 ]
+[; ;LED_BarGraph.c: 49: timeOut = 0;
+"49
+[e = _timeOut -> -> 0 `i `ui ]
+[; ;LED_BarGraph.c: 50: while(status != I2C1_MESSAGE_FAIL)
+"50
+[e $U 1193  ]
+[e :U 1194 ]
+[; ;LED_BarGraph.c: 51: {
+"51
+{
+[; ;LED_BarGraph.c: 53: I2C1_MasterWrite( &writeBuffer,
+[; ;LED_BarGraph.c: 54: 1,
+[; ;LED_BarGraph.c: 55: 0x70,
+[; ;LED_BarGraph.c: 56: &status);
+"56
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[; ;LED_BarGraph.c: 59: while(status == I2C1_MESSAGE_PENDING);
+"59
+[e $U 1196  ]
+[e :U 1197 ]
+[e :U 1196 ]
+[e $ == -> _status `i -> . `E8852 2 `i 1197  ]
+[e :U 1198 ]
+[; ;LED_BarGraph.c: 61: if (status == I2C1_MESSAGE_COMPLETE)
+"61
+[e $ ! == -> _status `i -> . `E8852 0 `i 1199  ]
+[; ;LED_BarGraph.c: 62: break;
+"62
+[e $U 1195  ]
+[e :U 1199 ]
+[; ;LED_BarGraph.c: 63: if (timeOut == 100)
+"63
+[e $ ! == _timeOut -> -> 100 `i `ui 1200  ]
+[; ;LED_BarGraph.c: 64: break;
+"64
+[e $U 1195  ]
+[e :U 1200 ]
+[; ;LED_BarGraph.c: 65: if (status == I2C1_MESSAGE_FAIL)
+"65
+[e $ ! == -> _status `i -> . `E8852 1 `i 1201  ]
+[; ;LED_BarGraph.c: 66: break;
+"66
+[e $U 1195  ]
+[e $U 1202  ]
+"67
+[e :U 1201 ]
+[; ;LED_BarGraph.c: 67: else
+[; ;LED_BarGraph.c: 68: timeOut++;
+"68
+[e ++ _timeOut -> -> 1 `i `ui ]
+[e :U 1202 ]
+"69
 }
-"19
+[e :U 1193 ]
+"50
+[e $ != -> _status `i -> . `E8852 1 `i 1194  ]
+[e :U 1195 ]
+[; ;LED_BarGraph.c: 69: }
+[; ;LED_BarGraph.c: 71: }
+"71
+[e :UE 1191 ]
+}
+"73
 [v _LEDbegin `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;LED_BarGraph.c: 19: void LEDbegin(char i2c_addr) {
+[; ;LED_BarGraph.c: 73: void LEDbegin(char i2c_addr) {
 [e :U _LEDbegin ]
 [v _i2c_addr `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;LED_BarGraph.c: 20: I2C1_MasterWrite(0x21,1,i2c_addr,I2C1_MESSAGE_PENDING);
-"20
-[e ( _I2C1_MasterWrite (4 , , , -> -> 33 `i `*uc -> -> 1 `i `uc -> _i2c_addr `ui -> . `E8852 2 `*E8852 ]
-[; ;LED_BarGraph.c: 21: LEDblinkRate(0,i2c_addr);
-"21
-[e ( _LEDblinkRate (2 , -> 0 `i _i2c_addr ]
-[; ;LED_BarGraph.c: 22: LEDBsetBrightness(15,i2c_addr);
-"22
-[e ( _LEDBsetBrightness (2 , -> 15 `i _i2c_addr ]
-[; ;LED_BarGraph.c: 23: }
-"23
-[e :UE 1183 ]
+"74
+[v _writeBuffer `uc ~T0 @X0 -> 3 `i a ]
+"75
+[v _timeOut `ui ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 74: uint8_t writeBuffer[3];
+[; ;LED_BarGraph.c: 75: uint16_t timeOut;
+[; ;LED_BarGraph.c: 76: writeBuffer[0]=0x21;
+"76
+[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 33 `i `uc ]
+"77
+[v _status `E8852 ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 77: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+[e = _status -> . `E8852 2 `E8852 ]
+[; ;LED_BarGraph.c: 79: timeOut = 0;
+"79
+[e = _timeOut -> -> 0 `i `ui ]
+[; ;LED_BarGraph.c: 80: while(status != I2C1_MESSAGE_FAIL)
+"80
+[e $U 1204  ]
+[e :U 1205 ]
+[; ;LED_BarGraph.c: 81: {
+"81
+{
+[; ;LED_BarGraph.c: 83: I2C1_MasterWrite( &writeBuffer,
+[; ;LED_BarGraph.c: 84: 1,
+[; ;LED_BarGraph.c: 85: 0x70,
+[; ;LED_BarGraph.c: 86: &status);
+"86
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[; ;LED_BarGraph.c: 89: while(status == I2C1_MESSAGE_PENDING);
+"89
+[e $U 1207  ]
+[e :U 1208 ]
+[e :U 1207 ]
+[e $ == -> _status `i -> . `E8852 2 `i 1208  ]
+[e :U 1209 ]
+[; ;LED_BarGraph.c: 91: if (status == I2C1_MESSAGE_COMPLETE)
+"91
+[e $ ! == -> _status `i -> . `E8852 0 `i 1210  ]
+[; ;LED_BarGraph.c: 92: break;
+"92
+[e $U 1206  ]
+[e :U 1210 ]
+[; ;LED_BarGraph.c: 93: if (timeOut == 100)
+"93
+[e $ ! == _timeOut -> -> 100 `i `ui 1211  ]
+[; ;LED_BarGraph.c: 94: break;
+"94
+[e $U 1206  ]
+[e :U 1211 ]
+[; ;LED_BarGraph.c: 95: if (status == I2C1_MESSAGE_FAIL)
+"95
+[e $ ! == -> _status `i -> . `E8852 1 `i 1212  ]
+[; ;LED_BarGraph.c: 96: break;
+"96
+[e $U 1206  ]
+[e $U 1213  ]
+"97
+[e :U 1212 ]
+[; ;LED_BarGraph.c: 97: else
+[; ;LED_BarGraph.c: 98: timeOut++;
+"98
+[e ++ _timeOut -> -> 1 `i `ui ]
+[e :U 1213 ]
+"99
 }
-"25
+[e :U 1204 ]
+"80
+[e $ != -> _status `i -> . `E8852 1 `i 1205  ]
+[e :U 1206 ]
+[; ;LED_BarGraph.c: 99: }
+[; ;LED_BarGraph.c: 101: LEDblinkRate(0,i2c_addr);
+"101
+[e ( _LEDblinkRate (2 , -> 0 `i _i2c_addr ]
+[; ;LED_BarGraph.c: 102: LEDBsetBrightness(15,i2c_addr);
+"102
+[e ( _LEDBsetBrightness (2 , -> 15 `i _i2c_addr ]
+[; ;LED_BarGraph.c: 103: }
+"103
+[e :UE 1203 ]
+}
+"105
 [v _LEDwriteDisplay `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;LED_BarGraph.c: 25: void LEDwriteDisplay(char i2c_addr) {
+[; ;LED_BarGraph.c: 105: void LEDwriteDisplay(char i2c_addr) {
 [e :U _LEDwriteDisplay ]
 [v _i2c_addr `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;LED_BarGraph.c: 26: I2C1_MasterWrite( (uint8_t)0x00,1,i2c_addr,I2C1_MESSAGE_PENDING);
-"26
-[e ( _I2C1_MasterWrite (4 , , , -> -> -> 0 `i `uc `*uc -> -> 1 `i `uc -> _i2c_addr `ui -> . `E8852 2 `*E8852 ]
-[; ;LED_BarGraph.c: 27: I2C1_MasterWrite( &displaybuffer,8,i2c_addr,I2C1_MESSAGE_PENDING);
-"27
-[e ( _I2C1_MasterWrite (4 , , , &U _displaybuffer -> -> 8 `i `uc -> _i2c_addr `ui -> . `E8852 2 `*E8852 ]
-[; ;LED_BarGraph.c: 35: }
-"35
-[e :UE 1184 ]
+"106
+[v _writeBuffer `uc ~T0 @X0 -> 20 `i a ]
+"107
+[v _timeOut `ui ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 106: uint8_t writeBuffer[20];
+[; ;LED_BarGraph.c: 107: uint16_t timeOut;
+[; ;LED_BarGraph.c: 108: writeBuffer[0] = 0x00;
+"108
+[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
+"109
+[v _status `E8852 ~T0 @X0 1 a ]
+[; ;LED_BarGraph.c: 109: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+[e = _status -> . `E8852 2 `E8852 ]
+[; ;LED_BarGraph.c: 111: timeOut = 0;
+"111
+[e = _timeOut -> -> 0 `i `ui ]
+[; ;LED_BarGraph.c: 112: while(status != I2C1_MESSAGE_FAIL)
+"112
+[e $U 1215  ]
+[e :U 1216 ]
+[; ;LED_BarGraph.c: 113: {
+"113
+{
+[; ;LED_BarGraph.c: 115: I2C1_MasterWrite( &writeBuffer,
+[; ;LED_BarGraph.c: 116: 1,
+[; ;LED_BarGraph.c: 117: 0x70,
+[; ;LED_BarGraph.c: 118: &status);
+"118
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[; ;LED_BarGraph.c: 121: while(status == I2C1_MESSAGE_PENDING);
+"121
+[e $U 1218  ]
+[e :U 1219 ]
+[e :U 1218 ]
+[e $ == -> _status `i -> . `E8852 2 `i 1219  ]
+[e :U 1220 ]
+[; ;LED_BarGraph.c: 123: if (status == I2C1_MESSAGE_COMPLETE)
+"123
+[e $ ! == -> _status `i -> . `E8852 0 `i 1221  ]
+[; ;LED_BarGraph.c: 124: break;
+"124
+[e $U 1217  ]
+[e :U 1221 ]
+[; ;LED_BarGraph.c: 125: if (timeOut == 100)
+"125
+[e $ ! == _timeOut -> -> 100 `i `ui 1222  ]
+[; ;LED_BarGraph.c: 126: break;
+"126
+[e $U 1217  ]
+[e :U 1222 ]
+[; ;LED_BarGraph.c: 127: if (status == I2C1_MESSAGE_FAIL)
+"127
+[e $ ! == -> _status `i -> . `E8852 1 `i 1223  ]
+[; ;LED_BarGraph.c: 128: break;
+"128
+[e $U 1217  ]
+[e $U 1224  ]
+"129
+[e :U 1223 ]
+[; ;LED_BarGraph.c: 129: else
+[; ;LED_BarGraph.c: 130: timeOut++;
+"130
+[e ++ _timeOut -> -> 1 `i `ui ]
+[e :U 1224 ]
+"131
 }
-"37
+[e :U 1215 ]
+"112
+[e $ != -> _status `i -> . `E8852 1 `i 1216  ]
+[e :U 1217 ]
+[; ;LED_BarGraph.c: 131: }
+[; ;LED_BarGraph.c: 132: I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+"132
+[e = _status -> . `E8852 2 `E8852 ]
+[; ;LED_BarGraph.c: 137: writeBuffer[0] = 0;
+"137
+[e = *U + &U _writeBuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> -> 0 `i `uc ]
+[; ;LED_BarGraph.c: 138: writeBuffer[1] = displaybuffer[0] & 0xFF;
+"138
+[e = *U + &U _writeBuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 139: writeBuffer[2] = displaybuffer[0] >> 8;
+"139
+[e = *U + &U _writeBuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 0 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 140: writeBuffer[3] = displaybuffer[1] & 0xFF;
+"140
+[e = *U + &U _writeBuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 141: writeBuffer[4] = displaybuffer[1] >> 8;
+"141
+[e = *U + &U _writeBuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 1 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 142: writeBuffer[5] = displaybuffer[2] & 0xFF;
+"142
+[e = *U + &U _writeBuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 143: writeBuffer[6] = displaybuffer[2] >> 8;
+"143
+[e = *U + &U _writeBuffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 2 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 144: writeBuffer[7] = displaybuffer[3] & 0xFF;
+"144
+[e = *U + &U _writeBuffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 145: writeBuffer[8] = displaybuffer[3] >> 8;
+"145
+[e = *U + &U _writeBuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 3 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 146: writeBuffer[9] = displaybuffer[4] & 0xFF;
+"146
+[e = *U + &U _writeBuffer * -> -> -> 9 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 147: writeBuffer[10] = displaybuffer[4] >> 8;
+"147
+[e = *U + &U _writeBuffer * -> -> -> 10 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 4 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 148: writeBuffer[11] = displaybuffer[5] & 0xFF;
+"148
+[e = *U + &U _writeBuffer * -> -> -> 11 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 149: writeBuffer[12] = displaybuffer[5] >> 8;
+"149
+[e = *U + &U _writeBuffer * -> -> -> 12 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 5 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 150: writeBuffer[13] = displaybuffer[6] & 0xFF;
+"150
+[e = *U + &U _writeBuffer * -> -> -> 13 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 151: writeBuffer[14] = displaybuffer[6] >> 8;
+"151
+[e = *U + &U _writeBuffer * -> -> -> 14 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 6 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 152: writeBuffer[15] = displaybuffer[7] & 0xFF;
+"152
+[e = *U + &U _writeBuffer * -> -> -> 15 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 153: writeBuffer[16] = displaybuffer[7] >> 8;
+"153
+[e = *U + &U _writeBuffer * -> -> -> 16 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 7 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 154: writeBuffer[17] = displaybuffer[8] & 0xFF;
+"154
+[e = *U + &U _writeBuffer * -> -> -> 17 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> & *U + &U _displaybuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 255 `i `l `uc ]
+[; ;LED_BarGraph.c: 155: writeBuffer[18] = displaybuffer[8] >> 8;
+"155
+[e = *U + &U _writeBuffer * -> -> -> 18 `i `ui `ux -> -> # *U &U _writeBuffer `ui `ux -> >> *U + &U _displaybuffer * -> -> -> 8 `i `ui `ux -> -> # *U &U _displaybuffer `ui `ux -> 8 `i `uc ]
+[; ;LED_BarGraph.c: 157: timeOut = 0;
+"157
+[e = _timeOut -> -> 0 `i `ui ]
+[; ;LED_BarGraph.c: 158: while(status != I2C1_MESSAGE_FAIL)
+"158
+[e $U 1225  ]
+[e :U 1226 ]
+[; ;LED_BarGraph.c: 159: {
+"159
+{
+[; ;LED_BarGraph.c: 161: I2C1_MasterWrite( &writeBuffer,
+[; ;LED_BarGraph.c: 162: 17,
+[; ;LED_BarGraph.c: 163: 0x70,
+[; ;LED_BarGraph.c: 164: &status);
+"164
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 17 `i `uc -> -> 112 `i `ui &U _status ]
+[; ;LED_BarGraph.c: 167: while(status == I2C1_MESSAGE_PENDING);
+"167
+[e $U 1228  ]
+[e :U 1229 ]
+[e :U 1228 ]
+[e $ == -> _status `i -> . `E8852 2 `i 1229  ]
+[e :U 1230 ]
+[; ;LED_BarGraph.c: 169: if (status == I2C1_MESSAGE_COMPLETE)
+"169
+[e $ ! == -> _status `i -> . `E8852 0 `i 1231  ]
+[; ;LED_BarGraph.c: 170: break;
+"170
+[e $U 1227  ]
+[e :U 1231 ]
+[; ;LED_BarGraph.c: 171: if (timeOut == 100)
+"171
+[e $ ! == _timeOut -> -> 100 `i `ui 1232  ]
+[; ;LED_BarGraph.c: 172: break;
+"172
+[e $U 1227  ]
+[e :U 1232 ]
+[; ;LED_BarGraph.c: 173: if (status == I2C1_MESSAGE_FAIL)
+"173
+[e $ ! == -> _status `i -> . `E8852 1 `i 1233  ]
+[; ;LED_BarGraph.c: 174: break;
+"174
+[e $U 1227  ]
+[e $U 1234  ]
+"175
+[e :U 1233 ]
+[; ;LED_BarGraph.c: 175: else
+[; ;LED_BarGraph.c: 176: timeOut++;
+"176
+[e ++ _timeOut -> -> 1 `i `ui ]
+[e :U 1234 ]
+"177
+}
+[e :U 1225 ]
+"158
+[e $ != -> _status `i -> . `E8852 1 `i 1226  ]
+[e :U 1227 ]
+[; ;LED_BarGraph.c: 177: }
+[; ;LED_BarGraph.c: 178: }
+"178
+[e :UE 1214 ]
+}
+"180
 [v _LEDclear `(v ~T0 @X0 1 ef ]
 {
-[; ;LED_BarGraph.c: 37: void LEDclear(void) {
+[; ;LED_BarGraph.c: 180: void LEDclear(void) {
 [e :U _LEDclear ]
 [f ]
-[; ;LED_BarGraph.c: 38: for (uint8_t i=0; i<8; i++) {
-"38
+[; ;LED_BarGraph.c: 181: for (uint8_t i=0; i<8; i++) {
+"181
 {
 [v _i `uc ~T0 @X0 1 a ]
 [e = _i -> -> 0 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1186  ]
-[e $U 1187  ]
-[e :U 1186 ]
+[e $ < -> _i `i -> 8 `i 1236  ]
+[e $U 1237  ]
+[e :U 1236 ]
 {
-[; ;LED_BarGraph.c: 39: displaybuffer[i] = 0;
-"39
-[e = *U + &U _displaybuffer * -> _i `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 0 `i `uc ]
-"40
+[; ;LED_BarGraph.c: 182: displaybuffer[i] = 0;
+"182
+[e = *U + &U _displaybuffer * -> _i `ux -> -> # *U &U _displaybuffer `ui `ux -> -> 0 `i `l ]
+"183
 }
-"38
+"181
 [e ++ _i -> -> 1 `i `uc ]
-[e $ < -> _i `i -> 8 `i 1186  ]
-[e :U 1187 ]
-"40
+[e $ < -> _i `i -> 8 `i 1236  ]
+[e :U 1237 ]
+"183
 }
-[; ;LED_BarGraph.c: 40: }
-[; ;LED_BarGraph.c: 41: }
-"41
-[e :UE 1185 ]
+[; ;LED_BarGraph.c: 183: }
+[; ;LED_BarGraph.c: 184: }
+"184
+[e :UE 1235 ]
 }
-"43
+"186
 [v _LEDsetBar `(v ~T0 @X0 1 ef2`i`i ]
 {
-[; ;LED_BarGraph.c: 43: void LEDsetBar(int bar, int color) {
+[; ;LED_BarGraph.c: 186: void LEDsetBar(int bar, int color) {
 [e :U _LEDsetBar ]
 [v _bar `i ~T0 @X0 1 r1 ]
 [v _color `i ~T0 @X0 1 r2 ]
 [f ]
-"44
+"187
 [v _a `ui ~T0 @X0 1 a ]
 [v _c `ui ~T0 @X0 1 a ]
-[; ;LED_BarGraph.c: 44: uint16_t a, c;
-[; ;LED_BarGraph.c: 46: if (bar < 12)
-"46
-[e $ ! < _bar -> 12 `i 1190  ]
-[; ;LED_BarGraph.c: 47: c = bar / 4;
-"47
+[; ;LED_BarGraph.c: 187: uint16_t a, c;
+[; ;LED_BarGraph.c: 189: if (bar < 12)
+"189
+[e $ ! < _bar -> 12 `i 1240  ]
+[; ;LED_BarGraph.c: 190: c = bar / 4;
+"190
 [e = _c -> / _bar -> 4 `i `ui ]
-[e $U 1191  ]
-"48
-[e :U 1190 ]
-[; ;LED_BarGraph.c: 48: else
-[; ;LED_BarGraph.c: 49: c = (bar - 12) / 4;
-"49
+[e $U 1241  ]
+"191
+[e :U 1240 ]
+[; ;LED_BarGraph.c: 191: else
+[; ;LED_BarGraph.c: 192: c = (bar - 12) / 4;
+"192
 [e = _c -> / - _bar -> 12 `i -> 4 `i `ui ]
-[e :U 1191 ]
-[; ;LED_BarGraph.c: 51: a = bar % 4;
-"51
+[e :U 1241 ]
+[; ;LED_BarGraph.c: 194: a = bar % 4;
+"194
 [e = _a -> % _bar -> 4 `i `ui ]
-[; ;LED_BarGraph.c: 52: if (bar >= 12)
-"52
-[e $ ! >= _bar -> 12 `i 1192  ]
-[; ;LED_BarGraph.c: 53: a += 4;
-"53
+[; ;LED_BarGraph.c: 195: if (bar >= 12)
+"195
+[e $ ! >= _bar -> 12 `i 1242  ]
+[; ;LED_BarGraph.c: 196: a += 4;
+"196
 [e =+ _a -> -> 4 `i `ui ]
-[e :U 1192 ]
-[; ;LED_BarGraph.c: 56: if (color == 1) {
-"56
-[e $ ! == _color -> 1 `i 1193  ]
+[e :U 1242 ]
+[; ;LED_BarGraph.c: 199: if (color == 1) {
+"199
+[e $ ! == _color -> 1 `i 1243  ]
 {
-[; ;LED_BarGraph.c: 58: displaybuffer[c] |= (1<<(a));
-"58
-[e =| *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> << -> 1 `i _a `uc ]
-[; ;LED_BarGraph.c: 60: displaybuffer[c] &= ~(1<<(a+8));
-"60
-[e =& *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> ~ << -> 1 `i + _a -> -> 8 `i `ui `uc ]
-"61
+[; ;LED_BarGraph.c: 201: displaybuffer[c] |= (1<<(a));
+"201
+[e =| *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> << -> 1 `i _a `l ]
+[; ;LED_BarGraph.c: 203: displaybuffer[c] &= ~(1<<(a+8));
+"203
+[e =& *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> ~ << -> 1 `i + _a -> -> 8 `i `ui `l ]
+"204
 }
-[; ;LED_BarGraph.c: 61: } else if (color == 2) {
-[e $U 1194  ]
-[e :U 1193 ]
-[e $ ! == _color -> 2 `i 1195  ]
+[; ;LED_BarGraph.c: 204: } else if (color == 2) {
+[e $U 1244  ]
+[e :U 1243 ]
+[e $ ! == _color -> 2 `i 1245  ]
 {
-[; ;LED_BarGraph.c: 63: displaybuffer[c] |= (1<<(a)) | (1<<(a+8));
-"63
-[e =| *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> | << -> 1 `i _a << -> 1 `i + _a -> -> 8 `i `ui `uc ]
-"64
+[; ;LED_BarGraph.c: 206: displaybuffer[c] |= (1<<(a)) | (1<<(a+8));
+"206
+[e =| *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> | << -> 1 `i _a << -> 1 `i + _a -> -> 8 `i `ui `l ]
+"207
 }
-[; ;LED_BarGraph.c: 64: } else if (color == 0) {
-[e $U 1196  ]
-[e :U 1195 ]
-[e $ ! == _color -> 0 `i 1197  ]
+[; ;LED_BarGraph.c: 207: } else if (color == 0) {
+[e $U 1246  ]
+[e :U 1245 ]
+[e $ ! == _color -> 0 `i 1247  ]
 {
-[; ;LED_BarGraph.c: 66: displaybuffer[c] &= ~(1<<(a)) & ~(1<<(a+8));
-"66
-[e =& *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> & ~ << -> 1 `i _a ~ << -> 1 `i + _a -> -> 8 `i `ui `uc ]
-"67
+[; ;LED_BarGraph.c: 209: displaybuffer[c] &= ~(1<<(a)) & ~(1<<(a+8));
+"209
+[e =& *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> & ~ << -> 1 `i _a ~ << -> 1 `i + _a -> -> 8 `i `ui `l ]
+"210
 }
-[; ;LED_BarGraph.c: 67: } else if (color == 3) {
-[e $U 1198  ]
-[e :U 1197 ]
-[e $ ! == _color -> 3 `i 1199  ]
+[; ;LED_BarGraph.c: 210: } else if (color == 3) {
+[e $U 1248  ]
+[e :U 1247 ]
+[e $ ! == _color -> 3 `i 1249  ]
 {
-[; ;LED_BarGraph.c: 69: displaybuffer[c] |= (1<<(a+8));
-"69
-[e =| *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> << -> 1 `i + _a -> -> 8 `i `ui `uc ]
-[; ;LED_BarGraph.c: 71: displaybuffer[c] &= ~(1<<(a));
-"71
-[e =& *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> ~ << -> 1 `i _a `uc ]
-"72
+[; ;LED_BarGraph.c: 212: displaybuffer[c] |= (1<<(a+8));
+"212
+[e =| *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> << -> 1 `i + _a -> -> 8 `i `ui `l ]
+[; ;LED_BarGraph.c: 214: displaybuffer[c] &= ~(1<<(a));
+"214
+[e =& *U + &U _displaybuffer * -> _c `ux -> -> # *U &U _displaybuffer `ui `ux -> ~ << -> 1 `i _a `l ]
+"215
 }
-[e :U 1199 ]
-"73
-[e :U 1198 ]
-[e :U 1196 ]
-[e :U 1194 ]
-[; ;LED_BarGraph.c: 72: }
-[; ;LED_BarGraph.c: 73: }
-[e :UE 1189 ]
+[e :U 1249 ]
+"216
+[e :U 1248 ]
+[e :U 1246 ]
+[e :U 1244 ]
+[; ;LED_BarGraph.c: 215: }
+[; ;LED_BarGraph.c: 216: }
+[e :UE 1239 ]
 }

@@ -2,36 +2,179 @@
 #include "LED_BarGraph.h"
 #include "mcc_generated_files/i2c1.h"
 
+#define SLAVE_I2C_GENERIC_RETRY_MAX     100
+
 #ifndef _BV
   #define _BV(bit) (1<<(bit))
 #endif
 
 void LEDBsetBrightness(int b, char i2c_addr) {
   if (b > 15) b = 15;
-  I2C1_MasterWrite( (HT16K33_CMD_BRIGHTNESS | b),1,i2c_addr,I2C1_MESSAGE_PENDING);
+    uint8_t         writeBuffer[2];
+    uint16_t        timeOut;
+     writeBuffer[0] = (HT16K33_CMD_BRIGHTNESS | b);
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+
+        timeOut = 0;
+        while(status != I2C1_MESSAGE_FAIL)
+        {
+            // write one byte to EEPROM (3 is the number of bytes to write)
+            I2C1_MasterWrite(   &writeBuffer,
+                                    1,
+                                    0x70,
+                                    &status);
+
+            // wait for the message to be sent or status has changed.
+            while(status == I2C1_MESSAGE_PENDING);
+
+            if (status == I2C1_MESSAGE_COMPLETE)
+                break;
+            if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX)
+                break;
+            if (status == I2C1_MESSAGE_FAIL)
+                break;
+            else
+                timeOut++;
+        }
+  //I2C1_MasterWrite( (HT16K33_CMD_BRIGHTNESS | b),1,i2c_addr,I2C1_MESSAGE_PENDING);
 }
 
 void LEDblinkRate(int b, char i2c_addr) {
   if (b > 3) b = 0; // turn off if not sure
-  I2C1_MasterWrite( (HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | (b << 1)),1,i2c_addr,I2C1_MESSAGE_PENDING);
+      uint8_t         writeBuffer[2];
+      uint16_t        timeOut;
+  writeBuffer[0]= (HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | (b << 1));
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+
+        timeOut = 0;
+        while(status != I2C1_MESSAGE_FAIL)
+        {
+            // write one byte to EEPROM (3 is the number of bytes to write)
+            I2C1_MasterWrite(  &writeBuffer,
+                                    1,
+                                    0x70,
+                                    &status);
+
+            // wait for the message to be sent or status has changed.
+            while(status == I2C1_MESSAGE_PENDING);
+
+            if (status == I2C1_MESSAGE_COMPLETE)
+                break;
+            if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX)
+                break;
+            if (status == I2C1_MESSAGE_FAIL)
+                break;
+            else
+                timeOut++;
+        }
+  //I2C1_MasterWrite( (HT16K33_BLINK_CMD | HT16K33_BLINK_DISPLAYON | (b << 1)),1,i2c_addr,I2C1_MESSAGE_PENDING);
 }
 
 void LEDbegin(char i2c_addr) {
-  I2C1_MasterWrite(0x21,1,i2c_addr,I2C1_MESSAGE_PENDING);
+    uint8_t         writeBuffer[3];
+    uint16_t        timeOut;
+    writeBuffer[0]=0x21;
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+
+        timeOut = 0;
+        while(status != I2C1_MESSAGE_FAIL)
+        {
+            // write one byte to EEPROM (3 is the number of bytes to write)
+            I2C1_MasterWrite(  &writeBuffer,
+                                    1,
+                                    0x70,
+                                    &status);
+
+            // wait for the message to be sent or status has changed.
+            while(status == I2C1_MESSAGE_PENDING);
+
+            if (status == I2C1_MESSAGE_COMPLETE)
+                break;
+            if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX)
+                break;
+            if (status == I2C1_MESSAGE_FAIL)
+                break;
+            else
+                timeOut++;
+        }
+  //I2C1_MasterWrite(0x21,1,i2c_addr,I2C1_MESSAGE_PENDING);
   LEDblinkRate(HT16K33_BLINK_OFF,i2c_addr);
   LEDBsetBrightness(15,i2c_addr); // max brightness
 }
 
 void LEDwriteDisplay(char i2c_addr) {
-  I2C1_MasterWrite( (uint8_t)0x00,1,i2c_addr,I2C1_MESSAGE_PENDING);
-  I2C1_MasterWrite( &displaybuffer,8,i2c_addr,I2C1_MESSAGE_PENDING);
-  /*
-  for (uint8_t i=0; i<8; i++) {
-    Wire.write(displaybuffer[i] & 0xFF);
-    Wire.write(displaybuffer[i] >> 8);
-  }
-  Wire.endTransmission();
-   */
+    uint8_t         writeBuffer[20];
+    uint16_t        timeOut;
+    writeBuffer[0] = 0x00;
+    I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+
+        timeOut = 0;
+        while(status != I2C1_MESSAGE_FAIL)
+        {
+            // write one byte to EEPROM (3 is the number of bytes to write)
+            I2C1_MasterWrite(  &writeBuffer,
+                                    1,
+                                    0x70,
+                                    &status);
+
+            // wait for the message to be sent or status has changed.
+            while(status == I2C1_MESSAGE_PENDING);
+
+            if (status == I2C1_MESSAGE_COMPLETE)
+                break;
+            if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX)
+                break;
+            if (status == I2C1_MESSAGE_FAIL)
+                break;
+            else
+                timeOut++;
+        }
+            I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
+
+
+  //I2C1_MasterWrite( (uint8_t)0x00,1,i2c_addr,I2C1_MESSAGE_PENDING);
+  //I2C1_MasterWrite( &displaybuffer,8,i2c_addr,I2C1_MESSAGE_PENDING);
+    writeBuffer[0] = 0;
+    writeBuffer[1] = displaybuffer[0] & 0xFF;
+    writeBuffer[2] = displaybuffer[0] >> 8;
+    writeBuffer[3] = displaybuffer[1] & 0xFF;
+    writeBuffer[4] = displaybuffer[1] >> 8;
+    writeBuffer[5] = displaybuffer[2] & 0xFF;
+    writeBuffer[6] = displaybuffer[2] >> 8;
+    writeBuffer[7] = displaybuffer[3] & 0xFF;
+    writeBuffer[8] = displaybuffer[3] >> 8;
+    writeBuffer[9] = displaybuffer[4] & 0xFF;
+    writeBuffer[10] = displaybuffer[4] >> 8;
+    writeBuffer[11] = displaybuffer[5] & 0xFF;
+    writeBuffer[12] = displaybuffer[5] >> 8;
+    writeBuffer[13] = displaybuffer[6] & 0xFF;
+    writeBuffer[14] = displaybuffer[6] >> 8;
+    writeBuffer[15] = displaybuffer[7] & 0xFF;
+    writeBuffer[16] = displaybuffer[7] >> 8;
+    writeBuffer[17] = displaybuffer[8] & 0xFF;
+    writeBuffer[18] = displaybuffer[8] >> 8;
+
+           timeOut = 0;
+        while(status != I2C1_MESSAGE_FAIL)
+        {
+            // write one byte to EEPROM (3 is the number of bytes to write)
+            I2C1_MasterWrite(  &writeBuffer,
+                                    17,
+                                    0x70,
+                                    &status);
+
+            // wait for the message to be sent or status has changed.
+            while(status == I2C1_MESSAGE_PENDING);
+
+            if (status == I2C1_MESSAGE_COMPLETE)
+                break;
+            if (timeOut == SLAVE_I2C_GENERIC_RETRY_MAX)
+                break;
+            if (status == I2C1_MESSAGE_FAIL)
+                break;
+            else
+                timeOut++;
+        }
 }
 
 void LEDclear(void) {

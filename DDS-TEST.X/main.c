@@ -70,20 +70,21 @@ void main(void)
        printf("ADC Volume = %d",ADCNT);
        Delay(250);
         for (uint8_t b=0; b<24; b++) {
-           LEDsetBar(b, LED_RED);
+           LEDsetBar(b, LED_YELLOW);
            LEDwriteDisplay(0x70);
-           Delay(50);
+           Delay(100);
            LEDsetBar(b, LED_OFF);
            LEDwriteDisplay(0x70);
          }
           for (uint8_t b=0; b<24; b++) {
            LEDsetBar(b, LED_GREEN);
            LEDwriteDisplay(0x70);
-           Delay(50);
+           Delay(100);
            LEDsetBar(b, LED_OFF);
            LEDwriteDisplay(0x70);
          }
        //INDICATOR_Toggle();
+        
     }
 }
 

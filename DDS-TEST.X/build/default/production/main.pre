@@ -10757,7 +10757,7 @@ extern char * ultoa(char * buf, unsigned long val, int base);
 extern char * ftoa(float f, int * status);
 
 # 29 "LED_BarGraph.h"
-char displaybuffer[8];
+long int displaybuffer[10];
 
 extern void LEDBsetBrightness(int b, char i2c_addr);
 extern void LEDblinkRate(int b, char i2c_addr);
@@ -10791,19 +10791,20 @@ while (1)
 printf("ADC Volume = %d",ADCNT);
 Delay(250);
 for (uint8_t b=0; b<24; b++) {
-LEDsetBar(b, 1);
+LEDsetBar(b, 2);
 LEDwriteDisplay(0x70);
-Delay(50);
+Delay(100);
 LEDsetBar(b, 0);
 LEDwriteDisplay(0x70);
 }
 for (uint8_t b=0; b<24; b++) {
 LEDsetBar(b, 3);
 LEDwriteDisplay(0x70);
-Delay(50);
+Delay(100);
 LEDsetBar(b, 0);
 LEDwriteDisplay(0x70);
 }
+
 
 }
 }

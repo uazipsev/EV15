@@ -8407,8 +8407,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 110: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 112: extern char * ftoa(float f, int * status);
 "29 LED_BarGraph.h
-[v _displaybuffer `uc ~T0 @X0 -> 8 `i e ]
-[; ;LED_BarGraph.h: 29: char displaybuffer[8];
+[v _displaybuffer `l ~T0 @X0 -> 10 `i e ]
+[; ;LED_BarGraph.h: 29: long int displaybuffer[10];
 [; ;LED_BarGraph.h: 31: extern void LEDBsetBrightness(int b, char i2c_addr);
 [; ;LED_BarGraph.h: 32: extern void LEDblinkRate(int b, char i2c_addr);
 [; ;LED_BarGraph.h: 33: extern void LEDbegin(char i2c_addr);
@@ -8468,15 +8468,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1192  ]
 [e :U 1191 ]
 {
-[; ;main.c: 73: LEDsetBar(b, 1);
+[; ;main.c: 73: LEDsetBar(b, 2);
 "73
-[e ( _LEDsetBar (2 , -> _b `i -> 1 `i ]
+[e ( _LEDsetBar (2 , -> _b `i -> 2 `i ]
 [; ;main.c: 74: LEDwriteDisplay(0x70);
 "74
 [e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-[; ;main.c: 75: Delay(50);
+[; ;main.c: 75: Delay(100);
 "75
-[e ( _Delay (1 -> 50 `i ]
+[e ( _Delay (1 -> 100 `i ]
 [; ;main.c: 76: LEDsetBar(b, 0);
 "76
 [e ( _LEDsetBar (2 , -> _b `i -> 0 `i ]
@@ -8507,9 +8507,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;main.c: 81: LEDwriteDisplay(0x70);
 "81
 [e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-[; ;main.c: 82: Delay(50);
+[; ;main.c: 82: Delay(100);
 "82
-[e ( _Delay (1 -> 50 `i ]
+[e ( _Delay (1 -> 100 `i ]
 [; ;main.c: 83: LEDsetBar(b, 0);
 "83
 [e ( _LEDsetBar (2 , -> _b `i -> 0 `i ]
@@ -8524,56 +8524,56 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U 1195 ]
 "85
 }
-"87
+"88
 }
 [e :U 1188 ]
 "66
 [e $U 1189  ]
 [e :U 1190 ]
 [; ;main.c: 85: }
-[; ;main.c: 87: }
 [; ;main.c: 88: }
-"88
+[; ;main.c: 89: }
+"89
 [e :UE 1184 ]
 }
-"90
+"91
 [v _Delay `(v ~T0 @X0 1 ef1`i ]
-"91
-{
-[; ;main.c: 90: void Delay(int wait)
-[; ;main.c: 91: {
-[e :U _Delay ]
-"90
-[v _wait `i ~T0 @X0 1 r1 ]
-"91
-[f ]
 "92
-[v _x `i ~T0 @X0 1 a ]
-[; ;main.c: 92: int x;
-[; ;main.c: 93: for(x = 0;x<wait;x++)
+{
+[; ;main.c: 91: void Delay(int wait)
+[; ;main.c: 92: {
+[e :U _Delay ]
+"91
+[v _wait `i ~T0 @X0 1 r1 ]
+"92
+[f ]
 "93
+[v _x `i ~T0 @X0 1 a ]
+[; ;main.c: 93: int x;
+[; ;main.c: 94: for(x = 0;x<wait;x++)
+"94
 {
 [e = _x -> 0 `i ]
 [e $U 1201  ]
-"94
-[e :U 1198 ]
-[; ;main.c: 94: {
-{
-[; ;main.c: 95: _delay((unsigned long)((1)*(16000000/4000.0)));
 "95
-[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+[e :U 1198 ]
+[; ;main.c: 95: {
+{
+[; ;main.c: 96: _delay((unsigned long)((1)*(16000000/4000.0)));
 "96
+[e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
+"97
 }
-"93
+"94
 [e ++ _x -> 1 `i ]
 [e :U 1201 ]
 [e $ < _x _wait 1198  ]
 [e :U 1199 ]
-"96
-}
-[; ;main.c: 96: }
-[; ;main.c: 97: }
 "97
+}
+[; ;main.c: 97: }
+[; ;main.c: 98: }
+"98
 [e :UE 1197 ]
 }
 [p f _printf 8388736 ]
