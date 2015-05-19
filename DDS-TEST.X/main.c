@@ -25,6 +25,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "LED_BarGraph.h"
+#include "IO.h"
 
 void Delay(int wait);
 
@@ -60,7 +61,7 @@ void main(void)
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-    int ADCNT = 0;
+    int ADCNT = 1;
     LEDbegin(0x70);
     INDICATOR_SetHigh();
     while (1)
@@ -68,7 +69,8 @@ void main(void)
        // ADCNT = ADC_GetConversion(Volume);
         // Add your application code
        printf("ADC Volume = %d",ADCNT);
-       Delay(250);
+       
+       /*
         for (uint8_t b=0; b<24; b++) {
            LEDsetBar(b, LED_YELLOW);
            LEDwriteDisplay(0x70);
@@ -83,8 +85,18 @@ void main(void)
            LEDsetBar(b, LED_OFF);
            LEDwriteDisplay(0x70);
          }
-       //INDICATOR_Toggle();
-        
+        //INDICATOR_Toggle();
+        */
+       /*
+       SetLEDOut(ADCNT++);
+       if (ADCNT > 6){
+           ADCNT = 0;
+       }
+        */
+       if(GetButtonState(4) ==1)
+       {
+           Delay(500);
+       }
     }
 }
 

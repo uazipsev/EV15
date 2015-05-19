@@ -7,6 +7,7 @@
 #include <xc.h>
 #include "tmr0.h"
 #include "pin_manager.h"
+#include "../IO.h"
 
 /**
   Section: Global Variables Definitions
@@ -96,6 +97,11 @@ void TMR0_ISR(void)
     // Write to the Timer0 register
     TMR0H = timer0ReloadVal16bit >> 8;
     TMR0L = (uint8_t) timer0ReloadVal16bit;
+
+    for(int x = 0;x<8;x++)
+    {
+        ReadButtonState(x);
+    }
 
     // callback function - called every 5th pass
     if (++CountCallBack >= TMR0_INTERRUPT_TICKER_FACTOR)

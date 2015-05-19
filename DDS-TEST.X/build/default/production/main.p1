@@ -28,12 +28,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
 "206 C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdio.h
 [v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"29 main.c
+"13 IO.h
+[v _GetButtonState `(uc ~T0 @X0 0 ef1`i ]
+"30 main.c
 [v _Delay `(v ~T0 @X0 0 ef1`i ]
-"36 LED_BarGraph.h
-[v _LEDsetBar `(v ~T0 @X0 0 ef2`i`i ]
-"34
-[v _LEDwriteDisplay `(v ~T0 @X0 0 ef1`uc ]
 [v F8800 `(v ~T0 @X0 1 tf1`ul ]
 "147 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18.h
 [v __delay `JF8800 ~T0 @X0 0 e ]
@@ -8415,166 +8413,113 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LED_BarGraph.h: 34: extern void LEDwriteDisplay(char i2c_addr);
 [; ;LED_BarGraph.h: 35: extern void LEDclear(void);
 [; ;LED_BarGraph.h: 36: extern void LEDsetBar(int bar, int color);
-[; ;main.c: 29: void Delay(int wait);
-"31 main.c
+[; ;IO.h: 11: extern void SetLEDOut(int lednum);
+[; ;IO.h: 12: extern void ReadButtonState(int btnnum);
+[; ;IO.h: 13: extern bool GetButtonState(int btnnum);
+[; ;main.c: 30: void Delay(int wait);
+"32 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"32
+"33
 {
-[; ;main.c: 31: void main(void)
-[; ;main.c: 32: {
+[; ;main.c: 32: void main(void)
+[; ;main.c: 33: {
 [e :U _main ]
 [f ]
-[; ;main.c: 34: SYSTEM_Initialize();
-"34
+[; ;main.c: 35: SYSTEM_Initialize();
+"35
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 53: (INTCONbits.GIE = 1);
-"53
+[; ;main.c: 54: (INTCONbits.GIE = 1);
+"54
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 56: (INTCONbits.PEIE = 1);
-"56
+[; ;main.c: 57: (INTCONbits.PEIE = 1);
+"57
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"63
-[v _ADCNT `i ~T0 @X0 1 a ]
-[; ;main.c: 63: int ADCNT = 0;
-[e = _ADCNT -> 0 `i ]
-[; ;main.c: 64: LEDbegin(0x70);
 "64
-[e ( _LEDbegin (1 -> -> 112 `i `uc ]
-[; ;main.c: 65: do { LATA3 = 1; } while(0);
+[v _ADCNT `i ~T0 @X0 1 a ]
+[; ;main.c: 64: int ADCNT = 1;
+[e = _ADCNT -> 1 `i ]
+[; ;main.c: 65: LEDbegin(0x70);
 "65
+[e ( _LEDbegin (1 -> -> 112 `i `uc ]
+[; ;main.c: 66: do { LATA3 = 1; } while(0);
+"66
 [e :U 1187 ]
 {
 [e = _LATA3 -> -> 1 `i `b ]
 }
 [e :U 1186 ]
-[; ;main.c: 66: while (1)
-"66
-[e :U 1189 ]
-[; ;main.c: 67: {
+[; ;main.c: 67: while (1)
 "67
+[e :U 1189 ]
+[; ;main.c: 68: {
+"68
 {
-[; ;main.c: 70: printf("ADC Volume = %d",ADCNT);
-"70
-[e ( _printf , (. :s 1C _ADCNT ]
-[; ;main.c: 71: Delay(250);
+[; ;main.c: 71: printf("ADC Volume = %d",ADCNT);
 "71
-[e ( _Delay (1 -> 250 `i ]
-[; ;main.c: 72: for (uint8_t b=0; b<24; b++) {
-"72
+[e ( _printf , (. :s 1C _ADCNT ]
+[; ;main.c: 96: if(GetButtonState(4) ==1)
+"96
+[e $ ! == -> ( _GetButtonState (1 -> 4 `i `i -> 1 `i 1191  ]
+[; ;main.c: 97: {
+"97
 {
-[v _b `uc ~T0 @X0 1 a ]
-[e = _b -> -> 0 `i `uc ]
-[e $ < -> _b `i -> 24 `i 1191  ]
-[e $U 1192  ]
+[; ;main.c: 98: Delay(500);
+"98
+[e ( _Delay (1 -> 500 `i ]
+"99
+}
 [e :U 1191 ]
-{
-[; ;main.c: 73: LEDsetBar(b, 2);
-"73
-[e ( _LEDsetBar (2 , -> _b `i -> 2 `i ]
-[; ;main.c: 74: LEDwriteDisplay(0x70);
-"74
-[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-[; ;main.c: 75: Delay(100);
-"75
-[e ( _Delay (1 -> 100 `i ]
-[; ;main.c: 76: LEDsetBar(b, 0);
-"76
-[e ( _LEDsetBar (2 , -> _b `i -> 0 `i ]
-[; ;main.c: 77: LEDwriteDisplay(0x70);
-"77
-[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-"78
-}
-"72
-[e ++ _b -> -> 1 `i `uc ]
-[e $ < -> _b `i -> 24 `i 1191  ]
-[e :U 1192 ]
-"78
-}
-[; ;main.c: 78: }
-[; ;main.c: 79: for (uint8_t b=0; b<24; b++) {
-"79
-{
-[v _b `uc ~T0 @X0 1 a ]
-[e = _b -> -> 0 `i `uc ]
-[e $ < -> _b `i -> 24 `i 1194  ]
-[e $U 1195  ]
-[e :U 1194 ]
-{
-[; ;main.c: 80: LEDsetBar(b, 3);
-"80
-[e ( _LEDsetBar (2 , -> _b `i -> 3 `i ]
-[; ;main.c: 81: LEDwriteDisplay(0x70);
-"81
-[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-[; ;main.c: 82: Delay(100);
-"82
-[e ( _Delay (1 -> 100 `i ]
-[; ;main.c: 83: LEDsetBar(b, 0);
-"83
-[e ( _LEDsetBar (2 , -> _b `i -> 0 `i ]
-[; ;main.c: 84: LEDwriteDisplay(0x70);
-"84
-[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-"85
-}
-"79
-[e ++ _b -> -> 1 `i `uc ]
-[e $ < -> _b `i -> 24 `i 1194  ]
-[e :U 1195 ]
-"85
-}
-"88
+"100
 }
 [e :U 1188 ]
-"66
+"67
 [e $U 1189  ]
 [e :U 1190 ]
-[; ;main.c: 85: }
-[; ;main.c: 88: }
-[; ;main.c: 89: }
-"89
+[; ;main.c: 99: }
+[; ;main.c: 100: }
+[; ;main.c: 101: }
+"101
 [e :UE 1184 ]
 }
-"91
+"103
 [v _Delay `(v ~T0 @X0 1 ef1`i ]
-"92
+"104
 {
-[; ;main.c: 91: void Delay(int wait)
-[; ;main.c: 92: {
+[; ;main.c: 103: void Delay(int wait)
+[; ;main.c: 104: {
 [e :U _Delay ]
-"91
+"103
 [v _wait `i ~T0 @X0 1 r1 ]
-"92
+"104
 [f ]
-"93
+"105
 [v _x `i ~T0 @X0 1 a ]
-[; ;main.c: 93: int x;
-[; ;main.c: 94: for(x = 0;x<wait;x++)
-"94
+[; ;main.c: 105: int x;
+[; ;main.c: 106: for(x = 0;x<wait;x++)
+"106
 {
 [e = _x -> 0 `i ]
-[e $U 1201  ]
-"95
-[e :U 1198 ]
-[; ;main.c: 95: {
+[e $U 1196  ]
+"107
+[e :U 1193 ]
+[; ;main.c: 107: {
 {
-[; ;main.c: 96: _delay((unsigned long)((1)*(16000000/4000.0)));
-"96
+[; ;main.c: 108: _delay((unsigned long)((1)*(16000000/4000.0)));
+"108
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"97
+"109
 }
-"94
+"106
 [e ++ _x -> 1 `i ]
-[e :U 1201 ]
-[e $ < _x _wait 1198  ]
-[e :U 1199 ]
-"97
+[e :U 1196 ]
+[e $ < _x _wait 1193  ]
+[e :U 1194 ]
+"109
 }
-[; ;main.c: 97: }
-[; ;main.c: 98: }
-"98
-[e :UE 1197 ]
+[; ;main.c: 109: }
+[; ;main.c: 110: }
+"110
+[e :UE 1192 ]
 }
 [p f _printf 8388736 ]
 [a 1C 65 68 67 32 86 111 108 117 109 101 32 61 32 37 100 0 ]

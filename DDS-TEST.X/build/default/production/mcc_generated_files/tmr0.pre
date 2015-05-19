@@ -10494,10 +10494,15 @@ void PIN_MANAGER_Initialize (void);
 # 398
 void PIN_MANAGER_IOC(void);
 
-# 14 "mcc_generated_files/tmr0.c"
+# 11 "mcc_generated_files/../IO.h"
+extern void SetLEDOut(int lednum);
+extern void ReadButtonState(int btnnum);
+extern bool GetButtonState(int btnnum);
+
+# 15 "mcc_generated_files/tmr0.c"
 volatile uint16_t timer0ReloadVal16bit;
 
-# 21
+# 22
 void TMR0_Initialize(void)
 {
 
@@ -10576,6 +10581,11 @@ INTCONbits.TMR0IF = 0;
 
 TMR0H = timer0ReloadVal16bit >> 8;
 TMR0L = (uint8_t) timer0ReloadVal16bit;
+
+for(int x = 0;x<8;x++)
+{
+ReadButtonState(x);
+}
 
 
 if (++CountCallBack >= 5)
