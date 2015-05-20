@@ -13,7 +13,7 @@
 void UART_init(void)
 {
     RPINR18bits.U1RXR = 0b1000010; //configures the input RX to a programable pin RP36
-    RPOR0bits.RP65R = 0b000001; //configures the output TX to configurale pin RP65
+ //   RPOR0bits.RP65R = 0b000001; //configures the output TX to configurale pin RP65
 //    LATDbits.LATD1 = 1;
 //    LATDbits.LATD2 = 1;
 
