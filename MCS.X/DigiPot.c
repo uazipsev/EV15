@@ -4,7 +4,7 @@
 #include "Function.h"
 
 
-int prev_pos = 100;
+int prev_pos = 0;
 
 void PotSetpoint(int new_point)
 {
