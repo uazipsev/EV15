@@ -1,17 +1,17 @@
 /* 
- * File:   UART.h
- * Author: Rick
+ * File:   UART_handler.h
+ * Author: Igor
  *
- * Created on May 17, 2015, 2:29 AM
+ * Created on March 23, 2015, 11:15 AM
  */
 
-#ifndef UART_H
-#define	UART_H
+#ifndef UART_HANDLER_H
+#define	UART_HANDLER_H
 
 #define UART_BUFFER_SIZE 200
 #define BAUD_RATE (((60000000/57600)/16)-1)
 
-//void *memset(void *s, int c, size_t n);
+void *memset(void *s, int c, size_t n);
 
 struct UART_ring_buff {
     unsigned char buf[UART_BUFFER_SIZE];
@@ -22,6 +22,8 @@ struct UART_ring_buff {
 
 struct UART_ring_buff input_buffer;
 struct UART_ring_buff output_buffer;
+
+bool Transmit_stall = true;
 
 void UART_init(void);
 void UART_buff_init(struct UART_ring_buff* _this);
@@ -38,5 +40,5 @@ int Receive_available(void);
 unsigned char Receive_get(void);
 void Send_put(unsigned char _data);
 
-#endif	/* UART_H */
+#endif	/* UART_HANDLER_H */
 

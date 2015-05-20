@@ -1,24 +1,15 @@
-#include "PinDef.h"
 #include <xc.h>
 #include <stdbool.h>
 #include <stdlib.h>
-#include "Global.h"
-#include "UART.h"
+#include "UART_handler.h"
 
 #define ON         0
 #define OFF        1
-#define INDICATOR1 LATEbits.LATE5
-#define INDICATOR2 LATEbits.LATE6
-#define INDICATOR3 LATGbits.LATG7
-#define INDICATOR4 LATGbits.LATG8
-#define WATCHDOG   LATEbits.LATE7
-
-bool Transmit_stall = true;
 
 void UART_init(void)
 {
-    //RPINR18bits.U1RXR = 0b1000010; //configures the input RX to a programable pin RP36
-    //RPOR0bits.RP65R = 0b000001; //configures the output TX to configurale pin RP65
+    RPINR18bits.U1RXR = 0b1000010; //configures the input RX to a programable pin RP36
+ //   RPOR0bits.RP65R = 0b000001; //configures the output TX to configurale pin RP65
 //    LATDbits.LATD1 = 1;
 //    LATDbits.LATD2 = 1;
 
