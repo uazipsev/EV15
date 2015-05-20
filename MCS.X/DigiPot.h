@@ -8,7 +8,7 @@
 #ifndef DIGIPOT_H
 #define	DIGIPOT_H
 
-
+void PotSetpoint(int new_point);
 
 #endif	/* DIGIPOT_H */
 

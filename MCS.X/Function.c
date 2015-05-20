@@ -25,15 +25,16 @@ void Setup(void)
   PPSUnLock;
 
   PPSLock;
+
   TRISBbits.TRISB1 = 0; //Set LED as output
   TRISAbits.TRISA0 = 0; //Set LED as output
   TRISAbits.TRISA10 = 0; //Set LED as output
   
   TRISBbits.TRISB15 = 0; //DigiPot
-  TRISBbits.TRISB14 = 0; //Set LED as output
-  TRISAbits.TRISA7 = 0; //Set LED as output
+  TRISBbits.TRISB14 = 0; //DigiPot
+  TRISAbits.TRISA7 = 0;  //DigiPot
 
-  TRISBbits.TRISB5 = 0;
+  TRISBbits.TRISB5 = 0;  //Fan control
 }
 
 void Delay(int wait)

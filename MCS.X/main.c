@@ -18,7 +18,6 @@
 int main(int argc, char** argv) {
     Setup();
     INDICATOR = 1;
-    int i;
     while(1)
     {
         /*

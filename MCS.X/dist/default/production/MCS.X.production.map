@@ -1,32 +1,33 @@
-Microchip Technology Inc, vv1.24 (0)
+Microchip Technology Inc, vv1.23 (A)
 
 Tool Name:
-  c:\program files (x86)\microchip\xc16\v1.24\bin\bin\..\bin/elf-ld.exe
+  c:\program files (x86)\microchip\xc16\v1.23\bin\bin\..\bin/elf-ld.exe
 
 Command:
   -p33FJ128GP804 \
   -o \
   dist/default/production/MCS.X.production.elf \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/.. \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24E \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/PIC24E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24F \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/PIC24F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/PIC24H \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/PIC24H/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC30F \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC30F/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33E/gld \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F \
-  -Lc:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../support/dsPIC33F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/.. \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24E \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/PIC24E/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24F \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/PIC24F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/PIC24H \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/PIC24H/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC30F \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/dsPIC30F/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33E \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/dsPIC33E/gld \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F \
+  -Lc:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../support/dsPIC33F/gld \
   build/default/production/main.o \
   build/default/production/DigiPot.o \
   build/default/production/Function.o \
   build/default/production/MotorControler.o \
   build/default/production/I2C_API.o \
   build/default/production/FastTransfer.o \
+  build/default/production/MCP4725.o \
   --defsym=__MPLAB_BUILD=1 \
   -Tp33FJ128GP804.gld.00 \
   --heap=32 \
@@ -51,61 +52,67 @@ Command:
 
 Archive member included because of file (symbol)
 
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(IdleI2C1.o)
+                              build/default/production/I2C_API.o (_IdleI2C1)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterWriteI2C1.o)
+                              build/default/production/I2C_API.o (_MasterWriteI2C1)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterputsI2C1.o)
+                              build/default/production/I2C_API.o (_MasterputsI2C1)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StartI2C1.o)
+                              build/default/production/I2C_API.o (_StartI2C1)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StopI2C1.o)
+                              build/default/production/I2C_API.o (_StopI2C1)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
                               (__resetPRI)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
-                              c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o) (__data_init_standard)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                              c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o) (__data_init_standard)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
                               build/default/production/Function.o (___delay32)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo)
                               build/default/production/FastTransfer.o (_malloc)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
-                              c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo) (_memcpy)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+                              c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo) (_memcpy)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memset.eo)
                               build/default/production/FastTransfer.o (_memset)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
-                              c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo) (_sbrk)
-c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
-                              c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo) (_brk)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
+                              c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo) (_sbrk)
+c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(brk.elo)
+                              c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(sbrk.eo) (_brk)
 
 
 Program Memory  [Origin = 0x200, Length = 0x15600]
 
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
-.text                        0x200               0x2ae           0x405  (1029)
-.text                        0x4ae               0x866           0xc99  (3225)
-.dinit                       0xd14                0x2e            0x45  (69)
-.text                        0xd42                0x1c            0x2a  (42)
-.init.delay32                0xd5e                0x1c            0x2a  (42)
+.text                        0x200               0x31c           0x4aa  (1194)
+.text                        0x51c               0x96a           0xe1f  (3615)
+.dinit                       0xe86                0x22            0x33  (51)
+.text                        0xea8                0x1c            0x2a  (42)
+.init.delay32                0xec4                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x1137  (4407) 3%
+                     Total program memory used (bytes):         0x1350  (4944) 3%
 
 
 Data Memory  [Origin = 0x800, Length = 0x4000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                        0x800                   0           0x102  (258)
-.ndata                       0x902                   0             0x2  (2)
-.bss.__allocs                0x904                   0             0x8  (8)
-.bss.__allocx                0x90c                   0             0x4  (4)
-.bss.__allocp                0x910                   0             0x2  (2)
-.bss.__alloct                0x912                   0             0x2  (2)
-.bss.__curbrk                0x914                   0             0x2  (2)
-.heap                        0x916                   0            0x20  (32)
+.nbss                        0x800                   0           0x116  (278)
+.ndata                       0x916                   0             0x2  (2)
+.bss                         0x918                   0            0x12  (18)
+.heap                        0x92a                   0            0x20  (32)
 
-                        Total data memory used (bytes):          0x136  (310) 1%
+                        Total data memory used (bytes):          0x14a  (330) 2%
 
 
 Dynamic Memory Usage
 
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
-heap                         0x916                                0x20  (32)
-stack                        0x936                              0x3eca  (16074)
+heap                         0x92a                                0x20  (32)
+stack                        0x94a                              0x3eb6  (16054)
 
-                        Maximum dynamic memory (bytes):         0x3eea  (16106)
+                        Maximum dynamic memory (bytes):         0x3ed6  (16086)
 
 
 External Symbols in Data Memory (by address):
@@ -132,21 +139,22 @@ External Symbols in Data Memory (by address):
                     0x0820                  _ring_buffer
                     0x08ee                  _group
                     0x08f0                  _crc_buffer
-                    0x0902                  _prev_pos
-                    0x0904                  ___allocs
-                    0x090c                  ___allocx
-                    0x0910                  ___allocp
-                    0x0912                  ___alloct
-                    0x0914                  ___curbrk
+                    0x0902                  _i2cdata
+                    0x0916                  _prev_pos
+                    0x0918                  ___allocs
+                    0x0920                  ___allocp
+                    0x0922                  ___alloct
+                    0x0924                  ___allocx
+                    0x0928                  ___curbrk
 
 External Symbols in Data Memory (by name):
 
                     0x0814                  _AKNAKsend
-                    0x0910                  ___allocp
-                    0x0904                  ___allocs
-                    0x0912                  ___alloct
-                    0x090c                  ___allocx
-                    0x0914                  ___curbrk
+                    0x0920                  ___allocp
+                    0x0918                  ___allocs
+                    0x0922                  ___alloct
+                    0x0924                  ___allocx
+                    0x0928                  ___curbrk
                     0x081a                  _addressErrorCounter
                     0x0816                  _alignErrorCounter
                     0x080c                  _calc_CS
@@ -154,9 +162,10 @@ External Symbols in Data Memory (by name):
                     0x08f0                  _crc_buffer
                     0x081c                  _dataAdressErrorCounter
                     0x08ee                  _group
+                    0x0902                  _i2cdata
                     0x080f                  _maxDataAddress
                     0x080d                  _moduleAddress
-                    0x0902                  _prev_pos
+                    0x0916                  _prev_pos
                     0x0810                  _receiveArrayAddress
                     0x080e                  _returnAddress
                     0x0820                  _ring_buffer
@@ -174,83 +183,99 @@ External Symbols in Program Memory (by address):
 
                   0x000200                  __resetPRI
                   0x00022c                  __psv_init
-                  0x00023c                  __data_init_standard
                   0x00023c                  __data_init
+                  0x00023c                  __data_init_standard
                   0x00029a                  __DefaultInterrupt
-                  0x0002e2                  _malloc
-                  0x0003fe                  _free
-                  0x000414                  _realloc
-                  0x000492                  _memcpy
-                  0x0004a0                  _memset
-                  0x0004ae                  _begin
-                  0x0004fa                  _CRC8
-                  0x000562                  _sendData
-                  0x0005da                  _receiveData
-                  0x0008d6                  _ToSend
-                  0x0008e8                  _FastTransfer_buffer_put
-                  0x000978                  _FastTransfer_buffer_get
-                  0x0009b6                  _FastTransfer_buffer_flush
-                  0x0009e2                  _FastTransfer_buffer_modulo_inc
-                  0x000a00                  _AKNAK
-                  0x000a3e                  _alignError
-                  0x000a48                  _CRCError
-                  0x000a52                  _addressError
-                  0x000a5c                  _dataAddressError
-                  0x000a66                  _crcBufS_put
-                  0x000abe                  _crcBufS_status_put
-                  0x000b0c                  _crcBufS_get
-                  0x000b6a                  _CRCcheck
-                  0x000c1e                  _PotSetValue
-                  0x000c26                  _PotSetpoint
-                  0x000c8e                  _Setup
-                  0x000cc6                  _Delay
-                  0x000ce4                  _I2C1Init
-                  0x000cf8                  _I2C1ACK
-                  0x000d00                  _I2C1RXEN
-                  0x000d08                  _Init_I2C_one
-                  0x000d42                  _main
-                  0x000d5e                  ___delay32
+                  0x0002e2                  _IdleI2C1
+                  0x000302                  _MasterWriteI2C1
+                  0x000326                  _MasterputsI2C1
+                  0x000348                  _StartI2C1
+                  0x00034c                  _StopI2C1
+                  0x000350                  _malloc
+                  0x00046c                  _free
+                  0x000482                  _realloc
+                  0x000500                  _memcpy
+                  0x00050e                  _memset
+                  0x00051c                  _begin
+                  0x000562                  _CRC8
+                  0x0005ca                  _sendData
+                  0x000642                  _receiveData
+                  0x000932                  _ToSend
+                  0x000944                  _FastTransfer_buffer_put
+                  0x0009d4                  _FastTransfer_buffer_get
+                  0x000a12                  _FastTransfer_buffer_flush
+                  0x000a3e                  _FastTransfer_buffer_modulo_inc
+                  0x000a5c                  _AKNAK
+                  0x000a9a                  _alignError
+                  0x000aa4                  _CRCError
+                  0x000aae                  _addressError
+                  0x000ab8                  _dataAddressError
+                  0x000ac2                  _crcBufS_put
+                  0x000b1a                  _crcBufS_status_put
+                  0x000b68                  _crcBufS_get
+                  0x000bc6                  _CRCcheck
+                  0x000c7a                  _i2c_wait
+                  0x000c90                  _i2c_Write
+                  0x000d30                  _PotSetValue
+                  0x000d38                  _PotSetpoint
+                  0x000da0                  _Setup
+                  0x000dda                  _Delay
+                  0x000df8                  _SetMotor
+                  0x000e26                  _SetRegen
+                  0x000e36                  _Regen
+                  0x000e4a                  _SetDAC1
+                  0x000e68                  _SetDAC2
+                  0x000ea8                  _main
+                  0x000ec4                  ___delay32
 
 External Symbols in Program Memory (by name):
 
-                  0x000a00                  _AKNAK
-                  0x0004fa                  _CRC8
-                  0x000a48                  _CRCError
-                  0x000b6a                  _CRCcheck
-                  0x000cc6                  _Delay
-                  0x0009b6                  _FastTransfer_buffer_flush
-                  0x000978                  _FastTransfer_buffer_get
-                  0x0009e2                  _FastTransfer_buffer_modulo_inc
-                  0x0008e8                  _FastTransfer_buffer_put
-                  0x000cf8                  _I2C1ACK
-                  0x000ce4                  _I2C1Init
-                  0x000d00                  _I2C1RXEN
-                  0x000d08                  _Init_I2C_one
-                  0x000c1e                  _PotSetValue
-                  0x000c26                  _PotSetpoint
-                  0x000c8e                  _Setup
-                  0x0008d6                  _ToSend
+                  0x000a5c                  _AKNAK
+                  0x000562                  _CRC8
+                  0x000aa4                  _CRCError
+                  0x000bc6                  _CRCcheck
+                  0x000dda                  _Delay
+                  0x000a12                  _FastTransfer_buffer_flush
+                  0x0009d4                  _FastTransfer_buffer_get
+                  0x000a3e                  _FastTransfer_buffer_modulo_inc
+                  0x000944                  _FastTransfer_buffer_put
+                  0x0002e2                  _IdleI2C1
+                  0x000302                  _MasterWriteI2C1
+                  0x000326                  _MasterputsI2C1
+                  0x000d30                  _PotSetValue
+                  0x000d38                  _PotSetpoint
+                  0x000e36                  _Regen
+                  0x000e4a                  _SetDAC1
+                  0x000e68                  _SetDAC2
+                  0x000df8                  _SetMotor
+                  0x000e26                  _SetRegen
+                  0x000da0                  _Setup
+                  0x000348                  _StartI2C1
+                  0x00034c                  _StopI2C1
+                  0x000932                  _ToSend
                   0x00029a                  __DefaultInterrupt
-                  0x000d5e                  ___delay32
+                  0x000ec4                  ___delay32
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
                   0x000200                  __resetPRI
-                  0x000a52                  _addressError
-                  0x000a3e                  _alignError
-                  0x0004ae                  _begin
-                  0x000b0c                  _crcBufS_get
-                  0x000a66                  _crcBufS_put
-                  0x000abe                  _crcBufS_status_put
-                  0x000a5c                  _dataAddressError
-                  0x0003fe                  _free
-                  0x000d42                  _main
-                  0x0002e2                  _malloc
-                  0x000492                  _memcpy
-                  0x0004a0                  _memset
-                  0x000414                  _realloc
-                  0x0005da                  _receiveData
-                  0x000562                  _sendData
+                  0x000aae                  _addressError
+                  0x000a9a                  _alignError
+                  0x00051c                  _begin
+                  0x000b68                  _crcBufS_get
+                  0x000ac2                  _crcBufS_put
+                  0x000b1a                  _crcBufS_status_put
+                  0x000ab8                  _dataAddressError
+                  0x00046c                  _free
+                  0x000c90                  _i2c_Write
+                  0x000c7a                  _i2c_wait
+                  0x000ea8                  _main
+                  0x000350                  _malloc
+                  0x000500                  _memcpy
+                  0x00050e                  _memset
+                  0x000482                  _realloc
+                  0x000642                  _receiveData
+                  0x0005ca                  _sendData
 
 Memory Configuration
 
@@ -283,9 +308,10 @@ LOAD build/default/production/Function.o
 LOAD build/default/production/MotorControler.o
 LOAD build/default/production/I2C_API.o
 LOAD build/default/production/FastTransfer.o
+LOAD build/default/production/MCP4725.o
                     0x0001                  __MPLAB_BUILD = 0x1
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libfx-elf.a
                     0xf80000                  __FBS = 0xf80000
                     0xf80002                  __FSS = 0xf80002
                     0xf80004                  __FGS = 0xf80004
@@ -314,13 +340,13 @@ LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
                   0x000002          0x2 SHORT 0x0 ((ABSOLUTE (__reset) >> 0x10) & 0x7f)
                   0x000003          0x2 SHORT 0x0
 
-.text             0x000200        0x2ae
+.text             0x000200        0x31c
  *(.init)
- .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+ .init            0x000200         0x3c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
                   0x000200                  __resetPRI
                   0x000200                  __reset
                   0x00022c                  __psv_init
- .init            0x00023c         0x5e c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+ .init            0x00023c         0x5e c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
                   0x00023c                  __data_init_standard
                   0x00023c                  __data_init
  *(.user_init)
@@ -329,23 +355,33 @@ LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
  .isr             0x00029a          0x4 default_isr
                   0x00029a                  __DefaultInterrupt
  *(.libc)
- .libc            0x00029e         0x28 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
+ .libc            0x00029e         0x28 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
                   0x00029e                  _sbrk
- .libc            0x0002c6         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
+ .libc            0x0002c6         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(brk.elo)
                   0x0002c6                  _brk
  *(.libm)
  *(.libdsp)
  *(.lib*)
- .libc.malloc     0x0002e2        0x11c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                  0x0002e2                  _malloc
- .libc.free       0x0003fe         0x16 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                  0x0003fe                  _free
- .libc.realloc    0x000414         0x7e c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                  0x000414                  _realloc
- .libc.memcpy     0x000492          0xe c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
-                  0x000492                  _memcpy
- .libc.memset     0x0004a0          0xe c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
-                  0x0004a0                  _memset
+ .libperi         0x0002e2         0x20 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(IdleI2C1.o)
+                  0x0002e2                  _IdleI2C1
+ .libperi         0x000302         0x24 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterWriteI2C1.o)
+                  0x000302                  _MasterWriteI2C1
+ .libperi         0x000326         0x22 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterputsI2C1.o)
+                  0x000326                  _MasterputsI2C1
+ .libperi         0x000348          0x4 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StartI2C1.o)
+                  0x000348                  _StartI2C1
+ .libperi         0x00034c          0x4 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StopI2C1.o)
+                  0x00034c                  _StopI2C1
+ .libc.malloc     0x000350        0x11c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                  0x000350                  _malloc
+ .libc.free       0x00046c         0x16 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                  0x00046c                  _free
+ .libc.realloc    0x000482         0x7e c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                  0x000482                  _realloc
+ .libc.memcpy     0x000500          0xe c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+                  0x000500                  _memcpy
+ .libc.memset     0x00050e          0xe c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memset.eo)
+                  0x00050e                  _memset
 
 usercode
  *(usercode)
@@ -389,48 +425,55 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x1962
+.debug_info       0x000000       0x1e5a
  *(.debug_info)
- .debug_info      0x000000        0x2bc build/default/production/main.o
- .debug_info      0x0002bc        0x3a7 build/default/production/DigiPot.o
- .debug_info      0x000663        0x3c4 build/default/production/Function.o
- .debug_info      0x000a27        0x290 build/default/production/I2C_API.o
- .debug_info      0x000cb7        0xcab build/default/production/FastTransfer.o
+ .debug_info      0x000000        0x2b3 build/default/production/main.o
+ .debug_info      0x0002b3        0x3a7 build/default/production/DigiPot.o
+ .debug_info      0x00065a        0x3c4 build/default/production/Function.o
+ .debug_info      0x000a1e        0x35e build/default/production/MotorControler.o
+ .debug_info      0x000d7c        0x302 build/default/production/I2C_API.o
+ .debug_info      0x00107e        0xcab build/default/production/FastTransfer.o
+ .debug_info      0x001d29        0x131 build/default/production/MCP4725.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000        0x4f2
+.debug_abbrev     0x000000        0x62d
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xa6 build/default/production/main.o
- .debug_abbrev    0x0000a6         0xbf build/default/production/DigiPot.o
- .debug_abbrev    0x000165         0xc3 build/default/production/Function.o
- .debug_abbrev    0x000228          0x1 build/default/production/MotorControler.o
- .debug_abbrev    0x000229         0x8e build/default/production/I2C_API.o
- .debug_abbrev    0x0002b7        0x23b build/default/production/FastTransfer.o
+ .debug_abbrev    0x000000         0x99 build/default/production/main.o
+ .debug_abbrev    0x000099         0xbf build/default/production/DigiPot.o
+ .debug_abbrev    0x000158         0xc3 build/default/production/Function.o
+ .debug_abbrev    0x00021b         0xa6 build/default/production/MotorControler.o
+ .debug_abbrev    0x0002c1         0xb8 build/default/production/I2C_API.o
+ .debug_abbrev    0x000379        0x23b build/default/production/FastTransfer.o
+ .debug_abbrev    0x0005b4         0x79 build/default/production/MCP4725.o
 
-.debug_line       0x000000        0xda8
+.debug_line       0x000000       0x100f
  *(.debug_line)
  .debug_line      0x000000         0xe8 build/default/production/main.o
  .debug_line      0x0000e8        0x165 build/default/production/DigiPot.o
  .debug_line      0x00024d        0x126 build/default/production/Function.o
- .debug_line      0x000373         0x24 build/default/production/MotorControler.o
- .debug_line      0x000397        0x151 build/default/production/I2C_API.o
- .debug_line      0x0004e8        0x8c0 build/default/production/FastTransfer.o
+ .debug_line      0x000373        0x15a build/default/production/MotorControler.o
+ .debug_line      0x0004cd        0x1ed build/default/production/I2C_API.o
+ .debug_line      0x0006ba        0x8c0 build/default/production/FastTransfer.o
+ .debug_line      0x000f7a         0x95 build/default/production/MCP4725.o
 
-.debug_frame      0x000000        0x214
+.debug_frame      0x000000        0x26c
  *(.debug_frame)
  .debug_frame     0x000000         0x24 build/default/production/main.o
  .debug_frame     0x000024         0x34 build/default/production/DigiPot.o
  .debug_frame     0x000058         0x34 build/default/production/Function.o
- .debug_frame     0x00008c         0x54 build/default/production/I2C_API.o
- .debug_frame     0x0000e0        0x134 build/default/production/FastTransfer.o
+ .debug_frame     0x00008c         0x44 build/default/production/MotorControler.o
+ .debug_frame     0x0000d0         0x34 build/default/production/I2C_API.o
+ .debug_frame     0x000104        0x134 build/default/production/FastTransfer.o
+ .debug_frame     0x000238         0x34 build/default/production/MCP4725.o
 
-.debug_str        0x000000        0x182
+.debug_str        0x000000        0x197
  *(.debug_str)
  .debug_str       0x000000          0x9 build/default/production/main.o
  .debug_str       0x000009         0x1d build/default/production/DigiPot.o
  .debug_str       0x000026         0x14 build/default/production/Function.o
- .debug_str       0x00003a          0xc build/default/production/I2C_API.o
- .debug_str       0x000046        0x13c build/default/production/FastTransfer.o
+ .debug_str       0x00003a         0x14 build/default/production/MotorControler.o
+ .debug_str       0x00004e          0xd build/default/production/I2C_API.o
+ .debug_str       0x00005b        0x13c build/default/production/FastTransfer.o
 
 .debug_loc
  *(.debug_loc)
@@ -439,7 +482,7 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000        0x3a3
+                  0x000000        0x3f3
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x1b build/default/production/main.o
@@ -448,14 +491,18 @@ __FUID3
  .debug_pubnames
                   0x00005a         0x26 build/default/production/Function.o
  .debug_pubnames
-                  0x000080         0x49 build/default/production/I2C_API.o
+                  0x000080         0x36 build/default/production/MotorControler.o
  .debug_pubnames
-                  0x0000c9        0x2da build/default/production/FastTransfer.o
+                  0x0000b6         0x2d build/default/production/I2C_API.o
+ .debug_pubnames
+                  0x0000e3        0x2da build/default/production/FastTransfer.o
+ .debug_pubnames
+                  0x0003bd         0x36 build/default/production/MCP4725.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000         0x78
+.debug_aranges    0x000000         0xa8
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/main.o
@@ -464,9 +511,13 @@ __FUID3
  .debug_aranges
                   0x000030         0x18 build/default/production/Function.o
  .debug_aranges
-                  0x000048         0x18 build/default/production/I2C_API.o
+                  0x000048         0x18 build/default/production/MotorControler.o
  .debug_aranges
-                  0x000060         0x18 build/default/production/FastTransfer.o
+                  0x000060         0x18 build/default/production/I2C_API.o
+ .debug_aranges
+                  0x000078         0x18 build/default/production/FastTransfer.o
+ .debug_aranges
+                  0x000090         0x18 build/default/production/MCP4725.o
 
 .ivt              0x000004         0xfc
                   0x000004          0x4 LONG 0x29a DEFINED (__ReservedTrap0)?ABSOLUTE (__ReservedTrap0):ABSOLUTE (__DefaultInterrupt)
@@ -1716,9 +1767,9 @@ __FUID3
                     0x0230                  UART2 = 0x230
                     0x0230                  _UART2 = 0x230
 START GROUP
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libm-elf.a
-LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libm-elf.a
+LOAD c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a
 END GROUP
 OUTPUT(dist/default/production/MCS.X.production.elf elf32-pic30)
 LOAD default_isr
@@ -1726,50 +1777,64 @@ LOAD heap
 LOAD data_init
 
 .debug_pubtypes
-                  0x000078        0x158
+                  0x0000a8        0x1bd
  .debug_pubtypes
-                  0x000078         0x2f build/default/production/main.o
+                  0x0000a8         0x2f build/default/production/main.o
  .debug_pubtypes
-                  0x0000a7         0x50 build/default/production/DigiPot.o
+                  0x0000d7         0x50 build/default/production/DigiPot.o
  .debug_pubtypes
-                  0x0000f7         0x50 build/default/production/Function.o
+                  0x000127         0x50 build/default/production/Function.o
  .debug_pubtypes
-                  0x000147         0x35 build/default/production/I2C_API.o
+                  0x000177         0x63 build/default/production/MotorControler.o
  .debug_pubtypes
-                  0x00017c         0x54 build/default/production/FastTransfer.o
+                  0x0001da         0x37 build/default/production/I2C_API.o
+ .debug_pubtypes
+                  0x000211         0x54 build/default/production/FastTransfer.o
 
 __c30_signature
-                  0x0001d0         0x54
+                  0x000266         0x78
  __c30_signature
-                  0x0001d0          0x6 build/default/production/main.o
+                  0x000266          0x6 build/default/production/main.o
  __c30_signature
-                  0x0001d6          0x6 build/default/production/DigiPot.o
+                  0x00026c          0x6 build/default/production/DigiPot.o
  __c30_signature
-                  0x0001dc          0x6 build/default/production/Function.o
+                  0x000272          0x6 build/default/production/Function.o
  __c30_signature
-                  0x0001e2          0x6 build/default/production/MotorControler.o
+                  0x000278          0x6 build/default/production/MotorControler.o
  __c30_signature
-                  0x0001e8          0x6 build/default/production/I2C_API.o
+                  0x00027e          0x6 build/default/production/I2C_API.o
  __c30_signature
-                  0x0001ee          0x6 build/default/production/FastTransfer.o
+                  0x000284          0x6 build/default/production/FastTransfer.o
  __c30_signature
-                  0x0001f4          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+                  0x00028a          0x6 build/default/production/MCP4725.o
  __c30_signature
-                  0x0001fa          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                  0x000290          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(IdleI2C1.o)
  __c30_signature
-                  0x000200          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x000296          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterWriteI2C1.o)
  __c30_signature
-                  0x000206          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                  0x00029c          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterputsI2C1.o)
  __c30_signature
-                  0x00020c          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+                  0x0002a2          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StartI2C1.o)
  __c30_signature
-                  0x000212          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
+                  0x0002a8          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StopI2C1.o)
  __c30_signature
-                  0x000218          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
+                  0x0002ae          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x00021e          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
+                  0x0002b4          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+ __c30_signature
+                  0x0002ba          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+ __c30_signature
+                  0x0002c0          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo)
+ __c30_signature
+                  0x0002c6          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+ __c30_signature
+                  0x0002cc          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(memset.eo)
+ __c30_signature
+                  0x0002d2          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
+ __c30_signature
+                  0x0002d8          0x6 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(brk.elo)
 
-.nbss               0x0800        0x102
+.nbss               0x0800        0x116
  .nbss              0x0800        0x102 build/default/production/FastTransfer.o
                     0x0800                  _serial_write
                     0x0802                  _serial_read
@@ -1793,73 +1858,69 @@ __c30_signature
                     0x0820                  _ring_buffer
                     0x08ee                  _group
                     0x08f0                  _crc_buffer
+ .nbss              0x0902         0x14 build/default/production/MCP4725.o
+                    0x0902                  _i2cdata
 
-.ndata              0x0902          0x2
- .ndata             0x0902          0x2 build/default/production/DigiPot.o
-                    0x0902                  _prev_pos
+.ndata              0x0916          0x2
+ .ndata             0x0916          0x2 build/default/production/DigiPot.o
+                    0x0916                  _prev_pos
 
-.bss.__allocs       0x0904          0x8
- .bss.__allocs      0x0904          0x8 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                    0x0904                  ___allocs
+.bss                0x0918         0x12
+ .bss               0x0918         0x10 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                    0x0918                  ___allocs
+                    0x0920                  ___allocp
+                    0x0922                  ___alloct
+                    0x0924                  ___allocx
+ .bss               0x0928          0x2 c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(brk.elo)
+                    0x0928                  ___curbrk
 
-.bss.__allocx       0x090c          0x4
- .bss.__allocx      0x090c          0x4 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                    0x090c                  ___allocx
+.heap               0x092a         0x20
+ .heap              0x092a         0x20 heap
 
-.bss.__allocp       0x0910          0x2
- .bss.__allocp      0x0910          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                    0x0910                  ___allocp
+.text             0x00051c        0x96a
+ .text            0x00051c        0x75e build/default/production/FastTransfer.o
+                  0x00051c                  _begin
+                  0x000562                  _CRC8
+                  0x0005ca                  _sendData
+                  0x000642                  _receiveData
+                  0x000932                  _ToSend
+                  0x000944                  _FastTransfer_buffer_put
+                  0x0009d4                  _FastTransfer_buffer_get
+                  0x000a12                  _FastTransfer_buffer_flush
+                  0x000a3e                  _FastTransfer_buffer_modulo_inc
+                  0x000a5c                  _AKNAK
+                  0x000a9a                  _alignError
+                  0x000aa4                  _CRCError
+                  0x000aae                  _addressError
+                  0x000ab8                  _dataAddressError
+                  0x000ac2                  _crcBufS_put
+                  0x000b1a                  _crcBufS_status_put
+                  0x000b68                  _crcBufS_get
+                  0x000bc6                  _CRCcheck
+ .text            0x000c7a         0xb6 build/default/production/I2C_API.o
+                  0x000c7a                  _i2c_wait
+                  0x000c90                  _i2c_Write
+ .text            0x000d30         0x70 build/default/production/DigiPot.o
+                  0x000d30                  _PotSetValue
+                  0x000d38                  _PotSetpoint
+ .text            0x000da0         0x58 build/default/production/Function.o
+                  0x000da0                  _Setup
+                  0x000dda                  _Delay
+ .text            0x000df8         0x52 build/default/production/MotorControler.o
+                  0x000df8                  _SetMotor
+                  0x000e26                  _SetRegen
+                  0x000e36                  _Regen
+ .text            0x000e4a         0x3c build/default/production/MCP4725.o
+                  0x000e4a                  _SetDAC1
+                  0x000e68                  _SetDAC2
 
-.bss.__alloct       0x0912          0x2
- .bss.__alloct      0x0912          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
-                    0x0912                  ___alloct
+.dinit            0x000e86         0x22
+ .dinit           0x000e86         0x22 data_init
 
-.bss.__curbrk       0x0914          0x2
- .bss.__curbrk      0x0914          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
-                    0x0914                  ___curbrk
+.text             0x000ea8         0x1c
+ .text            0x000ea8         0x1c build/default/production/main.o
+                  0x000ea8                  _main
 
-.heap               0x0916         0x20
- .heap              0x0916         0x20 heap
-
-.text             0x0004ae        0x866
- .text            0x0004ae        0x770 build/default/production/FastTransfer.o
-                  0x0004ae                  _begin
-                  0x0004fa                  _CRC8
-                  0x000562                  _sendData
-                  0x0005da                  _receiveData
-                  0x0008d6                  _ToSend
-                  0x0008e8                  _FastTransfer_buffer_put
-                  0x000978                  _FastTransfer_buffer_get
-                  0x0009b6                  _FastTransfer_buffer_flush
-                  0x0009e2                  _FastTransfer_buffer_modulo_inc
-                  0x000a00                  _AKNAK
-                  0x000a3e                  _alignError
-                  0x000a48                  _CRCError
-                  0x000a52                  _addressError
-                  0x000a5c                  _dataAddressError
-                  0x000a66                  _crcBufS_put
-                  0x000abe                  _crcBufS_status_put
-                  0x000b0c                  _crcBufS_get
-                  0x000b6a                  _CRCcheck
- .text            0x000c1e         0x70 build/default/production/DigiPot.o
-                  0x000c1e                  _PotSetValue
-                  0x000c26                  _PotSetpoint
- .text            0x000c8e         0x56 build/default/production/Function.o
-                  0x000c8e                  _Setup
-                  0x000cc6                  _Delay
- .text            0x000ce4         0x30 build/default/production/I2C_API.o
-                  0x000ce4                  _I2C1Init
-                  0x000cf8                  _I2C1ACK
-                  0x000d00                  _I2C1RXEN
-                  0x000d08                  _Init_I2C_one
-
-.dinit            0x000d14         0x2e
- .dinit           0x000d14         0x2e data_init
-
-.text             0x000d42         0x1c
- .text            0x000d42         0x1c build/default/production/main.o
-                  0x000d42                  _main
-
-.init.delay32     0x000d5e         0x1c
- .init.delay32    0x000d5e         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
-                  0x000d5e                  ___delay32
+.init.delay32     0x000ec4         0x1c
+ .init.delay32    0x000ec4         0x1c c:/program files (x86)/microchip/xc16/v1.23/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x000ec4                  ___delay32

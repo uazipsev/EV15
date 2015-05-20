@@ -1,3 +1,6 @@
 build/default/production/MotorControler.o:  \
 MotorControler.c  \
- MotorControler.h 
+ MotorControler.h  \
+PinDef.h  \
+Function.h  \
+MCP4725.h 

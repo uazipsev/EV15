@@ -6,11 +6,6 @@
 
 int prev_pos = 100;
 
-void PotSetValue(int value)
-{
-
-}
-
 void PotSetpoint(int new_point)
 {
     int set_point;

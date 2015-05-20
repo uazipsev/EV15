@@ -8,6 +8,9 @@
 #ifndef PINDEF_H
 #define	PINDEF_H
 
+#define true 1
+#define false 0
+
 /*
  *  RS485 Flow control
  */
@@ -45,6 +48,10 @@
  */
 #define DC12EN _LATA10
 
+/*
+ *    FAN PWM
+ */
+#define FAN _LATB5
 
 
 #endif	/* PINDEF_H */
