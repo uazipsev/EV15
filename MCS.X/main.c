@@ -24,16 +24,21 @@ int main(int argc, char** argv) {
         /*
         for(i =0;i<32;i++)
         {
-           //PotSetpoint(i);
-           Delay(250);
+           PotSetpoint(i);
+           Delay(400);
            INDICATOR = !INDICATOR;
         }
         */
-        Delay(250);
+       Delay(2000);
        INDICATOR = 1;
-        Delay(250);
+       _LATB5 = 1;
+       //DC12EN = 1;   //Turns it off
+       //Analog_Relay = 1;
+       Delay(2000);
        INDICATOR = 0;
-       Delay(250);
+       _LATB5 = 0;
+       //DC12EN = 0;   //Turns it on
+       //Analog_Relay = 0;
     }
 
     return (EXIT_SUCCESS);

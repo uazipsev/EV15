@@ -32,9 +32,11 @@ int main(int argc, char** argv) {
         */
         Delay(250);
        INDICATOR = 1;
-        Delay(250);
+       DC12EN = 1;
+        Delay(500);
        INDICATOR = 0;
-       Delay(250);
+       DC12EN = 0;
+       Delay(500);
     }
     return (EXIT_SUCCESS);
 }

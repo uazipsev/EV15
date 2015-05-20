@@ -8,6 +8,8 @@
 #include "../Tempeture.h"
 #include "../Battery.h"
 #include "../Current.h"
+#include "pin_manager.h"
+#include "../Functions.h"
 
 /**
   Section: Global Variable Definitions
@@ -128,7 +130,7 @@ void TMR1_ISR(void)
     {
         // ticker function call
         TMR1_CallBack();
-
+        Indicator_Toggle();
         // reset ticker counter
         CountCallBack = 0;
     }

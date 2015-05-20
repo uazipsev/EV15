@@ -37,12 +37,13 @@
 /*
  *    Relay control 
  */
-#define Analog_Relay PORTAbits.RA0
+#define Analog_Relay _LATA0
+#define Analog_Relay_Port PORTAbits.RA0
 
 /*
  *    12 DC/DC
  */
-#define DC12EN PORTAbits.RA10
+#define DC12EN _LATA10
 
 
 

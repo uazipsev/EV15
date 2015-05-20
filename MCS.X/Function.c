@@ -26,6 +26,14 @@ void Setup(void)
 
   PPSLock;
   TRISBbits.TRISB1 = 0; //Set LED as output
+  TRISAbits.TRISA0 = 0; //Set LED as output
+  TRISAbits.TRISA10 = 0; //Set LED as output
+  
+  TRISBbits.TRISB15 = 0; //DigiPot
+  TRISBbits.TRISB14 = 0; //Set LED as output
+  TRISAbits.TRISA7 = 0; //Set LED as output
+
+  TRISBbits.TRISB5 = 0;
 }
 
 void Delay(int wait)

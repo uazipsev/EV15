@@ -10,7 +10,7 @@
 
 
 void Set_4051(int Channel);
-
+void Delay(int wait);
 
 #endif	/* FUNCTIONS_H */
 

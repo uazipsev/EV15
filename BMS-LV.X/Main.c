@@ -25,6 +25,7 @@
 #include "Functions.h"
 #include "Global.h"
 #include "Tempeture.h"
+#include "Functions.h"
 
 
 
@@ -72,6 +73,7 @@ int main(int argc, char** argv) {
         {
             Battery_Convert();
             Battery_Fault();
+            printf("shit");
         }
         if (Volt_Done)
         {

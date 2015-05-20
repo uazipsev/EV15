@@ -3,5 +3,7 @@
  mcc_generated_files/tmr1.c  \
 mcc_generated_files/../Current.h  \
 mcc_generated_files/../Battery.h  \
+mcc_generated_files/../Functions.h  \
 mcc_generated_files/tmr1.h  \
+mcc_generated_files/pin_manager.h  \
 mcc_generated_files/../Tempeture.h 
