@@ -4,6 +4,7 @@
 #include "FastTransfer.h"
 #include "Functions.h"
 #include "PinDef.h"
+#include "Global.h"
 
 
 //Captures address of receive array, the max data address, the address of the module, true/false if AKNAKs are wanted and the Serial address

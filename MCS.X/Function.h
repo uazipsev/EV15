@@ -8,8 +8,9 @@
 #ifndef FUNCTION_H
 #define	FUNCTION_H
 
-void Setup(void);
-void Delay(int wait);
+extern void Setup(void);
+extern void Delay(int wait);
+void PinSetMode(void);
 
 #endif	/* FUNCTION_H */
 

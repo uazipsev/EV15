@@ -11,14 +11,22 @@ void SetMotor(int speed, enum Directionality direction)
 {
     if(direction == forward)
     {
+        SetDAC1(0);
+        Delay(2000);
         REVERSE = 0;
+        Delay(6000);
         FORWARD = 1;
+        Delay(2000);
         SetDAC1(speed);
     }
     if(direction == backward)
     {
+        SetDAC1(0);
+        Delay(2000);
         FORWARD = 0;
+        Delay(6000);
         REVERSE = 1;
+        Delay(2000);
         SetDAC1(speed);
     }
 }
@@ -36,4 +44,10 @@ void Regen(bool enable)
     }
     else
         REGENEN  = 0;
+}
+
+void GetMCData(void)
+{
+    //send "+CRLF" + is in askii
+    
 }

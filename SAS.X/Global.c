@@ -13,8 +13,6 @@ bool startHeard,me,stop1,  packetReady;
 unsigned char inputCmd;
 int counter;
 bool checkBatteryRequest=false;
-int batteryToCheck=0;
-int batteryVolts[28];
 //variable declarations/initialization
 int ECUbyteNum = 99, ECUpacketSize;
 int slaveByteNum = 99, slavePacketSize;

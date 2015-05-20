@@ -4,50 +4,34 @@
 #include "ADC.h"
 #include "FastTransfer.h"
 #include "Global.h"
+#include "pps.h"
 #include <xc.h>
 
 void Setup(void)
 {
     // Disable Watch Dog Timer
     RCONbits.SWDTEN = 0;
-    //CLKDIV=(CLKDIV &0xFFE5);
-    //PLLFBD=12;
-    OSCCONbits.NOSC = 2;
-    OSCCONbits.OSWEN = 1;
-    //IO lock (unlock)
-    OSCCON = 0x46;
-    OSCCON = 0x57;
-    OSCCONbits.IOLOCK = 0;
-    AD1PCFGL = 0xFF0C; //configure the analog pins to digital
+    //set up clock
+    CLKDIVbits.PLLPRE=0;        // PLLPRE (N2) 0=/2
+    PLLFBD=22;                  // pll multiplier (M) = +2
+    CLKDIVbits.PLLPOST=0;       // PLLPOST (N1) 0=/2
+    while(!OSCCONbits.LOCK);    // wait for PLL ready
+    
+    PPSUnLock;
 
-    LEDTRIS = OUTPUT;
-    L_TTRIS = OUTPUT;
     TRISAbits.TRISA4=0;
-    AN0 = 1;
-    AN1 = 1;
-    AN2 = 1;
-    AN3 = 1;
-    AN4 = 1;
-    AN5 = 1;
-
-    LED = HIGH;
 
     U2Rx_RPn = 20; //UART2 RX is RP19 for ECU bus
     RP19map = U2Tx_RPn; //UART2 TX isRP20 for ECU bus
 
-    U1Rx_RPn = 23; //UART1RX  USB
-    RP22map = U1Tx_RPn; //UART1TX USB
-    L_T = LISTEN;
     RxPullup1 = 1;
     TxPullup1 = 1;
 
     RxPullup2 = 1;
     TxPullup2 = 1;
 
-    OSCCON = 0x46;
-    OSCCON = 0x57;
-    OSCCONbits.IOLOCK = 1;
-    //IO lock (lock)
+    PPSLock;
+
     initADC();
     initInterrupts();
     begin(receiveArray, 15, 1, false, Send_put, Receive_get, Receive_available, Receive_peek);

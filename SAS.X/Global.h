@@ -19,9 +19,6 @@ extern unsigned int brake1, brake2;
 extern bool startHeard,me,stop1,packetReady;
 extern unsigned char inputCmd;
 extern int counter;
-extern bool checkBatteryRequest;
-extern int batteryToCheck;
-int batteryVolts[28];
 //variable declarations/initialization
 extern int ECUbyteNum, ECUpacketSize;
 extern int slaveByteNum, slavePacketSize;

@@ -39,12 +39,32 @@ void PotSetpoint(int new_point)
     for(x = 0;x < set_point;x++)
     {
         DIGI_INC = 1;
-        Delay(5);
+        Delay(1);
         DIGI_INC = 0;
-        Delay(5);
+        Delay(1);
     }
     //We are done, let it go
     DIGI_CS = 1;
     prev_pos = new_pos;
 
+}
+
+void PotClear(void)
+{
+    //!CS this Bitch
+    DIGI_CS = 0;
+    Delay(1);
+    DIGI_UP_DN = 0;
+    Delay(1);
+    int x;
+    for(x = 0;x < 32;x++)
+    {
+        DIGI_INC = 1;
+        Delay(1);
+        DIGI_INC = 0;
+        Delay(1);
+    }
+    //We are done, let it go
+    DIGI_CS = 1;
+    prev_pos = 0;
 }

@@ -8,7 +8,8 @@
 #ifndef DIGIPOT_H
 #define	DIGIPOT_H
 
-void PotSetpoint(int new_point);
+extern void PotSetpoint(int new_point);
+extern void PotClear(void);
 
 #endif	/* DIGIPOT_H */
 
