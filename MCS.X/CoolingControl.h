@@ -12,7 +12,7 @@
 #define pumpMAX 20
 #define fanMAX 75
 
-#define fanStart 10
+#define fanStart 30
 #define pumpStart 30
 
 void CoolingStart(void);

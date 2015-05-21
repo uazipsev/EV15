@@ -51,7 +51,7 @@
 /*
  *    FAN PWM
  */
-#define FAN _LATB5
+#define FAN !_LATB5
 
 
 #endif	/* PINDEF_H */

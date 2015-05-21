@@ -1,10 +1,11 @@
 #include "CoolingControl.h"
 #include "DigiPot.h"
+#include "pwm.h"
 
 void CoolingStart()
 {
     PotSetpoint(pumpStart);
-    //fan start point
+    PWMupdate(fanStart);
 }
 
 void CoolingUpdate(void)

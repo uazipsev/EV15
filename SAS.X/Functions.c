@@ -1,40 +1,33 @@
+#include "Functions.h"
 #include <xc.h>
 #include <stdbool.h>
-#include "initialize.h"
 #include "Global.h"
 #include "ADC.h"
 #include "PinDef.h"
+#include "pps.h"
 
-void initialize(void)
+void Setup(void)
 {
+  // setup internal clock for 66MHz/33MIPS
+  // 12/2=6*22=132/2=66
+  CLKDIVbits.PLLPRE=0;        // PLLPRE (N2) 0=/2
+  PLLFBD=22;                  // pll multiplier (M) = +2
+  CLKDIVbits.PLLPOST=0;       // PLLPOST (N1) 0=/2
+  while(!OSCCONbits.LOCK);    // wait for PLL ready
 
-    oscillator();
-    PinIO();
-    //begin(receiveArray, 15, 1, false, Send_put, Receive_get, Receive_available, Receive_peek);
-    //INDICATOR4=ON;
-    //UART_init();
-    //initUART1();
-    //initADC();
-    //timerOne();
-    //timerTwo();
-    //GLOBAL_INTERRUPTS = 1; 
-}
+  PPSUnLock;
 
-void oscillator(void)
-{
-    // 24MHz
-    // Configure PLL prescaler, PLL postscaler, PLL divisor
-    RCONbits.SWDTEN = 0;  //disable Watchdog
-    CLKDIVbits.PLLPRE = 0x00;  //default /2
-    PLLFBD = 32; // M=60
-    CLKDIVbits.PLLPOST = 0x03; // N2=2
-    //CLKDIVbits.PLLPRE = 4; // N1=6
-__builtin_write_OSCCONH(0x03);
-__builtin_write_OSCCONL(0x01);
-// Wait for Clock switch to occur
-while (OSCCONbits.COSC != 0b011);
-// Wait for PLL to lock
-while(OSCCONbits.LOCK!=1) {};
+  PPSLock;
+
+  PinSetMode();
+  //begin(receiveArray, 15, 1, false, Send_put, Receive_get, Receive_available, Receive_peek);
+  //INDICATOR4=ON;
+  //UART_init();
+  //initUART1();
+  //initADC();
+  //timerOne();
+  //timerTwo();
+  //GLOBAL_INTERRUPTS = 1;
 }
 
 //void timerOne(void)
@@ -65,9 +58,6 @@ while(OSCCONbits.LOCK!=1) {};
 
 void initUART1(void)
 {
-
-    RPINR18bits.U1RXR = 66; // RP66 for RX
-    //RPOR0bits.RP65R = 1;
     U1MODEbits.BRGH = 0; // 16 multiplier
     U1BRG = 64; // 57600 baud rate
     U1MODEbits.UARTEN = 1; // enable uart
@@ -104,8 +94,18 @@ void initUART1(void)
 //    RPINR7bits.IC2R = 99; // left tread
 //}
 
-void PinIO(void)
+void PinSetMode(void)
 {
       LED_Port = 0;  // LED indicator OUT
       RS485_Port = 0; //RS485 Flow OUT
+}
+
+
+void Delay(int wait)
+{
+    int x = 0;
+    for(;x<wait;x++)
+    {
+        delay_ms(1);
+    }
 }

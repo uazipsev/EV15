@@ -1,4 +1,4 @@
 build/default/production/main.o:  \
 main.c  \
-Function.h  \
+Functions.h  \
 PinDef.h 

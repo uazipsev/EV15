@@ -3,6 +3,7 @@
 #include "PinDef.h"
 #include "Function.h"
 
+//Data sheet: http://www.intersil.com/content/dam/Intersil/documents/x901/x9015.pdf
 
 int prev_pos = 0;
 

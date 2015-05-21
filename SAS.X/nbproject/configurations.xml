@@ -4,15 +4,14 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>DigiPot.h</itemPath>
-      <itemPath>PinDef.h</itemPath>
-      <itemPath>Function.h</itemPath>
-      <itemPath>MotorControler.h</itemPath>
+      <itemPath>interrupt_handler.h</itemPath>
       <itemPath>FastTransfer.h</itemPath>
-      <itemPath>MCP4725.h</itemPath>
-      <itemPath>CoolingControl.h</itemPath>
-      <itemPath>I2C.h</itemPath>
-      <itemPath>pwm.h</itemPath>
+      <itemPath>PinDef.h</itemPath>
+      <itemPath>Functions.h</itemPath>
+      <itemPath>Global.h</itemPath>
+      <itemPath>ADC.h</itemPath>
+      <itemPath>UART.h</itemPath>
+      <itemPath>PeddleFcns.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -21,16 +20,15 @@
     <logicalFolder name="SourceFiles"
                    displayName="Source Files"
                    projectFiles="true">
+      <itemPath>interrupt_handler.c</itemPath>
       <itemPath>main.c</itemPath>
-      <itemPath>DigiPot.c</itemPath>
-      <itemPath>Function.c</itemPath>
-      <itemPath>MotorControler.c</itemPath>
       <itemPath>FastTransfer.c</itemPath>
-      <itemPath>MCP4725.c</itemPath>
-      <itemPath>CoolingControl.c</itemPath>
-      <itemPath>ConfigBits.c</itemPath>
-      <itemPath>I2C.c</itemPath>
-      <itemPath>pwm.c</itemPath>
+      <itemPath>Functions.c</itemPath>
+      <itemPath>Global.c</itemPath>
+      <itemPath>ConfigBit.c</itemPath>
+      <itemPath>ADC.c</itemPath>
+      <itemPath>UART.c</itemPath>
+      <itemPath>PeddleFcns.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -116,23 +114,6 @@
         <property key="additional-options-chop-files" value="false"/>
       </C30-AR>
       <C30-AS>
-        <property key="assembler-symbols" value=""/>
-        <property key="expand-macros" value="false"/>
-        <property key="extra-include-directories-for-assembler" value=""/>
-        <property key="extra-include-directories-for-preprocessor" value=""/>
-        <property key="false-conditionals" value="false"/>
-        <property key="keep-locals" value="false"/>
-        <property key="list-assembly" value="false"/>
-        <property key="list-section-info" value="false"/>
-        <property key="list-source" value="false"/>
-        <property key="list-symbols" value="false"/>
-        <property key="oXC16asm-extra-opts" value=""/>
-        <property key="oXC16asm-list-to-file" value="false"/>
-        <property key="omit-debug-dirs" value="false"/>
-        <property key="omit-forms" value="false"/>
-        <property key="preprocessor-macros" value=""/>
-        <property key="relax" value="false"/>
-        <property key="warning-level" value="emit-warnings"/>
       </C30-AS>
       <C30-LD>
         <property key="additional-options-use-response-files" value="false"/>
@@ -156,7 +137,7 @@
         <property key="general-code-protect" value="no_code_protect"/>
         <property key="general-write-protect" value="no_write_protect"/>
         <property key="generate-cross-reference-file" value="false"/>
-        <property key="heap-size" value="32"/>
+        <property key="heap-size" value="500"/>
         <property key="input-libraries" value=""/>
         <property key="linker-stack" value="true"/>
         <property key="linker-symbols" value=""/>
@@ -222,7 +203,6 @@
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
         <property key="UART 1" value="true"/>
         <property key="UART 2" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>
@@ -233,7 +213,7 @@
         <property key="memories.flashdata" value="true"/>
         <property key="memories.id" value="true"/>
         <property key="memories.programmemory" value="true"/>
-        <property key="memories.programmemory.end" value="0x157ff"/>
+        <property key="memories.programmemory.end" value="0x557ff"/>
         <property key="memories.programmemory.partition2" value="true"/>
         <property key="memories.programmemory.partition2.end"
                   value="${memories.programmemory.partition2.end.value}"/>
@@ -248,7 +228,7 @@
         <property key="programoptions.preservedataflash" value="false"/>
         <property key="programoptions.preserveeeprom" value="false"/>
         <property key="programoptions.preserveprogramrange" value="false"/>
-        <property key="programoptions.preserveprogramrange.end" value="0x157ff"/>
+        <property key="programoptions.preserveprogramrange.end" value="0x557ff"/>
         <property key="programoptions.preserveprogramrange.start" value="0x0"/>
         <property key="programoptions.preserveuserid" value="false"/>
         <property key="programoptions.programcalmem" value="false"/>

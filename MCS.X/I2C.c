@@ -1,6 +1,6 @@
 #include <xc.h>
 #include <stdbool.h>
-#include "I2C_API.h"
+#include "I2C.h"
 #include <i2c.h>
 
 void i2c_wait(unsigned int cnt)
@@ -17,11 +17,8 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes)
 	char i2cData[10];
 	int DataSz;
 	int Index = 0;
-	unsigned char *pWrite;
-
-	//unsigned char rx_data[10];
+	unsigned char *pWrite = 0;
 	char status;
-	//unsigned char i2cbyte;
 	DataSz = numofbytes;
 
 	StartI2C1();	//Send the Start Bit
@@ -79,60 +76,13 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes)
 		IdleI2C1();	//Wait to complete
 	}
 }
-/*
-	
-	 // Now Readback several data from the serial eeprom. [3]
-	 
-#ifdef I2C_EEPROM_24256
-	i2cData[0] = (SlaveAddress << 1) | 0;	//Device Address & WR
-	i2cData[1] = 0x05;	//eeprom high address byte
-	i2cData[2] = 0x41;	//eeprom low address byte
-	DataSz = 3;
-#endif
-#ifdef I2C_EEPROM_2402
-	i2cData[0] = (SlaveAddress << 1) | 0;	//Device Address & WR
-	i2cData[1] = 0x11;	//eeprom low address byte
-	DataSz = 2;
-#endif
 
-	StartI2C1();	//Send the Start Bit
-	IdleI2C1();		//Wait to complete
-
-	//send the address to read from the serial eeprom
-	Index = 0;
-	while( DataSz )
-	{
-		MasterWriteI2C1( i2cData[Index++] );
-		IdleI2C1();		//Wait to complete
-
-		DataSz--;
-
-		// ACKSTAT is 0 when slave acknowledge,
-		// if 1 then slave has not acknowledge the data.
-		if( I2C1STATbits.ACKSTAT )
-			break;
-	}
-
-	//now send a start sequence again
-	RestartI2C1();	//Send the Restart condition
-	i2c_wait(10);
-	//wait for this bit to go back to zero
-	IdleI2C1();	//Wait to complete
-
-	MasterWriteI2C1( (SlaveAddress << 1) | 1 ); //transmit read command
-	IdleI2C1();		//Wait to complete
-
-	// read some bytes back
-	status = MastergetsI2C1(lenArray(tx_data), pRead, 20);
-
-	if (status!=0)
-		while(1);
-
-	StopI2C1();	//Send the Stop condition
-	IdleI2C1();	//Wait to complete
-	
-	 //	End reading several bytes. [3]
-	 
-
+void i2c_init(void)
+{
+    I2C1BRG = 0x0258;
+    I2C1CON = 0x1200;
+    I2C1RCV = 0x0000;
+    I2C1TRN = 0x0000;
+    //Now we can enable the peripheral
+    I2C1CON = 0x9200;
 }
- * */

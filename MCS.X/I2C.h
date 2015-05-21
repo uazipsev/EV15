@@ -12,6 +12,7 @@
 
 void i2c_Write(char address, bool read_write, char *data, int numofbytes);
 void i2c_wait(unsigned int cnt);
+void i2c_init(void);
 
 
 #endif	/* I2C_API_H */

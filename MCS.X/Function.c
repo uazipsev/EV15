@@ -2,15 +2,10 @@
 #include "xc.h"
 #include "pps.h"
 #include <libpic30.h>
-
-#ifndef __DELAY_H
-#define FOSC  66000000LL  // clock-frequecy in Hz with suffix LL (64-bit-long), eg. 32000000LL for 32MHz
-#define FCY       (FOSC/2)  // MCU is running at FCY MIPS
-#define delay_us(x) __delay32(((x*FCY)/1000000L)) // delays x us
-#define delay_ms(x) __delay32(((x*FCY)/1000L))  // delays x ms
-#define __DELAY_H 1
-#include <libpic30.h>
-#endif
+#include "I2C.h"
+#include "pwm.h"
+#include "CoolingControl.h"
+#include "DigiPot.h"
 
 
 void Setup(void)
@@ -24,10 +19,20 @@ void Setup(void)
 
   PPSUnLock;
 
+  PPSout (_U1TX,_RP23);
+  PPSout (_U2TX,_RP7);
+  PPSout (_OC1,_RP5);
+
+  PPSin (_U1RX,_RP22);
+  PPSin (_U2RX,_RP6);
+
   PPSLock;
 
+  i2c_init();
   PinSetMode();
   PotClear();
+  PWM_Init();
+  CoolingStart();
 }
 
 void Delay(int wait)
