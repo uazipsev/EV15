@@ -4,8 +4,6 @@
 #include <libpic30.h>
 #include "I2C.h"
 #include "pwm.h"
-#include "CoolingControl.h"
-#include "DigiPot.h"
 
 
 void Setup(void)
@@ -23,16 +21,14 @@ void Setup(void)
   PPSout (_U2TX,_RP7);
   PPSout (_OC1,_RP5);
 
-  PPSin (_U1RX,_RP22);
+  //PPSin (_U1RX,_RP22);
   PPSin (_U2RX,_RP6);
 
   PPSLock;
 
   i2c_init();
   PinSetMode();
-  PotClear();
   PWM_Init();
-  CoolingStart();
 }
 
 void Delay(int wait)
@@ -47,12 +43,6 @@ void Delay(int wait)
 void PinSetMode(void)
 {
     TRISBbits.TRISB1 = 0; //Set LED as output
-    TRISAbits.TRISA0 = 0; //DAC relay OUT
-    TRISAbits.TRISA10 = 0; //Set 12v DC/DC enable OUT
-
-    TRISBbits.TRISB15 = 0; //DigiPot CS OUT
-    TRISBbits.TRISB14 = 0; //DigiPot INC OUT
-    TRISAbits.TRISA7 = 0;  //DigiPot UP_DN OUT
 
     TRISBbits.TRISB5 = 0;  //Fan control OUT
 }

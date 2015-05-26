@@ -1,15 +1,23 @@
 #include "pwm.h"
 #include <xc.h>
-// 11-bit PWM resolution on all 3 channels! (Period ~ 1/30kHz with FRC_PLL16)
+
  void PWM_Init(void)
  {
-     Timmer2Init();
+     //First PWM output
+     Timmer2Init();           
      OC1CONbits.OCM = 0b000;
      OC1R = 0x0F;
      OC1RS = 0x0F;  //min PWM
      OC1CONbits.OCTSEL = 0;
      OC1R = 0x0F;
      OC1CONbits.OCM = 0b110;
+     //Second PWM output
+     OC2CONbits.OCM = 0b000;
+     OC2R = 0x0F;
+     OC2RS = 0x0F;  //min PWM
+     OC2CONbits.OCTSEL = 0;
+     OC2R = 0x0F;
+     OC2CONbits.OCM = 0b110;
  }
 
  void Timmer2Init(void)
@@ -23,7 +31,7 @@
      T2CONbits.TON = 1;
  }
 
- void PWMupdate(int output)
+ void PWM1update(int output)
  {
      if(output > 100)
      {
@@ -35,4 +43,18 @@
      }
      output = output*35;
      OC1RS = output;
+ }
+
+  void PWM2update(int output)
+ {
+     if(output > 100)
+     {
+        output = 100;
+     }
+     if(output < 0)
+     {
+        output = 0;
+     }
+     output = output*35;
+     OC2RS = output;
  }

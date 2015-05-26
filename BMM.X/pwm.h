@@ -8,9 +8,10 @@
 #ifndef PWM_H
 #define	PWM_H
 
-void PWM_Init(void);
+extern void PWM_Init(void);
 void Timmer2Init(void);
-void PWMupdate(int output);
+extern void PWM1update(int output);
+extern void PWM2update(int output);
 
 #endif	/* PWM_H */
 
