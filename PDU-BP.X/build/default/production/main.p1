@@ -28,6 +28,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Delay `(v ~T0 @X0 0 ef1`l ]
 "17 Shift595.h
 [v _SetPin595 `(v ~T0 @X0 0 ef3`i`i`i ]
+"19
+[v _writeRegisters `(v ~T0 @X0 0 ef ]
 "18981 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -8273,66 +8275,72 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Shift595.h: 18: extern void Clear595();
 [; ;Shift595.h: 19: extern void writeRegisters();
 [; ;Functions.h: 11: extern void Delay(long int wait);
-"54 main.c
+"8 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"55
+"9
 {
-[; ;main.c: 54: void main(void)
-[; ;main.c: 55: {
+[; ;main.c: 8: void main(void)
+[; ;main.c: 9: {
 [e :U _main ]
 [f ]
-[; ;main.c: 57: SYSTEM_Initialize();
-"57
+[; ;main.c: 11: SYSTEM_Initialize();
+"11
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 58: StartUp595();
-"58
+[; ;main.c: 12: StartUp595();
+"12
 [e ( _StartUp595 ..  ]
-[; ;main.c: 77: (INTCONbits.GIE = 1);
-"77
+[; ;main.c: 31: (INTCONbits.GIE = 1);
+"31
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 80: (INTCONbits.PEIE = 1);
-"80
+[; ;main.c: 34: (INTCONbits.PEIE = 1);
+"34
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;main.c: 88: while (1)
-"88
+[; ;main.c: 42: while (1)
+"42
 [e :U 1180 ]
-[; ;main.c: 89: {
-"89
+[; ;main.c: 43: {
+"43
 {
-[; ;main.c: 90: Delay(500);
-"90
+[; ;main.c: 44: Delay(500);
+"44
 [e ( _Delay (1 -> -> 500 `i `l ]
-[; ;main.c: 91: SetPin595(2,3,1);
-"91
+[; ;main.c: 45: SetPin595(2,3,1);
+"45
 [e ( _SetPin595 (3 , , -> 2 `i -> 3 `i -> 1 `i ]
-[; ;main.c: 92: do { LATA3 = 1; } while(0);
-"92
+[; ;main.c: 46: writeRegisters();
+"46
+[e ( _writeRegisters ..  ]
+[; ;main.c: 47: do { LATA3 = 1; } while(0);
+"47
 [e :U 1184 ]
 {
 [e = _LATA3 -> -> 1 `i `b ]
 }
 [e :U 1183 ]
-[; ;main.c: 93: Delay(500);
-"93
+[; ;main.c: 48: Delay(500);
+"48
 [e ( _Delay (1 -> -> 500 `i `l ]
-[; ;main.c: 94: SetPin595(2,3,0);
-"94
+[; ;main.c: 49: SetPin595(2,3,0);
+"49
 [e ( _SetPin595 (3 , , -> 2 `i -> 3 `i -> 0 `i ]
-[; ;main.c: 95: do { LATA3 = 0; } while(0);
-"95
+[; ;main.c: 50: writeRegisters();
+"50
+[e ( _writeRegisters ..  ]
+[; ;main.c: 51: do { LATA3 = 0; } while(0);
+"51
 [e :U 1187 ]
 {
 [e = _LATA3 -> -> 0 `i `b ]
 }
 [e :U 1186 ]
-"97
+"53
 }
 [e :U 1179 ]
-"88
+"42
 [e $U 1180  ]
 [e :U 1181 ]
-[; ;main.c: 97: }
-[; ;main.c: 98: }
-"98
+[; ;main.c: 53: }
+[; ;main.c: 54: }
+"54
 [e :UE 1178 ]
 }

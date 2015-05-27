@@ -10546,27 +10546,29 @@ extern void writeRegisters();
 # 11 "Functions.h"
 extern void Delay(long int wait);
 
-# 54 "main.c"
+# 8 "main.c"
 void main(void)
 {
 
 SYSTEM_Initialize();
 StartUp595();
 
-# 77
+# 31
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 88
+# 42
 while (1)
 {
 Delay(500);
 SetPin595(2,3,1);
+writeRegisters();
 do { LATA3 = 1; } while(0);
 Delay(500);
 SetPin595(2,3,0);
+writeRegisters();
 do { LATA3 = 0; } while(0);
 
 }

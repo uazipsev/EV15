@@ -8202,98 +8202,98 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
 [; ;Functions.h: 11: extern void Delay(long int wait);
-"7 Shift595.c
+"10 Shift595.c
 [v _StartUp595 `(v ~T0 @X0 1 ef ]
-"8
+"11
 {
-[; ;Shift595.c: 7: void StartUp595()
-[; ;Shift595.c: 8: {
+[; ;Shift595.c: 10: void StartUp595()
+[; ;Shift595.c: 11: {
 [e :U _StartUp595 ]
 [f ]
-[; ;Shift595.c: 10: do { LATB1 = 1; } while(0);
-"10
+[; ;Shift595.c: 13: do { LATB1 = 1; } while(0);
+"13
 [e :U 1181 ]
 {
 [e = _LATB1 -> -> 1 `i `b ]
 }
 [e :U 1180 ]
-[; ;Shift595.c: 12: Delay(10);
-"12
-[e ( _Delay (1 -> -> 10 `i `l ]
-[; ;Shift595.c: 13: do { LATB0 = 1; } while(0);
-"13
+[; ;Shift595.c: 15: Delay(1);
+"15
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 16: do { LATB0 = 1; } while(0);
+"16
 [e :U 1184 ]
 {
 [e = _LATB0 -> -> 1 `i `b ]
 }
 [e :U 1183 ]
-[; ;Shift595.c: 14: Delay(10);
-"14
-[e ( _Delay (1 -> -> 10 `i `l ]
-[; ;Shift595.c: 15: do { LATB0 = 0; } while(0);
-"15
+[; ;Shift595.c: 17: Delay(1);
+"17
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 18: do { LATB0 = 0; } while(0);
+"18
 [e :U 1187 ]
 {
 [e = _LATB0 -> -> 0 `i `b ]
 }
 [e :U 1186 ]
-[; ;Shift595.c: 16: Delay(10);
-"16
-[e ( _Delay (1 -> -> 10 `i `l ]
-[; ;Shift595.c: 17: do { LATB0 = 1; } while(0);
-"17
+[; ;Shift595.c: 19: Delay(1);
+"19
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 20: do { LATB0 = 1; } while(0);
+"20
 [e :U 1190 ]
 {
 [e = _LATB0 -> -> 1 `i `b ]
 }
 [e :U 1189 ]
-[; ;Shift595.c: 18: Delay(10);
-"18
-[e ( _Delay (1 -> -> 10 `i `l ]
-[; ;Shift595.c: 20: do { LATB1 = 0; } while(0);
-"20
+[; ;Shift595.c: 21: Delay(1);
+"21
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 23: do { LATB1 = 0; } while(0);
+"23
 [e :U 1193 ]
 {
 [e = _LATB1 -> -> 0 `i `b ]
 }
 [e :U 1192 ]
-[; ;Shift595.c: 21: Clear595();
-"21
+[; ;Shift595.c: 24: Clear595();
+"24
 [e ( _Clear595 ..  ]
-[; ;Shift595.c: 22: }
-"22
+[; ;Shift595.c: 25: }
+"25
 [e :UE 1178 ]
 }
-"24
+"31
 [v _SetPin595 `(v ~T0 @X0 1 ef3`i`i`i ]
-"25
+"32
 {
-[; ;Shift595.c: 24: void SetPin595(int Reg, int pin, int value)
-[; ;Shift595.c: 25: {
+[; ;Shift595.c: 31: void SetPin595(int Reg, int pin, int value)
+[; ;Shift595.c: 32: {
 [e :U _SetPin595 ]
-"24
+"31
 [v _Reg `i ~T0 @X0 1 r1 ]
 [v _pin `i ~T0 @X0 1 r2 ]
 [v _value `i ~T0 @X0 1 r3 ]
-"25
+"32
 [f ]
-[; ;Shift595.c: 26: registers[((Reg-1)*8)+pin] = value;
-"26
+[; ;Shift595.c: 33: registers[((Reg-1)*8)+pin] = value;
+"33
 [e = *U + &U _registers * -> -> + * - _Reg -> 1 `i -> 8 `i _pin `ui `ux -> -> # *U &U _registers `ui `ux _value ]
-[; ;Shift595.c: 27: }
-"27
+[; ;Shift595.c: 34: }
+"34
 [e :UE 1194 ]
 }
-"29
+"39
 [v _Clear595 `(v ~T0 @X0 1 ef ]
-"30
+"40
 {
-[; ;Shift595.c: 29: void Clear595()
-[; ;Shift595.c: 30: {
+[; ;Shift595.c: 39: void Clear595()
+[; ;Shift595.c: 40: {
 [e :U _Clear595 ]
 [f ]
-[; ;Shift595.c: 31: for(int i = 3 * 8 - 1; i >= 0; i--){
-"31
+[; ;Shift595.c: 41: for(int i = 3 * 8 - 1; i >= 0; i--){
+"41
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i - * -> 3 `i -> 8 `i -> 1 `i ]
@@ -8301,40 +8301,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1197  ]
 [e :U 1196 ]
 {
-[; ;Shift595.c: 32: registers[i] = 0;
-"32
+[; ;Shift595.c: 42: registers[i] = 0;
+"42
 [e = *U + &U _registers * -> -> _i `ui `ux -> -> # *U &U _registers `ui `ux -> 0 `i ]
-"33
+"43
 }
-"31
+"41
 [e -- _i -> 1 `i ]
 [e $ >= _i -> 0 `i 1196  ]
 [e :U 1197 ]
-"33
+"43
 }
-[; ;Shift595.c: 33: }
-[; ;Shift595.c: 34: writeRegisters();
-"34
+[; ;Shift595.c: 43: }
+[; ;Shift595.c: 44: writeRegisters();
+"44
 [e ( _writeRegisters ..  ]
-[; ;Shift595.c: 35: }
-"35
+[; ;Shift595.c: 45: }
+"45
 [e :UE 1195 ]
 }
-"37
+"50
 [v _writeRegisters `(v ~T0 @X0 1 ef ]
 {
-[; ;Shift595.c: 37: void writeRegisters(){
+[; ;Shift595.c: 50: void writeRegisters(){
 [e :U _writeRegisters ]
 [f ]
-[; ;Shift595.c: 39: do { LATD7 = 0; } while(0);
-"39
+[; ;Shift595.c: 52: do { LATD7 = 0; } while(0);
+"52
 [e :U 1202 ]
 {
 [e = _LATD7 -> -> 0 `i `b ]
 }
 [e :U 1201 ]
-[; ;Shift595.c: 41: for(int i = 3 * 8 - 1; i >= 0; i--){
-"41
+[; ;Shift595.c: 54: for(int i = 3 * 8 - 1; i >= 0; i--){
+"54
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i - * -> 3 `i -> 8 `i -> 1 `i ]
@@ -8342,75 +8342,75 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1204  ]
 [e :U 1203 ]
 {
-[; ;Shift595.c: 42: do { LATD5 = 0; } while(0);
-"42
+[; ;Shift595.c: 55: do { LATD5 = 0; } while(0);
+"55
 [e :U 1208 ]
 {
 [e = _LATD5 -> -> 0 `i `b ]
 }
 [e :U 1207 ]
-"44
+"57
 [v _val `i ~T0 @X0 1 a ]
-[; ;Shift595.c: 44: int val = registers[i];
+[; ;Shift595.c: 57: int val = registers[i];
 [e = _val *U + &U _registers * -> -> _i `ui `ux -> -> # *U &U _registers `ui `ux ]
-[; ;Shift595.c: 45: if (val == 1 )
-"45
+[; ;Shift595.c: 58: if (val == 1 )
+"58
 [e $ ! == _val -> 1 `i 1209  ]
-[; ;Shift595.c: 46: {
-"46
+[; ;Shift595.c: 59: {
+"59
 {
-[; ;Shift595.c: 47: do { LATD6 = 1; } while(0);
-"47
+[; ;Shift595.c: 60: do { LATD6 = 1; } while(0);
+"60
 [e :U 1212 ]
 {
 [e = _LATD6 -> -> 1 `i `b ]
 }
 [e :U 1211 ]
-"48
+"61
 }
 [e :U 1209 ]
-[; ;Shift595.c: 48: }
-[; ;Shift595.c: 49: if (val == 0 )
-"49
+[; ;Shift595.c: 61: }
+[; ;Shift595.c: 62: if (val == 0 )
+"62
 [e $ ! == _val -> 0 `i 1213  ]
-[; ;Shift595.c: 50: {
-"50
+[; ;Shift595.c: 63: {
+"63
 {
-[; ;Shift595.c: 51: do { LATD6 = 0; } while(0);
-"51
+[; ;Shift595.c: 64: do { LATD6 = 0; } while(0);
+"64
 [e :U 1216 ]
 {
 [e = _LATD6 -> -> 0 `i `b ]
 }
 [e :U 1215 ]
-"52
+"65
 }
 [e :U 1213 ]
-[; ;Shift595.c: 52: }
-[; ;Shift595.c: 53: do { LATD5 = 1; } while(0);
-"53
+[; ;Shift595.c: 65: }
+[; ;Shift595.c: 66: do { LATD5 = 1; } while(0);
+"66
 [e :U 1219 ]
 {
 [e = _LATD5 -> -> 1 `i `b ]
 }
 [e :U 1218 ]
-"55
+"68
 }
-"41
+"54
 [e -- _i -> 1 `i ]
 [e $ >= _i -> 0 `i 1203  ]
 [e :U 1204 ]
-"55
+"68
 }
-[; ;Shift595.c: 55: }
-[; ;Shift595.c: 56: do { LATD7 = 1; } while(0);
-"56
+[; ;Shift595.c: 68: }
+[; ;Shift595.c: 69: do { LATD7 = 1; } while(0);
+"69
 [e :U 1222 ]
 {
 [e = _LATD7 -> -> 1 `i `b ]
 }
 [e :U 1221 ]
-[; ;Shift595.c: 58: }
-"58
+[; ;Shift595.c: 71: }
+"71
 [e :UE 1199 ]
 }

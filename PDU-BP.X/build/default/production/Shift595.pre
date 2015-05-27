@@ -10390,29 +10390,31 @@ extern __nonreentrant void _delay3(unsigned char);
 # 11 "Functions.h"
 extern void Delay(long int wait);
 
-# 7 "Shift595.c"
+# 10 "Shift595.c"
 void StartUp595()
 {
 
 do { LATB1 = 1; } while(0);
 
-Delay(10);
+Delay(1);
 do { LATB0 = 1; } while(0);
-Delay(10);
+Delay(1);
 do { LATB0 = 0; } while(0);
-Delay(10);
+Delay(1);
 do { LATB0 = 1; } while(0);
-Delay(10);
+Delay(1);
 
 do { LATB1 = 0; } while(0);
 Clear595();
 }
 
+# 31
 void SetPin595(int Reg, int pin, int value)
 {
 registers[((Reg-1)*8)+pin] = value;
 }
 
+# 39
 void Clear595()
 {
 for(int i = 3 * 8 - 1; i >= 0; i--){
@@ -10421,6 +10423,7 @@ registers[i] = 0;
 writeRegisters();
 }
 
+# 50
 void writeRegisters(){
 
 do { LATD7 = 0; } while(0);

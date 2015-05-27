@@ -36,7 +36,7 @@ A2 23
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "5 C:\Zips EV 15\trunk\PDU-BP.X\Functions.c
 [v _Delay Delay `(v  1 e 0 0 ]
-"54 C:\Zips EV 15\trunk\PDU-BP.X\main.c
+"8 C:\Zips EV 15\trunk\PDU-BP.X\main.c
 [v _main main `(v  1 e 0 0 ]
 "59 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
@@ -58,13 +58,13 @@ A2 23
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 "6 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"7 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+"10 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
 [v _StartUp595 StartUp595 `(v  1 e 0 0 ]
-"24
+"31
 [v _SetPin595 SetPin595 `(v  1 e 0 0 ]
-"29
+"39
 [v _Clear595 Clear595 `(v  1 e 0 0 ]
-"37
+"50
 [v _writeRegisters writeRegisters `(v  1 e 0 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
@@ -349,15 +349,15 @@ A2 23
 [v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
 "14 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.h
 [v _registers registers `[24]i  1 e 48 0 ]
-"54 C:\Zips EV 15\trunk\PDU-BP.X\main.c
+"8 C:\Zips EV 15\trunk\PDU-BP.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"98
+"54
 } 0
-"7 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+"10 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
 [v _StartUp595 StartUp595 `(v  1 e 0 0 ]
 {
-"22
+"25
 } 0
 "5 C:\Zips EV 15\trunk\PDU-BP.X\Functions.c
 [v _Delay Delay `(v  1 e 0 0 ]
@@ -368,29 +368,29 @@ A2 23
 [v Delay@wait wait `l  1 p 4 14 ]
 "12
 } 0
-"29 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
+"39 C:\Zips EV 15\trunk\PDU-BP.X\Shift595.c
 [v _Clear595 Clear595 `(v  1 e 0 0 ]
 {
-"31
+"41
 [v Clear595@i i `i  1 a 2 0 ]
-"35
+"45
 } 0
-"37
+"50
 [v _writeRegisters writeRegisters `(v  1 e 0 0 ]
 {
-"44
+"57
 [v writeRegisters@val val `i  1 a 2 14 ]
-"41
+"54
 [v writeRegisters@i i `i  1 a 2 16 ]
-"58
+"71
 } 0
-"24
+"31
 [v _SetPin595 SetPin595 `(v  1 e 0 0 ]
 {
 [v SetPin595@Reg Reg `i  1 p 2 0 ]
 [v SetPin595@pin pin `i  1 p 2 2 ]
 [v SetPin595@value value `i  1 p 2 4 ]
-"27
+"34
 } 0
 "112 C:\Zips EV 15\trunk\PDU-BP.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
