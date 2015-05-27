@@ -5,9 +5,9 @@
             <name>PDU-BP</name>
             <creation-uuid>82d5822d-c8b7-4ff6-b687-ac7eb0c23148</creation-uuid>
             <make-project-type>0</make-project-type>
-            <c-extensions/>
+            <c-extensions>c</c-extensions>
             <cpp-extensions/>
-            <header-extensions/>
+            <header-extensions>h</header-extensions>
             <asminc-extensions/>
             <sourceEncoding>ISO-8859-1</sourceEncoding>
             <make-dep-projects/>

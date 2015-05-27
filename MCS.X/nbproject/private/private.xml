@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/main.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/MCP4725.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/I2C.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/I2C.h</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/Function.h</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/Function.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/DigiPot.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/DigiPot.h</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/CoolingControl.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/pwm.c</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/pwm.h</file>
-        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/CoolingControl.h</file>
+        <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/MotorControler.c</file>
     </open-files>
 </project-private>
