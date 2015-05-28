@@ -24,7 +24,7 @@
 #pragma config IESO = ON                // Internal External Switch Over Mode (Start-up device with FRC, then automatically switch to user-selected oscillator source when ready)
 
 // FOSC
-#pragma config POSCMD = XT              // Primary Oscillator Source (XT Oscillator Mode)
+#pragma config POSCMD = HS              // Primary Oscillator Source (XT Oscillator Mode)
 #pragma config OSCIOFNC = ON            // OSC2 Pin Function (OSC2 pin has digital I/O function)
 #pragma config IOL1WAY = OFF            // Peripheral Pin Select Configuration (Allow Multiple Re-configurations)
 #pragma config FCKSM = CSECME           // Clock Switching and Monitor (Both Clock Switching and Fail-Safe Clock Monitor are enabled)

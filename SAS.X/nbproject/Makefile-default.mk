@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=interrupt_handler.c main.c FastTransfer.c Functions.c Global.c ConfigBit.c ADC.c UART.c PeddleFcns.c
+SOURCEFILES_QUOTED_IF_SPACED=interrupt_handler.c main.c FastTransfer.c Functions.c ConfigBit.c ADC.c UART.c PedalFunctions.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/main.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Functions.o ${OBJECTDIR}/Global.o ${OBJECTDIR}/ConfigBit.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/PeddleFcns.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/interrupt_handler.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/Functions.o.d ${OBJECTDIR}/Global.o.d ${OBJECTDIR}/ConfigBit.o.d ${OBJECTDIR}/ADC.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/PeddleFcns.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/main.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Functions.o ${OBJECTDIR}/ConfigBit.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/PedalFunctions.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/interrupt_handler.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/Functions.o.d ${OBJECTDIR}/ConfigBit.o.d ${OBJECTDIR}/ADC.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/PedalFunctions.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/main.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Functions.o ${OBJECTDIR}/Global.o ${OBJECTDIR}/ConfigBit.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/PeddleFcns.o
+OBJECTFILES=${OBJECTDIR}/interrupt_handler.o ${OBJECTDIR}/main.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Functions.o ${OBJECTDIR}/ConfigBit.o ${OBJECTDIR}/ADC.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/PedalFunctions.o
 
 # Source Files
-SOURCEFILES=interrupt_handler.c main.c FastTransfer.c Functions.c Global.c ConfigBit.c ADC.c UART.c PeddleFcns.c
+SOURCEFILES=interrupt_handler.c main.c FastTransfer.c Functions.c ConfigBit.c ADC.c UART.c PedalFunctions.c
 
 
 CFLAGS=
@@ -110,13 +110,6 @@ ${OBJECTDIR}/Functions.o: Functions.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Functions.c  -o ${OBJECTDIR}/Functions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Functions.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/Functions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/Global.o: Global.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Global.o.d 
-	@${RM} ${OBJECTDIR}/Global.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  Global.c  -o ${OBJECTDIR}/Global.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Global.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/Global.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/ConfigBit.o: ConfigBit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ConfigBit.o.d 
@@ -138,12 +131,12 @@ ${OBJECTDIR}/UART.o: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  UART.c  -o ${OBJECTDIR}/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/UART.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/PeddleFcns.o: PeddleFcns.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/PedalFunctions.o: PedalFunctions.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PeddleFcns.o.d 
-	@${RM} ${OBJECTDIR}/PeddleFcns.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  PeddleFcns.c  -o ${OBJECTDIR}/PeddleFcns.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/PeddleFcns.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/PeddleFcns.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/PedalFunctions.o.d 
+	@${RM} ${OBJECTDIR}/PedalFunctions.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  PedalFunctions.c  -o ${OBJECTDIR}/PedalFunctions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/PedalFunctions.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/PedalFunctions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 else
 ${OBJECTDIR}/interrupt_handler.o: interrupt_handler.c  nbproject/Makefile-${CND_CONF}.mk
@@ -174,13 +167,6 @@ ${OBJECTDIR}/Functions.o: Functions.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Functions.c  -o ${OBJECTDIR}/Functions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Functions.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/Functions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/Global.o: Global.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/Global.o.d 
-	@${RM} ${OBJECTDIR}/Global.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  Global.c  -o ${OBJECTDIR}/Global.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Global.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/Global.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
-	
 ${OBJECTDIR}/ConfigBit.o: ConfigBit.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ConfigBit.o.d 
@@ -202,12 +188,12 @@ ${OBJECTDIR}/UART.o: UART.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  UART.c  -o ${OBJECTDIR}/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/UART.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
-${OBJECTDIR}/PeddleFcns.o: PeddleFcns.c  nbproject/Makefile-${CND_CONF}.mk
+${OBJECTDIR}/PedalFunctions.o: PedalFunctions.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
-	@${RM} ${OBJECTDIR}/PeddleFcns.o.d 
-	@${RM} ${OBJECTDIR}/PeddleFcns.o 
-	${MP_CC} $(MP_EXTRA_CC_PRE)  PeddleFcns.c  -o ${OBJECTDIR}/PeddleFcns.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/PeddleFcns.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
-	@${FIXDEPS} "${OBJECTDIR}/PeddleFcns.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	@${RM} ${OBJECTDIR}/PedalFunctions.o.d 
+	@${RM} ${OBJECTDIR}/PedalFunctions.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  PedalFunctions.c  -o ${OBJECTDIR}/PedalFunctions.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/PedalFunctions.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/PedalFunctions.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

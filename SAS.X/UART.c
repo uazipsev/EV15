@@ -2,7 +2,7 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include "UART.h"
-
+#include "PinDef.h"
 #define ON         0
 #define OFF        1
 
@@ -131,16 +131,14 @@ void Send_put(unsigned char _data)
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
 {
-    //INDICATOR1=ON;
     unsigned char data = U1RXREG;
     UART_buff_put(&input_buffer, data);
     IFS0bits.U1RXIF = 0; // Clear RX interrupt flag
-    //INDICATOR1=OFF;
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 {
-    //INDICATOR2=ON;
+    //LED ^= 1;
     if (UART_buff_size(&output_buffer) > 0)
     {
         U1TXREG = UART_buff_get(&output_buffer);
@@ -150,6 +148,4 @@ void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void)
         Transmit_stall = true;
     }
     IFS0bits.U1TXIF = 0; // Clear TX interrupt flag
-
-    //INDICATOR2=OFF;
 }

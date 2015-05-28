@@ -14,7 +14,7 @@
 
 
 
-void begin(int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void),int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void),int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 void sendData(unsigned char whereToSend);
 bool receiveData();
 void ToSend(const unsigned char where, const unsigned int what);
@@ -25,6 +25,7 @@ unsigned int addressError(void);
 unsigned int dataAddressError(void);
 
 
+volatile int receiveArray[20];
 
 
 void (*serial_write)(unsigned char);
@@ -38,7 +39,7 @@ unsigned char calc_CS; //calculated Checksum
 unsigned char moduleAddress; // the address of this module
 unsigned char returnAddress; //the address to send the crc back to
 unsigned char maxDataAddress; //max address allowable
-int * receiveArrayAddress; // this is where the data will go when it is received
+volatile int * receiveArrayAddress; // this is where the data will go when it is received
 unsigned char * sendStructAddress; // this is where the data will be sent from
 bool AKNAKsend; // turns the acknowledged or not acknowledged on/off
 unsigned int alignErrorCounter; //counts the align errors
@@ -46,6 +47,7 @@ unsigned int crcErrorCounter; // counts any failed crcs
 unsigned int addressErrorCounter; // counts every time a wrong address is received
 unsigned int dataAdressErrorCounter; // counts if the received data fall outside of the receive array
 unsigned char rx_address; //RX address received
+
 #define polynomial 0x8C  //polynomial used to calculate crc
 #define BUFFER_SIZE 200 //ring buffer size
 #define CRC_COUNT 5 // how many AKNAKs are stored

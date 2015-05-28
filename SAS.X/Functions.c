@@ -1,33 +1,35 @@
 #include "Functions.h"
 #include <xc.h>
 #include <stdbool.h>
-#include "Global.h"
 #include "ADC.h"
 #include "PinDef.h"
 #include "pps.h"
+#include "ADDRESSING.h"
 
-void Setup(void)
-{
-  // setup internal clock for 66MHz/33MIPS
-  // 12/2=6*22=132/2=66
-  CLKDIVbits.PLLPRE=0;        // PLLPRE (N2) 0=/2
-  PLLFBD=22;                  // pll multiplier (M) = +2
-  CLKDIVbits.PLLPOST=0;       // PLLPOST (N1) 0=/2
-  while(!OSCCONbits.LOCK);    // wait for PLL ready
+void Setup(void) {
 
-  PPSUnLock;
+    PinSetMode();
+    // setup internal clock for 66MHz/33MIPS
+    // 12 /2 = 6  *24 = 144 / 2=72
+    CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2c
+    CLKDIVbits.DOZE=0;
+    PLLFBD = 22; // pll multiplier (M) = +2
+    CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
+    while (!OSCCONbits.LOCK); // wait for PLL ready
 
-  PPSLock;
 
-  PinSetMode();
-  //begin(receiveArray, 15, 1, false, Send_put, Receive_get, Receive_available, Receive_peek);
-  //INDICATOR4=ON;
-  //UART_init();
-  //initUART1();
-  //initADC();
-  //timerOne();
-  //timerTwo();
-  //GLOBAL_INTERRUPTS = 1;
+
+    PPSUnLock;
+    Pin_23_Output = TX1_OUTPUT;
+    RX1_Pin_Map = 22;
+    PPSLock;
+
+    UART_init();    
+    begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+
+    //initADC();
+    //timerOne();
+    //timerTwo();
 }
 
 //void timerOne(void)
@@ -56,12 +58,12 @@ void Setup(void)
 //    T2CONbits.TON = 1; //enable timer 2
 //}
 
-void initUART1(void)
-{
-    U1MODEbits.BRGH = 0; // 16 multiplier
-    U1BRG = 64; // 57600 baud rate
-    U1MODEbits.UARTEN = 1; // enable uart
-}
+//void initUART1(void)
+//{
+//    U1MODEbits.BRGH = 0; // 16 multiplier
+//    U1BRG = 64; // 57600 baud rate
+//    U1MODEbits.UARTEN = 1; // enable uart
+//}
 
 //void inputCapture(void)
 //{
@@ -94,18 +96,19 @@ void initUART1(void)
 //    RPINR7bits.IC2R = 99; // left tread
 //}
 
-void PinSetMode(void)
-{
-      LED_Port = 0;  // LED indicator OUT
-      RS485_Port = 0; //RS485 Flow OUT
+void PinSetMode(void) {
+    LED_Tris     = OUTPUT;
+//    TX1_Pin_Tris = OUTPUT;
+//    RX1_Pin_Tris = INPUT;
+//    RX1_Pin_Port = WEAK_PULL_UP;
+    LED_Port     = OUTPUT; // LED indicator OUT
+    RS485_1_Tris = OUTPUT; //RS485 Flow OUT
+    RS485_1_Port = TALK;
 }
 
-
-void Delay(int wait)
-{
+void Delay(int wait) {
     int x = 0;
-    for(;x<wait;x++)
-    {
+    for (; x < wait; x++) {
         delay_ms(1);
     }
 }

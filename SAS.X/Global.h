@@ -8,7 +8,7 @@
 #ifndef GLOBAL_H
 #define	GLOBAL_H
 
-extern volatile int receiveArray[20];
+
 
 #endif	/* GLOBAL_H */
 
