@@ -44,6 +44,10 @@ extern void ToSend(const unsigned char where, const unsigned int what);
 #define Pin_23_Output RPOR11bits.RP23R
 #define TX1_OUTPUT 3
 
+#define RX2_Pin_Map RPINR19bits.U2RXR
+#define Pin_8_Output RPOR4bits.RP8R
+#define TX2_OUTPUT 5
+
 #define GLOBAL_INTERRUPTS INTCON1bits.
 
 #endif	/* PINDEF_H */

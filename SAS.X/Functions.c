@@ -22,10 +22,14 @@ void Setup(void) {
     PPSUnLock;
     Pin_23_Output = TX1_OUTPUT;
     RX1_Pin_Map = 22;
+    Pin_8_Output = TX2_OUTPUT;
+    RX2_Pin_Map = 7;
     PPSLock;
 
-    UART_init();    
+    UART_init();
+    UART1_init();
     begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+    //begin(receiveArray1, sizeof (receiveArray1), SAS_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
 
     //initADC();
     //timerOne();
@@ -98,9 +102,6 @@ void Setup(void) {
 
 void PinSetMode(void) {
     LED_Tris     = OUTPUT;
-//    TX1_Pin_Tris = OUTPUT;
-//    RX1_Pin_Tris = INPUT;
-//    RX1_Pin_Port = WEAK_PULL_UP;
     LED_Port     = OUTPUT; // LED indicator OUT
     RS485_1_Tris = OUTPUT; //RS485 Flow OUT
     RS485_1_Port = TALK;

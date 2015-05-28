@@ -26,6 +26,7 @@ unsigned int dataAddressError(void);
 
 
 volatile int receiveArray[20];
+volatile int receiveArray1[20];
 
 
 void (*serial_write)(unsigned char);

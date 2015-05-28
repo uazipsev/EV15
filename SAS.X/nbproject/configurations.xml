@@ -13,6 +13,7 @@
       <itemPath>PedalFunctions.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>ADDRESSING.h</itemPath>
+      <itemPath>UART1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -29,6 +30,7 @@
       <itemPath>ADC.c</itemPath>
       <itemPath>UART.c</itemPath>
       <itemPath>PedalFunctions.c</itemPath>
+      <itemPath>UART1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
