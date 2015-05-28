@@ -18,9 +18,9 @@
      T2CONbits.TON = 0;
      T2CONbits.TCS = 0;
      T2CONbits.TGATE = 0;
-     T2CONbits.TCKPS = 0b00;
+     T2CONbits.TCKPS = 0b10;
      TMR2 = 0x00;
-     PR2 = 0x0cf7;
+     PR2 = 0x04FF;
      T2CONbits.TON = 1;
  }
 
@@ -40,14 +40,14 @@
 
   void PERupdate(int output)
  {
-     if(output > 100)
-     {
-        output = 100;
-     }
-     if(output < 0)
-     {
-        output = 0;
-     }
+    // if(output > 100)
+    // {
+    //    output = 100;
+    // }
+    // if(output < 0)
+    // {
+    //    output = 0;
+    // }
      //T2CONbits.TON = 0;
      TMR2 = 0x00;
      PR2 = output;

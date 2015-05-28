@@ -83,35 +83,35 @@ MP_LINKER_FILE_OPTION=,--script=p33EP256GM306.gld
 # Rules for buildStep: compile
 ifeq ($(TYPE_IMAGE), DEBUG_RUN)
 ${OBJECTDIR}/Function.o: Function.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Function.o.d 
 	@${RM} ${OBJECTDIR}/Function.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Function.c  -o ${OBJECTDIR}/Function.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Function.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/Function.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/ConfigBits.o: ConfigBits.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ConfigBits.o.d 
 	@${RM} ${OBJECTDIR}/ConfigBits.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ConfigBits.c  -o ${OBJECTDIR}/ConfigBits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ConfigBits.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/ConfigBits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/pwm.o: pwm.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pwm.o.d 
 	@${RM} ${OBJECTDIR}/pwm.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  pwm.c  -o ${OBJECTDIR}/pwm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pwm.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/pwm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/Horn.o: Horn.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Horn.o.d 
 	@${RM} ${OBJECTDIR}/Horn.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Horn.c  -o ${OBJECTDIR}/Horn.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Horn.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1  -mno-eds-warn  -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
@@ -119,35 +119,35 @@ ${OBJECTDIR}/Horn.o: Horn.c  nbproject/Makefile-${CND_CONF}.mk
 	
 else
 ${OBJECTDIR}/Function.o: Function.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Function.o.d 
 	@${RM} ${OBJECTDIR}/Function.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Function.c  -o ${OBJECTDIR}/Function.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Function.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/Function.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/main.o.d 
 	@${RM} ${OBJECTDIR}/main.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  main.c  -o ${OBJECTDIR}/main.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/main.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/main.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/ConfigBits.o: ConfigBits.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/ConfigBits.o.d 
 	@${RM} ${OBJECTDIR}/ConfigBits.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  ConfigBits.c  -o ${OBJECTDIR}/ConfigBits.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/ConfigBits.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/ConfigBits.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/pwm.o: pwm.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/pwm.o.d 
 	@${RM} ${OBJECTDIR}/pwm.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  pwm.c  -o ${OBJECTDIR}/pwm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pwm.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/pwm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 ${OBJECTDIR}/Horn.o: Horn.c  nbproject/Makefile-${CND_CONF}.mk
-	@${MKDIR} ${OBJECTDIR} 
+	@${MKDIR} "${OBJECTDIR}" 
 	@${RM} ${OBJECTDIR}/Horn.o.d 
 	@${RM} ${OBJECTDIR}/Horn.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Horn.c  -o ${OBJECTDIR}/Horn.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Horn.o.d"      -mno-eds-warn  -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off

@@ -1,3 +1,48 @@
+/**
+  @Generated Pin Manager Header File
+
+  @Company:
+    Microchip Technology Inc.
+
+  @File Name:
+    pin_manager.h
+
+  @Summary:
+    This is the Pin Manager file generated using MPLAB® Code Configurator
+
+  @Description:
+    This header file provides implementations for pin APIs for all pins selected in the GUI.
+    Generation Information :
+        Product Revision  :  MPLAB® Code Configurator - v2.25
+        Device            :  PIC18F45K22
+        Version           :  1.01
+    The generated drivers are tested against the following:
+        Compiler          :  XC8 v1.34
+        MPLAB             :  MPLAB X v2.35 or v3.00
+*/
+
+/*
+Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
+
+Microchip licenses to you the right to use, modify, copy and distribute
+Software only when embedded on a Microchip microcontroller or digital signal
+controller that is integrated into your product or third party product
+(pursuant to the sublicense terms in the accompanying license agreement).
+
+You should refer to the license agreement accompanying this Software for
+additional information regarding your rights and obligations.
+
+SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
+EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
+MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
+IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
+CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
+OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
+CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
+SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+(INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+*/
 
 #ifndef PIN_MANAGER_H
 #define PIN_MANAGER_H
@@ -28,17 +73,6 @@
 
 #define LED1_SetAnalogMode()   do { ANSA3 = 1; } while(0)
 #define LED1_SetDigitalMode()   do { ANSA3 = 0; } while(0)
-// get/set IO_RA4 aliases
-#define IO_RA4_TRIS               TRISA4
-#define IO_RA4_LAT                LATA4
-#define IO_RA4_PORT               PORTAbits.RA4
-#define IO_RA4_SetHigh()    do { LATA4 = 1; } while(0)
-#define IO_RA4_SetLow()   do { LATA4 = 0; } while(0)
-#define IO_RA4_Toggle()   do { LATA4 = ~LATA4; } while(0)
-#define IO_RA4_GetValue()         PORTAbits.RA4
-#define IO_RA4_SetDigitalInput()    do { TRISA4 = 1; } while(0)
-#define IO_RA4_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
-
 // get/set CLEAR aliases
 #define CLEAR_TRIS               TRISB0
 #define CLEAR_LAT                LATB0
@@ -56,23 +90,6 @@
 #define CLEAR_ResetPullup()   do { WPUB0 = 0; } while(0)
 #define CLEAR_SetAnalogMode()   do { ANSB0 = 1; } while(0)
 #define CLEAR_SetDigitalMode()   do { ANSB0 = 0; } while(0)
-// get/set OUTEN aliases
-#define OUTEN_TRIS               TRISB1
-#define OUTEN_LAT                LATB1
-#define OUTEN_PORT               PORTBbits.RB1
-#define OUTEN_WPU                WPUB1
-#define OUTEN_ANS                ANSB1
-#define OUTEN_SetHigh()    do { LATB1 = 1; } while(0)
-#define OUTEN_SetLow()   do { LATB1 = 0; } while(0)
-#define OUTEN_Toggle()   do { LATB1 = ~LATB1; } while(0)
-#define OUTEN_GetValue()         PORTBbits.RB1
-#define OUTEN_SetDigitalInput()    do { TRISB1 = 1; } while(0)
-#define OUTEN_SetDigitalOutput()   do { TRISB1 = 0; } while(0)
-
-#define OUTEN_SetPullup()    do { WPUB1 = 1; } while(0)
-#define OUTEN_ResetPullup()   do { WPUB1 = 0; } while(0)
-#define OUTEN_SetAnalogMode()   do { ANSB1 = 1; } while(0)
-#define OUTEN_SetDigitalMode()   do { ANSB1 = 0; } while(0)
 // get/set channel_AN16 aliases
 #define channel_AN16_TRIS               TRISC4
 #define channel_AN16_LAT                LATC4
@@ -157,48 +174,62 @@
 
 #define channel_AN23_SetAnalogMode()   do { ANSD3 = 1; } while(0)
 #define channel_AN23_SetDigitalMode()   do { ANSD3 = 0; } while(0)
-// get/set CLK aliases
-#define CLK_TRIS               TRISD5
-#define CLK_LAT                LATD5
-#define CLK_PORT               PORTDbits.RD5
-#define CLK_ANS                ANSD5
-#define CLK_SetHigh()    do { LATD5 = 1; } while(0)
-#define CLK_SetLow()   do { LATD5 = 0; } while(0)
-#define CLK_Toggle()   do { LATD5 = ~LATD5; } while(0)
-#define CLK_GetValue()         PORTDbits.RD5
-#define CLK_SetDigitalInput()    do { TRISD5 = 1; } while(0)
-#define CLK_SetDigitalOutput()   do { TRISD5 = 0; } while(0)
-
-#define CLK_SetAnalogMode()   do { ANSD5 = 1; } while(0)
-#define CLK_SetDigitalMode()   do { ANSD5 = 0; } while(0)
 // get/set DATA_OUT aliases
-#define DATA_OUT_TRIS               TRISD6
-#define DATA_OUT_LAT                LATD6
-#define DATA_OUT_PORT               PORTDbits.RD6
-#define DATA_OUT_ANS                ANSD6
-#define DATA_OUT_SetHigh()    do { LATD6 = 1; } while(0)
-#define DATA_OUT_SetLow()   do { LATD6 = 0; } while(0)
-#define DATA_OUT_Toggle()   do { LATD6 = ~LATD6; } while(0)
-#define DATA_OUT_GetValue()         PORTDbits.RD6
-#define DATA_OUT_SetDigitalInput()    do { TRISD6 = 1; } while(0)
-#define DATA_OUT_SetDigitalOutput()   do { TRISD6 = 0; } while(0)
+#define DATA_OUT_TRIS               TRISD4
+#define DATA_OUT_LAT                LATD4
+#define DATA_OUT_PORT               PORTDbits.RD4
+#define DATA_OUT_ANS                ANSD4
+#define DATA_OUT_SetHigh()    do { LATD4 = 1; } while(0)
+#define DATA_OUT_SetLow()   do { LATD4 = 0; } while(0)
+#define DATA_OUT_Toggle()   do { LATD4 = ~LATD4; } while(0)
+#define DATA_OUT_GetValue()         PORTDbits.RD4
+#define DATA_OUT_SetDigitalInput()    do { TRISD4 = 1; } while(0)
+#define DATA_OUT_SetDigitalOutput()   do { TRISD4 = 0; } while(0)
 
-#define DATA_OUT_SetAnalogMode()   do { ANSD6 = 1; } while(0)
-#define DATA_OUT_SetDigitalMode()   do { ANSD6 = 0; } while(0)
+#define DATA_OUT_SetAnalogMode()   do { ANSD4 = 1; } while(0)
+#define DATA_OUT_SetDigitalMode()   do { ANSD4 = 0; } while(0)
+// get/set OUTEN aliases
+#define OUTEN_TRIS               TRISD5
+#define OUTEN_LAT                LATD5
+#define OUTEN_PORT               PORTDbits.RD5
+#define OUTEN_ANS                ANSD5
+#define OUTEN_SetHigh()    do { LATD5 = 1; } while(0)
+#define OUTEN_SetLow()   do { LATD5 = 0; } while(0)
+#define OUTEN_Toggle()   do { LATD5 = ~LATD5; } while(0)
+#define OUTEN_GetValue()         PORTDbits.RD5
+#define OUTEN_SetDigitalInput()    do { TRISD5 = 1; } while(0)
+#define OUTEN_SetDigitalOutput()   do { TRISD5 = 0; } while(0)
+
+#define OUTEN_SetAnalogMode()   do { ANSD5 = 1; } while(0)
+#define OUTEN_SetDigitalMode()   do { ANSD5 = 0; } while(0)
 // get/set LAT aliases
-#define LAT_TRIS               TRISD7
-#define LAT_LAT                LATD7
-#define LAT_PORT               PORTDbits.RD7
-#define LAT_ANS                ANSD7
-#define LAT_SetHigh()    do { LATD7 = 1; } while(0)
-#define LAT_SetLow()   do { LATD7 = 0; } while(0)
-#define LAT_Toggle()   do { LATD7 = ~LATD7; } while(0)
-#define LAT_GetValue()         PORTDbits.RD7
-#define LAT_SetDigitalInput()    do { TRISD7 = 1; } while(0)
-#define LAT_SetDigitalOutput()   do { TRISD7 = 0; } while(0)
+#define LAT_TRIS               TRISD6
+#define LAT_LAT                LATD6
+#define LAT_PORT               PORTDbits.RD6
+#define LAT_ANS                ANSD6
+#define LAT_SetHigh()    do { LATD6 = 1; } while(0)
+#define LAT_SetLow()   do { LATD6 = 0; } while(0)
+#define LAT_Toggle()   do { LATD6 = ~LATD6; } while(0)
+#define LAT_GetValue()         PORTDbits.RD6
+#define LAT_SetDigitalInput()    do { TRISD6 = 1; } while(0)
+#define LAT_SetDigitalOutput()   do { TRISD6 = 0; } while(0)
 
-#define LAT_SetAnalogMode()   do { ANSD7 = 1; } while(0)
-#define LAT_SetDigitalMode()   do { ANSD7 = 0; } while(0)
+#define LAT_SetAnalogMode()   do { ANSD6 = 1; } while(0)
+#define LAT_SetDigitalMode()   do { ANSD6 = 0; } while(0)
+// get/set CLK aliases
+#define CLK_TRIS               TRISD7
+#define CLK_LAT                LATD7
+#define CLK_PORT               PORTDbits.RD7
+#define CLK_ANS                ANSD7
+#define CLK_SetHigh()    do { LATD7 = 1; } while(0)
+#define CLK_SetLow()   do { LATD7 = 0; } while(0)
+#define CLK_Toggle()   do { LATD7 = ~LATD7; } while(0)
+#define CLK_GetValue()         PORTDbits.RD7
+#define CLK_SetDigitalInput()    do { TRISD7 = 1; } while(0)
+#define CLK_SetDigitalOutput()   do { TRISD7 = 0; } while(0)
+
+#define CLK_SetAnalogMode()   do { ANSD7 = 1; } while(0)
+#define CLK_SetDigitalMode()   do { ANSD7 = 0; } while(0)
 
 /**
  * @Param

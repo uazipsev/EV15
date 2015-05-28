@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"18993 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _LATB1 `Vb ~T0 @X0 0 e@31825 ]
+"19033 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
+[v _LATD5 `Vb ~T0 @X0 0 e@31845 ]
 "11 Functions.h
 [v _Delay `(v ~T0 @X0 0 ef1`l ]
 "18991 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
@@ -9,12 +9,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Clear595 `(v ~T0 @X0 0 ef ]
 "19
 [v _writeRegisters `(v ~T0 @X0 0 ef ]
-"19037 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _LATD7 `Vb ~T0 @X0 0 e@31847 ]
-"19033
-[v _LATD5 `Vb ~T0 @X0 0 e@31845 ]
-"19035
+"19035 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATD6 `Vb ~T0 @X0 0 e@31846 ]
+"19037
+[v _LATD7 `Vb ~T0 @X0 0 e@31847 ]
+"19031
+[v _LATD4 `Vb ~T0 @X0 0 e@31844 ]
 "14 Shift595.h
 [v _registers `i ~T0 @X0 * -> 3 `i -> 8 `i e ]
 [; ;Shift595.h: 14: int registers[3 * 8];
@@ -22,8 +22,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Shift595.h: 17: extern void SetPin595(int Reg, int pin, int value);
 [; ;Shift595.h: 18: extern void Clear595(void);
 [; ;Shift595.h: 19: extern void writeRegisters(void);
-[; ;pin_manager.h: 213: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 225: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 244: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 256: void PIN_MANAGER_IOC(void);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8204,96 +8204,88 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Functions.h: 11: extern void Delay(long int wait);
 "10 Shift595.c
 [v _StartUp595 `(v ~T0 @X0 1 ef ]
-"11
 {
-[; ;Shift595.c: 10: void StartUp595()
-[; ;Shift595.c: 11: {
+[; ;Shift595.c: 10: void StartUp595() {
 [e :U _StartUp595 ]
 [f ]
-[; ;Shift595.c: 13: do { LATB1 = 1; } while(0);
-"13
+[; ;Shift595.c: 12: do { LATD5 = 1; } while(0);
+"12
 [e :U 1181 ]
 {
-[e = _LATB1 -> -> 1 `i `b ]
+[e = _LATD5 -> -> 1 `i `b ]
 }
 [e :U 1180 ]
-[; ;Shift595.c: 15: Delay(1);
-"15
+[; ;Shift595.c: 14: Delay(1);
+"14
 [e ( _Delay (1 -> -> 1 `i `l ]
-[; ;Shift595.c: 16: do { LATB0 = 1; } while(0);
-"16
+[; ;Shift595.c: 15: do { LATB0 = 1; } while(0);
+"15
 [e :U 1184 ]
 {
 [e = _LATB0 -> -> 1 `i `b ]
 }
 [e :U 1183 ]
-[; ;Shift595.c: 17: Delay(1);
-"17
+[; ;Shift595.c: 16: Delay(1);
+"16
 [e ( _Delay (1 -> -> 1 `i `l ]
-[; ;Shift595.c: 18: do { LATB0 = 0; } while(0);
-"18
+[; ;Shift595.c: 17: do { LATB0 = 0; } while(0);
+"17
 [e :U 1187 ]
 {
 [e = _LATB0 -> -> 0 `i `b ]
 }
 [e :U 1186 ]
-[; ;Shift595.c: 19: Delay(1);
-"19
+[; ;Shift595.c: 18: Delay(1);
+"18
 [e ( _Delay (1 -> -> 1 `i `l ]
-[; ;Shift595.c: 20: do { LATB0 = 1; } while(0);
-"20
+[; ;Shift595.c: 19: do { LATB0 = 1; } while(0);
+"19
 [e :U 1190 ]
 {
 [e = _LATB0 -> -> 1 `i `b ]
 }
 [e :U 1189 ]
-[; ;Shift595.c: 21: Delay(1);
-"21
+[; ;Shift595.c: 20: Delay(1);
+"20
 [e ( _Delay (1 -> -> 1 `i `l ]
-[; ;Shift595.c: 23: do { LATB1 = 0; } while(0);
-"23
+[; ;Shift595.c: 22: do { LATD5 = 0; } while(0);
+"22
 [e :U 1193 ]
 {
-[e = _LATB1 -> -> 0 `i `b ]
+[e = _LATD5 -> -> 0 `i `b ]
 }
 [e :U 1192 ]
-[; ;Shift595.c: 24: Clear595();
-"24
+[; ;Shift595.c: 23: Clear595();
+"23
 [e ( _Clear595 ..  ]
-[; ;Shift595.c: 25: }
-"25
+[; ;Shift595.c: 24: }
+"24
 [e :UE 1178 ]
 }
-"32
+"31
 [v _SetPin595 `(v ~T0 @X0 1 ef3`i`i`i ]
-"33
 {
-[; ;Shift595.c: 32: void SetPin595(int Reg, int pin, int value)
-[; ;Shift595.c: 33: {
+[; ;Shift595.c: 31: void SetPin595(int Reg, int pin, int value) {
 [e :U _SetPin595 ]
-"32
 [v _Reg `i ~T0 @X0 1 r1 ]
 [v _pin `i ~T0 @X0 1 r2 ]
 [v _value `i ~T0 @X0 1 r3 ]
-"33
 [f ]
-[; ;Shift595.c: 34: registers[((Reg-1)*8)+pin] = value;
-"34
+[; ;Shift595.c: 32: registers[((Reg - 1)*8) + pin] = value;
+"32
 [e = *U + &U _registers * -> -> + * - _Reg -> 1 `i -> 8 `i _pin `ui `ux -> -> # *U &U _registers `ui `ux _value ]
-[; ;Shift595.c: 35: }
-"35
+[; ;Shift595.c: 33: }
+"33
 [e :UE 1194 ]
 }
-"40
+"38
 [v _Clear595 `(v ~T0 @X0 1 ef ]
-"41
 {
-[; ;Shift595.c: 40: void Clear595(void)
-[; ;Shift595.c: 41: {
+[; ;Shift595.c: 38: void Clear595(void) {
 [e :U _Clear595 ]
 [f ]
-[; ;Shift595.c: 42: for(int i = 3 * 8 - 1; i >= 0; i--){
-"42
+[; ;Shift595.c: 39: for (int i = 3 * 8 - 1; i >= 0; i--) {
+"39
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i - * -> 3 `i -> 8 `i -> 1 `i ]
@@ -8301,115 +8293,161 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e $U 1197  ]
 [e :U 1196 ]
 {
-[; ;Shift595.c: 43: registers[i] = 0;
-"43
+[; ;Shift595.c: 40: registers[i] = 0;
+"40
 [e = *U + &U _registers * -> -> _i `ui `ux -> -> # *U &U _registers `ui `ux -> 0 `i ]
-"44
+"41
 }
-"42
+"39
 [e -- _i -> 1 `i ]
 [e $ >= _i -> 0 `i 1196  ]
 [e :U 1197 ]
-"44
+"41
 }
-[; ;Shift595.c: 44: }
-[; ;Shift595.c: 45: writeRegisters();
-"45
+[; ;Shift595.c: 41: }
+[; ;Shift595.c: 43: writeRegisters();
+"43
 [e ( _writeRegisters ..  ]
-[; ;Shift595.c: 46: }
-"46
+[; ;Shift595.c: 44: }
+"44
 [e :UE 1195 ]
 }
-"51
+"49
 [v _writeRegisters `(v ~T0 @X0 1 ef ]
 {
-[; ;Shift595.c: 51: void writeRegisters(void){
+[; ;Shift595.c: 49: void writeRegisters(void) {
 [e :U _writeRegisters ]
 [f ]
-[; ;Shift595.c: 53: do { LATD7 = 0; } while(0);
-"53
+[; ;Shift595.c: 50: do { LATD5 = 1; } while(0);
+"50
 [e :U 1202 ]
-{
-[e = _LATD7 -> -> 0 `i `b ]
-}
-[e :U 1201 ]
-[; ;Shift595.c: 55: for(int i = 3 * 8 - 1; i >= 0; i--){
-"55
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i - * -> 3 `i -> 8 `i -> 1 `i ]
-[e $ >= _i -> 0 `i 1203  ]
-[e $U 1204  ]
-[e :U 1203 ]
-{
-[; ;Shift595.c: 56: do { LATD5 = 0; } while(0);
-"56
-[e :U 1208 ]
-{
-[e = _LATD5 -> -> 0 `i `b ]
-}
-[e :U 1207 ]
-"58
-[v _val `i ~T0 @X0 1 a ]
-[; ;Shift595.c: 58: int val = registers[i];
-[e = _val *U + &U _registers * -> -> _i `ui `ux -> -> # *U &U _registers `ui `ux ]
-[; ;Shift595.c: 59: if (val == 1 )
-"59
-[e $ ! == _val -> 1 `i 1209  ]
-[; ;Shift595.c: 60: {
-"60
-{
-[; ;Shift595.c: 61: do { LATD6 = 1; } while(0);
-"61
-[e :U 1212 ]
-{
-[e = _LATD6 -> -> 1 `i `b ]
-}
-[e :U 1211 ]
-"62
-}
-[e :U 1209 ]
-[; ;Shift595.c: 62: }
-[; ;Shift595.c: 63: if (val == 0 )
-"63
-[e $ ! == _val -> 0 `i 1213  ]
-[; ;Shift595.c: 64: {
-"64
-{
-[; ;Shift595.c: 65: do { LATD6 = 0; } while(0);
-"65
-[e :U 1216 ]
-{
-[e = _LATD6 -> -> 0 `i `b ]
-}
-[e :U 1215 ]
-"66
-}
-[e :U 1213 ]
-[; ;Shift595.c: 66: }
-[; ;Shift595.c: 67: do { LATD5 = 1; } while(0);
-"67
-[e :U 1219 ]
 {
 [e = _LATD5 -> -> 1 `i `b ]
 }
-[e :U 1218 ]
-"69
+[e :U 1201 ]
+"51
+[v _val `i ~T0 @X0 1 a ]
+[; ;Shift595.c: 51: int val = 0;
+[e = _val -> 0 `i ]
+[; ;Shift595.c: 52: do { LATD6 = 0; } while(0);
+"52
+[e :U 1205 ]
+{
+[e = _LATD6 -> -> 0 `i `b ]
 }
-"55
-[e -- _i -> 1 `i ]
-[e $ >= _i -> 0 `i 1203  ]
 [e :U 1204 ]
-"69
+[; ;Shift595.c: 53: Delay(1);
+"53
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 54: for (int i = 3 * 8 - 1; i >= 0; i--) {
+"54
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i - * -> 3 `i -> 8 `i -> 1 `i ]
+[e $ >= _i -> 0 `i 1206  ]
+[e $U 1207  ]
+[e :U 1206 ]
+{
+[; ;Shift595.c: 55: do { LATD7 = 0; } while(0);
+"55
+[e :U 1211 ]
+{
+[e = _LATD7 -> -> 0 `i `b ]
 }
-[; ;Shift595.c: 69: }
-[; ;Shift595.c: 70: do { LATD7 = 1; } while(0);
-"70
+[e :U 1210 ]
+[; ;Shift595.c: 56: do { LATD6 = 0; } while(0);
+"56
+[e :U 1214 ]
+{
+[e = _LATD6 -> -> 0 `i `b ]
+}
+[e :U 1213 ]
+[; ;Shift595.c: 57: Delay(1);
+"57
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 58: val = registers[i];
+"58
+[e = _val *U + &U _registers * -> -> _i `ui `ux -> -> # *U &U _registers `ui `ux ]
+[; ;Shift595.c: 59: if (val == 1) {
+"59
+[e $ ! == _val -> 1 `i 1215  ]
+{
+[; ;Shift595.c: 60: do { LATD4 = 1; } while(0);
+"60
+[e :U 1218 ]
+{
+[e = _LATD4 -> -> 1 `i `b ]
+}
+[e :U 1217 ]
+"61
+}
+[; ;Shift595.c: 61: } else if (val == 0) {
+[e $U 1219  ]
+[e :U 1215 ]
+[e $ ! == _val -> 0 `i 1220  ]
+{
+[; ;Shift595.c: 62: do { LATD4 = 0; } while(0);
+"62
+[e :U 1223 ]
+{
+[e = _LATD4 -> -> 0 `i `b ]
+}
 [e :U 1222 ]
+"63
+}
+[e :U 1220 ]
+"64
+[e :U 1219 ]
+[; ;Shift595.c: 63: }
+[; ;Shift595.c: 64: Delay(1);
+[e ( _Delay (1 -> -> 1 `i `l ]
+[; ;Shift595.c: 65: do { LATD7 = 1; } while(0);
+"65
+[e :U 1226 ]
 {
 [e = _LATD7 -> -> 1 `i `b ]
 }
-[e :U 1221 ]
+[e :U 1225 ]
+[; ;Shift595.c: 66: do { LATD6 = 1; } while(0);
+"66
+[e :U 1229 ]
+{
+[e = _LATD6 -> -> 1 `i `b ]
+}
+[e :U 1228 ]
+[; ;Shift595.c: 67: Delay(1);
+"67
+[e ( _Delay (1 -> -> 1 `i `l ]
+"68
+}
+"54
+[e -- _i -> 1 `i ]
+[e $ >= _i -> 0 `i 1206  ]
+[e :U 1207 ]
+"68
+}
+[; ;Shift595.c: 68: }
+[; ;Shift595.c: 69: do { LATD6 = 0; } while(0);
+"69
+[e :U 1232 ]
+{
+[e = _LATD6 -> -> 0 `i `b ]
+}
+[e :U 1231 ]
+[; ;Shift595.c: 70: do { LATD7 = 0; } while(0);
+"70
+[e :U 1235 ]
+{
+[e = _LATD7 -> -> 0 `i `b ]
+}
+[e :U 1234 ]
+[; ;Shift595.c: 71: do { LATD5 = 0; } while(0);
+"71
+[e :U 1238 ]
+{
+[e = _LATD5 -> -> 0 `i `b ]
+}
+[e :U 1237 ]
 [; ;Shift595.c: 72: }
 "72
 [e :UE 1199 ]

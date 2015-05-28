@@ -8,14 +8,14 @@ void RTD(int lenth)
 {
     //Start horn
     HORN_EN = 1;   // Starting Horn
-    PWMupdate(50);
+    PWMupdate(80);
     int x = 0;
     for(;x<lenth;x++)
     {
-        PERupdate(80);
-        Delay(25);
-        PERupdate(40);
-        Delay(25);
+        PERupdate(0x04F0);
+        Delay(250);
+        //PERupdate(0x04E9);
+        Delay(250);
     }
     HORN_EN = 0;
     //end horn

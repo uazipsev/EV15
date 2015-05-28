@@ -7,8 +7,7 @@
  * On init we want to clear out the shift Reg.
  * This code does that.
  */
-void StartUp595()
-{
+void StartUp595() {
     //Shut off outputs to get ready for config!
     OUTEN_SetHigh();
     //clear all shift reg's
@@ -29,45 +28,46 @@ void StartUp595()
  * The fcn can't augment the array so you need to make sure the array is big enugh for the application
  * This is ajusted in the .h file with num_of_595s
  */
-void SetPin595(int Reg, int pin, int value)
-{
-   registers[((Reg-1)*8)+pin] = value;
+void SetPin595(int Reg, int pin, int value) {
+    registers[((Reg - 1)*8) + pin] = value;
 }
 
 /*
  *  This will clear the aray and set all outputs to zero
  */
-void Clear595(void)
-{
-  for(int i = RegPins - 1; i >=  0; i--){
-     registers[i] = LOW;
-  }
-  writeRegisters();
+void Clear595(void) {
+    for (int i = RegPins - 1; i >= 0; i--) {
+        registers[i] = LOW;
+    }
+
+    writeRegisters();
 }
 
 /*
  *  This is a fcn that will set outputs based the private array of this c file
  */
-void writeRegisters(void){
-
-  LAT_SetLow();  // set select low
-
-  for(int i = RegPins - 1; i >=  0; i--){
-    CLK_SetLow();   //Set clock low (data is shifted in on rising edge)
-
-    int val = registers[i];
-    if (val == HIGH )
-    {
-        DATA_OUT_SetHigh();
+void writeRegisters(void) {
+    OUTEN_SetHigh();
+    int val = 0;
+    LAT_SetLow(); // set select low
+    Delay(1);
+    for (int i = RegPins - 1; i >= 0; i--) {
+        CLK_SetLow(); //Set clock low (data is shifted in on rising edge)
+        LAT_SetLow(); // set select low
+        Delay(1);
+        val = registers[i];
+        if (val == HIGH) {
+            DATA_OUT_SetHigh();
+        } else if (val == LOW) {
+            DATA_OUT_SetLow();
+        }
+        Delay(1);
+        CLK_SetHigh(); //shift data in
+        LAT_SetHigh();
+        Delay(1);
     }
-    if (val == LOW )
-    {
-        DATA_OUT_SetLow();
-    }
-    CLK_SetHigh();  //shift data in
-
-  }
-  LAT_SetHigh();  //Set latch high puting sent data to output
-
+    LAT_SetLow(); //Set latch high puting sent data to output
+    CLK_SetLow();
+    OUTEN_SetLow();
 }
 

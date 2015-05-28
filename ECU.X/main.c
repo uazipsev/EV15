@@ -27,7 +27,7 @@ int main(int argc, char** argv) {
        Delay(1000);
        INDICATOR = 0;
        BRAKELT = 0;
-       RTD(10);
+       RTD(250);
     }
 
     return (EXIT_SUCCESS);
