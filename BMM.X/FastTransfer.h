@@ -11,7 +11,7 @@
 //the capital D is so there is no interference with the lower case d of EasyTransfer
 #define Details(name) (int*)&name,sizeof(name)
 
-
+volatile int receiveArray[20];
 
   extern void Delay(int wait);
 

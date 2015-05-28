@@ -13,6 +13,8 @@
       <itemPath>CoolingControl.h</itemPath>
       <itemPath>I2C.h</itemPath>
       <itemPath>pwm.h</itemPath>
+      <itemPath>UART.h</itemPath>
+      <itemPath>main.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -31,6 +33,7 @@
       <itemPath>ConfigBits.c</itemPath>
       <itemPath>I2C.c</itemPath>
       <itemPath>pwm.c</itemPath>
+      <itemPath>UART.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

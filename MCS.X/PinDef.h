@@ -54,5 +54,17 @@
 #define FAN !_LATB5
 
 
+
+#define RX1_Pin_Tris TRISCbits.TRISC6
+#define TX1_Pin_Tris TRISCbits.TRISC7
+#define RX1_Pin_Port PORTCbits.RC6
+#define TX1_Pin_Port PORTCbits.RC7
+#define RX1_Pin_Map RPINR18bits.U1RXR
+#define RX1_PIN_SET 22
+#define Pin_22_Output RPOR11bits.RP22R
+#define Pin_23_Output RPOR11bits.RP23R
+#define TX1_OUTPUT 3
+
+
 #endif	/* PINDEF_H */
 

@@ -1,7 +1,6 @@
-#include "DigiPot.h"
 #include "xc.h"
 #include "PinDef.h"
-#include "Function.h"
+#include "DigiPot.h"
 
 //Data sheet: http://www.intersil.com/content/dam/Intersil/documents/x901/x9015.pdf
 

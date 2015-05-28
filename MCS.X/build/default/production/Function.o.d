@@ -4,4 +4,5 @@ Function.h  \
 I2C.h  \
 pwm.h  \
  CoolingControl.h  \
-DigiPot.h 
+DigiPot.h  \
+PinDef.h 

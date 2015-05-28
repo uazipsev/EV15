@@ -1,11 +1,14 @@
-#include "Function.h"
+
 #include "xc.h"
 #include "pps.h"
 #include <libpic30.h>
+#include <stdbool.h>
+#include "Function.h"
 #include "I2C.h"
 #include "pwm.h"
 #include "CoolingControl.h"
 #include "DigiPot.h"
+#include "PinDef.h"
 
 
 void Setup(void)
@@ -19,14 +22,16 @@ void Setup(void)
 
   PPSUnLock;
 
-  PPSout (_U1TX,_RP23);
   PPSout (_U2TX,_RP7);
   PPSout (_OC1,_RP5);
 
-  PPSin (_U1RX,_RP22);
   PPSin (_U2RX,_RP6);
 
+    Pin_23_Output = TX1_OUTPUT;
+    RX1_Pin_Map = 22;
   PPSLock;
+
+
 
   i2c_init();
   PinSetMode();

@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=main.c DigiPot.c Function.c MotorControler.c FastTransfer.c MCP4725.c CoolingControl.c ConfigBits.c I2C.c pwm.c
+SOURCEFILES_QUOTED_IF_SPACED=main.c DigiPot.c Function.c MotorControler.c FastTransfer.c MCP4725.c CoolingControl.c ConfigBits.c I2C.c pwm.c UART.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/DigiPot.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/MotorControler.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/MCP4725.o ${OBJECTDIR}/CoolingControl.o ${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/pwm.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/DigiPot.o.d ${OBJECTDIR}/Function.o.d ${OBJECTDIR}/MotorControler.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/MCP4725.o.d ${OBJECTDIR}/CoolingControl.o.d ${OBJECTDIR}/ConfigBits.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/pwm.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/main.o ${OBJECTDIR}/DigiPot.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/MotorControler.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/MCP4725.o ${OBJECTDIR}/CoolingControl.o ${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/UART.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/main.o.d ${OBJECTDIR}/DigiPot.o.d ${OBJECTDIR}/Function.o.d ${OBJECTDIR}/MotorControler.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/MCP4725.o.d ${OBJECTDIR}/CoolingControl.o.d ${OBJECTDIR}/ConfigBits.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/pwm.o.d ${OBJECTDIR}/UART.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/DigiPot.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/MotorControler.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/MCP4725.o ${OBJECTDIR}/CoolingControl.o ${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/pwm.o
+OBJECTFILES=${OBJECTDIR}/main.o ${OBJECTDIR}/DigiPot.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/MotorControler.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/MCP4725.o ${OBJECTDIR}/CoolingControl.o ${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/UART.o
 
 # Source Files
-SOURCEFILES=main.c DigiPot.c Function.c MotorControler.c FastTransfer.c MCP4725.c CoolingControl.c ConfigBits.c I2C.c pwm.c
+SOURCEFILES=main.c DigiPot.c Function.c MotorControler.c FastTransfer.c MCP4725.c CoolingControl.c ConfigBits.c I2C.c pwm.c UART.c
 
 
 CFLAGS=
@@ -152,6 +152,13 @@ ${OBJECTDIR}/pwm.o: pwm.c  nbproject/Makefile-${CND_CONF}.mk
 	${MP_CC} $(MP_EXTRA_CC_PRE)  pwm.c  -o ${OBJECTDIR}/pwm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pwm.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/pwm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/UART.o: UART.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART.o.d 
+	@${RM} ${OBJECTDIR}/UART.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  UART.c  -o ${OBJECTDIR}/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/UART.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/main.o: main.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -222,6 +229,13 @@ ${OBJECTDIR}/pwm.o: pwm.c  nbproject/Makefile-${CND_CONF}.mk
 	@${RM} ${OBJECTDIR}/pwm.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  pwm.c  -o ${OBJECTDIR}/pwm.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/pwm.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/pwm.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/UART.o: UART.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART.o.d 
+	@${RM} ${OBJECTDIR}/UART.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  UART.c  -o ${OBJECTDIR}/UART.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/UART.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 
