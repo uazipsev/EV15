@@ -17,6 +17,6 @@ void RTD(int lenth)
         PERupdate(40);
         Delay(25);
     }
-    Delay(lenth);
+    HORN_EN = 0;
     //end horn
 }

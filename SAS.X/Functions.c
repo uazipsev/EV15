@@ -10,7 +10,7 @@
 void Setup(void) {
 
     PinSetMode();
-    // setup internal clock for 66MHz/33MIPS
+    // setup internal clock for 72MHz/36MIPS
     // 12 /2 = 6  *24 = 144 / 2=72
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2c
     CLKDIVbits.DOZE=0;

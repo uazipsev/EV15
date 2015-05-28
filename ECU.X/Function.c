@@ -6,8 +6,8 @@
 
 void Setup(void)
 {
-  // setup internal clock for 66MHz/33MIPS
-  // 12/2=6*22=132/2=66
+  // setup internal clock for 72MHz/36MIPS
+  // 12/2=6*24=132/2=72
   CLKDIVbits.PLLPRE=0;        // PLLPRE (N2) 0=/2
   PLLFBD=22;                  // pll multiplier (M) = +2
   CLKDIVbits.PLLPOST=0;       // PLLPOST (N1) 0=/2
