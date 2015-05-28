@@ -8,7 +8,6 @@
 #ifndef FUNCTIONS_H
 #define	FUNCTIONS_H
 
-#include <stdbool.h>
 
 #ifndef __DELAY_H
 #define FOSC  72000000LL  // clock-frequecy in Hz with suffix LL (64-bit-long), eg. 32000000LL for 32MHz

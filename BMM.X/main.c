@@ -7,8 +7,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include "xc.h"
-#include "Function.h"
+#include <xc.h>
+#include "main.h"
 #include "PinDef.h"
 
 /*

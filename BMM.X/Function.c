@@ -1,10 +1,10 @@
-#include "Function.h"
-#include "xc.h"
-#include "pps.h"
+#include <xc.h>
 #include <libpic30.h>
-#include "I2C.h"
+#include <stdbool.h>
+#include "Function.h"
+#include "pps.h"
 #include "pwm.h"
-
+#include "ADDRESSING.h"
 
 void Setup(void)
 {
@@ -26,6 +26,7 @@ void Setup(void)
 
   PPSLock;
 
+  begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
   i2c_init();
   PinSetMode();
   PWM_Init();

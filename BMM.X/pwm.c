@@ -1,5 +1,5 @@
-#include "pwm.h"
 #include <xc.h>
+#include "pwm.h"
 
  void PWM_Init(void)
  {
