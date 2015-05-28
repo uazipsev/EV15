@@ -13,10 +13,10 @@
 
 int registers[RegPins];
 
-extern void StartUp595();
+extern void StartUp595(void);
 extern void SetPin595(int Reg, int pin, int value);
-extern void Clear595();
-extern void writeRegisters();
+extern void Clear595(void);
+extern void writeRegisters(void);
 
 
 #endif	/* SHIFT595_H */

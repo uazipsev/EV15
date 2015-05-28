@@ -4,10 +4,10 @@
 # 14 "Shift595.h"
 int registers[3 * 8];
 
-extern void StartUp595();
+extern void StartUp595(void);
 extern void SetPin595(int Reg, int pin, int value);
-extern void Clear595();
-extern void writeRegisters();
+extern void Clear595(void);
+extern void writeRegisters(void);
 
 # 213 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
@@ -10408,14 +10408,14 @@ do { LATB1 = 0; } while(0);
 Clear595();
 }
 
-# 31
+# 32
 void SetPin595(int Reg, int pin, int value)
 {
 registers[((Reg-1)*8)+pin] = value;
 }
 
-# 39
-void Clear595()
+# 40
+void Clear595(void)
 {
 for(int i = 3 * 8 - 1; i >= 0; i--){
 registers[i] = 0;
@@ -10423,8 +10423,8 @@ registers[i] = 0;
 writeRegisters();
 }
 
-# 50
-void writeRegisters(){
+# 51
+void writeRegisters(void){
 
 do { LATD7 = 0; } while(0);
 

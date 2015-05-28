@@ -10535,40 +10535,27 @@ void SYSTEM_Initialize(void);
 # 83
 void OSCILLATOR_Initialize(void);
 
-# 14 "Shift595.h"
-int registers[3 * 8];
-
-extern void StartUp595();
-extern void SetPin595(int Reg, int pin, int value);
-extern void Clear595();
-extern void writeRegisters();
-
 # 11 "Functions.h"
 extern void Delay(long int wait);
 
-# 8 "main.c"
+# 7 "main.c"
 void main(void)
 {
 
 SYSTEM_Initialize();
-StartUp595();
 
-# 31
+# 28
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 42
+# 39
 while (1)
 {
 Delay(500);
-SetPin595(2,3,1);
-writeRegisters();
 do { LATA3 = 1; } while(0);
 Delay(500);
-SetPin595(2,3,0);
-writeRegisters();
 do { LATA3 = 0; } while(0);
 
 }

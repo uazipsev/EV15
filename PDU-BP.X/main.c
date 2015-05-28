@@ -1,5 +1,4 @@
 #include "mcc_generated_files/mcc.h"
-#include "Shift595.h"
 #include "Functions.h"
 
 /*
@@ -9,8 +8,6 @@ void main(void)
 {
     // Initialize the device
     SYSTEM_Initialize();
-    StartUp595();
-
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
     // Use the following macros to:
@@ -42,12 +39,8 @@ void main(void)
     while (1)
     {
         Delay(500);
-        SetPin595(2,3,HIGH);
-        writeRegisters();
         LED1_SetHigh();
         Delay(500);
-        SetPin595(2,3,LOW);
-        writeRegisters();
         LED1_SetLow();
         // Add your application code
     }

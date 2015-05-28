@@ -27,6 +27,7 @@ void StartUp595()
 /*
  * This piece of code allows use to set bits in the right paces to set outputs of the shift reg's
  * The fcn can't augment the array so you need to make sure the array is big enugh for the application
+ * This is ajusted in the .h file with num_of_595s
  */
 void SetPin595(int Reg, int pin, int value)
 {
@@ -36,7 +37,7 @@ void SetPin595(int Reg, int pin, int value)
 /*
  *  This will clear the aray and set all outputs to zero
  */
-void Clear595()
+void Clear595(void)
 {
   for(int i = RegPins - 1; i >=  0; i--){
      registers[i] = LOW;
@@ -47,7 +48,7 @@ void Clear595()
 /*
  *  This is a fcn that will set outputs based the private array of this c file
  */
-void writeRegisters(){
+void writeRegisters(void){
 
   LAT_SetLow();  // set select low
 

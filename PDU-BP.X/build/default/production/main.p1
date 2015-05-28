@@ -2,8 +2,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "70 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
-"16 Shift595.h
-[v _StartUp595 `(v ~T0 @X0 0 ef ]
 "17609 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S1110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1110 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -26,10 +24,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
 "11 Functions.h
 [v _Delay `(v ~T0 @X0 0 ef1`l ]
-"17 Shift595.h
-[v _SetPin595 `(v ~T0 @X0 0 ef3`i`i`i ]
-"19
-[v _writeRegisters `(v ~T0 @X0 0 ef ]
 "18981 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -8267,80 +8261,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 269: void ADC_ISR(void);
 [; ;mcc.h: 70: void SYSTEM_Initialize(void);
 [; ;mcc.h: 83: void OSCILLATOR_Initialize(void);
-"14 Shift595.h
-[v _registers `i ~T0 @X0 * -> 3 `i -> 8 `i e ]
-[; ;Shift595.h: 14: int registers[3 * 8];
-[; ;Shift595.h: 16: extern void StartUp595();
-[; ;Shift595.h: 17: extern void SetPin595(int Reg, int pin, int value);
-[; ;Shift595.h: 18: extern void Clear595();
-[; ;Shift595.h: 19: extern void writeRegisters();
 [; ;Functions.h: 11: extern void Delay(long int wait);
-"8 main.c
+"7 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"9
+"8
 {
-[; ;main.c: 8: void main(void)
-[; ;main.c: 9: {
+[; ;main.c: 7: void main(void)
+[; ;main.c: 8: {
 [e :U _main ]
 [f ]
-[; ;main.c: 11: SYSTEM_Initialize();
-"11
+[; ;main.c: 10: SYSTEM_Initialize();
+"10
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 12: StartUp595();
-"12
-[e ( _StartUp595 ..  ]
-[; ;main.c: 31: (INTCONbits.GIE = 1);
-"31
+[; ;main.c: 28: (INTCONbits.GIE = 1);
+"28
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 34: (INTCONbits.PEIE = 1);
-"34
+[; ;main.c: 31: (INTCONbits.PEIE = 1);
+"31
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;main.c: 42: while (1)
-"42
+[; ;main.c: 39: while (1)
+"39
 [e :U 1180 ]
-[; ;main.c: 43: {
-"43
+[; ;main.c: 40: {
+"40
 {
-[; ;main.c: 44: Delay(500);
-"44
+[; ;main.c: 41: Delay(500);
+"41
 [e ( _Delay (1 -> -> 500 `i `l ]
-[; ;main.c: 45: SetPin595(2,3,1);
-"45
-[e ( _SetPin595 (3 , , -> 2 `i -> 3 `i -> 1 `i ]
-[; ;main.c: 46: writeRegisters();
-"46
-[e ( _writeRegisters ..  ]
-[; ;main.c: 47: do { LATA3 = 1; } while(0);
-"47
+[; ;main.c: 42: do { LATA3 = 1; } while(0);
+"42
 [e :U 1184 ]
 {
 [e = _LATA3 -> -> 1 `i `b ]
 }
 [e :U 1183 ]
-[; ;main.c: 48: Delay(500);
-"48
+[; ;main.c: 43: Delay(500);
+"43
 [e ( _Delay (1 -> -> 500 `i `l ]
-[; ;main.c: 49: SetPin595(2,3,0);
-"49
-[e ( _SetPin595 (3 , , -> 2 `i -> 3 `i -> 0 `i ]
-[; ;main.c: 50: writeRegisters();
-"50
-[e ( _writeRegisters ..  ]
-[; ;main.c: 51: do { LATA3 = 0; } while(0);
-"51
+[; ;main.c: 44: do { LATA3 = 0; } while(0);
+"44
 [e :U 1187 ]
 {
 [e = _LATA3 -> -> 0 `i `b ]
 }
 [e :U 1186 ]
-"53
+"46
 }
 [e :U 1179 ]
-"42
+"39
 [e $U 1180  ]
 [e :U 1181 ]
-[; ;main.c: 53: }
-[; ;main.c: 54: }
-"54
+[; ;main.c: 46: }
+[; ;main.c: 47: }
+"47
 [e :UE 1178 ]
 }
