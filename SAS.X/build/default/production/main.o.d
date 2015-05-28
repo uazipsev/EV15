@@ -1,5 +1,5 @@
 build/default/production/main.o:  \
 main.c  \
-Functions.h  \
 PinDef.h  \
+main.h  \
 ADDRESSING.h 

@@ -1,10 +1,11 @@
-#include "Functions.h"
+
 #include <xc.h>
 #include <stdbool.h>
 #include "ADC.h"
 #include "PinDef.h"
 #include "pps.h"
 #include "ADDRESSING.h"
+#include "Functions.h"
 
 void Setup(void) {
 
@@ -27,25 +28,25 @@ void Setup(void) {
     PPSLock;
 
     UART_init();
-    UART1_init();
+    //UART1_init();
     begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
     //begin(receiveArray1, sizeof (receiveArray1), SAS_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
 
     //initADC();
-    //timerOne();
+    timerOne();
     //timerTwo();
 }
 
-//void timerOne(void)
-//{
-//
-//    T1CONbits.TCKPS = 0b10; // 64 divider
-//    PR1 = 938; // 0.001s timer
-//    IPC0bits.T1IP = 1; // interrupt priority level 1
-//    IFS0bits.T1IF = 0; // clear interrupt flag
-//    IEC0bits.T1IE = 1; // enable timer 1 interrupt
-//    T1CONbits.TON = 1; // turn on timer
-//}
+void timerOne(void)
+{
+    T1CONbits.TON = 0; // turn off timer
+    T1CONbits.TCS = 0;
+    T1CONbits.TCKPS = 0;  //0b10 - 64 divider
+    PR1 = 37500; // 0.001s timer
+    IFS0bits.T1IF = 0; // clear interrupt flag
+    IEC0bits.T1IE = 1; // enable timer 1 interrupt
+    T1CONbits.TON = 1; // turn on timer
+}
 //
 //void timerTwo(void)
 //{
@@ -56,7 +57,6 @@ void Setup(void) {
 //    T2CONbits.TCKPS = 0b11; // 1:256 prescalar    60MHz/256= 234.375KHz (4.266us)
 //    TMR2 = 0x00; //clar timer register
 //    PR2 = 65535; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
-//    IPC1bits.T2IP = 0x01; // timer lowest priority level
 //    IFS0bits.T2IF = 0; // clear timer1 interrupt flag
 //    IEC0bits.T2IE = 0; // disable timer1 interrupt
 //    T2CONbits.TON = 1; //enable timer 2

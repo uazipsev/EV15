@@ -18,7 +18,7 @@
 #include <libpic30.h>
 #endif
 
-extern void Delay(int ms);
+void Delay(int ms);
 void Setup(void);
 void PinSetMode(void);
 void timerOne(void);

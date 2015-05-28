@@ -7,8 +7,9 @@
 
 #ifndef INTERRUPT_HANDLER_H
 #define	INTERRUPT_HANDLER_H
+bool PrepSend;
 
-extern volatile int encoderTime;
+volatile unsigned int LEDtime=0,talkTime=0;
 
 #endif	/* INTERRUPT_HANDLER_H */
 

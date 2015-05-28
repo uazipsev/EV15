@@ -12,7 +12,6 @@
 #define CLOCK_RATE   36000000
 #define BAUD_RATE (((CLOCK_RATE/57600)/16)-1)
 
-extern volatile unsigned int talkTime;
 void *memset(void *s, int c, size_t n);
 
 struct UART_ring_buff {
