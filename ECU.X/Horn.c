@@ -1,9 +1,9 @@
 #include "horn.h"
-#include "Function.h"
 #include "pwm.h"
 #include "PinDef.h"
 #include <xc.h>
 
+extern void Delay(int ms);
 void RTD(int lenth)
 {
     //Start horn
@@ -13,9 +13,9 @@ void RTD(int lenth)
     for(;x<lenth;x++)
     {
         PERupdate(0x04F0);
-        Delay(250);
+        Delay(1);
         //PERupdate(0x04E9);
-        Delay(250);
+        //Delay(250);
     }
     HORN_EN = 0;
     //end horn

@@ -9,11 +9,12 @@
 int main(void) {
     Setup();
     LED = 0;
-
+    
     while (1) {
         ledDebug();
         //Comms handling
         if (receiveData()) {
+            Delay(5);
             prepAndSendData();
         }
         //you are sending data, make sure tunnel is open
@@ -22,7 +23,7 @@ int main(void) {
             RS485_1_Port = TALK;
         }
         //you have finished send and time has elapsed.. start listen
-        if (Transmit_stall && (talkTime > 1)) {
+        if (Transmit_stall && (talkTime > 2)) {
             RS485_1_Port = LISTEN;
         }
     }

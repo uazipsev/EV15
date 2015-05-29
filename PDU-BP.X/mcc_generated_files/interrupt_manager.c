@@ -62,8 +62,6 @@ void  INTERRUPT_Initialize (void)
     IPR1bits.TX1IP = 0;
     // ADI
     IPR1bits.ADIP = 0;
-    // TMRI
-    IPR1bits.TMR1IP = 0;
 }
 
 void interrupt INTERRUPT_InterruptManager (void)
@@ -80,10 +78,6 @@ void interrupt INTERRUPT_InterruptManager (void)
     else if(PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1)
     {
         ADC_ISR();
-    }
-    else if(PIE1bits.TMR1IE == 1 && PIR1bits.TMR1IF == 1)
-    {
-        TMR1_ISR();
     }
     else
     {

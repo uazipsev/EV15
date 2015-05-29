@@ -42,6 +42,22 @@
  */
 #define BRAKELT _LATB6
 
+#define OUTPUT 0
+#define INPUT  1
+#define TALK   1
+#define LISTEN 0
+#define RS485_1_Direction_Tris TRISCbits.TRISC2
+#define RS485_2_Direction_Tris TRISFbits.TRISF1
+#define RS485_1_Direction   LATCbits.LATC2
+#define RS485_2_Direction   LATFbits.LATF1
+#define RX0_Tris TRISBbits.TRISB11
+#define TX0_Tris TRISBbits.TRISB10
+#define RX1_Tris TRISCbits.TRISC0
+#define TX1_Tris TRISCbits.TRISC1
+#define RX_Tris TRISCbits.TRISC8
+#define TX_Tris TRISCbits.TRISC7
+#define RX2_Tris TRISCbits.TRISC9
+#define TX2_Tris TRISDbits.TRISD6
 
 #endif	/* PINDEF_H */
 

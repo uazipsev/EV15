@@ -105,6 +105,10 @@ void PinSetMode(void) {
     LED_Port     = OUTPUT; // LED indicator OUT
     RS485_1_Tris = OUTPUT; //RS485 Flow OUT
     RS485_1_Port = TALK;
+    RX1_Pin_Tris = INPUT;
+    RX1_Pin_Port = 1;
+
+
 }
 
 void Delay(int wait) {

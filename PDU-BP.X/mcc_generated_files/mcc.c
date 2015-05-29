@@ -116,7 +116,6 @@ void SYSTEM_Initialize(void)
     INTERRUPT_Initialize();
     EUSART1_Initialize();
     ADC_Initialize();
-    TMR1_Initialize();
 }
 
 void OSCILLATOR_Initialize(void)

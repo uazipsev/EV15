@@ -8,7 +8,7 @@
 #ifndef HORN_H
 #define	HORN_H
 
-extern void RTD(int lenth);
+void RTD(int lenth);
 
 #endif	/* HORN_H */
 

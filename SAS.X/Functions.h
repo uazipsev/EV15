@@ -18,6 +18,8 @@
 #include <libpic30.h>
 #endif
 
+extern volatile int receiveArray[20];
+extern void PWM_Init(void);
 void Delay(int ms);
 void Setup(void);
 void PinSetMode(void);
