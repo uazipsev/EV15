@@ -1,6 +1,7 @@
 
-// DSPIC33FJ128GP804 Configuration Bit Settings
 
+// DSPIC33FJ128GP804 Configuration Bit Settings
+// generated off of IDE 
 // 'C' source line config statements
 
 #include <xc.h>

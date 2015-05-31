@@ -1,15 +1,25 @@
+/*
+ * File:   DigiPot.c
+ * Author: Rick
+ *
+ * Created on May 20, 2015, 3:05 AM
+ *
+ * This controls the digital pot for the pump
+ *
+ * Data sheet: http://www.intersil.com/content/dam/Intersil/documents/x901/x9015.pdf
+ */
+
 #include "xc.h"
 #include "PinDef.h"
 #include "DigiPot.h"
 
-//Data sheet: http://www.intersil.com/content/dam/Intersil/documents/x901/x9015.pdf
-
 int prev_pos = 0;
 
+//This function is given a value to set the analog output
 void PotSetpoint(int new_point)
 {
     int set_point;
-
+    //bound the input to the fcn
     if(new_point > 32)
     {
         new_point = 32;
@@ -20,22 +30,27 @@ void PotSetpoint(int new_point)
     }
 
     int new_pos = new_point;//(new_point/100)*32;
-
-    //!CS this Bitch
+    //I am bit banging the control to this
+    
+    //!CS this to select the device
     DIGI_CS = 0;
 
+    //Tells the device if the clock moves output up or down
     if(new_pos > prev_pos)
     {
+        //moving up
         DIGI_UP_DN = 1;
         set_point = new_pos - prev_pos;
     }
     if(new_pos < prev_pos)
     {
+        //moving down
         DIGI_UP_DN = 0;
         set_point = prev_pos - new_pos;
     }
 
     int x;
+    //clock to move it desired steps
     for(x = 0;x < set_point;x++)
     {
         DIGI_INC = 1;
@@ -49,6 +64,7 @@ void PotSetpoint(int new_point)
 
 }
 
+//zeros output of device
 void PotClear(void)
 {
     //!CS this Bitch

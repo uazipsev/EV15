@@ -1,8 +1,32 @@
+/*
+ * File:   I2C.c
+ * Author: Rick
+ *
+ * Created on May 20, 2015, 1:12 AM
+ *
+ * This controls the I2C for the dsPIC family
+ * As of right now It needs code added to read in I2C data
+ *
+ */
+
 #include <xc.h>
 #include <stdbool.h>
 #include "I2C.h"
 #include <i2c.h>
 
+//I2C init code - startup I2C
+void i2c_init(void)
+{
+    I2C1BRG = 0x0258;  //baud
+    I2C1CON = 0x1200;
+    I2C1RCV = 0x0000;
+    I2C1TRN = 0x0000;
+    //Now we can enable the peripheral
+    I2C1CON = 0x9200;
+}
+
+// Wait code for I2C code
+// Unused ATM
 void i2c_wait(unsigned int cnt)
 {
 	while(--cnt)
@@ -12,6 +36,7 @@ void i2c_wait(unsigned int cnt)
 	}
 }
 
+//This fcn writes dat to the I@C bus 
 void i2c_Write(char address, bool read_write, char *data, int numofbytes)
 {
 	char i2cData[10];
@@ -54,7 +79,7 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes)
 	StopI2C1();	//Send the Stop condition
 	IdleI2C1();	//Wait to complete
 
-	// wait for eeprom to complete write process. poll the ack status
+	// wait for device to complete write process. poll the ack status
 	while(1)
 	{
 		i2c_wait(10);
@@ -75,14 +100,4 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes)
 		StopI2C1();	//Send the Stop condition
 		IdleI2C1();	//Wait to complete
 	}
-}
-
-void i2c_init(void)
-{
-    I2C1BRG = 0x0258;
-    I2C1CON = 0x1200;
-    I2C1RCV = 0x0000;
-    I2C1TRN = 0x0000;
-    //Now we can enable the peripheral
-    I2C1CON = 0x9200;
 }

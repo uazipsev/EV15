@@ -1,6 +1,17 @@
+/*
+ * File:   PWM.c
+ * Author: Rick
+ *
+ * Created on May 20, 2015, 3:05 AM
+ *
+ * Controlls PWM for dsPIC
+ *
+ */
+
 #include "pwm.h"
 #include <xc.h>
-// 11-bit PWM resolution on all 3 channels! (Period ~ 1/30kHz with FRC_PLL16)
+
+//Init the PWM channel
  void PWM_Init(void)
  {
      Timmer2Init();
@@ -12,6 +23,7 @@
      OC1CONbits.OCM = 0b110;
  }
 
+ //The PWM runs off of Timer 2
  void Timmer2Init(void)
  {
      T2CONbits.TON = 0;
@@ -23,6 +35,7 @@
      T2CONbits.TON = 1;
  }
 
+ //sets PWM duty
  void PWMupdate(int output)
  {
      if(output > 100)

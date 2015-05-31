@@ -10,6 +10,8 @@
 
 #include <stdbool.h>
 
+int past_dirrection = 0;
+
 typedef enum Directionality
 {
   forward = 1,
