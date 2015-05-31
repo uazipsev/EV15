@@ -45,12 +45,9 @@ extern volatile unsigned int talkTime3;
 
 extern volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer,BootTimer;
 
-#define ERROR_STATE 9
-#define SAS_UPDATE 0
-#define DDS_UPDATE 1
-#define CHECK_STATE 2
+enum commState{SAS_UPDATE=0, DDS_UPDATE=1, CHECK_STATE=2, ERROR_STATE=4, NUM_STATES=5};
 
-int commsState = SAS_UPDATE;
+enum commState commsState=SAS_UPDATE;
 
 bool readyToSendSAS = true;
 bool readyToSendDDS = true;

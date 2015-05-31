@@ -1,4 +1,10 @@
 
+/*
+ * File:   UART3.c
+ * Author: Zac Kilburn
+ *
+ * Created on May 31, 2015
+ */
 
 #include <xc.h>
 #include <stdbool.h>
@@ -8,11 +14,7 @@
 #define ON         0
 #define OFF        1
 
-void UART3_init(void)
-{
-//    LATDbits.LATD1 = 1;
-//    LATDbits.LATD2 = 1;
-
+void UART3_init(void) {
     // UART config
     U4MODEbits.STSEL = 0; // 1-stop bit
     U4MODEbits.PDSEL = 0; // No parity, 8-data bits
@@ -31,8 +33,7 @@ void UART3_init(void)
     UART3_buff_init(&output_buffer3);
 }
 
-void UART3_buff_init(struct UART3_ring_buff* _this)
-{
+void UART3_buff_init(struct UART3_ring_buff* _this) {
     /*****
       The following clears:
         -> buf
@@ -44,15 +45,12 @@ void UART3_buff_init(struct UART3_ring_buff* _this)
     memset(_this, 0, sizeof (*_this));
 }
 
-void UART3_buff_put(struct UART3_ring_buff* _this, const unsigned char c)
-{
-    if (_this->count < UART_BUFFER_SIZE)
-    {
+void UART3_buff_put(struct UART3_ring_buff* _this, const unsigned char c) {
+    if (_this->count < UART_BUFFER_SIZE) {
         _this->buf[_this->head] = c;
         _this->head = UART3_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
         ++_this->count;
-    } else
-    {
+    } else {
         _this->buf[_this->head] = c;
         _this->head = UART3_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
         _this->tail = UART3_buff_modulo_inc(_this->tail, UART_BUFFER_SIZE);
@@ -60,93 +58,74 @@ void UART3_buff_put(struct UART3_ring_buff* _this, const unsigned char c)
     }
 }
 
-unsigned char UART3_buff_get(struct UART3_ring_buff* _this)
-{
+unsigned char UART3_buff_get(struct UART3_ring_buff* _this) {
     unsigned char c;
-    if (_this->count > 0)
-    {
+    if (_this->count > 0) {
         c = _this->buf[_this->tail];
         _this->tail = UART3_buff_modulo_inc(_this->tail, UART_BUFFER_SIZE);
         --_this->count;
-    } else
-    {
+    } else {
         c = 0;
     }
     return (c);
 }
 
-void UART3_buff_flush(struct UART3_ring_buff* _this, const int clearBuffer)
-{
+void UART3_buff_flush(struct UART3_ring_buff* _this, const int clearBuffer) {
     _this->count = 0;
     _this->head = 0;
     _this->tail = 0;
-    if (clearBuffer)
-    {
+    if (clearBuffer) {
         memset(_this->buf, 0, sizeof (_this->buf));
     }
 }
 
-int UART3_buff_size(struct UART3_ring_buff* _this)
-{
+int UART3_buff_size(struct UART3_ring_buff* _this) {
     return (_this->count);
 }
 
-unsigned int UART3_buff_modulo_inc(const unsigned int value, const unsigned int modulus)
-{
+unsigned int UART3_buff_modulo_inc(const unsigned int value, const unsigned int modulus) {
     unsigned int my_value = value + 1;
-    if (my_value >= modulus)
-    {
+    if (my_value >= modulus) {
         my_value = 0;
     }
     return (my_value);
 }
 
-unsigned char UART3_buff_peek(struct UART3_ring_buff* _this)
-{
+unsigned char UART3_buff_peek(struct UART3_ring_buff* _this) {
     return _this->buf[_this->tail];
 }
 
-unsigned char Receive_peek3(void)
-{
+unsigned char Receive_peek3(void) {
     return UART3_buff_peek(&input_buffer3);
 }
 
-int Receive_available3(void)
-{
+int Receive_available3(void) {
     return UART3_buff_size(&input_buffer3);
 }
 
-unsigned char Receive_get3(void)
-{
+unsigned char Receive_get3(void) {
     return UART3_buff_get(&input_buffer3);
 }
 
-void Send_put3(unsigned char _data)
-{
+void Send_put3(unsigned char _data) {
     UART3_buff_put(&output_buffer3, _data);
-    if(Transmit_stall3 == true)
-    {
+    if (Transmit_stall3 == true) {
         Transmit_stall3 = false;
         U4TXREG = UART3_buff_get(&output_buffer3);
     }
 }
 
-void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void)
-{
+void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void) {
     unsigned char data = U4RXREG;
     UART3_buff_put(&input_buffer3, data);
     IFS5bits.U4RXIF = 0; // Clear RX interrupt flag
 }
 
-void __attribute__((interrupt, no_auto_psv)) _U4TXInterrupt(void)
-{
+void __attribute__((interrupt, no_auto_psv)) _U4TXInterrupt(void) {
     //LED ^= 1;
-    if (UART3_buff_size(&output_buffer3) > 0)
-    {
+    if (UART3_buff_size(&output_buffer3) > 0) {
         U4TXREG = UART3_buff_get(&output_buffer3);
-    }
-    else
-    {
+    } else {
         Transmit_stall3 = true;
     }
     IFS5bits.U4TXIF = 0; // Clear TX interrupt flag

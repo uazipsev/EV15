@@ -8,6 +8,7 @@
 #ifndef HORN_H
 #define	HORN_H
 
+extern void Delay(int ms);
 void RTD(int lenth);
 
 #endif	/* HORN_H */

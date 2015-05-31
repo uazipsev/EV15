@@ -1,9 +1,23 @@
+/*
+ * File:   Communications.h
+ * Author: Zac Kilburn
+ *
+ * Created on May 31, 2015
+ *
+ * Handles all of the communications system updates and error checking
+ * -- Each board has a turn being communicated with
+ *      --If the board doesnt respond, several attemps will be made to retry
+ *      --At the end of the communications train there is room to send an error code
+ *      --Rs485 direction is automated with packet sends.
+ *      --All timers are inside T1 interrupt.. implied approx milliseconds
+ */
+
+
 #include <xc.h>
 #include <stdbool.h>
 #include "PinDef.h"
 #include "ADDRESSING.h"
 #include "Communications.h"
-
 
 void resetCommTimers() {
     SASTimer = 0;
@@ -56,7 +70,10 @@ void updateComms() {
             INDICATOR = 1;
             sendErrorCode();
             commsState = SAS_UPDATE;
-            
+
+            break;
+        case NUM_STATES:
+            commsState=ERROR_STATE;
             break;
 
     }

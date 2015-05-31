@@ -1,8 +1,10 @@
 /* 
  * File:   UART1.h
- * Author: User
+ * Author: Igor
+ *  Application Expansion: Zac Kilburn
  *
- * Created on May 29, 2015, 4:49 PM
+ * Created on March 23, 2015, 11:15 AM
+ * Edited on May 31, 2015
  */
 
 #ifndef UART1_H

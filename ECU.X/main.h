@@ -1,6 +1,6 @@
 /* 
  * File:   main.h
- * Author: User
+ * Author: Zac Kilburn
  *
  * Created on May 28, 2015, 10:47 PM
  */
@@ -12,12 +12,19 @@
 extern "C" {
 #endif
 
-extern void updateComms();
+    extern volatile unsigned int time;
 
-extern void Delay(int ms);
-extern void Setup(void);
+    void ledDebug() {
+        if (time > 1000) {
+            INDICATOR ^= 1;
+            time = 0;
+        }
+    }
 
-extern volatile unsigned int time;
+    extern void updateComms();
+    extern void Delay(int ms);
+    extern void Setup(void);
+
 
 #ifdef	__cplusplus
 }

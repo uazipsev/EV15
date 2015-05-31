@@ -1,6 +1,6 @@
 /* 
  * File:   ADDRESSING.h
- * Author: User
+ * Author: Zac Kilburn
  *
  * Created on May 27, 2015, 5:35 PM
  */
@@ -20,7 +20,7 @@ extern "C" {
 #define MCS_ADDRESS 4
 #define PDU_ADDRESS 5
 
-//Send Data
+    //Send Data
 #define RESPONSE_ADDRESS 0
 #define THROTTLE1   1
 #define THROTTLE2   2

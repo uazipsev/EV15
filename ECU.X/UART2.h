@@ -1,8 +1,10 @@
 /* 
  * File:   UART2.h
- * Author: User
+ * Author: Igor
+ *  Application Expansion: Zac Kilburn
  *
- * Created on May 31, 2015, 1:53 PM
+ * Created on March 23, 2015, 11:15 AM
+ * Edited on May 31, 2015
  */
 
 #ifndef UART2_H

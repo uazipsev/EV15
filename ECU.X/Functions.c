@@ -1,3 +1,9 @@
+/*
+ * File:   Functions.c
+ * Author: Zac Kilburn
+ *
+ * Created on May 31, 2015
+ */
 #include "xc.h"
 #include "pps.h"
 #include "PinDef.h"

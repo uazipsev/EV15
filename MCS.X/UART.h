@@ -1,8 +1,10 @@
 /* 
- * File:   UART_handler.h
+ * File:   UART.h
  * Author: Igor
+ *  Application Expansion: Zac Kilburn
  *
  * Created on March 23, 2015, 11:15 AM
+ * Edited on May 31, 2015
  */
 
 #ifndef UART_HANDLER_H

@@ -3,15 +3,12 @@
 #include "PinDef.h"
 #include <xc.h>
 
-extern void Delay(int ms);
-void RTD(int lenth)
-{
+void RTD(int lenth) {
     //Start horn
-    HORN_EN = 1;   // Starting Horn
+    HORN_EN = 1; // Starting Horn
     PWMupdate(80);
     int x = 0;
-    for(;x<lenth;x++)
-    {
+    for (; x < lenth; x++) {
         PERupdate(0x04F0);
         Delay(1);
         //PERupdate(0x04E9);
