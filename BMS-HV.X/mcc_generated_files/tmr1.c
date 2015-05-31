@@ -3,6 +3,8 @@
 #include "tmr1.h"
 #include "pin_manager.h"
 #include "../Global.h"
+#include "../Battery.h"
+#include "../Tempeture.h"
 
 /**
   Section: Global Variable Definitions

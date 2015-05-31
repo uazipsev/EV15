@@ -8414,7 +8414,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 54: (INTCONbits.PEIE = 1);
 "54
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;Main.c: 63: printf("Hi Mother Fucker");
+[; ;Main.c: 63: printf("Hi Rick");
 "63
 [e ( _printf :s 1C ]
 [; ;Main.c: 64: while (1)
@@ -8517,5 +8517,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :UE 1183 ]
 }
 [p f _printf 8462468 ]
-[a 1C 72 105 32 77 111 116 104 101 114 32 70 117 99 107 101 114 0 ]
+[a 1C 72 105 32 82 105 99 107 0 ]
 [a 2C 66 97 116 116 101 114 121 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]

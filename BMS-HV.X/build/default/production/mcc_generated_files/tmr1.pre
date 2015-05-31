@@ -10510,10 +10510,24 @@ extern int Volt_Done;
 extern int Temp_Done;
 extern int CountCallBack;
 
-# 10 "mcc_generated_files/tmr1.c"
+# 11 "mcc_generated_files/../Battery.h"
+extern char Battery_Fault();
+extern void Battery_Read();
+extern void Battery_Filter();
+extern void Battery_Convert();
+extern float Battery_Get(int channelnum);
+
+# 13 "mcc_generated_files/../Tempeture.h"
+extern char Temp_Fault();
+extern void Temp_Read(void);
+extern void Temp_Filter();
+extern void Temp_Convert();
+extern float Tempeture_Get(int channelnum);
+
+# 12 "mcc_generated_files/tmr1.c"
 volatile uint16_t timer1ReloadVal;
 
-# 16
+# 18
 void TMR1_Initialize(void)
 {
 

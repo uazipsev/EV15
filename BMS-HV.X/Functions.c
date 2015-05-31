@@ -6,7 +6,12 @@
 #include <xc.h>
 
 
-
+/*******************************************************************
+ * @brief           Controls 74 series 4051 Analog mux
+ * @param[in]       Channel - what NTC channel to read
+ * @return          nothing
+ * @note            Like to make this fcn better
+ *******************************************************************/
 void Set_4051(int Channel)
 {
     if (Channel & 0x01)
@@ -23,6 +28,12 @@ void Set_4051(int Channel)
     }
 }
 
+/*******************************************************************
+ * @brief           Delay control
+ * @param[in]       d_lenth - how long to wait in 1 ms intervals
+ * @return          nothing
+ * @note            used because of xc.h fcn limitations
+ *******************************************************************/
 void Delay(long int d_lenth)
 {
     long int wait = 0;

@@ -10747,7 +10747,7 @@ SYSTEM_Initialize();
 (INTCONbits.PEIE = 1);
 
 # 63
-printf("Hi Mother Fucker");
+printf("Hi Rick");
 while (1)
 {
 if (Temp_Done)

@@ -10707,7 +10707,7 @@ void SYSTEM_Initialize(void);
 # 84
 void OSCILLATOR_Initialize(void);
 
-# 10 "Functions.c"
+# 15 "Functions.c"
 void Set_4051(int Channel)
 {
 if (Channel & 0x01)
@@ -10724,6 +10724,7 @@ do { LATC1 = ~LATC1; } while(0);
 }
 }
 
+# 37
 void Delay(long int d_lenth)
 {
 long int wait = 0;

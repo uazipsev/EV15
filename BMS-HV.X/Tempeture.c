@@ -9,6 +9,10 @@ float Temp_DegF[10] = 0;
 float TmpTemp_DegF[10] = 0;
 float PrevTemp_DegF[10] = 0;
 
+/*******************************************************************
+ * @brief           reads in temp and checks over temp condition
+ * @return          over temp fault condition
+ *******************************************************************/
 char Temp_Fault()
 {
     // Init fault as if there is none
@@ -24,6 +28,11 @@ char Temp_Fault()
     return fault;
 }
 
+
+/*******************************************************************
+ * @brief           Strts ADC temp read in ISR
+ * @return          nothing
+ *******************************************************************/
 void Temp_Read()
 {
   //Set the ADC interupt to start to fill in the Battery ADC Buffer
@@ -33,6 +42,10 @@ void Temp_Read()
   ADC_StartConversion(Temp1);
 }
 
+/*******************************************************************
+ * @brief           filters data to give clean values
+ * @return          nothing
+ *******************************************************************/
 void Temp_Filter()
 {
    // This is a exponential moving average.
@@ -47,6 +60,11 @@ void Temp_Filter()
    }
 }
 
+/*******************************************************************
+ * @brief           steinhart NTC ADC to temp in F
+ * @return          nothing
+ * @note            may want to optimize this 
+ *******************************************************************/
 void Temp_Convert()
 {
    int x;
@@ -65,6 +83,11 @@ void Temp_Convert()
    Temp_Filter();
 }
 
+/*******************************************************************
+ * @brief           getter for temps
+ * @param[in]       channelnum - What of 10 inputs to read
+ * @return          temp value in F
+ *******************************************************************/
 float Tempeture_Get(int channelnum)
 {
    return  Temp_DegF[channelnum];

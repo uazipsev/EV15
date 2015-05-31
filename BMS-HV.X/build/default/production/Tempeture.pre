@@ -10548,6 +10548,7 @@ float Temp_DegF[10] = 0;
 float TmpTemp_DegF[10] = 0;
 float PrevTemp_DegF[10] = 0;
 
+# 16
 char Temp_Fault()
 {
 
@@ -10563,6 +10564,7 @@ fault = 1;
 return fault;
 }
 
+# 36
 void Temp_Read()
 {
 
@@ -10572,6 +10574,7 @@ ADCON1 = 0x80;
 ADC_StartConversion(Temp1);
 }
 
+# 49
 void Temp_Filter()
 {
 
@@ -10586,6 +10589,7 @@ PrevTemp_DegF[x] = Temp_DegF[x];
 }
 }
 
+# 68
 void Temp_Convert()
 {
 int x;
@@ -10604,6 +10608,7 @@ TmpTemp_DegF[x] = steinhart;
 Temp_Filter();
 }
 
+# 91
 float Tempeture_Get(int channelnum)
 {
 return Temp_DegF[channelnum];

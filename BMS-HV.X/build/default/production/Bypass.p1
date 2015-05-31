@@ -8654,82 +8654,82 @@ Version 3.2 HI-TECH Software Intermediate Code
 "122
 [e :UE 1178 ]
 }
-"131
+"129
 [v _RunBypas `(i ~T0 @X0 1 ef ]
-"132
+"130
 {
-[; ;Bypass.c: 131: int RunBypas()
-[; ;Bypass.c: 132: {
+[; ;Bypass.c: 129: int RunBypas()
+[; ;Bypass.c: 130: {
 [e :U _RunBypas ]
 [f ]
-"133
+"131
 [v _cellbyp `i ~T0 @X0 1 a ]
-[; ;Bypass.c: 133: int cellbyp = 0;
+[; ;Bypass.c: 131: int cellbyp = 0;
 [e = _cellbyp -> 0 `i ]
-"134
+"132
 [v _i `i ~T0 @X0 1 a ]
-[; ;Bypass.c: 134: int i = 0;
+[; ;Bypass.c: 132: int i = 0;
 [e = _i -> 0 `i ]
-"135
+"133
 [v _batvolt `f ~T0 @X0 1 a ]
-[; ;Bypass.c: 135: float batvolt = 0;
+[; ;Bypass.c: 133: float batvolt = 0;
 [e = _batvolt -> -> 0 `i `f ]
-[; ;Bypass.c: 137: for(i = 0; i<9;i++)
-"137
+[; ;Bypass.c: 135: for(i = 0; i<9;i++)
+"135
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 9 `i 1272  ]
 [e $U 1273  ]
-"138
+"136
 [e :U 1272 ]
-[; ;Bypass.c: 138: {
+[; ;Bypass.c: 136: {
 {
-[; ;Bypass.c: 139: batvolt = Battery_Get(i);
-"139
+[; ;Bypass.c: 137: batvolt = Battery_Get(i);
+"137
 [e = _batvolt ( _Battery_Get (1 _i ]
-[; ;Bypass.c: 141: if(batvolt >= 4.18)
-"141
+[; ;Bypass.c: 139: if(batvolt >= 4.18)
+"139
 [e $ ! >= -> _batvolt `d .4.18 1275  ]
-[; ;Bypass.c: 142: {
-"142
+[; ;Bypass.c: 140: {
+"140
 {
-[; ;Bypass.c: 143: SetBypass(i,1);
-"143
+[; ;Bypass.c: 141: SetBypass(i,1);
+"141
 [e ( _SetBypass (2 , _i -> 1 `i ]
-[; ;Bypass.c: 144: cellbyp = 1;
-"144
+[; ;Bypass.c: 142: cellbyp = 1;
+"142
 [e = _cellbyp -> 1 `i ]
-"145
+"143
 }
 [e :U 1275 ]
-[; ;Bypass.c: 145: }
-[; ;Bypass.c: 146: if(batvolt <= 4.15)
-"146
+[; ;Bypass.c: 143: }
+[; ;Bypass.c: 144: if(batvolt <= 4.15)
+"144
 [e $ ! <= -> _batvolt `d .4.15 1276  ]
-[; ;Bypass.c: 147: {
-"147
+[; ;Bypass.c: 145: {
+"145
 {
-[; ;Bypass.c: 148: SetBypass(i,0);
-"148
+[; ;Bypass.c: 146: SetBypass(i,0);
+"146
 [e ( _SetBypass (2 , _i -> 0 `i ]
-"149
+"147
 }
 [e :U 1276 ]
-"150
+"148
 }
-"137
+"135
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 9 `i 1272  ]
 [e :U 1273 ]
-"150
+"148
 }
-[; ;Bypass.c: 149: }
-[; ;Bypass.c: 150: }
-[; ;Bypass.c: 151: return cellbyp;
-"151
+[; ;Bypass.c: 147: }
+[; ;Bypass.c: 148: }
+[; ;Bypass.c: 149: return cellbyp;
+"149
 [e ) _cellbyp ]
 [e $UE 1271  ]
-[; ;Bypass.c: 152: }
-"152
+[; ;Bypass.c: 150: }
+"150
 [e :UE 1271 ]
 }

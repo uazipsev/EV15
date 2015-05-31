@@ -39,7 +39,7 @@ Battery6 26
 Battery7 27
 Battery4 5
 ]
-"33 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"42 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
 [e E8845 . `uc
 channel_CTMU 29
 channel_DAC 30
@@ -58,7 +58,7 @@ Battery7 27
 Battery4 5
 ]
 "18 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
-[v _Battery_Read Battery_Read `(i  1 e 2 0 ]
+[v _Battery_Read Battery_Read `(v  1 e 0 0 ]
 "34
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
 "51
@@ -69,7 +69,7 @@ Battery4 5
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
 "18 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
 [v _SetBypass SetBypass `(i  1 e 2 0 ]
-"131
+"129
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
@@ -215,9 +215,9 @@ Battery4 5
 [v ___asftsub __asftsub `(f  1 e 3 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\aslmul.c
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
-"10 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+"15 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
 [v _Set_4051 Set_4051 `(v  1 e 0 0 ]
-"26
+"37
 [v _Delay Delay `(v  1 e 0 0 ]
 "30 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
@@ -257,35 +257,35 @@ Battery4 5
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 "6 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"16 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"18 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 0 0 ]
-"45
+"47
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 0 0 ]
-"51
+"53
 [v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 0 0 ]
-"57
+"59
 [v _TMR1_ReadTimer TMR1_ReadTimer `(ui  1 e 2 0 ]
-"71
+"73
 [v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 0 0 ]
-"93
+"95
 [v _TMR1_Reload TMR1_Reload `(v  1 e 0 0 ]
-"100
+"102
 [v _TMR1_StartSinglePulseAcquisition TMR1_StartSinglePulseAcquisition `(v  1 e 0 0 ]
-"105
+"107
 [v _TMR1_CheckGateValueStatus TMR1_CheckGateValueStatus `(uc  1 e 1 0 ]
-"110
+"112
 [v _TMR1_ISR TMR1_ISR `(v  1 e 0 0 ]
-"143
+"145
 [v _TMR1_CallBack TMR1_CallBack `(v  1 e 0 0 ]
-"12 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"16 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Fault Temp_Fault `(uc  1 e 1 0 ]
-"27
-[v _Temp_Read Temp_Read `(i  1 e 2 0 ]
 "36
+[v _Temp_Read Temp_Read `(v  1 e 0 0 ]
+"49
 [v _Temp_Filter Temp_Filter `(v  1 e 0 0 ]
-"50
-[v _Temp_Convert Temp_Convert `(v  1 e 0 0 ]
 "68
+[v _Temp_Convert Temp_Convert `(v  1 e 0 0 ]
+"91
 [v _Tempeture_Get Tempeture_Get `(f  1 e 3 0 ]
 "7 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
 [v _Battery_Volt Battery_Volt `[10]f  1 e 30 0 ]
@@ -643,7 +643,7 @@ Battery4 5
 [v _eusart1RxBuffer eusart1RxBuffer `[50]uc  1 s 50 eusart1RxBuffer ]
 "70
 [v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
-"10 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"12 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
 "8 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_DegF Temp_DegF `[10]f  1 e 30 0 ]
@@ -823,23 +823,23 @@ Battery4 5
 [v ___ftneg@f1 f1 `f  1 p 3 26 ]
 "20
 } 0
-"12 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"16 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Fault Temp_Fault `(uc  1 e 1 0 ]
 {
-"16
+"20
 [v Temp_Fault@i i `i  1 a 2 10 ]
-"15
+"19
 [v Temp_Fault@fault fault `uc  1 a 1 9 ]
-"25
+"29
 } 0
-"50
+"68
 [v _Temp_Convert Temp_Convert `(v  1 e 0 0 ]
 {
-"53
+"71
 [v Temp_Convert@steinhart steinhart `f  1 a 3 74 ]
-"52
+"70
 [v Temp_Convert@x x `i  1 a 2 72 ]
-"66
+"84
 } 0
 "5 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\log.c
 [v _log log `(d  1 e 3 0 ]
@@ -899,27 +899,27 @@ Battery4 5
 [v ___awdiv@divisor divisor `i  1 p 2 34 ]
 "42
 } 0
-"36 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"49 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Filter Temp_Filter `(v  1 e 0 0 ]
 {
-"39
+"52
 [v Temp_Filter@x x `i  1 a 2 49 ]
-"48
+"61
 } 0
 "112 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 {
 "120
 } 0
-"16 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"18 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 0 0 ]
 {
-"43
-} 0
 "45
+} 0
+"47
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 0 0 ]
 {
-"49
+"51
 } 0
 "6 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
@@ -946,16 +946,16 @@ Battery4 5
 {
 "34
 } 0
-"131 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
+"129 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
 {
-"135
-[v RunBypas@batvolt batvolt `f  1 a 3 11 ]
-"134
-[v RunBypas@i i `i  1 a 2 14 ]
 "133
+[v RunBypas@batvolt batvolt `f  1 a 3 11 ]
+"132
+[v RunBypas@i i `i  1 a 2 14 ]
+"131
 [v RunBypas@cellbyp cellbyp `i  1 a 2 9 ]
-"152
+"150
 } 0
 "18
 [v _SetBypass SetBypass `(i  1 e 2 0 ]
@@ -1073,18 +1073,18 @@ Battery4 5
 {
 "92
 } 0
-"110 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"112 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _TMR1_ISR TMR1_ISR `(v  1 e 0 0 ]
 {
-"141
+"143
 } 0
-"27 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
-[v _Temp_Read Temp_Read `(i  1 e 2 0 ]
+"36 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+[v _Temp_Read Temp_Read `(v  1 e 0 0 ]
 {
-"34
+"43
 } 0
 "18 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
-[v _Battery_Read Battery_Read `(i  1 e 2 0 ]
+[v _Battery_Read Battery_Read `(v  1 e 0 0 ]
 {
 "25
 } 0
@@ -1105,11 +1105,11 @@ Battery4 5
 [v ADC_ISR@ADC_Result ADC_Result `i  1 a 2 10 ]
 "201
 } 0
-"10 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+"15 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
 [v _Set_4051 Set_4051 `(v  1 e 0 0 ]
 {
 [v Set_4051@Channel Channel `i  1 p 2 0 ]
-"24
+"29
 } 0
 "36 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_StartConversion ADC_StartConversion `(v  1 e 0 0 ]

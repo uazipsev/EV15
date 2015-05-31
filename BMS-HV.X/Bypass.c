@@ -13,7 +13,7 @@
  * @param[in]       pin - what battery to control the bypass on
  * @param[in]       state - turn bypass on or off
  * @return          nothing
- * @note            Like to make this fcm better
+ * @note            Like to make this fcn better
  *******************************************************************/
 int SetBypass(int pin, int state)
 {
@@ -123,8 +123,6 @@ int SetBypass(int pin, int state)
 
 /*******************************************************************
  * @brief           Controls Bypass
- * @param[in]       pin - what battery to control the bypass on
- * @param[in]       state - turn bypass on or off
  * @return          did we need a bypass? returns 1 if yes 0 if no
  * @note            works well with diffrent size systems
  *******************************************************************/

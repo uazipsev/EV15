@@ -60,7 +60,7 @@ int main(int argc, char** argv) {
     //INTERRUPT_PeripheralInterruptDisable();
     //int ADCNT = 0;
     //INDICATOR_SetHigh();
-    printf("Hi Mother Fucker");
+    printf("Hi Rick");
     while (1)
     {
         if (Temp_Done)  //<! This alerts the user that we are done gathering data (Temp)
