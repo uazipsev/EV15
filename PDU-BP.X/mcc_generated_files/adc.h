@@ -88,9 +88,9 @@ typedef enum
     channel_CTMU =  0x1D,
     channel_DAC =  0x1E,
     channel_FVRBuf2 =  0x1F,
-    A1 =  0x10,
-    A3 =  0x16,
-    A2 =  0x17
+    U5Multisense =  0x10,
+    U8Multisense =  0x16,
+    U10Multisense =  0x17
 } adc_channel_t;
 
 /**

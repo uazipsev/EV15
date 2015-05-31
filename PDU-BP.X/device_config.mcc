@@ -6,18 +6,18 @@
             <setting name="sorting" option="true"/>
             <resource customName="LED1" digital="true" direction="OUTPUT" function="RA3" module="GPIO" name="RA3" start="false" type="pin" wpu="false"/>
             <resource customName="CLEAR" digital="true" direction="OUTPUT" function="RB0" module="GPIO" name="RB0" start="true" type="pin" wpu="false"/>
-            <resource customName="channel_AN16" digital="false" direction="INPUT" function="AN16" module="ADC" name="RC4" start="false" type="pin" wpu="false"/>
+            <resource customName="U5Multisense" digital="false" direction="INPUT" function="AN16" module="ADC" name="RC4" start="false" type="pin" wpu="false"/>
             <resource customName="FLOW_CNTL" digital="true" direction="OUTPUT" function="RC5" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
             <resource customName="TX1" digital="true" direction="INPUT" function="TX1" module="EUSART1" name="RC6" start="false" type="pin" wpu="false"/>
             <resource customName="RX1" digital="true" direction="INPUT" function="RX1" module="EUSART1" name="RC7" start="false" type="pin" wpu="false"/>
-            <resource customName="channel_AN22" digital="false" direction="INPUT" function="AN22" module="ADC" name="RD2" start="false" type="pin" wpu="false"/>
-            <resource customName="channel_AN23" digital="false" direction="INPUT" function="AN23" module="ADC" name="RD3" start="false" type="pin" wpu="false"/>
+            <resource customName="U8Multisense" digital="false" direction="INPUT" function="AN22" module="ADC" name="RD2" start="false" type="pin" wpu="false"/>
+            <resource customName="U10Multisense" digital="false" direction="INPUT" function="AN23" module="ADC" name="RD3" start="false" type="pin" wpu="false"/>
             <resource customName="DATA_OUT" digital="true" direction="OUTPUT" function="RD4" module="GPIO" name="RD4" start="false" type="pin" wpu="false"/>
             <resource customName="OUTEN" digital="true" direction="OUTPUT" function="RD5" module="GPIO" name="RD5" start="false" type="pin" wpu="false"/>
             <resource customName="LAT" digital="true" direction="OUTPUT" function="RD6" module="GPIO" name="RD6" start="false" type="pin" wpu="false"/>
             <resource customName="CLK" digital="true" direction="OUTPUT" function="RD7" module="GPIO" name="RD7" start="false" type="pin" wpu="false"/>
             <file checksum="210280332" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="4049463217" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="3870490264" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
@@ -143,7 +143,7 @@
             </initializer>
             <setting name="ADI" option="true"/>
             <file checksum="489613562" modified="false" name="adc.c" path="mcc_generated_files/adc.c"/>
-            <file checksum="1522181575" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
+            <file checksum="973583030" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
         </module>
         <module generated="true" mode="GPIO" name="GPIO" order="2" reloadPin="manual" type="GPIO">
             <resource customName="OUTEN" digital="true" direction="OUTPUT" function="RD5" module="GPIO" name="RD5" start="false" type="pin" wpu="false"/>

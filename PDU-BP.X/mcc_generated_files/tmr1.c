@@ -55,6 +55,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
   Section: Global Variable Definitions
 */
 volatile uint16_t timer1ReloadVal;
+int readwhat = 0;
 
 /**
   Section: TMR1 APIs
@@ -164,7 +165,15 @@ void TMR1_ISR(void)
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = (uint8_t) timer1ReloadVal;
 
-    // Add your TMR1 interrupt custom code
+    if(readwhat == 1)
+    {
+        readwhat = 0;
+    }
+    else
+    {
+        readwhat = 1;
+    }
+    ReadCurrent(readwhat);
 }
 
 
