@@ -6,6 +6,7 @@
 #include "main.h"
 #include "ADDRESSING.h"
 
+void checkCommDirection();
 int main(void) {
     Setup();
     LED = 0;
@@ -14,18 +15,12 @@ int main(void) {
         ledDebug();
         //Comms handling
         if (receiveData()) {
+            //if(receiveArray[RESPONSE_ADDRESS]==ECU_ADDRESS){
             Delay(5);
             prepAndSendData();
+            //}
         }
-        //you are sending data, make sure tunnel is open
-        if (!Transmit_stall) {
-            talkTime = 0;
-            RS485_1_Port = TALK;
-        }
-        //you have finished send and time has elapsed.. start listen
-        if (Transmit_stall && (talkTime > 2)) {
-            RS485_1_Port = LISTEN;
-        }
+        checkCommDirection();
     }
 }
 
@@ -35,9 +30,22 @@ void ledDebug() {
         LEDtime = 0;
     }
 }
+void checkCommDirection() {
+    //you are sending data, make sure tunnel is open
+        if (!Transmit_stall) {
+            talkTime = 0;
+            RS485_1_Port = TALK;
+        }
+        //you have finished send and time has elapsed.. start listen
+        if (Transmit_stall && (talkTime > 2)) {
+            RS485_1_Port = LISTEN;
+        }
 
+
+}
 void prepAndSendData() {
     static int sender;
+    ToSend(RESPONSE_ADDRESS, SAS_ADDRESS);
     ToSend(THROTTLE1, sender++);
     ToSend(THROTTLE2, sender++);
     ToSend(BRAKE, sender++);

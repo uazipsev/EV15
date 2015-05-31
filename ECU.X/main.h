@@ -12,13 +12,12 @@
 extern "C" {
 #endif
 
-void requestSASData();
-extern void sendData(unsigned char whereToSend);
-extern bool receiveData();
-extern void ToSend(const unsigned char where, const unsigned int what);
+extern void updateComms();
+
 extern void Delay(int ms);
 extern void Setup(void);
 
+extern volatile unsigned int time;
 
 #ifdef	__cplusplus
 }

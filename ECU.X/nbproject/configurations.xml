@@ -13,6 +13,13 @@
       <itemPath>main.h</itemPath>
       <itemPath>Functions.h</itemPath>
       <itemPath>UART1.h</itemPath>
+      <itemPath>UART2.h</itemPath>
+      <itemPath>UART3.h</itemPath>
+      <itemPath>FastTransfer1.h</itemPath>
+      <itemPath>FastTransfer2.h</itemPath>
+      <itemPath>FastTransfer3.h</itemPath>
+      <itemPath>Timers.h</itemPath>
+      <itemPath>Communications.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -29,6 +36,13 @@
       <itemPath>FastTransfer.c</itemPath>
       <itemPath>Functions.c</itemPath>
       <itemPath>UART1.c</itemPath>
+      <itemPath>UART2.c</itemPath>
+      <itemPath>UART3.c</itemPath>
+      <itemPath>FastTransfer1.c</itemPath>
+      <itemPath>FastTransfer2.c</itemPath>
+      <itemPath>FastTransfer3.c</itemPath>
+      <itemPath>Timers.c</itemPath>
+      <itemPath>Communications.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -46,7 +60,7 @@
         <targetPluginBoard></targetPluginBoard>
         <platformTool>PICkit3PlatformTool</platformTool>
         <languageToolchain>XC16</languageToolchain>
-        <languageToolchainVersion>1.23</languageToolchainVersion>
+        <languageToolchainVersion>1.24</languageToolchainVersion>
         <platform>3</platform>
       </toolsSet>
       <compileType>
@@ -239,7 +253,6 @@
         <property key="UART 2" value="true"/>
         <property key="UART 3" value="true"/>
         <property key="UART 4" value="true"/>
-        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

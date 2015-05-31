@@ -14,44 +14,29 @@
 #include "ADDRESSING.h"
 #include "main.h"
 
+
+void ledDebug();
+
 /*
  * 
  */
 int main(int argc, char** argv) {
     Setup();
-    Delay(50);
-    requestSASData();
+    Delay(500);
     while (1) {
-        if (receiveData()) {
-            Delay(50);
-            requestSASData();
-            BRAKELT ^= 1;
-        } else {
-            static int counter = 0;
-            counter++;
-            if (counter > 100) {
-                requestSASData();
-                counter = 0;
-            }
-        }
-        Delay(1);
-        //INDICATOR ^= 1;
-        //Delay(5);
-        //       BRAKELT = 1;
-        //       Delay(1000);
-        //       INDICATOR = 0;
-        //       BRAKELT = 0;
-        //       RTD(100);
+        ledDebug();
+        updateComms();
+       
     }
 
     return (EXIT_SUCCESS);
 }
 
-void requestSASData() {
-    RS485_1_Direction = TALK;
-    Delay(1);
-    ToSend(0, 0);
-    sendData(SAS_ADDRESS);
-    Delay(2);
-    RS485_1_Direction = LISTEN;
+void ledDebug() {
+
+    if (time > 1000) {
+        INDICATOR ^= 1;
+        time = 0;
+    }
+
 }

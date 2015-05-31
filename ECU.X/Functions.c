@@ -20,22 +20,38 @@ void Setup(void) {
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
     PPSUnLock;
-    RX2_Pin_Map = 43;
-    RX1_Pin_Map = 48;
+    //RX0/TX0  -- RS485-1 (U3)
+    Pin_42_Output = TX1_Output;
+    RX1_Pin_Map = 43;
+    
+    //RX1/TX1  -- RS485-2 (U1) 
+    Pin_49_Output = TX2_Output;
+    RX2_Pin_Map = 48;
+    
+    //RX/TX  --RELAY becomes RX3/TX3 (USB) -> RX4/TX4 (WIRELESS)
+    Pin_55_Output = TX3_Output;
     RX3_Pin_Map = 56;
+
+    //RX2/TX2 -- RS485 Full Duplex
+    Pin_70_Output = TX4_Output;
     RX4_Pin_Map = 57;
 
-    Pin_42_Output = TX2_Output;
-    Pin_49_Output = TX1_Output;
-    Pin_55_Output = TX3_Output;
-    Pin_70_Output = TX4_Output;
 
     PPSout(_OC1, _RP37);
     PPSLock;
-    UART_init();
-    begin(receiveArray, sizeof (receiveArray), ECU_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
 
-    PWM_Init();
+    UART_init();
+    UART1_init();
+    UART2_init();
+    UART3_init();
+
+    begin(receiveArray, sizeof (receiveArray), ECU_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+    begin1(receiveArray1, sizeof (receiveArray1), ECU_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
+    begin2(receiveArray2, sizeof (receiveArray2), ECU_ADDRESS, false, Send_put2, Receive_get2, Receive_available2, Receive_peek2);
+    begin3(receiveArray3, sizeof (receiveArray3), ECU_ADDRESS, false, Send_put3, Receive_get3, Receive_available3, Receive_peek3);
+
+    //PWM_Init();
+    initTimerOne();
 }
 
 void Delay(int wait) {

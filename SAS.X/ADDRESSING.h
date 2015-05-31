@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   ADDRESSING.h
  * Author: User
  *
@@ -16,7 +16,11 @@ extern "C" {
 
 #define ECU_ADDRESS 1
 #define SAS_ADDRESS 2
+#define DDS_ADDRESS 3
+#define MCS_ADDRESS 4
+#define PDU_ADDRESS 5
 //Send Data
+#define RESPONSE_ADDRESS 0
 #define THROTTLE1   1
 #define THROTTLE2   2
 #define BRAKE       3

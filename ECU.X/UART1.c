@@ -48,13 +48,13 @@ void UART1_buff_put(struct UART1_ring_buff* _this, const unsigned char c)
     if (_this->count < UART_BUFFER_SIZE)
     {
         _this->buf[_this->head] = c;
-        _this->head = UART_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
+        _this->head = UART1_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
         ++_this->count;
     } else
     {
         _this->buf[_this->head] = c;
-        _this->head = UART_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
-        _this->tail = UART_buff_modulo_inc(_this->tail, UART_BUFFER_SIZE);
+        _this->head = UART1_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
+        _this->tail = UART1_buff_modulo_inc(_this->tail, UART_BUFFER_SIZE);
 
     }
 }
