@@ -4,24 +4,13 @@
 #include "ADDRESSING.h"
 #include "Communications.h"
 
-#define ERROR_STATE 9
-#define SAS_UPDATE 0
-#define DDS_UPDATE 1
-#define CHECK_STATE 2
 
-int commsState = SAS_UPDATE;
-
-bool readyToSendSAS = true;
-bool readyToSendDDS = true;
-
-bool SAS_COMMS_ERROR = false;
-bool DDS_COMMS_ERROR = false;
-bool MCS_COMMS_ERROR = false;
-
-void updateComms();
-void sendErrorCode();
-void RS485_Direction1(int T_L);
-void RS485_Direction2(int T_L);
+void resetCommTimers() {
+    SASTimer = 0;
+    DDSTimer = 0;
+    MCSTimer = 0;
+    PDUTimer = 0;
+}
 
 void updateComms() {
 
@@ -31,20 +20,28 @@ void updateComms() {
     switch (commsState) {
         case SAS_UPDATE:
             if (requestSASData()) {
-                if (receiveCommSAS()) commsState++;
+                if (receiveCommSAS()) {
+                    commsState++;
+                    resetCommTimers();
+                }
             } else {
                 //FLAG ERROR ON SAS COMMS -- Move on
                 SAS_COMMS_ERROR = true;
                 commsState++;
+                resetCommTimers();
             }
             break;
         case DDS_UPDATE:
             if (requestDDSData()) {
-                if (receiveCommDDS()) commsState++;
+                if (receiveCommDDS()) {
+                    commsState++;
+                    resetCommTimers();
+                }
             } else {
                 //FLAG ERROR ON DDS COMMS -- Move on
                 DDS_COMMS_ERROR = true;
                 commsState++;
+                resetCommTimers();
             }
             break;
         case CHECK_STATE:
@@ -59,6 +56,7 @@ void updateComms() {
             INDICATOR = 1;
             sendErrorCode();
             commsState = SAS_UPDATE;
+            
             break;
 
     }
@@ -122,10 +120,7 @@ bool receiveCommDDS() {
 
 bool requestDDSData() {
     if (((DDSTimer > 50) && (readyToSendDDS)) || (DDSTimer > 100)) {
-        RS485_Direction1(TALK);
 
-        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
-        sendData1(DDS_ADDRESS);
 
         if (!readyToSendDDS) {
             static int DDSErrorCounter = 0;
@@ -135,6 +130,10 @@ bool requestDDSData() {
                 return false;
             }
         } else readyToSendDDS = false;
+
+        RS485_Direction1(TALK);
+        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
+        sendData1(DDS_ADDRESS);
         DDSTimer = 0;
     }
     return true;
@@ -153,9 +152,7 @@ void requestPDUData() {
 
 bool requestSASData() {
     if (((SASTimer > 50) && (readyToSendSAS)) || (SASTimer > 100)) {
-        RS485_Direction1(TALK);
-        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
-        sendData1(SAS_ADDRESS);
+
 
         if (!readyToSendSAS) {
             static int SASErrorCounter = 0;
@@ -164,10 +161,13 @@ bool requestSASData() {
                 SASErrorCounter = 0;
                 return false;
             }
-
         } else readyToSendSAS = false;
         SASTimer = 0;
+        RS485_Direction1(TALK);
+        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
+        sendData1(SAS_ADDRESS);
     }
+
     return true;
 }
 

@@ -43,7 +43,26 @@ extern volatile int receiveArray3[20];
 extern bool Transmit_stall3;
 extern volatile unsigned int talkTime3;
 
-extern volatile unsigned int SASTimer, DDSTimer, MCSTimer, BootTimer;
+extern volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer,BootTimer;
+
+#define ERROR_STATE 9
+#define SAS_UPDATE 0
+#define DDS_UPDATE 1
+#define CHECK_STATE 2
+
+int commsState = SAS_UPDATE;
+
+bool readyToSendSAS = true;
+bool readyToSendDDS = true;
+
+bool SAS_COMMS_ERROR = false;
+bool DDS_COMMS_ERROR = false;
+bool MCS_COMMS_ERROR = false;
+
+void updateComms();
+void sendErrorCode();
+void RS485_Direction1(int T_L);
+void RS485_Direction2(int T_L);
 
 void checkCommDirection();
 void checkCommDirection1();

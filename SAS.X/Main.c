@@ -10,7 +10,7 @@ void checkCommDirection();
 int main(void) {
     Setup();
     LED = 0;
-    
+    Delay(500);
     while (1) {
         ledDebug();
         //Comms handling
@@ -37,7 +37,7 @@ void checkCommDirection() {
             RS485_1_Port = TALK;
         }
         //you have finished send and time has elapsed.. start listen
-        if (Transmit_stall && (talkTime > 2)) {
+        if (Transmit_stall && (talkTime > 3)) {
             RS485_1_Port = LISTEN;
         }
 

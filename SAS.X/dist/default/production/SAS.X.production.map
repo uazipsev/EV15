@@ -93,11 +93,11 @@ Program Memory  [Origin = 0x200, Length = 0x15600]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x2de           0x44d  (1101)
-.text                        0x4de               0xe2a          0x153f  (5439)
-.dinit                      0x1308                0x4e            0x75  (117)
-.init.delay32               0x1356                0x1c            0x2a  (42)
+.text                        0x4de               0xe2e          0x1545  (5445)
+.dinit                      0x130c                0x4e            0x75  (117)
+.init.delay32               0x135a                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x1a2b  (6699) 5%
+                     Total program memory used (bytes):         0x1a31  (6705) 5%
 
 
 Data Memory  [Origin = 0x800, Length = 0x4000]
@@ -267,17 +267,17 @@ External Symbols in Program Memory (by address):
                   0x001002                  __U2RXInterrupt
                   0x001028                  __U2TXInterrupt
                   0x001062                  _main
-                  0x00107c                  _ledDebug
-                  0x0010a8                  _checkCommDirection
-                  0x0010ce                  _prepAndSendData
-                  0x00119a                  _Setup
-                  0x001230                  _timerOne
-                  0x00124c                  _PinSetMode
-                  0x00125e                  _Delay
-                  0x00127c                  _initADC
-                  0x0012fc                  _GetADC
-                  0x001302                  _SetADC
-                  0x001356                  ___delay32
+                  0x001080                  _ledDebug
+                  0x0010ac                  _checkCommDirection
+                  0x0010d2                  _prepAndSendData
+                  0x00119e                  _Setup
+                  0x001234                  _timerOne
+                  0x001250                  _PinSetMode
+                  0x001262                  _Delay
+                  0x001280                  _initADC
+                  0x001300                  _GetADC
+                  0x001306                  _SetADC
+                  0x00135a                  ___delay32
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
@@ -288,13 +288,13 @@ External Symbols in Program Memory (by name):
                   0x00052a                  _CRC8
                   0x000a70                  _CRCError
                   0x000b92                  _CRCcheck
-                  0x00125e                  _Delay
+                  0x001262                  _Delay
                   0x0009de                  _FastTransfer_buffer_flush
                   0x0009a0                  _FastTransfer_buffer_get
                   0x000a0a                  _FastTransfer_buffer_modulo_inc
                   0x000910                  _FastTransfer_buffer_put
-                  0x0012fc                  _GetADC
-                  0x00124c                  _PinSetMode
+                  0x001300                  _GetADC
+                  0x001250                  _PinSetMode
                   0x000db0                  _Receive_available
                   0x000fbe                  _Receive_available1
                   0x000dbe                  _Receive_get
@@ -303,8 +303,8 @@ External Symbols in Program Memory (by name):
                   0x000fb0                  _Receive_peek1
                   0x000dcc                  _Send_put
                   0x000fda                  _Send_put1
-                  0x001302                  _SetADC
-                  0x00119a                  _Setup
+                  0x001306                  _SetADC
+                  0x00119e                  _Setup
                   0x0008fe                  _ToSend
                   0x000f46                  _UART1_buff_flush
                   0x000f08                  _UART1_buff_get
@@ -332,7 +332,7 @@ External Symbols in Program Memory (by name):
                   0x000e1a                  __U1TXInterrupt
                   0x001002                  __U2RXInterrupt
                   0x001028                  __U2TXInterrupt
-                  0x001356                  ___delay32
+                  0x00135a                  ___delay32
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
@@ -340,23 +340,23 @@ External Symbols in Program Memory (by name):
                   0x000a7a                  _addressError
                   0x000a66                  _alignError
                   0x0004de                  _begin
-                  0x0010a8                  _checkCommDirection
+                  0x0010ac                  _checkCommDirection
                   0x000b34                  _crcBufS_get
                   0x000a8e                  _crcBufS_put
                   0x000ae6                  _crcBufS_status_put
                   0x000a84                  _dataAddressError
                   0x00042e                  _free
-                  0x00127c                  _initADC
-                  0x00107c                  _ledDebug
+                  0x001280                  _initADC
+                  0x001080                  _ledDebug
                   0x001062                  _main
                   0x000312                  _malloc
                   0x0004c2                  _memcpy
                   0x0004d0                  _memset
-                  0x0010ce                  _prepAndSendData
+                  0x0010d2                  _prepAndSendData
                   0x000444                  _realloc
                   0x000602                  _receiveData
                   0x000592                  _sendData
-                  0x001230                  _timerOne
+                  0x001234                  _timerOne
 
 Memory Configuration
 
@@ -532,17 +532,17 @@ __FUID3
  .debug_abbrev    0x00071f          0x1 build/default/production/PedalFunctions.o
  .debug_abbrev    0x000720        0x18e build/default/production/UART1.o
 
-.debug_line       0x000000       0x169d
+.debug_line       0x000000       0x16a5
  *(.debug_line)
  .debug_line      0x000000        0x106 build/default/production/interrupt_handler.o
- .debug_line      0x000106        0x200 build/default/production/main.o
- .debug_line      0x000306        0x848 build/default/production/FastTransfer.o
- .debug_line      0x000b4e        0x20a build/default/production/Functions.o
- .debug_line      0x000d58         0x24 build/default/production/ConfigBit.o
- .debug_line      0x000d7c        0x1a3 build/default/production/ADC.o
- .debug_line      0x000f1f        0x3ac build/default/production/UART.o
- .debug_line      0x0012cb         0x24 build/default/production/PedalFunctions.o
- .debug_line      0x0012ef        0x3ae build/default/production/UART1.o
+ .debug_line      0x000106        0x208 build/default/production/main.o
+ .debug_line      0x00030e        0x848 build/default/production/FastTransfer.o
+ .debug_line      0x000b56        0x20a build/default/production/Functions.o
+ .debug_line      0x000d60         0x24 build/default/production/ConfigBit.o
+ .debug_line      0x000d84        0x1a3 build/default/production/ADC.o
+ .debug_line      0x000f27        0x3ac build/default/production/UART.o
+ .debug_line      0x0012d3         0x24 build/default/production/PedalFunctions.o
+ .debug_line      0x0012f7        0x3ae build/default/production/UART1.o
 
 .debug_frame      0x000000        0x43c
  *(.debug_frame)
@@ -2009,7 +2009,7 @@ __c30_signature
 .config_IESO      0xf80006          0x2
  .config_IESO     0xf80006          0x2 build/default/production/ConfigBit.o
 
-.text             0x0004de        0xe2a
+.text             0x0004de        0xe2e
  .text            0x0004de        0x768 build/default/production/FastTransfer.o
                   0x0004de                  _begin
                   0x00052a                  _CRC8
@@ -2059,24 +2059,24 @@ __c30_signature
                   0x000fda                  _Send_put1
                   0x001002                  __U2RXInterrupt
                   0x001028                  __U2TXInterrupt
- .text            0x001062        0x138 build/default/production/main.o
+ .text            0x001062        0x13c build/default/production/main.o
                   0x001062                  _main
-                  0x00107c                  _ledDebug
-                  0x0010a8                  _checkCommDirection
-                  0x0010ce                  _prepAndSendData
- .text            0x00119a         0xe2 build/default/production/Functions.o
-                  0x00119a                  _Setup
-                  0x001230                  _timerOne
-                  0x00124c                  _PinSetMode
-                  0x00125e                  _Delay
- .text            0x00127c         0x8c build/default/production/ADC.o
-                  0x00127c                  _initADC
-                  0x0012fc                  _GetADC
-                  0x001302                  _SetADC
+                  0x001080                  _ledDebug
+                  0x0010ac                  _checkCommDirection
+                  0x0010d2                  _prepAndSendData
+ .text            0x00119e         0xe2 build/default/production/Functions.o
+                  0x00119e                  _Setup
+                  0x001234                  _timerOne
+                  0x001250                  _PinSetMode
+                  0x001262                  _Delay
+ .text            0x001280         0x8c build/default/production/ADC.o
+                  0x001280                  _initADC
+                  0x001300                  _GetADC
+                  0x001306                  _SetADC
 
-.dinit            0x001308         0x4e
- .dinit           0x001308         0x4e data_init
+.dinit            0x00130c         0x4e
+ .dinit           0x00130c         0x4e data_init
 
-.init.delay32     0x001356         0x1c
- .init.delay32    0x001356         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
-                  0x001356                  ___delay32
+.init.delay32     0x00135a         0x1c
+ .init.delay32    0x00135a         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x00135a                  ___delay32

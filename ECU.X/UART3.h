@@ -14,9 +14,10 @@ extern "C" {
 
 
 
+#define BAUD_SET 38400
 #define UART_BUFFER_SIZE 200
 #define CLOCK_RATE   36000000
-#define BAUD_RATE (((CLOCK_RATE/57600)/16)-1)
+#define BAUD_RATE (((CLOCK_RATE/BAUD_SET)/16)-1)
 
 extern volatile unsigned int talkTime3;
 void *memset(void *s, int c, size_t n);

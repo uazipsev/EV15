@@ -12,7 +12,7 @@
 extern "C" {
 #endif
 void initTimerOne();
-volatile unsigned int SASTimer, DDSTimer, MCSTimer, BootTimer;
+volatile unsigned int SASTimer, DDSTimer, MCSTimer, BootTimer, PDUTimer;
 volatile unsigned int time;
 
 volatile unsigned int talkTime;
