@@ -1,10 +1,10 @@
  #include <stdio.h>
 #include <stdlib.h>
 #include "mcc_generated_files/pin_manager.h"
-#include "Functions.h"
 #include "mcc_generated_files/mcc.h"
 #include <xc.h>
 
+#include "Functions.h"
 
 /*******************************************************************
  * @brief           Controls 74 series 4051 Analog mux

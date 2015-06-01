@@ -1,116 +1,64 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"85 mcc_generated_files/mcc.h
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"455 mcc_generated_files/pin_manager.h
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"110 mcc_generated_files/interrupt_manager.h
-[v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"138 mcc_generated_files/adc.h
-[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
-"87 mcc_generated_files/mcc.h
-[v _UART_init `(v ~T0 @X0 0 ef ]
-"95 mcc_generated_files/tmr1.h
-[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-[v F9028 `(v ~T0 @X0 0 tf1`uc ]
-[v F9031 `(uc ~T0 @X0 0 tf ]
-[v F9034 `(i ~T0 @X0 0 tf ]
-[v F9037 `(uc ~T0 @X0 0 tf ]
-"89 mcc_generated_files/mcc.h
-[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9028`*F9031`*F9034`*F9037 ]
-"96
-[v _receiveArray `Vi ~T0 @X0 -> 0 `x e ]
-"94
-[v _Send_put `(v ~T0 @X0 0 ef1`uc ]
-"93
-[v _Receive_get `(uc ~T0 @X0 0 ef ]
-"92
-[v _Receive_available `(i ~T0 @X0 0 ef ]
-"91
-[v _Receive_peek `(uc ~T0 @X0 0 ef ]
-"16749 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"16693
-[v _OSCCON2 `Vuc ~T0 @X0 0 e@4050 ]
-"9405
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
-"50 mcc_generated_files/mcc.c
-[p x IESO=OFF ]
-"51
-[p x PLLCFG=OFF ]
-"52
-[p x PRICLKEN=OFF ]
-"53
-[p x FOSC=INTIO67 ]
-"54
-[p x FCMEN=OFF ]
-"57
-[p x BOREN=SBORDIS ]
-"58
-[p x BORV=190 ]
-"59
-[p x PWRTEN=OFF ]
-"62
-[p x WDTPS=32768 ]
-"63
-[p x WDTEN=OFF ]
-"66
-[p x CCP2MX=PORTC1 ]
-"67
-[p x P2BMX=PORTD2 ]
-"68
-[p x HFOFST=ON ]
-"69
-[p x PBADEN=ON ]
-"70
-[p x CCP3MX=PORTB5 ]
-"71
-[p x MCLRE=EXTMCLR ]
-"72
-[p x T3CMX=PORTC0 ]
-"75
-[p x LVP=OFF ]
-"76
-[p x STVREN=ON ]
-"77
-[p x XINST=OFF ]
-"78
-[p x DEBUG=OFF ]
-"81
-[p x CP2=OFF ]
-"82
-[p x CP1=OFF ]
-"83
-[p x CP3=OFF ]
-"84
-[p x CP0=OFF ]
-"87
-[p x CPB=OFF ]
-"88
-[p x CPD=OFF ]
-"91
-[p x WRT0=OFF ]
-"92
-[p x WRT1=OFF ]
-"93
-[p x WRT2=OFF ]
-"94
-[p x WRT3=OFF ]
-"97
-[p x WRTC=OFF ]
-"98
-[p x WRTD=OFF ]
-"99
-[p x WRTB=OFF ]
-"102
-[p x EBTR3=OFF ]
-"103
-[p x EBTR1=OFF ]
-"104
-[p x EBTR2=OFF ]
-"105
-[p x EBTR0=OFF ]
-"108
-[p x EBTRB=OFF ]
+"102 UART.h
+[s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1183 UART_ring_buff buf head tail count ]
+"9759 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
+[s S562 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S562 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE ]
+"9768
+[s S563 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S563 . . SSPIE TXIE RCIE ]
+"9758
+[u S561 `S562 1 `S563 1 ]
+[n S561 . . . ]
+"9775
+[v _PIE1bits `VS561 ~T0 @X0 0 e@3997 ]
+"12732
+[v _BAUD1CON `Vuc ~T0 @X0 0 e@4024 ]
+"10698
+[v _RC1STA `Vuc ~T0 @X0 0 e@4011 ]
+"11159
+[v _TX1STA `Vuc ~T0 @X0 0 e@4012 ]
+"11684
+[v _SPBRG1 `Vuc ~T0 @X0 0 e@4015 ]
+"11761
+[v _SPBRGH1 `Vuc ~T0 @X0 0 e@4016 ]
+"11530
+[v _TXREG1 `Vuc ~T0 @X0 0 e@4013 ]
+"11607
+[v _RCREG1 `Vuc ~T0 @X0 0 e@4014 ]
+"115 UART.h
+[v _UART_buff_init `(v ~T0 @X0 0 ef1`*S1183 ]
+"100
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"120
+[v _UART_buff_modulo_inc `(ui ~T0 @X0 0 ef2`Cui`Cui ]
+"11001 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
+[s S626 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S626 . RX9D OERR FERR ADDEN CREN SREN RX9 SPEN ]
+"11011
+[s S627 :3 `uc 1 :1 `uc 1 ]
+[n S627 . . ADEN ]
+"11015
+[s S628 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S628 . RX9D1 OERR1 FERR1 ADDEN1 CREN1 SREN1 RX91 SPEN1 ]
+"11025
+[s S629 :6 `uc 1 :1 `uc 1 ]
+[n S629 . . RC8_9 ]
+"11029
+[s S630 :6 `uc 1 :1 `uc 1 ]
+[n S630 . . RC9 ]
+"11033
+[s S631 :1 `uc 1 ]
+[n S631 . RCD8 ]
+"11036
+[s S632 :5 `uc 1 :1 `uc 1 ]
+[n S632 . . SRENA ]
+"11000
+[u S625 `S626 1 `S627 1 `S628 1 `S629 1 `S630 1 `S631 1 `S632 1 ]
+[n S625 . . . . . . . . ]
+"11041
+[v _RC1STAbits `VS625 ~T0 @X0 0 e@4011 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8288,8 +8236,65 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 455: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 467: void PIN_MANAGER_IOC(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 24: extern int errno;
+[; ;stdio.h: 55: struct __prbuf
+[; ;stdio.h: 56: {
+[; ;stdio.h: 57: char * ptr;
+[; ;stdio.h: 58: void (* func)(char);
+[; ;stdio.h: 59: };
+[; ;conio.h: 17: extern int errno;
+[; ;conio.h: 20: extern void init_uart(void);
+[; ;conio.h: 22: extern char getch(void);
+[; ;conio.h: 23: extern char getche(void);
+[; ;conio.h: 24: extern void putch(char);
+[; ;conio.h: 25: extern void ungetch(char);
+[; ;conio.h: 27: extern __bit kbhit(void);
+[; ;conio.h: 31: extern char * cgets(char *);
+[; ;conio.h: 32: extern void cputs(const char *);
+[; ;stdio.h: 100: extern int cprintf(char *, ...);
+[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 195: extern char * gets(char *);
+[; ;stdio.h: 196: extern int puts(const char *);
+[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 207: extern int printf(const char *, ...);
 [; ;stdlib.h: 27: typedef struct {
 [; ;stdlib.h: 28: int rem;
 [; ;stdlib.h: 29: int quot;
@@ -8339,130 +8344,449 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
-[; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
-[; ;interrupt_manager.h: 142: extern void EUSART1_Transmit_ISR(void);
-[; ;interrupt_manager.h: 163: extern void EUSART1_Receive_ISR(void);
-[; ;adc.h: 72: typedef uint16_t adc_result_t;
-[; ;adc.h: 86: typedef enum
-[; ;adc.h: 87: {
-[; ;adc.h: 88: channel_CTMU = 0x1D,
-[; ;adc.h: 89: channel_DAC = 0x1E,
-[; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: Battery1 = 0x01,
-[; ;adc.h: 92: Battery2 = 0x03,
-[; ;adc.h: 93: Battery3 = 0x04,
-[; ;adc.h: 94: Battery8 = 0x08,
-[; ;adc.h: 95: Battery9 = 0x0B,
-[; ;adc.h: 96: Battery10 = 0x0D,
-[; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: Temp2 = 0x14,
-[; ;adc.h: 99: Battery5 = 0x18,
-[; ;adc.h: 100: Battery6 = 0x1A,
-[; ;adc.h: 101: Battery7 = 0x1B,
-[; ;adc.h: 102: Battery4 = 0x05
-[; ;adc.h: 103: } adc_channel_t;
-[; ;adc.h: 138: void ADC_Initialize(void);
-[; ;adc.h: 167: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 199: bool ADC_IsConversionDone();
-[; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 278: void ADC_ISR(void);
-[; ;tmr1.h: 95: void TMR1_Initialize(void);
-[; ;tmr1.h: 126: void TMR1_StartTimer(void);
-[; ;tmr1.h: 156: void TMR1_StopTimer(void);
-[; ;tmr1.h: 190: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 216: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 248: void TMR1_Reload(void);
-[; ;tmr1.h: 289: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 346: void TMR1_ISR(void);
-[; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 87: extern void UART_init(void);
-[; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
-[; ;mcc.h: 91: extern unsigned char Receive_peek(void);
-[; ;mcc.h: 92: extern int Receive_available(void);
-[; ;mcc.h: 93: extern unsigned char Receive_get(void);
-[; ;mcc.h: 94: extern void Send_put(unsigned char _data);
-[; ;mcc.h: 96: extern volatile int receiveArray[20];
-"113 mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
+[; ;UART.h: 23: uint8_t EUSART1_Read(void);
+[; ;UART.h: 48: void EUSART1_Write(uint8_t txData);
+[; ;UART.h: 69: void EUSART1_Transmit_ISR(void);
+[; ;UART.h: 90: void EUSART1_Receive_ISR(void);
+[; ;UART.h: 92: char getch(void);
+[; ;UART.h: 93: void putch(char txData);
+[; ;UART.h: 99: extern volatile unsigned int talkTime;
+[; ;UART.h: 100: void *memset(void *s, int c, size_t n);
+[; ;UART.h: 102: struct UART_ring_buff {
+[; ;UART.h: 103: unsigned char buf[200];
+[; ;UART.h: 104: int head;
+[; ;UART.h: 105: int tail;
+[; ;UART.h: 106: int count;
+[; ;UART.h: 107: };
+"109 UART.h
+[v _input_buffer `S1183 ~T0 @X0 1 e ]
+[; ;UART.h: 109: struct UART_ring_buff input_buffer;
+"110
+[v _output_buffer `S1183 ~T0 @X0 1 e ]
+[; ;UART.h: 110: struct UART_ring_buff output_buffer;
+"112
+[v _Transmit_stall `uc ~T0 @X0 1 e ]
+[i _Transmit_stall
+-> -> 1 `i `uc
+]
+[; ;UART.h: 112: bool Transmit_stall = 1;
+[; ;UART.h: 114: void UART_init(void);
+[; ;UART.h: 115: void UART_buff_init(struct UART_ring_buff* _this);
+[; ;UART.h: 116: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
+[; ;UART.h: 117: unsigned char UART_buff_get(struct UART_ring_buff* _this);
+[; ;UART.h: 118: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
+[; ;UART.h: 119: int UART_buff_size(struct UART_ring_buff* _this);
+[; ;UART.h: 120: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;UART.h: 121: unsigned char UART_buff_peek(struct UART_ring_buff* _this);
+[; ;UART.h: 124: unsigned char Receive_peek(void);
+[; ;UART.h: 125: int Receive_available(void);
+[; ;UART.h: 126: unsigned char Receive_get(void);
+[; ;UART.h: 127: void Send_put(unsigned char _data);
+"21 UART.c
+[v _UART_init `(v ~T0 @X0 1 ef ]
 {
-[; ;mcc.c: 113: void SYSTEM_Initialize(void) {
-[e :U _SYSTEM_Initialize ]
+[; ;UART.c: 21: void UART_init(void) {
+[e :U _UART_init ]
 [f ]
-[; ;mcc.c: 114: OSCILLATOR_Initialize();
-"114
-[e ( _OSCILLATOR_Initialize ..  ]
-[; ;mcc.c: 115: PIN_MANAGER_Initialize();
-"115
-[e ( _PIN_MANAGER_Initialize ..  ]
-[; ;mcc.c: 116: INTERRUPT_Initialize();
-"116
-[e ( _INTERRUPT_Initialize ..  ]
-[; ;mcc.c: 117: ADC_Initialize();
-"117
-[e ( _ADC_Initialize ..  ]
-[; ;mcc.c: 120: UART_init();
-"120
-[e ( _UART_init ..  ]
-[; ;mcc.c: 121: TMR1_Initialize();
-"121
-[e ( _TMR1_Initialize ..  ]
-[; ;mcc.c: 123: begin(receiveArray, sizeof (receiveArray), 1, 0, Send_put, Receive_get, Receive_available, Receive_peek);
-"123
-[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 1 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
-[; ;mcc.c: 125: }
-"125
-[e :UE 1182 ]
+[; ;UART.c: 23: PIE1bits.RC1IE = 0;
+"23
+[e = . . _PIE1bits 0 5 -> -> 0 `i `uc ]
+[; ;UART.c: 24: PIE1bits.TX1IE = 0;
+"24
+[e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
+[; ;UART.c: 29: BAUD1CON = 0x48;
+"29
+[e = _BAUD1CON -> -> 72 `i `uc ]
+[; ;UART.c: 32: RC1STA = 0x98;
+"32
+[e = _RC1STA -> -> 152 `i `uc ]
+[; ;UART.c: 35: TX1STA = 0x26;
+"35
+[e = _TX1STA -> -> 38 `i `uc ]
+[; ;UART.c: 38: SPBRG1 = 0x22;
+"38
+[e = _SPBRG1 -> -> 34 `i `uc ]
+[; ;UART.c: 41: SPBRGH1 = 0x00;
+"41
+[e = _SPBRGH1 -> -> 0 `i `uc ]
+[; ;UART.c: 44: TXREG1 = 0x00;
+"44
+[e = _TXREG1 -> -> 0 `i `uc ]
+[; ;UART.c: 47: RCREG1 = 0x00;
+"47
+[e = _RCREG1 -> -> 0 `i `uc ]
+[; ;UART.c: 48: UART_buff_init(&input_buffer);
+"48
+[e ( _UART_buff_init (1 &U _input_buffer ]
+[; ;UART.c: 49: UART_buff_init(&output_buffer);
+"49
+[e ( _UART_buff_init (1 &U _output_buffer ]
+[; ;UART.c: 51: PIE1bits.RC1IE = 1;
+"51
+[e = . . _PIE1bits 0 5 -> -> 1 `i `uc ]
+[; ;UART.c: 52: }
+"52
+[e :UE 1184 ]
 }
-"127
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+"54
+[v _UART_buff_init `(v ~T0 @X0 1 ef1`*S1183 ]
 {
-[; ;mcc.c: 127: void OSCILLATOR_Initialize(void) {
-[e :U _OSCILLATOR_Initialize ]
+[; ;UART.c: 54: void UART_buff_init(struct UART_ring_buff* _this) {
+[e :U _UART_buff_init ]
+[v __this `*S1183 ~T0 @X0 1 r1 ]
 [f ]
-[; ;mcc.c: 129: OSCCON = 0x62;
+[; ;UART.c: 63: memset(_this, 0, sizeof (*_this));
+"63
+[e ( _memset (3 , , -> __this `*v -> 0 `i -> # *U __this `ui ]
+[; ;UART.c: 64: }
+"64
+[e :UE 1185 ]
+}
+"66
+[v _UART_buff_put `(v ~T0 @X0 1 ef2`*S1183`Cuc ]
+{
+[; ;UART.c: 66: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c) {
+[e :U _UART_buff_put ]
+[v __this `*S1183 ~T0 @X0 1 r1 ]
+[v _c `Cuc ~T0 @X0 1 r2 ]
+[f ]
+[; ;UART.c: 67: if (_this->count < 200) {
+"67
+[e $ ! < . *U __this 3 -> 200 `i 1187  ]
+{
+[; ;UART.c: 68: _this->buf[_this->head] = c;
+"68
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _c ]
+[; ;UART.c: 69: _this->head = UART_buff_modulo_inc(_this->head, 200);
+"69
+[e = . *U __this 1 -> ( _UART_buff_modulo_inc (2 , -> . *U __this 1 `ui -> -> 200 `i `ui `i ]
+[; ;UART.c: 70: ++_this->count;
+"70
+[e =+ . *U __this 3 -> 1 `i ]
+"71
+}
+[; ;UART.c: 71: } else {
+[e $U 1188  ]
+[e :U 1187 ]
+{
+[; ;UART.c: 72: _this->buf[_this->head] = c;
+"72
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _c ]
+[; ;UART.c: 73: _this->head = UART_buff_modulo_inc(_this->head, 200);
+"73
+[e = . *U __this 1 -> ( _UART_buff_modulo_inc (2 , -> . *U __this 1 `ui -> -> 200 `i `ui `i ]
+[; ;UART.c: 74: _this->tail = UART_buff_modulo_inc(_this->tail, 200);
+"74
+[e = . *U __this 2 -> ( _UART_buff_modulo_inc (2 , -> . *U __this 2 `ui -> -> 200 `i `ui `i ]
+"76
+}
+[e :U 1188 ]
+[; ;UART.c: 76: }
+[; ;UART.c: 77: }
+"77
+[e :UE 1186 ]
+}
+"79
+[v _UART_buff_get `(uc ~T0 @X0 1 ef1`*S1183 ]
+{
+[; ;UART.c: 79: unsigned char UART_buff_get(struct UART_ring_buff* _this) {
+[e :U _UART_buff_get ]
+[v __this `*S1183 ~T0 @X0 1 r1 ]
+[f ]
+"80
+[v _c `uc ~T0 @X0 1 a ]
+[; ;UART.c: 80: unsigned char c;
+[; ;UART.c: 81: if (_this->count > 0) {
+"81
+[e $ ! > . *U __this 3 -> 0 `i 1190  ]
+{
+[; ;UART.c: 82: c = _this->buf[_this->tail];
+"82
+[e = _c *U + &U . *U __this 0 * -> -> . *U __this 2 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux ]
+[; ;UART.c: 83: _this->tail = UART_buff_modulo_inc(_this->tail, 200);
+"83
+[e = . *U __this 2 -> ( _UART_buff_modulo_inc (2 , -> . *U __this 2 `ui -> -> 200 `i `ui `i ]
+[; ;UART.c: 84: --_this->count;
+"84
+[e =- . *U __this 3 -> 1 `i ]
+"85
+}
+[; ;UART.c: 85: } else {
+[e $U 1191  ]
+[e :U 1190 ]
+{
+[; ;UART.c: 86: c = 0;
+"86
+[e = _c -> -> 0 `i `uc ]
+"87
+}
+[e :U 1191 ]
+[; ;UART.c: 87: }
+[; ;UART.c: 88: return (c);
+"88
+[e ) _c ]
+[e $UE 1189  ]
+[; ;UART.c: 89: }
+"89
+[e :UE 1189 ]
+}
+"91
+[v _UART_buff_flush `(v ~T0 @X0 1 ef2`*S1183`Ci ]
+{
+[; ;UART.c: 91: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer) {
+[e :U _UART_buff_flush ]
+[v __this `*S1183 ~T0 @X0 1 r1 ]
+[v _clearBuffer `Ci ~T0 @X0 1 r2 ]
+[f ]
+[; ;UART.c: 92: _this->count = 0;
+"92
+[e = . *U __this 3 -> 0 `i ]
+[; ;UART.c: 93: _this->head = 0;
+"93
+[e = . *U __this 1 -> 0 `i ]
+[; ;UART.c: 94: _this->tail = 0;
+"94
+[e = . *U __this 2 -> 0 `i ]
+[; ;UART.c: 95: if (clearBuffer) {
+"95
+[e $ ! != _clearBuffer -> 0 `i 1193  ]
+{
+[; ;UART.c: 96: memset(_this->buf, 0, sizeof (_this->buf));
+"96
+[e ( _memset (3 , , -> &U . *U __this 0 `*v -> 0 `i * -> # *U &U . *U __this 0 `ui -> -> 200 `i `ui ]
+"97
+}
+[e :U 1193 ]
+[; ;UART.c: 97: }
+[; ;UART.c: 98: }
+"98
+[e :UE 1192 ]
+}
+"100
+[v _UART_buff_size `(i ~T0 @X0 1 ef1`*S1183 ]
+{
+[; ;UART.c: 100: int UART_buff_size(struct UART_ring_buff* _this) {
+[e :U _UART_buff_size ]
+[v __this `*S1183 ~T0 @X0 1 r1 ]
+[f ]
+[; ;UART.c: 101: return (_this->count);
+"101
+[e ) . *U __this 3 ]
+[e $UE 1194  ]
+[; ;UART.c: 102: }
+"102
+[e :UE 1194 ]
+}
+"104
+[v _UART_buff_modulo_inc `(ui ~T0 @X0 1 ef2`Cui`Cui ]
+{
+[; ;UART.c: 104: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus) {
+[e :U _UART_buff_modulo_inc ]
+[v _value `Cui ~T0 @X0 1 r1 ]
+[v _modulus `Cui ~T0 @X0 1 r2 ]
+[f ]
+"105
+[v _my_value `ui ~T0 @X0 1 a ]
+[; ;UART.c: 105: unsigned int my_value = value + 1;
+[e = _my_value + _value -> -> 1 `i `ui ]
+[; ;UART.c: 106: if (my_value >= modulus) {
+"106
+[e $ ! >= _my_value _modulus 1196  ]
+{
+[; ;UART.c: 107: my_value = 0;
+"107
+[e = _my_value -> -> 0 `i `ui ]
+"108
+}
+[e :U 1196 ]
+[; ;UART.c: 108: }
+[; ;UART.c: 109: return (my_value);
+"109
+[e ) _my_value ]
+[e $UE 1195  ]
+[; ;UART.c: 110: }
+"110
+[e :UE 1195 ]
+}
+"112
+[v _UART_buff_peek `(uc ~T0 @X0 1 ef1`*S1183 ]
+{
+[; ;UART.c: 112: unsigned char UART_buff_peek(struct UART_ring_buff* _this) {
+[e :U _UART_buff_peek ]
+[v __this `*S1183 ~T0 @X0 1 r1 ]
+[f ]
+[; ;UART.c: 113: return _this->buf[_this->tail];
+"113
+[e ) *U + &U . *U __this 0 * -> -> . *U __this 2 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux ]
+[e $UE 1197  ]
+[; ;UART.c: 114: }
+"114
+[e :UE 1197 ]
+}
+"116
+[v _Receive_peek `(uc ~T0 @X0 1 ef ]
+{
+[; ;UART.c: 116: unsigned char Receive_peek(void) {
+[e :U _Receive_peek ]
+[f ]
+[; ;UART.c: 117: return UART_buff_peek(&input_buffer);
+"117
+[e ) ( _UART_buff_peek (1 &U _input_buffer ]
+[e $UE 1198  ]
+[; ;UART.c: 118: }
+"118
+[e :UE 1198 ]
+}
+"120
+[v _Receive_available `(i ~T0 @X0 1 ef ]
+{
+[; ;UART.c: 120: int Receive_available(void) {
+[e :U _Receive_available ]
+[f ]
+[; ;UART.c: 121: return UART_buff_size(&input_buffer);
+"121
+[e ) ( _UART_buff_size (1 &U _input_buffer ]
+[e $UE 1199  ]
+[; ;UART.c: 122: }
+"122
+[e :UE 1199 ]
+}
+"124
+[v _Receive_get `(uc ~T0 @X0 1 ef ]
+{
+[; ;UART.c: 124: unsigned char Receive_get(void) {
+[e :U _Receive_get ]
+[f ]
+[; ;UART.c: 125: return UART_buff_get(&input_buffer);
+"125
+[e ) ( _UART_buff_get (1 &U _input_buffer ]
+[e $UE 1200  ]
+[; ;UART.c: 126: }
+"126
+[e :UE 1200 ]
+}
+"128
+[v _Send_put `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;UART.c: 128: void Send_put(unsigned char _data) {
+[e :U _Send_put ]
+[v __data `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;UART.c: 129: UART_buff_put(&output_buffer, _data);
 "129
-[e = _OSCCON -> -> 98 `i `uc ]
-[; ;mcc.c: 131: OSCCON2 = 0x04;
+[e ( _UART_buff_put (2 , &U _output_buffer __data ]
+[; ;UART.c: 130: if (Transmit_stall == 1) {
+"130
+[e $ ! == -> _Transmit_stall `i -> 1 `i 1202  ]
+{
+[; ;UART.c: 131: Transmit_stall = 0;
 "131
-[e = _OSCCON2 -> -> 4 `i `uc ]
-[; ;mcc.c: 133: OSCTUNE = 0x00;
+[e = _Transmit_stall -> -> 0 `i `uc ]
+[; ;UART.c: 132: TXREG1 = UART_buff_get(&output_buffer);
+"132
+[e = _TXREG1 ( _UART_buff_get (1 &U _output_buffer ]
 "133
-[e = _OSCTUNE -> -> 0 `i `uc ]
-[; ;mcc.c: 136: }
+}
+[e :U 1202 ]
+[; ;UART.c: 133: }
+[; ;UART.c: 134: }
+"134
+[e :UE 1201 ]
+}
 "136
-[e :UE 1183 ]
+[v _EUSART1_Receive_ISR `(v ~T0 @X0 1 ef ]
+{
+[; ;UART.c: 136: void EUSART1_Receive_ISR(void) {
+[e :U _EUSART1_Receive_ISR ]
+[f ]
+[; ;UART.c: 137: if(1 == RC1STAbits.OERR)
+"137
+[e $ ! == -> 1 `i -> . . _RC1STAbits 0 1 `i 1204  ]
+[; ;UART.c: 138: {
+"138
+{
+[; ;UART.c: 141: RC1STAbits.CREN = 0;
+"141
+[e = . . _RC1STAbits 0 4 -> -> 0 `i `uc ]
+[; ;UART.c: 142: RC1STAbits.CREN = 1;
+"142
+[e = . . _RC1STAbits 0 4 -> -> 1 `i `uc ]
+"143
+}
+[e :U 1204 ]
+"144
+[v _data `uc ~T0 @X0 1 a ]
+[; ;UART.c: 143: }
+[; ;UART.c: 144: unsigned char data = RCREG1;
+[e = _data _RCREG1 ]
+[; ;UART.c: 145: UART_buff_put(&input_buffer, data);
+"145
+[e ( _UART_buff_put (2 , &U _input_buffer _data ]
+[; ;UART.c: 146: }
+"146
+[e :UE 1203 ]
+}
+"148
+[v _EUSART1_Transmit_ISR `(v ~T0 @X0 1 ef ]
+{
+[; ;UART.c: 148: void EUSART1_Transmit_ISR(void) {
+[e :U _EUSART1_Transmit_ISR ]
+[f ]
+[; ;UART.c: 150: if (UART_buff_size(&output_buffer) > 0) {
+"150
+[e $ ! > ( _UART_buff_size (1 &U _output_buffer -> 0 `i 1206  ]
+{
+[; ;UART.c: 151: TXREG1 = UART_buff_get(&output_buffer);
+"151
+[e = _TXREG1 ( _UART_buff_get (1 &U _output_buffer ]
+"152
+}
+[; ;UART.c: 152: } else {
+[e $U 1207  ]
+[e :U 1206 ]
+{
+[; ;UART.c: 153: Transmit_stall = 1;
+"153
+[e = _Transmit_stall -> -> 1 `i `uc ]
+"154
+}
+[e :U 1207 ]
+[; ;UART.c: 154: }
+[; ;UART.c: 155: }
+"155
+[e :UE 1205 ]
+}
+"160
+[v _getch `(uc ~T0 @X0 1 ef ]
+"161
+{
+[; ;UART.c: 160: char getch(void)
+[; ;UART.c: 161: {
+[e :U _getch ]
+[f ]
+[; ;UART.c: 162: return Receive_get();
+"162
+[e ) ( _Receive_get ..  ]
+[e $UE 1208  ]
+[; ;UART.c: 163: }
+"163
+[e :UE 1208 ]
+}
+"165
+[v _putch `(v ~T0 @X0 1 ef1`uc ]
+"166
+{
+[; ;UART.c: 165: void putch(char txData)
+[; ;UART.c: 166: {
+[e :U _putch ]
+"165
+[v _txData `uc ~T0 @X0 1 r1 ]
+"166
+[f ]
+[; ;UART.c: 167: Send_put(txData);
+"167
+[e ( _Send_put (1 _txData ]
+[; ;UART.c: 168: }
+"168
+[e :UE 1209 ]
 }

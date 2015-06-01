@@ -5,7 +5,6 @@ Bypass.h  \
 Global.h  \
 mcc_generated_files/mcc.h  \
 Functions.h  \
-mcc_generated_files/eusart1.h  \
 mcc_generated_files/adc.h  \
 Tempeture.h  \
 Battery.h  \

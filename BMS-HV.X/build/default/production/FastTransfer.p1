@@ -1,116 +1,35 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"85 mcc_generated_files/mcc.h
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"455 mcc_generated_files/pin_manager.h
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"110 mcc_generated_files/interrupt_manager.h
-[v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"138 mcc_generated_files/adc.h
-[v _ADC_Initialize `(v ~T0 @X0 0 ef ]
-"87 mcc_generated_files/mcc.h
-[v _UART_init `(v ~T0 @X0 0 ef ]
-"95 mcc_generated_files/tmr1.h
-[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-[v F9028 `(v ~T0 @X0 0 tf1`uc ]
-[v F9031 `(uc ~T0 @X0 0 tf ]
-[v F9034 `(i ~T0 @X0 0 tf ]
-[v F9037 `(uc ~T0 @X0 0 tf ]
-"89 mcc_generated_files/mcc.h
-[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9028`*F9031`*F9034`*F9037 ]
-"96
-[v _receiveArray `Vi ~T0 @X0 -> 0 `x e ]
-"94
-[v _Send_put `(v ~T0 @X0 0 ef1`uc ]
-"93
-[v _Receive_get `(uc ~T0 @X0 0 ef ]
-"92
-[v _Receive_available `(i ~T0 @X0 0 ef ]
-"91
-[v _Receive_peek `(uc ~T0 @X0 0 ef ]
-"16749 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"16693
-[v _OSCCON2 `Vuc ~T0 @X0 0 e@4050 ]
-"9405
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
-"50 mcc_generated_files/mcc.c
-[p x IESO=OFF ]
-"51
-[p x PLLCFG=OFF ]
-"52
-[p x PRICLKEN=OFF ]
-"53
-[p x FOSC=INTIO67 ]
-"54
-[p x FCMEN=OFF ]
-"57
-[p x BOREN=SBORDIS ]
-"58
-[p x BORV=190 ]
-"59
-[p x PWRTEN=OFF ]
-"62
-[p x WDTPS=32768 ]
-"63
-[p x WDTEN=OFF ]
+[v F8961 `(v ~T0 @X0 0 tf1`uc ]
+[v F8964 `(uc ~T0 @X0 0 tf ]
+[v F8967 `(i ~T0 @X0 0 tf ]
+[v F8970 `(uc ~T0 @X0 0 tf ]
+"52 FastTransfer.h
+[s S1182 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1182 ringBufS buf head tail count ]
+"60
+[u S1183 `uc -> 2 `i `ui 1 ]
+[n S1183 stuff parts integer ]
 "66
-[p x CCP2MX=PORTC1 ]
-"67
-[p x P2BMX=PORTD2 ]
-"68
-[p x HFOFST=ON ]
-"69
-[p x PBADEN=ON ]
-"70
-[p x CCP3MX=PORTB5 ]
-"71
-[p x MCLRE=EXTMCLR ]
-"72
-[p x T3CMX=PORTC0 ]
-"75
-[p x LVP=OFF ]
-"76
-[p x STVREN=ON ]
+[s S1184 `uc * -> 5 `i -> 3 `i `i 1 ]
+[n S1184 crcBufS buf head ]
+[v F8932 `(v ~T0 @X0 0 tf1`uc ]
+[v F8935 `(uc ~T0 @X0 0 tf ]
+[v F8938 `(i ~T0 @X0 0 tf ]
+[v F8941 `(uc ~T0 @X0 0 tf ]
 "77
-[p x XINST=OFF ]
-"78
-[p x DEBUG=OFF ]
-"81
-[p x CP2=OFF ]
-"82
-[p x CP1=OFF ]
-"83
-[p x CP3=OFF ]
-"84
-[p x CP0=OFF ]
-"87
-[p x CPB=OFF ]
-"88
-[p x CPD=OFF ]
-"91
-[p x WRT0=OFF ]
-"92
-[p x WRT1=OFF ]
-"93
-[p x WRT2=OFF ]
-"94
-[p x WRT3=OFF ]
-"97
-[p x WRTC=OFF ]
-"98
-[p x WRTD=OFF ]
-"99
-[p x WRTB=OFF ]
-"102
-[p x EBTR3=OFF ]
-"103
-[p x EBTR1=OFF ]
-"104
-[p x EBTR2=OFF ]
-"105
-[p x EBTR0=OFF ]
-"108
-[p x EBTRB=OFF ]
+[v _crcBufS_put `(v ~T0 @X0 0 ef4`*S1184`uc`uc`uc ]
+"75
+[v _FastTransfer_buffer_flush `(v ~T0 @X0 0 ef2`*S1182`Ci ]
+"80
+[v _CRCcheck `(v ~T0 @X0 0 ef ]
+"73
+[v _FastTransfer_buffer_put `(v ~T0 @X0 0 ef3`*S1182`Cuc`Cui ]
+"76
+[v _FastTransfer_buffer_modulo_inc `(ui ~T0 @X0 0 ef2`Cui`Cui ]
+"257 FastTransfer.c
+[v _memset `(*v ~T0 @X0 0 ef3`*v`i`ui ]
+"79 FastTransfer.h
+[v _crcBufS_get `(uc ~T0 @X0 0 ef3`*S1184`uc`uc ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8288,8 +8207,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 161: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 163: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 165: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 455: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 467: void PIN_MANAGER_IOC(void);
+[; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;stdlib.h: 27: typedef struct {
 [; ;stdlib.h: 28: int rem;
 [; ;stdlib.h: 29: int quot;
@@ -8339,130 +8257,1220 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
-[; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
-[; ;interrupt_manager.h: 142: extern void EUSART1_Transmit_ISR(void);
-[; ;interrupt_manager.h: 163: extern void EUSART1_Receive_ISR(void);
-[; ;adc.h: 72: typedef uint16_t adc_result_t;
-[; ;adc.h: 86: typedef enum
-[; ;adc.h: 87: {
-[; ;adc.h: 88: channel_CTMU = 0x1D,
-[; ;adc.h: 89: channel_DAC = 0x1E,
-[; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: Battery1 = 0x01,
-[; ;adc.h: 92: Battery2 = 0x03,
-[; ;adc.h: 93: Battery3 = 0x04,
-[; ;adc.h: 94: Battery8 = 0x08,
-[; ;adc.h: 95: Battery9 = 0x0B,
-[; ;adc.h: 96: Battery10 = 0x0D,
-[; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: Temp2 = 0x14,
-[; ;adc.h: 99: Battery5 = 0x18,
-[; ;adc.h: 100: Battery6 = 0x1A,
-[; ;adc.h: 101: Battery7 = 0x1B,
-[; ;adc.h: 102: Battery4 = 0x05
-[; ;adc.h: 103: } adc_channel_t;
-[; ;adc.h: 138: void ADC_Initialize(void);
-[; ;adc.h: 167: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 199: bool ADC_IsConversionDone();
-[; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 278: void ADC_ISR(void);
-[; ;tmr1.h: 95: void TMR1_Initialize(void);
-[; ;tmr1.h: 126: void TMR1_StartTimer(void);
-[; ;tmr1.h: 156: void TMR1_StopTimer(void);
-[; ;tmr1.h: 190: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 216: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 248: void TMR1_Reload(void);
-[; ;tmr1.h: 289: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 346: void TMR1_ISR(void);
-[; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 87: extern void UART_init(void);
-[; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
-[; ;mcc.h: 91: extern unsigned char Receive_peek(void);
-[; ;mcc.h: 92: extern int Receive_available(void);
-[; ;mcc.h: 93: extern unsigned char Receive_get(void);
-[; ;mcc.h: 94: extern void Send_put(unsigned char _data);
-[; ;mcc.h: 96: extern volatile int receiveArray[20];
-"113 mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
+[; ;FastTransfer.h: 14: void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;FastTransfer.h: 15: void sendData(unsigned char whereToSend);
+[; ;FastTransfer.h: 16: bool receiveData();
+[; ;FastTransfer.h: 17: void ToSend(const unsigned char where, const unsigned int what);
+[; ;FastTransfer.h: 18: unsigned char AKNAK(unsigned char module);
+[; ;FastTransfer.h: 19: unsigned int alignError(void);
+[; ;FastTransfer.h: 20: unsigned int CRCError(void);
+[; ;FastTransfer.h: 21: unsigned int addressError(void);
+[; ;FastTransfer.h: 22: unsigned int dataAddressError(void);
+"24 FastTransfer.h
+[v _receiveArray `Vi ~T0 @X0 -> 20 `i e ]
+[; ;FastTransfer.h: 24: volatile int receiveArray[20];
+"26
+[v _serial_write `*F8961 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 26: void (*serial_write)(unsigned char);
+"27
+[v _serial_read `*F8964 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 27: unsigned char (*serial_read)(void);
+"28
+[v _serial_available `*F8967 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 28: int (*serial_available)(void);
+"29
+[v _serial_peek `*F8970 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 29: unsigned char (*serial_peek)(void);
+"30
+[v _rx_buffer `uc ~T0 @X0 -> 200 `i e ]
+[; ;FastTransfer.h: 30: unsigned char rx_buffer[200];
+"31
+[v _rx_array_inx `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 31: unsigned char rx_array_inx;
+"32
+[v _rx_len `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 32: unsigned char rx_len;
+"33
+[v _calc_CS `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 33: unsigned char calc_CS;
+"34
+[v _moduleAddress `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 34: unsigned char moduleAddress;
+"35
+[v _returnAddress `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 35: unsigned char returnAddress;
+"36
+[v _maxDataAddress `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 36: unsigned char maxDataAddress;
+"37
+[v _receiveArrayAddress `*Vi ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 37: volatile int * receiveArrayAddress;
+"38
+[v _sendStructAddress `*uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 38: unsigned char * sendStructAddress;
+"39
+[v _AKNAKsend `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 39: bool AKNAKsend;
+"40
+[v _alignErrorCounter `ui ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 40: unsigned int alignErrorCounter;
+"41
+[v _crcErrorCounter `ui ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 41: unsigned int crcErrorCounter;
+"42
+[v _addressErrorCounter `ui ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 42: unsigned int addressErrorCounter;
+"43
+[v _dataAdressErrorCounter `ui ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 43: unsigned int dataAdressErrorCounter;
+"44
+[v _rx_address `uc ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 44: unsigned char rx_address;
+[; ;FastTransfer.h: 52: struct ringBufS {
+[; ;FastTransfer.h: 53: unsigned char buf[200];
+[; ;FastTransfer.h: 54: int head;
+[; ;FastTransfer.h: 55: int tail;
+[; ;FastTransfer.h: 56: int count;
+[; ;FastTransfer.h: 57: };
+"58
+[v _ring_buffer `S1182 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 58: struct ringBufS ring_buffer;
+[; ;FastTransfer.h: 60: union stuff {
+[; ;FastTransfer.h: 61: unsigned char parts[2];
+[; ;FastTransfer.h: 62: unsigned int integer;
+[; ;FastTransfer.h: 63: };
+"64
+[v _group `S1183 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 64: union stuff group;
+[; ;FastTransfer.h: 66: struct crcBufS {
+[; ;FastTransfer.h: 67: unsigned char buf[(5 * 3)];
+[; ;FastTransfer.h: 68: int head;
+[; ;FastTransfer.h: 69: };
+"70
+[v _crc_buffer `S1184 ~T0 @X0 1 e ]
+[; ;FastTransfer.h: 70: struct crcBufS crc_buffer;
+[; ;FastTransfer.h: 72: unsigned char CRC8(const unsigned char * data, unsigned char len);
+[; ;FastTransfer.h: 73: void FastTransfer_buffer_put(struct ringBufS *_this, const unsigned char towhere, const unsigned int towhat);
+[; ;FastTransfer.h: 74: unsigned char FastTransfer_buffer_get(struct ringBufS* _this);
+[; ;FastTransfer.h: 75: void FastTransfer_buffer_flush(struct ringBufS* _this, const int clearBuffer);
+[; ;FastTransfer.h: 76: unsigned int FastTransfer_buffer_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;FastTransfer.h: 77: void crcBufS_put(struct crcBufS* _this, unsigned char address, unsigned char oldCRC, unsigned char status);
+[; ;FastTransfer.h: 78: void crcBufS_status_put(struct crcBufS* _this, unsigned char time, unsigned char status);
+[; ;FastTransfer.h: 79: unsigned char crcBufS_get(struct crcBufS* _this, unsigned char time, unsigned char space);
+[; ;FastTransfer.h: 80: void CRCcheck(void);
+"18 FastTransfer.c
+[v _begin `(v ~T0 @X0 1 ef8`*Vi`uc`uc`uc`*F8932`*F8935`*F8938`*F8941 ]
 {
-[; ;mcc.c: 113: void SYSTEM_Initialize(void) {
-[e :U _SYSTEM_Initialize ]
+[; ;FastTransfer.c: 18: void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void)) {
+[e :U _begin ]
+[v _ptr `*Vi ~T0 @X0 1 r1 ]
+[v _maxSize `uc ~T0 @X0 1 r2 ]
+[v _givenAddress `uc ~T0 @X0 1 r3 ]
+[v _error `uc ~T0 @X0 1 r4 ]
+[v F9036 `(v ~T0 @X0 0 tf1`uc ]
+[v _stufftosend `*F9036 ~T0 @X0 1 r5 ]
+[v F9039 `(uc ~T0 @X0 0 tf ]
+[v _stufftoreceive `*F9039 ~T0 @X0 1 r6 ]
+[v F9042 `(i ~T0 @X0 0 tf ]
+[v _stuffavailable `*F9042 ~T0 @X0 1 r7 ]
+[v F9045 `(uc ~T0 @X0 0 tf ]
+[v _stuffpeek `*F9045 ~T0 @X0 1 r8 ]
 [f ]
-[; ;mcc.c: 114: OSCILLATOR_Initialize();
-"114
-[e ( _OSCILLATOR_Initialize ..  ]
-[; ;mcc.c: 115: PIN_MANAGER_Initialize();
-"115
-[e ( _PIN_MANAGER_Initialize ..  ]
-[; ;mcc.c: 116: INTERRUPT_Initialize();
-"116
-[e ( _INTERRUPT_Initialize ..  ]
-[; ;mcc.c: 117: ADC_Initialize();
-"117
-[e ( _ADC_Initialize ..  ]
-[; ;mcc.c: 120: UART_init();
-"120
-[e ( _UART_init ..  ]
-[; ;mcc.c: 121: TMR1_Initialize();
-"121
-[e ( _TMR1_Initialize ..  ]
-[; ;mcc.c: 123: begin(receiveArray, sizeof (receiveArray), 1, 0, Send_put, Receive_get, Receive_available, Receive_peek);
-"123
-[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 1 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
-[; ;mcc.c: 125: }
-"125
-[e :UE 1182 ]
+[; ;FastTransfer.c: 19: receiveArrayAddress = ptr;
+"19
+[e = _receiveArrayAddress _ptr ]
+[; ;FastTransfer.c: 20: moduleAddress = givenAddress;
+"20
+[e = _moduleAddress _givenAddress ]
+[; ;FastTransfer.c: 21: serial_write = stufftosend;
+"21
+[e = _serial_write _stufftosend ]
+[; ;FastTransfer.c: 22: serial_available = stuffavailable;
+"22
+[e = _serial_available _stuffavailable ]
+[; ;FastTransfer.c: 23: serial_peek = stuffpeek;
+"23
+[e = _serial_peek _stuffpeek ]
+[; ;FastTransfer.c: 24: serial_read = stufftoreceive;
+"24
+[e = _serial_read _stufftoreceive ]
+[; ;FastTransfer.c: 25: maxDataAddress = maxSize / 2;
+"25
+[e = _maxDataAddress -> / -> _maxSize `i -> 2 `i `uc ]
+[; ;FastTransfer.c: 26: sendStructAddress = (unsigned char*) & ring_buffer;
+"26
+[e = _sendStructAddress -> &U _ring_buffer `*uc ]
+[; ;FastTransfer.c: 27: AKNAKsend = error;
+"27
+[e = _AKNAKsend _error ]
+[; ;FastTransfer.c: 28: alignErrorCounter = 0;
+"28
+[e = _alignErrorCounter -> -> 0 `i `ui ]
+[; ;FastTransfer.c: 30: }
+"30
+[e :UE 1185 ]
 }
-"127
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+"34
+[v _CRC8 `(uc ~T0 @X0 1 ef2`*Cuc`uc ]
 {
-[; ;mcc.c: 127: void OSCILLATOR_Initialize(void) {
-[e :U _OSCILLATOR_Initialize ]
+[; ;FastTransfer.c: 34: unsigned char CRC8(const unsigned char * data, unsigned char len) {
+[e :U _CRC8 ]
+[v _data `*Cuc ~T0 @X0 1 r1 ]
+[v _len `uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;mcc.c: 129: OSCCON = 0x62;
+"35
+[v _crc `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 35: unsigned char crc = 0x00;
+[e = _crc -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 36: while (len--) {
+"36
+[e $U 1187  ]
+[e :U 1188 ]
+{
+"37
+[v _extract `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 37: unsigned char extract = *data++;
+[e = _extract *U ++ _data * -> -> 1 `i `x -> -> # *U _data `i `x ]
+"38
+[v _tempI `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 38: unsigned char tempI;
+[; ;FastTransfer.c: 39: for (tempI = 8; tempI; tempI--) {
+"39
+{
+[e = _tempI -> -> 8 `i `uc ]
+[e $U 1193  ]
+[e :U 1190 ]
+{
+"40
+[v _sum `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 40: unsigned char sum = (crc ^ extract) & 0x01;
+[e = _sum -> & ^ -> _crc `i -> _extract `i -> 1 `i `uc ]
+[; ;FastTransfer.c: 41: crc >>= 1;
+"41
+[e =>> _crc -> 1 `i ]
+[; ;FastTransfer.c: 42: if (sum) {
+"42
+[e $ ! != -> _sum `i -> -> -> 0 `i `uc `i 1194  ]
+{
+[; ;FastTransfer.c: 43: crc ^= 0x8C;
+"43
+[e =^ _crc -> -> 140 `i `uc ]
+"44
+}
+[e :U 1194 ]
+[; ;FastTransfer.c: 44: }
+[; ;FastTransfer.c: 45: extract >>= 1;
+"45
+[e =>> _extract -> 1 `i ]
+"46
+}
+"39
+[e -- _tempI -> -> 1 `i `uc ]
+[e :U 1193 ]
+[e $ != -> _tempI `i -> -> -> 0 `i `uc `i 1190  ]
+[e :U 1191 ]
+"46
+}
+"47
+}
+[e :U 1187 ]
+"36
+[e $ != -> -- _len -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1188  ]
+[e :U 1189 ]
+[; ;FastTransfer.c: 46: }
+[; ;FastTransfer.c: 47: }
+[; ;FastTransfer.c: 48: return crc;
+"48
+[e ) _crc ]
+[e $UE 1186  ]
+[; ;FastTransfer.c: 49: }
+"49
+[e :UE 1186 ]
+}
+"53
+[v _sendData `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;FastTransfer.c: 53: void sendData(unsigned char whereToSend) {
+[e :U _sendData ]
+[v _whereToSend `uc ~T0 @X0 1 r1 ]
+[f ]
+[v _CS `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 56: unsigned char CS = CRC8(sendStructAddress, ring_buffer.count);
+"56
+[e = _CS ( _CRC8 (2 , -> _sendStructAddress `*Cuc -> . _ring_buffer 3 `uc ]
+[; ;FastTransfer.c: 58: serial_write(0x06);
+"58
+[e ( *U _serial_write (1 -> -> 6 `i `uc ]
+[; ;FastTransfer.c: 59: serial_write(0x85);
+"59
+[e ( *U _serial_write (1 -> -> 133 `i `uc ]
+[; ;FastTransfer.c: 60: serial_write(whereToSend);
+"60
+[e ( *U _serial_write (1 _whereToSend ]
+[; ;FastTransfer.c: 61: serial_write(moduleAddress);
+"61
+[e ( *U _serial_write (1 _moduleAddress ]
+[; ;FastTransfer.c: 62: serial_write(ring_buffer.count);
+"62
+[e ( *U _serial_write (1 -> . _ring_buffer 3 `uc ]
+"66
+[v _i `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 66: int i;
+[; ;FastTransfer.c: 67: for (i = 0; i < ring_buffer.count; i++) {
+"67
+{
+[e = _i -> 0 `i ]
+[e $U 1199  ]
+[e :U 1196 ]
+{
+[; ;FastTransfer.c: 68: serial_write(*(sendStructAddress + i));
+"68
+[e ( *U _serial_write (1 *U + _sendStructAddress * -> _i `x -> -> # *U _sendStructAddress `i `x ]
+"69
+}
+"67
+[e ++ _i -> 1 `i ]
+[e :U 1199 ]
+[e $ < _i . _ring_buffer 3 1196  ]
+[e :U 1197 ]
+"69
+}
+[; ;FastTransfer.c: 69: }
+[; ;FastTransfer.c: 72: serial_write(CS);
+"72
+[e ( *U _serial_write (1 _CS ]
+[; ;FastTransfer.c: 75: crcBufS_put(&crc_buffer, whereToSend, CS, 0);
+"75
+[e ( _crcBufS_put (4 , , , &U _crc_buffer _whereToSend _CS -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 78: FastTransfer_buffer_flush(&ring_buffer, 1);
+"78
+[e ( _FastTransfer_buffer_flush (2 , &U _ring_buffer -> 1 `i ]
+[; ;FastTransfer.c: 80: }
+"80
+[e :UE 1195 ]
+}
+"82
+[v _receiveData `(uc ~T0 @X0 1 ef ]
+{
+[; ;FastTransfer.c: 82: bool receiveData() {
+[e :U _receiveData ]
+[f ]
+[; ;FastTransfer.c: 85: if (rx_len == 0) {
+"85
+[e $ ! == -> _rx_len `i -> 0 `i 1201  ]
+{
+[; ;FastTransfer.c: 87: if (serial_available() > 4) {
+"87
+[e $ ! > ( *U _serial_available ..  -> 4 `i 1202  ]
+{
+[; ;FastTransfer.c: 89: while (serial_read() != 0x06) {
+"89
+[e $U 1203  ]
+[e :U 1204 ]
+{
+[; ;FastTransfer.c: 93: alignErrorCounter++;
+"93
+[e ++ _alignErrorCounter -> -> 1 `i `ui ]
+[; ;FastTransfer.c: 94: if (serial_available() < 5)
+"94
+[e $ ! < ( *U _serial_available ..  -> 5 `i 1206  ]
+[; ;FastTransfer.c: 95: return 0;
+"95
+[e ) -> -> 0 `i `uc ]
+[e $UE 1200  ]
+[e :U 1206 ]
+"96
+}
+[e :U 1203 ]
+"89
+[e $ != -> ( *U _serial_read ..  `i -> 6 `i 1204  ]
+[e :U 1205 ]
+[; ;FastTransfer.c: 96: }
+[; ;FastTransfer.c: 97: if (serial_read() == 0x85) {
+"97
+[e $ ! == -> ( *U _serial_read ..  `i -> 133 `i 1207  ]
+{
+[; ;FastTransfer.c: 98: rx_address = serial_read();
+"98
+[e = _rx_address ( *U _serial_read ..  ]
+[; ;FastTransfer.c: 99: returnAddress = serial_read();
+"99
+[e = _returnAddress ( *U _serial_read ..  ]
+[; ;FastTransfer.c: 100: rx_len = serial_read();
+"100
+[e = _rx_len ( *U _serial_read ..  ]
+[; ;FastTransfer.c: 102: if (rx_address != moduleAddress) {
+"102
+[e $ ! != -> _rx_address `i -> _moduleAddress `i 1208  ]
+{
+[; ;FastTransfer.c: 103: addressErrorCounter++;
+"103
+[e ++ _addressErrorCounter -> -> 1 `i `ui ]
+"106
+[v _u `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 106: int u;
+[; ;FastTransfer.c: 107: for (u = 0; u <= (rx_len + 1); u++) {
+"107
+{
+[e = _u -> 0 `i ]
+[e $U 1212  ]
+[e :U 1209 ]
+{
+[; ;FastTransfer.c: 108: serial_read();
+"108
+[e ( *U _serial_read ..  ]
+"109
+}
+"107
+[e ++ _u -> 1 `i ]
+[e :U 1212 ]
+[e $ <= _u + -> _rx_len `i -> 1 `i 1209  ]
+[e :U 1210 ]
+"109
+}
+[; ;FastTransfer.c: 109: }
+[; ;FastTransfer.c: 110: rx_len = 0;
+"110
+[e = _rx_len -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 111: return 0;
+"111
+[e ) -> -> 0 `i `uc ]
+[e $UE 1200  ]
+"112
+}
+[e :U 1208 ]
+"114
+}
+[e :U 1207 ]
+"115
+}
+[e :U 1202 ]
+"116
+}
+[e :U 1201 ]
+[; ;FastTransfer.c: 112: }
+[; ;FastTransfer.c: 114: }
+[; ;FastTransfer.c: 115: }
+[; ;FastTransfer.c: 116: }
+[; ;FastTransfer.c: 119: if (rx_len != 0) {
+"119
+[e $ ! != -> _rx_len `i -> 0 `i 1213  ]
+{
+[; ;FastTransfer.c: 122: if (rx_array_inx == 0) {
+"122
+[e $ ! == -> _rx_array_inx `i -> 0 `i 1214  ]
+{
+[; ;FastTransfer.c: 123: while (!(serial_available() >= 1));
+"123
+[e $U 1215  ]
+[e :U 1216 ]
+[e :U 1215 ]
+[e $ ! >= ( *U _serial_available ..  -> 1 `i 1216  ]
+[e :U 1217 ]
+[; ;FastTransfer.c: 124: if (255 == serial_peek()) {
+"124
+[e $ ! == -> 255 `i -> ( *U _serial_peek ..  `i 1218  ]
+{
+[; ;FastTransfer.c: 125: CRCcheck();
+"125
+[e ( _CRCcheck ..  ]
+[; ;FastTransfer.c: 126: rx_len = 0;
+"126
+[e = _rx_len -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 127: rx_array_inx = 0;
+"127
+[e = _rx_array_inx -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 128: return 0;
+"128
+[e ) -> -> 0 `i `uc ]
+[e $UE 1200  ]
 "129
-[e = _OSCCON -> -> 98 `i `uc ]
-[; ;mcc.c: 131: OSCCON2 = 0x04;
-"131
-[e = _OSCCON2 -> -> 4 `i `uc ]
-[; ;mcc.c: 133: OSCTUNE = 0x00;
+}
+[e :U 1218 ]
+"130
+}
+[e :U 1214 ]
+[; ;FastTransfer.c: 129: }
+[; ;FastTransfer.c: 130: }
+[; ;FastTransfer.c: 133: while (serial_available() && rx_array_inx <= rx_len) {
 "133
-[e = _OSCTUNE -> -> 0 `i `uc ]
-[; ;mcc.c: 136: }
-"136
-[e :UE 1183 ]
+[e $U 1219  ]
+[e :U 1220 ]
+{
+[; ;FastTransfer.c: 134: rx_buffer[rx_array_inx++] = serial_read();
+"134
+[e = *U + &U _rx_buffer * -> ++ _rx_array_inx -> -> 1 `i `uc `ux -> -> # *U &U _rx_buffer `ui `ux ( *U _serial_read ..  ]
+"135
+}
+[e :U 1219 ]
+"133
+[e $ && != ( *U _serial_available ..  -> 0 `i <= -> _rx_array_inx `i -> _rx_len `i 1220  ]
+[e :U 1221 ]
+[; ;FastTransfer.c: 135: }
+[; ;FastTransfer.c: 137: if (rx_len == (rx_array_inx - 1)) {
+"137
+[e $ ! == -> _rx_len `i - -> _rx_array_inx `i -> 1 `i 1222  ]
+{
+[; ;FastTransfer.c: 140: calc_CS = CRC8(rx_buffer, rx_len);
+"140
+[e = _calc_CS ( _CRC8 (2 , -> &U _rx_buffer `*Cuc _rx_len ]
+[; ;FastTransfer.c: 144: if (calc_CS == rx_buffer[rx_array_inx - 1]) {
+"144
+[e $ ! == -> _calc_CS `i -> *U + &U _rx_buffer * -> -> - -> _rx_array_inx `i -> 1 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux `i 1223  ]
+{
+"147
+[v _r `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 147: int r;
+[; ;FastTransfer.c: 148: for (r = 0; r < rx_len; r = r + 3) {
+"148
+{
+[e = _r -> 0 `i ]
+[e $U 1227  ]
+[e :U 1224 ]
+{
+[; ;FastTransfer.c: 149: if (rx_buffer[r] < maxDataAddress) {
+"149
+[e $ ! < -> *U + &U _rx_buffer * -> -> _r `ui `ux -> -> # *U &U _rx_buffer `ui `ux `i -> _maxDataAddress `i 1228  ]
+{
+[; ;FastTransfer.c: 150: group.parts[0] = rx_buffer[r + 1];
+"150
+[e = *U + &U . _group 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _group 0 `ui `ux *U + &U _rx_buffer * -> -> + _r -> 1 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux ]
+[; ;FastTransfer.c: 151: group.parts[1] = rx_buffer[r + 2];
+"151
+[e = *U + &U . _group 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _group 0 `ui `ux *U + &U _rx_buffer * -> -> + _r -> 2 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux ]
+[; ;FastTransfer.c: 152: receiveArrayAddress[(rx_buffer[r])] = group.integer;
+"152
+[e = *U + _receiveArrayAddress * -> *U + &U _rx_buffer * -> -> _r `ui `ux -> -> # *U &U _rx_buffer `ui `ux `ux -> -> # *U _receiveArrayAddress `ui `ux -> . _group 1 `i ]
+"153
+}
+[; ;FastTransfer.c: 153: } else {
+[e $U 1229  ]
+[e :U 1228 ]
+{
+[; ;FastTransfer.c: 154: dataAdressErrorCounter++;
+"154
+[e ++ _dataAdressErrorCounter -> -> 1 `i `ui ]
+"155
+}
+[e :U 1229 ]
+"156
+}
+"148
+[e = _r + _r -> 3 `i ]
+[e :U 1227 ]
+[e $ < _r -> _rx_len `i 1224  ]
+[e :U 1225 ]
+"156
+}
+[; ;FastTransfer.c: 155: }
+[; ;FastTransfer.c: 156: }
+[; ;FastTransfer.c: 159: if (AKNAKsend) {
+"159
+[e $ ! != -> _AKNAKsend `i -> -> -> 0 `i `uc `i 1230  ]
+{
+"160
+[v _holder `uc ~T0 @X0 -> 3 `i a ]
+[; ;FastTransfer.c: 160: unsigned char holder[3];
+[; ;FastTransfer.c: 161: holder[0] = 255;
+"161
+[e = *U + &U _holder * -> -> -> 0 `i `ui `ux -> -> # *U &U _holder `ui `ux -> -> 255 `i `uc ]
+[; ;FastTransfer.c: 162: holder[1] = 1;
+"162
+[e = *U + &U _holder * -> -> -> 1 `i `ui `ux -> -> # *U &U _holder `ui `ux -> -> 1 `i `uc ]
+[; ;FastTransfer.c: 163: holder[2] = rx_buffer[rx_array_inx - 1];
+"163
+[e = *U + &U _holder * -> -> -> 2 `i `ui `ux -> -> # *U &U _holder `ui `ux *U + &U _rx_buffer * -> -> - -> _rx_array_inx `i -> 1 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux ]
+"164
+[v _crcHolder `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 164: unsigned char crcHolder = CRC8(holder, 3);
+[e = _crcHolder ( _CRC8 (2 , -> &U _holder `*Cuc -> -> 3 `i `uc ]
+[; ;FastTransfer.c: 165: serial_write(0x06);
+"165
+[e ( *U _serial_write (1 -> -> 6 `i `uc ]
+[; ;FastTransfer.c: 166: serial_write(0x85);
+"166
+[e ( *U _serial_write (1 -> -> 133 `i `uc ]
+[; ;FastTransfer.c: 167: serial_write(returnAddress);
+"167
+[e ( *U _serial_write (1 _returnAddress ]
+[; ;FastTransfer.c: 168: serial_write(moduleAddress);
+"168
+[e ( *U _serial_write (1 _moduleAddress ]
+[; ;FastTransfer.c: 169: serial_write(3);
+"169
+[e ( *U _serial_write (1 -> -> 3 `i `uc ]
+[; ;FastTransfer.c: 170: serial_write(255);
+"170
+[e ( *U _serial_write (1 -> -> 255 `i `uc ]
+[; ;FastTransfer.c: 171: serial_write(1);
+"171
+[e ( *U _serial_write (1 -> -> 1 `i `uc ]
+[; ;FastTransfer.c: 172: serial_write(rx_buffer[rx_array_inx - 1]);
+"172
+[e ( *U _serial_write (1 *U + &U _rx_buffer * -> -> - -> _rx_array_inx `i -> 1 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux ]
+[; ;FastTransfer.c: 173: serial_write(crcHolder);
+"173
+[e ( *U _serial_write (1 _crcHolder ]
+"174
+}
+[e :U 1230 ]
+[; ;FastTransfer.c: 174: }
+[; ;FastTransfer.c: 178: rx_len = 0;
+"178
+[e = _rx_len -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 179: rx_array_inx = 0;
+"179
+[e = _rx_array_inx -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 180: return 1;
+"180
+[e ) -> -> 1 `i `uc ]
+[e $UE 1200  ]
+"181
+}
+[; ;FastTransfer.c: 181: } else {
+[e $U 1231  ]
+[e :U 1223 ]
+{
+[; ;FastTransfer.c: 182: crcErrorCounter++;
+"182
+[e ++ _crcErrorCounter -> -> 1 `i `ui ]
+[; ;FastTransfer.c: 184: if (AKNAKsend) {
+"184
+[e $ ! != -> _AKNAKsend `i -> -> -> 0 `i `uc `i 1232  ]
+{
+"185
+[v _holder `uc ~T0 @X0 -> 3 `i a ]
+[; ;FastTransfer.c: 185: unsigned char holder[3];
+[; ;FastTransfer.c: 186: holder[0] = 255;
+"186
+[e = *U + &U _holder * -> -> -> 0 `i `ui `ux -> -> # *U &U _holder `ui `ux -> -> 255 `i `uc ]
+[; ;FastTransfer.c: 187: holder[1] = 2;
+"187
+[e = *U + &U _holder * -> -> -> 1 `i `ui `ux -> -> # *U &U _holder `ui `ux -> -> 2 `i `uc ]
+[; ;FastTransfer.c: 188: holder[2] = rx_buffer[rx_array_inx - 1];
+"188
+[e = *U + &U _holder * -> -> -> 2 `i `ui `ux -> -> # *U &U _holder `ui `ux *U + &U _rx_buffer * -> -> - -> _rx_array_inx `i -> 1 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux ]
+"189
+[v _crcHolder `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 189: unsigned char crcHolder = CRC8(holder, 3);
+[e = _crcHolder ( _CRC8 (2 , -> &U _holder `*Cuc -> -> 3 `i `uc ]
+[; ;FastTransfer.c: 190: serial_write(0x06);
+"190
+[e ( *U _serial_write (1 -> -> 6 `i `uc ]
+[; ;FastTransfer.c: 191: serial_write(0x85);
+"191
+[e ( *U _serial_write (1 -> -> 133 `i `uc ]
+[; ;FastTransfer.c: 192: serial_write(returnAddress);
+"192
+[e ( *U _serial_write (1 _returnAddress ]
+[; ;FastTransfer.c: 193: serial_write(moduleAddress);
+"193
+[e ( *U _serial_write (1 _moduleAddress ]
+[; ;FastTransfer.c: 194: serial_write(3);
+"194
+[e ( *U _serial_write (1 -> -> 3 `i `uc ]
+[; ;FastTransfer.c: 195: serial_write(255);
+"195
+[e ( *U _serial_write (1 -> -> 255 `i `uc ]
+[; ;FastTransfer.c: 196: serial_write(2);
+"196
+[e ( *U _serial_write (1 -> -> 2 `i `uc ]
+[; ;FastTransfer.c: 197: serial_write(rx_buffer[rx_array_inx - 1]);
+"197
+[e ( *U _serial_write (1 *U + &U _rx_buffer * -> -> - -> _rx_array_inx `i -> 1 `i `ui `ux -> -> # *U &U _rx_buffer `ui `ux ]
+[; ;FastTransfer.c: 198: serial_write(crcHolder);
+"198
+[e ( *U _serial_write (1 _crcHolder ]
+"199
+}
+[e :U 1232 ]
+[; ;FastTransfer.c: 199: }
+[; ;FastTransfer.c: 202: rx_len = 0;
+"202
+[e = _rx_len -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 203: rx_array_inx = 0;
+"203
+[e = _rx_array_inx -> -> 0 `i `uc ]
+[; ;FastTransfer.c: 204: return 0;
+"204
+[e ) -> -> 0 `i `uc ]
+[e $UE 1200  ]
+"205
+}
+[e :U 1231 ]
+"206
+}
+[e :U 1222 ]
+"207
+}
+[e :U 1213 ]
+[; ;FastTransfer.c: 205: }
+[; ;FastTransfer.c: 206: }
+[; ;FastTransfer.c: 207: }
+[; ;FastTransfer.c: 210: return 0;
+"210
+[e ) -> -> 0 `i `uc ]
+[e $UE 1200  ]
+[; ;FastTransfer.c: 211: }
+"211
+[e :UE 1200 ]
+}
+"216
+[v _ToSend `(v ~T0 @X0 1 ef2`Cuc`Cui ]
+{
+[; ;FastTransfer.c: 216: void ToSend(unsigned char where, unsigned int what) {
+[e :U _ToSend ]
+[v _where `uc ~T0 @X0 1 r1 ]
+[v _what `ui ~T0 @X0 1 r2 ]
+[f ]
+[; ;FastTransfer.c: 217: FastTransfer_buffer_put(&ring_buffer, where, what);
+"217
+[e ( _FastTransfer_buffer_put (3 , , &U _ring_buffer _where _what ]
+[; ;FastTransfer.c: 218: }
+"218
+[e :UE 1233 ]
+}
+"223
+[v _FastTransfer_buffer_put `(v ~T0 @X0 1 ef3`*S1182`Cuc`Cui ]
+{
+[; ;FastTransfer.c: 223: void FastTransfer_buffer_put(struct ringBufS *_this, unsigned char towhere, unsigned int towhat) {
+[e :U _FastTransfer_buffer_put ]
+[v __this `*S1182 ~T0 @X0 1 r1 ]
+[v _towhere `uc ~T0 @X0 1 r2 ]
+[v _towhat `ui ~T0 @X0 1 r3 ]
+[f ]
+[; ;FastTransfer.c: 225: group.integer = towhat;
+"225
+[e = . _group 1 _towhat ]
+[; ;FastTransfer.c: 227: if (_this->count < (200 - 3)) {
+"227
+[e $ ! < . *U __this 3 - -> 200 `i -> 3 `i 1235  ]
+{
+[; ;FastTransfer.c: 228: _this->buf[_this->head] = towhere;
+"228
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _towhere ]
+[; ;FastTransfer.c: 229: _this->head = FastTransfer_buffer_modulo_inc(_this->head, 200);
+"229
+[e = . *U __this 1 -> ( _FastTransfer_buffer_modulo_inc (2 , -> . *U __this 1 `ui -> -> 200 `i `ui `i ]
+[; ;FastTransfer.c: 230: ++_this->count;
+"230
+[e =+ . *U __this 3 -> 1 `i ]
+[; ;FastTransfer.c: 231: _this->buf[_this->head] = group.parts[0];
+"231
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux *U + &U . _group 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _group 0 `ui `ux ]
+[; ;FastTransfer.c: 232: _this->head = FastTransfer_buffer_modulo_inc(_this->head, 200);
+"232
+[e = . *U __this 1 -> ( _FastTransfer_buffer_modulo_inc (2 , -> . *U __this 1 `ui -> -> 200 `i `ui `i ]
+[; ;FastTransfer.c: 233: ++_this->count;
+"233
+[e =+ . *U __this 3 -> 1 `i ]
+[; ;FastTransfer.c: 234: _this->buf[_this->head] = group.parts[1];
+"234
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux *U + &U . _group 0 * -> -> -> 1 `i `ui `ux -> -> # *U &U . _group 0 `ui `ux ]
+[; ;FastTransfer.c: 235: _this->head = FastTransfer_buffer_modulo_inc(_this->head, 200);
+"235
+[e = . *U __this 1 -> ( _FastTransfer_buffer_modulo_inc (2 , -> . *U __this 1 `ui -> -> 200 `i `ui `i ]
+[; ;FastTransfer.c: 236: ++_this->count;
+"236
+[e =+ . *U __this 3 -> 1 `i ]
+"238
+}
+[e :U 1235 ]
+[; ;FastTransfer.c: 238: }
+[; ;FastTransfer.c: 240: }
+"240
+[e :UE 1234 ]
+}
+"245
+[v _FastTransfer_buffer_get `(uc ~T0 @X0 1 ef1`*S1182 ]
+{
+[; ;FastTransfer.c: 245: unsigned char FastTransfer_buffer_get(struct ringBufS* _this) {
+[e :U _FastTransfer_buffer_get ]
+[v __this `*S1182 ~T0 @X0 1 r1 ]
+[f ]
+"246
+[v _c `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 246: unsigned char c;
+[; ;FastTransfer.c: 247: if (_this->count > 0) {
+"247
+[e $ ! > . *U __this 3 -> 0 `i 1237  ]
+{
+[; ;FastTransfer.c: 248: c = _this->buf[_this->tail];
+"248
+[e = _c *U + &U . *U __this 0 * -> -> . *U __this 2 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux ]
+[; ;FastTransfer.c: 249: _this->tail = FastTransfer_buffer_modulo_inc(_this->tail, 200);
+"249
+[e = . *U __this 2 -> ( _FastTransfer_buffer_modulo_inc (2 , -> . *U __this 2 `ui -> -> 200 `i `ui `i ]
+[; ;FastTransfer.c: 250: --_this->count;
+"250
+[e =- . *U __this 3 -> 1 `i ]
+"251
+}
+[; ;FastTransfer.c: 251: } else {
+[e $U 1238  ]
+[e :U 1237 ]
+{
+[; ;FastTransfer.c: 252: c = 0;
+"252
+[e = _c -> -> 0 `i `uc ]
+"253
+}
+[e :U 1238 ]
+[; ;FastTransfer.c: 253: }
+[; ;FastTransfer.c: 254: return (c);
+"254
+[e ) _c ]
+[e $UE 1236  ]
+[; ;FastTransfer.c: 255: }
+"255
+[e :UE 1236 ]
+}
+[; ;FastTransfer.c: 257: void *memset(void *s, int c, size_t n);
+"261
+[v _FastTransfer_buffer_flush `(v ~T0 @X0 1 ef2`*S1182`Ci ]
+{
+[; ;FastTransfer.c: 261: void FastTransfer_buffer_flush(struct ringBufS* _this, const int clearBuffer) {
+[e :U _FastTransfer_buffer_flush ]
+[v __this `*S1182 ~T0 @X0 1 r1 ]
+[v _clearBuffer `Ci ~T0 @X0 1 r2 ]
+[f ]
+[; ;FastTransfer.c: 262: _this->count = 0;
+"262
+[e = . *U __this 3 -> 0 `i ]
+[; ;FastTransfer.c: 263: _this->head = 0;
+"263
+[e = . *U __this 1 -> 0 `i ]
+[; ;FastTransfer.c: 264: _this->tail = 0;
+"264
+[e = . *U __this 2 -> 0 `i ]
+[; ;FastTransfer.c: 265: if (clearBuffer) {
+"265
+[e $ ! != _clearBuffer -> 0 `i 1240  ]
+{
+[; ;FastTransfer.c: 266: memset(_this->buf, 0, sizeof (_this->buf));
+"266
+[e ( _memset (3 , , -> &U . *U __this 0 `*v -> 0 `i * -> # *U &U . *U __this 0 `ui -> -> 200 `i `ui ]
+"267
+}
+[e :U 1240 ]
+[; ;FastTransfer.c: 267: }
+[; ;FastTransfer.c: 268: }
+"268
+[e :UE 1239 ]
+}
+"273
+[v _FastTransfer_buffer_modulo_inc `(ui ~T0 @X0 1 ef2`Cui`Cui ]
+{
+[; ;FastTransfer.c: 273: unsigned int FastTransfer_buffer_modulo_inc(const unsigned int value, const unsigned int modulus) {
+[e :U _FastTransfer_buffer_modulo_inc ]
+[v _value `Cui ~T0 @X0 1 r1 ]
+[v _modulus `Cui ~T0 @X0 1 r2 ]
+[f ]
+"274
+[v _my_value `ui ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 274: unsigned int my_value = value + 1;
+[e = _my_value + _value -> -> 1 `i `ui ]
+[; ;FastTransfer.c: 275: if (my_value >= modulus) {
+"275
+[e $ ! >= _my_value _modulus 1242  ]
+{
+[; ;FastTransfer.c: 276: my_value = 0;
+"276
+[e = _my_value -> -> 0 `i `ui ]
+"277
+}
+[e :U 1242 ]
+[; ;FastTransfer.c: 277: }
+[; ;FastTransfer.c: 278: return (my_value);
+"278
+[e ) _my_value ]
+[e $UE 1241  ]
+[; ;FastTransfer.c: 279: }
+"279
+[e :UE 1241 ]
+}
+"284
+[v _AKNAK `(uc ~T0 @X0 1 ef1`uc ]
+{
+[; ;FastTransfer.c: 284: unsigned char AKNAK(unsigned char module) {
+[e :U _AKNAK ]
+[v _module `uc ~T0 @X0 1 r1 ]
+[f ]
+"285
+[v _r `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 285: int r;
+[; ;FastTransfer.c: 286: for (r = 0; r < 5; r++) {
+"286
+{
+[e = _r -> 0 `i ]
+[e $ < _r -> 5 `i 1244  ]
+[e $U 1245  ]
+[e :U 1244 ]
+{
+[; ;FastTransfer.c: 287: if (module == crcBufS_get(&crc_buffer, r, 0)) {
+"287
+[e $ ! == -> _module `i -> ( _crcBufS_get (3 , , &U _crc_buffer -> _r `uc -> -> 0 `i `uc `i 1247  ]
+{
+[; ;FastTransfer.c: 288: return crcBufS_get(&crc_buffer, r, 2);
+"288
+[e ) ( _crcBufS_get (3 , , &U _crc_buffer -> _r `uc -> -> 2 `i `uc ]
+[e $UE 1243  ]
+"289
+}
+[e :U 1247 ]
+"290
+}
+"286
+[e ++ _r -> 1 `i ]
+[e $ < _r -> 5 `i 1244  ]
+[e :U 1245 ]
+"290
+}
+[; ;FastTransfer.c: 289: }
+[; ;FastTransfer.c: 290: }
+[; ;FastTransfer.c: 291: return 4;
+"291
+[e ) -> -> 4 `i `uc ]
+[e $UE 1243  ]
+[; ;FastTransfer.c: 292: }
+"292
+[e :UE 1243 ]
+}
+"297
+[v _alignError `(ui ~T0 @X0 1 ef ]
+{
+[; ;FastTransfer.c: 297: unsigned int alignError(void) {
+[e :U _alignError ]
+[f ]
+[; ;FastTransfer.c: 298: return alignErrorCounter;
+"298
+[e ) _alignErrorCounter ]
+[e $UE 1248  ]
+[; ;FastTransfer.c: 299: }
+"299
+[e :UE 1248 ]
+}
+"304
+[v _CRCError `(ui ~T0 @X0 1 ef ]
+{
+[; ;FastTransfer.c: 304: unsigned int CRCError(void) {
+[e :U _CRCError ]
+[f ]
+[; ;FastTransfer.c: 305: return crcErrorCounter;
+"305
+[e ) _crcErrorCounter ]
+[e $UE 1249  ]
+[; ;FastTransfer.c: 306: }
+"306
+[e :UE 1249 ]
+}
+"311
+[v _addressError `(ui ~T0 @X0 1 ef ]
+{
+[; ;FastTransfer.c: 311: unsigned int addressError(void) {
+[e :U _addressError ]
+[f ]
+[; ;FastTransfer.c: 312: return addressErrorCounter;
+"312
+[e ) _addressErrorCounter ]
+[e $UE 1250  ]
+[; ;FastTransfer.c: 313: }
+"313
+[e :UE 1250 ]
+}
+"315
+[v _dataAddressError `(ui ~T0 @X0 1 ef ]
+{
+[; ;FastTransfer.c: 315: unsigned int dataAddressError(void) {
+[e :U _dataAddressError ]
+[f ]
+[; ;FastTransfer.c: 316: return dataAdressErrorCounter;
+"316
+[e ) _dataAdressErrorCounter ]
+[e $UE 1251  ]
+[; ;FastTransfer.c: 317: }
+"317
+[e :UE 1251 ]
+}
+"321
+[v _crcBufS_put `(v ~T0 @X0 1 ef4`*S1184`uc`uc`uc ]
+{
+[; ;FastTransfer.c: 321: void crcBufS_put(struct crcBufS* _this, unsigned char address, unsigned char oldCRC, unsigned char status) {
+[e :U _crcBufS_put ]
+[v __this `*S1184 ~T0 @X0 1 r1 ]
+[v _address `uc ~T0 @X0 1 r2 ]
+[v _oldCRC `uc ~T0 @X0 1 r3 ]
+[v _status `uc ~T0 @X0 1 r4 ]
+[f ]
+[; ;FastTransfer.c: 322: _this->buf[_this->head] = address;
+"322
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _address ]
+[; ;FastTransfer.c: 323: _this->head++;
+"323
+[e ++ . *U __this 1 -> 1 `i ]
+[; ;FastTransfer.c: 324: _this->buf[_this->head] = oldCRC;
+"324
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _oldCRC ]
+[; ;FastTransfer.c: 325: _this->head++;
+"325
+[e ++ . *U __this 1 -> 1 `i ]
+[; ;FastTransfer.c: 326: _this->buf[_this->head] = status;
+"326
+[e = *U + &U . *U __this 0 * -> -> . *U __this 1 `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _status ]
+[; ;FastTransfer.c: 327: _this->head++;
+"327
+[e ++ . *U __this 1 -> 1 `i ]
+[; ;FastTransfer.c: 328: if (_this->head >= (5 * 3)) {
+"328
+[e $ ! >= . *U __this 1 * -> 5 `i -> 3 `i 1253  ]
+{
+[; ;FastTransfer.c: 329: _this->head = 0;
+"329
+[e = . *U __this 1 -> 0 `i ]
+"330
+}
+[e :U 1253 ]
+[; ;FastTransfer.c: 330: }
+[; ;FastTransfer.c: 331: }
+"331
+[e :UE 1252 ]
+}
+"336
+[v _crcBufS_status_put `(v ~T0 @X0 1 ef3`*S1184`uc`uc ]
+{
+[; ;FastTransfer.c: 336: void crcBufS_status_put(struct crcBufS* _this, unsigned char time, unsigned char status) {
+[e :U _crcBufS_status_put ]
+[v __this `*S1184 ~T0 @X0 1 r1 ]
+[v _time `uc ~T0 @X0 1 r2 ]
+[v _status `uc ~T0 @X0 1 r3 ]
+[f ]
+[; ;FastTransfer.c: 337: if (time >= 5) {
+"337
+[e $ ! >= -> _time `i -> 5 `i 1255  ]
+{
+[; ;FastTransfer.c: 338: time = 5 - 1;
+"338
+[e = _time -> - -> 5 `i -> 1 `i `uc ]
+"339
+}
+[e :U 1255 ]
+[; ;FastTransfer.c: 339: }
+[; ;FastTransfer.c: 340: time = time + 1;
+"340
+[e = _time -> + -> _time `i -> 1 `i `uc ]
+"341
+[v _wantedTime `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 341: int wantedTime = time * 3;
+[e = _wantedTime * -> _time `i -> 3 `i ]
+[; ;FastTransfer.c: 342: if (wantedTime > _this->head) {
+"342
+[e $ ! > _wantedTime . *U __this 1 1256  ]
+{
+[; ;FastTransfer.c: 343: wantedTime = ((5 * 3)) - (wantedTime - _this->head);
+"343
+[e = _wantedTime - * -> 5 `i -> 3 `i - _wantedTime . *U __this 1 ]
+[; ;FastTransfer.c: 344: _this->buf[(wantedTime + 2)] = status;
+"344
+[e = *U + &U . *U __this 0 * -> -> + _wantedTime -> 2 `i `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _status ]
+"345
+}
+[; ;FastTransfer.c: 345: } else {
+[e $U 1257  ]
+[e :U 1256 ]
+{
+[; ;FastTransfer.c: 346: _this->buf[(_this->head - wantedTime) + 2] = status;
+"346
+[e = *U + &U . *U __this 0 * -> -> + - . *U __this 1 _wantedTime -> 2 `i `ui `ux -> -> # *U &U . *U __this 0 `ui `ux _status ]
+"347
+}
+[e :U 1257 ]
+[; ;FastTransfer.c: 347: }
+[; ;FastTransfer.c: 348: }
+"348
+[e :UE 1254 ]
+}
+"353
+[v _crcBufS_get `(uc ~T0 @X0 1 ef3`*S1184`uc`uc ]
+{
+[; ;FastTransfer.c: 353: unsigned char crcBufS_get(struct crcBufS* _this, unsigned char time, unsigned char space) {
+[e :U _crcBufS_get ]
+[v __this `*S1184 ~T0 @X0 1 r1 ]
+[v _time `uc ~T0 @X0 1 r2 ]
+[v _space `uc ~T0 @X0 1 r3 ]
+[f ]
+[; ;FastTransfer.c: 354: if (time >= 5) {
+"354
+[e $ ! >= -> _time `i -> 5 `i 1259  ]
+{
+[; ;FastTransfer.c: 355: time = 5 - 1;
+"355
+[e = _time -> - -> 5 `i -> 1 `i `uc ]
+"356
+}
+[e :U 1259 ]
+[; ;FastTransfer.c: 356: }
+[; ;FastTransfer.c: 357: if (space >= 3) {
+"357
+[e $ ! >= -> _space `i -> 3 `i 1260  ]
+{
+[; ;FastTransfer.c: 358: space = 3 - 1;
+"358
+[e = _space -> - -> 3 `i -> 1 `i `uc ]
+"359
+}
+[e :U 1260 ]
+[; ;FastTransfer.c: 359: }
+[; ;FastTransfer.c: 360: time = time + 1;
+"360
+[e = _time -> + -> _time `i -> 1 `i `uc ]
+"361
+[v _wantedTime `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 361: int wantedTime = time * 3;
+[e = _wantedTime * -> _time `i -> 3 `i ]
+[; ;FastTransfer.c: 362: if (wantedTime > _this->head) {
+"362
+[e $ ! > _wantedTime . *U __this 1 1261  ]
+{
+[; ;FastTransfer.c: 363: wantedTime = ((5 * 3)) - (wantedTime - _this->head);
+"363
+[e = _wantedTime - * -> 5 `i -> 3 `i - _wantedTime . *U __this 1 ]
+[; ;FastTransfer.c: 364: return (_this->buf[(wantedTime + space)]);
+"364
+[e ) *U + &U . *U __this 0 * -> -> + _wantedTime -> _space `i `ui `ux -> -> # *U &U . *U __this 0 `ui `ux ]
+[e $UE 1258  ]
+"365
+}
+[; ;FastTransfer.c: 365: } else {
+[e $U 1262  ]
+[e :U 1261 ]
+{
+[; ;FastTransfer.c: 366: return (_this->buf[(_this->head - wantedTime) + space]);
+"366
+[e ) *U + &U . *U __this 0 * -> -> + - . *U __this 1 _wantedTime -> _space `i `ui `ux -> -> # *U &U . *U __this 0 `ui `ux ]
+[e $UE 1258  ]
+"367
+}
+[e :U 1262 ]
+[; ;FastTransfer.c: 367: }
+[; ;FastTransfer.c: 368: }
+"368
+[e :UE 1258 ]
+}
+"373
+[v _CRCcheck `(v ~T0 @X0 1 ef ]
+{
+[; ;FastTransfer.c: 373: void CRCcheck(void) {
+[e :U _CRCcheck ]
+[f ]
+[; ;FastTransfer.c: 375: while (!(serial_available() > 3));
+"375
+[e $U 1264  ]
+[e :U 1265 ]
+[e :U 1264 ]
+[e $ ! > ( *U _serial_available ..  -> 3 `i 1265  ]
+[e :U 1266 ]
+"377
+[v _arrayHolder `uc ~T0 @X0 -> 3 `i a ]
+[; ;FastTransfer.c: 377: unsigned char arrayHolder[3];
+[; ;FastTransfer.c: 378: arrayHolder[0] = serial_read();
+"378
+[e = *U + &U _arrayHolder * -> -> -> 0 `i `ui `ux -> -> # *U &U _arrayHolder `ui `ux ( *U _serial_read ..  ]
+[; ;FastTransfer.c: 379: arrayHolder[1] = serial_read();
+"379
+[e = *U + &U _arrayHolder * -> -> -> 1 `i `ui `ux -> -> # *U &U _arrayHolder `ui `ux ( *U _serial_read ..  ]
+[; ;FastTransfer.c: 380: arrayHolder[2] = serial_read();
+"380
+[e = *U + &U _arrayHolder * -> -> -> 2 `i `ui `ux -> -> # *U &U _arrayHolder `ui `ux ( *U _serial_read ..  ]
+"381
+[v _SentCRC `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 381: unsigned char SentCRC = serial_read();
+[e = _SentCRC ( *U _serial_read ..  ]
+"382
+[v _calculatedCRC `uc ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 382: unsigned char calculatedCRC = CRC8(arrayHolder, 3);
+[e = _calculatedCRC ( _CRC8 (2 , -> &U _arrayHolder `*Cuc -> -> 3 `i `uc ]
+[; ;FastTransfer.c: 385: if (SentCRC == calculatedCRC) {
+"385
+[e $ ! == -> _SentCRC `i -> _calculatedCRC `i 1267  ]
+{
+"387
+[v _rt `i ~T0 @X0 1 a ]
+[; ;FastTransfer.c: 387: int rt;
+[; ;FastTransfer.c: 388: for (rt = 0; rt < 5; rt++) {
+"388
+{
+[e = _rt -> 0 `i ]
+[e $ < _rt -> 5 `i 1268  ]
+[e $U 1269  ]
+[e :U 1268 ]
+{
+[; ;FastTransfer.c: 389: if (returnAddress == crcBufS_get(&crc_buffer, rt, 0)) {
+"389
+[e $ ! == -> _returnAddress `i -> ( _crcBufS_get (3 , , &U _crc_buffer -> _rt `uc -> -> 0 `i `uc `i 1271  ]
+{
+[; ;FastTransfer.c: 390: if (arrayHolder[2] == crcBufS_get(&crc_buffer, rt, 1)) {
+"390
+[e $ ! == -> *U + &U _arrayHolder * -> -> -> 2 `i `ui `ux -> -> # *U &U _arrayHolder `ui `ux `i -> ( _crcBufS_get (3 , , &U _crc_buffer -> _rt `uc -> -> 1 `i `uc `i 1272  ]
+{
+[; ;FastTransfer.c: 391: if (arrayHolder[1] == 1) {
+"391
+[e $ ! == -> *U + &U _arrayHolder * -> -> -> 1 `i `ui `ux -> -> # *U &U _arrayHolder `ui `ux `i -> 1 `i 1273  ]
+{
+[; ;FastTransfer.c: 392: crcBufS_status_put(&crc_buffer, rt, 1);
+"392
+[e ( _crcBufS_status_put (3 , , &U _crc_buffer -> _rt `uc -> -> 1 `i `uc ]
+[; ;FastTransfer.c: 393: break;
+"393
+[e $U 1269  ]
+"394
+}
+[; ;FastTransfer.c: 394: } else if (arrayHolder[1] == 2) {
+[e $U 1274  ]
+[e :U 1273 ]
+[e $ ! == -> *U + &U _arrayHolder * -> -> -> 1 `i `ui `ux -> -> # *U &U _arrayHolder `ui `ux `i -> 2 `i 1275  ]
+{
+[; ;FastTransfer.c: 395: crcBufS_status_put(&crc_buffer, rt, 2);
+"395
+[e ( _crcBufS_status_put (3 , , &U _crc_buffer -> _rt `uc -> -> 2 `i `uc ]
+[; ;FastTransfer.c: 396: break;
+"396
+[e $U 1269  ]
+"397
+}
+[e :U 1275 ]
+"398
+[e :U 1274 ]
+}
+[e :U 1272 ]
+"399
+}
+[e :U 1271 ]
+"400
+}
+"388
+[e ++ _rt -> 1 `i ]
+[e $ < _rt -> 5 `i 1268  ]
+[e :U 1269 ]
+"400
+}
+"401
+}
+[; ;FastTransfer.c: 397: }
+[; ;FastTransfer.c: 398: }
+[; ;FastTransfer.c: 399: }
+[; ;FastTransfer.c: 400: }
+[; ;FastTransfer.c: 401: } else {
+[e $U 1276  ]
+[e :U 1267 ]
+{
+[; ;FastTransfer.c: 402: crcErrorCounter++;
+"402
+[e ++ _crcErrorCounter -> -> 1 `i `ui ]
+"403
+}
+[e :U 1276 ]
+[; ;FastTransfer.c: 403: }
+[; ;FastTransfer.c: 404: }
+"404
+[e :UE 1263 ]
 }

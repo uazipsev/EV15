@@ -1,0 +1,20 @@
+
+# 1 "Communications.c"
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
+typedef unsigned char bool;
+
+# 14 "Communications.h"
+void updateComms();
+extern void sendData(unsigned char whereToSend);
+extern bool receiveData();
+extern void ToSend(const unsigned char where, const unsigned int what);
+
+# 5 "Communications.c"
+void updateComms(){
+
+if(receiveData()){
+
+}
+
+}

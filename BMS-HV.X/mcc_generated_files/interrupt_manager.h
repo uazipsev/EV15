@@ -120,7 +120,47 @@ void INTERRUPT_Initialize (void);
     INTERRUPT_InterruptManager();
  */
 void interrupt INTERRUPT_InterruptManager (void);
+/**
+  @Summary
+    Maintains the driver's transmitter state machine and implements its ISR.
 
+  @Description
+    This routine is used to maintain the driver's internal transmitter state
+    machine.This interrupt service routine is called when the state of the
+    transmitter needs to be maintained in a non polled manner.
+
+  @Preconditions
+    EUSART1_Initialize() function should have been called
+    for the ISR to execute correctly.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+extern void EUSART1_Transmit_ISR(void);
+
+/**
+  @Summary
+    Maintains the driver's receiver state machine and implements its ISR
+
+  @Description
+    This routine is used to maintain the driver's internal receiver state
+    machine.This interrupt service routine is called when the state of the
+    receiver needs to be maintained in a non polled manner.
+
+  @Preconditions
+    EUSART1_Initialize() function should have been called
+    for the ISR to execute correctly.
+
+  @Param
+    None
+
+  @Returns
+    None
+*/
+extern void EUSART1_Receive_ISR(void);
 #endif  // INTERRUPT_MANAGER_H
 /**
  End of File

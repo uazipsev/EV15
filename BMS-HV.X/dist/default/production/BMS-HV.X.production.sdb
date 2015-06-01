@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F45K22 ]
 [d frameptr 4065 ]
-"37 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
+"37 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [e E8837 . `uc
 channel_CTMU 29
 channel_DAC 30
@@ -21,7 +21,7 @@ Battery6 26
 Battery7 27
 Battery4 5
 ]
-"24 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"24 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [e E8851 . `uc
 channel_CTMU 29
 channel_DAC 30
@@ -39,7 +39,7 @@ Battery6 26
 Battery7 27
 Battery4 5
 ]
-"42 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"42 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Tempeture.c
 [e E8845 . `uc
 channel_CTMU 29
 channel_DAC 30
@@ -57,7 +57,7 @@ Battery6 26
 Battery7 27
 Battery4 5
 ]
-"18 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [v _Battery_Read Battery_Read `(v  1 e 0 0 ]
 "34
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
@@ -67,217 +67,125 @@ Battery4 5
 [v _Battery_Fault Battery_Fault `(uc  1 e 1 0 ]
 "93
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
-"18 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Bypass.c
 [v _SetBypass SetBypass `(i  1 e 2 0 ]
 "129
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
-[v ___abdiv __abdiv `(c  1 e 1 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abmod.c
-[v ___abmod __abmod `(c  1 e 1 0 ]
-"31 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abtofl.c
-[v ___abtofl __abtofl `(d  1 e 3 0 ]
-"33 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abtoft.c
-[v ___abtoft __abtoft `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\aldiv.c
-[v ___aldiv __aldiv `(l  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\almod.c
-[v ___almod __almod `(l  1 e 4 0 ]
-"36 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altofl.c
-[v ___altofl __altofl `(d  1 e 3 0 ]
-"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
+"42 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altoft.c
 [v ___altoft __altoft `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atdiv.c
-[v ___atdiv __atdiv `(m  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\atmod.c
-[v ___atmod __atmod `(m  1 e 3 0 ]
-"37 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\attofl.c
-[v ___attofl __attofl `(d  1 e 3 0 ]
-"37 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\attoft.c
-[v ___attoft __attoft `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
-"31 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtofl.c
-[v ___awtofl __awtofl `(d  1 e 3 0 ]
-"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
+"32 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
-"409 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
+"409 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
 [v _fround fround `(d  1 s 3 fround ]
 "425
 [v _scale scale `(d  1 s 3 scale ]
 "464
 [v _printf printf `(i  1 e 2 0 ]
-"63 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\double.c
+"63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
 [v ___flpack __flpack `(d  1 e 3 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\evalpoly.c
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
 [v _eval_poly eval_poly `(d  1 e 3 0 ]
-"88 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fladd.c
+"88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fldiv.c
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldiv.c
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
-"60 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fldivl.c
+"60 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldivl.c
 [v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flge.c
-[v ___flge __flge `(b  1 e 0 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flmul.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flneg.c
-[v ___flneg __flneg `(d  1 e 3 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"20 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\flsub.c
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\flsub.c
 [v ___flsub __flsub `(d  1 e 3 0 ]
-"43 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fltol.c
-[v ___fltol __fltol `(l  1 e 4 0 ]
-"254 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\frexp.c
+"254 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
 [v _frexp frexp `(d  1 e 3 0 ]
-"277
-[v _ldexp ldexp `(d  1 e 3 0 ]
-"86 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdiv.c
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"60 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdivl.c
+"60 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdivl.c
 [v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftneg.c
 [v ___ftneg __ftneg `(f  1 e 3 0 ]
-"20 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
+"44 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\isdigit.c
 [v _isdigit isdigit `(b  1 e 0 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbdiv.c
-[v ___lbdiv __lbdiv `(uc  1 e 1 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbmod.c
-[v ___lbmod __lbmod `(uc  1 e 1 0 ]
-"27 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbtofl.c
-[v ___lbtofl __lbtofl `(d  1 e 3 0 ]
-"27 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lbtoft.c
-[v ___lbtoft __lbtoft `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
-"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltofl.c
-[v ___lltofl __lltofl `(d  1 e 3 0 ]
-"35 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c
+"35 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltoft.c
 [v ___lltoft __lltoft `(f  1 e 3 0 ]
-"5 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\log.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
 [v _log log `(d  1 e 3 0 ]
-"39
-[v _log10 log10 `(d  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltdiv.c
-[v ___ltdiv __ltdiv `(um  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ltmod.c
-[v ___ltmod __ltmod `(um  1 e 3 0 ]
-"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lttofl.c
-[v ___lttofl __lttofl `(d  1 e 3 0 ]
-"30 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lttoft.c
-[v ___lttoft __lttoft `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
-"28 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtofl.c
-[v ___lwtofl __lwtofl `(d  1 e 3 0 ]
-"28 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwtoft.c
-[v ___lwtoft __lwtoft `(f  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul24.c
-[v ___tmul __tmul `(um  1 e 3 0 ]
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul32.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul8.c
-[v ___bmul __bmul `(uc  1 e 1 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asfladd.c
-[v ___asfladd __asfladd `(d  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asfldiv.c
-[v ___asfldiv __asfldiv `(d  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asflmul.c
-[v ___asflmul __asflmul `(d  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asflsub.c
-[v ___asflsub __asflsub `(d  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftadd.c
-[v ___asftadd __asftadd `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftdiv.c
-[v ___asftdiv __asftdiv `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftmul.c
-[v ___asftmul __asftmul `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\asftsub.c
-[v ___asftsub __asftsub `(f  1 e 3 0 ]
-"6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\aslmul.c
-[v ___aslmul __aslmul `(ul  1 e 4 0 ]
-"15 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+"5 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Communications.c
+[v _updateComms updateComms `(v  1 e 0 0 ]
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\FastTransfer.c
+[v _begin begin `(v  1 e 0 0 ]
+"34
+[v _CRC8 CRC8 `(uc  1 e 1 0 ]
+"82
+[v _receiveData receiveData `(uc  1 e 1 0 ]
+"223
+[v _FastTransfer_buffer_put FastTransfer_buffer_put `(v  1 e 0 0 ]
+"261
+[v _FastTransfer_buffer_flush FastTransfer_buffer_flush `(v  1 e 0 0 ]
+"273
+[v _FastTransfer_buffer_modulo_inc FastTransfer_buffer_modulo_inc `(ui  1 e 2 0 ]
+"321
+[v _crcBufS_put crcBufS_put `(v  1 e 0 0 ]
+"336
+[v _crcBufS_status_put crcBufS_status_put `(v  1 e 0 0 ]
+"353
+[v _crcBufS_get crcBufS_get `(uc  1 e 1 0 ]
+"373
+[v _CRCcheck CRCcheck `(v  1 e 0 0 ]
+"15 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Functions.c
 [v _Set_4051 Set_4051 `(v  1 e 0 0 ]
-"37
-[v _Delay Delay `(v  1 e 0 0 ]
-"30 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
+"30 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
-"13 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
+"13 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
 "36
 [v _ADC_StartConversion ADC_StartConversion `(v  1 e 0 0 ]
-"49
-[v _ADC_IsConversionDone ADC_IsConversionDone `(uc  1 e 1 0 ]
 "55
 [v _ADC_GetConversionResult ADC_GetConversionResult `(ui  1 e 2 0 ]
-"61
-[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
 "82
 [v _ADC_ISR ADC_ISR `(v  1 e 0 0 ]
-"76 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/eusart1.c
-[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 0 0 ]
-"119
-[v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
-"140
-[v _EUSART1_Write EUSART1_Write `(v  1 e 0 0 ]
-"163
-[v _getch getch `(uc  1 e 1 0 ]
-"168
-[v _putch putch `(v  1 e 0 0 ]
-"173
-[v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
-"192
-[v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 0 0 ]
-"52 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
+"52 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 0 0 ]
 "69
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
-"112 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/mcc.c
+"113 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
-"122
+"127
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
-"6 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/pin_manager.c
+"6 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"18 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 0 0 ]
 "47
 [v _TMR1_StartTimer TMR1_StartTimer `(v  1 e 0 0 ]
-"53
-[v _TMR1_StopTimer TMR1_StopTimer `(v  1 e 0 0 ]
-"59
-[v _TMR1_ReadTimer TMR1_ReadTimer `(ui  1 e 2 0 ]
-"73
-[v _TMR1_WriteTimer TMR1_WriteTimer `(v  1 e 0 0 ]
-"95
-[v _TMR1_Reload TMR1_Reload `(v  1 e 0 0 ]
-"102
-[v _TMR1_StartSinglePulseAcquisition TMR1_StartSinglePulseAcquisition `(v  1 e 0 0 ]
-"107
-[v _TMR1_CheckGateValueStatus TMR1_CheckGateValueStatus `(uc  1 e 1 0 ]
 "112
 [v _TMR1_ISR TMR1_ISR `(v  1 e 0 0 ]
-"145
-[v _TMR1_CallBack TMR1_CallBack `(v  1 e 0 0 ]
-"16 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"16 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Fault Temp_Fault `(uc  1 e 1 0 ]
 "36
 [v _Temp_Read Temp_Read `(v  1 e 0 0 ]
@@ -285,48 +193,94 @@ Battery4 5
 [v _Temp_Filter Temp_Filter `(v  1 e 0 0 ]
 "68
 [v _Temp_Convert Temp_Convert `(v  1 e 0 0 ]
-"91
-[v _Tempeture_Get Tempeture_Get `(f  1 e 3 0 ]
-"7 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"21 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.c
+[v _UART_init UART_init `(v  1 e 0 0 ]
+"54
+[v _UART_buff_init UART_buff_init `(v  1 e 0 0 ]
+"66
+[v _UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+[v i2_UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+"79
+[v _UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+[v i2_UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+"100
+[v _UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+[v i2_UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+"104
+[v _UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+[v i2_UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+"112
+[v _UART_buff_peek UART_buff_peek `(uc  1 e 1 0 ]
+"116
+[v _Receive_peek Receive_peek `(uc  1 e 1 0 ]
+"120
+[v _Receive_available Receive_available `(i  1 e 2 0 ]
+"124
+[v _Receive_get Receive_get `(uc  1 e 1 0 ]
+"128
+[v _Send_put Send_put `(v  1 e 0 0 ]
+"136
+[v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 0 0 ]
+"148
+[v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
+"165
+[v _putch putch `(v  1 e 0 0 ]
+"7 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [v _Battery_Volt Battery_Volt `[10]f  1 e 30 0 ]
 "8
 [v _TempBattery_Volt TempBattery_Volt `[10]f  1 e 30 0 ]
 "9
 [v _PrevBattery_Volt PrevBattery_Volt `[10]f  1 e 30 0 ]
-"47 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
+"49 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
-"91
+"93
 [v _ANSELB ANSELB `VEuc  1 e 1 @3897 ]
-"140
+"142
 [v _ANSELC ANSELC `VEuc  1 e 1 @3898 ]
-"190
+"192
 [v _ANSELD ANSELD `VEuc  1 e 1 @3899 ]
-"251
+"253
 [v _ANSELE ANSELE `VEuc  1 e 1 @3900 ]
-"2686
+"2688
 [v _WPUB WPUB `VEuc  1 e 1 @3937 ]
-"7774
+"7776
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-"7906
+"7908
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
-"8038
+"8040
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
-"8170
+"8172
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
-"8302
+"8304
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-"8404
+"8406
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
-"8625
+"8627
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
-"8846
+"8848
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-"9067
+"9069
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-"9288
+"9290
 [v _TRISE TRISE `VEuc  1 e 1 @3990 ]
-"9403
+"9405
 [v _OSCTUNE OSCTUNE `VEuc  1 e 1 @3995 ]
+[s S56 . 1 `uc 1 TMR1IE 1 0 :1:0 
+`uc 1 TMR2IE 1 0 :1:1 
+`uc 1 CCP1IE 1 0 :1:2 
+`uc 1 SSP1IE 1 0 :1:3 
+`uc 1 TX1IE 1 0 :1:4 
+`uc 1 RC1IE 1 0 :1:5 
+`uc 1 ADIE 1 0 :1:6 
+]
+"9775
+[s S64 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIE 1 0 :1:3 
+`uc 1 TXIE 1 0 :1:4 
+`uc 1 RCIE 1 0 :1:5 
+]
+[u S69 . 1 `S56 1 . 1 0 `S64 1 . 1 0 ]
+[v _PIE1bits PIE1bits `VES69  1 e 1 @3997 ]
 [s S26 . 1 `uc 1 TMR1IF 1 0 :1:0 
 `uc 1 TMR2IF 1 0 :1:1 
 `uc 1 CCP1IF 1 0 :1:2 
@@ -335,21 +289,33 @@ Battery4 5
 `uc 1 RC1IF 1 0 :1:5 
 `uc 1 ADIF 1 0 :1:6 
 ]
-"9773
+"9851
 [s S34 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIF 1 0 :1:3 
 `uc 1 TXIF 1 0 :1:4 
 `uc 1 RCIF 1 0 :1:5 
 ]
 [u S39 . 1 `S26 1 . 1 0 `S34 1 . 1 0 ]
-[v _PIE1bits PIE1bits `VES39  1 e 1 @3997 ]
-"9849
 [v _PIR1bits PIR1bits `VES39  1 e 1 @3998 ]
-"9925
-[v _IPR1bits IPR1bits `VES39  1 e 1 @3999 ]
-"10696
+[s S524 . 1 `uc 1 TMR1IP 1 0 :1:0 
+`uc 1 TMR2IP 1 0 :1:1 
+`uc 1 CCP1IP 1 0 :1:2 
+`uc 1 SSP1IP 1 0 :1:3 
+`uc 1 TX1IP 1 0 :1:4 
+`uc 1 RC1IP 1 0 :1:5 
+`uc 1 ADIP 1 0 :1:6 
+]
+"9927
+[s S532 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 SSPIP 1 0 :1:3 
+`uc 1 TXIP 1 0 :1:4 
+`uc 1 RCIP 1 0 :1:5 
+]
+[u S537 . 1 `S524 1 . 1 0 `S532 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES537  1 e 1 @3999 ]
+"10698
 [v _RC1STA RC1STA `VEuc  1 e 1 @4011 ]
-[s S270 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S959 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -358,11 +324,11 @@ Battery4 5
 `uc 1 RX9 1 0 :1:6 
 `uc 1 SPEN 1 0 :1:7 
 ]
-"11039
-[s S279 . 1 `uc 1 . 1 0 :3:0 
+"11041
+[s S968 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S282 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S971 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -371,46 +337,46 @@ Battery4 5
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S291 . 1 `uc 1 . 1 0 :6:0 
+[s S980 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S294 . 1 `uc 1 . 1 0 :6:0 
+[s S983 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S297 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S986 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[s S299 . 1 `uc 1 . 1 0 :5:0 
+[s S988 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S302 . 1 `S270 1 . 1 0 `S279 1 . 1 0 `S282 1 . 1 0 `S291 1 . 1 0 `S294 1 . 1 0 `S297 1 . 1 0 `S299 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES302  1 e 1 @4011 ]
-"11157
+[u S991 . 1 `S959 1 . 1 0 `S968 1 . 1 0 `S971 1 . 1 0 `S980 1 . 1 0 `S983 1 . 1 0 `S986 1 . 1 0 `S988 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES991  1 e 1 @4011 ]
+"11159
 [v _TX1STA TX1STA `VEuc  1 e 1 @4012 ]
-"11528
+"11530
 [v _TXREG1 TXREG1 `VEuc  1 e 1 @4013 ]
-"11605
+"11607
 [v _RCREG1 RCREG1 `VEuc  1 e 1 @4014 ]
-"11682
+"11684
 [v _SPBRG1 SPBRG1 `VEuc  1 e 1 @4015 ]
-"11759
+"11761
 [v _SPBRGH1 SPBRGH1 `VEuc  1 e 1 @4016 ]
-"12730
+"12732
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @4024 ]
-"13912
+"13914
 [v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
-"13982
+"13984
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
-"14049
+"14051
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S409 . 1 `uc 1 . 1 0 :1:0 
+[s S284 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
-"14094
-[s S412 . 1 `uc 1 ADON 1 0 :1:0 
+"14096
+[s S287 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S416 . 1 `uc 1 . 1 0 :1:0 
+[s S291 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -418,33 +384,33 @@ Battery4 5
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S424 . 1 `uc 1 . 1 0 :1:0 
+[s S299 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S427 . 1 `uc 1 . 1 0 :1:0 
+[s S302 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S430 . 1 `uc 1 . 1 0 :1:0 
+[s S305 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S433 . 1 `uc 1 . 1 0 :1:0 
+[s S308 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S436 . 1 `uc 1 . 1 0 :1:0 
+[s S311 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S439 . 1 `S409 1 . 1 0 `S412 1 . 1 0 `S416 1 . 1 0 `S424 1 . 1 0 `S427 1 . 1 0 `S430 1 . 1 0 `S433 1 . 1 0 `S436 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES439  1 e 1 @4034 ]
-"14179
+[u S314 . 1 `S284 1 . 1 0 `S287 1 . 1 0 `S291 1 . 1 0 `S299 1 . 1 0 `S302 1 . 1 0 `S305 1 . 1 0 `S308 1 . 1 0 `S311 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES314  1 e 1 @4034 ]
+"14181
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
-"14198
+"14200
 [v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
-"16282
+"16284
 [v _T1GCON T1GCON `VEuc  1 e 1 @4044 ]
 [s S140 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 T1GGO_NOT_DONE 1 0 :1:3 
 ]
-"16312
+"16314
 [s S143 . 1 `uc 1 T1GSS 1 0 :2:0 
 `uc 1 T1GVAL 1 0 :1:2 
 `uc 1 T1GGO_nDONE 1 0 :1:3 
@@ -463,12 +429,12 @@ Battery4 5
 ]
 [u S159 . 1 `S140 1 . 1 0 `S143 1 . 1 0 `S151 1 . 1 0 `S156 1 . 1 0 ]
 [v _T1GCONbits T1GCONbits `VES159  1 e 1 @4044 ]
-"16376
+"16378
 [v _T1CON T1CON `VEuc  1 e 1 @4045 ]
 [s S90 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 ]
-"16409
+"16411
 [s S93 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 nT1SYNC 1 0 :1:2 
@@ -490,28 +456,28 @@ Battery4 5
 ]
 [u S112 . 1 `S90 1 . 1 0 `S93 1 . 1 0 `S100 1 . 1 0 `S109 1 . 1 0 ]
 [v _T1CONbits T1CONbits `VES112  1 e 1 @4045 ]
-"16488
+"16490
 [v _TMR1 TMR1 `VEus  1 e 2 @4046 ]
-"16494
+"16496
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
-"16513
+"16515
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S582 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S457 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
-"16575
-[s S584 . 1 `uc 1 . 1 0 :1:0 
+"16577
+[s S459 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S587 . 1 `uc 1 . 1 0 :2:0 
+[s S462 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S590 . 1 `uc 1 . 1 0 :3:0 
+[s S465 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S593 . 1 `uc 1 . 1 0 :4:0 
+[s S468 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S596 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S471 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -520,23 +486,23 @@ Battery4 5
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S605 . 1 `uc 1 BOR 1 0 :1:0 
+[s S480 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S611 . 1 `S582 1 . 1 0 `S584 1 . 1 0 `S587 1 . 1 0 `S590 1 . 1 0 `S593 1 . 1 0 `S596 1 . 1 0 `S605 1 . 1 0 ]
-[v _RCONbits RCONbits `VES611  1 e 1 @4048 ]
-"16691
+[u S486 . 1 `S457 1 . 1 0 `S459 1 . 1 0 `S462 1 . 1 0 `S465 1 . 1 0 `S468 1 . 1 0 `S471 1 . 1 0 `S480 1 . 1 0 ]
+[v _RCONbits RCONbits `VES486  1 e 1 @4048 ]
+"16693
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
-"16747
+"16749
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S538 . 1 `uc 1 . 1 0 :7:0 
+[s S413 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
-"17557
-[s S541 . 1 `uc 1 RBIP 1 0 :1:0 
+"17559
+[s S416 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -545,12 +511,12 @@ Battery4 5
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S550 . 1 `uc 1 . 1 0 :7:0 
+[s S425 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S553 . 1 `S538 1 . 1 0 `S541 1 . 1 0 `S550 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES553  1 e 1 @4081 ]
-[s S860 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S428 . 1 `S413 1 . 1 0 `S416 1 . 1 0 `S425 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES428  1 e 1 @4081 ]
+[s S775 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -559,8 +525,8 @@ Battery4 5
 `uc 1 PEIE_GIEL 1 0 :1:6 
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
-"17648
-[s S869 . 1 `uc 1 . 1 0 :1:0 
+"17650
+[s S784 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -569,49 +535,98 @@ Battery4 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S878 . 1 `uc 1 . 1 0 :6:0 
+[s S793 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S895 . 1 `S860 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES895  1 e 1 @4082 ]
-"18973
+[u S810 . 1 `S775 1 . 1 0 `S784 1 . 1 0 `S793 1 . 1 0 `S784 1 . 1 0 `S793 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES810  1 e 1 @4082 ]
+"18975
 [v _LATA0 LATA0 `VEb  1 e 0 @31816 ]
-"18981
+"18983
 [v _LATA4 LATA4 `VEb  1 e 0 @31820 ]
-"18985
+"18987
 [v _LATA6 LATA6 `VEb  1 e 0 @31822 ]
-"18989
-[v _LATB0 LATB0 `VEb  1 e 0 @31824 ]
 "18991
+[v _LATB0 LATB0 `VEb  1 e 0 @31824 ]
+"18993
 [v _LATB1 LATB1 `VEb  1 e 0 @31825 ]
-"18995
+"18997
 [v _LATB3 LATB3 `VEb  1 e 0 @31827 ]
-"19005
-[v _LATC0 LATC0 `VEb  1 e 0 @31832 ]
 "19007
+[v _LATC0 LATC0 `VEb  1 e 0 @31832 ]
+"19009
 [v _LATC1 LATC1 `VEb  1 e 0 @31833 ]
-"19013
-[v _LATC4 LATC4 `VEb  1 e 0 @31836 ]
 "19015
+[v _LATC4 LATC4 `VEb  1 e 0 @31836 ]
+"19017
 [v _LATC5 LATC5 `VEb  1 e 0 @31837 ]
-"19023
-[v _LATD1 LATD1 `VEb  1 e 0 @31841 ]
 "19025
-[v _LATD2 LATD2 `VEb  1 e 0 @31842 ]
+[v _LATD1 LATD1 `VEb  1 e 0 @31841 ]
 "19027
+[v _LATD2 LATD2 `VEb  1 e 0 @31842 ]
+"19029
 [v _LATD3 LATD3 `VEb  1 e 0 @31843 ]
-"19031
+"19033
 [v _LATD5 LATD5 `VEb  1 e 0 @31845 ]
-"354 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
+"354 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
 [v _dpowers dpowers `C[10]ul  1 s 40 dpowers ]
-"3 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\errno.c
+"3 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\errno.c
 [v _errno errno `i  1 e 2 0 ]
-"7 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\powers.c
+"7 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\powers.c
 [v __powers_ _powers_ `C[13]d  1 e 39 0 ]
 "39
 [v __npowers_ _npowers_ `C[13]d  1 e 39 0 ]
-"13 C:\Zips EV 15\trunk\BMS-HV.X\Global.c
+"24 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\FastTransfer.h
+[v _receiveArray receiveArray `VE[20]i  1 e 40 0 ]
+"26
+[v _serial_write serial_write `*.37(v  1 e 2 0 ]
+"27
+[v _serial_read serial_read `*.37(uc  1 e 2 0 ]
+"28
+[v _serial_available serial_available `*.37(i  1 e 2 0 ]
+"29
+[v _serial_peek serial_peek `*.37(uc  1 e 2 0 ]
+"30
+[v _rx_buffer rx_buffer `[200]uc  1 e 200 0 ]
+"31
+[v _rx_array_inx rx_array_inx `uc  1 e 1 0 ]
+"32
+[v _rx_len rx_len `uc  1 e 1 0 ]
+"33
+[v _calc_CS calc_CS `uc  1 e 1 0 ]
+"34
+[v _moduleAddress moduleAddress `uc  1 e 1 0 ]
+"35
+[v _returnAddress returnAddress `uc  1 e 1 0 ]
+"36
+[v _maxDataAddress maxDataAddress `uc  1 e 1 0 ]
+"37
+[v _receiveArrayAddress receiveArrayAddress `*.39VEi  1 e 2 0 ]
+"38
+[v _sendStructAddress sendStructAddress `*.39uc  1 e 2 0 ]
+"39
+[v _AKNAKsend AKNAKsend `uc  1 e 1 0 ]
+"40
+[v _alignErrorCounter alignErrorCounter `ui  1 e 2 0 ]
+"41
+[v _crcErrorCounter crcErrorCounter `ui  1 e 2 0 ]
+"42
+[v _addressErrorCounter addressErrorCounter `ui  1 e 2 0 ]
+"43
+[v _dataAdressErrorCounter dataAdressErrorCounter `ui  1 e 2 0 ]
+"44
+[v _rx_address rx_address `uc  1 e 1 0 ]
+[s S1110 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+"58
+[v _ring_buffer ring_buffer `S1110  1 e 206 0 ]
+[u S1115 stuff 2 `[2]uc 1 parts 2 0 `ui 1 integer 2 0 ]
+"64
+[v _group group `S1115  1 e 2 0 ]
+[s S1118 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+"70
+[v _crc_buffer crc_buffer `S1118  1 e 17 0 ]
+"13 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Global.c
 [v _Temp_Aquire Temp_Aquire `uc  1 e 1 0 ]
 "14
 [v _Volt_Aquire Volt_Aquire `uc  1 e 1 0 ]
@@ -627,71 +642,159 @@ Battery4 5
 [v _Volt_Done Volt_Done `i  1 e 2 0 ]
 "20
 [v _CountCallBack CountCallBack `i  1 e 2 0 ]
-"62 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/eusart1.c
-[v _eusart1TxHead eusart1TxHead `uc  1 s 1 eusart1TxHead ]
-"63
-[v _eusart1TxTail eusart1TxTail `uc  1 s 1 eusart1TxTail ]
-"64
-[v _eusart1TxBuffer eusart1TxBuffer `[8]uc  1 s 8 eusart1TxBuffer ]
-"65
-[v _eusart1TxBufferRemaining eusart1TxBufferRemaining `VEuc  1 e 1 0 ]
-"67
-[v _eusart1RxHead eusart1RxHead `uc  1 s 1 eusart1RxHead ]
-"68
-[v _eusart1RxTail eusart1RxTail `uc  1 s 1 eusart1RxTail ]
-"69
-[v _eusart1RxBuffer eusart1RxBuffer `[50]uc  1 s 50 eusart1RxBuffer ]
-"70
-[v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
-"12 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"12 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
-"8 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"8 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_DegF Temp_DegF `[10]f  1 e 30 0 ]
 "9
 [v _TmpTemp_DegF TmpTemp_DegF `[10]f  1 e 30 0 ]
 "10
 [v _PrevTemp_DegF PrevTemp_DegF `[10]f  1 e 30 0 ]
-"30 C:\Zips EV 15\trunk\BMS-HV.X\Main.c
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+"109 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.h
+[v _input_buffer input_buffer `S912  1 e 206 0 ]
+"110
+[v _output_buffer output_buffer `S912  1 e 206 0 ]
+"112
+[v _Transmit_stall Transmit_stall `uc  1 e 1 0 ]
+"30 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
 {
 "80
-[v main@x_971 x `i  1 a 2 84 ]
+[v main@x_890 x `i  1 a 2 7 ]
 "70
-[v main@x x `i  1 a 2 82 ]
-"30
-[v main@argc argc `i  1 p 2 77 ]
-[v main@argv argv `*.2*.2uc  1 p 3 79 ]
-"103
+[v main@x x `i  1 a 2 5 ]
+"104
 } 0
-"464 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
+"5 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Communications.c
+[v _updateComms updateComms `(v  1 e 0 0 ]
+{
+"11
+} 0
+"82 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\FastTransfer.c
+[v _receiveData receiveData `(uc  1 e 1 0 ]
+{
+"185
+[v receiveData@holder_1240 holder `[3]uc  1 a 3 16 ]
+"189
+[v receiveData@crcHolder_1241 crcHolder `uc  1 a 1 20 ]
+"160
+[v receiveData@holder holder `[3]uc  1 a 3 13 ]
+"164
+[v receiveData@crcHolder crcHolder `uc  1 a 1 19 ]
+"106
+[v receiveData@u u `i  1 a 2 21 ]
+"147
+[v receiveData@r r `i  1 a 2 23 ]
+"211
+} 0
+"116 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.c
+[v _Receive_peek Receive_peek `(uc  1 e 1 0 ]
+{
+"118
+} 0
+"112
+[v _UART_buff_peek UART_buff_peek `(uc  1 e 1 0 ]
+{
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_peek@_this _this `*.39S912  1 p 2 26 ]
+"114
+} 0
+"373 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\FastTransfer.c
+[v _CRCcheck CRCcheck `(v  1 e 0 0 ]
+{
+"387
+[v CRCcheck@rt rt `i  1 a 2 5 ]
+"377
+[v CRCcheck@arrayHolder arrayHolder `[3]uc  1 a 3 2 ]
+"382
+[v CRCcheck@calculatedCRC calculatedCRC `uc  1 a 1 1 ]
+"381
+[v CRCcheck@SentCRC SentCRC `uc  1 a 1 0 ]
+"404
+} 0
+"336
+[v _crcBufS_status_put crcBufS_status_put `(v  1 e 0 0 ]
+{
+"341
+[v crcBufS_status_put@wantedTime wantedTime `i  1 a 2 34 ]
+[s S1118 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+"336
+[v crcBufS_status_put@_this _this `*.39S1118  1 p 2 26 ]
+[v crcBufS_status_put@time time `uc  1 p 1 28 ]
+[v crcBufS_status_put@status status `uc  1 p 1 29 ]
+"348
+} 0
+"353
+[v _crcBufS_get crcBufS_get `(uc  1 e 1 0 ]
+{
+"361
+[v crcBufS_get@wantedTime wantedTime `i  1 a 2 36 ]
+[s S1118 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+"353
+[v crcBufS_get@_this _this `*.39S1118  1 p 2 26 ]
+[v crcBufS_get@time time `uc  1 p 1 28 ]
+[v crcBufS_get@space space `uc  1 p 1 29 ]
+"368
+} 0
+"124 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.c
+[v _Receive_get Receive_get `(uc  1 e 1 0 ]
+{
+"126
+} 0
+"120
+[v _Receive_available Receive_available `(i  1 e 2 0 ]
+{
+"122
+} 0
+"100
+[v _UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+{
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_size@_this _this `*.39S912  1 p 2 26 ]
+"102
+} 0
+"34 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\FastTransfer.c
+[v _CRC8 CRC8 `(uc  1 e 1 0 ]
+{
+"40
+[v CRC8@sum sum `uc  1 a 1 29 ]
+"38
+[v CRC8@tempI tempI `uc  1 a 1 31 ]
+"37
+[v CRC8@extract extract `uc  1 a 1 30 ]
+"35
+[v CRC8@crc crc `uc  1 a 1 32 ]
+"34
+[v CRC8@data data `*.39Cuc  1 p 2 26 ]
+[v CRC8@len len `uc  1 p 1 28 ]
+"49
+} 0
+"464 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
 {
-"1210
-[v printf@vd vd `ul  1 a 4 7 ]
-"1238
-[v printf@vd_1055 vd `ul  1 a 4 11 ]
-[s S1039 . 5 `*.39Cuc 1 _cp 3 0 `ui 1 _len 2 3 ]
-"525
-[u S1042 . 5 `ul 1 _val 4 0 `S1039 1 _str 5 0 ]
-[v printf@_val _val `S1042  1 a 5 20 ]
+"528
+[v printf@val val `ul  1 a 4 9 ]
+[u S1352 . 4 `ul 1 vd 4 0 `d 1 integ 3 0 ]
+"526
+[v printf@tmpval tmpval `S1352  1 a 4 5 ]
 "516
-[v printf@fval fval `d  1 a 3 31 ]
-[v printf@integ integ `d  1 a 3 17 ]
+[v printf@fval fval `d  1 a 3 19 ]
 "504
-[v printf@prec prec `i  1 a 2 34 ]
+[v printf@prec prec `i  1 a 2 22 ]
 "501
-[v printf@width width `i  1 a 2 29 ]
+[v printf@width width `i  1 a 2 17 ]
 "508
-[v printf@flag flag `us  1 a 2 27 ]
+[v printf@flag flag `us  1 a 2 15 ]
 "516
-[v printf@exp exp `i  1 a 2 25 ]
+[v printf@exp exp `i  1 a 2 13 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 15 ]
+[v printf@ap ap `[1]*.39v  1 a 2 3 ]
 "499
-[v printf@c c `c  1 a 1 36 ]
+[v printf@c c `c  1 a 1 24 ]
 "464
-[v printf@f f `*.25Cuc  1 p 2 55 ]
-"1550
+[v printf@f f `*.25Cuc  1 p 2 60 ]
+"1541
 } 0
 "425
 [v _scale scale `(d  1 s 3 scale ]
@@ -699,27 +802,55 @@ Battery4 5
 [v scale@scl scl `c  1 a 1 wreg ]
 [v scale@scl scl `c  1 a 1 wreg ]
 "428
-[v scale@scl scl `c  1 a 1 33 ]
+[v scale@scl scl `c  1 a 1 38 ]
 "441
 } 0
-"168 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/eusart1.c
+"165 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.c
 [v _putch putch `(v  1 e 0 0 ]
 {
 [v putch@txData txData `uc  1 a 1 wreg ]
 [v putch@txData txData `uc  1 a 1 wreg ]
-"170
-[v putch@txData txData `uc  1 a 1 27 ]
-"171
+"167
+[v putch@txData txData `uc  1 a 1 38 ]
+"168
 } 0
-"140
-[v _EUSART1_Write EUSART1_Write `(v  1 e 0 0 ]
+"128
+[v _Send_put Send_put `(v  1 e 0 0 ]
 {
-[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART1_Write@txData txData `uc  1 a 1 26 ]
-"161
+[v Send_put@_data _data `uc  1 a 1 wreg ]
+[v Send_put@_data _data `uc  1 a 1 wreg ]
+[v Send_put@_data _data `uc  1 a 1 37 ]
+"134
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\isdigit.c
+"66
+[v _UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+{
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_put@_this _this `*.39S912  1 p 2 32 ]
+[v UART_buff_put@c c `Cuc  1 p 1 34 ]
+"77
+} 0
+"79
+[v _UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+{
+"80
+[v UART_buff_get@c c `uc  1 a 1 36 ]
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+"79
+[v UART_buff_get@_this _this `*.39S912  1 p 2 32 ]
+"89
+} 0
+"104
+[v _UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+{
+"105
+[v UART_buff_modulo_inc@my_value my_value `ui  1 a 2 30 ]
+"104
+[v UART_buff_modulo_inc@value value `Cui  1 p 2 26 ]
+[v UART_buff_modulo_inc@modulus modulus `Cui  1 p 2 28 ]
+"110
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\isdigit.c
 [v _isdigit isdigit `(b  1 e 0 0 ]
 {
 [v isdigit@c c `uc  1 a 1 wreg ]
@@ -728,16 +859,16 @@ Battery4 5
 [v isdigit@c c `uc  1 a 1 28 ]
 "15
 } 0
-"409 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\doprnt.c
+"409 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
 [v _fround fround `(d  1 s 3 fround ]
 {
 [v fround@prec prec `uc  1 a 1 wreg ]
 [v fround@prec prec `uc  1 a 1 wreg ]
 "413
-[v fround@prec prec `uc  1 a 1 36 ]
+[v fround@prec prec `uc  1 a 1 41 ]
 "418
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awmod.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awmod.c
 [v ___awmod __awmod `(i  1 e 2 0 ]
 {
 "11
@@ -748,7 +879,7 @@ Battery4 5
 [v ___awmod@divisor divisor `i  1 p 2 28 ]
 "35
 } 0
-"60 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdivl.c
+"60 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdivl.c
 [v __tdiv_to_l_ _tdiv_to_l_ `(ul  1 e 4 0 ]
 {
 "63
@@ -761,39 +892,39 @@ Battery4 5
 [v __tdiv_to_l_@f2 f2 `f  1 p 3 29 ]
 "101
 } 0
-"60 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fldivl.c
+"60 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fldivl.c
 [v __div_to_l_ _div_to_l_ `(ul  1 e 4 0 ]
 {
 "63
-[v __div_to_l_@quot quot `ul  1 a 4 36 ]
+[v __div_to_l_@quot quot `ul  1 a 4 32 ]
 "62
-[v __div_to_l_@exp1 exp1 `uc  1 a 1 41 ]
-[v __div_to_l_@cntr cntr `uc  1 a 1 40 ]
+[v __div_to_l_@exp1 exp1 `uc  1 a 1 37 ]
+[v __div_to_l_@cntr cntr `uc  1 a 1 36 ]
 "60
 [v __div_to_l_@f1 f1 `d  1 p 3 26 ]
 [v __div_to_l_@f2 f2 `d  1 p 3 29 ]
 "101
 } 0
-"35 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lltoft.c
+"35 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lltoft.c
 [v ___lltoft __lltoft `(f  1 e 3 0 ]
 {
 "37
-[v ___lltoft@exp exp `uc  1 a 1 42 ]
+[v ___lltoft@exp exp `uc  1 a 1 0 ]
 "35
 [v ___lltoft@c c `ul  1 p 4 34 ]
 "46
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\llmod.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\llmod.c
 [v ___llmod __llmod `(ul  1 e 4 0 ]
 {
 "11
-[v ___llmod@counter counter `uc  1 a 1 0 ]
+[v ___llmod@counter counter `uc  1 a 1 39 ]
 "8
-[v ___llmod@dividend dividend `ul  1 p 4 39 ]
-[v ___llmod@divisor divisor `ul  1 p 4 43 ]
+[v ___llmod@dividend dividend `ul  1 p 4 0 ]
+[v ___llmod@divisor divisor `ul  1 p 4 4 ]
 "26
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lldiv.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lldiv.c
 [v ___lldiv __lldiv `(ul  1 e 4 0 ]
 {
 "11
@@ -805,88 +936,113 @@ Battery4 5
 [v ___lldiv@divisor divisor `ul  1 p 4 30 ]
 "31
 } 0
-"44 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\fttol.c
+"44 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fttol.c
 [v ___fttol __fttol `(l  1 e 4 0 ]
 {
 "47
-[v ___fttol@lval lval `ul  1 a 4 44 ]
+[v ___fttol@lval lval `ul  1 a 4 49 ]
 "46
-[v ___fttol@exp1 exp1 `uc  1 a 1 48 ]
-[v ___fttol@sign1 sign1 `uc  1 a 1 43 ]
+[v ___fttol@exp1 exp1 `uc  1 a 1 53 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 48 ]
 "44
-[v ___fttol@f1 f1 `f  1 p 3 34 ]
+[v ___fttol@f1 f1 `f  1 p 3 39 ]
 "73
 } 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftneg.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftneg.c
 [v ___ftneg __ftneg `(f  1 e 3 0 ]
 {
 [v ___ftneg@f1 f1 `f  1 p 3 26 ]
 "20
 } 0
-"16 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"16 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Fault Temp_Fault `(uc  1 e 1 0 ]
 {
 "20
-[v Temp_Fault@i i `i  1 a 2 10 ]
+[v Temp_Fault@i i `i  1 a 2 14 ]
 "19
-[v Temp_Fault@fault fault `uc  1 a 1 9 ]
+[v Temp_Fault@fault fault `uc  1 a 1 13 ]
 "29
 } 0
 "68
 [v _Temp_Convert Temp_Convert `(v  1 e 0 0 ]
 {
 "71
-[v Temp_Convert@steinhart steinhart `f  1 a 3 74 ]
+[v Temp_Convert@steinhart steinhart `f  1 a 3 77 ]
 "70
-[v Temp_Convert@x x `i  1 a 2 72 ]
+[v Temp_Convert@x x `i  1 a 2 75 ]
 "84
 } 0
-"5 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\log.c
+"5 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\log.c
 [v _log log `(d  1 e 3 0 ]
 {
 "7
-[v log@exponent exponent `i  1 a 2 64 ]
+[v log@exponent exponent `i  1 a 2 69 ]
 "5
-[v log@x x `d  1 p 3 61 ]
+[v log@x x `d  1 p 3 66 ]
 "9
 [v log@coeff coeff `C[9]d  1 s 27 coeff ]
 "36
 } 0
-"254 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\frexp.c
+"254 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\frexp.c
 [v _frexp frexp `(d  1 e 3 0 ]
 {
 [v frexp@value value `d  1 p 3 26 ]
 [v frexp@eptr eptr `*.39i  1 p 2 29 ]
 "274
 } 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\evalpoly.c
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\evalpoly.c
 [v _eval_poly eval_poly `(d  1 e 3 0 ]
 {
 "6
-[v eval_poly@res res `d  1 a 3 58 ]
+[v eval_poly@res res `d  1 a 3 63 ]
 "4
-[v eval_poly@x x `d  1 p 3 49 ]
-[v eval_poly@d d `*.25Cd  1 p 2 52 ]
-[v eval_poly@n n `i  1 p 2 54 ]
+[v eval_poly@x x `d  1 p 3 54 ]
+[v eval_poly@d d `*.25Cd  1 p 2 57 ]
+[v eval_poly@n n `i  1 p 2 59 ]
 "12
 } 0
-"32 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awtoft.c
+"32 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awtoft.c
 [v ___awtoft __awtoft `(f  1 e 3 0 ]
 {
 "34
-[v ___awtoft@sign sign `uc  1 a 1 43 ]
+[v ___awtoft@sign sign `uc  1 a 1 40 ]
 "32
-[v ___awtoft@c c `i  1 p 2 40 ]
+[v ___awtoft@c c `i  1 p 2 0 ]
 "42
 } 0
-"20 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftsub.c
+"20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
 {
-[v ___ftsub@f1 f1 `f  1 p 3 49 ]
-[v ___ftsub@f2 f2 `f  1 p 3 52 ]
-"25
+[v ___ftsub@f1 f1 `f  1 p 3 54 ]
+[v ___ftsub@f2 f2 `f  1 p 3 57 ]
+"27
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\awdiv.c
+"49 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Tempeture.c
+[v _Temp_Filter Temp_Filter `(v  1 e 0 0 ]
+{
+"52
+[v Temp_Filter@x x `i  1 a 2 54 ]
+"61
+} 0
+"113 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/mcc.c
+[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+{
+"125
+} 0
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\FastTransfer.c
+[v _begin begin `(v  1 e 0 0 ]
+{
+[v begin@ptr ptr `*.39VEi  1 p 2 0 ]
+[v begin@maxSize maxSize `uc  1 p 1 2 ]
+[v begin@givenAddress givenAddress `uc  1 p 1 3 ]
+[v begin@error error `uc  1 p 1 4 ]
+[v begin@stufftosend stufftosend `*.37(v  1 p 2 5 ]
+[v begin@stufftoreceive stufftoreceive `*.37(uc  1 p 2 7 ]
+[v begin@stuffavailable stuffavailable `*.37(i  1 p 2 9 ]
+[v begin@stuffpeek stuffpeek `*.37(uc  1 p 2 11 ]
+"30
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
 {
 "11
@@ -899,19 +1055,30 @@ Battery4 5
 [v ___awdiv@divisor divisor `i  1 p 2 34 ]
 "42
 } 0
-"49 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
-[v _Temp_Filter Temp_Filter `(v  1 e 0 0 ]
+"21 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.c
+[v _UART_init UART_init `(v  1 e 0 0 ]
 {
 "52
-[v Temp_Filter@x x `i  1 a 2 49 ]
-"61
 } 0
-"112 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
+"54
+[v _UART_buff_init UART_buff_init `(v  1 e 0 0 ]
 {
-"120
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_init@_this _this `*.39S912  1 p 2 34 ]
+"64
 } 0
-"18 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"15
+[v memset@p p `*.39uc  1 a 2 32 ]
+"8
+[v memset@p1 p1 `*.39v  1 p 2 26 ]
+[v memset@c c `i  1 p 2 28 ]
+[v memset@n n `ui  1 p 2 30 ]
+"22
+} 0
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _TMR1_Initialize TMR1_Initialize `(v  1 e 0 0 ]
 {
 "45
@@ -921,40 +1088,35 @@ Battery4 5
 {
 "51
 } 0
-"6 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/pin_manager.c
+"6 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
 {
 "32
 } 0
-"122 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/mcc.c
+"127 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 {
-"132
+"136
 } 0
-"52 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
+"52 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 0 0 ]
 {
 "67
 } 0
-"76 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/eusart1.c
-[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 0 0 ]
-{
-"117
-} 0
-"13 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
+"13 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
 {
 "34
 } 0
-"129 C:\Zips EV 15\trunk\BMS-HV.X\Bypass.c
+"129 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Bypass.c
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
 {
 "133
-[v RunBypas@batvolt batvolt `f  1 a 3 11 ]
+[v RunBypas@batvolt batvolt `f  1 a 3 15 ]
 "132
-[v RunBypas@i i `i  1 a 2 14 ]
+[v RunBypas@i i `i  1 a 2 18 ]
 "131
-[v RunBypas@cellbyp cellbyp `i  1 a 2 9 ]
+[v RunBypas@cellbyp cellbyp `i  1 a 2 13 ]
 "150
 } 0
 "18
@@ -964,103 +1126,103 @@ Battery4 5
 [v SetBypass@state state `i  1 p 2 28 ]
 "122
 } 0
-"93 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"93 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
 {
-[v Battery_Get@channelnum channelnum `i  1 p 2 0 ]
+[v Battery_Get@channelnum channelnum `i  1 p 2 4 ]
 "97
 } 0
 "72
 [v _Battery_Fault Battery_Fault `(uc  1 e 1 0 ]
 {
 "75
-[v Battery_Fault@i i `i  1 a 2 10 ]
+[v Battery_Fault@i i `i  1 a 2 14 ]
 "74
-[v Battery_Fault@fault fault `uc  1 a 1 9 ]
+[v Battery_Fault@fault fault `uc  1 a 1 13 ]
 "83
 } 0
-"4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftge.c
+"4 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftge.c
 [v ___ftge __ftge `(b  1 e 0 0 ]
 {
-[v ___ftge@ff1 ff1 `f  1 p 3 0 ]
-[v ___ftge@ff2 ff2 `f  1 p 3 3 ]
+[v ___ftge@ff1 ff1 `f  1 p 3 4 ]
+[v ___ftge@ff2 ff2 `f  1 p 3 7 ]
 "13
 } 0
-"34 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"34 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
 {
 "36
-[v Battery_Convert@x x `i  1 a 2 53 ]
+[v Battery_Convert@x x `i  1 a 2 58 ]
 "42
 } 0
-"49 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftdiv.c
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
 {
-"52
-[v ___ftdiv@f3 f3 `f  1 a 3 7 ]
-"51
-[v ___ftdiv@sign sign `uc  1 a 1 11 ]
-[v ___ftdiv@exp exp `uc  1 a 1 10 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 6 ]
-"49
-[v ___ftdiv@f1 f1 `f  1 p 3 0 ]
-[v ___ftdiv@f2 f2 `f  1 p 3 3 ]
-"78
+"60
+[v ___ftdiv@f3 f3 `f  1 a 3 12 ]
+"59
+[v ___ftdiv@sign sign `uc  1 a 1 16 ]
+[v ___ftdiv@exp exp `uc  1 a 1 15 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 11 ]
+"54
+[v ___ftdiv@f1 f1 `f  1 p 3 2 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 5 ]
+"86
 } 0
-"42 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\altoft.c
+"42 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altoft.c
 [v ___altoft __altoft `(f  1 e 3 0 ]
 {
 "44
-[v ___altoft@sign sign `uc  1 a 1 43 ]
-[v ___altoft@exp exp `uc  1 a 1 42 ]
+[v ___altoft@sign sign `uc  1 a 1 1 ]
+[v ___altoft@exp exp `uc  1 a 1 0 ]
 "42
 [v ___altoft@c c `l  1 p 4 34 ]
 "57
 } 0
-"51 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"51 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
 {
 "54
-[v Battery_Filter@x x `i  1 a 2 49 ]
+[v Battery_Filter@x x `i  1 a 2 54 ]
 "63
 } 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\Umul16.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
 [v ___wmul __wmul `(ui  1 e 2 0 ]
 {
 "17
-[v ___wmul@product product `ui  1 a 2 44 ]
+[v ___wmul@product product `ui  1 a 2 40 ]
 "15
-[v ___wmul@multiplier multiplier `ui  1 p 2 40 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 42 ]
+[v ___wmul@multiplier multiplier `ui  1 p 2 0 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 2 ]
 "53
 } 0
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftmul.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 {
 "65
-[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 22 ]
+[v ___ftmul@f3_as_product f3_as_product `um  1 a 3 27 ]
 "64
-[v ___ftmul@sign sign `uc  1 a 1 26 ]
-[v ___ftmul@cntr cntr `uc  1 a 1 25 ]
-[v ___ftmul@exp exp `uc  1 a 1 21 ]
+[v ___ftmul@sign sign `uc  1 a 1 31 ]
+[v ___ftmul@cntr cntr `uc  1 a 1 30 ]
+[v ___ftmul@exp exp `uc  1 a 1 26 ]
 "62
-[v ___ftmul@f1 f1 `f  1 p 3 12 ]
-[v ___ftmul@f2 f2 `f  1 p 3 15 ]
+[v ___ftmul@f1 f1 `f  1 p 3 17 ]
+[v ___ftmul@f2 f2 `f  1 p 3 20 ]
 "157
 } 0
-"86 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
 {
 "88
-[v ___ftadd@exp1 exp1 `uc  1 a 1 48 ]
-[v ___ftadd@exp2 exp2 `uc  1 a 1 47 ]
-[v ___ftadd@sign sign `uc  1 a 1 46 ]
+[v ___ftadd@exp1 exp1 `uc  1 a 1 53 ]
+[v ___ftadd@exp2 exp2 `uc  1 a 1 52 ]
+[v ___ftadd@sign sign `uc  1 a 1 51 ]
 "86
-[v ___ftadd@f1 f1 `f  1 p 3 37 ]
-[v ___ftadd@f2 f2 `f  1 p 3 40 ]
+[v ___ftadd@f1 f1 `f  1 p 3 42 ]
+[v ___ftadd@f2 f2 `f  1 p 3 45 ]
 "148
 } 0
-"62 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 {
 [v ___ftpack@arg arg `um  1 p 3 26 ]
@@ -1068,50 +1230,83 @@ Battery4 5
 [v ___ftpack@sign sign `uc  1 p 1 30 ]
 "86
 } 0
-"69 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
+"69 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
 {
 "92
 } 0
-"112 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
+"112 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/tmr1.c
 [v _TMR1_ISR TMR1_ISR `(v  1 e 0 0 ]
 {
 "143
 } 0
-"36 C:\Zips EV 15\trunk\BMS-HV.X\Tempeture.c
+"36 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Tempeture.c
 [v _Temp_Read Temp_Read `(v  1 e 0 0 ]
 {
 "43
 } 0
-"18 C:\Zips EV 15\trunk\BMS-HV.X\Battery.c
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Battery.c
 [v _Battery_Read Battery_Read `(v  1 e 0 0 ]
 {
 "25
 } 0
-"173 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/eusart1.c
+"148 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\UART.c
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
 {
-"190
+"155
 } 0
-"192
+"100
+[v i2_UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+{
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_size@_this _this `*.39S912  1 p 2 0 ]
+"102
+} 0
+"79
+[v i2_UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+{
+[v i2UART_buff_get@c UART_buff_get `uc  1 a 1 10 ]
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_get@_this _this `*.39S912  1 p 2 6 ]
+"89
+} 0
+"136
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 0 0 ]
 {
-"209
+"144
+[v EUSART1_Receive_ISR@data data `uc  1 a 1 11 ]
+"146
 } 0
-"82 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
+"66
+[v i2_UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+{
+[s S912 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_put@_this _this `*.39S912  1 p 2 6 ]
+[v i2UART_buff_put@c c `Cuc  1 p 1 8 ]
+"77
+} 0
+"104
+[v i2_UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+{
+[v i2UART_buff_modulo_inc@my_value UART_buff_modulo_inc `ui  1 a 2 4 ]
+[v i2UART_buff_modulo_inc@value value `Cui  1 p 2 0 ]
+[v i2UART_buff_modulo_inc@modulus modulus `Cui  1 p 2 2 ]
+"110
+} 0
+"82 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_ISR ADC_ISR `(v  1 e 0 0 ]
 {
 "86
 [v ADC_ISR@ADC_Result ADC_Result `i  1 a 2 10 ]
 "201
 } 0
-"15 C:\Zips EV 15\trunk\BMS-HV.X\Functions.c
+"15 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\Functions.c
 [v _Set_4051 Set_4051 `(v  1 e 0 0 ]
 {
 [v Set_4051@Channel Channel `i  1 p 2 0 ]
 "29
 } 0
-"36 C:\Zips EV 15\trunk\BMS-HV.X\mcc_generated_files/adc.c
+"36 C:\Users\User\Documents\Repositories\EV2015\trunk\BMS-HV.X\mcc_generated_files/adc.c
 [v _ADC_StartConversion ADC_StartConversion `(v  1 e 0 0 ]
 {
 [v ADC_StartConversion@channel channel `E8837  1 a 1 wreg ]

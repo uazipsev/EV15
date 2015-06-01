@@ -18,7 +18,7 @@
  */
 
 #include "mcc_generated_files/mcc.h"
-
+#include <xc.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "Battery.h"
@@ -26,7 +26,7 @@
 #include "Global.h"
 #include "Bypass.h"
 #include "Tempeture.h"
-
+extern void updateComms();
 int main(int argc, char** argv) {
     // Initialize the device
     SYSTEM_Initialize();
@@ -82,6 +82,7 @@ int main(int argc, char** argv) {
                 printf("Battery %d = %0.02f \r\n", x,Battery_Get(x));
             }
         }
+        updateComms();
         /*
         for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)
         {

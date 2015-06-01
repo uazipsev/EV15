@@ -1,0 +1,26 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"16 Communications.h
+[v _receiveData `(uc ~T0 @X0 0 ef ]
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;Communications.h: 14: void updateComms();
+[; ;Communications.h: 15: extern void sendData(unsigned char whereToSend);
+[; ;Communications.h: 16: extern bool receiveData();
+[; ;Communications.h: 17: extern void ToSend(const unsigned char where, const unsigned int what);
+"5 Communications.c
+[v _updateComms `(v ~T0 @X0 1 ef ]
+{
+[; ;Communications.c: 5: void updateComms(){
+[e :U _updateComms ]
+[f ]
+[; ;Communications.c: 7: if(receiveData()){
+"7
+[e $ ! != -> ( _receiveData ..  `i -> -> -> 0 `i `uc `i 2  ]
+{
+"9
+}
+[e :U 2 ]
+[; ;Communications.c: 9: }
+[; ;Communications.c: 11: }
+"11
+[e :UE 1 ]
+}
