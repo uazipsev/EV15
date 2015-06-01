@@ -91,55 +91,51 @@ void ADC_ISR(void)
         {
             case 0:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(0);
+              Set_4051(1);
               ADC_StartConversion(Temp1);
               break;
             case 1:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(1);
+              Set_4051(2);
               ADC_StartConversion(Temp1);
               break;
             case 2:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(2);
+              Set_4051(3);
               ADC_StartConversion(Temp1);
               break;
             case 3:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(3);
+              Set_4051(4);
               ADC_StartConversion(Temp1);
               break;
             case 4:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(4);
+              Set_4051(5);
               ADC_StartConversion(Temp1);
               break;
             case 5:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(5);
+              Set_4051(6);
               ADC_StartConversion(Temp1);
               break;
             case 6:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(6);
+              Set_4051(7);
               ADC_StartConversion(Temp1);
               break;
             case 7:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(7);
+              Set_4051(0);
               ADC_StartConversion(Temp1);
               break;
             case 8:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(0);
+              Set_4051(1);
               ADC_StartConversion(Temp2);
               break;
             case 9:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(1);
-              ADC_StartConversion(Temp2);
-              break;
-            case 10:
               Temp_Aquire = 0;
               Temp_Done = 1;
               break;
@@ -153,45 +149,42 @@ void ADC_ISR(void)
         {
             case 0:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery1);
+              ADC_StartConversion(Battery2);
               break;
             case 1:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery2);
+              ADC_StartConversion(Battery3);
               break;
             case 2:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery3);
+              ADC_StartConversion(Battery4);
               break;
             case 3:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery4);
+              ADC_StartConversion(Battery5);
               break;
             case 4:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery5);
+              ADC_StartConversion(Battery6);
               break;
             case 5:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery6);
+              ADC_StartConversion(Battery7);
               break;
             case 6:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery7);
+              ADC_StartConversion(Battery8);
               break;
             case 7:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery8);
+              ADC_StartConversion(Battery9);
               break;
             case 8:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery9);
+              ADC_StartConversion(Battery10);
               break;
             case 9:
               Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-              ADC_StartConversion(Battery10);
-              break;
-            case 10:
               Volt_Aquire = 0;
               Volt_Done = 1;
               break;
