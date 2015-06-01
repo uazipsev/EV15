@@ -26,6 +26,7 @@
 #include "Global.h"
 #include "Tempeture.h"
 #include "Functions.h"
+#include "Bypass.h"
 
 
 
@@ -33,6 +34,9 @@ int main(int argc, char** argv) {
     // Initialize the device
     SYSTEM_Initialize();
 
+    Relay_SET_SetHigh();
+    Delay(120);
+    Relay_SET_SetLow();
     // If using interrupts in PIC18 High/Low Priority Mode you need to enable the Global High and Low Interrupts
     // If using interrupts in PIC Mid-Range Compatibility Mode you need to enable the Global and Peripheral Interrupts
     // Use the following macros to:
@@ -66,20 +70,48 @@ int main(int argc, char** argv) {
     {
         if (Temp_Done)
         {
+            Temp_Done = 0;
             Temp_Convert();
-            Temp_Fault();
+            //Temp_Fault();
+            for (int x = 0;x<7;x++)
+            {
+                printf("Battery  temp %d = %0.02f \r\n", x+1,Tempeture_Get(x));
+            }
         }
+        if (Volt_Done)
+        {
+            Volt_Done = 0;
+            Battery_Convert();
+            Battery_Fault();
+            for (int x = 0;x<7;x++)
+            {
+                printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
+            }
+            RunBypas();
+        }
+/*
+        for(int y = 0;y<7;y++)
+        {
+            SetBypas(y,1);
+            Delay(500);
+            //BP_ENBL1_SetHigh();
+        }
+        
+        for(int y = 0;y<7;y++)
+        {
+            SetBypas(y,0);
+            Delay(500);
+            //BP_ENBL1_SetLow();
+        }
+*/
+        /*
         if (Volt_Done)
         {
             Battery_Convert();
             Battery_Fault();
-            printf("shit");
         }
-        if (Volt_Done)
-        {
-            Battery_Convert();
-            Battery_Fault();
-        }
+        */
+        //printf("shit");
     }
     return (EXIT_SUCCESS);
 }

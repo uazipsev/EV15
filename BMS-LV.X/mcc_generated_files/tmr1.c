@@ -118,9 +118,10 @@ void TMR1_ISR(void)
 {
     static volatile unsigned int CountCallBack = 0;
 
+
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
-    
+
     // Write to the Timer1 register
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = (uint8_t) timer1ReloadVal;
@@ -129,14 +130,14 @@ void TMR1_ISR(void)
     if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
     {
         // ticker function call
-        TMR1_CallBack();
         Indicator_Toggle();
+
         // reset ticker counter
         CountCallBack = 0;
     }
     if(CountCallBack == 1)
     {
-        Current_Read();
+        //Current_Read();
     }
     if(CountCallBack == 2)
     {
@@ -146,8 +147,6 @@ void TMR1_ISR(void)
     {
         Temp_Read();
     }
-
-    // Add your TMR1 interrupt custom code
 }
 
 void TMR1_CallBack(void)

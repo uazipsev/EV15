@@ -8300,29 +8300,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
 [; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
-[; ;adc.h: 72: typedef uint16_t adc_result_t;
-[; ;adc.h: 86: typedef enum
-[; ;adc.h: 87: {
-[; ;adc.h: 88: channel_CTMU = 0x1D,
-[; ;adc.h: 89: channel_DAC = 0x1E,
-[; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: AN_CELL7 = 0x00,
-[; ;adc.h: 92: AN_CELL6 = 0x01,
-[; ;adc.h: 93: AN_CELL5 = 0x03,
-[; ;adc.h: 94: AN_CELL4 = 0x04,
-[; ;adc.h: 95: Vexternal = 0x09,
-[; ;adc.h: 96: Asen = 0x0B,
-[; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: AN_CELL3 = 0x05,
-[; ;adc.h: 99: AN_CELL2 = 0x06,
-[; ;adc.h: 100: AN_CELL1 = 0x07
-[; ;adc.h: 101: } adc_channel_t;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 197: bool ADC_IsConversionDone();
-[; ;adc.h: 230: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 260: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 276: void ADC_ISR(void);
+[; ;adc.h: 28: typedef uint16_t adc_result_t;
+[; ;adc.h: 42: typedef enum
+[; ;adc.h: 43: {
+[; ;adc.h: 44: channel_CTMU = 0x1D,
+[; ;adc.h: 45: channel_DAC = 0x1E,
+[; ;adc.h: 46: channel_FVRBuf2 = 0x1F,
+[; ;adc.h: 47: AN_CELL7 = 0x00,
+[; ;adc.h: 48: AN_CELL6 = 0x01,
+[; ;adc.h: 49: AN_CELL5 = 0x03,
+[; ;adc.h: 50: AN_CELL4 = 0x04,
+[; ;adc.h: 51: Vexternal = 0x09,
+[; ;adc.h: 52: Asen = 0x0B,
+[; ;adc.h: 53: Temp1 = 0x0E,
+[; ;adc.h: 54: AN_CELL3 = 0x05,
+[; ;adc.h: 55: AN_CELL2 = 0x06,
+[; ;adc.h: 56: AN_CELL1 = 0x07
+[; ;adc.h: 57: } adc_channel_t;
+[; ;adc.h: 92: void ADC_Initialize(void);
+[; ;adc.h: 121: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 153: bool ADC_IsConversionDone();
+[; ;adc.h: 186: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 216: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 232: void ADC_ISR(void);
 [; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
 [; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
 [; ;eusart1.h: 107: void EUSART1_Initialize(void);

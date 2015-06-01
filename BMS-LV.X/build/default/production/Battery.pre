@@ -10483,10 +10483,10 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
 typedef unsigned char bool;
 
-# 72 "mcc_generated_files/adc.h"
+# 28 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
 
-# 86
+# 42
 typedef enum
 {
 channel_CTMU = 0x1D,
@@ -10504,22 +10504,22 @@ AN_CELL2 = 0x06,
 AN_CELL1 = 0x07
 } adc_channel_t;
 
-# 136
+# 92
 void ADC_Initialize(void);
 
-# 165
+# 121
 void ADC_StartConversion(adc_channel_t channel);
 
-# 197
+# 153
 bool ADC_IsConversionDone();
 
-# 230
+# 186
 adc_result_t ADC_GetConversionResult(void);
 
-# 260
+# 216
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-# 276
+# 232
 void ADC_ISR(void);
 
 # 7 "Battery.c"
@@ -10545,7 +10545,7 @@ void Battery_Read()
 
 ADC_Buffer_Point = 0;
 Volt_Aquire = 1;
-ADCON1 = 0x81;
+ADCON1 = 0x80;
 ADC_StartConversion(AN_CELL1);
 }
 
@@ -10553,11 +10553,11 @@ void Battery_Filter()
 {
 
 int x;
-for(x = 0; x < 10; x++)
+for(x = 0; x < 7; x++)
 {
 Battery_Volt[x] = (0.88*TempBattery_Volt[x] + ((1- 0.88)*PrevBattery_Volt[x]));
 }
-for(x = 0; x < 10; x++)
+for(x = 0; x < 7; x++)
 {
 PrevBattery_Volt[x] = Battery_Volt[x];
 }
@@ -10566,11 +10566,11 @@ PrevBattery_Volt[x] = Battery_Volt[x];
 void Battery_Convert()
 {
 int x;
-for(x = 0; x < 10; x++)
+for(x = 0; x < 7; x++)
 {
-TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0) + 2.5;
+Battery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0);
 }
-Battery_Filter();
+
 }
 
 float Battery_Get(int channelnum)

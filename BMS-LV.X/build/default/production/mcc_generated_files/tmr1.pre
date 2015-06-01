@@ -10630,6 +10630,7 @@ void TMR1_ISR(void)
 static volatile unsigned int CountCallBack = 0;
 
 
+
 PIR1bits.TMR1IF = 0;
 
 
@@ -10640,14 +10641,14 @@ TMR1L = (uint8_t) timer1ReloadVal;
 if (++CountCallBack >= 4)
 {
 
-TMR1_CallBack();
 do { LATA4 = ~LATA4; } while(0);
+
 
 CountCallBack = 0;
 }
 if(CountCallBack == 1)
 {
-Current_Read();
+
 }
 if(CountCallBack == 2)
 {
@@ -10657,8 +10658,6 @@ if(CountCallBack == 3)
 {
 Temp_Read();
 }
-
-
 }
 
 void TMR1_CallBack(void)

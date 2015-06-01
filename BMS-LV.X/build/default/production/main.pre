@@ -10478,10 +10478,10 @@ void INTERRUPT_Initialize (void);
 # 122
 void interrupt INTERRUPT_InterruptManager (void);
 
-# 72 "mcc_generated_files/adc.h"
+# 28 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
 
-# 86
+# 42
 typedef enum
 {
 channel_CTMU = 0x1D,
@@ -10499,22 +10499,22 @@ AN_CELL2 = 0x06,
 AN_CELL1 = 0x07
 } adc_channel_t;
 
-# 136
+# 92
 void ADC_Initialize(void);
 
-# 165
+# 121
 void ADC_StartConversion(adc_channel_t channel);
 
-# 197
+# 153
 bool ADC_IsConversionDone();
 
-# 230
+# 186
 adc_result_t ADC_GetConversionResult(void);
 
-# 260
+# 216
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-# 276
+# 232
 void ADC_ISR(void);
 
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
@@ -10730,36 +10730,51 @@ extern void Temp_Filter();
 extern void Temp_Convert();
 extern float Tempeture_Get(int channelnum);
 
-# 32 "Main.c"
+# 11 "Bypass.h"
+extern int SetBypas(int pin,int state);
+extern int RunBypas();
+
+# 33 "Main.c"
 int main(int argc, char** argv) {
 
 SYSTEM_Initialize();
 
-# 53
+do { LATD3 = 1; } while(0);
+Delay(120);
+do { LATD3 = 0; } while(0);
+
+# 57
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 65
+# 69
 while (1)
 {
 if (Temp_Done)
 {
+Temp_Done = 0;
 Temp_Convert();
-Temp_Fault();
+
+for (int x = 0;x<7;x++)
+{
+printf("Battery  temp %d = %0.02f \r\n", x+1,Tempeture_Get(x));
+}
 }
 if (Volt_Done)
 {
+Volt_Done = 0;
 Battery_Convert();
 Battery_Fault();
-printf("shit");
-}
-if (Volt_Done)
+for (int x = 0;x<7;x++)
 {
-Battery_Convert();
-Battery_Fault();
+printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
 }
+RunBypas();
+}
+
+# 115
 }
 return (0);
 }

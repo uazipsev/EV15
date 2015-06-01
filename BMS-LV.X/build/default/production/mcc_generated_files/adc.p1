@@ -20,7 +20,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S561 . . . ]
 "9775
 [v _PIE1bits `VS561 ~T0 @X0 0 e@3997 ]
-"85 mcc_generated_files/adc.c
+"41 mcc_generated_files/adc.c
 [c E8837 29 30 31 0 1 3 4 9 11 14 5 6 7 .. ]
 [n E8837 . channel_CTMU channel_DAC channel_FVRBuf2 AN_CELL7 AN_CELL6 AN_CELL5 AN_CELL4 Vexternal Asen Temp1 AN_CELL3 AN_CELL2 AN_CELL1  ]
 "14057 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
@@ -77,6 +77,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Volt_Aquire `uc ~T0 @X0 0 e ]
 "8
 [v _Battery_Adc `i ~T0 @X0 -> 0 `x e ]
+"11
+[v _Volt_Done `i ~T0 @X0 0 e ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8283,29 +8285,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;adc.h: 72: typedef uint16_t adc_result_t;
-[; ;adc.h: 86: typedef enum
-[; ;adc.h: 87: {
-[; ;adc.h: 88: channel_CTMU = 0x1D,
-[; ;adc.h: 89: channel_DAC = 0x1E,
-[; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: AN_CELL7 = 0x00,
-[; ;adc.h: 92: AN_CELL6 = 0x01,
-[; ;adc.h: 93: AN_CELL5 = 0x03,
-[; ;adc.h: 94: AN_CELL4 = 0x04,
-[; ;adc.h: 95: Vexternal = 0x09,
-[; ;adc.h: 96: Asen = 0x0B,
-[; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: AN_CELL3 = 0x05,
-[; ;adc.h: 99: AN_CELL2 = 0x06,
-[; ;adc.h: 100: AN_CELL1 = 0x07
-[; ;adc.h: 101: } adc_channel_t;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 197: bool ADC_IsConversionDone();
-[; ;adc.h: 230: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 260: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 276: void ADC_ISR(void);
+[; ;adc.h: 28: typedef uint16_t adc_result_t;
+[; ;adc.h: 42: typedef enum
+[; ;adc.h: 43: {
+[; ;adc.h: 44: channel_CTMU = 0x1D,
+[; ;adc.h: 45: channel_DAC = 0x1E,
+[; ;adc.h: 46: channel_FVRBuf2 = 0x1F,
+[; ;adc.h: 47: AN_CELL7 = 0x00,
+[; ;adc.h: 48: AN_CELL6 = 0x01,
+[; ;adc.h: 49: AN_CELL5 = 0x03,
+[; ;adc.h: 50: AN_CELL4 = 0x04,
+[; ;adc.h: 51: Vexternal = 0x09,
+[; ;adc.h: 52: Asen = 0x0B,
+[; ;adc.h: 53: Temp1 = 0x0E,
+[; ;adc.h: 54: AN_CELL3 = 0x05,
+[; ;adc.h: 55: AN_CELL2 = 0x06,
+[; ;adc.h: 56: AN_CELL1 = 0x07
+[; ;adc.h: 57: } adc_channel_t;
+[; ;adc.h: 92: void ADC_Initialize(void);
+[; ;adc.h: 121: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 153: bool ADC_IsConversionDone();
+[; ;adc.h: 186: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 216: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 232: void ADC_ISR(void);
 [; ;Global.h: 5: extern char Temp_Aquire;
 [; ;Global.h: 6: extern char Volt_Aquire;
 [; ;Global.h: 7: extern char Current_Aquire;
@@ -8316,466 +8318,467 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 12: extern int Temp_Done;
 [; ;Functions.h: 12: void Set_4051(int Channel);
 [; ;Functions.h: 13: void Delay(int wait);
-"61 mcc_generated_files/adc.c
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 24: extern int errno;
+[; ;stdio.h: 55: struct __prbuf
+[; ;stdio.h: 56: {
+[; ;stdio.h: 57: char * ptr;
+[; ;stdio.h: 58: void (* func)(char);
+[; ;stdio.h: 59: };
+[; ;conio.h: 17: extern int errno;
+[; ;conio.h: 20: extern void init_uart(void);
+[; ;conio.h: 22: extern char getch(void);
+[; ;conio.h: 23: extern char getche(void);
+[; ;conio.h: 24: extern void putch(char);
+[; ;conio.h: 25: extern void ungetch(char);
+[; ;conio.h: 27: extern __bit kbhit(void);
+[; ;conio.h: 31: extern char * cgets(char *);
+[; ;conio.h: 32: extern void cputs(const char *);
+[; ;stdio.h: 100: extern int cprintf(char *, ...);
+[; ;stdio.h: 105: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 195: extern char * gets(char *);
+[; ;stdio.h: 196: extern int puts(const char *);
+[; ;stdio.h: 197: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 198: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 199: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 200: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 201: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 207: extern int printf(const char *, ...);
+[; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
+[; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
+[; ;eusart1.h: 107: void EUSART1_Initialize(void);
+[; ;eusart1.h: 127: uint8_t EUSART1_Read(void);
+[; ;eusart1.h: 147: void EUSART1_Write(uint8_t txData);
+[; ;eusart1.h: 168: void EUSART1_Transmit_ISR(void);
+[; ;eusart1.h: 189: void EUSART1_Receive_ISR(void);
+"17 mcc_generated_files/adc.c
 [v _ADC_Initialize `(v ~T0 @X0 1 ef ]
-"62
+"18
 {
-[; ;adc.c: 61: void ADC_Initialize(void)
-[; ;adc.c: 62: {
+[; ;adc.c: 17: void ADC_Initialize(void)
+[; ;adc.c: 18: {
 [e :U _ADC_Initialize ]
 [f ]
-[; ;adc.c: 66: ADCON0 = 0x01;
-"66
+[; ;adc.c: 22: ADCON0 = 0x01;
+"22
 [e = _ADCON0 -> -> 1 `i `uc ]
-[; ;adc.c: 69: ADCON1 = 0x81;
-"69
-[e = _ADCON1 -> -> 129 `i `uc ]
-[; ;adc.c: 72: ADCON2 = 0x0A;
-"72
-[e = _ADCON2 -> -> 10 `i `uc ]
-[; ;adc.c: 75: ADRESL = 0x00;
-"75
+[; ;adc.c: 25: ADCON1 = 0x80;
+"25
+[e = _ADCON1 -> -> 128 `i `uc ]
+[; ;adc.c: 28: ADCON2 = 0xA9;
+"28
+[e = _ADCON2 -> -> 169 `i `uc ]
+[; ;adc.c: 31: ADRESL = 0x00;
+"31
 [e = _ADRESL -> -> 0 `i `uc ]
-[; ;adc.c: 78: ADRESH = 0x00;
-"78
+[; ;adc.c: 34: ADRESH = 0x00;
+"34
 [e = _ADRESH -> -> 0 `i `uc ]
-[; ;adc.c: 81: PIE1bits.ADIE = 1;
-"81
+[; ;adc.c: 37: PIE1bits.ADIE = 1;
+"37
 [e = . . _PIE1bits 0 6 -> -> 1 `i `uc ]
-[; ;adc.c: 82: }
-"82
-[e :UE 1178 ]
-}
-"84
-[v _ADC_StartConversion `(v ~T0 @X0 1 ef1`E8837 ]
-"85
-{
-[; ;adc.c: 84: void ADC_StartConversion(adc_channel_t channel)
-[; ;adc.c: 85: {
-[e :U _ADC_StartConversion ]
-"84
-[v _channel `E8837 ~T0 @X0 1 r1 ]
-"85
-[f ]
-[; ;adc.c: 87: ADCON0bits.CHS = channel;
-"87
-[e = . . _ADCON0bits 1 2 -> _channel `uc ]
-[; ;adc.c: 90: ADCON0bits.ADON = 1;
-"90
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;adc.c: 94: ADCON0bits.GO_nDONE = 1;
-"94
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-[; ;adc.c: 95: }
-"95
+[; ;adc.c: 38: }
+"38
 [e :UE 1179 ]
 }
-"97
-[v _ADC_IsConversionDone `(uc ~T0 @X0 1 ef ]
-"98
+"40
+[v _ADC_StartConversion `(v ~T0 @X0 1 ef1`E8837 ]
+"41
 {
-[; ;adc.c: 97: bool ADC_IsConversionDone()
-[; ;adc.c: 98: {
-[e :U _ADC_IsConversionDone ]
+[; ;adc.c: 40: void ADC_StartConversion(adc_channel_t channel)
+[; ;adc.c: 41: {
+[e :U _ADC_StartConversion ]
+"40
+[v _channel `E8837 ~T0 @X0 1 r1 ]
+"41
 [f ]
-[; ;adc.c: 100: return (!ADCON0bits.GO_nDONE);
-"100
-[e ) -> -> ! != -> . . _ADCON0bits 1 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
-[e $UE 1180  ]
-[; ;adc.c: 101: }
-"101
+[; ;adc.c: 43: ADCON0bits.CHS = channel;
+"43
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
+[; ;adc.c: 46: ADCON0bits.ADON = 1;
+"46
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;adc.c: 50: ADCON0bits.GO_nDONE = 1;
+"50
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;adc.c: 51: }
+"51
 [e :UE 1180 ]
 }
-"103
-[v _ADC_GetConversionResult `(ui ~T0 @X0 1 ef ]
-"104
+"53
+[v _ADC_IsConversionDone `(uc ~T0 @X0 1 ef ]
+"54
 {
-[; ;adc.c: 103: adc_result_t ADC_GetConversionResult(void)
-[; ;adc.c: 104: {
-[e :U _ADC_GetConversionResult ]
+[; ;adc.c: 53: bool ADC_IsConversionDone()
+[; ;adc.c: 54: {
+[e :U _ADC_IsConversionDone ]
 [f ]
-[; ;adc.c: 106: return ((ADRESH << 8) + ADRESL);
-"106
-[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[; ;adc.c: 56: return (!ADCON0bits.GO_nDONE);
+"56
+[e ) -> -> ! != -> . . _ADCON0bits 1 1 `i -> -> -> 0 `i `Vuc `i `i `uc ]
 [e $UE 1181  ]
-[; ;adc.c: 107: }
-"107
+[; ;adc.c: 57: }
+"57
 [e :UE 1181 ]
 }
-"109
-[v _ADC_GetConversion `(ui ~T0 @X0 1 ef1`E8837 ]
-"110
+"59
+[v _ADC_GetConversionResult `(ui ~T0 @X0 1 ef ]
+"60
 {
-[; ;adc.c: 109: adc_result_t ADC_GetConversion(adc_channel_t channel)
-[; ;adc.c: 110: {
-[e :U _ADC_GetConversion ]
-"109
-[v _channel `E8837 ~T0 @X0 1 r1 ]
-"110
+[; ;adc.c: 59: adc_result_t ADC_GetConversionResult(void)
+[; ;adc.c: 60: {
+[e :U _ADC_GetConversionResult ]
 [f ]
-[; ;adc.c: 112: ADCON0bits.CHS = channel;
-"112
-[e = . . _ADCON0bits 1 2 -> _channel `uc ]
-[; ;adc.c: 115: ADCON0bits.ADON = 1;
-"115
-[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
-[; ;adc.c: 119: ADCON0bits.GO_nDONE = 1;
-"119
-[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
-[; ;adc.c: 122: while (ADCON0bits.GO_nDONE)
-"122
-[e $U 1183  ]
-[e :U 1184 ]
-[; ;adc.c: 123: {
-"123
-{
-"124
-}
-[e :U 1183 ]
-"122
-[e $ != -> . . _ADCON0bits 1 1 `i -> -> -> 0 `i `Vuc `i 1184  ]
-[e :U 1185 ]
-[; ;adc.c: 124: }
-[; ;adc.c: 127: return ((ADRESH << 8) + ADRESL);
-"127
+[; ;adc.c: 62: return ((ADRESH << 8) + ADRESL);
+"62
 [e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
 [e $UE 1182  ]
-[; ;adc.c: 128: }
-"128
+[; ;adc.c: 63: }
+"63
 [e :UE 1182 ]
 }
-"130
-[v _ADC_ISR `(v ~T0 @X0 1 ef ]
-"131
+"65
+[v _ADC_GetConversion `(ui ~T0 @X0 1 ef1`E8837 ]
+"66
 {
-[; ;adc.c: 130: void ADC_ISR(void)
-[; ;adc.c: 131: {
+[; ;adc.c: 65: adc_result_t ADC_GetConversion(adc_channel_t channel)
+[; ;adc.c: 66: {
+[e :U _ADC_GetConversion ]
+"65
+[v _channel `E8837 ~T0 @X0 1 r1 ]
+"66
+[f ]
+[; ;adc.c: 68: ADCON0bits.CHS = channel;
+"68
+[e = . . _ADCON0bits 1 2 -> _channel `uc ]
+[; ;adc.c: 71: ADCON0bits.ADON = 1;
+"71
+[e = . . _ADCON0bits 1 0 -> -> 1 `i `uc ]
+[; ;adc.c: 75: ADCON0bits.GO_nDONE = 1;
+"75
+[e = . . _ADCON0bits 1 1 -> -> 1 `i `uc ]
+[; ;adc.c: 78: while (ADCON0bits.GO_nDONE)
+"78
+[e $U 1184  ]
+[e :U 1185 ]
+[; ;adc.c: 79: {
+"79
+{
+"80
+}
+[e :U 1184 ]
+"78
+[e $ != -> . . _ADCON0bits 1 1 `i -> -> -> 0 `i `Vuc `i 1185  ]
+[e :U 1186 ]
+[; ;adc.c: 80: }
+[; ;adc.c: 83: return ((ADRESH << 8) + ADRESL);
+"83
+[e ) -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
+[e $UE 1183  ]
+[; ;adc.c: 84: }
+"84
+[e :UE 1183 ]
+}
+"86
+[v _ADC_ISR `(v ~T0 @X0 1 ef ]
+"87
+{
+[; ;adc.c: 86: void ADC_ISR(void)
+[; ;adc.c: 87: {
 [e :U _ADC_ISR ]
 [f ]
-[; ;adc.c: 133: PIR1bits.ADIF = 0;
-"133
+[; ;adc.c: 89: PIR1bits.ADIF = 0;
+"89
 [e = . . _PIR1bits 0 6 -> -> 0 `i `uc ]
-"134
+"90
 [v _ADC_Result `i ~T0 @X0 1 a ]
-[; ;adc.c: 134: int ADC_Result = 0;
+[; ;adc.c: 90: int ADC_Result = 0;
 [e = _ADC_Result -> 0 `i ]
-[; ;adc.c: 135: if (Temp_Aquire){
-"135
-[e $ ! != -> _Temp_Aquire `i -> -> -> 0 `i `uc `i 1187  ]
+[; ;adc.c: 91: if (Temp_Aquire){
+"91
+[e $ ! != -> _Temp_Aquire `i -> -> -> 0 `i `uc `i 1188  ]
 {
-[; ;adc.c: 137: ADC_Result = ADC_GetConversionResult();
-"137
+[; ;adc.c: 93: ADC_Result = ADC_GetConversionResult();
+"93
 [e = _ADC_Result -> ( _ADC_GetConversionResult ..  `i ]
-[; ;adc.c: 138: switch ( ADC_Buffer_Point )
-"138
-[e $U 1189  ]
-[; ;adc.c: 139: {
-"139
+[; ;adc.c: 94: switch ( ADC_Buffer_Point )
+"94
+[e $U 1190  ]
+[; ;adc.c: 95: {
+"95
 {
-[; ;adc.c: 140: case 0:
-"140
-[e :U 1190 ]
-[; ;adc.c: 141: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"141
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 142: Set_4051(0);
-"142
-[e ( _Set_4051 (1 -> 0 `i ]
-[; ;adc.c: 143: ADC_StartConversion(Temp1);
-"143
-[e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 144: break;
-"144
-[e $U 1188  ]
-[; ;adc.c: 145: case 1:
-"145
+[; ;adc.c: 96: case 0:
+"96
 [e :U 1191 ]
-[; ;adc.c: 146: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"146
+[; ;adc.c: 97: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"97
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 147: Set_4051(1);
-"147
+[; ;adc.c: 98: Set_4051(1);
+"98
 [e ( _Set_4051 (1 -> 1 `i ]
-[; ;adc.c: 148: ADC_StartConversion(Temp1);
-"148
+[; ;adc.c: 99: ADC_StartConversion(Temp1);
+"99
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 149: break;
-"149
-[e $U 1188  ]
-[; ;adc.c: 150: case 2:
-"150
+[; ;adc.c: 100: break;
+"100
+[e $U 1189  ]
+[; ;adc.c: 101: case 1:
+"101
 [e :U 1192 ]
-[; ;adc.c: 151: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"151
+[; ;adc.c: 102: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"102
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 152: Set_4051(2);
-"152
+[; ;adc.c: 103: Set_4051(2);
+"103
 [e ( _Set_4051 (1 -> 2 `i ]
-[; ;adc.c: 153: ADC_StartConversion(Temp1);
-"153
+[; ;adc.c: 104: ADC_StartConversion(Temp1);
+"104
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 154: break;
-"154
-[e $U 1188  ]
-[; ;adc.c: 155: case 3:
-"155
+[; ;adc.c: 105: break;
+"105
+[e $U 1189  ]
+[; ;adc.c: 106: case 2:
+"106
 [e :U 1193 ]
-[; ;adc.c: 156: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"156
+[; ;adc.c: 107: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"107
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 157: Set_4051(3);
-"157
+[; ;adc.c: 108: Set_4051(3);
+"108
 [e ( _Set_4051 (1 -> 3 `i ]
-[; ;adc.c: 158: ADC_StartConversion(Temp1);
-"158
+[; ;adc.c: 109: ADC_StartConversion(Temp1);
+"109
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
+[; ;adc.c: 110: break;
+"110
+[e $U 1189  ]
+[; ;adc.c: 111: case 3:
+"111
+[e :U 1194 ]
+[; ;adc.c: 112: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"112
+[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 113: Set_4051(4);
+"113
+[e ( _Set_4051 (1 -> 4 `i ]
+[; ;adc.c: 114: ADC_StartConversion(Temp1);
+"114
+[e ( _ADC_StartConversion (1 . `E8837 9 ]
+[; ;adc.c: 115: break;
+"115
+[e $U 1189  ]
+[; ;adc.c: 116: case 4:
+"116
+[e :U 1195 ]
+[; ;adc.c: 117: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"117
+[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 118: Set_4051(5);
+"118
+[e ( _Set_4051 (1 -> 5 `i ]
+[; ;adc.c: 119: ADC_StartConversion(Temp1);
+"119
+[e ( _ADC_StartConversion (1 . `E8837 9 ]
+[; ;adc.c: 120: break;
+"120
+[e $U 1189  ]
+[; ;adc.c: 121: case 5:
+"121
+[e :U 1196 ]
+[; ;adc.c: 122: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"122
+[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 123: Set_4051(6);
+"123
+[e ( _Set_4051 (1 -> 6 `i ]
+[; ;adc.c: 124: ADC_StartConversion(Temp1);
+"124
+[e ( _ADC_StartConversion (1 . `E8837 9 ]
+[; ;adc.c: 125: break;
+"125
+[e $U 1189  ]
+[; ;adc.c: 126: case 6:
+"126
+[e :U 1197 ]
+[; ;adc.c: 127: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"127
+[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 128: Set_4051(7);
+"128
+[e ( _Set_4051 (1 -> 7 `i ]
+[; ;adc.c: 129: ADC_StartConversion(Temp1);
+"129
+[e ( _ADC_StartConversion (1 . `E8837 9 ]
+[; ;adc.c: 130: break;
+"130
+[e $U 1189  ]
+[; ;adc.c: 131: case 7:
+"131
+[e :U 1198 ]
+[; ;adc.c: 132: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+"132
+[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 133: Temp_Aquire = 0;
+"133
+[e = _Temp_Aquire -> -> 0 `i `uc ]
+[; ;adc.c: 134: Temp_Done = 1;
+"134
+[e = _Temp_Done -> 1 `i ]
+[; ;adc.c: 135: break;
+"135
+[e $U 1189  ]
+"136
+}
+[; ;adc.c: 136: }
+[e $U 1189  ]
+"94
+[e :U 1190 ]
+[e [\ _ADC_Buffer_Point , $ -> 0 `i 1191
+ , $ -> 1 `i 1192
+ , $ -> 2 `i 1193
+ , $ -> 3 `i 1194
+ , $ -> 4 `i 1195
+ , $ -> 5 `i 1196
+ , $ -> 6 `i 1197
+ , $ -> 7 `i 1198
+ 1189 ]
+"136
+[e :U 1189 ]
+[; ;adc.c: 137: ADC_Buffer_Point++;
+"137
+[e ++ _ADC_Buffer_Point -> 1 `i ]
+"138
+}
+[e :U 1188 ]
+[; ;adc.c: 138: }
+[; ;adc.c: 139: if (Volt_Aquire){
+"139
+[e $ ! != -> _Volt_Aquire `i -> -> -> 0 `i `uc `i 1199  ]
+{
+[; ;adc.c: 141: ADC_Result = ADC_GetConversionResult();
+"141
+[e = _ADC_Result -> ( _ADC_GetConversionResult ..  `i ]
+[; ;adc.c: 142: switch ( ADC_Buffer_Point )
+"142
+[e $U 1201  ]
+[; ;adc.c: 143: {
+"143
+{
+[; ;adc.c: 144: case 0:
+"144
+[e :U 1202 ]
+[; ;adc.c: 145: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"145
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 146: ADC_StartConversion(AN_CELL2);
+"146
+[e ( _ADC_StartConversion (1 . `E8837 11 ]
+[; ;adc.c: 147: break;
+"147
+[e $U 1200  ]
+[; ;adc.c: 148: case 1:
+"148
+[e :U 1203 ]
+[; ;adc.c: 149: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"149
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 150: ADC_StartConversion(AN_CELL3);
+"150
+[e ( _ADC_StartConversion (1 . `E8837 10 ]
+[; ;adc.c: 151: break;
+"151
+[e $U 1200  ]
+[; ;adc.c: 152: case 2:
+"152
+[e :U 1204 ]
+[; ;adc.c: 153: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"153
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 154: ADC_StartConversion(AN_CELL4);
+"154
+[e ( _ADC_StartConversion (1 . `E8837 6 ]
+[; ;adc.c: 155: break;
+"155
+[e $U 1200  ]
+[; ;adc.c: 156: case 3:
+"156
+[e :U 1205 ]
+[; ;adc.c: 157: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"157
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 158: ADC_StartConversion(AN_CELL5);
+"158
+[e ( _ADC_StartConversion (1 . `E8837 5 ]
 [; ;adc.c: 159: break;
 "159
-[e $U 1188  ]
+[e $U 1200  ]
 [; ;adc.c: 160: case 4:
 "160
-[e :U 1194 ]
-[; ;adc.c: 161: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"161
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 162: Set_4051(4);
-"162
-[e ( _Set_4051 (1 -> 4 `i ]
-[; ;adc.c: 163: ADC_StartConversion(Temp1);
-"163
-[e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 164: break;
-"164
-[e $U 1188  ]
-[; ;adc.c: 165: case 5:
-"165
-[e :U 1195 ]
-[; ;adc.c: 166: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"166
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 167: Set_4051(5);
-"167
-[e ( _Set_4051 (1 -> 5 `i ]
-[; ;adc.c: 168: ADC_StartConversion(Temp1);
-"168
-[e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 169: break;
-"169
-[e $U 1188  ]
-[; ;adc.c: 170: case 6:
-"170
-[e :U 1196 ]
-[; ;adc.c: 171: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"171
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 172: Set_4051(6);
-"172
-[e ( _Set_4051 (1 -> 6 `i ]
-[; ;adc.c: 173: ADC_StartConversion(Temp1);
-"173
-[e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 174: break;
-"174
-[e $U 1188  ]
-[; ;adc.c: 175: case 7:
-"175
-[e :U 1197 ]
-[; ;adc.c: 176: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"176
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 177: Set_4051(7);
-"177
-[e ( _Set_4051 (1 -> 7 `i ]
-[; ;adc.c: 178: ADC_StartConversion(Temp1);
-"178
-[e ( _ADC_StartConversion (1 . `E8837 9 ]
-[; ;adc.c: 179: break;
-"179
-[e $U 1188  ]
-[; ;adc.c: 180: case 8:
-"180
-[e :U 1198 ]
-[; ;adc.c: 181: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"181
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 182: Set_4051(0);
-"182
-[e ( _Set_4051 (1 -> 0 `i ]
-[; ;adc.c: 184: break;
-"184
-[e $U 1188  ]
-[; ;adc.c: 185: case 9:
-"185
-[e :U 1199 ]
-[; ;adc.c: 186: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-"186
-[e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 187: Set_4051(1);
-"187
-[e ( _Set_4051 (1 -> 1 `i ]
-[; ;adc.c: 189: break;
-"189
-[e $U 1188  ]
-[; ;adc.c: 190: case 10:
-"190
-[e :U 1200 ]
-[; ;adc.c: 191: Temp_Aquire = 0;
-"191
-[e = _Temp_Aquire -> -> 0 `i `uc ]
-[; ;adc.c: 192: Temp_Done = 1;
-"192
-[e = _Temp_Done -> 1 `i ]
-[; ;adc.c: 193: break;
-"193
-[e $U 1188  ]
-"194
-}
-[; ;adc.c: 194: }
-[e $U 1188  ]
-"138
-[e :U 1189 ]
-[e [\ _ADC_Buffer_Point , $ -> 0 `i 1190
- , $ -> 1 `i 1191
- , $ -> 2 `i 1192
- , $ -> 3 `i 1193
- , $ -> 4 `i 1194
- , $ -> 5 `i 1195
- , $ -> 6 `i 1196
- , $ -> 7 `i 1197
- , $ -> 8 `i 1198
- , $ -> 9 `i 1199
- , $ -> 10 `i 1200
- 1188 ]
-"194
-[e :U 1188 ]
-[; ;adc.c: 195: ADC_Buffer_Point++;
-"195
-[e ++ _ADC_Buffer_Point -> 1 `i ]
-"196
-}
-[e :U 1187 ]
-[; ;adc.c: 196: }
-[; ;adc.c: 197: if (Volt_Aquire){
-"197
-[e $ ! != -> _Volt_Aquire `i -> -> -> 0 `i `uc `i 1201  ]
-{
-[; ;adc.c: 199: ADC_Result = ADC_GetConversionResult();
-"199
-[e = _ADC_Result -> ( _ADC_GetConversionResult ..  `i ]
-[; ;adc.c: 200: switch ( ADC_Buffer_Point )
-"200
-[e $U 1203  ]
-[; ;adc.c: 201: {
-"201
-{
-[; ;adc.c: 202: case 0:
-"202
-[e :U 1204 ]
-[; ;adc.c: 203: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"203
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 204: ADC_StartConversion(AN_CELL1);
-"204
-[e ( _ADC_StartConversion (1 . `E8837 12 ]
-[; ;adc.c: 205: break;
-"205
-[e $U 1202  ]
-[; ;adc.c: 206: case 1:
-"206
-[e :U 1205 ]
-[; ;adc.c: 207: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"207
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 208: ADC_StartConversion(AN_CELL2);
-"208
-[e ( _ADC_StartConversion (1 . `E8837 11 ]
-[; ;adc.c: 209: break;
-"209
-[e $U 1202  ]
-[; ;adc.c: 210: case 2:
-"210
 [e :U 1206 ]
-[; ;adc.c: 211: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"211
+[; ;adc.c: 161: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"161
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 212: ADC_StartConversion(AN_CELL3);
-"212
-[e ( _ADC_StartConversion (1 . `E8837 10 ]
-[; ;adc.c: 213: break;
-"213
-[e $U 1202  ]
-[; ;adc.c: 214: case 3:
-"214
-[e :U 1207 ]
-[; ;adc.c: 215: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"215
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 216: ADC_StartConversion(AN_CELL4);
-"216
-[e ( _ADC_StartConversion (1 . `E8837 6 ]
-[; ;adc.c: 217: break;
-"217
-[e $U 1202  ]
-[; ;adc.c: 218: case 4:
-"218
-[e :U 1208 ]
-[; ;adc.c: 219: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"219
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 220: ADC_StartConversion(AN_CELL5);
-"220
-[e ( _ADC_StartConversion (1 . `E8837 5 ]
-[; ;adc.c: 221: break;
-"221
-[e $U 1202  ]
-[; ;adc.c: 222: case 5:
-"222
-[e :U 1209 ]
-[; ;adc.c: 223: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"223
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 224: ADC_StartConversion(AN_CELL6);
-"224
+[; ;adc.c: 162: ADC_StartConversion(AN_CELL6);
+"162
 [e ( _ADC_StartConversion (1 . `E8837 4 ]
-[; ;adc.c: 225: break;
-"225
-[e $U 1202  ]
-[; ;adc.c: 226: case 6:
-"226
-[e :U 1210 ]
-[; ;adc.c: 227: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"227
+[; ;adc.c: 163: break;
+"163
+[e $U 1200  ]
+[; ;adc.c: 164: case 5:
+"164
+[e :U 1207 ]
+[; ;adc.c: 165: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"165
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 228: ADC_StartConversion(AN_CELL7);
-"228
+[; ;adc.c: 166: ADC_StartConversion(AN_CELL7);
+"166
 [e ( _ADC_StartConversion (1 . `E8837 3 ]
-[; ;adc.c: 229: break;
-"229
-[e $U 1202  ]
-"230
+[; ;adc.c: 167: break;
+"167
+[e $U 1200  ]
+[; ;adc.c: 168: case 6:
+"168
+[e :U 1208 ]
+[; ;adc.c: 169: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"169
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux _ADC_Result ]
+[; ;adc.c: 170: Volt_Aquire = 0;
+"170
+[e = _Volt_Aquire -> -> 0 `i `uc ]
+[; ;adc.c: 171: Volt_Done = 1;
+"171
+[e = _Volt_Done -> 1 `i ]
+[; ;adc.c: 172: break;
+"172
+[e $U 1200  ]
+"173
 }
-[; ;adc.c: 230: }
-[e $U 1202  ]
-"200
-[e :U 1203 ]
-[e [\ _ADC_Buffer_Point , $ -> 0 `i 1204
- , $ -> 1 `i 1205
- , $ -> 2 `i 1206
- , $ -> 3 `i 1207
- , $ -> 4 `i 1208
- , $ -> 5 `i 1209
- , $ -> 6 `i 1210
- 1202 ]
-"230
-[e :U 1202 ]
-[; ;adc.c: 231: ADC_Buffer_Point++;
-"231
-[e ++ _ADC_Buffer_Point -> 1 `i ]
-"232
-}
+[; ;adc.c: 173: }
+[e $U 1200  ]
+"142
 [e :U 1201 ]
-[; ;adc.c: 232: }
-[; ;adc.c: 233: }
-"233
-[e :UE 1186 ]
+[e [\ _ADC_Buffer_Point , $ -> 0 `i 1202
+ , $ -> 1 `i 1203
+ , $ -> 2 `i 1204
+ , $ -> 3 `i 1205
+ , $ -> 4 `i 1206
+ , $ -> 5 `i 1207
+ , $ -> 6 `i 1208
+ 1200 ]
+"173
+[e :U 1200 ]
+[; ;adc.c: 174: ADC_Buffer_Point++;
+"174
+[e ++ _ADC_Buffer_Point -> 1 `i ]
+"175
+}
+[e :U 1199 ]
+[; ;adc.c: 175: }
+[; ;adc.c: 176: }
+"176
+[e :UE 1187 ]
 }

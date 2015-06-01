@@ -2,6 +2,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "71 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
+"19029 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
+[v _LATD3 `Vb ~T0 @X0 0 e@31843 ]
+"13 Functions.h
+[v _Delay `(v ~T0 @X0 0 ef1`i ]
 "17609 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S1110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S1110 . RBIF INT0IF TMR0IF RBIE INT0IE TMR0IE PEIE_GIEL GIE_GIEH ]
@@ -26,16 +30,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Temp_Done `i ~T0 @X0 0 e ]
 "16 Tempeture.h
 [v _Temp_Convert `(v ~T0 @X0 0 ef ]
-"13
-[v _Temp_Fault `(uc ~T0 @X0 0 ef ]
+"207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"17 Tempeture.h
+[v _Tempeture_Get `(f ~T0 @X0 0 ef1`i ]
 "11 Global.h
 [v _Volt_Done `i ~T0 @X0 0 e ]
 "15 Battery.h
 [v _Battery_Convert `(v ~T0 @X0 0 ef ]
 "12
 [v _Battery_Fault `(uc ~T0 @X0 0 ef ]
-"207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
+"16
+[v _Battery_Get `(f ~T0 @X0 0 ef1`i ]
+"12 Bypass.h
+[v _RunBypas `(i ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8246,29 +8254,29 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
 [; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
-[; ;adc.h: 72: typedef uint16_t adc_result_t;
-[; ;adc.h: 86: typedef enum
-[; ;adc.h: 87: {
-[; ;adc.h: 88: channel_CTMU = 0x1D,
-[; ;adc.h: 89: channel_DAC = 0x1E,
-[; ;adc.h: 90: channel_FVRBuf2 = 0x1F,
-[; ;adc.h: 91: AN_CELL7 = 0x00,
-[; ;adc.h: 92: AN_CELL6 = 0x01,
-[; ;adc.h: 93: AN_CELL5 = 0x03,
-[; ;adc.h: 94: AN_CELL4 = 0x04,
-[; ;adc.h: 95: Vexternal = 0x09,
-[; ;adc.h: 96: Asen = 0x0B,
-[; ;adc.h: 97: Temp1 = 0x0E,
-[; ;adc.h: 98: AN_CELL3 = 0x05,
-[; ;adc.h: 99: AN_CELL2 = 0x06,
-[; ;adc.h: 100: AN_CELL1 = 0x07
-[; ;adc.h: 101: } adc_channel_t;
-[; ;adc.h: 136: void ADC_Initialize(void);
-[; ;adc.h: 165: void ADC_StartConversion(adc_channel_t channel);
-[; ;adc.h: 197: bool ADC_IsConversionDone();
-[; ;adc.h: 230: adc_result_t ADC_GetConversionResult(void);
-[; ;adc.h: 260: adc_result_t ADC_GetConversion(adc_channel_t channel);
-[; ;adc.h: 276: void ADC_ISR(void);
+[; ;adc.h: 28: typedef uint16_t adc_result_t;
+[; ;adc.h: 42: typedef enum
+[; ;adc.h: 43: {
+[; ;adc.h: 44: channel_CTMU = 0x1D,
+[; ;adc.h: 45: channel_DAC = 0x1E,
+[; ;adc.h: 46: channel_FVRBuf2 = 0x1F,
+[; ;adc.h: 47: AN_CELL7 = 0x00,
+[; ;adc.h: 48: AN_CELL6 = 0x01,
+[; ;adc.h: 49: AN_CELL5 = 0x03,
+[; ;adc.h: 50: AN_CELL4 = 0x04,
+[; ;adc.h: 51: Vexternal = 0x09,
+[; ;adc.h: 52: Asen = 0x0B,
+[; ;adc.h: 53: Temp1 = 0x0E,
+[; ;adc.h: 54: AN_CELL3 = 0x05,
+[; ;adc.h: 55: AN_CELL2 = 0x06,
+[; ;adc.h: 56: AN_CELL1 = 0x07
+[; ;adc.h: 57: } adc_channel_t;
+[; ;adc.h: 92: void ADC_Initialize(void);
+[; ;adc.h: 121: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 153: bool ADC_IsConversionDone();
+[; ;adc.h: 186: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 216: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 232: void ADC_ISR(void);
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -8387,95 +8395,147 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Tempeture.h: 15: extern void Temp_Filter();
 [; ;Tempeture.h: 16: extern void Temp_Convert();
 [; ;Tempeture.h: 17: extern float Tempeture_Get(int channelnum);
-"32 Main.c
+[; ;Bypass.h: 11: extern int SetBypas(int pin,int state);
+[; ;Bypass.h: 12: extern int RunBypas();
+"33 Main.c
 [v _main `(i ~T0 @X0 1 ef2`i`**uc ]
 {
-[; ;Main.c: 32: int main(int argc, char** argv) {
+[; ;Main.c: 33: int main(int argc, char** argv) {
 [e :U _main ]
 [v _argc `i ~T0 @X0 1 r1 ]
 [v _argv `**uc ~T0 @X0 1 r2 ]
 [f ]
-[; ;Main.c: 34: SYSTEM_Initialize();
-"34
+[; ;Main.c: 35: SYSTEM_Initialize();
+"35
 [e ( _SYSTEM_Initialize ..  ]
-[; ;Main.c: 53: (INTCONbits.GIE = 1);
-"53
-[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;Main.c: 56: (INTCONbits.PEIE = 1);
-"56
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;Main.c: 65: while (1)
-"65
-[e :U 1185 ]
-[; ;Main.c: 66: {
-"66
+[; ;Main.c: 37: do { LATD3 = 1; } while(0);
+"37
+[e :U 1186 ]
 {
-[; ;Main.c: 67: if (Temp_Done)
-"67
-[e $ ! != _Temp_Done -> 0 `i 1187  ]
-[; ;Main.c: 68: {
-"68
-{
-[; ;Main.c: 69: Temp_Convert();
-"69
-[e ( _Temp_Convert ..  ]
-[; ;Main.c: 70: Temp_Fault();
-"70
-[e ( _Temp_Fault ..  ]
-"71
+[e = _LATD3 -> -> 1 `i `b ]
 }
-[e :U 1187 ]
-[; ;Main.c: 71: }
-[; ;Main.c: 72: if (Volt_Done)
-"72
-[e $ ! != _Volt_Done -> 0 `i 1188  ]
-[; ;Main.c: 73: {
-"73
+[e :U 1185 ]
+[; ;Main.c: 38: Delay(120);
+"38
+[e ( _Delay (1 -> 120 `i ]
+[; ;Main.c: 39: do { LATD3 = 0; } while(0);
+"39
+[e :U 1189 ]
 {
-[; ;Main.c: 74: Battery_Convert();
-"74
-[e ( _Battery_Convert ..  ]
-[; ;Main.c: 75: Battery_Fault();
-"75
-[e ( _Battery_Fault ..  ]
-[; ;Main.c: 76: printf("shit");
-"76
-[e ( _printf :s 1C ]
-"77
+[e = _LATD3 -> -> 0 `i `b ]
 }
 [e :U 1188 ]
-[; ;Main.c: 77: }
-[; ;Main.c: 78: if (Volt_Done)
-"78
-[e $ ! != _Volt_Done -> 0 `i 1189  ]
-[; ;Main.c: 79: {
-"79
+[; ;Main.c: 57: (INTCONbits.GIE = 1);
+"57
+[e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
+[; ;Main.c: 60: (INTCONbits.PEIE = 1);
+"60
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;Main.c: 69: while (1)
+"69
+[e :U 1191 ]
+[; ;Main.c: 70: {
+"70
 {
-[; ;Main.c: 80: Battery_Convert();
+[; ;Main.c: 71: if (Temp_Done)
+"71
+[e $ ! != _Temp_Done -> 0 `i 1193  ]
+[; ;Main.c: 72: {
+"72
+{
+[; ;Main.c: 73: Temp_Done = 0;
+"73
+[e = _Temp_Done -> 0 `i ]
+[; ;Main.c: 74: Temp_Convert();
+"74
+[e ( _Temp_Convert ..  ]
+[; ;Main.c: 76: for (int x = 0;x<7;x++)
+"76
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 7 `i 1194  ]
+[e $U 1195  ]
+"77
+[e :U 1194 ]
+[; ;Main.c: 77: {
+{
+[; ;Main.c: 78: printf("Battery  temp %d = %0.02f \r\n", x+1,Tempeture_Get(x));
+"78
+[e ( _printf , , (. :s 1C + _x -> 1 `i -> ( _Tempeture_Get (1 _x `d ]
+"79
+}
+"76
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 7 `i 1194  ]
+[e :U 1195 ]
+"79
+}
 "80
-[e ( _Battery_Convert ..  ]
-[; ;Main.c: 81: Battery_Fault();
+}
+[e :U 1193 ]
+[; ;Main.c: 79: }
+[; ;Main.c: 80: }
+[; ;Main.c: 81: if (Volt_Done)
 "81
-[e ( _Battery_Fault ..  ]
+[e $ ! != _Volt_Done -> 0 `i 1197  ]
+[; ;Main.c: 82: {
 "82
-}
-[e :U 1189 ]
+{
+[; ;Main.c: 83: Volt_Done = 0;
 "83
-}
-[e :U 1184 ]
-"65
-[e $U 1185  ]
-[e :U 1186 ]
-[; ;Main.c: 82: }
-[; ;Main.c: 83: }
-[; ;Main.c: 84: return (0);
+[e = _Volt_Done -> 0 `i ]
+[; ;Main.c: 84: Battery_Convert();
 "84
+[e ( _Battery_Convert ..  ]
+[; ;Main.c: 85: Battery_Fault();
+"85
+[e ( _Battery_Fault ..  ]
+[; ;Main.c: 86: for (int x = 0;x<7;x++)
+"86
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 7 `i 1198  ]
+[e $U 1199  ]
+"87
+[e :U 1198 ]
+[; ;Main.c: 87: {
+{
+[; ;Main.c: 88: printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
+"88
+[e ( _printf , , (. :s 2C + _x -> 1 `i -> ( _Battery_Get (1 _x `d ]
+"89
+}
+"86
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 7 `i 1198  ]
+[e :U 1199 ]
+"89
+}
+[; ;Main.c: 89: }
+[; ;Main.c: 90: RunBypas();
+"90
+[e ( _RunBypas ..  ]
+"91
+}
+[e :U 1197 ]
+"115
+}
+[e :U 1190 ]
+"69
+[e $U 1191  ]
+[e :U 1192 ]
+[; ;Main.c: 91: }
+[; ;Main.c: 115: }
+[; ;Main.c: 116: return (0);
+"116
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 85: }
-"85
+[; ;Main.c: 117: }
+"117
 [e :UE 1183 ]
 }
-[p f _printf 8388608 ]
-[a 1C 115 104 105 116 0 ]
-
+[p f _printf 8462468 ]
+[a 2C 66 97 116 116 101 114 121 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]
+[a 1C 66 97 116 116 101 114 121 32 32 116 101 109 112 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]

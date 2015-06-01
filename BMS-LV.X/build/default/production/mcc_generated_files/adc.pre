@@ -10466,10 +10466,10 @@ typedef uint16_t uintptr_t;
 # 12 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdbool.h"
 typedef unsigned char bool;
 
-# 72 "mcc_generated_files/adc.h"
+# 28 "mcc_generated_files/adc.h"
 typedef uint16_t adc_result_t;
 
-# 86
+# 42
 typedef enum
 {
 channel_CTMU = 0x1D,
@@ -10487,22 +10487,22 @@ AN_CELL2 = 0x06,
 AN_CELL1 = 0x07
 } adc_channel_t;
 
-# 136
+# 92
 void ADC_Initialize(void);
 
-# 165
+# 121
 void ADC_StartConversion(adc_channel_t channel);
 
-# 197
+# 153
 bool ADC_IsConversionDone();
 
-# 230
+# 186
 adc_result_t ADC_GetConversionResult(void);
 
-# 260
+# 216
 adc_result_t ADC_GetConversion(adc_channel_t channel);
 
-# 276
+# 232
 void ADC_ISR(void);
 
 # 5 "mcc_generated_files/../Global.h"
@@ -10519,7 +10519,89 @@ extern int Temp_Done;
 void Set_4051(int Channel);
 void Delay(int wait);
 
-# 61 "mcc_generated_files/adc.c"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
+typedef void * va_list[1];
+
+#pragma intrinsic(__va_start)
+extern void * __va_start(void);
+
+#pragma intrinsic(__va_arg)
+extern void * __va_arg(void *, ...);
+
+# 24 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
+extern int errno;
+
+# 55
+struct __prbuf
+{
+char * ptr;
+void (* func)(char);
+};
+
+# 17 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\conio.h"
+extern int errno;
+
+
+extern void init_uart(void);
+
+extern char getch(void);
+extern char getche(void);
+extern void putch(char);
+extern void ungetch(char);
+
+extern __bit kbhit(void);
+
+# 31
+extern char * cgets(char *);
+extern void cputs(const char *);
+
+# 100 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h"
+extern int cprintf(char *, ...);
+#pragma printf_check(cprintf)
+
+
+
+extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+
+
+# 192
+#pragma printf_check(vprintf) const
+#pragma printf_check(vsprintf) const
+
+extern char * gets(char *);
+extern int puts(const char *);
+extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+
+#pragma printf_check(printf) const
+#pragma printf_check(sprintf) const
+extern int sprintf(char *, const char *, ...);
+extern int printf(const char *, ...);
+
+# 78 "mcc_generated_files/eusart1.h"
+extern volatile uint8_t eusart1TxBufferRemaining;
+extern volatile uint8_t eusart1RxCount;
+
+# 107
+void EUSART1_Initialize(void);
+
+# 127
+uint8_t EUSART1_Read(void);
+
+# 147
+void EUSART1_Write(uint8_t txData);
+
+# 168
+void EUSART1_Transmit_ISR(void);
+
+# 189
+void EUSART1_Receive_ISR(void);
+
+# 17 "mcc_generated_files/adc.c"
 void ADC_Initialize(void)
 {
 
@@ -10528,10 +10610,10 @@ void ADC_Initialize(void)
 ADCON0 = 0x01;
 
 
-ADCON1 = 0x81;
+ADCON1 = 0x80;
 
 
-ADCON2 = 0x0A;
+ADCON2 = 0xA9;
 
 
 ADRESL = 0x00;
@@ -10601,55 +10683,41 @@ switch ( ADC_Buffer_Point )
 {
 case 0:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(0);
+Set_4051(1);
 ADC_StartConversion(Temp1);
 break;
 case 1:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(1);
+Set_4051(2);
 ADC_StartConversion(Temp1);
 break;
 case 2:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(2);
+Set_4051(3);
 ADC_StartConversion(Temp1);
 break;
 case 3:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(3);
+Set_4051(4);
 ADC_StartConversion(Temp1);
 break;
 case 4:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(4);
+Set_4051(5);
 ADC_StartConversion(Temp1);
 break;
 case 5:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(5);
+Set_4051(6);
 ADC_StartConversion(Temp1);
 break;
 case 6:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(6);
+Set_4051(7);
 ADC_StartConversion(Temp1);
 break;
 case 7:
 Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(7);
-ADC_StartConversion(Temp1);
-break;
-case 8:
-Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(0);
-
-break;
-case 9:
-Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-Set_4051(1);
-
-break;
-case 10:
 Temp_Aquire = 0;
 Temp_Done = 1;
 break;
@@ -10663,31 +10731,32 @@ switch ( ADC_Buffer_Point )
 {
 case 0:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL1);
+ADC_StartConversion(AN_CELL2);
 break;
 case 1:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL2);
+ADC_StartConversion(AN_CELL3);
 break;
 case 2:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL3);
+ADC_StartConversion(AN_CELL4);
 break;
 case 3:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL4);
+ADC_StartConversion(AN_CELL5);
 break;
 case 4:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL5);
+ADC_StartConversion(AN_CELL6);
 break;
 case 5:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL6);
+ADC_StartConversion(AN_CELL7);
 break;
 case 6:
 Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-ADC_StartConversion(AN_CELL7);
+Volt_Aquire = 0;
+Volt_Done = 1;
 break;
 }
 ADC_Buffer_Point++;

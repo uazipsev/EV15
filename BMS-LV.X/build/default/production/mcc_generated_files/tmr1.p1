@@ -67,12 +67,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1019 . . . . . ]
 "16314
 [v _T1GCONbits `VS1019 ~T0 @X0 0 e@4044 ]
-"365 mcc_generated_files/tmr1.h
-[v _TMR1_CallBack `(v ~T0 @X0 0 ef ]
-"18983 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
+"18983
 [v _LATA4 `Vb ~T0 @X0 0 e@31820 ]
-"15 mcc_generated_files/../Current.h
-[v _Current_Read `(v ~T0 @X0 0 ef ]
 "13 mcc_generated_files/../Battery.h
 [v _Battery_Read `(v ~T0 @X0 0 ef ]
 "14 mcc_generated_files/../Tempeture.h
@@ -8531,24 +8527,21 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> -> 0 `i `ui
 ]
 [; ;tmr1.c: 119: static volatile unsigned int CountCallBack = 0;
-[; ;tmr1.c: 122: PIR1bits.TMR1IF = 0;
-"122
+[; ;tmr1.c: 123: PIR1bits.TMR1IF = 0;
+"123
 [e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;tmr1.c: 125: TMR1H = (timer1ReloadVal >> 8);
-"125
-[e = _TMR1H -> >> _timer1ReloadVal -> 8 `i `uc ]
-[; ;tmr1.c: 126: TMR1L = (uint8_t) timer1ReloadVal;
+[; ;tmr1.c: 126: TMR1H = (timer1ReloadVal >> 8);
 "126
+[e = _TMR1H -> >> _timer1ReloadVal -> 8 `i `uc ]
+[; ;tmr1.c: 127: TMR1L = (uint8_t) timer1ReloadVal;
+"127
 [e = _TMR1L -> _timer1ReloadVal `uc ]
-[; ;tmr1.c: 129: if (++CountCallBack >= 4)
-"129
-[e $ ! >= =+ F8898 -> -> 1 `i `ui -> -> 4 `i `ui 1189  ]
-[; ;tmr1.c: 130: {
+[; ;tmr1.c: 130: if (++CountCallBack >= 4)
 "130
+[e $ ! >= =+ F8898 -> -> 1 `i `ui -> -> 4 `i `ui 1189  ]
+[; ;tmr1.c: 131: {
+"131
 {
-[; ;tmr1.c: 132: TMR1_CallBack();
-"132
-[e ( _TMR1_CallBack ..  ]
 [; ;tmr1.c: 133: do { LATA4 = ~LATA4; } while(0);
 "133
 [e :U 1192 ]
@@ -8556,65 +8549,62 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA4 -> ~ -> _LATA4 `ui `b ]
 }
 [e :U 1191 ]
-[; ;tmr1.c: 135: CountCallBack = 0;
-"135
-[e = F8898 -> -> 0 `i `ui ]
+[; ;tmr1.c: 136: CountCallBack = 0;
 "136
+[e = F8898 -> -> 0 `i `ui ]
+"137
 }
 [e :U 1189 ]
-[; ;tmr1.c: 136: }
-[; ;tmr1.c: 137: if(CountCallBack == 1)
-"137
-[e $ ! == F8898 -> -> 1 `i `ui 1193  ]
-[; ;tmr1.c: 138: {
+[; ;tmr1.c: 137: }
+[; ;tmr1.c: 138: if(CountCallBack == 1)
 "138
-{
-[; ;tmr1.c: 139: Current_Read();
+[e $ ! == F8898 -> -> 1 `i `ui 1193  ]
+[; ;tmr1.c: 139: {
 "139
-[e ( _Current_Read ..  ]
-"140
+{
+"141
 }
 [e :U 1193 ]
-[; ;tmr1.c: 140: }
-[; ;tmr1.c: 141: if(CountCallBack == 2)
-"141
-[e $ ! == F8898 -> -> 2 `i `ui 1194  ]
-[; ;tmr1.c: 142: {
+[; ;tmr1.c: 141: }
+[; ;tmr1.c: 142: if(CountCallBack == 2)
 "142
-{
-[; ;tmr1.c: 143: Battery_Read();
+[e $ ! == F8898 -> -> 2 `i `ui 1194  ]
+[; ;tmr1.c: 143: {
 "143
-[e ( _Battery_Read ..  ]
+{
+[; ;tmr1.c: 144: Battery_Read();
 "144
+[e ( _Battery_Read ..  ]
+"145
 }
 [e :U 1194 ]
-[; ;tmr1.c: 144: }
-[; ;tmr1.c: 145: if(CountCallBack == 3)
-"145
-[e $ ! == F8898 -> -> 3 `i `ui 1195  ]
-[; ;tmr1.c: 146: {
+[; ;tmr1.c: 145: }
+[; ;tmr1.c: 146: if(CountCallBack == 3)
 "146
-{
-[; ;tmr1.c: 147: Temp_Read();
+[e $ ! == F8898 -> -> 3 `i `ui 1195  ]
+[; ;tmr1.c: 147: {
 "147
-[e ( _Temp_Read ..  ]
+{
+[; ;tmr1.c: 148: Temp_Read();
 "148
+[e ( _Temp_Read ..  ]
+"149
 }
 [e :U 1195 ]
-[; ;tmr1.c: 148: }
-[; ;tmr1.c: 151: }
-"151
+[; ;tmr1.c: 149: }
+[; ;tmr1.c: 150: }
+"150
 [e :UE 1188 ]
 }
-"153
+"152
 [v _TMR1_CallBack `(v ~T0 @X0 1 ef ]
-"154
+"153
 {
-[; ;tmr1.c: 153: void TMR1_CallBack(void)
-[; ;tmr1.c: 154: {
+[; ;tmr1.c: 152: void TMR1_CallBack(void)
+[; ;tmr1.c: 153: {
 [e :U _TMR1_CallBack ]
 [f ]
-[; ;tmr1.c: 156: }
-"156
+[; ;tmr1.c: 155: }
+"155
 [e :UE 1196 ]
 }
