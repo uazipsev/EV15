@@ -31,13 +31,13 @@ extern void ToSend(const unsigned char where, const unsigned int what);
 #define WDI_Port PORTBbits.RB12
 #define RS485 _LATC8
 #define RS485_1_Tris TRISCbits.TRISC8
-#define RS485_1_Port PORTCbits.RC8
+#define RS485_1_Port LATCbits.LATC8
 
 
 #define RX1_Pin_Tris TRISCbits.TRISC6
 #define TX1_Pin_Tris TRISCbits.TRISC7
-#define RX1_Pin_Port PORTCbits.RC6
-#define TX1_Pin_Port PORTCbits.RC7
+#define RX1_Pin_Port LATCbits.LATC6
+#define TX1_Pin_Port LATCbits.LATC7
 #define RX1_Pin_Map RPINR18bits.U1RXR
 #define RX1_PIN_SET 22
 #define Pin_22_Output RPOR11bits.RP22R
@@ -48,7 +48,6 @@ extern void ToSend(const unsigned char where, const unsigned int what);
 #define Pin_8_Output RPOR4bits.RP8R
 #define TX2_OUTPUT 5
 
-#define GLOBAL_INTERRUPTS INTCON1bits.
 
 #endif	/* PINDEF_H */
 

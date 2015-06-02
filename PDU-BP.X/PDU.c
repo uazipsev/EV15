@@ -19,6 +19,9 @@ void PDUStartup(void)
     //now enable SAS and DDS
     EnableSlavePower(SAS,ON);
     EnableSlavePower(DDS,ON);
+    EnableSlavePower(MCS,ON);
+    EnableSlavePower(BMM,ON);
+    EnableSlavePower(TSS,ON);
     Update();
     //Lets pull Prev values out of memory for control
     ComputeStorageData();
@@ -29,19 +32,19 @@ void EnableSlavePower(device slave, int onof)
 {
     switch(slave)
     {
-        case SAS:
+        case TSS:
             SetPin595(2, 1, onof);
             break;
         case MCS:
             SetPin595(3, 1, onof);
             break;
         case DDS:
-            SetPin595(2, 1, onof);
+            SetPin595(2, 6, onof);
             break;
         case BMM:
             SetPin595(3, 6, onof);
             break;
-        case TSS:
+        case SAS:
             SetPin595(1, 1, onof);
             break;
         case AUX:

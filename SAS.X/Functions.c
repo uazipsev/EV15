@@ -23,8 +23,10 @@ void Setup(void) {
     PPSUnLock;
     Pin_23_Output = TX1_OUTPUT;
     RX1_Pin_Map = 22;
+
     Pin_8_Output = TX2_OUTPUT;
     RX2_Pin_Map = 7;
+
     PPSLock;
 
     UART_init();
@@ -104,9 +106,9 @@ void PinSetMode(void) {
     LED_Tris     = OUTPUT;
     LED_Port     = OUTPUT; // LED indicator OUT
     RS485_1_Tris = OUTPUT; //RS485 Flow OUT
-    RS485_1_Port = TALK;
-    RX1_Pin_Tris = INPUT;
-    RX1_Pin_Port = 1;
+    RS485_1_Port = LISTEN;
+    //RX1_Pin_Tris = INPUT;
+    //RX1_Pin_Port = 1;
 
 
 }

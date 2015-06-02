@@ -4,7 +4,7 @@
         <manager generated="true" name="Pin Manager" reloadPin="manual">
             <setting name="package" option="PDIP40"/>
             <setting name="sorting" option="false"/>
-            <resource customName="Volume" digital="false" direction="INPUT" function="AN4" module="ADC" name="RA5" start="false" type="pin" wpu="false"/>
+            <resource customName="channel_AN4" digital="false" direction="INPUT" function="AN4" module="ADC" name="RA5" start="false" type="pin" wpu="false"/>
             <resource customName="INDICATOR" digital="true" direction="OUTPUT" function="RA3" module="GPIO" name="RA3" start="false" type="pin" wpu="false"/>
             <resource customName="Button8" digital="true" direction="INPUT" function="RA2" module="GPIO" name="RA2" start="false" type="pin" wpu="false"/>
             <resource customName="Button7" digital="true" direction="INPUT" function="RA1" module="GPIO" name="RA1" start="false" type="pin" wpu="false"/>
@@ -17,7 +17,7 @@
             <resource customName="Button2" digital="true" direction="INPUT" function="RB0" module="GPIO" name="RB0" start="false" type="pin" wpu="false"/>
             <resource customName="RX1" digital="true" direction="INPUT" function="RX1" module="EUSART1" name="RC7" start="false" type="pin" wpu="false"/>
             <resource customName="TX1" digital="true" direction="INPUT" function="TX1" module="EUSART1" name="RC6" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RC5" digital="true" direction="INPUT" function="RC5" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
+            <resource customName="Talk" digital="true" direction="OUTPUT" function="RC5" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
             <resource customName="SDA1" digital="true" direction="BIDIRECTIONAL" function="SDA1" module="MSSP1" name="RC4" start="true" type="pin" wpu="false"/>
             <resource customName="SCL1" digital="true" direction="BIDIRECTIONAL" function="SCL1" module="MSSP1" name="RC3" start="true" type="pin" wpu="false"/>
             <resource customName="Button1" digital="true" direction="INPUT" function="RD5" module="GPIO" name="RD5" start="false" type="pin" wpu="false"/>
@@ -25,8 +25,8 @@
             <resource customName="LED3" digital="true" direction="OUTPUT" function="RE2" module="GPIO" name="RE2" start="false" type="pin" wpu="false"/>
             <resource customName="LED4" digital="true" direction="OUTPUT" function="RE1" module="GPIO" name="RE1" start="false" type="pin" wpu="false"/>
             <resource customName="LED5" digital="true" direction="OUTPUT" function="RE0" module="GPIO" name="RE0" start="false" type="pin" wpu="false"/>
-            <file checksum="3904610159" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="1837636849" modified="true" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="3879051117" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
+            <file checksum="1201150528" modified="true" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
@@ -193,7 +193,7 @@
             <resource customName="LED4" digital="true" direction="OUTPUT" function="RE1" module="GPIO" name="RE1" start="false" type="pin" wpu="false"/>
             <resource customName="LED3" digital="true" direction="OUTPUT" function="RE2" module="GPIO" name="RE2" start="false" type="pin" wpu="false"/>
             <resource customName="LED2" digital="true" direction="OUTPUT" function="RD1" module="GPIO" name="RD1" start="false" type="pin" wpu="false"/>
-            <resource customName="IO_RC5" digital="true" direction="INPUT" function="RC5" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
+            <resource customName="Talk" digital="true" direction="OUTPUT" function="RC5" module="GPIO" name="RC5" start="false" type="pin" wpu="false"/>
         </module>
         <module generated="true" mode="I2C Master Interrupt" name="MSSP1" order="4" reloadPin="manual" type="mssp">
             <initializer comment="" name="Initialize">

@@ -41,9 +41,10 @@ void main(void)
     while (1)
     {
         Delay(500);
-        LED1_SetHigh();
+        LED2_SetLow();
         Delay(500);
-        LED1_SetLow();
+        LED2_SetLow();
+        printf("ADC Volume = %d");
         // Add your application code
     }
 }

@@ -13,13 +13,14 @@ int main(void) {
     Delay(500);
     while (1) {
         ledDebug();
+         
         //Comms handling
         if (receiveData()) {
             //if(receiveArray[RESPONSE_ADDRESS]==ECU_ADDRESS){
             Delay(5);
             prepAndSendData();
             //}
-        }
+        }        
         checkCommDirection();
     }
 }
@@ -34,10 +35,10 @@ void checkCommDirection() {
     //you are sending data, make sure tunnel is open
         if (!Transmit_stall) {
             talkTime = 0;
-            RS485_1_Port = TALK;
+            //RS485_1_Port = TALK;
         }
         //you have finished send and time has elapsed.. start listen
-        if (Transmit_stall && (talkTime > 3)) {
+        if (Transmit_stall && (talkTime > 3) && (PORTCbits.RC8==TALK)) {
             RS485_1_Port = LISTEN;
         }
 
@@ -53,15 +54,14 @@ void prepAndSendData() {
     ToSend(WHEELSPEED2, sender++);
     ToSend(WHEELSPEED3, sender++);
     ToSend(WHEELSPEED4, sender++);
-    ToSend(8, sender++);
-    ToSend(9, sender++);
-    ToSend(10, sender++);
-    ToSend(11, sender++);
-    ToSend(12, sender++);
-    ToSend(13, sender++);
-
-    RS485_1_Port = TALK;
+//    ToSend(8, sender++);
+//    ToSend(9, sender++);
+//    ToSend(10, sender++);
+//    ToSend(11, sender++);
+//    ToSend(12, sender++);
+//    ToSend(13, sender++);
     talkTime = 0;
+    RS485_1_Port = TALK;
     sendData(ECU_ADDRESS);
 
 

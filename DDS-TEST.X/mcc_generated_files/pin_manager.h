@@ -260,20 +260,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define TX1_SetAnalogMode()   do { ANSC6 = 1; } while(0)
 #define TX1_SetDigitalMode()   do { ANSC6 = 0; } while(0)
-// get/set IO_RC5 aliases
-#define IO_RC5_TRIS               TRISC5
-#define IO_RC5_LAT                LATC5
-#define IO_RC5_PORT               PORTCbits.RC5
-#define IO_RC5_ANS                ANSC5
-#define IO_RC5_SetHigh()    do { LATC5 = 1; } while(0)
-#define IO_RC5_SetLow()   do { LATC5 = 0; } while(0)
-#define IO_RC5_Toggle()   do { LATC5 = ~LATC5; } while(0)
-#define IO_RC5_GetValue()         PORTCbits.RC5
-#define IO_RC5_SetDigitalInput()    do { TRISC5 = 1; } while(0)
-#define IO_RC5_SetDigitalOutput()   do { TRISC5 = 0; } while(0)
+// get/set Talk aliases
+#define Talk_TRIS               TRISC5
+#define Talk_LAT                LATC5
+#define Talk_PORT               PORTCbits.RC5
+#define Talk_ANS                ANSC5
+#define Talk_SetHigh()    do { LATC5 = 1; } while(0)
+#define Talk_SetLow()   do { LATC5 = 0; } while(0)
+#define Talk_Toggle()   do { LATC5 = ~LATC5; } while(0)
+#define Talk_GetValue()         PORTCbits.RC5
+#define Talk_SetDigitalInput()    do { TRISC5 = 1; } while(0)
+#define Talk_SetDigitalOutput()   do { TRISC5 = 0; } while(0)
 
-#define IO_RC5_SetAnalogMode()   do { ANSC5 = 1; } while(0)
-#define IO_RC5_SetDigitalMode()   do { ANSC5 = 0; } while(0)
+#define Talk_SetAnalogMode()   do { ANSC5 = 1; } while(0)
+#define Talk_SetDigitalMode()   do { ANSC5 = 0; } while(0)
 // get/set SDA1 aliases
 #define SDA1_TRIS               TRISC4
 #define SDA1_LAT                LATC4

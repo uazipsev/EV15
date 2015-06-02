@@ -73,6 +73,17 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define LED1_SetAnalogMode()   do { ANSA3 = 1; } while(0)
 #define LED1_SetDigitalMode()   do { ANSA3 = 0; } while(0)
+// get/set LED2 aliases
+#define LED2_TRIS               TRISA4
+#define LED2_LAT                LATA4
+#define LED2_PORT               PORTAbits.RA4
+#define LED2_SetHigh()    do { LATA4 = 1; } while(0)
+#define LED2_SetLow()   do { LATA4 = 0; } while(0)
+#define LED2_Toggle()   do { LATA4 = ~LATA4; } while(0)
+#define LED2_GetValue()         PORTAbits.RA4
+#define LED2_SetDigitalInput()    do { TRISA4 = 1; } while(0)
+#define LED2_SetDigitalOutput()   do { TRISA4 = 0; } while(0)
+
 // get/set CLEAR aliases
 #define CLEAR_TRIS               TRISB0
 #define CLEAR_LAT                LATB0
@@ -90,20 +101,20 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define CLEAR_ResetPullup()   do { WPUB0 = 0; } while(0)
 #define CLEAR_SetAnalogMode()   do { ANSB0 = 1; } while(0)
 #define CLEAR_SetDigitalMode()   do { ANSB0 = 0; } while(0)
-// get/set U5Multisense aliases
-#define U5Multisense_TRIS               TRISC4
-#define U5Multisense_LAT                LATC4
-#define U5Multisense_PORT               PORTCbits.RC4
-#define U5Multisense_ANS                ANSC4
-#define U5Multisense_SetHigh()    do { LATC4 = 1; } while(0)
-#define U5Multisense_SetLow()   do { LATC4 = 0; } while(0)
-#define U5Multisense_Toggle()   do { LATC4 = ~LATC4; } while(0)
-#define U5Multisense_GetValue()         PORTCbits.RC4
-#define U5Multisense_SetDigitalInput()    do { TRISC4 = 1; } while(0)
-#define U5Multisense_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
+// get/set channel_AN16 aliases
+#define channel_AN16_TRIS               TRISC4
+#define channel_AN16_LAT                LATC4
+#define channel_AN16_PORT               PORTCbits.RC4
+#define channel_AN16_ANS                ANSC4
+#define channel_AN16_SetHigh()    do { LATC4 = 1; } while(0)
+#define channel_AN16_SetLow()   do { LATC4 = 0; } while(0)
+#define channel_AN16_Toggle()   do { LATC4 = ~LATC4; } while(0)
+#define channel_AN16_GetValue()         PORTCbits.RC4
+#define channel_AN16_SetDigitalInput()    do { TRISC4 = 1; } while(0)
+#define channel_AN16_SetDigitalOutput()   do { TRISC4 = 0; } while(0)
 
-#define U5Multisense_SetAnalogMode()   do { ANSC4 = 1; } while(0)
-#define U5Multisense_SetDigitalMode()   do { ANSC4 = 0; } while(0)
+#define channel_AN16_SetAnalogMode()   do { ANSC4 = 1; } while(0)
+#define channel_AN16_SetDigitalMode()   do { ANSC4 = 0; } while(0)
 // get/set FLOW_CNTL aliases
 #define FLOW_CNTL_TRIS               TRISC5
 #define FLOW_CNTL_LAT                LATC5
@@ -146,34 +157,34 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 
 #define RX1_SetAnalogMode()   do { ANSC7 = 1; } while(0)
 #define RX1_SetDigitalMode()   do { ANSC7 = 0; } while(0)
-// get/set U8Multisense aliases
-#define U8Multisense_TRIS               TRISD2
-#define U8Multisense_LAT                LATD2
-#define U8Multisense_PORT               PORTDbits.RD2
-#define U8Multisense_ANS                ANSD2
-#define U8Multisense_SetHigh()    do { LATD2 = 1; } while(0)
-#define U8Multisense_SetLow()   do { LATD2 = 0; } while(0)
-#define U8Multisense_Toggle()   do { LATD2 = ~LATD2; } while(0)
-#define U8Multisense_GetValue()         PORTDbits.RD2
-#define U8Multisense_SetDigitalInput()    do { TRISD2 = 1; } while(0)
-#define U8Multisense_SetDigitalOutput()   do { TRISD2 = 0; } while(0)
+// get/set channel_AN22 aliases
+#define channel_AN22_TRIS               TRISD2
+#define channel_AN22_LAT                LATD2
+#define channel_AN22_PORT               PORTDbits.RD2
+#define channel_AN22_ANS                ANSD2
+#define channel_AN22_SetHigh()    do { LATD2 = 1; } while(0)
+#define channel_AN22_SetLow()   do { LATD2 = 0; } while(0)
+#define channel_AN22_Toggle()   do { LATD2 = ~LATD2; } while(0)
+#define channel_AN22_GetValue()         PORTDbits.RD2
+#define channel_AN22_SetDigitalInput()    do { TRISD2 = 1; } while(0)
+#define channel_AN22_SetDigitalOutput()   do { TRISD2 = 0; } while(0)
 
-#define U8Multisense_SetAnalogMode()   do { ANSD2 = 1; } while(0)
-#define U8Multisense_SetDigitalMode()   do { ANSD2 = 0; } while(0)
-// get/set U10Multisense aliases
-#define U10Multisense_TRIS               TRISD3
-#define U10Multisense_LAT                LATD3
-#define U10Multisense_PORT               PORTDbits.RD3
-#define U10Multisense_ANS                ANSD3
-#define U10Multisense_SetHigh()    do { LATD3 = 1; } while(0)
-#define U10Multisense_SetLow()   do { LATD3 = 0; } while(0)
-#define U10Multisense_Toggle()   do { LATD3 = ~LATD3; } while(0)
-#define U10Multisense_GetValue()         PORTDbits.RD3
-#define U10Multisense_SetDigitalInput()    do { TRISD3 = 1; } while(0)
-#define U10Multisense_SetDigitalOutput()   do { TRISD3 = 0; } while(0)
+#define channel_AN22_SetAnalogMode()   do { ANSD2 = 1; } while(0)
+#define channel_AN22_SetDigitalMode()   do { ANSD2 = 0; } while(0)
+// get/set channel_AN23 aliases
+#define channel_AN23_TRIS               TRISD3
+#define channel_AN23_LAT                LATD3
+#define channel_AN23_PORT               PORTDbits.RD3
+#define channel_AN23_ANS                ANSD3
+#define channel_AN23_SetHigh()    do { LATD3 = 1; } while(0)
+#define channel_AN23_SetLow()   do { LATD3 = 0; } while(0)
+#define channel_AN23_Toggle()   do { LATD3 = ~LATD3; } while(0)
+#define channel_AN23_GetValue()         PORTDbits.RD3
+#define channel_AN23_SetDigitalInput()    do { TRISD3 = 1; } while(0)
+#define channel_AN23_SetDigitalOutput()   do { TRISD3 = 0; } while(0)
 
-#define U10Multisense_SetAnalogMode()   do { ANSD3 = 1; } while(0)
-#define U10Multisense_SetDigitalMode()   do { ANSD3 = 0; } while(0)
+#define channel_AN23_SetAnalogMode()   do { ANSD3 = 1; } while(0)
+#define channel_AN23_SetDigitalMode()   do { ANSD3 = 0; } while(0)
 // get/set DATA_OUT aliases
 #define DATA_OUT_TRIS               TRISD4
 #define DATA_OUT_LAT                LATD4

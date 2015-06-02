@@ -37,6 +37,7 @@ void updateComms() {
                 if (receiveCommSAS()) {
                     commsState++;
                     resetCommTimers();
+                    requestPDUData();
                 }
             } else {
                 //FLAG ERROR ON SAS COMMS -- Move on
@@ -164,6 +165,8 @@ void requestMCSData() {
 
 void requestPDUData() {
 
+        ToSend(RESPONSE_ADDRESS, ECU_ADDRESS);
+        sendData(PDU_ADDRESS);
 
 }
 

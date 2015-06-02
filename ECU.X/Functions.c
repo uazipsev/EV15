@@ -26,22 +26,21 @@ void Setup(void) {
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
     PPSUnLock;
-    //RX0/TX0  -- RS485-1 (U3)
+    //RX0/TX0  -- RS485-1 (U3) --SAS -DDS
     Pin_42_Output = TX1_Output;
     RX1_Pin_Map = 43;
     
-    //RX1/TX1  -- RS485-2 (U1) 
+    //RX1/TX1  -- RS485-2 (U1) --BMM -MCS
     Pin_49_Output = TX2_Output;
     RX2_Pin_Map = 48;
     
-    //RX/TX  --RELAY becomes RX3/TX3 (USB) -> RX4/TX4 (WIRELESS)
+    //RX/TX  --SWITCH becomes RX3/TX3 (USB) -> RX4/TX4 (WIRELESS)
     Pin_55_Output = TX3_Output;
     RX3_Pin_Map = 56;
 
-    //RX2/TX2 -- RS485 Full Duplex
+    //RX2/TX2 -- RS485 Full Duplex --Telem Master
     Pin_70_Output = TX4_Output;
     RX4_Pin_Map = 57;
-
 
     PPSout(_OC1, _RP37);
     PPSLock;
