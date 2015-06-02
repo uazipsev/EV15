@@ -12,6 +12,14 @@
 extern "C" {
 #endif
 
+
+#define START_BUTTON 0
+#define START_LED  0
+#define DASH_LED2  1
+
+    extern int buttonArray[8];
+    extern bool seekButtonChange();
+    extern void changeLEDState(int LED, bool state);
     extern volatile unsigned int time;
 
     void ledDebug() {

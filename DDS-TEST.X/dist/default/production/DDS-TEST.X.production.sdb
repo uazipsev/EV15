@@ -3,7 +3,7 @@
 [d edition pro ]
 [d chip 18F45K22 ]
 [d frameptr 4065 ]
-"137 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"137 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 [e E8836 . `uc
 I2C1_MESSAGE_COMPLETE 0
 I2C1_MESSAGE_FAIL 1
@@ -28,14 +28,14 @@ S_MASTER_NOACK_STOP 9
 S_MASTER_SEND_ADDR_10BIT_LSB 10
 S_MASTER_10BIT_RESTART 11
 ]
-"83 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
+"83 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/adc.c
 [e E8837 . `uc
 channel_CTMU 29
 channel_DAC 30
 channel_FVRBuf2 31
 Volume 4
 ]
-"16 C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c
+"16 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\LED_BarGraph.c
 [e E8852 . `uc
 I2C1_MESSAGE_COMPLETE 0
 I2C1_MESSAGE_FAIL 1
@@ -47,8 +47,6 @@ I2C1_LOST_STATE 6
 ]
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
 [v ___awdiv __awdiv `(i  1 e 2 0 ]
-"464 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-[v _printf printf `(i  1 e 2 0 ]
 "63 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\double.c
 [v ___flpack __flpack `(d  1 e 3 0 ]
 "88 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\fladd.c
@@ -69,43 +67,63 @@ I2C1_LOST_STATE 6
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
 "20 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
-"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
 "15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"39 C:\Zips EV 15\trunk\DDS-TEST.X\IO.c
+"6 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\Communications.c
+[v _updateComms updateComms `(v  1 e 0 0 ]
+"16
+[v _respondECU respondECU `(v  1 e 0 0 ]
+"28
+[v _handleIndicators handleIndicators `(v  1 e 0 0 ]
+"42
+[v _buttonsCollector buttonsCollector `(ui  1 e 2 0 ]
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _begin begin `(v  1 e 0 0 ]
+"34
+[v _CRC8 CRC8 `(uc  1 e 1 0 ]
+"53
+[v _sendData sendData `(v  1 e 0 0 ]
+"82
+[v _receiveData receiveData `(uc  1 e 1 0 ]
+"216
+[v _ToSend ToSend `(v  1 e 0 0 ]
+"223
+[v _FastTransfer_buffer_put FastTransfer_buffer_put `(v  1 e 0 0 ]
+"261
+[v _FastTransfer_buffer_flush FastTransfer_buffer_flush `(v  1 e 0 0 ]
+"273
+[v _FastTransfer_buffer_modulo_inc FastTransfer_buffer_modulo_inc `(ui  1 e 2 0 ]
+"321
+[v _crcBufS_put crcBufS_put `(v  1 e 0 0 ]
+"336
+[v _crcBufS_status_put crcBufS_status_put `(v  1 e 0 0 ]
+"353
+[v _crcBufS_get crcBufS_get `(uc  1 e 1 0 ]
+"373
+[v _CRCcheck CRCcheck `(v  1 e 0 0 ]
+"13 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\IO.c
+[v _SetLEDOut SetLEDOut `(v  1 e 0 0 ]
+"45
 [v _ReadButtonState ReadButtonState `(v  1 e 0 0 ]
-"71
+"77
 [v _GetButtonState GetButtonState `(uc  1 e 1 0 ]
-"11 C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c
+"11 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\LED_BarGraph.c
 [v _LEDBsetBrightness LEDBsetBrightness `(v  1 e 0 0 ]
 "42
 [v _LEDblinkRate LEDblinkRate `(v  1 e 0 0 ]
 "73
 [v _LEDbegin LEDbegin `(v  1 e 0 0 ]
-"32 C:\Zips EV 15\trunk\DDS-TEST.X\main.c
+"33 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\main.c
 [v _main main `(v  1 e 0 0 ]
-"103
+"107
 [v _Delay Delay `(v  1 e 0 0 ]
-"59 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
+"59 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
 "128
 [v _ADC_ISR ADC_ISR `(v  1 e 0 0 ]
-"76 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 0 0 ]
-"119
-[v _EUSART1_Read EUSART1_Read `(uc  1 e 1 0 ]
-"140
-[v _EUSART1_Write EUSART1_Write `(v  1 e 0 0 ]
-"168
-[v _putch putch `(v  1 e 0 0 ]
-"173
-[v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
-"192
-[v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 0 0 ]
-"151 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"151 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 0 0 ]
 "186
 [v _I2C1_ISR I2C1_ISR `(v  1 e 0 0 ]
@@ -123,17 +141,17 @@ I2C1_LOST_STATE 6
 [v _I2C1_MasterWriteTRBBuild I2C1_MasterWriteTRBBuild `(v  1 e 0 0 ]
 "681
 [v _I2C1_BusCollisionISR I2C1_BusCollisionISR `(v  1 e 0 0 ]
-"52 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
+"52 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 0 0 ]
 "73
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
-"112 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
+"112 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
-"123
+"124
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
-"50 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
+"50 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
-"22 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
+"22 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 0 0 ]
 "48
 [v _TMR0_StartTimer TMR0_StartTimer `(v  1 e 0 0 ]
@@ -141,6 +159,36 @@ I2C1_LOST_STATE 6
 [v _TMR0_ISR TMR0_ISR `(v  1 e 0 0 ]
 "119
 [v _TMR0_CallBack TMR0_CallBack `(v  1 e 0 0 ]
+"23 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\UART.c
+[v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 0 0 ]
+"58
+[v _UART_buff_init UART_buff_init `(v  1 e 0 0 ]
+"70
+[v _UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+[v i2_UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+"83
+[v _UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+[v i2_UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+"104
+[v _UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+[v i2_UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+"108
+[v _UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+[v i2_UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+"116
+[v _UART_buff_peek UART_buff_peek `(uc  1 e 1 0 ]
+"120
+[v _Receive_peek Receive_peek `(uc  1 e 1 0 ]
+"124
+[v _Receive_available Receive_available `(i  1 e 2 0 ]
+"128
+[v _Receive_get Receive_get `(uc  1 e 1 0 ]
+"132
+[v _Send_put Send_put `(v  1 e 0 0 ]
+"141
+[v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 0 0 ]
+"153
+[v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
 "49 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _ANSELA ANSELA `VEuc  1 e 1 @3896 ]
 "93
@@ -153,7 +201,7 @@ I2C1_LOST_STATE 6
 [v _ANSELE ANSELE `VEuc  1 e 1 @3900 ]
 "2688
 [v _WPUB WPUB `VEuc  1 e 1 @3937 ]
-[s S1698 . 1 `uc 1 RA0 1 0 :1:0 
+[s S1768 . 1 `uc 1 RA0 1 0 :1:0 
 `uc 1 RA1 1 0 :1:1 
 `uc 1 RA2 1 0 :1:2 
 `uc 1 RA3 1 0 :1:3 
@@ -163,66 +211,66 @@ I2C1_LOST_STATE 6
 `uc 1 RA7 1 0 :1:7 
 ]
 "6457
-[s S1707 . 1 `uc 1 AN0 1 0 :1:0 
+[s S1777 . 1 `uc 1 AN0 1 0 :1:0 
 `uc 1 AN1 1 0 :1:1 
 `uc 1 AN2 1 0 :1:2 
 `uc 1 AN3 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 AN4 1 0 :1:5 
 ]
-[s S1714 . 1 `uc 1 C12IN0M 1 0 :1:0 
+[s S1784 . 1 `uc 1 C12IN0M 1 0 :1:0 
 `uc 1 C12IN1M 1 0 :1:1 
 `uc 1 C2INP 1 0 :1:2 
 `uc 1 C1INP 1 0 :1:3 
 `uc 1 C1OUT 1 0 :1:4 
 `uc 1 C2OUT 1 0 :1:5 
 ]
-[s S1721 . 1 `uc 1 C12IN0N 1 0 :1:0 
+[s S1791 . 1 `uc 1 C12IN0N 1 0 :1:0 
 `uc 1 C12IN1N 1 0 :1:1 
 `uc 1 VREFM 1 0 :1:2 
 `uc 1 VREFP 1 0 :1:3 
 `uc 1 T0CKI 1 0 :1:4 
 `uc 1 SS 1 0 :1:5 
 ]
-[s S1728 . 1 `uc 1 . 1 0 :5:0 
+[s S1798 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS 1 0 :1:5 
 ]
-[s S1731 . 1 `uc 1 . 1 0 :2:0 
+[s S1801 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 VREFN 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 SRQ 1 0 :1:4 
 `uc 1 nSS 1 0 :1:5 
 ]
-[s S1737 . 1 `uc 1 . 1 0 :2:0 
+[s S1807 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CVREF 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 LVDIN 1 0 :1:5 
 ]
-[s S1742 . 1 `uc 1 . 1 0 :2:0 
+[s S1812 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 DACOUT 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
 `uc 1 HLVDIN 1 0 :1:5 
 ]
-[s S1747 . 1 `uc 1 . 1 0 :5:0 
+[s S1817 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SS1 1 0 :1:5 
 ]
-[s S1750 . 1 `uc 1 . 1 0 :5:0 
+[s S1820 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 NOT_SS1 1 0 :1:5 
 ]
-[s S1753 . 1 `uc 1 . 1 0 :5:0 
+[s S1823 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 nSS1 1 0 :1:5 
 ]
-[s S1756 . 1 `uc 1 . 1 0 :5:0 
+[s S1826 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRNQ 1 0 :1:5 
 ]
-[s S1759 . 1 `uc 1 . 1 0 :7:0 
+[s S1829 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RJPU 1 0 :1:7 
 ]
-[s S1762 . 1 `uc 1 ULPWUIN 1 0 :1:0 
+[s S1832 . 1 `uc 1 ULPWUIN 1 0 :1:0 
 ]
-[u S1764 . 1 `S1698 1 . 1 0 `S1707 1 . 1 0 `S1714 1 . 1 0 `S1721 1 . 1 0 `S1728 1 . 1 0 `S1731 1 . 1 0 `S1737 1 . 1 0 `S1742 1 . 1 0 `S1747 1 . 1 0 `S1750 1 . 1 0 `S1753 1 . 1 0 `S1756 1 . 1 0 `S1759 1 . 1 0 `S1762 1 . 1 0 ]
-[v _PORTAbits PORTAbits `VES1764  1 e 1 @3968 ]
-[s S1578 . 1 `uc 1 RB0 1 0 :1:0 
+[u S1834 . 1 `S1768 1 . 1 0 `S1777 1 . 1 0 `S1784 1 . 1 0 `S1791 1 . 1 0 `S1798 1 . 1 0 `S1801 1 . 1 0 `S1807 1 . 1 0 `S1812 1 . 1 0 `S1817 1 . 1 0 `S1820 1 . 1 0 `S1823 1 . 1 0 `S1826 1 . 1 0 `S1829 1 . 1 0 `S1832 1 . 1 0 ]
+[v _PORTAbits PORTAbits `VES1834  1 e 1 @3968 ]
+[s S1648 . 1 `uc 1 RB0 1 0 :1:0 
 `uc 1 RB1 1 0 :1:1 
 `uc 1 RB2 1 0 :1:2 
 `uc 1 RB3 1 0 :1:3 
@@ -232,7 +280,7 @@ I2C1_LOST_STATE 6
 `uc 1 RB7 1 0 :1:7 
 ]
 "6726
-[s S1587 . 1 `uc 1 INT0 1 0 :1:0 
+[s S1657 . 1 `uc 1 INT0 1 0 :1:0 
 `uc 1 INT1 1 0 :1:1 
 `uc 1 INT2 1 0 :1:2 
 `uc 1 CCP2 1 0 :1:3 
@@ -241,7 +289,7 @@ I2C1_LOST_STATE 6
 `uc 1 KBI2 1 0 :1:6 
 `uc 1 KBI3 1 0 :1:7 
 ]
-[s S1596 . 1 `uc 1 AN12 1 0 :1:0 
+[s S1666 . 1 `uc 1 AN12 1 0 :1:0 
 `uc 1 AN10 1 0 :1:1 
 `uc 1 AN8 1 0 :1:2 
 `uc 1 AN9 1 0 :1:3 
@@ -250,37 +298,37 @@ I2C1_LOST_STATE 6
 `uc 1 PGC 1 0 :1:6 
 `uc 1 PGD 1 0 :1:7 
 ]
-[s S1605 . 1 `uc 1 FLT0 1 0 :1:0 
+[s S1675 . 1 `uc 1 FLT0 1 0 :1:0 
 `uc 1 C12IN3M 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 C12IN2M 1 0 :1:3 
 `uc 1 T5G 1 0 :1:4 
 `uc 1 T1G 1 0 :1:5 
 ]
-[s S1612 . 1 `uc 1 SRI 1 0 :1:0 
+[s S1682 . 1 `uc 1 SRI 1 0 :1:0 
 `uc 1 C12IN3N 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 C12IN2N 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 CCP3 1 0 :1:5 
 ]
-[s S1619 . 1 `uc 1 . 1 0 :2:0 
+[s S1689 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 CTED1 1 0 :1:2 
 `uc 1 CTED2 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 T3CKI 1 0 :1:5 
 ]
-[s S1625 . 1 `uc 1 . 1 0 :3:0 
+[s S1695 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 P2A 1 0 :1:3 
 `uc 1 . 1 0 :1:4 
 `uc 1 P3A 1 0 :1:5 
 ]
-[s S1630 . 1 `uc 1 . 1 0 :3:0 
+[s S1700 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 CCP2_PA2 1 0 :1:3 
 ]
-[u S1633 . 1 `S1578 1 . 1 0 `S1587 1 . 1 0 `S1596 1 . 1 0 `S1605 1 . 1 0 `S1612 1 . 1 0 `S1619 1 . 1 0 `S1625 1 . 1 0 `S1630 1 . 1 0 ]
-[v _PORTBbits PORTBbits `VES1633  1 e 1 @3969 ]
-[s S1471 . 1 `uc 1 RD0 1 0 :1:0 
+[u S1703 . 1 `S1648 1 . 1 0 `S1657 1 . 1 0 `S1666 1 . 1 0 `S1675 1 . 1 0 `S1682 1 . 1 0 `S1689 1 . 1 0 `S1695 1 . 1 0 `S1700 1 . 1 0 ]
+[v _PORTBbits PORTBbits `VES1703  1 e 1 @3969 ]
+[s S1541 . 1 `uc 1 RD0 1 0 :1:0 
 `uc 1 RD1 1 0 :1:1 
 `uc 1 RD2 1 0 :1:2 
 `uc 1 RD3 1 0 :1:3 
@@ -290,7 +338,7 @@ I2C1_LOST_STATE 6
 `uc 1 RD7 1 0 :1:7 
 ]
 "7297
-[s S1480 . 1 `uc 1 . 1 0 :2:0 
+[s S1550 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 P2B 1 0 :1:2 
 `uc 1 P2C 1 0 :1:3 
 `uc 1 P2D 1 0 :1:4 
@@ -298,16 +346,16 @@ I2C1_LOST_STATE 6
 `uc 1 P1C 1 0 :1:6 
 `uc 1 P1D 1 0 :1:7 
 ]
-[s S1488 . 1 `uc 1 . 1 0 :1:0 
+[s S1558 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 CCP4 1 0 :1:1 
 `uc 1 . 1 0 :4:2 
 `uc 1 TX2 1 0 :1:6 
 `uc 1 RX2 1 0 :1:7 
 ]
-[s S1494 . 1 `uc 1 . 1 0 :3:0 
+[s S1564 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_SS2 1 0 :1:3 
 ]
-[s S1497 . 1 `uc 1 SCK2 1 0 :1:0 
+[s S1567 . 1 `uc 1 SCK2 1 0 :1:0 
 `uc 1 SDI2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 nSS2 1 0 :1:3 
@@ -316,12 +364,12 @@ I2C1_LOST_STATE 6
 `uc 1 CK2 1 0 :1:6 
 `uc 1 DT2 1 0 :1:7 
 ]
-[s S1506 . 1 `uc 1 SCL2 1 0 :1:0 
+[s S1576 . 1 `uc 1 SCL2 1 0 :1:0 
 `uc 1 SDA2 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 SS2 1 0 :1:3 
 ]
-[s S1511 . 1 `uc 1 AN20 1 0 :1:0 
+[s S1581 . 1 `uc 1 AN20 1 0 :1:0 
 `uc 1 AN21 1 0 :1:1 
 `uc 1 AN22 1 0 :1:2 
 `uc 1 AN23 1 0 :1:3 
@@ -330,14 +378,49 @@ I2C1_LOST_STATE 6
 `uc 1 AN26 1 0 :1:6 
 `uc 1 AN27 1 0 :1:7 
 ]
-[u S1520 . 1 `S1471 1 . 1 0 `S1480 1 . 1 0 `S1488 1 . 1 0 `S1494 1 . 1 0 `S1497 1 . 1 0 `S1506 1 . 1 0 `S1511 1 . 1 0 ]
-[v _PORTDbits PORTDbits `VES1520  1 e 1 @3971 ]
+[u S1590 . 1 `S1541 1 . 1 0 `S1550 1 . 1 0 `S1558 1 . 1 0 `S1564 1 . 1 0 `S1567 1 . 1 0 `S1576 1 . 1 0 `S1581 1 . 1 0 ]
+[v _PORTDbits PORTDbits `VES1590  1 e 1 @3971 ]
 "7776
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
 "7908
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "8040
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
+[s S1378 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"8088
+[s S1387 . 1 `uc 1 LC0 1 0 :1:0 
+]
+[s S1389 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+]
+[s S1392 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LC2 1 0 :1:2 
+]
+[s S1395 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LC3 1 0 :1:3 
+]
+[s S1398 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LC4 1 0 :1:4 
+]
+[s S1401 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LC5 1 0 :1:5 
+]
+[s S1404 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LC6 1 0 :1:6 
+]
+[s S1407 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S1410 . 1 `S1378 1 . 1 0 `S1387 1 . 1 0 `S1389 1 . 1 0 `S1392 1 . 1 0 `S1395 1 . 1 0 `S1398 1 . 1 0 `S1401 1 . 1 0 `S1404 1 . 1 0 `S1407 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1410  1 e 1 @3979 ]
 "8172
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8304
@@ -348,6 +431,27 @@ I2C1_LOST_STATE 6
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "8848
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
+[s S789 . 1 `uc 1 TRISC0 1 0 :1:0 
+`uc 1 TRISC1 1 0 :1:1 
+`uc 1 TRISC2 1 0 :1:2 
+`uc 1 TRISC3 1 0 :1:3 
+`uc 1 TRISC4 1 0 :1:4 
+`uc 1 TRISC5 1 0 :1:5 
+`uc 1 TRISC6 1 0 :1:6 
+`uc 1 TRISC7 1 0 :1:7 
+]
+"8880
+[s S798 . 1 `uc 1 RC0 1 0 :1:0 
+`uc 1 RC1 1 0 :1:1 
+`uc 1 RC2 1 0 :1:2 
+`uc 1 RC3 1 0 :1:3 
+`uc 1 RC4 1 0 :1:4 
+`uc 1 RC5 1 0 :1:5 
+`uc 1 RC6 1 0 :1:6 
+`uc 1 RC7 1 0 :1:7 
+]
+[u S807 . 1 `S789 1 . 1 0 `S798 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES807  1 e 1 @3988 ]
 "9069
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "9290
@@ -386,7 +490,7 @@ I2C1_LOST_STATE 6
 ]
 [u S80 . 1 `S67 1 . 1 0 `S75 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES80  1 e 1 @3998 ]
-[s S1025 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[s S953 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSP1IP 1 0 :1:3 
@@ -395,14 +499,14 @@ I2C1_LOST_STATE 6
 `uc 1 ADIP 1 0 :1:6 
 ]
 "9927
-[s S1033 . 1 `uc 1 . 1 0 :3:0 
+[s S961 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIP 1 0 :1:3 
 `uc 1 TXIP 1 0 :1:4 
 `uc 1 RCIP 1 0 :1:5 
 ]
-[u S1038 . 1 `S1025 1 . 1 0 `S1033 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES1038  1 e 1 @3999 ]
-[s S1193 . 1 `uc 1 CCP2IE 1 0 :1:0 
+[u S966 . 1 `S953 1 . 1 0 `S961 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES966  1 e 1 @3999 ]
+[s S1127 . 1 `uc 1 CCP2IE 1 0 :1:0 
 `uc 1 TMR3IE 1 0 :1:1 
 `uc 1 HLVDIE 1 0 :1:2 
 `uc 1 BCL1IE 1 0 :1:3 
@@ -412,16 +516,16 @@ I2C1_LOST_STATE 6
 `uc 1 OSCFIE 1 0 :1:7 
 ]
 "10007
-[s S1202 . 1 `uc 1 . 1 0 :2:0 
+[s S1136 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIE 1 0 :1:2 
 `uc 1 BCLIE 1 0 :1:3 
 ]
-[s S1206 . 1 `uc 1 . 1 0 :6:0 
+[s S1140 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIE 1 0 :1:6 
 ]
-[u S1209 . 1 `S1193 1 . 1 0 `S1202 1 . 1 0 `S1206 1 . 1 0 ]
-[v _PIE2bits PIE2bits `VES1209  1 e 1 @4000 ]
-[s S1230 . 1 `uc 1 CCP2IF 1 0 :1:0 
+[u S1143 . 1 `S1127 1 . 1 0 `S1136 1 . 1 0 `S1140 1 . 1 0 ]
+[v _PIE2bits PIE2bits `VES1143  1 e 1 @4000 ]
+[s S1164 . 1 `uc 1 CCP2IF 1 0 :1:0 
 `uc 1 TMR3IF 1 0 :1:1 
 `uc 1 HLVDIF 1 0 :1:2 
 `uc 1 BCL1IF 1 0 :1:3 
@@ -431,16 +535,16 @@ I2C1_LOST_STATE 6
 `uc 1 OSCFIF 1 0 :1:7 
 ]
 "10092
-[s S1239 . 1 `uc 1 . 1 0 :2:0 
+[s S1173 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIF 1 0 :1:2 
 `uc 1 BCLIF 1 0 :1:3 
 ]
-[s S1243 . 1 `uc 1 . 1 0 :6:0 
+[s S1177 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIF 1 0 :1:6 
 ]
-[u S1246 . 1 `S1230 1 . 1 0 `S1239 1 . 1 0 `S1243 1 . 1 0 ]
-[v _PIR2bits PIR2bits `VES1246  1 e 1 @4001 ]
-[s S1075 . 1 `uc 1 CCP2IP 1 0 :1:0 
+[u S1180 . 1 `S1164 1 . 1 0 `S1173 1 . 1 0 `S1177 1 . 1 0 ]
+[v _PIR2bits PIR2bits `VES1180  1 e 1 @4001 ]
+[s S1003 . 1 `uc 1 CCP2IP 1 0 :1:0 
 `uc 1 TMR3IP 1 0 :1:1 
 `uc 1 HLVDIP 1 0 :1:2 
 `uc 1 BCL1IP 1 0 :1:3 
@@ -450,18 +554,18 @@ I2C1_LOST_STATE 6
 `uc 1 OSCFIP 1 0 :1:7 
 ]
 "10177
-[s S1084 . 1 `uc 1 . 1 0 :2:0 
+[s S1012 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LVDIP 1 0 :1:2 
 `uc 1 BCLIP 1 0 :1:3 
 ]
-[s S1088 . 1 `uc 1 . 1 0 :6:0 
+[s S1016 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 CMIP 1 0 :1:6 
 ]
-[u S1091 . 1 `S1075 1 . 1 0 `S1084 1 . 1 0 `S1088 1 . 1 0 ]
-[v _IPR2bits IPR2bits `VES1091  1 e 1 @4002 ]
+[u S1019 . 1 `S1003 1 . 1 0 `S1012 1 . 1 0 `S1016 1 . 1 0 ]
+[v _IPR2bits IPR2bits `VES1019  1 e 1 @4002 ]
 "10698
 [v _RC1STA RC1STA `VEuc  1 e 1 @4011 ]
-[s S523 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S2284 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -471,10 +575,10 @@ I2C1_LOST_STATE 6
 `uc 1 SPEN 1 0 :1:7 
 ]
 "11041
-[s S532 . 1 `uc 1 . 1 0 :3:0 
+[s S2293 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S535 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S2296 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -483,19 +587,19 @@ I2C1_LOST_STATE 6
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S544 . 1 `uc 1 . 1 0 :6:0 
+[s S2305 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S547 . 1 `uc 1 . 1 0 :6:0 
+[s S2308 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S550 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S2311 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[s S552 . 1 `uc 1 . 1 0 :5:0 
+[s S2313 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S555 . 1 `S523 1 . 1 0 `S532 1 . 1 0 `S535 1 . 1 0 `S544 1 . 1 0 `S547 1 . 1 0 `S550 1 . 1 0 `S552 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES555  1 e 1 @4011 ]
+[u S2316 . 1 `S2284 1 . 1 0 `S2293 1 . 1 0 `S2296 1 . 1 0 `S2305 1 . 1 0 `S2308 1 . 1 0 `S2311 1 . 1 0 `S2313 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES2316  1 e 1 @4011 ]
 "11159
 [v _TX1STA TX1STA `VEuc  1 e 1 @4012 ]
 "11530
@@ -514,15 +618,15 @@ I2C1_LOST_STATE 6
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "14051
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S800 . 1 `uc 1 . 1 0 :1:0 
+[s S675 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "14096
-[s S803 . 1 `uc 1 ADON 1 0 :1:0 
+[s S678 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S807 . 1 `uc 1 . 1 0 :1:0 
+[s S682 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -530,23 +634,23 @@ I2C1_LOST_STATE 6
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S815 . 1 `uc 1 . 1 0 :1:0 
+[s S690 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S818 . 1 `uc 1 . 1 0 :1:0 
+[s S693 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S821 . 1 `uc 1 . 1 0 :1:0 
+[s S696 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S824 . 1 `uc 1 . 1 0 :1:0 
+[s S699 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S827 . 1 `uc 1 . 1 0 :1:0 
+[s S702 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S830 . 1 `S800 1 . 1 0 `S803 1 . 1 0 `S807 1 . 1 0 `S815 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 `S824 1 . 1 0 `S827 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES830  1 e 1 @4034 ]
+[u S705 . 1 `S675 1 . 1 0 `S678 1 . 1 0 `S682 1 . 1 0 `S690 1 . 1 0 `S693 1 . 1 0 `S696 1 . 1 0 `S699 1 . 1 0 `S702 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES705  1 e 1 @4034 ]
 "14181
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "14200
@@ -663,22 +767,22 @@ I2C1_LOST_STATE 6
 [v _SSP1BUF SSP1BUF `VEuc  1 e 1 @4041 ]
 "16163
 [v _SSP1CON3 SSP1CON3 `VEuc  1 e 1 @4043 ]
-[s S958 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S886 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "16577
-[s S960 . 1 `uc 1 . 1 0 :1:0 
+[s S888 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S963 . 1 `uc 1 . 1 0 :2:0 
+[s S891 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S966 . 1 `uc 1 . 1 0 :3:0 
+[s S894 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S969 . 1 `uc 1 . 1 0 :4:0 
+[s S897 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S972 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S900 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -687,21 +791,21 @@ I2C1_LOST_STATE 6
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S981 . 1 `uc 1 BOR 1 0 :1:0 
+[s S909 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S987 . 1 `S958 1 . 1 0 `S960 1 . 1 0 `S963 1 . 1 0 `S966 1 . 1 0 `S969 1 . 1 0 `S972 1 . 1 0 `S981 1 . 1 0 ]
-[v _RCONbits RCONbits `VES987  1 e 1 @4048 ]
+[u S915 . 1 `S886 1 . 1 0 `S888 1 . 1 0 `S891 1 . 1 0 `S894 1 . 1 0 `S897 1 . 1 0 `S900 1 . 1 0 `S909 1 . 1 0 ]
+[v _RCONbits RCONbits `VES915  1 e 1 @4048 ]
 "16693
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "16749
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
 "16831
 [v _T0CON T0CON `VEuc  1 e 1 @4053 ]
-[s S708 . 1 `uc 1 T0PS 1 0 :3:0 
+[s S583 . 1 `uc 1 T0PS 1 0 :3:0 
 `uc 1 PSA 1 0 :1:3 
 `uc 1 T0SE 1 0 :1:4 
 `uc 1 T0CS 1 0 :1:5 
@@ -709,21 +813,21 @@ I2C1_LOST_STATE 6
 `uc 1 TMR0ON 1 0 :1:7 
 ]
 "16851
-[s S715 . 1 `uc 1 T0PS0 1 0 :1:0 
+[s S590 . 1 `uc 1 T0PS0 1 0 :1:0 
 `uc 1 T0PS1 1 0 :1:1 
 `uc 1 T0PS2 1 0 :1:2 
 ]
-[u S719 . 1 `S708 1 . 1 0 `S715 1 . 1 0 ]
-[v _T0CONbits T0CONbits `VES719  1 e 1 @4053 ]
+[u S594 . 1 `S583 1 . 1 0 `S590 1 . 1 0 ]
+[v _T0CONbits T0CONbits `VES594  1 e 1 @4053 ]
 "16906
 [v _TMR0L TMR0L `VEuc  1 e 1 @4054 ]
 "16925
 [v _TMR0H TMR0H `VEuc  1 e 1 @4055 ]
-[s S914 . 1 `uc 1 . 1 0 :7:0 
+[s S829 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "17559
-[s S917 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S832 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -732,12 +836,12 @@ I2C1_LOST_STATE 6
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S926 . 1 `uc 1 . 1 0 :7:0 
+[s S841 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S929 . 1 `S914 1 . 1 0 `S917 1 . 1 0 `S926 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES929  1 e 1 @4081 ]
-[s S627 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S844 . 1 `S829 1 . 1 0 `S832 1 . 1 0 `S841 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES844  1 e 1 @4081 ]
+[s S502 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -747,7 +851,7 @@ I2C1_LOST_STATE 6
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17650
-[s S636 . 1 `uc 1 . 1 0 :1:0 
+[s S511 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -756,12 +860,12 @@ I2C1_LOST_STATE 6
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S645 . 1 `uc 1 . 1 0 :6:0 
+[s S520 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S662 . 1 `S627 1 . 1 0 `S636 1 . 1 0 `S645 1 . 1 0 `S636 1 . 1 0 `S645 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES662  1 e 1 @4082 ]
+[u S537 . 1 `S502 1 . 1 0 `S511 1 . 1 0 `S520 1 . 1 0 `S511 1 . 1 0 `S520 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES537  1 e 1 @4082 ]
 "18981
 [v _LATA3 LATA3 `VEb  1 e 0 @31819 ]
 "18997
@@ -770,36 +874,65 @@ I2C1_LOST_STATE 6
 [v _LATB5 LATB5 `VEb  1 e 0 @31829 ]
 "19025
 [v _LATD1 LATD1 `VEb  1 e 0 @31841 ]
-"19039
-[v _LATE0 LATE0 `VEb  1 e 0 @31848 ]
 "19041
 [v _LATE1 LATE1 `VEb  1 e 0 @31849 ]
 "19043
 [v _LATE2 LATE2 `VEb  1 e 0 @31850 ]
-"354 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-[v _dpowers dpowers `C[5]ui  1 s 10 dpowers ]
-"11 C:\Zips EV 15\trunk\DDS-TEST.X\IO.c
-[v _butnarray butnarray `[8]uc  1 e 8 0 ]
-"29 C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.h
-[v _displaybuffer displaybuffer `[10]l  1 e 40 0 ]
-"62 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-[v _eusart1TxHead eusart1TxHead `uc  1 s 1 eusart1TxHead ]
-"63
-[v _eusart1TxTail eusart1TxTail `uc  1 s 1 eusart1TxTail ]
+"24 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.h
+[v _receiveArray receiveArray `VE[20]i  1 e 40 0 ]
+"26
+[v _serial_write serial_write `*.37(v  1 e 2 0 ]
+"27
+[v _serial_read serial_read `*.37(uc  1 e 2 0 ]
+"28
+[v _serial_available serial_available `*.37(i  1 e 2 0 ]
+"29
+[v _serial_peek serial_peek `*.37(uc  1 e 2 0 ]
+"30
+[v _rx_buffer rx_buffer `[200]uc  1 e 200 0 ]
+"31
+[v _rx_array_inx rx_array_inx `uc  1 e 1 0 ]
+"32
+[v _rx_len rx_len `uc  1 e 1 0 ]
+"33
+[v _calc_CS calc_CS `uc  1 e 1 0 ]
+"34
+[v _moduleAddress moduleAddress `uc  1 e 1 0 ]
+"35
+[v _returnAddress returnAddress `uc  1 e 1 0 ]
+"36
+[v _maxDataAddress maxDataAddress `uc  1 e 1 0 ]
+"37
+[v _receiveArrayAddress receiveArrayAddress `*.39VEi  1 e 2 0 ]
+"38
+[v _sendStructAddress sendStructAddress `*.39uc  1 e 2 0 ]
+"39
+[v _AKNAKsend AKNAKsend `uc  1 e 1 0 ]
+"40
+[v _alignErrorCounter alignErrorCounter `ui  1 e 2 0 ]
+"41
+[v _crcErrorCounter crcErrorCounter `ui  1 e 2 0 ]
+"42
+[v _addressErrorCounter addressErrorCounter `ui  1 e 2 0 ]
+"43
+[v _dataAdressErrorCounter dataAdressErrorCounter `ui  1 e 2 0 ]
+"44
+[v _rx_address rx_address `uc  1 e 1 0 ]
+[s S2042 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+"58
+[v _ring_buffer ring_buffer `S2042  1 e 206 0 ]
+[u S2047 stuff 2 `[2]uc 1 parts 2 0 `ui 1 integer 2 0 ]
 "64
-[v _eusart1TxBuffer eusart1TxBuffer `[8]uc  1 s 8 eusart1TxBuffer ]
-"65
-[v _eusart1TxBufferRemaining eusart1TxBufferRemaining `VEuc  1 e 1 0 ]
-"67
-[v _eusart1RxHead eusart1RxHead `uc  1 s 1 eusart1RxHead ]
-"68
-[v _eusart1RxTail eusart1RxTail `uc  1 s 1 eusart1RxTail ]
-"69
-[v _eusart1RxBuffer eusart1RxBuffer `[8]uc  1 s 8 eusart1RxBuffer ]
+[v _group group `S2047  1 e 2 0 ]
+[s S2050 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "70
-[v _eusart1RxCount eusart1RxCount `VEuc  1 e 1 0 ]
+[v _crc_buffer crc_buffer `S2050  1 e 17 0 ]
+"11 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\IO.c
+[v _butnarray butnarray `[8]uc  1 e 8 0 ]
+"29 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\LED_BarGraph.h
+[v _displaybuffer displaybuffer `[10]l  1 e 40 0 ]
 [s S21 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
-"137 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"137 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 [s S33 . 5 `uc 1 count 1 0 `*.39S21 1 ptrb_list 2 1 `*.39E8836 1 pTrFlag 2 3 ]
 [v _i2c1_tr_queue i2c1_tr_queue `[1]S33  1 s 5 i2c1_tr_queue ]
 "138
@@ -818,77 +951,300 @@ I2C1_LOST_STATE 6
 [v _p_i2c1_trb_current p_i2c1_trb_current `*.39S21  1 s 2 p_i2c1_trb_current ]
 "143
 [v _p_i2c1_current p_i2c1_current `*.39S33  1 s 2 p_i2c1_current ]
-"15 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
+"15 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
 [v _timer0ReloadVal16bit timer0ReloadVal16bit `VEui  1 e 2 0 ]
-"32 C:\Zips EV 15\trunk\DDS-TEST.X\main.c
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+"109 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\UART.h
+[v _input_buffer input_buffer `S881  1 e 206 0 ]
+"110
+[v _output_buffer output_buffer `S881  1 e 206 0 ]
+"112
+[v _Transmit_stall Transmit_stall `uc  1 e 1 0 ]
+"33 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"64
-[v main@ADCNT ADCNT `i  1 a 2 15 ]
-"101
+"65
+[v main@ADCNT ADCNT `i  1 a 2 12 ]
+"105
 } 0
-"464 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
-[v _printf printf `(i  1 e 2 0 ]
+"6 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\Communications.c
+[v _updateComms updateComms `(v  1 e 0 0 ]
 {
-"528
-[v printf@val val `ui  1 a 2 5 ]
-"466
-[v printf@ap ap `[1]*.39v  1 a 2 1 ]
-"499
-[v printf@c c `c  1 a 1 7 ]
-"506
-[v printf@prec prec `c  1 a 1 4 ]
-"508
-[v printf@flag flag `uc  1 a 1 3 ]
-"464
-[v printf@f f `*.25Cuc  1 p 2 32 ]
-"1541
+"14
 } 0
-"168 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
-[v _putch putch `(v  1 e 0 0 ]
+"16
+[v _respondECU respondECU `(v  1 e 0 0 ]
 {
-[v putch@txData txData `uc  1 a 1 wreg ]
-[v putch@txData txData `uc  1 a 1 wreg ]
-"170
-[v putch@txData txData `uc  1 a 1 21 ]
-"171
+"24
 } 0
-"140
-[v _EUSART1_Write EUSART1_Write `(v  1 e 0 0 ]
+"53 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _sendData sendData `(v  1 e 0 0 ]
 {
-[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART1_Write@txData txData `uc  1 a 1 wreg ]
-[v EUSART1_Write@txData txData `uc  1 a 1 20 ]
-"161
+[v sendData@whereToSend whereToSend `uc  1 a 1 wreg ]
+"66
+[v sendData@i i `i  1 a 2 2 ]
+"53
+[v sendData@CS CS `uc  1 a 1 1 ]
+[v sendData@whereToSend whereToSend `uc  1 a 1 wreg ]
+"56
+[v sendData@whereToSend whereToSend `uc  1 a 1 0 ]
+"80
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwmod.c
-[v ___lwmod __lwmod `(ui  1 e 2 0 ]
+"321
+[v _crcBufS_put crcBufS_put `(v  1 e 0 0 ]
 {
-"11
-[v ___lwmod@counter counter `uc  1 a 1 31 ]
-"8
-[v ___lwmod@dividend dividend `ui  1 p 2 27 ]
-[v ___lwmod@divisor divisor `ui  1 p 2 29 ]
-"26
+[s S2050 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[v crcBufS_put@_this _this `*.39S2050  1 p 2 26 ]
+[v crcBufS_put@address address `uc  1 p 1 28 ]
+[v crcBufS_put@oldCRC oldCRC `uc  1 p 1 29 ]
+[v crcBufS_put@status status `uc  1 p 1 30 ]
+"331
 } 0
-"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\lwdiv.c
-[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+"261
+[v _FastTransfer_buffer_flush FastTransfer_buffer_flush `(v  1 e 0 0 ]
 {
-"11
-[v ___lwdiv@quotient quotient `ui  1 a 2 25 ]
-"12
-[v ___lwdiv@counter counter `uc  1 a 1 24 ]
-"8
-[v ___lwdiv@dividend dividend `ui  1 p 2 20 ]
-[v ___lwdiv@divisor divisor `ui  1 p 2 22 ]
+[s S2042 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v FastTransfer_buffer_flush@_this _this `*.39S2042  1 p 2 34 ]
+[v FastTransfer_buffer_flush@clearBuffer clearBuffer `Ci  1 p 2 36 ]
+"268
+} 0
+"42 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\Communications.c
+[v _buttonsCollector buttonsCollector `(ui  1 e 2 0 ]
+{
+"44
+[v buttonsCollector@i i `i  1 a 2 2 ]
+"43
+[v buttonsCollector@sendVal sendVal `ui  1 a 2 0 ]
+"49
+} 0
+"77 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\IO.c
+[v _GetButtonState GetButtonState `(uc  1 e 1 0 ]
+{
+[v GetButtonState@btnnum btnnum `i  1 p 2 26 ]
+"80
+} 0
+"216 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _ToSend ToSend `(v  1 e 0 0 ]
+{
+[v ToSend@where where `uc  1 a 1 wreg ]
+[v ToSend@where where `uc  1 a 1 wreg ]
+[v ToSend@what what `ui  1 p 2 4 ]
+[v ToSend@where where `uc  1 a 1 39 ]
+"218
+} 0
+"223
+[v _FastTransfer_buffer_put FastTransfer_buffer_put `(v  1 e 0 0 ]
+{
+[s S2042 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v FastTransfer_buffer_put@_this _this `*.39S2042  1 p 2 32 ]
+[v FastTransfer_buffer_put@towhere towhere `uc  1 p 1 34 ]
+[v FastTransfer_buffer_put@towhat towhat `ui  1 p 2 35 ]
+"240
+} 0
+"273
+[v _FastTransfer_buffer_modulo_inc FastTransfer_buffer_modulo_inc `(ui  1 e 2 0 ]
+{
+"274
+[v FastTransfer_buffer_modulo_inc@my_value my_value `ui  1 a 2 30 ]
+"273
+[v FastTransfer_buffer_modulo_inc@value value `Cui  1 p 2 26 ]
+[v FastTransfer_buffer_modulo_inc@modulus modulus `Cui  1 p 2 28 ]
+"279
+} 0
+"107 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\main.c
+[v _Delay Delay `(v  1 e 0 0 ]
+{
+"109
+[v Delay@x x `i  1 a 2 29 ]
+"107
+[v Delay@wait wait `i  1 p 2 26 ]
+"114
+} 0
+"82 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _receiveData receiveData `(uc  1 e 1 0 ]
+{
+"185
+[v receiveData@holder_2178 holder `[3]uc  1 a 3 3 ]
+"189
+[v receiveData@crcHolder_2179 crcHolder `uc  1 a 1 7 ]
+"160
+[v receiveData@holder holder `[3]uc  1 a 3 0 ]
+"164
+[v receiveData@crcHolder crcHolder `uc  1 a 1 6 ]
+"106
+[v receiveData@u u `i  1 a 2 8 ]
+"147
+[v receiveData@r r `i  1 a 2 10 ]
+"211
+} 0
+"132 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\UART.c
+[v _Send_put Send_put `(v  1 e 0 0 ]
+{
+[v Send_put@_data _data `uc  1 a 1 wreg ]
+[v Send_put@_data _data `uc  1 a 1 wreg ]
+[v Send_put@_data _data `uc  1 a 1 37 ]
+"139
+} 0
+"70
+[v _UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+{
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_put@_this _this `*.39S881  1 p 2 32 ]
+[v UART_buff_put@c c `Cuc  1 p 1 34 ]
+"81
+} 0
+"120
+[v _Receive_peek Receive_peek `(uc  1 e 1 0 ]
+{
+"122
+} 0
+"116
+[v _UART_buff_peek UART_buff_peek `(uc  1 e 1 0 ]
+{
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_peek@_this _this `*.39S881  1 p 2 26 ]
+"118
+} 0
+"373 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _CRCcheck CRCcheck `(v  1 e 0 0 ]
+{
+"387
+[v CRCcheck@rt rt `i  1 a 2 5 ]
+"377
+[v CRCcheck@arrayHolder arrayHolder `[3]uc  1 a 3 2 ]
+"382
+[v CRCcheck@calculatedCRC calculatedCRC `uc  1 a 1 1 ]
+"381
+[v CRCcheck@SentCRC SentCRC `uc  1 a 1 0 ]
+"404
+} 0
+"336
+[v _crcBufS_status_put crcBufS_status_put `(v  1 e 0 0 ]
+{
+"341
+[v crcBufS_status_put@wantedTime wantedTime `i  1 a 2 34 ]
+[s S2050 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+"336
+[v crcBufS_status_put@_this _this `*.39S2050  1 p 2 26 ]
+[v crcBufS_status_put@time time `uc  1 p 1 28 ]
+[v crcBufS_status_put@status status `uc  1 p 1 29 ]
+"348
+} 0
+"353
+[v _crcBufS_get crcBufS_get `(uc  1 e 1 0 ]
+{
+"361
+[v crcBufS_get@wantedTime wantedTime `i  1 a 2 36 ]
+[s S2050 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+"353
+[v crcBufS_get@_this _this `*.39S2050  1 p 2 26 ]
+[v crcBufS_get@time time `uc  1 p 1 28 ]
+[v crcBufS_get@space space `uc  1 p 1 29 ]
+"368
+} 0
+"128 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\UART.c
+[v _Receive_get Receive_get `(uc  1 e 1 0 ]
+{
+"130
+} 0
+"83
+[v _UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+{
+"84
+[v UART_buff_get@c c `uc  1 a 1 36 ]
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+"83
+[v UART_buff_get@_this _this `*.39S881  1 p 2 32 ]
+"93
+} 0
+"108
+[v _UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+{
+"109
+[v UART_buff_modulo_inc@my_value my_value `ui  1 a 2 30 ]
+"108
+[v UART_buff_modulo_inc@value value `Cui  1 p 2 26 ]
+[v UART_buff_modulo_inc@modulus modulus `Cui  1 p 2 28 ]
+"114
+} 0
+"124
+[v _Receive_available Receive_available `(i  1 e 2 0 ]
+{
+"126
+} 0
+"104
+[v _UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+{
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_size@_this _this `*.39S881  1 p 2 26 ]
+"106
+} 0
+"34 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _CRC8 CRC8 `(uc  1 e 1 0 ]
+{
+"40
+[v CRC8@sum sum `uc  1 a 1 29 ]
+"38
+[v CRC8@tempI tempI `uc  1 a 1 31 ]
+"37
+[v CRC8@extract extract `uc  1 a 1 30 ]
+"35
+[v CRC8@crc crc `uc  1 a 1 32 ]
+"34
+[v CRC8@data data `*.39Cuc  1 p 2 26 ]
+[v CRC8@len len `uc  1 p 1 28 ]
+"49
+} 0
+"28 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\Communications.c
+[v _handleIndicators handleIndicators `(v  1 e 0 0 ]
+{
 "31
+[v handleIndicators@i i `i  1 a 2 36 ]
+"28
+[v handleIndicators@receivedIndicators receivedIndicators `i  1 p 2 31 ]
+"29
+[v handleIndicators@oldIndicators oldIndicators `i  1 s 2 oldIndicators ]
+"37
 } 0
-"112 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
+"13 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\IO.c
+[v _SetLEDOut SetLEDOut `(v  1 e 0 0 ]
+{
+[v SetLEDOut@lednum lednum `i  1 p 2 26 ]
+[v SetLEDOut@state state `uc  1 p 1 28 ]
+"42
+} 0
+"112 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 {
-"121
+"122
 } 0
-"22 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
+"18 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\FastTransfer.c
+[v _begin begin `(v  1 e 0 0 ]
+{
+[v begin@ptr ptr `*.39VEi  1 p 2 0 ]
+[v begin@maxSize maxSize `uc  1 p 1 2 ]
+[v begin@givenAddress givenAddress `uc  1 p 1 3 ]
+[v begin@error error `uc  1 p 1 4 ]
+[v begin@stufftosend stufftosend `*.37(v  1 p 2 5 ]
+[v begin@stufftoreceive stufftoreceive `*.37(uc  1 p 2 7 ]
+[v begin@stuffavailable stuffavailable `*.37(i  1 p 2 9 ]
+[v begin@stuffpeek stuffpeek `*.37(uc  1 p 2 11 ]
+"30
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\awdiv.c
+[v ___awdiv __awdiv `(i  1 e 2 0 ]
+{
+"11
+[v ___awdiv@quotient quotient `i  1 a 2 32 ]
+"12
+[v ___awdiv@sign sign `uc  1 a 1 31 ]
+[v ___awdiv@counter counter `uc  1 a 1 30 ]
+"8
+[v ___awdiv@dividend dividend `i  1 p 2 26 ]
+[v ___awdiv@divisor divisor `i  1 p 2 28 ]
+"42
+} 0
+"22 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
 [v _TMR0_Initialize TMR0_Initialize `(v  1 e 0 0 ]
 {
 "46
@@ -898,91 +1254,109 @@ I2C1_LOST_STATE 6
 {
 "52
 } 0
-"50 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
+"50 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
 {
 "76
 } 0
-"123 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
+"124 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 {
-"133
+"134
 } 0
-"52 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
+"52 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 0 0 ]
 {
 "71
 } 0
-"151 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"151 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 0 0 ]
 {
 "175
 } 0
-"76 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
+"23 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\UART.c
 [v _EUSART1_Initialize EUSART1_Initialize `(v  1 e 0 0 ]
 {
-"117
+"56
 } 0
-"59 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
+"58
+[v _UART_buff_init UART_buff_init `(v  1 e 0 0 ]
+{
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_init@_this _this `*.39S881  1 p 2 34 ]
+"68
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\memset.c
+[v _memset memset `(*.39v  1 e 2 0 ]
+{
+"15
+[v memset@p p `*.39uc  1 a 2 32 ]
+"8
+[v memset@p1 p1 `*.39v  1 p 2 26 ]
+[v memset@c c `i  1 p 2 28 ]
+[v memset@n n `ui  1 p 2 30 ]
+"22
+} 0
+"59 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/adc.c
 [v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
 {
 "80
 } 0
-"73 C:\Zips EV 15\trunk\DDS-TEST.X\LED_BarGraph.c
+"73 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\LED_BarGraph.c
 [v _LEDbegin LEDbegin `(v  1 e 0 0 ]
 {
 [v LEDbegin@i2c_addr i2c_addr `uc  1 a 1 wreg ]
 "74
-[v LEDbegin@writeBuffer writeBuffer `[3]uc  1 a 3 8 ]
+[v LEDbegin@writeBuffer writeBuffer `[3]uc  1 a 3 0 ]
 "75
-[v LEDbegin@timeOut timeOut `ui  1 a 2 11 ]
+[v LEDbegin@timeOut timeOut `ui  1 a 2 3 ]
 "77
-[v LEDbegin@status status `E8852  1 a 1 14 ]
+[v LEDbegin@status status `E8852  1 a 1 6 ]
 "73
 [v LEDbegin@i2c_addr i2c_addr `uc  1 a 1 wreg ]
 "76
-[v LEDbegin@i2c_addr i2c_addr `uc  1 a 1 13 ]
+[v LEDbegin@i2c_addr i2c_addr `uc  1 a 1 5 ]
 "103
 } 0
 "42
 [v _LEDblinkRate LEDblinkRate `(v  1 e 0 0 ]
 {
 "44
-[v LEDblinkRate@writeBuffer writeBuffer `[2]uc  1 a 2 3 ]
+[v LEDblinkRate@writeBuffer writeBuffer `[2]uc  1 a 2 7 ]
 "45
-[v LEDblinkRate@timeOut timeOut `ui  1 a 2 5 ]
+[v LEDblinkRate@timeOut timeOut `ui  1 a 2 9 ]
 "47
-[v LEDblinkRate@status status `E8852  1 a 1 7 ]
+[v LEDblinkRate@status status `E8852  1 a 1 11 ]
 "42
-[v LEDblinkRate@b b `i  1 p 2 0 ]
-[v LEDblinkRate@i2c_addr i2c_addr `uc  1 p 1 2 ]
+[v LEDblinkRate@b b `i  1 p 2 35 ]
+[v LEDblinkRate@i2c_addr i2c_addr `uc  1 p 1 37 ]
 "71
 } 0
 "11
 [v _LEDBsetBrightness LEDBsetBrightness `(v  1 e 0 0 ]
 {
 "13
-[v LEDBsetBrightness@writeBuffer writeBuffer `[2]uc  1 a 2 3 ]
+[v LEDBsetBrightness@writeBuffer writeBuffer `[2]uc  1 a 2 7 ]
 "14
-[v LEDBsetBrightness@timeOut timeOut `ui  1 a 2 5 ]
+[v LEDBsetBrightness@timeOut timeOut `ui  1 a 2 9 ]
 "16
-[v LEDBsetBrightness@status status `E8852  1 a 1 7 ]
+[v LEDBsetBrightness@status status `E8852  1 a 1 11 ]
 "11
-[v LEDBsetBrightness@b b `i  1 p 2 0 ]
-[v LEDBsetBrightness@i2c_addr i2c_addr `uc  1 p 1 2 ]
+[v LEDBsetBrightness@b b `i  1 p 2 35 ]
+[v LEDBsetBrightness@i2c_addr i2c_addr `uc  1 p 1 37 ]
 "40
 } 0
-"551 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"551 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 [v _I2C1_MasterWrite I2C1_MasterWrite `(v  1 e 0 0 ]
 {
 "552
-[v I2C1_MasterWrite@pdata pdata `*.39uc  1 p 2 29 ]
+[v I2C1_MasterWrite@pdata pdata `*.39uc  1 p 2 0 ]
 "553
-[v I2C1_MasterWrite@length length `uc  1 p 1 31 ]
+[v I2C1_MasterWrite@length length `uc  1 p 1 2 ]
 "554
-[v I2C1_MasterWrite@address address `ui  1 p 2 32 ]
+[v I2C1_MasterWrite@address address `ui  1 p 2 3 ]
 "555
-[v I2C1_MasterWrite@pflag pflag `*.39E8836  1 p 2 34 ]
+[v I2C1_MasterWrite@pflag pflag `*.39E8836  1 p 2 5 ]
 [s S21 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "557
 [v I2C1_MasterWrite@trBlock trBlock `S21  1 s 5 trBlock ]
@@ -993,13 +1367,13 @@ I2C1_LOST_STATE 6
 {
 [s S21 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "661
-[v I2C1_MasterWriteTRBBuild@ptrb ptrb `*.39S21  1 p 2 20 ]
+[v I2C1_MasterWriteTRBBuild@ptrb ptrb `*.39S21  1 p 2 26 ]
 "662
-[v I2C1_MasterWriteTRBBuild@pdata pdata `*.39uc  1 p 2 22 ]
+[v I2C1_MasterWriteTRBBuild@pdata pdata `*.39uc  1 p 2 28 ]
 "663
-[v I2C1_MasterWriteTRBBuild@length length `uc  1 p 1 24 ]
+[v I2C1_MasterWriteTRBBuild@length length `uc  1 p 1 30 ]
 "664
-[v I2C1_MasterWriteTRBBuild@address address `ui  1 p 2 25 ]
+[v I2C1_MasterWriteTRBBuild@address address `ui  1 p 2 31 ]
 "669
 } 0
 "594
@@ -1010,34 +1384,19 @@ I2C1_LOST_STATE 6
 [v I2C1_MasterTRBInsert@count count `uc  1 a 1 wreg ]
 [s S21 . 5 `ui 1 address 2 0 `uc 1 length 1 2 `*.39uc 1 pbuffer 2 3 ]
 "596
-[v I2C1_MasterTRBInsert@ptrb_list ptrb_list `*.39S21  1 p 2 20 ]
+[v I2C1_MasterTRBInsert@ptrb_list ptrb_list `*.39S21  1 p 2 26 ]
 "597
-[v I2C1_MasterTRBInsert@pflag pflag `*.39E8836  1 p 2 22 ]
+[v I2C1_MasterTRBInsert@pflag pflag `*.39E8836  1 p 2 28 ]
 "601
-[v I2C1_MasterTRBInsert@count count `uc  1 a 1 25 ]
+[v I2C1_MasterTRBInsert@count count `uc  1 a 1 31 ]
 "645
 } 0
-"71 C:\Zips EV 15\trunk\DDS-TEST.X\IO.c
-[v _GetButtonState GetButtonState `(uc  1 e 1 0 ]
-{
-[v GetButtonState@btnnum btnnum `i  1 p 2 20 ]
-"74
-} 0
-"103 C:\Zips EV 15\trunk\DDS-TEST.X\main.c
-[v _Delay Delay `(v  1 e 0 0 ]
-{
-"105
-[v Delay@x x `i  1 a 2 23 ]
-"103
-[v Delay@wait wait `i  1 p 2 20 ]
-"110
-} 0
-"73 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
+"73 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
 {
 "104
 } 0
-"89 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
+"89 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/tmr0.c
 [v _TMR0_ISR TMR0_ISR `(v  1 e 0 0 ]
 {
 "101
@@ -1051,13 +1410,13 @@ I2C1_LOST_STATE 6
 {
 "125
 } 0
-"39 C:\Zips EV 15\trunk\DDS-TEST.X\IO.c
+"45 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\IO.c
 [v _ReadButtonState ReadButtonState `(v  1 e 0 0 ]
 {
 [v ReadButtonState@btnnum btnnum `i  1 p 2 0 ]
-"69
+"75
 } 0
-"186 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
+"186 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/i2c1.c
 [v _I2C1_ISR I2C1_ISR `(v  1 e 0 0 ]
 {
 "189
@@ -1089,17 +1448,50 @@ I2C1_LOST_STATE 6
 {
 "684
 } 0
-"173 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/eusart1.c
+"153 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\UART.c
 [v _EUSART1_Transmit_ISR EUSART1_Transmit_ISR `(v  1 e 0 0 ]
 {
-"190
+"161
 } 0
-"192
+"104
+[v i2_UART_buff_size UART_buff_size `(i  1 e 2 0 ]
+{
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_size@_this _this `*.39S881  1 p 2 0 ]
+"106
+} 0
+"83
+[v i2_UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
+{
+[v i2UART_buff_get@c UART_buff_get `uc  1 a 1 10 ]
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_get@_this _this `*.39S881  1 p 2 6 ]
+"93
+} 0
+"141
 [v _EUSART1_Receive_ISR EUSART1_Receive_ISR `(v  1 e 0 0 ]
 {
-"209
+"149
+[v EUSART1_Receive_ISR@data data `uc  1 a 1 11 ]
+"151
 } 0
-"128 C:\Zips EV 15\trunk\DDS-TEST.X\mcc_generated_files/adc.c
+"70
+[v i2_UART_buff_put UART_buff_put `(v  1 e 0 0 ]
+{
+[s S881 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_put@_this _this `*.39S881  1 p 2 6 ]
+[v i2UART_buff_put@c c `Cuc  1 p 1 8 ]
+"81
+} 0
+"108
+[v i2_UART_buff_modulo_inc UART_buff_modulo_inc `(ui  1 e 2 0 ]
+{
+[v i2UART_buff_modulo_inc@my_value UART_buff_modulo_inc `ui  1 a 2 4 ]
+[v i2UART_buff_modulo_inc@value value `Cui  1 p 2 0 ]
+[v i2UART_buff_modulo_inc@modulus modulus `Cui  1 p 2 2 ]
+"114
+} 0
+"128 C:\Users\User\Documents\Repositories\EV2015\trunk\DDS-TEST.X\mcc_generated_files/adc.c
 [v _ADC_ISR ADC_ISR `(v  1 e 0 0 ]
 {
 "132

@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X v2.35 or v3.00
-*/
+ */
 
 /*
 Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
@@ -42,7 +42,7 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 #ifndef MCC_H
 #define	MCC_H
@@ -51,7 +51,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include <stdint.h>
 #include <stdbool.h>
 #include "interrupt_manager.h"
-#include "eusart1.h"
+#include "..\UART.h"
 #include "adc.h"
 
 #define _XTAL_FREQ  8000000
@@ -82,8 +82,19 @@ void SYSTEM_Initialize(void);
  */
 void OSCILLATOR_Initialize(void);
 
+//extern void EUSART1_Initialize(void);
+//extern void EUSART1_Transmit_ISR(void);
+//extern void EUSART1_Receive_ISR(void);
 
+extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+
+extern unsigned char Receive_peek(void);
+extern int Receive_available(void);
+extern unsigned char Receive_get(void);
+extern void Send_put(unsigned char _data);
+
+extern volatile int receiveArray[20];
 #endif	/* MCC_H */
 /**
  End of File
-*/
+ */

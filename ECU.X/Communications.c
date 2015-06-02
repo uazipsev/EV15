@@ -19,67 +19,106 @@
 #include "ADDRESSING.h"
 #include "Communications.h"
 
-void resetCommTimers() {
-    SASTimer = 0;
-    DDSTimer = 0;
-    MCSTimer = 0;
-    PDUTimer = 0;
-}
+
 
 void updateComms() {
-
     checkCommDirection();
     checkCommDirection1();
+    bus1Update();
+    bus2Update();
+}
 
-    switch (commsState) {
+void bus1Update(){
+     switch (commsBus1State) {
         case SAS_UPDATE:
             if (requestSASData()) {
                 if (receiveCommSAS()) {
-                    commsState++;
+                    commsBus1State++;
                     resetCommTimers();
-                    requestPDUData();
                 }
             } else {
                 //FLAG ERROR ON SAS COMMS -- Move on
                 SAS_COMMS_ERROR = true;
-                commsState++;
+                commsBus1State++;
                 resetCommTimers();
             }
             break;
         case DDS_UPDATE:
             if (requestDDSData()) {
                 if (receiveCommDDS()) {
-                    commsState++;
+                    commsBus1State++;
                     resetCommTimers();
                 }
             } else {
                 //FLAG ERROR ON DDS COMMS -- Move on
                 DDS_COMMS_ERROR = true;
-                commsState++;
+                commsBus1State++;
                 resetCommTimers();
             }
             break;
-        case CHECK_STATE:
+        case PDU_UPDATE:
+            if (requestPDUData()) {
+                if (receiveCommPDU()) {
+                    commsBus1State++;
+                    resetCommTimers();
+                }
+            } else {
+                //FLAG ERROR ON PDU COMMS -- Move on
+                PDU_COMMS_ERROR = true;
+                commsBus1State++;
+                resetCommTimers();
+            }
+            break;
+        case CHECK_STATE1:
             //Before continuing the comms, send to error state if something is wrong
-            if (DDS_COMMS_ERROR || SAS_COMMS_ERROR || MCS_COMMS_ERROR) {
-                commsState = ERROR_STATE;
+            if (DDS_COMMS_ERROR || SAS_COMMS_ERROR || PDU_COMMS_ERROR) {
+                commsBus1State = ERROR_STATE1;
             } else
                 //otherwise continue the normal comms update
-                commsState = SAS_UPDATE;
+                commsBus1State = SAS_UPDATE;
             break;
-        case ERROR_STATE:
-            INDICATOR = 1;
+        case ERROR_STATE1:
             sendErrorCode();
-            commsState = SAS_UPDATE;
-
+            commsBus1State = SAS_UPDATE;
             break;
-        case NUM_STATES:
-            commsState=ERROR_STATE;
+        case NUM_STATES1:
             break;
 
     }
+
+}
+void bus2Update(){
+    switch(commsBus2State){
+      case MCS_UPDATE:
+            if (requestMCSData()) {
+                if (receiveCommMCS()) {
+                    commsBus2State++;
+                    resetCommTimers2();
+                }
+            } else {
+                //FLAG ERROR ON MCS COMMS -- Move on
+                MCS_COMMS_ERROR = true;
+                commsBus2State++;
+                resetCommTimers2();
+            }
+            break;
+        case CHECK_STATE2:
+            if (MCS_COMMS_ERROR) {
+                commsBus2State = ERROR_STATE2;
+            } else
+                //otherwise continue the normal comms update
+                commsBus2State = MCS_UPDATE;
+            break;
+        case ERROR_STATE2:
+            sendErrorCode2();
+            commsBus2State=MCS_UPDATE;
+            break;
+        case NUM_STATES2:
+            break;
+    }
 }
 
+//  Error Code Handling
 void sendErrorCode() {
     unsigned int errorState = 0;
     if (DDS_COMMS_ERROR) {
@@ -90,98 +129,46 @@ void sendErrorCode() {
         errorState = errorState | 0x02;
         SAS_COMMS_ERROR = false;
     }
-    if (MCS_COMMS_ERROR) {
+    if (PDU_COMMS_ERROR) {
         errorState = errorState | 0x04;
+        PDU_COMMS_ERROR = false;
+    }
+    ToSend2(BUS_1_ERROR_DEBUG, errorState);
+    sendData2(DEBUG_ADDRESS);
+}
+void sendErrorCode2() {
+    unsigned int errorState = 0;   
+    if (MCS_COMMS_ERROR) {
+        errorState = errorState | 0x01;
         MCS_COMMS_ERROR = false;
     }
-    ToSend2(ERRORS, errorState);
+    ToSend2(BUS_2_ERROR_DEBUG, errorState);
     sendData2(DEBUG_ADDRESS);
 }
 
-void receiveComm() {
-    if (receiveData1()) {
-        BRAKELT ^= 1;
-        readyToSendSAS = true;
-        SASTimer = 0;
-    }
+//  Timer Resets Per Bus
+void resetCommTimers() {
+    SASTimer = 0;
+    DDSTimer = 0;
+    PDUTimer = 0;
 }
-
-void receiveComm1() {
-    if (receiveData()) {
-        RTD(100);
-    }
+void resetCommTimers2() {
+    MCSTimer = 0;
 }
-
-bool receiveCommSAS() {
-    if (receiveData1()) {
-        if (receiveArray1[RESPONSE_ADDRESS] == SAS_ADDRESS) {
-            BRAKELT ^= 1;
-            readyToSendSAS = true;
-            SASTimer = 0;
-            return true;
-        } else return false;
-    } else return false;
-
-}
-
-bool receiveCommDDS() {
-    if (receiveData1()) {
-        if (receiveArray1[RESPONSE_ADDRESS] == DDS_ADDRESS) {
-            BRAKELT ^= 1;
-            readyToSendDDS = true;
-            DDSTimer = 0;
-            return true;
-        } else return false;
-    } else return false;
-
-}
-
-bool requestDDSData() {
-    if (((DDSTimer > 50) && (readyToSendDDS)) || (DDSTimer > 100)) {
-
-
-        if (!readyToSendDDS) {
-            static int DDSErrorCounter = 0;
-            DDSErrorCounter++;
-            if (DDSErrorCounter > 5) {
-                DDSErrorCounter = 0;
-                return false;
-            }
-        } else readyToSendDDS = false;
-
-        RS485_Direction1(TALK);
-        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
-        sendData1(DDS_ADDRESS);
-        DDSTimer = 0;
-    }
-    return true;
-
-}
-
-void requestMCSData() {
-
-
-}
-
-void requestPDUData() {
-
-        ToSend(RESPONSE_ADDRESS, ECU_ADDRESS);
-        sendData(PDU_ADDRESS);
-
-}
-
 bool requestSASData() {
+    //If either timeout or response with delay already occured
     if (((SASTimer > 50) && (readyToSendSAS)) || (SASTimer > 100)) {
-
-
+        static int SASErrorCounter = 0;
         if (!readyToSendSAS) {
-            static int SASErrorCounter = 0;
             SASErrorCounter++;
             if (SASErrorCounter > 5) {
                 SASErrorCounter = 0;
                 return false;
             }
-        } else readyToSendSAS = false;
+        } else {
+            readyToSendSAS = false;
+            SASErrorCounter = 0;
+        }
         SASTimer = 0;
         RS485_Direction1(TALK);
         ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
@@ -190,25 +177,125 @@ bool requestSASData() {
 
     return true;
 }
+bool receiveCommSAS() {
+    if (receiveData1()) {
+        if (receiveArray1[RESPONSE_ADDRESS] == SAS_ADDRESS) {
+            readyToSendSAS = true;
+            SASTimer = 0;
+            return true;
+        } else return false;
+    } else return false;
+}
 
-void checkCommDirection() {
-    //you are sending data, make sure tunnel is open
-    if (!Transmit_stall) {
+bool requestDDSData() {
+    if (((DDSTimer > 50) && (readyToSendDDS)) || (DDSTimer > 100)) {
+        static int DDSErrorCounter = 0;
+        if (!readyToSendDDS) {
+            DDSErrorCounter++;
+            if (DDSErrorCounter > 5) {
+                DDSErrorCounter = 0;
+                return false;
+            }
+        } else {
+            readyToSendDDS = false;
+            DDSErrorCounter = 0;
+        }
+        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
+        ToSend1(LED_DDS, indicators);
         RS485_Direction1(TALK);
+        sendData1(DDS_ADDRESS);
+        DDSTimer = 0;
     }
+    return true;
+
+}
+
+bool receiveCommDDS() {
+    if (receiveData1()) {
+        if (receiveArray1[RESPONSE_ADDRESS] == DDS_ADDRESS) {
+            buttons=receiveArray1[BUTTONS_DDS];
+            readyToSendDDS = true;
+            DDSTimer = 0;
+            return true;
+        } else return false;
+    } else return false;
+}
+
+
+bool requestMCSData() {
+   if (((MCSTimer > 50) && (readyToSendMCS)) || (MCSTimer > 100)) {
+        static int MCSErrorCounter = 0;
+        if (!readyToSendMCS) {
+            MCSErrorCounter++;
+            if (MCSErrorCounter > 5) {
+                MCSErrorCounter = 0;
+                return false;
+            }
+        } else {
+            readyToSendMCS = false;
+            MCSErrorCounter = 0;
+        }
+        RS485_Direction2(TALK);
+        ToSend(RESPONSE_ADDRESS, ECU_ADDRESS);
+        sendData(MCS_ADDRESS);
+        MCSTimer = 0;
+    }
+    return true;
+}
+
+bool receiveCommMCS() {
+    if (receiveData()) {
+        if (receiveArray[RESPONSE_ADDRESS] == MCS_ADDRESS) {
+            readyToSendMCS = true;
+            MCSTimer = 0;
+            return true;
+        } else return false;
+    } else return false;
+    return true;
+}
+
+bool requestPDUData() {
+    if (((PDUTimer > 50) && (readyToSendPDU)) || (PDUTimer > 100)) {
+        static int PDUErrorCounter = 0;
+        if (!readyToSendPDU) {
+            PDUErrorCounter++;
+            if (PDUErrorCounter > 5) {
+                PDUErrorCounter = 0;
+                return false;
+            }
+        } else {
+            PDUErrorCounter = 0;
+            readyToSendPDU = false;
+        }
+        PDUTimer = 0;
+        RS485_Direction1(TALK);
+        ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
+        sendData1(PDU_ADDRESS);
+    }
+    return true;
+}
+
+bool receiveCommPDU() {
+    if (receiveData1()) {
+        if (receiveArray1[RESPONSE_ADDRESS] == PDU_ADDRESS) {
+            readyToSendPDU = true;
+            PDUTimer = 0;
+            return true;
+        } else return false;
+    } else return false;
+}
+
+
+void checkCommDirection() {   
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall && (talkTime > 3)) {
+    if (Transmit_stall && (talkTime > 2)) {
         RS485_Direction1(LISTEN);
     }
 }
 
 void checkCommDirection1() {
-    //you are sending data, make sure tunnel is open
-    if (!Transmit_stall1) {
-        RS485_Direction2(TALK);
-    }
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall1 && (talkTime1 > 3)) {
+    if (Transmit_stall1 && (talkTime1 > 2)) {
         RS485_Direction2(LISTEN);
     }
 }

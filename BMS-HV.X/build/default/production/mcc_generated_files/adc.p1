@@ -8482,9 +8482,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 93: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "93
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 94: Set_4051(0);
+[; ;adc.c: 94: Set_4051(1);
 "94
-[e ( _Set_4051 (1 -> 0 `i ]
+[e ( _Set_4051 (1 -> 1 `i ]
 [; ;adc.c: 95: ADC_StartConversion(Temp1);
 "95
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8497,9 +8497,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 98: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "98
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 99: Set_4051(1);
+[; ;adc.c: 99: Set_4051(2);
 "99
-[e ( _Set_4051 (1 -> 1 `i ]
+[e ( _Set_4051 (1 -> 2 `i ]
 [; ;adc.c: 100: ADC_StartConversion(Temp1);
 "100
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8512,9 +8512,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 103: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "103
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 104: Set_4051(2);
+[; ;adc.c: 104: Set_4051(3);
 "104
-[e ( _Set_4051 (1 -> 2 `i ]
+[e ( _Set_4051 (1 -> 3 `i ]
 [; ;adc.c: 105: ADC_StartConversion(Temp1);
 "105
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8527,9 +8527,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 108: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "108
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 109: Set_4051(3);
+[; ;adc.c: 109: Set_4051(4);
 "109
-[e ( _Set_4051 (1 -> 3 `i ]
+[e ( _Set_4051 (1 -> 4 `i ]
 [; ;adc.c: 110: ADC_StartConversion(Temp1);
 "110
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8542,9 +8542,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 113: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "113
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 114: Set_4051(4);
+[; ;adc.c: 114: Set_4051(5);
 "114
-[e ( _Set_4051 (1 -> 4 `i ]
+[e ( _Set_4051 (1 -> 5 `i ]
 [; ;adc.c: 115: ADC_StartConversion(Temp1);
 "115
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8557,9 +8557,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 118: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "118
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 119: Set_4051(5);
+[; ;adc.c: 119: Set_4051(6);
 "119
-[e ( _Set_4051 (1 -> 5 `i ]
+[e ( _Set_4051 (1 -> 6 `i ]
 [; ;adc.c: 120: ADC_StartConversion(Temp1);
 "120
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8572,9 +8572,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 123: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "123
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 124: Set_4051(6);
+[; ;adc.c: 124: Set_4051(7);
 "124
-[e ( _Set_4051 (1 -> 6 `i ]
+[e ( _Set_4051 (1 -> 7 `i ]
 [; ;adc.c: 125: ADC_StartConversion(Temp1);
 "125
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8587,9 +8587,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 128: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "128
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 129: Set_4051(7);
+[; ;adc.c: 129: Set_4051(0);
 "129
-[e ( _Set_4051 (1 -> 7 `i ]
+[e ( _Set_4051 (1 -> 0 `i ]
 [; ;adc.c: 130: ADC_StartConversion(Temp1);
 "130
 [e ( _ADC_StartConversion (1 . `E8837 9 ]
@@ -8602,9 +8602,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 133: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "133
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 134: Set_4051(0);
+[; ;adc.c: 134: Set_4051(1);
 "134
-[e ( _Set_4051 (1 -> 0 `i ]
+[e ( _Set_4051 (1 -> 1 `i ]
 [; ;adc.c: 135: ADC_StartConversion(Temp2);
 "135
 [e ( _ADC_StartConversion (1 . `E8837 10 ]
@@ -8617,30 +8617,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.c: 138: Temp_Adc[ADC_Buffer_Point] = ADC_Result;
 "138
 [e = *U + &U _Temp_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Temp_Adc `ui `ux _ADC_Result ]
-[; ;adc.c: 139: Set_4051(1);
+[; ;adc.c: 139: Temp_Aquire = 0;
 "139
-[e ( _Set_4051 (1 -> 1 `i ]
-[; ;adc.c: 140: ADC_StartConversion(Temp2);
+[e = _Temp_Aquire -> -> 0 `i `uc ]
+[; ;adc.c: 140: Temp_Done = 1;
 "140
-[e ( _ADC_StartConversion (1 . `E8837 10 ]
+[e = _Temp_Done -> 1 `i ]
 [; ;adc.c: 141: break;
 "141
 [e $U 1188  ]
-[; ;adc.c: 142: case 10:
 "142
-[e :U 1200 ]
-[; ;adc.c: 143: Temp_Aquire = 0;
-"143
-[e = _Temp_Aquire -> -> 0 `i `uc ]
-[; ;adc.c: 144: Temp_Done = 1;
-"144
-[e = _Temp_Done -> 1 `i ]
-[; ;adc.c: 145: break;
-"145
-[e $U 1188  ]
-"146
 }
-[; ;adc.c: 146: }
+[; ;adc.c: 142: }
 [e $U 1188  ]
 "90
 [e :U 1189 ]
@@ -8654,190 +8642,179 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> 7 `i 1197
  , $ -> 8 `i 1198
  , $ -> 9 `i 1199
- , $ -> 10 `i 1200
  1188 ]
-"146
+"142
 [e :U 1188 ]
-[; ;adc.c: 147: ADC_Buffer_Point++;
-"147
+[; ;adc.c: 143: ADC_Buffer_Point++;
+"143
 [e ++ _ADC_Buffer_Point -> 1 `i ]
-"148
+"144
 }
 [e :U 1187 ]
-[; ;adc.c: 148: }
-[; ;adc.c: 149: if (Volt_Aquire){
-"149
-[e $ ! != -> _Volt_Aquire `i -> -> -> 0 `i `uc `i 1201  ]
+[; ;adc.c: 144: }
+[; ;adc.c: 145: if (Volt_Aquire){
+"145
+[e $ ! != -> _Volt_Aquire `i -> -> -> 0 `i `uc `i 1200  ]
 {
-[; ;adc.c: 151: ADC_Result = ADC_GetConversionResult();
-"151
+[; ;adc.c: 147: ADC_Result = ADC_GetConversionResult();
+"147
 [e = _ADC_Result -> ( _ADC_GetConversionResult ..  `i ]
-[; ;adc.c: 152: switch ( ADC_Buffer_Point )
-"152
-[e $U 1203  ]
-[; ;adc.c: 153: {
-"153
+[; ;adc.c: 148: switch ( ADC_Buffer_Point )
+"148
+[e $U 1202  ]
+[; ;adc.c: 149: {
+"149
 {
-[; ;adc.c: 154: case 0:
+[; ;adc.c: 150: case 0:
+"150
+[e :U 1203 ]
+[; ;adc.c: 151: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
+"151
+[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
+[; ;adc.c: 152: ADC_StartConversion(Battery2);
+"152
+[e ( _ADC_StartConversion (1 . `E8837 4 ]
+[; ;adc.c: 153: break;
+"153
+[e $U 1201  ]
+[; ;adc.c: 154: case 1:
 "154
 [e :U 1204 ]
 [; ;adc.c: 155: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "155
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 156: ADC_StartConversion(Battery1);
+[; ;adc.c: 156: ADC_StartConversion(Battery3);
 "156
-[e ( _ADC_StartConversion (1 . `E8837 3 ]
+[e ( _ADC_StartConversion (1 . `E8837 5 ]
 [; ;adc.c: 157: break;
 "157
-[e $U 1202  ]
-[; ;adc.c: 158: case 1:
+[e $U 1201  ]
+[; ;adc.c: 158: case 2:
 "158
 [e :U 1205 ]
 [; ;adc.c: 159: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "159
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 160: ADC_StartConversion(Battery2);
+[; ;adc.c: 160: ADC_StartConversion(Battery4);
 "160
-[e ( _ADC_StartConversion (1 . `E8837 4 ]
+[e ( _ADC_StartConversion (1 . `E8837 14 ]
 [; ;adc.c: 161: break;
 "161
-[e $U 1202  ]
-[; ;adc.c: 162: case 2:
+[e $U 1201  ]
+[; ;adc.c: 162: case 3:
 "162
 [e :U 1206 ]
 [; ;adc.c: 163: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "163
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 164: ADC_StartConversion(Battery3);
+[; ;adc.c: 164: ADC_StartConversion(Battery5);
 "164
-[e ( _ADC_StartConversion (1 . `E8837 5 ]
+[e ( _ADC_StartConversion (1 . `E8837 11 ]
 [; ;adc.c: 165: break;
 "165
-[e $U 1202  ]
-[; ;adc.c: 166: case 3:
+[e $U 1201  ]
+[; ;adc.c: 166: case 4:
 "166
 [e :U 1207 ]
 [; ;adc.c: 167: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "167
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 168: ADC_StartConversion(Battery4);
+[; ;adc.c: 168: ADC_StartConversion(Battery6);
 "168
-[e ( _ADC_StartConversion (1 . `E8837 14 ]
+[e ( _ADC_StartConversion (1 . `E8837 12 ]
 [; ;adc.c: 169: break;
 "169
-[e $U 1202  ]
-[; ;adc.c: 170: case 4:
+[e $U 1201  ]
+[; ;adc.c: 170: case 5:
 "170
 [e :U 1208 ]
 [; ;adc.c: 171: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "171
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 172: ADC_StartConversion(Battery5);
+[; ;adc.c: 172: ADC_StartConversion(Battery7);
 "172
-[e ( _ADC_StartConversion (1 . `E8837 11 ]
+[e ( _ADC_StartConversion (1 . `E8837 13 ]
 [; ;adc.c: 173: break;
 "173
-[e $U 1202  ]
-[; ;adc.c: 174: case 5:
+[e $U 1201  ]
+[; ;adc.c: 174: case 6:
 "174
 [e :U 1209 ]
 [; ;adc.c: 175: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "175
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 176: ADC_StartConversion(Battery6);
+[; ;adc.c: 176: ADC_StartConversion(Battery8);
 "176
-[e ( _ADC_StartConversion (1 . `E8837 12 ]
+[e ( _ADC_StartConversion (1 . `E8837 6 ]
 [; ;adc.c: 177: break;
 "177
-[e $U 1202  ]
-[; ;adc.c: 178: case 6:
+[e $U 1201  ]
+[; ;adc.c: 178: case 7:
 "178
 [e :U 1210 ]
 [; ;adc.c: 179: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "179
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 180: ADC_StartConversion(Battery7);
+[; ;adc.c: 180: ADC_StartConversion(Battery9);
 "180
-[e ( _ADC_StartConversion (1 . `E8837 13 ]
+[e ( _ADC_StartConversion (1 . `E8837 7 ]
 [; ;adc.c: 181: break;
 "181
-[e $U 1202  ]
-[; ;adc.c: 182: case 7:
+[e $U 1201  ]
+[; ;adc.c: 182: case 8:
 "182
 [e :U 1211 ]
 [; ;adc.c: 183: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "183
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 184: ADC_StartConversion(Battery8);
+[; ;adc.c: 184: ADC_StartConversion(Battery10);
 "184
-[e ( _ADC_StartConversion (1 . `E8837 6 ]
+[e ( _ADC_StartConversion (1 . `E8837 8 ]
 [; ;adc.c: 185: break;
 "185
-[e $U 1202  ]
-[; ;adc.c: 186: case 8:
+[e $U 1201  ]
+[; ;adc.c: 186: case 9:
 "186
 [e :U 1212 ]
 [; ;adc.c: 187: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
 "187
 [e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 188: ADC_StartConversion(Battery9);
+[; ;adc.c: 188: Volt_Aquire = 0;
 "188
-[e ( _ADC_StartConversion (1 . `E8837 7 ]
-[; ;adc.c: 189: break;
-"189
-[e $U 1202  ]
-[; ;adc.c: 190: case 9:
-"190
-[e :U 1213 ]
-[; ;adc.c: 191: Battery_Adc[ADC_Buffer_Point] = ADC_Result;
-"191
-[e = *U + &U _Battery_Adc * -> -> _ADC_Buffer_Point `ui `ux -> -> # *U &U _Battery_Adc `ui `ux -> _ADC_Result `l ]
-[; ;adc.c: 192: ADC_StartConversion(Battery10);
-"192
-[e ( _ADC_StartConversion (1 . `E8837 8 ]
-[; ;adc.c: 193: break;
-"193
-[e $U 1202  ]
-[; ;adc.c: 194: case 10:
-"194
-[e :U 1214 ]
-[; ;adc.c: 195: Volt_Aquire = 0;
-"195
 [e = _Volt_Aquire -> -> 0 `i `uc ]
-[; ;adc.c: 196: Volt_Done = 1;
-"196
+[; ;adc.c: 189: Volt_Done = 1;
+"189
 [e = _Volt_Done -> 1 `i ]
-[; ;adc.c: 197: break;
-"197
-[e $U 1202  ]
-"198
+[; ;adc.c: 190: break;
+"190
+[e $U 1201  ]
+"191
 }
-[; ;adc.c: 198: }
-[e $U 1202  ]
-"152
-[e :U 1203 ]
-[e [\ _ADC_Buffer_Point , $ -> 0 `i 1204
- , $ -> 1 `i 1205
- , $ -> 2 `i 1206
- , $ -> 3 `i 1207
- , $ -> 4 `i 1208
- , $ -> 5 `i 1209
- , $ -> 6 `i 1210
- , $ -> 7 `i 1211
- , $ -> 8 `i 1212
- , $ -> 9 `i 1213
- , $ -> 10 `i 1214
- 1202 ]
-"198
+[; ;adc.c: 191: }
+[e $U 1201  ]
+"148
 [e :U 1202 ]
-[; ;adc.c: 199: ADC_Buffer_Point++;
-"199
-[e ++ _ADC_Buffer_Point -> 1 `i ]
-"200
-}
+[e [\ _ADC_Buffer_Point , $ -> 0 `i 1203
+ , $ -> 1 `i 1204
+ , $ -> 2 `i 1205
+ , $ -> 3 `i 1206
+ , $ -> 4 `i 1207
+ , $ -> 5 `i 1208
+ , $ -> 6 `i 1209
+ , $ -> 7 `i 1210
+ , $ -> 8 `i 1211
+ , $ -> 9 `i 1212
+ 1201 ]
+"191
 [e :U 1201 ]
-[; ;adc.c: 200: }
-[; ;adc.c: 201: }
-"201
+[; ;adc.c: 192: ADC_Buffer_Point++;
+"192
+[e ++ _ADC_Buffer_Point -> 1 `i ]
+"193
+}
+[e :U 1200 ]
+[; ;adc.c: 193: }
+[; ;adc.c: 194: }
+"194
 [e :UE 1186 ]
 }

@@ -45,34 +45,51 @@ extern volatile unsigned int talkTime3;
 
 extern volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer,BootTimer;
 
-enum commState{SAS_UPDATE=0, DDS_UPDATE=1, CHECK_STATE=2, ERROR_STATE=4, NUM_STATES=5};
+enum bus1CommState{SAS_UPDATE=0, DDS_UPDATE=1, PDU_UPDATE=2, CHECK_STATE1=3, ERROR_STATE1=4, NUM_STATES1=5};
+enum bus1CommState commsBus1State=SAS_UPDATE;
 
-enum commState commsState=SAS_UPDATE;
+enum bus2CommState{MCS_UPDATE=0,CHECK_STATE2=1,ERROR_STATE2=2,NUM_STATES2=3};
+enum bus2CommState commsBus2State=MCS_UPDATE;
 
 bool readyToSendSAS = true;
 bool readyToSendDDS = true;
+bool readyToSendPDU = true;
+bool readyToSendMCS = true;
 
 bool SAS_COMMS_ERROR = false;
 bool DDS_COMMS_ERROR = false;
 bool MCS_COMMS_ERROR = false;
+bool PDU_COMMS_ERROR = false;
 
 void updateComms();
 void sendErrorCode();
+void sendErrorCode2();
 void RS485_Direction1(int T_L);
 void RS485_Direction2(int T_L);
 
 void checkCommDirection();
 void checkCommDirection1();
-void receiveComm();
-void receiveComm1();
+void bus1Update();
+void bus2Update();
+
 
 bool receiveCommSAS();
 bool receiveCommDDS();
+bool receiveCommMCS();
+bool receiveCommPDU();
+
+
 bool requestSASData();
 bool requestDDSData();
-void requestMCSData();
-void requestPDUData();
+bool requestMCSData();
+bool requestPDUData();
 
+void resetCommTimers();
+void resetCommTimers2();
+
+
+extern unsigned int indicators;
+extern unsigned int buttons;
 
 #ifdef	__cplusplus
 }

@@ -520,19 +520,19 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x3af9
+.debug_info       0x000000       0x3c43
  *(.debug_info)
- .debug_info      0x000000        0x2bf build/default/production/main.o
- .debug_info      0x0002bf        0x3a0 build/default/production/DigiPot.o
- .debug_info      0x00065f        0xee4 build/default/production/Function.o
- .debug_info      0x001543        0x3b7 build/default/production/MotorControler.o
- .debug_info      0x0018fa        0xcb0 build/default/production/FastTransfer.o
- .debug_info      0x0025aa        0x174 build/default/production/MCP4725.o
- .debug_info      0x00271e         0xbe build/default/production/CoolingControl.o
- .debug_info      0x0027dc         0x91 build/default/production/ConfigBits.o
- .debug_info      0x00286d        0x3ab build/default/production/I2C.o
- .debug_info      0x002c18        0x38b build/default/production/pwm.o
- .debug_info      0x002fa3        0xb56 build/default/production/UART.o
+ .debug_info      0x000000        0x2dd build/default/production/main.o
+ .debug_info      0x0002dd        0x3be build/default/production/DigiPot.o
+ .debug_info      0x00069b        0xf02 build/default/production/Function.o
+ .debug_info      0x00159d        0x3d5 build/default/production/MotorControler.o
+ .debug_info      0x001972        0xcce build/default/production/FastTransfer.o
+ .debug_info      0x002640        0x192 build/default/production/MCP4725.o
+ .debug_info      0x0027d2         0xdc build/default/production/CoolingControl.o
+ .debug_info      0x0028ae         0xaf build/default/production/ConfigBits.o
+ .debug_info      0x00295d        0x3c9 build/default/production/I2C.o
+ .debug_info      0x002d26        0x3a9 build/default/production/pwm.o
+ .debug_info      0x0030cf        0xb74 build/default/production/UART.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x984

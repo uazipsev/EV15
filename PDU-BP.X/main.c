@@ -2,11 +2,12 @@
 #include "Functions.h"
 #include "PDU.h"
 
+extern void updateComms();
+
 /*
                          Main application
  */
-void main(void)
-{
+void main(void) {
     // Initialize the device
     SYSTEM_Initialize();
     PDUStartup();
@@ -38,16 +39,17 @@ void main(void)
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
 
-    while (1)
-    {
-        Delay(500);
-        LED2_SetLow();
-        Delay(500);
-        LED2_SetLow();
-        printf("ADC Volume = %d");
+    LATCbits.LATC5 = 0;
+    while (1) {
+        //Delay(50);
+        //LED2_SetLow();
+        //Delay(50);
+        //LED2_SetLow();
+        //printf("ADC Volume = %d");
         // Add your application code
+        updateComms();
     }
 }
 /**
  End of File
-*/
+ */

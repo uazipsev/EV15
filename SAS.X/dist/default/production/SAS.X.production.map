@@ -508,16 +508,16 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x4b34
+.debug_info       0x000000       0x4c24
  *(.debug_info)
- .debug_info      0x000000        0x2b4 build/default/production/interrupt_handler.o
- .debug_info      0x0002b4        0x544 build/default/production/main.o
- .debug_info      0x0007f8        0xb72 build/default/production/FastTransfer.o
- .debug_info      0x00136a       0x1483 build/default/production/Functions.o
- .debug_info      0x0027ed         0x90 build/default/production/ConfigBit.o
- .debug_info      0x00287d        0xb73 build/default/production/ADC.o
- .debug_info      0x0033f0        0xb56 build/default/production/UART.o
- .debug_info      0x003f46        0xbee build/default/production/UART1.o
+ .debug_info      0x000000        0x2d2 build/default/production/interrupt_handler.o
+ .debug_info      0x0002d2        0x562 build/default/production/main.o
+ .debug_info      0x000834        0xb90 build/default/production/FastTransfer.o
+ .debug_info      0x0013c4       0x14a1 build/default/production/Functions.o
+ .debug_info      0x002865         0xae build/default/production/ConfigBit.o
+ .debug_info      0x002913        0xb91 build/default/production/ADC.o
+ .debug_info      0x0034a4        0xb74 build/default/production/UART.o
+ .debug_info      0x004018        0xc0c build/default/production/UART1.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x8ae

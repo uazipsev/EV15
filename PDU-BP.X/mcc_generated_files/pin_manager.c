@@ -69,6 +69,15 @@ void PIN_MANAGER_Initialize(void)
     LATE = 0x00;
     TRISE = 0x07;
     ANSELE = 0x07;
+    TRISCbits.RC6 = 1;
+    TRISCbits.RC7 = 1;
+    TRISCbits.RC5 = 0;
+    LATCbits.LATC5 = 1;
+    LATCbits.LATC6 = 1;
+    LATCbits.LATC7 = 1;
+    ANSELCbits.ANSC5 =0;
+    ANSELCbits.ANSC6 =0;
+    ANSELCbits.ANSC7 =0;
 
     INTCON2bits.nRBPU = 0x01;
 

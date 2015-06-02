@@ -9,7 +9,6 @@
       <itemPath>horn.h</itemPath>
       <itemPath>UART.h</itemPath>
       <itemPath>FastTransfer.h</itemPath>
-      <itemPath>ADDRESSING.h</itemPath>
       <itemPath>main.h</itemPath>
       <itemPath>Functions.h</itemPath>
       <itemPath>UART1.h</itemPath>
@@ -20,6 +19,8 @@
       <itemPath>FastTransfer3.h</itemPath>
       <itemPath>Timers.h</itemPath>
       <itemPath>Communications.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
+      <itemPath>DDS_Interface.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -43,6 +44,7 @@
       <itemPath>FastTransfer3.c</itemPath>
       <itemPath>Timers.c</itemPath>
       <itemPath>Communications.c</itemPath>
+      <itemPath>DDS_Interface.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -253,6 +255,7 @@
         <property key="UART 2" value="true"/>
         <property key="UART 3" value="true"/>
         <property key="UART 4" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

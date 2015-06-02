@@ -50,10 +50,11 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "pin_manager.h"
 #include <stdint.h>
 #include <stdbool.h>
+#include "..\ADDRESSING.h"
 #include "interrupt_manager.h"
 #include "adc.h"
 #include "tmr0.h"
-#include "eusart1.h"
+#include "..\UART.h"
 #include "i2c1.h"
 
 #define _XTAL_FREQ  16000000
@@ -83,7 +84,14 @@ void SYSTEM_Initialize(void);
     OSCILLATOR_Initialize(void);
  */
 void OSCILLATOR_Initialize(void);
+extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 
+extern unsigned char Receive_peek(void);
+extern int Receive_available(void);
+extern unsigned char Receive_get(void);
+extern void Send_put(unsigned char _data);
+
+extern volatile int receiveArray[20];
 
 #endif	/* MCC_H */
 /**

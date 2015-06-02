@@ -19,7 +19,7 @@
     The generated drivers are tested against the following:
         Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X v2.35 or v3.00
-*/
+ */
 
 /*
 Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
@@ -42,7 +42,7 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
+ */
 
 // Configuration bits: selected in the GUI
 
@@ -108,18 +108,19 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config EBTRB = OFF    // Boot Block Table Read Protection bit->Boot Block (000000-0007FFh) not protected from table reads executed in other blocks
 
 #include "mcc.h"
+#include "../ADDRESSING.h"
 
-void SYSTEM_Initialize(void)
-{
+void SYSTEM_Initialize(void) {
     OSCILLATOR_Initialize();
     PIN_MANAGER_Initialize();
     INTERRUPT_Initialize();
     EUSART1_Initialize();
+    begin(receiveArray, sizeof (receiveArray), PDU_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+
     ADC_Initialize();
 }
 
-void OSCILLATOR_Initialize(void)
-{
+void OSCILLATOR_Initialize(void) {
     // SCS FOSC; IDLEN disabled; IRCF 8MHz_HFINTOSC/2; 
     OSCCON = 0x60;
     // PRISD enabled; MFIOSEL disabled; SOSCGO disabled; 
@@ -127,9 +128,9 @@ void OSCILLATOR_Initialize(void)
     // INTSRC disabled; PLLEN disabled; TUN 0x00; 
     OSCTUNE = 0x00;
     // Set the secondary oscillator
-    
+
 }
 
 /**
  End of File
-*/
+ */

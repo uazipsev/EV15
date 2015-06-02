@@ -12,8 +12,8 @@
       <itemPath>UART.h</itemPath>
       <itemPath>PedalFunctions.h</itemPath>
       <itemPath>main.h</itemPath>
-      <itemPath>ADDRESSING.h</itemPath>
       <itemPath>UART1.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

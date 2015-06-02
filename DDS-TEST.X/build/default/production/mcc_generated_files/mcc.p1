@@ -1,5 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"85 mcc_generated_files/mcc.h
+"102 mcc_generated_files/..\UART.h
+[s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1183 UART_ring_buff buf head tail count ]
+"86 mcc_generated_files/mcc.h
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
 "386 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
@@ -9,8 +12,24 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ADC_Initialize `(v ~T0 @X0 0 ef ]
 "106 mcc_generated_files/tmr0.h
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
-"107 mcc_generated_files/eusart1.h
+"113 mcc_generated_files/..\UART.h
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
+[v F9165 `(v ~T0 @X0 0 tf1`uc ]
+[v F9168 `(uc ~T0 @X0 0 tf ]
+[v F9171 `(i ~T0 @X0 0 tf ]
+[v F9174 `(uc ~T0 @X0 0 tf ]
+"87 mcc_generated_files/mcc.h
+[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9165`*F9168`*F9171`*F9174 ]
+"94
+[v _receiveArray `Vi ~T0 @X0 -> 0 `x e ]
+"126 mcc_generated_files/..\UART.h
+[v _Send_put `(v ~T0 @X0 0 ef1`uc ]
+"125
+[v _Receive_get `(uc ~T0 @X0 0 ef ]
+"124
+[v _Receive_available `(i ~T0 @X0 0 ef ]
+"123
+[v _Receive_peek `(uc ~T0 @X0 0 ef ]
 "177 mcc_generated_files/i2c1.h
 [v _I2C1_Initialize `(v ~T0 @X0 0 ef ]
 "16749 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
@@ -8359,13 +8378,93 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
-[; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
-[; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
-[; ;eusart1.h: 107: void EUSART1_Initialize(void);
-[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: int rem;
+[; ;stdlib.h: 29: int quot;
+[; ;stdlib.h: 30: } div_t;
+[; ;stdlib.h: 31: typedef struct {
+[; ;stdlib.h: 32: unsigned rem;
+[; ;stdlib.h: 33: unsigned quot;
+[; ;stdlib.h: 34: } udiv_t;
+[; ;stdlib.h: 35: typedef struct {
+[; ;stdlib.h: 36: long quot;
+[; ;stdlib.h: 37: long rem;
+[; ;stdlib.h: 38: } ldiv_t;
+[; ;stdlib.h: 39: typedef struct {
+[; ;stdlib.h: 40: unsigned long quot;
+[; ;stdlib.h: 41: unsigned long rem;
+[; ;stdlib.h: 42: } uldiv_t;
+[; ;stdlib.h: 65: extern double atof(const char *);
+[; ;stdlib.h: 66: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 67: extern int atoi(const char *);
+[; ;stdlib.h: 68: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 69: extern long atol(const char *);
+[; ;stdlib.h: 70: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 72: extern int rand(void);
+[; ;stdlib.h: 73: extern void srand(unsigned int);
+[; ;stdlib.h: 74: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 75: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 76: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 77: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 78: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 79: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 80: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 81: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 82: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 87: extern void * malloc(size_t);
+[; ;stdlib.h: 88: extern void free(void *);
+[; ;stdlib.h: 89: extern void * realloc(void *, size_t);
+[; ;stdlib.h: 98: extern int atexit(void (*)(void));
+[; ;stdlib.h: 99: extern char * getenv(const char *);
+[; ;stdlib.h: 100: extern char ** environ;
+[; ;stdlib.h: 101: extern int system(char *);
+[; ;stdlib.h: 102: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 103: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 104: extern int abs(int);
+[; ;stdlib.h: 105: extern long labs(long);
+[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
+[; ;..\UART.h: 23: uint8_t EUSART1_Read(void);
+[; ;..\UART.h: 48: void EUSART1_Write(uint8_t txData);
+[; ;..\UART.h: 69: void EUSART1_Transmit_ISR(void);
+[; ;..\UART.h: 90: void EUSART1_Receive_ISR(void);
+[; ;..\UART.h: 92: char getch(void);
+[; ;..\UART.h: 93: void putch(char txData);
+[; ;..\UART.h: 99: extern volatile unsigned int talkTime;
+[; ;..\UART.h: 100: void *memset(void *s, int c, size_t n);
+[; ;..\UART.h: 102: struct UART_ring_buff {
+[; ;..\UART.h: 103: unsigned char buf[200];
+[; ;..\UART.h: 104: int head;
+[; ;..\UART.h: 105: int tail;
+[; ;..\UART.h: 106: int count;
+[; ;..\UART.h: 107: };
+"109 mcc_generated_files/..\UART.h
+[v _input_buffer `S1183 ~T0 @X0 1 e ]
+[; ;..\UART.h: 109: struct UART_ring_buff input_buffer;
+"110
+[v _output_buffer `S1183 ~T0 @X0 1 e ]
+[; ;..\UART.h: 110: struct UART_ring_buff output_buffer;
+"112
+[v _Transmit_stall `uc ~T0 @X0 1 e ]
+[i _Transmit_stall
+-> -> 1 `i `uc
+]
+[; ;..\UART.h: 112: bool Transmit_stall = 1;
+[; ;..\UART.h: 113: void EUSART1_Initialize(void);
+[; ;..\UART.h: 114: void UART_buff_init(struct UART_ring_buff* _this);
+[; ;..\UART.h: 115: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
+[; ;..\UART.h: 116: unsigned char UART_buff_get(struct UART_ring_buff* _this);
+[; ;..\UART.h: 117: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
+[; ;..\UART.h: 118: int UART_buff_size(struct UART_ring_buff* _this);
+[; ;..\UART.h: 119: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;..\UART.h: 120: unsigned char UART_buff_peek(struct UART_ring_buff* _this);
+[; ;..\UART.h: 123: unsigned char Receive_peek(void);
+[; ;..\UART.h: 124: int Receive_available(void);
+[; ;..\UART.h: 125: unsigned char Receive_get(void);
+[; ;..\UART.h: 126: void Send_put(unsigned char _data);
 [; ;stddef.h: 13: extern int errno;
 [; ;i2c1.h: 40: typedef enum
 [; ;i2c1.h: 41: {
@@ -8412,8 +8511,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;i2c1.h: 642: bool I2C1_MasterQueueIsFull(void);
 [; ;i2c1.h: 643: void I2C1_BusCollisionISR( void );
 [; ;i2c1.h: 644: void I2C1_ISR ( void );
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 87: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;mcc.h: 89: extern unsigned char Receive_peek(void);
+[; ;mcc.h: 90: extern int Receive_available(void);
+[; ;mcc.h: 91: extern unsigned char Receive_get(void);
+[; ;mcc.h: 92: extern void Send_put(unsigned char _data);
+[; ;mcc.h: 94: extern volatile int receiveArray[20];
 "112 mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 "113
@@ -8440,31 +8545,34 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 119: EUSART1_Initialize();
 "119
 [e ( _EUSART1_Initialize ..  ]
-[; ;mcc.c: 120: I2C1_Initialize();
+[; ;mcc.c: 120: begin(receiveArray, sizeof (receiveArray), 3, 0, Send_put, Receive_get, Receive_available, Receive_peek);
 "120
-[e ( _I2C1_Initialize ..  ]
-[; ;mcc.c: 121: }
+[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 3 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
+[; ;mcc.c: 121: I2C1_Initialize();
 "121
-[e :UE 1180 ]
+[e ( _I2C1_Initialize ..  ]
+[; ;mcc.c: 122: }
+"122
+[e :UE 1185 ]
 }
-"123
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
 "124
+[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+"125
 {
-[; ;mcc.c: 123: void OSCILLATOR_Initialize(void)
-[; ;mcc.c: 124: {
+[; ;mcc.c: 124: void OSCILLATOR_Initialize(void)
+[; ;mcc.c: 125: {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-[; ;mcc.c: 126: OSCCON = 0x72;
-"126
+[; ;mcc.c: 127: OSCCON = 0x72;
+"127
 [e = _OSCCON -> -> 114 `i `uc ]
-[; ;mcc.c: 128: OSCCON2 = 0x04;
-"128
+[; ;mcc.c: 129: OSCCON2 = 0x04;
+"129
 [e = _OSCCON2 -> -> 4 `i `uc ]
-[; ;mcc.c: 130: OSCTUNE = 0x00;
-"130
+[; ;mcc.c: 131: OSCTUNE = 0x00;
+"131
 [e = _OSCTUNE -> -> 0 `i `uc ]
-[; ;mcc.c: 133: }
-"133
-[e :UE 1181 ]
+[; ;mcc.c: 134: }
+"134
+[e :UE 1186 ]
 }

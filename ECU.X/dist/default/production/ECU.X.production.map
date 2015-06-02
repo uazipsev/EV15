@@ -36,6 +36,7 @@ Command:
   build/default/production/FastTransfer3.o \
   build/default/production/Timers.o \
   build/default/production/Communications.o \
+  build/default/production/DDS_Interface.o \
   --local-stack \
   --defsym=__MPLAB_BUILD=1 \
   -Tp33EP256GM306.gld.00 \
@@ -98,38 +99,38 @@ Program Memory  [Origin = 0x200, Length = 0x2a9ec]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x33a           0x4d7  (1239)
-.text                        0x53a              0x2b4e          0x40f5  (16629)
-.dinit                      0x3088                0x84            0xc6  (198)
-.text                       0x310c                0xd2           0x13b  (315)
-.init.delay32               0x31de                0x1c            0x2a  (42)
+.text                        0x53a              0x2c0a          0x420f  (16911)
+.dinit                      0x3144                0x8c            0xd2  (210)
+.text                       0x31d0               0x1ea           0x2df  (735)
+.init.delay32               0x33ba                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x47f7  (18423) 7%
+                     Total program memory used (bytes):         0x4ac1  (19137) 7%
 
 
 Data Memory  [Origin = 0x1000, Length = 0x8000]
 
 section                    address      alignment gaps    total length  (dec)
 -------                    -------      --------------    -------------------
-.nbss                       0x1000                   0           0xe56  (3670)
-.ndata                      0x1e56                   0             0xa  (10)
-.bss.__allocs               0x1e60                   0             0x8  (8)
-.bss.__allocx               0x1e68                   0             0x4  (4)
-.bss.__allocp               0x1e6c                   0             0x2  (2)
-.bss.__alloct               0x1e6e                   0             0x2  (2)
-.bss.__curbrk               0x1e70                   0             0x2  (2)
-.heap                       0x1e72                   0            0x80  (128)
+.nbss                       0x1000                   0           0xe70  (3696)
+.ndata                      0x1e70                   0             0xc  (12)
+.bss.__allocs               0x1e7c                   0             0x8  (8)
+.bss.__allocx               0x1e84                   0             0x4  (4)
+.bss.__allocp               0x1e88                   0             0x2  (2)
+.bss.__alloct               0x1e8a                   0             0x2  (2)
+.bss.__curbrk               0x1e8c                   0             0x2  (2)
+.heap                       0x1e8e                   0            0x80  (128)
 
-                        Total data memory used (bytes):          0xef2  (3826) 11%
+                        Total data memory used (bytes):          0xf0e  (3854) 11%
 
 
 Dynamic Memory Usage
 
 region                     address                      maximum length  (dec)
 ------                     -------                      ---------------------
-heap                        0x1e72                                0x80  (128)
-stack                       0x1ef2                              0x710e  (28942)
+heap                        0x1e8e                                0x80  (128)
+stack                       0x1f0e                              0x70f2  (28914)
 
-                        Maximum dynamic memory (bytes):         0x718e  (29070)
+                        Maximum dynamic memory (bytes):         0x7172  (29042)
 
 
 External Symbols in Data Memory (by address):
@@ -244,21 +245,28 @@ External Symbols in Data Memory (by address):
                     0x1e46                  _talkTime1
                     0x1e48                  _talkTime2
                     0x1e4a                  _talkTime3
-                    0x1e4c                  _commsState
-                    0x1e4e                  _SAS_COMMS_ERROR
-                    0x1e4f                  _DDS_COMMS_ERROR
-                    0x1e50                  _MCS_COMMS_ERROR
-                    0x1e56                  _Transmit_stall
-                    0x1e58                  _Transmit_stall1
-                    0x1e5a                  _Transmit_stall2
-                    0x1e5c                  _Transmit_stall3
-                    0x1e5e                  _readyToSendSAS
-                    0x1e5f                  _readyToSendDDS
-                    0x1e60                  ___allocs
-                    0x1e68                  ___allocx
-                    0x1e6c                  ___allocp
-                    0x1e6e                  ___alloct
-                    0x1e70                  ___curbrk
+                    0x1e4c                  _buttonArray
+                    0x1e5c                  _buttons
+                    0x1e5e                  _indicators
+                    0x1e60                  _commsBus1State
+                    0x1e62                  _commsBus2State
+                    0x1e64                  _SAS_COMMS_ERROR
+                    0x1e65                  _DDS_COMMS_ERROR
+                    0x1e66                  _MCS_COMMS_ERROR
+                    0x1e67                  _PDU_COMMS_ERROR
+                    0x1e70                  _readyToSendSAS
+                    0x1e71                  _readyToSendDDS
+                    0x1e72                  _readyToSendPDU
+                    0x1e73                  _readyToSendMCS
+                    0x1e74                  _Transmit_stall
+                    0x1e76                  _Transmit_stall1
+                    0x1e78                  _Transmit_stall2
+                    0x1e7a                  _Transmit_stall3
+                    0x1e7c                  ___allocs
+                    0x1e84                  ___allocx
+                    0x1e88                  ___allocp
+                    0x1e8a                  ___alloct
+                    0x1e8c                  ___curbrk
 
 External Symbols in Data Memory (by name):
 
@@ -268,21 +276,22 @@ External Symbols in Data Memory (by name):
                     0x1612                  _AKNAKsend3
                     0x1e3e                  _BootTimer
                     0x1e3a                  _DDSTimer
-                    0x1e4f                  _DDS_COMMS_ERROR
+                    0x1e65                  _DDS_COMMS_ERROR
                     0x1e3c                  _MCSTimer
-                    0x1e50                  _MCS_COMMS_ERROR
+                    0x1e66                  _MCS_COMMS_ERROR
                     0x1e40                  _PDUTimer
+                    0x1e67                  _PDU_COMMS_ERROR
                     0x1e38                  _SASTimer
-                    0x1e4e                  _SAS_COMMS_ERROR
-                    0x1e56                  _Transmit_stall
-                    0x1e58                  _Transmit_stall1
-                    0x1e5a                  _Transmit_stall2
-                    0x1e5c                  _Transmit_stall3
-                    0x1e6c                  ___allocp
-                    0x1e60                  ___allocs
-                    0x1e6e                  ___alloct
-                    0x1e68                  ___allocx
-                    0x1e70                  ___curbrk
+                    0x1e64                  _SAS_COMMS_ERROR
+                    0x1e74                  _Transmit_stall
+                    0x1e76                  _Transmit_stall1
+                    0x1e78                  _Transmit_stall2
+                    0x1e7a                  _Transmit_stall3
+                    0x1e88                  ___allocp
+                    0x1e7c                  ___allocs
+                    0x1e8a                  ___alloct
+                    0x1e84                  ___allocx
+                    0x1e8c                  ___curbrk
                     0x1042                  _addressErrorCounter
                     0x1234                  _addressErrorCounter1
                     0x1426                  _addressErrorCounter2
@@ -291,11 +300,14 @@ External Symbols in Data Memory (by name):
                     0x1230                  _alignErrorCounter1
                     0x1422                  _alignErrorCounter2
                     0x1614                  _alignErrorCounter3
+                    0x1e4c                  _buttonArray
+                    0x1e5c                  _buttons
                     0x1034                  _calc_CS
                     0x1226                  _calc_CS1
                     0x1418                  _calc_CS2
                     0x160a                  _calc_CS3
-                    0x1e4c                  _commsState
+                    0x1e60                  _commsBus1State
+                    0x1e62                  _commsBus2State
                     0x1040                  _crcErrorCounter
                     0x1232                  _crcErrorCounter1
                     0x1424                  _crcErrorCounter2
@@ -312,6 +324,7 @@ External Symbols in Data Memory (by name):
                     0x13d0                  _group1
                     0x15c2                  _group2
                     0x17b4                  _group3
+                    0x1e5e                  _indicators
                     0x17c8                  _input_buffer
                     0x1964                  _input_buffer1
                     0x1b00                  _input_buffer2
@@ -328,8 +341,10 @@ External Symbols in Data Memory (by name):
                     0x1a32                  _output_buffer1
                     0x1bce                  _output_buffer2
                     0x1d6a                  _output_buffer3
-                    0x1e5f                  _readyToSendDDS
-                    0x1e5e                  _readyToSendSAS
+                    0x1e71                  _readyToSendDDS
+                    0x1e73                  _readyToSendMCS
+                    0x1e72                  _readyToSendPDU
+                    0x1e70                  _readyToSendSAS
                     0x1000                  _receiveArray
                     0x11f2                  _receiveArray1
                     0x13e4                  _receiveArray2
@@ -472,91 +487,97 @@ External Symbols in Program Memory (by address):
                   0x0021be                  _crcBufS_status_put3
                   0x00220e                  _crcBufS_get3
                   0x00226e                  _CRCcheck3
-                  0x002322                  _resetCommTimers
-                  0x002338                  _updateComms
-                  0x0023f4                  _sendErrorCode
-                  0x00243e                  _receiveComm
-                  0x002472                  _receiveComm1
-                  0x002484                  _receiveCommSAS
-                  0x0024ca                  _receiveCommDDS
-                  0x002510                  _requestDDSData
-                  0x00256a                  _requestMCSData
-                  0x002570                  _requestPDUData
-                  0x002580                  _requestSASData
-                  0x0025da                  _checkCommDirection
-                  0x002600                  _checkCommDirection1
-                  0x002626                  _RS485_Direction1
-                  0x002648                  _RS485_Direction2
-                  0x00266a                  _UART_init
-                  0x0026a4                  _UART_buff_init
-                  0x0026b4                  _UART_buff_put
-                  0x002722                  _UART_buff_get
-                  0x002762                  _UART_buff_flush
-                  0x00278e                  _UART_buff_size
-                  0x00279c                  _UART_buff_modulo_inc
-                  0x0027ba                  _UART_buff_peek
-                  0x0027ce                  _Receive_peek
-                  0x0027dc                  _Receive_available
-                  0x0027ea                  _Receive_get
-                  0x0027f8                  _Send_put
-                  0x002820                  __U1RXInterrupt
-                  0x002846                  __U1TXInterrupt
-                  0x002880                  _UART1_init
-                  0x0028ba                  _UART1_buff_init
-                  0x0028ca                  _UART1_buff_put
-                  0x002938                  _UART1_buff_get
-                  0x002978                  _UART1_buff_flush
-                  0x0029a4                  _UART1_buff_size
-                  0x0029b2                  _UART1_buff_modulo_inc
-                  0x0029d0                  _UART1_buff_peek
-                  0x0029e4                  _Receive_peek1
-                  0x0029f2                  _Receive_available1
-                  0x002a00                  _Receive_get1
-                  0x002a0e                  _Send_put1
-                  0x002a36                  __U2RXInterrupt
-                  0x002a5c                  __U2TXInterrupt
-                  0x002a96                  _UART2_init
-                  0x002ad0                  _UART2_buff_init
-                  0x002ae0                  _UART2_buff_put
-                  0x002b4e                  _UART2_buff_get
-                  0x002b8e                  _UART2_buff_flush
-                  0x002bba                  _UART2_buff_size
-                  0x002bc8                  _UART2_buff_modulo_inc
-                  0x002be6                  _UART2_buff_peek
-                  0x002bfa                  _Receive_peek2
-                  0x002c08                  _Receive_available2
-                  0x002c16                  _Receive_get2
-                  0x002c24                  _Send_put2
-                  0x002c4c                  __U3RXInterrupt
-                  0x002c72                  __U3TXInterrupt
-                  0x002cac                  _UART3_init
-                  0x002ce6                  _UART3_buff_init
-                  0x002cf6                  _UART3_buff_put
-                  0x002d64                  _UART3_buff_get
-                  0x002da4                  _UART3_buff_flush
-                  0x002dd0                  _UART3_buff_size
-                  0x002dde                  _UART3_buff_modulo_inc
-                  0x002dfc                  _UART3_buff_peek
-                  0x002e10                  _Receive_peek3
-                  0x002e1e                  _Receive_available3
-                  0x002e2c                  _Receive_get3
-                  0x002e3a                  _Send_put3
-                  0x002e62                  __U4RXInterrupt
-                  0x002e88                  __U4TXInterrupt
-                  0x002ec2                  _Setup
-                  0x002fca                  _Delay
-                  0x002fe8                  _PinSetMode
-                  0x002ffe                  _PWM_Init
-                  0x003030                  _Timmer2Init
-                  0x00304e                  _PWMupdate
-                  0x003078                  _PERupdate
-                  0x00310c                  _initTimerOne
-                  0x003128                  __T1Interrupt
-                  0x003170                  __T2Interrupt
-                  0x003178                  _ledDebug
-                  0x0031a4                  _main
-                  0x0031b6                  _RTD
-                  0x0031de                  ___delay32
+                  0x002322                  _updateComms
+                  0x002330                  _bus1Update
+                  0x002410                  _bus2Update
+                  0x00247c                  _sendErrorCode
+                  0x0024c6                  _sendErrorCode2
+                  0x0024ec                  _resetCommTimers
+                  0x0024fe                  _resetCommTimers2
+                  0x002508                  _requestSASData
+                  0x002566                  _receiveCommSAS
+                  0x002592                  _requestDDSData
+                  0x0025f8                  _receiveCommDDS
+                  0x002628                  _requestMCSData
+                  0x002686                  _receiveCommMCS
+                  0x0026b2                  _requestPDUData
+                  0x002710                  _receiveCommPDU
+                  0x00273c                  _checkCommDirection
+                  0x002754                  _checkCommDirection1
+                  0x00276c                  _RS485_Direction1
+                  0x00278e                  _RS485_Direction2
+                  0x0027b0                  _UART_init
+                  0x0027ea                  _UART_buff_init
+                  0x0027fa                  _UART_buff_put
+                  0x002868                  _UART_buff_get
+                  0x0028a8                  _UART_buff_flush
+                  0x0028d4                  _UART_buff_size
+                  0x0028e2                  _UART_buff_modulo_inc
+                  0x002900                  _UART_buff_peek
+                  0x002914                  _Receive_peek
+                  0x002922                  _Receive_available
+                  0x002930                  _Receive_get
+                  0x00293e                  _Send_put
+                  0x002966                  __U1RXInterrupt
+                  0x00298c                  __U1TXInterrupt
+                  0x0029c6                  _UART1_init
+                  0x002a00                  _UART1_buff_init
+                  0x002a10                  _UART1_buff_put
+                  0x002a7e                  _UART1_buff_get
+                  0x002abe                  _UART1_buff_flush
+                  0x002aea                  _UART1_buff_size
+                  0x002af8                  _UART1_buff_modulo_inc
+                  0x002b16                  _UART1_buff_peek
+                  0x002b2a                  _Receive_peek1
+                  0x002b38                  _Receive_available1
+                  0x002b46                  _Receive_get1
+                  0x002b54                  _Send_put1
+                  0x002b7c                  __U2RXInterrupt
+                  0x002ba2                  __U2TXInterrupt
+                  0x002bdc                  _UART2_init
+                  0x002c16                  _UART2_buff_init
+                  0x002c26                  _UART2_buff_put
+                  0x002c94                  _UART2_buff_get
+                  0x002cd4                  _UART2_buff_flush
+                  0x002d00                  _UART2_buff_size
+                  0x002d0e                  _UART2_buff_modulo_inc
+                  0x002d2c                  _UART2_buff_peek
+                  0x002d40                  _Receive_peek2
+                  0x002d4e                  _Receive_available2
+                  0x002d5c                  _Receive_get2
+                  0x002d6a                  _Send_put2
+                  0x002d92                  __U3RXInterrupt
+                  0x002db8                  __U3TXInterrupt
+                  0x002df2                  _UART3_init
+                  0x002e2c                  _UART3_buff_init
+                  0x002e3c                  _UART3_buff_put
+                  0x002eaa                  _UART3_buff_get
+                  0x002eea                  _UART3_buff_flush
+                  0x002f16                  _UART3_buff_size
+                  0x002f24                  _UART3_buff_modulo_inc
+                  0x002f42                  _UART3_buff_peek
+                  0x002f56                  _Receive_peek3
+                  0x002f64                  _Receive_available3
+                  0x002f72                  _Receive_get3
+                  0x002f80                  _Send_put3
+                  0x002fa8                  __U4RXInterrupt
+                  0x002fce                  __U4TXInterrupt
+                  0x003008                  _Setup
+                  0x003110                  _Delay
+                  0x00312e                  _PinSetMode
+                  0x0031d0                  _PWM_Init
+                  0x003202                  _Timmer2Init
+                  0x003220                  _PWMupdate
+                  0x00324a                  _PERupdate
+                  0x00325a                  _seekButtonChange
+                  0x0032b2                  _changeLEDState
+                  0x0032cc                  _initTimerOne
+                  0x0032e8                  __T1Interrupt
+                  0x003330                  __T2Interrupt
+                  0x003338                  _ledDebug
+                  0x003364                  _main
+                  0x003392                  _RTD
+                  0x0033ba                  ___delay32
                   0x02abfa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -577,7 +598,7 @@ External Symbols in Program Memory (by name):
                   0x00137a                  _CRCcheck1
                   0x001af4                  _CRCcheck2
                   0x00226e                  _CRCcheck3
-                  0x002fca                  _Delay
+                  0x003110                  _Delay
                   0x000a42                  _FastTransfer_buffer_flush
                   0x0011bc                  _FastTransfer_buffer_flush1
                   0x001936                  _FastTransfer_buffer_flush2
@@ -594,80 +615,80 @@ External Symbols in Program Memory (by name):
                   0x0010e6                  _FastTransfer_buffer_put1
                   0x001860                  _FastTransfer_buffer_put2
                   0x001fda                  _FastTransfer_buffer_put3
-                  0x003078                  _PERupdate
-                  0x002ffe                  _PWM_Init
-                  0x00304e                  _PWMupdate
-                  0x002fe8                  _PinSetMode
-                  0x002626                  _RS485_Direction1
-                  0x002648                  _RS485_Direction2
-                  0x0031b6                  _RTD
-                  0x0027dc                  _Receive_available
-                  0x0029f2                  _Receive_available1
-                  0x002c08                  _Receive_available2
-                  0x002e1e                  _Receive_available3
-                  0x0027ea                  _Receive_get
-                  0x002a00                  _Receive_get1
-                  0x002c16                  _Receive_get2
-                  0x002e2c                  _Receive_get3
-                  0x0027ce                  _Receive_peek
-                  0x0029e4                  _Receive_peek1
-                  0x002bfa                  _Receive_peek2
-                  0x002e10                  _Receive_peek3
-                  0x0027f8                  _Send_put
-                  0x002a0e                  _Send_put1
-                  0x002c24                  _Send_put2
-                  0x002e3a                  _Send_put3
-                  0x002ec2                  _Setup
-                  0x003030                  _Timmer2Init
+                  0x00324a                  _PERupdate
+                  0x0031d0                  _PWM_Init
+                  0x003220                  _PWMupdate
+                  0x00312e                  _PinSetMode
+                  0x00276c                  _RS485_Direction1
+                  0x00278e                  _RS485_Direction2
+                  0x003392                  _RTD
+                  0x002922                  _Receive_available
+                  0x002b38                  _Receive_available1
+                  0x002d4e                  _Receive_available2
+                  0x002f64                  _Receive_available3
+                  0x002930                  _Receive_get
+                  0x002b46                  _Receive_get1
+                  0x002d5c                  _Receive_get2
+                  0x002f72                  _Receive_get3
+                  0x002914                  _Receive_peek
+                  0x002b2a                  _Receive_peek1
+                  0x002d40                  _Receive_peek2
+                  0x002f56                  _Receive_peek3
+                  0x00293e                  _Send_put
+                  0x002b54                  _Send_put1
+                  0x002d6a                  _Send_put2
+                  0x002f80                  _Send_put3
+                  0x003008                  _Setup
+                  0x003202                  _Timmer2Init
                   0x00095a                  _ToSend
                   0x0010d4                  _ToSend1
                   0x00184e                  _ToSend2
                   0x001fc8                  _ToSend3
-                  0x002978                  _UART1_buff_flush
-                  0x002938                  _UART1_buff_get
-                  0x0028ba                  _UART1_buff_init
-                  0x0029b2                  _UART1_buff_modulo_inc
-                  0x0029d0                  _UART1_buff_peek
-                  0x0028ca                  _UART1_buff_put
-                  0x0029a4                  _UART1_buff_size
-                  0x002880                  _UART1_init
-                  0x002b8e                  _UART2_buff_flush
-                  0x002b4e                  _UART2_buff_get
-                  0x002ad0                  _UART2_buff_init
-                  0x002bc8                  _UART2_buff_modulo_inc
-                  0x002be6                  _UART2_buff_peek
-                  0x002ae0                  _UART2_buff_put
-                  0x002bba                  _UART2_buff_size
-                  0x002a96                  _UART2_init
-                  0x002da4                  _UART3_buff_flush
-                  0x002d64                  _UART3_buff_get
-                  0x002ce6                  _UART3_buff_init
-                  0x002dde                  _UART3_buff_modulo_inc
-                  0x002dfc                  _UART3_buff_peek
-                  0x002cf6                  _UART3_buff_put
-                  0x002dd0                  _UART3_buff_size
-                  0x002cac                  _UART3_init
-                  0x002762                  _UART_buff_flush
-                  0x002722                  _UART_buff_get
-                  0x0026a4                  _UART_buff_init
-                  0x00279c                  _UART_buff_modulo_inc
-                  0x0027ba                  _UART_buff_peek
-                  0x0026b4                  _UART_buff_put
-                  0x00278e                  _UART_buff_size
-                  0x00266a                  _UART_init
+                  0x002abe                  _UART1_buff_flush
+                  0x002a7e                  _UART1_buff_get
+                  0x002a00                  _UART1_buff_init
+                  0x002af8                  _UART1_buff_modulo_inc
+                  0x002b16                  _UART1_buff_peek
+                  0x002a10                  _UART1_buff_put
+                  0x002aea                  _UART1_buff_size
+                  0x0029c6                  _UART1_init
+                  0x002cd4                  _UART2_buff_flush
+                  0x002c94                  _UART2_buff_get
+                  0x002c16                  _UART2_buff_init
+                  0x002d0e                  _UART2_buff_modulo_inc
+                  0x002d2c                  _UART2_buff_peek
+                  0x002c26                  _UART2_buff_put
+                  0x002d00                  _UART2_buff_size
+                  0x002bdc                  _UART2_init
+                  0x002eea                  _UART3_buff_flush
+                  0x002eaa                  _UART3_buff_get
+                  0x002e2c                  _UART3_buff_init
+                  0x002f24                  _UART3_buff_modulo_inc
+                  0x002f42                  _UART3_buff_peek
+                  0x002e3c                  _UART3_buff_put
+                  0x002f16                  _UART3_buff_size
+                  0x002df2                  _UART3_init
+                  0x0028a8                  _UART_buff_flush
+                  0x002868                  _UART_buff_get
+                  0x0027ea                  _UART_buff_init
+                  0x0028e2                  _UART_buff_modulo_inc
+                  0x002900                  _UART_buff_peek
+                  0x0027fa                  _UART_buff_put
+                  0x0028d4                  _UART_buff_size
+                  0x0027b0                  _UART_init
                   0x000312                  __DefaultInterrupt
                   0x02abfa                  __FGS.sec
-                  0x003128                  __T1Interrupt
-                  0x003170                  __T2Interrupt
-                  0x002820                  __U1RXInterrupt
-                  0x002846                  __U1TXInterrupt
-                  0x002a36                  __U2RXInterrupt
-                  0x002a5c                  __U2TXInterrupt
-                  0x002c4c                  __U3RXInterrupt
-                  0x002c72                  __U3TXInterrupt
-                  0x002e62                  __U4RXInterrupt
-                  0x002e88                  __U4TXInterrupt
-                  0x0031de                  ___delay32
+                  0x0032e8                  __T1Interrupt
+                  0x003330                  __T2Interrupt
+                  0x002966                  __U1RXInterrupt
+                  0x00298c                  __U1TXInterrupt
+                  0x002b7c                  __U2RXInterrupt
+                  0x002ba2                  __U2TXInterrupt
+                  0x002d92                  __U3RXInterrupt
+                  0x002db8                  __U3TXInterrupt
+                  0x002fa8                  __U4RXInterrupt
+                  0x002fce                  __U4TXInterrupt
+                  0x0033ba                  ___delay32
                   0x000238                  __data_init
                   0x000238                  __data_init_extended
                   0x00022c                  __psv_init
@@ -684,8 +705,11 @@ External Symbols in Program Memory (by name):
                   0x000cb4                  _begin1
                   0x00142e                  _begin2
                   0x001ba8                  _begin3
-                  0x0025da                  _checkCommDirection
-                  0x002600                  _checkCommDirection1
+                  0x002330                  _bus1Update
+                  0x002410                  _bus2Update
+                  0x0032b2                  _changeLEDState
+                  0x00273c                  _checkCommDirection
+                  0x002754                  _checkCommDirection1
                   0x000ba0                  _crcBufS_get
                   0x00131a                  _crcBufS_get1
                   0x001a94                  _crcBufS_get2
@@ -703,32 +727,35 @@ External Symbols in Program Memory (by name):
                   0x0019dc                  _dataAddressError2
                   0x002156                  _dataAddressError3
                   0x00047a                  _free
-                  0x00310c                  _initTimerOne
-                  0x003178                  _ledDebug
-                  0x0031a4                  _main
+                  0x0032cc                  _initTimerOne
+                  0x003338                  _ledDebug
+                  0x003364                  _main
                   0x000362                  _malloc
                   0x000516                  _memcpy
                   0x000528                  _memset
                   0x000494                  _realloc
-                  0x00243e                  _receiveComm
-                  0x002472                  _receiveComm1
-                  0x0024ca                  _receiveCommDDS
-                  0x002484                  _receiveCommSAS
+                  0x0025f8                  _receiveCommDDS
+                  0x002686                  _receiveCommMCS
+                  0x002710                  _receiveCommPDU
+                  0x002566                  _receiveCommSAS
                   0x00065e                  _receiveData
                   0x000dd8                  _receiveData1
                   0x001552                  _receiveData2
                   0x001ccc                  _receiveData3
-                  0x002510                  _requestDDSData
-                  0x00256a                  _requestMCSData
-                  0x002570                  _requestPDUData
-                  0x002580                  _requestSASData
-                  0x002322                  _resetCommTimers
+                  0x002592                  _requestDDSData
+                  0x002628                  _requestMCSData
+                  0x0026b2                  _requestPDUData
+                  0x002508                  _requestSASData
+                  0x0024ec                  _resetCommTimers
+                  0x0024fe                  _resetCommTimers2
+                  0x00325a                  _seekButtonChange
                   0x0005ee                  _sendData
                   0x000d68                  _sendData1
                   0x0014e2                  _sendData2
                   0x001c5c                  _sendData3
-                  0x0023f4                  _sendErrorCode
-                  0x002338                  _updateComms
+                  0x00247c                  _sendErrorCode
+                  0x0024c6                  _sendErrorCode2
+                  0x002322                  _updateComms
 
 Memory Configuration
 
@@ -766,6 +793,7 @@ LOAD build/default/production/FastTransfer2.o
 LOAD build/default/production/FastTransfer3.o
 LOAD build/default/production/Timers.o
 LOAD build/default/production/Communications.o
+LOAD build/default/production/DDS_Interface.o
                     0x0001                  __MPLAB_BUILD = 0x1
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33E\libp33EP256GM306-elf.a
 LOAD c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libfx-elf.a
@@ -864,62 +892,65 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x8ef1
+.debug_info       0x000000       0x92df
  *(.debug_info)
- .debug_info      0x000000        0x1f9 build/default/production/main.o
- .debug_info      0x0001f9         0x91 build/default/production/ConfigBits.o
- .debug_info      0x00028a        0x4e0 build/default/production/pwm.o
- .debug_info      0x00076a        0x254 build/default/production/Horn.o
- .debug_info      0x0009be        0xb7e build/default/production/UART.o
- .debug_info      0x00153c        0xb6f build/default/production/FastTransfer.o
- .debug_info      0x0020ab       0x1ab9 build/default/production/Functions.o
- .debug_info      0x003b64        0xbb4 build/default/production/UART1.o
- .debug_info      0x004718        0xacc build/default/production/UART2.o
- .debug_info      0x0051e4        0xacc build/default/production/UART3.o
- .debug_info      0x005cb0        0xb82 build/default/production/FastTransfer1.o
- .debug_info      0x006832        0xb82 build/default/production/FastTransfer2.o
- .debug_info      0x0073b4        0xb89 build/default/production/FastTransfer3.o
- .debug_info      0x007f3d        0x681 build/default/production/Timers.o
- .debug_info      0x0085be        0x933 build/default/production/Communications.o
+ .debug_info      0x000000        0x241 build/default/production/main.o
+ .debug_info      0x000241         0xaf build/default/production/ConfigBits.o
+ .debug_info      0x0002f0        0x4fe build/default/production/pwm.o
+ .debug_info      0x0007ee        0x272 build/default/production/Horn.o
+ .debug_info      0x000a60        0xb9c build/default/production/UART.o
+ .debug_info      0x0015fc        0xb8d build/default/production/FastTransfer.o
+ .debug_info      0x002189       0x1ad7 build/default/production/Functions.o
+ .debug_info      0x003c60        0xbd2 build/default/production/UART1.o
+ .debug_info      0x004832        0xaea build/default/production/UART2.o
+ .debug_info      0x00531c        0xaea build/default/production/UART3.o
+ .debug_info      0x005e06        0xba0 build/default/production/FastTransfer1.o
+ .debug_info      0x0069a6        0xba0 build/default/production/FastTransfer2.o
+ .debug_info      0x007546        0xba7 build/default/production/FastTransfer3.o
+ .debug_info      0x0080ed        0x69f build/default/production/Timers.o
+ .debug_info      0x00878c        0x957 build/default/production/Communications.o
+ .debug_info      0x0090e3        0x1fc build/default/production/DDS_Interface.o
  *(.gnu.linkonce.wi.*)
 
-.debug_abbrev     0x000000       0x1429
+.debug_abbrev     0x000000       0x157b
  *(.debug_abbrev)
- .debug_abbrev    0x000000         0xbd build/default/production/main.o
- .debug_abbrev    0x0000bd         0x1f build/default/production/ConfigBits.o
- .debug_abbrev    0x0000dc         0xde build/default/production/pwm.o
- .debug_abbrev    0x0001ba         0x9d build/default/production/Horn.o
- .debug_abbrev    0x000257        0x18e build/default/production/UART.o
- .debug_abbrev    0x0003e5        0x211 build/default/production/FastTransfer.o
- .debug_abbrev    0x0005f6        0x110 build/default/production/Functions.o
- .debug_abbrev    0x000706        0x18e build/default/production/UART1.o
- .debug_abbrev    0x000894        0x18e build/default/production/UART2.o
- .debug_abbrev    0x000a22        0x18e build/default/production/UART3.o
- .debug_abbrev    0x000bb0        0x211 build/default/production/FastTransfer1.o
- .debug_abbrev    0x000dc1        0x211 build/default/production/FastTransfer2.o
- .debug_abbrev    0x000fd2        0x202 build/default/production/FastTransfer3.o
- .debug_abbrev    0x0011d4        0x10f build/default/production/Timers.o
- .debug_abbrev    0x0012e3        0x146 build/default/production/Communications.o
+ .debug_abbrev    0x000000         0xe0 build/default/production/main.o
+ .debug_abbrev    0x0000e0         0x1f build/default/production/ConfigBits.o
+ .debug_abbrev    0x0000ff         0xde build/default/production/pwm.o
+ .debug_abbrev    0x0001dd         0x9d build/default/production/Horn.o
+ .debug_abbrev    0x00027a        0x18e build/default/production/UART.o
+ .debug_abbrev    0x000408        0x211 build/default/production/FastTransfer.o
+ .debug_abbrev    0x000619        0x110 build/default/production/Functions.o
+ .debug_abbrev    0x000729        0x18e build/default/production/UART1.o
+ .debug_abbrev    0x0008b7        0x18e build/default/production/UART2.o
+ .debug_abbrev    0x000a45        0x18e build/default/production/UART3.o
+ .debug_abbrev    0x000bd3        0x211 build/default/production/FastTransfer1.o
+ .debug_abbrev    0x000de4        0x211 build/default/production/FastTransfer2.o
+ .debug_abbrev    0x000ff5        0x202 build/default/production/FastTransfer3.o
+ .debug_abbrev    0x0011f7        0x10f build/default/production/Timers.o
+ .debug_abbrev    0x001306        0x1b4 build/default/production/Communications.o
+ .debug_abbrev    0x0014ba         0xc1 build/default/production/DDS_Interface.o
 
-.debug_line       0x000000       0x3cb7
+.debug_line       0x000000       0x4024
  *(.debug_line)
- .debug_line      0x000000        0x106 build/default/production/main.o
- .debug_line      0x000106         0x24 build/default/production/ConfigBits.o
- .debug_line      0x00012a        0x1a5 build/default/production/pwm.o
- .debug_line      0x0002cf         0xe8 build/default/production/Horn.o
- .debug_line      0x0003b7        0x3ac build/default/production/UART.o
- .debug_line      0x000763        0x840 build/default/production/FastTransfer.o
- .debug_line      0x000fa3        0x210 build/default/production/Functions.o
- .debug_line      0x0011b3        0x3ae build/default/production/UART1.o
- .debug_line      0x001561        0x3ae build/default/production/UART2.o
- .debug_line      0x00190f        0x3ae build/default/production/UART3.o
- .debug_line      0x001cbd        0x842 build/default/production/FastTransfer1.o
- .debug_line      0x0024ff        0x842 build/default/production/FastTransfer2.o
- .debug_line      0x002d41        0x848 build/default/production/FastTransfer3.o
- .debug_line      0x003589        0x182 build/default/production/Timers.o
- .debug_line      0x00370b        0x5ac build/default/production/Communications.o
+ .debug_line      0x000000        0x126 build/default/production/main.o
+ .debug_line      0x000126         0x24 build/default/production/ConfigBits.o
+ .debug_line      0x00014a        0x1a5 build/default/production/pwm.o
+ .debug_line      0x0002ef         0xe8 build/default/production/Horn.o
+ .debug_line      0x0003d7        0x3ac build/default/production/UART.o
+ .debug_line      0x000783        0x840 build/default/production/FastTransfer.o
+ .debug_line      0x000fc3        0x210 build/default/production/Functions.o
+ .debug_line      0x0011d3        0x3ae build/default/production/UART1.o
+ .debug_line      0x001581        0x3ae build/default/production/UART2.o
+ .debug_line      0x00192f        0x3ae build/default/production/UART3.o
+ .debug_line      0x001cdd        0x842 build/default/production/FastTransfer1.o
+ .debug_line      0x00251f        0x842 build/default/production/FastTransfer2.o
+ .debug_line      0x002d61        0x848 build/default/production/FastTransfer3.o
+ .debug_line      0x0035a9        0x182 build/default/production/Timers.o
+ .debug_line      0x00372b        0x833 build/default/production/Communications.o
+ .debug_line      0x003f5e         0xc6 build/default/production/DDS_Interface.o
 
-.debug_frame      0x000000        0xad8
+.debug_frame      0x000000        0xb4c
  *(.debug_frame)
  .debug_frame     0x000000         0x34 build/default/production/main.o
  .debug_frame     0x000034         0x54 build/default/production/pwm.o
@@ -934,24 +965,26 @@ __FUID3
  .debug_frame     0x000728        0x134 build/default/production/FastTransfer2.o
  .debug_frame     0x00085c        0x134 build/default/production/FastTransfer3.o
  .debug_frame     0x000990         0x44 build/default/production/Timers.o
- .debug_frame     0x0009d4        0x104 build/default/production/Communications.o
+ .debug_frame     0x0009d4        0x144 build/default/production/Communications.o
+ .debug_frame     0x000b18         0x34 build/default/production/DDS_Interface.o
 
-.debug_str        0x000000        0x8ef
+.debug_str        0x000000        0x964
  *(.debug_str)
- .debug_str       0x000000          0x9 build/default/production/main.o
- .debug_str       0x000009         0x16 build/default/production/pwm.o
- .debug_str       0x00001f          0x9 build/default/production/Horn.o
- .debug_str       0x000028         0x57 build/default/production/UART.o
- .debug_str       0x00007f        0x132 build/default/production/FastTransfer.o
- .debug_str       0x0001b1         0xf4 build/default/production/Functions.o
- .debug_str       0x0002a5         0x5a build/default/production/UART1.o
- .debug_str       0x0002ff         0x5a build/default/production/UART2.o
- .debug_str       0x000359         0x5a build/default/production/UART3.o
- .debug_str       0x0003b3        0x14e build/default/production/FastTransfer1.o
- .debug_str       0x000501        0x14e build/default/production/FastTransfer2.o
- .debug_str       0x00064f        0x14e build/default/production/FastTransfer3.o
- .debug_str       0x00079d         0x71 build/default/production/Timers.o
- .debug_str       0x00080e         0xe1 build/default/production/Communications.o
+ .debug_str       0x000000         0x15 build/default/production/main.o
+ .debug_str       0x000015         0x16 build/default/production/pwm.o
+ .debug_str       0x00002b          0x9 build/default/production/Horn.o
+ .debug_str       0x000034         0x57 build/default/production/UART.o
+ .debug_str       0x00008b        0x132 build/default/production/FastTransfer.o
+ .debug_str       0x0001bd         0xf4 build/default/production/Functions.o
+ .debug_str       0x0002b1         0x5a build/default/production/UART1.o
+ .debug_str       0x00030b         0x5a build/default/production/UART2.o
+ .debug_str       0x000365         0x5a build/default/production/UART3.o
+ .debug_str       0x0003bf        0x14e build/default/production/FastTransfer1.o
+ .debug_str       0x00050d        0x14e build/default/production/FastTransfer2.o
+ .debug_str       0x00065b        0x14e build/default/production/FastTransfer3.o
+ .debug_str       0x0007a9         0x71 build/default/production/Timers.o
+ .debug_str       0x00081a        0x133 build/default/production/Communications.o
+ .debug_str       0x00094d         0x17 build/default/production/DDS_Interface.o
 
 .debug_loc
  *(.debug_loc)
@@ -960,7 +993,7 @@ __FUID3
  *(.debug_macinfo)
 
 .debug_pubnames
-                  0x000000       0x14aa
+                  0x000000       0x15ab
  *(.debug_pubnames)
  .debug_pubnames
                   0x000000         0x28 build/default/production/main.o
@@ -989,12 +1022,14 @@ __FUID3
  .debug_pubnames
                   0x00123e         0xc7 build/default/production/Timers.o
  .debug_pubnames
-                  0x001305        0x1a5 build/default/production/Communications.o
+                  0x001305        0x241 build/default/production/Communications.o
+ .debug_pubnames
+                  0x001546         0x65 build/default/production/DDS_Interface.o
 
 .debug_ranges
  *(.debug_ranges)
 
-.debug_aranges    0x000000        0x150
+.debug_aranges    0x000000        0x168
  *(.debug_aranges)
  .debug_aranges
                   0x000000         0x18 build/default/production/main.o
@@ -1024,6 +1059,8 @@ __FUID3
                   0x000120         0x18 build/default/production/Timers.o
  .debug_aranges
                   0x000138         0x18 build/default/production/Communications.o
+ .debug_aranges
+                  0x000150         0x18 build/default/production/DDS_Interface.o
 
 .ivt              0x000004        0x13e
                   0x000004          0x4 LONG 0x312 DEFINED (__OscillatorFail)?ABSOLUTE (__OscillatorFail):ABSOLUTE (__DefaultInterrupt)
@@ -1037,16 +1074,16 @@ __FUID3
                   0x000014          0x4 LONG 0x312 DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x312 DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x312 DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x3128 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x32e8 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x312 DEFINED (__DMA0Interrupt)?ABSOLUTE (__DMA0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x312 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x312 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x3170 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x3330 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x312 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x312 DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x312 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00002a          0x4 LONG 0x2820 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00002c          0x4 LONG 0x2846 DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002a          0x4 LONG 0x2966 DEFINED (__U1RXInterrupt)?ABSOLUTE (__U1RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00002c          0x4 LONG 0x298c DEFINED (__U1TXInterrupt)?ABSOLUTE (__U1TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00002e          0x4 LONG 0x312 DEFINED (__AD1Interrupt)?ABSOLUTE (__AD1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000030          0x4 LONG 0x312 DEFINED (__DMA1Interrupt)?ABSOLUTE (__DMA1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000032          0x4 LONG 0x312 DEFINED (__Interrupt15)?ABSOLUTE (__Interrupt15):ABSOLUTE (__DefaultInterrupt)
@@ -1064,8 +1101,8 @@ __FUID3
                   0x00004a          0x4 LONG 0x312 DEFINED (__T4Interrupt)?ABSOLUTE (__T4Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004c          0x4 LONG 0x312 DEFINED (__T5Interrupt)?ABSOLUTE (__T5Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00004e          0x4 LONG 0x312 DEFINED (__INT2Interrupt)?ABSOLUTE (__INT2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000050          0x4 LONG 0x2a36 DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000052          0x4 LONG 0x2a5c DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000050          0x4 LONG 0x2b7c DEFINED (__U2RXInterrupt)?ABSOLUTE (__U2RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000052          0x4 LONG 0x2ba2 DEFINED (__U2TXInterrupt)?ABSOLUTE (__U2TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000054          0x4 LONG 0x312 DEFINED (__SPI2ErrInterrupt)?ABSOLUTE (__SPI2ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000056          0x4 LONG 0x312 DEFINED (__SPI2Interrupt)?ABSOLUTE (__SPI2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000058          0x4 LONG 0x312 DEFINED (__Interrupt34)?ABSOLUTE (__Interrupt34):ABSOLUTE (__DefaultInterrupt)
@@ -1116,14 +1153,14 @@ __FUID3
                   0x0000b2          0x4 LONG 0x312 DEFINED (__Interrupt79)?ABSOLUTE (__Interrupt79):ABSOLUTE (__DefaultInterrupt)
                   0x0000b4          0x4 LONG 0x312 DEFINED (__Interrupt80)?ABSOLUTE (__Interrupt80):ABSOLUTE (__DefaultInterrupt)
                   0x0000b6          0x4 LONG 0x312 DEFINED (__U3ErrInterrupt)?ABSOLUTE (__U3ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000b8          0x4 LONG 0x2c4c DEFINED (__U3RXInterrupt)?ABSOLUTE (__U3RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000ba          0x4 LONG 0x2c72 DEFINED (__U3TXInterrupt)?ABSOLUTE (__U3TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000b8          0x4 LONG 0x2d92 DEFINED (__U3RXInterrupt)?ABSOLUTE (__U3RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000ba          0x4 LONG 0x2db8 DEFINED (__U3TXInterrupt)?ABSOLUTE (__U3TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000bc          0x4 LONG 0x312 DEFINED (__Interrupt84)?ABSOLUTE (__Interrupt84):ABSOLUTE (__DefaultInterrupt)
                   0x0000be          0x4 LONG 0x312 DEFINED (__Interrupt85)?ABSOLUTE (__Interrupt85):ABSOLUTE (__DefaultInterrupt)
                   0x0000c0          0x4 LONG 0x312 DEFINED (__Interrupt86)?ABSOLUTE (__Interrupt86):ABSOLUTE (__DefaultInterrupt)
                   0x0000c2          0x4 LONG 0x312 DEFINED (__U4ErrInterrupt)?ABSOLUTE (__U4ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000c4          0x4 LONG 0x2e62 DEFINED (__U4RXInterrupt)?ABSOLUTE (__U4RXInterrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x0000c6          0x4 LONG 0x2e88 DEFINED (__U4TXInterrupt)?ABSOLUTE (__U4TXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c4          0x4 LONG 0x2fa8 DEFINED (__U4RXInterrupt)?ABSOLUTE (__U4RXInterrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x0000c6          0x4 LONG 0x2fce DEFINED (__U4TXInterrupt)?ABSOLUTE (__U4TXInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000c8          0x4 LONG 0x312 DEFINED (__SPI3ErrInterrupt)?ABSOLUTE (__SPI3ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000ca          0x4 LONG 0x312 DEFINED (__SPI3Interrupt)?ABSOLUTE (__SPI3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x0000cc          0x4 LONG 0x312 DEFINED (__Interrupt92)?ABSOLUTE (__Interrupt92):ABSOLUTE (__DefaultInterrupt)
@@ -3025,88 +3062,92 @@ LOAD heap
 LOAD data_init
 
 .debug_pubtypes
-                  0x000150        0x771
+                  0x000168        0x75f
  .debug_pubtypes
-                  0x000150         0x2f build/default/production/main.o
+                  0x000168         0x2f build/default/production/main.o
  .debug_pubtypes
-                  0x00017f         0x12 build/default/production/ConfigBits.o
+                  0x000197         0x12 build/default/production/ConfigBits.o
  .debug_pubtypes
-                  0x000191         0x54 build/default/production/pwm.o
+                  0x0001a9         0x54 build/default/production/pwm.o
  .debug_pubtypes
-                  0x0001e5         0x2f build/default/production/Horn.o
+                  0x0001fd         0x2f build/default/production/Horn.o
  .debug_pubtypes
-                  0x000214         0x9f build/default/production/UART.o
+                  0x00022c         0x9f build/default/production/UART.o
  .debug_pubtypes
-                  0x0002b3         0x35 build/default/production/FastTransfer.o
+                  0x0002cb         0x35 build/default/production/FastTransfer.o
  .debug_pubtypes
-                  0x0002e8        0x252 build/default/production/Functions.o
+                  0x000300        0x252 build/default/production/Functions.o
  .debug_pubtypes
-                  0x00053a         0xa0 build/default/production/UART1.o
+                  0x000552         0xa0 build/default/production/UART1.o
  .debug_pubtypes
-                  0x0005da         0xa0 build/default/production/UART2.o
+                  0x0005f2         0xa0 build/default/production/UART2.o
  .debug_pubtypes
-                  0x00067a         0xa0 build/default/production/UART3.o
+                  0x000692         0xa0 build/default/production/UART3.o
  .debug_pubtypes
-                  0x00071a         0x38 build/default/production/FastTransfer1.o
+                  0x000732         0x38 build/default/production/FastTransfer1.o
  .debug_pubtypes
-                  0x000752         0x38 build/default/production/FastTransfer2.o
+                  0x00076a         0x38 build/default/production/FastTransfer2.o
  .debug_pubtypes
-                  0x00078a         0x38 build/default/production/FastTransfer3.o
+                  0x0007a2         0x38 build/default/production/FastTransfer3.o
  .debug_pubtypes
-                  0x0007c2         0x6b build/default/production/Timers.o
+                  0x0007da         0x6b build/default/production/Timers.o
  .debug_pubtypes
-                  0x00082d         0x94 build/default/production/Communications.o
+                  0x000845         0x70 build/default/production/Communications.o
+ .debug_pubtypes
+                  0x0008b5         0x12 build/default/production/DDS_Interface.o
 
 __c30_signature
-                  0x0008c1         0x8a
+                  0x0008c7         0x90
  __c30_signature
-                  0x0008c1          0x6 build/default/production/main.o
+                  0x0008c7          0x6 build/default/production/main.o
  __c30_signature
-                  0x0008c7          0x6 build/default/production/ConfigBits.o
+                  0x0008cd          0x6 build/default/production/ConfigBits.o
  __c30_signature
-                  0x0008cd          0x6 build/default/production/pwm.o
+                  0x0008d3          0x6 build/default/production/pwm.o
  __c30_signature
-                  0x0008d3          0x6 build/default/production/Horn.o
+                  0x0008d9          0x6 build/default/production/Horn.o
  __c30_signature
-                  0x0008d9          0x6 build/default/production/UART.o
+                  0x0008df          0x6 build/default/production/UART.o
  __c30_signature
-                  0x0008df          0x6 build/default/production/FastTransfer.o
+                  0x0008e5          0x6 build/default/production/FastTransfer.o
  __c30_signature
-                  0x0008e5          0x6 build/default/production/Functions.o
+                  0x0008eb          0x6 build/default/production/Functions.o
  __c30_signature
-                  0x0008eb          0x6 build/default/production/UART1.o
+                  0x0008f1          0x6 build/default/production/UART1.o
  __c30_signature
-                  0x0008f1          0x6 build/default/production/UART2.o
+                  0x0008f7          0x6 build/default/production/UART2.o
  __c30_signature
-                  0x0008f7          0x6 build/default/production/UART3.o
+                  0x0008fd          0x6 build/default/production/UART3.o
  __c30_signature
-                  0x0008fd          0x6 build/default/production/FastTransfer1.o
+                  0x000903          0x6 build/default/production/FastTransfer1.o
  __c30_signature
-                  0x000903          0x6 build/default/production/FastTransfer2.o
+                  0x000909          0x6 build/default/production/FastTransfer2.o
  __c30_signature
-                  0x000909          0x6 build/default/production/FastTransfer3.o
+                  0x00090f          0x6 build/default/production/FastTransfer3.o
  __c30_signature
-                  0x00090f          0x6 build/default/production/Timers.o
+                  0x000915          0x6 build/default/production/Timers.o
  __c30_signature
-                  0x000915          0x6 build/default/production/Communications.o
+                  0x00091b          0x6 build/default/production/Communications.o
  __c30_signature
-                  0x00091b          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
+                  0x000921          0x6 build/default/production/DDS_Interface.o
  __c30_signature
-                  0x000921          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
+                  0x000927          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_extendedep.o)
  __c30_signature
-                  0x000927          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x00092d          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_extendedep.o)
  __c30_signature
-                  0x00092d          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
+                  0x000933          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
  __c30_signature
-                  0x000933          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
+                  0x000939          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
  __c30_signature
-                  0x000939          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.epeo)
+                  0x00093f          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.epeo)
  __c30_signature
-                  0x00093f          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrkep.eo)
+                  0x000945          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.epeo)
  __c30_signature
-                  0x000945          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brkep.elo)
+                  0x00094b          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrkep.eo)
+ __c30_signature
+                  0x000951          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brkep.elo)
 
-.nbss               0x1000        0xe56
+.nbss               0x1000        0xe70
  .nbss              0x1000        0x1f2 build/default/production/FastTransfer.o
                     0x1000                  _receiveArray
                     0x1028                  _serial_write
@@ -3226,47 +3267,55 @@ __c30_signature
                     0x1e46                  _talkTime1
                     0x1e48                  _talkTime2
                     0x1e4a                  _talkTime3
- .nbss              0x1e4c          0xa build/default/production/Communications.o
-                    0x1e4c                  _commsState
-                    0x1e4e                  _SAS_COMMS_ERROR
-                    0x1e4f                  _DDS_COMMS_ERROR
-                    0x1e50                  _MCS_COMMS_ERROR
+ .nbss              0x1e4c         0x14 build/default/production/DDS_Interface.o
+                    0x1e4c                  _buttonArray
+                    0x1e5c                  _buttons
+                    0x1e5e                  _indicators
+ .nbss              0x1e60         0x10 build/default/production/Communications.o
+                    0x1e60                  _commsBus1State
+                    0x1e62                  _commsBus2State
+                    0x1e64                  _SAS_COMMS_ERROR
+                    0x1e65                  _DDS_COMMS_ERROR
+                    0x1e66                  _MCS_COMMS_ERROR
+                    0x1e67                  _PDU_COMMS_ERROR
 
-.ndata              0x1e56          0xa
- .ndata             0x1e56          0x2 build/default/production/UART.o
-                    0x1e56                  _Transmit_stall
- .ndata             0x1e58          0x2 build/default/production/UART1.o
-                    0x1e58                  _Transmit_stall1
- .ndata             0x1e5a          0x2 build/default/production/UART2.o
-                    0x1e5a                  _Transmit_stall2
- .ndata             0x1e5c          0x2 build/default/production/UART3.o
-                    0x1e5c                  _Transmit_stall3
- .ndata             0x1e5e          0x2 build/default/production/Communications.o
-                    0x1e5e                  _readyToSendSAS
-                    0x1e5f                  _readyToSendDDS
+.ndata              0x1e70          0xc
+ .ndata             0x1e70          0x4 build/default/production/Communications.o
+                    0x1e70                  _readyToSendSAS
+                    0x1e71                  _readyToSendDDS
+                    0x1e72                  _readyToSendPDU
+                    0x1e73                  _readyToSendMCS
+ .ndata             0x1e74          0x2 build/default/production/UART.o
+                    0x1e74                  _Transmit_stall
+ .ndata             0x1e76          0x2 build/default/production/UART1.o
+                    0x1e76                  _Transmit_stall1
+ .ndata             0x1e78          0x2 build/default/production/UART2.o
+                    0x1e78                  _Transmit_stall2
+ .ndata             0x1e7a          0x2 build/default/production/UART3.o
+                    0x1e7a                  _Transmit_stall3
 
-.bss.__allocs       0x1e60          0x8
- .bss.__allocs      0x1e60          0x8 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
-                    0x1e60                  ___allocs
+.bss.__allocs       0x1e7c          0x8
+ .bss.__allocs      0x1e7c          0x8 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
+                    0x1e7c                  ___allocs
 
-.bss.__allocx       0x1e68          0x4
- .bss.__allocx      0x1e68          0x4 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
-                    0x1e68                  ___allocx
+.bss.__allocx       0x1e84          0x4
+ .bss.__allocx      0x1e84          0x4 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
+                    0x1e84                  ___allocx
 
-.bss.__allocp       0x1e6c          0x2
- .bss.__allocp      0x1e6c          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
-                    0x1e6c                  ___allocp
+.bss.__allocp       0x1e88          0x2
+ .bss.__allocp      0x1e88          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
+                    0x1e88                  ___allocp
 
-.bss.__alloct       0x1e6e          0x2
- .bss.__alloct      0x1e6e          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
-                    0x1e6e                  ___alloct
+.bss.__alloct       0x1e8a          0x2
+ .bss.__alloct      0x1e8a          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.epeo)
+                    0x1e8a                  ___alloct
 
-.bss.__curbrk       0x1e70          0x2
- .bss.__curbrk      0x1e70          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brkep.elo)
-                    0x1e70                  ___curbrk
+.bss.__curbrk       0x1e8c          0x2
+ .bss.__curbrk      0x1e8c          0x2 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brkep.elo)
+                    0x1e8c                  ___curbrk
 
-.heap               0x1e72         0x80
- .heap              0x1e72         0x80 heap
+.heap               0x1e8e         0x80
+ .heap              0x1e8e         0x80 heap
 
 .config_IESO      0x02abf8          0x2
  .config_IESO     0x02abf8          0x2 build/default/production/ConfigBits.o
@@ -3286,7 +3335,7 @@ __c30_signature
  .config_JTAGEN
                   0x02abf0          0x2 build/default/production/ConfigBits.o
 
-.text             0x00053a       0x2b4e
+.text             0x00053a       0x2c0a
  .text            0x00053a        0x77a build/default/production/FastTransfer.o
                   0x00053a                  _begin
                   0x000586                  _CRC8
@@ -3363,106 +3412,113 @@ __c30_signature
                   0x0021be                  _crcBufS_status_put3
                   0x00220e                  _crcBufS_get3
                   0x00226e                  _CRCcheck3
- .text            0x002322        0x348 build/default/production/Communications.o
-                  0x002322                  _resetCommTimers
-                  0x002338                  _updateComms
-                  0x0023f4                  _sendErrorCode
-                  0x00243e                  _receiveComm
-                  0x002472                  _receiveComm1
-                  0x002484                  _receiveCommSAS
-                  0x0024ca                  _receiveCommDDS
-                  0x002510                  _requestDDSData
-                  0x00256a                  _requestMCSData
-                  0x002570                  _requestPDUData
-                  0x002580                  _requestSASData
-                  0x0025da                  _checkCommDirection
-                  0x002600                  _checkCommDirection1
-                  0x002626                  _RS485_Direction1
-                  0x002648                  _RS485_Direction2
- .text            0x00266a        0x216 build/default/production/UART.o
-                  0x00266a                  _UART_init
-                  0x0026a4                  _UART_buff_init
-                  0x0026b4                  _UART_buff_put
-                  0x002722                  _UART_buff_get
-                  0x002762                  _UART_buff_flush
-                  0x00278e                  _UART_buff_size
-                  0x00279c                  _UART_buff_modulo_inc
-                  0x0027ba                  _UART_buff_peek
-                  0x0027ce                  _Receive_peek
-                  0x0027dc                  _Receive_available
-                  0x0027ea                  _Receive_get
-                  0x0027f8                  _Send_put
-                  0x002820                  __U1RXInterrupt
-                  0x002846                  __U1TXInterrupt
- .text            0x002880        0x216 build/default/production/UART1.o
-                  0x002880                  _UART1_init
-                  0x0028ba                  _UART1_buff_init
-                  0x0028ca                  _UART1_buff_put
-                  0x002938                  _UART1_buff_get
-                  0x002978                  _UART1_buff_flush
-                  0x0029a4                  _UART1_buff_size
-                  0x0029b2                  _UART1_buff_modulo_inc
-                  0x0029d0                  _UART1_buff_peek
-                  0x0029e4                  _Receive_peek1
-                  0x0029f2                  _Receive_available1
-                  0x002a00                  _Receive_get1
-                  0x002a0e                  _Send_put1
-                  0x002a36                  __U2RXInterrupt
-                  0x002a5c                  __U2TXInterrupt
- .text            0x002a96        0x216 build/default/production/UART2.o
-                  0x002a96                  _UART2_init
-                  0x002ad0                  _UART2_buff_init
-                  0x002ae0                  _UART2_buff_put
-                  0x002b4e                  _UART2_buff_get
-                  0x002b8e                  _UART2_buff_flush
-                  0x002bba                  _UART2_buff_size
-                  0x002bc8                  _UART2_buff_modulo_inc
-                  0x002be6                  _UART2_buff_peek
-                  0x002bfa                  _Receive_peek2
-                  0x002c08                  _Receive_available2
-                  0x002c16                  _Receive_get2
-                  0x002c24                  _Send_put2
-                  0x002c4c                  __U3RXInterrupt
-                  0x002c72                  __U3TXInterrupt
- .text            0x002cac        0x216 build/default/production/UART3.o
-                  0x002cac                  _UART3_init
-                  0x002ce6                  _UART3_buff_init
-                  0x002cf6                  _UART3_buff_put
-                  0x002d64                  _UART3_buff_get
-                  0x002da4                  _UART3_buff_flush
-                  0x002dd0                  _UART3_buff_size
-                  0x002dde                  _UART3_buff_modulo_inc
-                  0x002dfc                  _UART3_buff_peek
-                  0x002e10                  _Receive_peek3
-                  0x002e1e                  _Receive_available3
-                  0x002e2c                  _Receive_get3
-                  0x002e3a                  _Send_put3
-                  0x002e62                  __U4RXInterrupt
-                  0x002e88                  __U4TXInterrupt
- .text            0x002ec2        0x13c build/default/production/Functions.o
-                  0x002ec2                  _Setup
-                  0x002fca                  _Delay
-                  0x002fe8                  _PinSetMode
- .text            0x002ffe         0x8a build/default/production/pwm.o
-                  0x002ffe                  _PWM_Init
-                  0x003030                  _Timmer2Init
-                  0x00304e                  _PWMupdate
-                  0x003078                  _PERupdate
+ .text            0x002322        0x48e build/default/production/Communications.o
+                  0x002322                  _updateComms
+                  0x002330                  _bus1Update
+                  0x002410                  _bus2Update
+                  0x00247c                  _sendErrorCode
+                  0x0024c6                  _sendErrorCode2
+                  0x0024ec                  _resetCommTimers
+                  0x0024fe                  _resetCommTimers2
+                  0x002508                  _requestSASData
+                  0x002566                  _receiveCommSAS
+                  0x002592                  _requestDDSData
+                  0x0025f8                  _receiveCommDDS
+                  0x002628                  _requestMCSData
+                  0x002686                  _receiveCommMCS
+                  0x0026b2                  _requestPDUData
+                  0x002710                  _receiveCommPDU
+                  0x00273c                  _checkCommDirection
+                  0x002754                  _checkCommDirection1
+                  0x00276c                  _RS485_Direction1
+                  0x00278e                  _RS485_Direction2
+ .text            0x0027b0        0x216 build/default/production/UART.o
+                  0x0027b0                  _UART_init
+                  0x0027ea                  _UART_buff_init
+                  0x0027fa                  _UART_buff_put
+                  0x002868                  _UART_buff_get
+                  0x0028a8                  _UART_buff_flush
+                  0x0028d4                  _UART_buff_size
+                  0x0028e2                  _UART_buff_modulo_inc
+                  0x002900                  _UART_buff_peek
+                  0x002914                  _Receive_peek
+                  0x002922                  _Receive_available
+                  0x002930                  _Receive_get
+                  0x00293e                  _Send_put
+                  0x002966                  __U1RXInterrupt
+                  0x00298c                  __U1TXInterrupt
+ .text            0x0029c6        0x216 build/default/production/UART1.o
+                  0x0029c6                  _UART1_init
+                  0x002a00                  _UART1_buff_init
+                  0x002a10                  _UART1_buff_put
+                  0x002a7e                  _UART1_buff_get
+                  0x002abe                  _UART1_buff_flush
+                  0x002aea                  _UART1_buff_size
+                  0x002af8                  _UART1_buff_modulo_inc
+                  0x002b16                  _UART1_buff_peek
+                  0x002b2a                  _Receive_peek1
+                  0x002b38                  _Receive_available1
+                  0x002b46                  _Receive_get1
+                  0x002b54                  _Send_put1
+                  0x002b7c                  __U2RXInterrupt
+                  0x002ba2                  __U2TXInterrupt
+ .text            0x002bdc        0x216 build/default/production/UART2.o
+                  0x002bdc                  _UART2_init
+                  0x002c16                  _UART2_buff_init
+                  0x002c26                  _UART2_buff_put
+                  0x002c94                  _UART2_buff_get
+                  0x002cd4                  _UART2_buff_flush
+                  0x002d00                  _UART2_buff_size
+                  0x002d0e                  _UART2_buff_modulo_inc
+                  0x002d2c                  _UART2_buff_peek
+                  0x002d40                  _Receive_peek2
+                  0x002d4e                  _Receive_available2
+                  0x002d5c                  _Receive_get2
+                  0x002d6a                  _Send_put2
+                  0x002d92                  __U3RXInterrupt
+                  0x002db8                  __U3TXInterrupt
+ .text            0x002df2        0x216 build/default/production/UART3.o
+                  0x002df2                  _UART3_init
+                  0x002e2c                  _UART3_buff_init
+                  0x002e3c                  _UART3_buff_put
+                  0x002eaa                  _UART3_buff_get
+                  0x002eea                  _UART3_buff_flush
+                  0x002f16                  _UART3_buff_size
+                  0x002f24                  _UART3_buff_modulo_inc
+                  0x002f42                  _UART3_buff_peek
+                  0x002f56                  _Receive_peek3
+                  0x002f64                  _Receive_available3
+                  0x002f72                  _Receive_get3
+                  0x002f80                  _Send_put3
+                  0x002fa8                  __U4RXInterrupt
+                  0x002fce                  __U4TXInterrupt
+ .text            0x003008        0x13c build/default/production/Functions.o
+                  0x003008                  _Setup
+                  0x003110                  _Delay
+                  0x00312e                  _PinSetMode
 
-.dinit            0x003088         0x84
- .dinit           0x003088         0x84 data_init
+.dinit            0x003144         0x8c
+ .dinit           0x003144         0x8c data_init
 
-.text             0x00310c         0xd2
- .text            0x00310c         0x6c build/default/production/Timers.o
-                  0x00310c                  _initTimerOne
-                  0x003128                  __T1Interrupt
-                  0x003170                  __T2Interrupt
- .text            0x003178         0x3e build/default/production/main.o
-                  0x003178                  _ledDebug
-                  0x0031a4                  _main
- .text            0x0031b6         0x28 build/default/production/Horn.o
-                  0x0031b6                  _RTD
+.text             0x0031d0        0x1ea
+ .text            0x0031d0         0x8a build/default/production/pwm.o
+                  0x0031d0                  _PWM_Init
+                  0x003202                  _Timmer2Init
+                  0x003220                  _PWMupdate
+                  0x00324a                  _PERupdate
+ .text            0x00325a         0x72 build/default/production/DDS_Interface.o
+                  0x00325a                  _seekButtonChange
+                  0x0032b2                  _changeLEDState
+ .text            0x0032cc         0x6c build/default/production/Timers.o
+                  0x0032cc                  _initTimerOne
+                  0x0032e8                  __T1Interrupt
+                  0x003330                  __T2Interrupt
+ .text            0x003338         0x5a build/default/production/main.o
+                  0x003338                  _ledDebug
+                  0x003364                  _main
+ .text            0x003392         0x28 build/default/production/Horn.o
+                  0x003392                  _RTD
 
-.init.delay32     0x0031de         0x1c
- .init.delay32    0x0031de         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x0031de                  ___delay32
+.init.delay32     0x0033ba         0x1c
+ .init.delay32    0x0033ba         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x0033ba                  ___delay32

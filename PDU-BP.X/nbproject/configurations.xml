@@ -8,7 +8,6 @@
                      displayName="MCC Generated Files"
                      projectFiles="true">
         <itemPath>mcc_generated_files/adc.h</itemPath>
-        <itemPath>mcc_generated_files/eusart1.h</itemPath>
         <itemPath>mcc_generated_files/pin_manager.h</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.h</itemPath>
         <itemPath>mcc_generated_files/mcc.h</itemPath>
@@ -18,6 +17,10 @@
       <itemPath>Shift595.h</itemPath>
       <itemPath>Functions.h</itemPath>
       <itemPath>PDU.h</itemPath>
+      <itemPath>UART.h</itemPath>
+      <itemPath>FastTransfer.h</itemPath>
+      <itemPath>Communications.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -30,7 +33,6 @@
                      displayName="MCC Generated Files"
                      projectFiles="true">
         <itemPath>mcc_generated_files/adc.c</itemPath>
-        <itemPath>mcc_generated_files/eusart1.c</itemPath>
         <itemPath>mcc_generated_files/pin_manager.c</itemPath>
         <itemPath>mcc_generated_files/interrupt_manager.c</itemPath>
         <itemPath>mcc_generated_files/mcc.c</itemPath>
@@ -41,6 +43,9 @@
       <itemPath>Shift595.c</itemPath>
       <itemPath>Functions.c</itemPath>
       <itemPath>PDU.c</itemPath>
+      <itemPath>UART.c</itemPath>
+      <itemPath>FastTransfer.c</itemPath>
+      <itemPath>Communications.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
@@ -158,6 +163,7 @@
         <property key="ToolFirmwareFilePath"
                   value="Press to browse for a specific firmware version"/>
         <property key="ToolFirmwareOption.UseLatestFirmware" value="true"/>
+        <property key="firmware.download.all" value="false"/>
         <property key="hwtoolclock.frcindebug" value="false"/>
         <property key="memories.aux" value="false"/>
         <property key="memories.bootflash" value="true"/>

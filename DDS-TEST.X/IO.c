@@ -10,27 +10,33 @@
 
 bool butnarray[8];
 
-void SetLEDOut(int lednum)
+void SetLEDOut(int lednum,bool state)
 {
   switch (lednum)
   {
       case 0:
-          LED0_Toggle();
+          if(state)LED0_SetHigh();
+          else     LED0_SetLow();
           break;
       case 1:
-          LED1_Toggle();
+          if(state)LED1_SetHigh();
+          else     LED1_SetLow();
           break;
       case 2:
-          LED2_Toggle();
+          if(state)LED2_SetHigh();
+          else     LED2_SetLow();
           break;
       case 3:
-          LED3_Toggle();
+          if(state)LED3_SetHigh();
+          else     LED3_SetLow();
           break;
       case 4:
-          LED4_Toggle();
+          if(state)LED4_SetHigh();
+          else     LED4_SetLow();
           break;
       case 5:
-          LED5_Toggle();
+          if(state)LED4_SetHigh();
+          else     LED4_SetLow();
           break;
   }
 }

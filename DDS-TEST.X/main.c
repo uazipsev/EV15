@@ -28,6 +28,7 @@
 #include "IO.h"
 
 void Delay(int wait);
+extern void updateComms();
 
 void main(void)
 {
@@ -64,11 +65,14 @@ void main(void)
     int ADCNT = 1;
     LEDbegin(0x70);
     INDICATOR_SetHigh();
+
+    LATCbits.LATC5=0;
     while (1)
     {
+        updateComms();
        // ADCNT = ADC_GetConversion(Volume);
         // Add your application code
-       printf("ADC Volume = %d",ADCNT);
+       //printf("ADC Volume = %d",ADCNT);
        
        /*
         for (uint8_t b=0; b<24; b++) {
@@ -93,10 +97,10 @@ void main(void)
            ADCNT = 0;
        }
         */
-       if(GetButtonState(4) ==1)
-       {
-           Delay(500);
-       }
+//       if(GetButtonState(4) ==1)
+//       {
+//           Delay(500);
+//       }
     }
 }
 

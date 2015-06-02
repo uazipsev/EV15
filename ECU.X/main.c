@@ -19,6 +19,14 @@ int main(int argc, char** argv) {
     while (1) {
         ledDebug();
         updateComms();
+        //DDS Process Data
+        if(seekButtonChange()){
+            if(buttonArray[START_BUTTON]){
+                changeLEDState(START_LED,1);     
+            }
+        }
+        //SAS Process Data
+
     }
     return (EXIT_SUCCESS);
 }

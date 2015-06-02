@@ -1,6 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"102 mcc_generated_files/..\UART.h
+[s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1183 UART_ring_buff buf head tail count ]
 [p mainexit ]
-"72 mcc_generated_files/mcc.h
+"73 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "17609 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S1110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -26,12 +29,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LEDbegin `(v ~T0 @X0 0 ef1`uc ]
 "18981 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
-"207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"13 IO.h
-[v _GetButtonState `(uc ~T0 @X0 0 ef1`i ]
-"30 main.c
-[v _Delay `(v ~T0 @X0 0 ef1`i ]
+"8046
+[s S489 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S489 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"8056
+[s S490 :1 `uc 1 ]
+[n S490 . LC0 ]
+"8059
+[s S491 :1 `uc 1 :1 `uc 1 ]
+[n S491 . . LC1 ]
+"8063
+[s S492 :2 `uc 1 :1 `uc 1 ]
+[n S492 . . LC2 ]
+"8067
+[s S493 :3 `uc 1 :1 `uc 1 ]
+[n S493 . . LC3 ]
+"8071
+[s S494 :4 `uc 1 :1 `uc 1 ]
+[n S494 . . LC4 ]
+"8075
+[s S495 :5 `uc 1 :1 `uc 1 ]
+[n S495 . . LC5 ]
+"8079
+[s S496 :6 `uc 1 :1 `uc 1 ]
+[n S496 . . LC6 ]
+"8083
+[s S497 :7 `uc 1 :1 `uc 1 ]
+[n S497 . . LC7 ]
+"8045
+[u S488 `S489 1 `S490 1 `S491 1 `S492 1 `S493 1 `S494 1 `S495 1 `S496 1 `S497 1 ]
+[n S488 . . . . . . . . . . ]
+"8088
+[v _LATCbits `VS488 ~T0 @X0 0 e@3979 ]
+"31 main.c
+[v _updateComms `(v ~T0 @X0 0 ef ]
 [v F8800 `(v ~T0 @X0 1 tf1`ul ]
 "161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
 [v __delay `JF8800 ~T0 @X0 0 e ]
@@ -8298,61 +8329,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
-[; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
-[; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
-[; ;eusart1.h: 107: void EUSART1_Initialize(void);
-[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
-[; ;stddef.h: 13: extern int errno;
-[; ;i2c1.h: 40: typedef enum
-[; ;i2c1.h: 41: {
-[; ;i2c1.h: 42: I2C1_MESSAGE_COMPLETE,
-[; ;i2c1.h: 43: I2C1_MESSAGE_FAIL,
-[; ;i2c1.h: 44: I2C1_MESSAGE_PENDING,
-[; ;i2c1.h: 45: I2C1_STUCK_START,
-[; ;i2c1.h: 46: I2C1_MESSAGE_ADDRESS_NO_ACK,
-[; ;i2c1.h: 47: I2C1_DATA_NO_ACK,
-[; ;i2c1.h: 48: I2C1_LOST_STATE
-[; ;i2c1.h: 49: } I2C1_MESSAGE_STATUS;
-[; ;i2c1.h: 65: typedef struct
-[; ;i2c1.h: 66: {
-[; ;i2c1.h: 67: uint16_t address;
-[; ;i2c1.h: 70: uint8_t length;
-[; ;i2c1.h: 71: uint8_t *pbuffer;
-[; ;i2c1.h: 72: } I2C1_TRANSACTION_REQUEST_BLOCK;
-[; ;i2c1.h: 177: void I2C1_Initialize(void);
-[; ;i2c1.h: 216: void I2C1_MasterWrite(
-[; ;i2c1.h: 217: uint8_t *pdata,
-[; ;i2c1.h: 218: uint8_t length,
-[; ;i2c1.h: 219: uint16_t address,
-[; ;i2c1.h: 220: I2C1_MESSAGE_STATUS *pstatus);
-[; ;i2c1.h: 363: void I2C1_MasterRead(
-[; ;i2c1.h: 364: uint8_t *pdata,
-[; ;i2c1.h: 365: uint8_t length,
-[; ;i2c1.h: 366: uint16_t address,
-[; ;i2c1.h: 367: I2C1_MESSAGE_STATUS *pstatus);
-[; ;i2c1.h: 473: void I2C1_MasterTRBInsert(
-[; ;i2c1.h: 474: uint8_t count,
-[; ;i2c1.h: 475: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
-[; ;i2c1.h: 476: I2C1_MESSAGE_STATUS *pflag);
-[; ;i2c1.h: 517: void I2C1_MasterReadTRBBuild(
-[; ;i2c1.h: 518: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
-[; ;i2c1.h: 519: uint8_t *pdata,
-[; ;i2c1.h: 520: uint8_t length,
-[; ;i2c1.h: 521: uint16_t address);
-[; ;i2c1.h: 562: void I2C1_MasterWriteTRBBuild(
-[; ;i2c1.h: 563: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
-[; ;i2c1.h: 564: uint8_t *pdata,
-[; ;i2c1.h: 565: uint8_t length,
-[; ;i2c1.h: 566: uint16_t address);
-[; ;i2c1.h: 604: bool I2C1_MasterQueueIsEmpty(void);
-[; ;i2c1.h: 642: bool I2C1_MasterQueueIsFull(void);
-[; ;i2c1.h: 643: void I2C1_BusCollisionISR( void );
-[; ;i2c1.h: 644: void I2C1_ISR ( void );
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;stdlib.h: 27: typedef struct {
 [; ;stdlib.h: 28: int rem;
 [; ;stdlib.h: 29: int quot;
@@ -8402,6 +8378,103 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
+[; ;..\UART.h: 23: uint8_t EUSART1_Read(void);
+[; ;..\UART.h: 48: void EUSART1_Write(uint8_t txData);
+[; ;..\UART.h: 69: void EUSART1_Transmit_ISR(void);
+[; ;..\UART.h: 90: void EUSART1_Receive_ISR(void);
+[; ;..\UART.h: 92: char getch(void);
+[; ;..\UART.h: 93: void putch(char txData);
+[; ;..\UART.h: 99: extern volatile unsigned int talkTime;
+[; ;..\UART.h: 100: void *memset(void *s, int c, size_t n);
+[; ;..\UART.h: 102: struct UART_ring_buff {
+[; ;..\UART.h: 103: unsigned char buf[200];
+[; ;..\UART.h: 104: int head;
+[; ;..\UART.h: 105: int tail;
+[; ;..\UART.h: 106: int count;
+[; ;..\UART.h: 107: };
+"109 mcc_generated_files/..\UART.h
+[v _input_buffer `S1183 ~T0 @X0 1 e ]
+[; ;..\UART.h: 109: struct UART_ring_buff input_buffer;
+"110
+[v _output_buffer `S1183 ~T0 @X0 1 e ]
+[; ;..\UART.h: 110: struct UART_ring_buff output_buffer;
+"112
+[v _Transmit_stall `uc ~T0 @X0 1 e ]
+[i _Transmit_stall
+-> -> 1 `i `uc
+]
+[; ;..\UART.h: 112: bool Transmit_stall = 1;
+[; ;..\UART.h: 113: void EUSART1_Initialize(void);
+[; ;..\UART.h: 114: void UART_buff_init(struct UART_ring_buff* _this);
+[; ;..\UART.h: 115: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
+[; ;..\UART.h: 116: unsigned char UART_buff_get(struct UART_ring_buff* _this);
+[; ;..\UART.h: 117: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
+[; ;..\UART.h: 118: int UART_buff_size(struct UART_ring_buff* _this);
+[; ;..\UART.h: 119: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;..\UART.h: 120: unsigned char UART_buff_peek(struct UART_ring_buff* _this);
+[; ;..\UART.h: 123: unsigned char Receive_peek(void);
+[; ;..\UART.h: 124: int Receive_available(void);
+[; ;..\UART.h: 125: unsigned char Receive_get(void);
+[; ;..\UART.h: 126: void Send_put(unsigned char _data);
+[; ;stddef.h: 13: extern int errno;
+[; ;i2c1.h: 40: typedef enum
+[; ;i2c1.h: 41: {
+[; ;i2c1.h: 42: I2C1_MESSAGE_COMPLETE,
+[; ;i2c1.h: 43: I2C1_MESSAGE_FAIL,
+[; ;i2c1.h: 44: I2C1_MESSAGE_PENDING,
+[; ;i2c1.h: 45: I2C1_STUCK_START,
+[; ;i2c1.h: 46: I2C1_MESSAGE_ADDRESS_NO_ACK,
+[; ;i2c1.h: 47: I2C1_DATA_NO_ACK,
+[; ;i2c1.h: 48: I2C1_LOST_STATE
+[; ;i2c1.h: 49: } I2C1_MESSAGE_STATUS;
+[; ;i2c1.h: 65: typedef struct
+[; ;i2c1.h: 66: {
+[; ;i2c1.h: 67: uint16_t address;
+[; ;i2c1.h: 70: uint8_t length;
+[; ;i2c1.h: 71: uint8_t *pbuffer;
+[; ;i2c1.h: 72: } I2C1_TRANSACTION_REQUEST_BLOCK;
+[; ;i2c1.h: 177: void I2C1_Initialize(void);
+[; ;i2c1.h: 216: void I2C1_MasterWrite(
+[; ;i2c1.h: 217: uint8_t *pdata,
+[; ;i2c1.h: 218: uint8_t length,
+[; ;i2c1.h: 219: uint16_t address,
+[; ;i2c1.h: 220: I2C1_MESSAGE_STATUS *pstatus);
+[; ;i2c1.h: 363: void I2C1_MasterRead(
+[; ;i2c1.h: 364: uint8_t *pdata,
+[; ;i2c1.h: 365: uint8_t length,
+[; ;i2c1.h: 366: uint16_t address,
+[; ;i2c1.h: 367: I2C1_MESSAGE_STATUS *pstatus);
+[; ;i2c1.h: 473: void I2C1_MasterTRBInsert(
+[; ;i2c1.h: 474: uint8_t count,
+[; ;i2c1.h: 475: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
+[; ;i2c1.h: 476: I2C1_MESSAGE_STATUS *pflag);
+[; ;i2c1.h: 517: void I2C1_MasterReadTRBBuild(
+[; ;i2c1.h: 518: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.h: 519: uint8_t *pdata,
+[; ;i2c1.h: 520: uint8_t length,
+[; ;i2c1.h: 521: uint16_t address);
+[; ;i2c1.h: 562: void I2C1_MasterWriteTRBBuild(
+[; ;i2c1.h: 563: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.h: 564: uint8_t *pdata,
+[; ;i2c1.h: 565: uint8_t length,
+[; ;i2c1.h: 566: uint16_t address);
+[; ;i2c1.h: 604: bool I2C1_MasterQueueIsEmpty(void);
+[; ;i2c1.h: 642: bool I2C1_MasterQueueIsFull(void);
+[; ;i2c1.h: 643: void I2C1_BusCollisionISR( void );
+[; ;i2c1.h: 644: void I2C1_ISR ( void );
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 87: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;mcc.h: 89: extern unsigned char Receive_peek(void);
+[; ;mcc.h: 90: extern int Receive_available(void);
+[; ;mcc.h: 91: extern unsigned char Receive_get(void);
+[; ;mcc.h: 92: extern void Send_put(unsigned char _data);
+[; ;mcc.h: 94: extern volatile int receiveArray[20];
+[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
 "29 LED_BarGraph.h
 [v _displaybuffer `l ~T0 @X0 -> 10 `i e ]
 [; ;LED_BarGraph.h: 29: long int displaybuffer[10];
@@ -8415,110 +8488,98 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;IO.h: 12: extern void ReadButtonState(int btnnum);
 [; ;IO.h: 13: extern bool GetButtonState(int btnnum);
 [; ;main.c: 30: void Delay(int wait);
-"32 main.c
+[; ;main.c: 31: extern void updateComms();
+"33 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"33
+"34
 {
-[; ;main.c: 32: void main(void)
-[; ;main.c: 33: {
+[; ;main.c: 33: void main(void)
+[; ;main.c: 34: {
 [e :U _main ]
 [f ]
-[; ;main.c: 35: SYSTEM_Initialize();
-"35
+[; ;main.c: 36: SYSTEM_Initialize();
+"36
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 54: (INTCONbits.GIE = 1);
-"54
+[; ;main.c: 55: (INTCONbits.GIE = 1);
+"55
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 57: (INTCONbits.PEIE = 1);
-"57
+[; ;main.c: 58: (INTCONbits.PEIE = 1);
+"58
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"64
-[v _ADCNT `i ~T0 @X0 1 a ]
-[; ;main.c: 64: int ADCNT = 1;
-[e = _ADCNT -> 1 `i ]
-[; ;main.c: 65: LEDbegin(0x70);
 "65
-[e ( _LEDbegin (1 -> -> 112 `i `uc ]
-[; ;main.c: 66: do { LATA3 = 1; } while(0);
+[v _ADCNT `i ~T0 @X0 1 a ]
+[; ;main.c: 65: int ADCNT = 1;
+[e = _ADCNT -> 1 `i ]
+[; ;main.c: 66: LEDbegin(0x70);
 "66
-[e :U 1187 ]
+[e ( _LEDbegin (1 -> -> 112 `i `uc ]
+[; ;main.c: 67: do { LATA3 = 1; } while(0);
+"67
+[e :U 1188 ]
 {
 [e = _LATA3 -> -> 1 `i `b ]
 }
-[e :U 1186 ]
-[; ;main.c: 67: while (1)
-"67
-[e :U 1189 ]
-[; ;main.c: 68: {
-"68
-{
-[; ;main.c: 71: printf("ADC Volume = %d",ADCNT);
-"71
-[e ( _printf , (. :s 1C _ADCNT ]
-[; ;main.c: 96: if(GetButtonState(4) ==1)
-"96
-[e $ ! == -> ( _GetButtonState (1 -> 4 `i `i -> 1 `i 1191  ]
-[; ;main.c: 97: {
-"97
-{
-[; ;main.c: 98: Delay(500);
-"98
-[e ( _Delay (1 -> 500 `i ]
-"99
-}
-[e :U 1191 ]
-"100
-}
-[e :U 1188 ]
-"67
-[e $U 1189  ]
+[e :U 1187 ]
+[; ;main.c: 69: LATCbits.LATC5=0;
+"69
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;main.c: 70: while (1)
+"70
 [e :U 1190 ]
-[; ;main.c: 99: }
-[; ;main.c: 100: }
-[; ;main.c: 101: }
-"101
-[e :UE 1184 ]
-}
-"103
-[v _Delay `(v ~T0 @X0 1 ef1`i ]
-"104
+[; ;main.c: 71: {
+"71
 {
-[; ;main.c: 103: void Delay(int wait)
-[; ;main.c: 104: {
-[e :U _Delay ]
-"103
-[v _wait `i ~T0 @X0 1 r1 ]
+[; ;main.c: 72: updateComms();
+"72
+[e ( _updateComms ..  ]
 "104
-[f ]
+}
+[e :U 1189 ]
+"70
+[e $U 1190  ]
+[e :U 1191 ]
+[; ;main.c: 104: }
+[; ;main.c: 105: }
 "105
+[e :UE 1185 ]
+}
+"107
+[v _Delay `(v ~T0 @X0 1 ef1`i ]
+"108
+{
+[; ;main.c: 107: void Delay(int wait)
+[; ;main.c: 108: {
+[e :U _Delay ]
+"107
+[v _wait `i ~T0 @X0 1 r1 ]
+"108
+[f ]
+"109
 [v _x `i ~T0 @X0 1 a ]
-[; ;main.c: 105: int x;
-[; ;main.c: 106: for(x = 0;x<wait;x++)
-"106
+[; ;main.c: 109: int x;
+[; ;main.c: 110: for(x = 0;x<wait;x++)
+"110
 {
 [e = _x -> 0 `i ]
 [e $U 1196  ]
-"107
+"111
 [e :U 1193 ]
-[; ;main.c: 107: {
+[; ;main.c: 111: {
 {
-[; ;main.c: 108: _delay((unsigned long)((1)*(16000000/4000.0)));
-"108
+[; ;main.c: 112: _delay((unsigned long)((1)*(16000000/4000.0)));
+"112
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"109
+"113
 }
-"106
+"110
 [e ++ _x -> 1 `i ]
 [e :U 1196 ]
 [e $ < _x _wait 1193  ]
 [e :U 1194 ]
-"109
+"113
 }
-[; ;main.c: 109: }
-[; ;main.c: 110: }
-"110
+[; ;main.c: 113: }
+[; ;main.c: 114: }
+"114
 [e :UE 1192 ]
 }
-[p f _printf 8388736 ]
-[a 1C 65 68 67 32 86 111 108 117 109 101 32 61 32 37 100 0 ]
-

@@ -15,6 +15,7 @@
       <itemPath>pwm.h</itemPath>
       <itemPath>UART.h</itemPath>
       <itemPath>main.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

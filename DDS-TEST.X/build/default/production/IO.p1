@@ -1,4 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"102 mcc_generated_files/..\UART.h
+[s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1183 UART_ring_buff buf head tail count ]
 "18997 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATB3 `Vb ~T0 @X0 0 e@31827 ]
 "19001
@@ -9,8 +12,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATE2 `Vb ~T0 @X0 0 e@31850 ]
 "19041
 [v _LATE1 `Vb ~T0 @X0 0 e@31849 ]
-"19039
-[v _LATE0 `Vb ~T0 @X0 0 e@31848 ]
 "7240
 [s S434 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S434 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
@@ -8375,61 +8376,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
-[; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
-[; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
-[; ;eusart1.h: 107: void EUSART1_Initialize(void);
-[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
-[; ;stddef.h: 13: extern int errno;
-[; ;i2c1.h: 40: typedef enum
-[; ;i2c1.h: 41: {
-[; ;i2c1.h: 42: I2C1_MESSAGE_COMPLETE,
-[; ;i2c1.h: 43: I2C1_MESSAGE_FAIL,
-[; ;i2c1.h: 44: I2C1_MESSAGE_PENDING,
-[; ;i2c1.h: 45: I2C1_STUCK_START,
-[; ;i2c1.h: 46: I2C1_MESSAGE_ADDRESS_NO_ACK,
-[; ;i2c1.h: 47: I2C1_DATA_NO_ACK,
-[; ;i2c1.h: 48: I2C1_LOST_STATE
-[; ;i2c1.h: 49: } I2C1_MESSAGE_STATUS;
-[; ;i2c1.h: 65: typedef struct
-[; ;i2c1.h: 66: {
-[; ;i2c1.h: 67: uint16_t address;
-[; ;i2c1.h: 70: uint8_t length;
-[; ;i2c1.h: 71: uint8_t *pbuffer;
-[; ;i2c1.h: 72: } I2C1_TRANSACTION_REQUEST_BLOCK;
-[; ;i2c1.h: 177: void I2C1_Initialize(void);
-[; ;i2c1.h: 216: void I2C1_MasterWrite(
-[; ;i2c1.h: 217: uint8_t *pdata,
-[; ;i2c1.h: 218: uint8_t length,
-[; ;i2c1.h: 219: uint16_t address,
-[; ;i2c1.h: 220: I2C1_MESSAGE_STATUS *pstatus);
-[; ;i2c1.h: 363: void I2C1_MasterRead(
-[; ;i2c1.h: 364: uint8_t *pdata,
-[; ;i2c1.h: 365: uint8_t length,
-[; ;i2c1.h: 366: uint16_t address,
-[; ;i2c1.h: 367: I2C1_MESSAGE_STATUS *pstatus);
-[; ;i2c1.h: 473: void I2C1_MasterTRBInsert(
-[; ;i2c1.h: 474: uint8_t count,
-[; ;i2c1.h: 475: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
-[; ;i2c1.h: 476: I2C1_MESSAGE_STATUS *pflag);
-[; ;i2c1.h: 517: void I2C1_MasterReadTRBBuild(
-[; ;i2c1.h: 518: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
-[; ;i2c1.h: 519: uint8_t *pdata,
-[; ;i2c1.h: 520: uint8_t length,
-[; ;i2c1.h: 521: uint16_t address);
-[; ;i2c1.h: 562: void I2C1_MasterWriteTRBBuild(
-[; ;i2c1.h: 563: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
-[; ;i2c1.h: 564: uint8_t *pdata,
-[; ;i2c1.h: 565: uint8_t length,
-[; ;i2c1.h: 566: uint16_t address);
-[; ;i2c1.h: 604: bool I2C1_MasterQueueIsEmpty(void);
-[; ;i2c1.h: 642: bool I2C1_MasterQueueIsFull(void);
-[; ;i2c1.h: 643: void I2C1_BusCollisionISR( void );
-[; ;i2c1.h: 644: void I2C1_ISR ( void );
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
 [; ;stdlib.h: 27: typedef struct {
 [; ;stdlib.h: 28: int rem;
 [; ;stdlib.h: 29: int quot;
@@ -8479,249 +8425,413 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
 [; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
 [; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
+[; ;..\UART.h: 23: uint8_t EUSART1_Read(void);
+[; ;..\UART.h: 48: void EUSART1_Write(uint8_t txData);
+[; ;..\UART.h: 69: void EUSART1_Transmit_ISR(void);
+[; ;..\UART.h: 90: void EUSART1_Receive_ISR(void);
+[; ;..\UART.h: 92: char getch(void);
+[; ;..\UART.h: 93: void putch(char txData);
+[; ;..\UART.h: 99: extern volatile unsigned int talkTime;
+[; ;..\UART.h: 100: void *memset(void *s, int c, size_t n);
+[; ;..\UART.h: 102: struct UART_ring_buff {
+[; ;..\UART.h: 103: unsigned char buf[200];
+[; ;..\UART.h: 104: int head;
+[; ;..\UART.h: 105: int tail;
+[; ;..\UART.h: 106: int count;
+[; ;..\UART.h: 107: };
+"109 mcc_generated_files/..\UART.h
+[v _input_buffer `S1183 ~T0 @X0 1 e ]
+[; ;..\UART.h: 109: struct UART_ring_buff input_buffer;
+"110
+[v _output_buffer `S1183 ~T0 @X0 1 e ]
+[; ;..\UART.h: 110: struct UART_ring_buff output_buffer;
+"112
+[v _Transmit_stall `uc ~T0 @X0 1 e ]
+[i _Transmit_stall
+-> -> 1 `i `uc
+]
+[; ;..\UART.h: 112: bool Transmit_stall = 1;
+[; ;..\UART.h: 113: void EUSART1_Initialize(void);
+[; ;..\UART.h: 114: void UART_buff_init(struct UART_ring_buff* _this);
+[; ;..\UART.h: 115: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
+[; ;..\UART.h: 116: unsigned char UART_buff_get(struct UART_ring_buff* _this);
+[; ;..\UART.h: 117: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
+[; ;..\UART.h: 118: int UART_buff_size(struct UART_ring_buff* _this);
+[; ;..\UART.h: 119: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;..\UART.h: 120: unsigned char UART_buff_peek(struct UART_ring_buff* _this);
+[; ;..\UART.h: 123: unsigned char Receive_peek(void);
+[; ;..\UART.h: 124: int Receive_available(void);
+[; ;..\UART.h: 125: unsigned char Receive_get(void);
+[; ;..\UART.h: 126: void Send_put(unsigned char _data);
+[; ;stddef.h: 13: extern int errno;
+[; ;i2c1.h: 40: typedef enum
+[; ;i2c1.h: 41: {
+[; ;i2c1.h: 42: I2C1_MESSAGE_COMPLETE,
+[; ;i2c1.h: 43: I2C1_MESSAGE_FAIL,
+[; ;i2c1.h: 44: I2C1_MESSAGE_PENDING,
+[; ;i2c1.h: 45: I2C1_STUCK_START,
+[; ;i2c1.h: 46: I2C1_MESSAGE_ADDRESS_NO_ACK,
+[; ;i2c1.h: 47: I2C1_DATA_NO_ACK,
+[; ;i2c1.h: 48: I2C1_LOST_STATE
+[; ;i2c1.h: 49: } I2C1_MESSAGE_STATUS;
+[; ;i2c1.h: 65: typedef struct
+[; ;i2c1.h: 66: {
+[; ;i2c1.h: 67: uint16_t address;
+[; ;i2c1.h: 70: uint8_t length;
+[; ;i2c1.h: 71: uint8_t *pbuffer;
+[; ;i2c1.h: 72: } I2C1_TRANSACTION_REQUEST_BLOCK;
+[; ;i2c1.h: 177: void I2C1_Initialize(void);
+[; ;i2c1.h: 216: void I2C1_MasterWrite(
+[; ;i2c1.h: 217: uint8_t *pdata,
+[; ;i2c1.h: 218: uint8_t length,
+[; ;i2c1.h: 219: uint16_t address,
+[; ;i2c1.h: 220: I2C1_MESSAGE_STATUS *pstatus);
+[; ;i2c1.h: 363: void I2C1_MasterRead(
+[; ;i2c1.h: 364: uint8_t *pdata,
+[; ;i2c1.h: 365: uint8_t length,
+[; ;i2c1.h: 366: uint16_t address,
+[; ;i2c1.h: 367: I2C1_MESSAGE_STATUS *pstatus);
+[; ;i2c1.h: 473: void I2C1_MasterTRBInsert(
+[; ;i2c1.h: 474: uint8_t count,
+[; ;i2c1.h: 475: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
+[; ;i2c1.h: 476: I2C1_MESSAGE_STATUS *pflag);
+[; ;i2c1.h: 517: void I2C1_MasterReadTRBBuild(
+[; ;i2c1.h: 518: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.h: 519: uint8_t *pdata,
+[; ;i2c1.h: 520: uint8_t length,
+[; ;i2c1.h: 521: uint16_t address);
+[; ;i2c1.h: 562: void I2C1_MasterWriteTRBBuild(
+[; ;i2c1.h: 563: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.h: 564: uint8_t *pdata,
+[; ;i2c1.h: 565: uint8_t length,
+[; ;i2c1.h: 566: uint16_t address);
+[; ;i2c1.h: 604: bool I2C1_MasterQueueIsEmpty(void);
+[; ;i2c1.h: 642: bool I2C1_MasterQueueIsFull(void);
+[; ;i2c1.h: 643: void I2C1_BusCollisionISR( void );
+[; ;i2c1.h: 644: void I2C1_ISR ( void );
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 87: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;mcc.h: 89: extern unsigned char Receive_peek(void);
+[; ;mcc.h: 90: extern int Receive_available(void);
+[; ;mcc.h: 91: extern unsigned char Receive_get(void);
+[; ;mcc.h: 92: extern void Send_put(unsigned char _data);
+[; ;mcc.h: 94: extern volatile int receiveArray[20];
+[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
 "11 IO.c
 [v _butnarray `uc ~T0 @X0 -> 8 `i e ]
 [; ;IO.c: 11: bool butnarray[8];
 "13
-[v _SetLEDOut `(v ~T0 @X0 1 ef1`i ]
+[v _SetLEDOut `(v ~T0 @X0 1 ef2`i`uc ]
 "14
 {
-[; ;IO.c: 13: void SetLEDOut(int lednum)
+[; ;IO.c: 13: void SetLEDOut(int lednum,bool state)
 [; ;IO.c: 14: {
 [e :U _SetLEDOut ]
 "13
 [v _lednum `i ~T0 @X0 1 r1 ]
+[v _state `uc ~T0 @X0 1 r2 ]
 "14
 [f ]
 [; ;IO.c: 15: switch (lednum)
 "15
-[e $U 1186  ]
+[e $U 1187  ]
 [; ;IO.c: 16: {
 "16
 {
 [; ;IO.c: 17: case 0:
 "17
-[e :U 1187 ]
-[; ;IO.c: 18: do { LATB3 = ~LATB3; } while(0);
+[e :U 1188 ]
+[; ;IO.c: 18: if(state)do { LATB3 = 1; } while(0);
 "18
-[e :U 1190 ]
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 1189  ]
+[e :U 1192 ]
 {
-[e = _LATB3 -> ~ -> _LATB3 `ui `b ]
+[e = _LATB3 -> -> 1 `i `b ]
 }
-[e :U 1189 ]
-[; ;IO.c: 19: break;
-"19
-[e $U 1185  ]
-[; ;IO.c: 20: case 1:
-"20
 [e :U 1191 ]
-[; ;IO.c: 21: do { LATB5 = ~LATB5; } while(0);
-"21
-[e :U 1194 ]
+[e $U 1193  ]
+"19
+[e :U 1189 ]
+[; ;IO.c: 19: else do { LATB3 = 0; } while(0);
+[e :U 1196 ]
 {
-[e = _LATB5 -> ~ -> _LATB5 `ui `b ]
+[e = _LATB3 -> -> 0 `i `b ]
 }
-[e :U 1193 ]
-[; ;IO.c: 22: break;
-"22
-[e $U 1185  ]
-[; ;IO.c: 23: case 2:
-"23
 [e :U 1195 ]
-[; ;IO.c: 24: do { LATD1 = ~LATD1; } while(0);
-"24
-[e :U 1198 ]
-{
-[e = _LATD1 -> ~ -> _LATD1 `ui `b ]
-}
+[e :U 1193 ]
+[; ;IO.c: 20: break;
+"20
+[e $U 1186  ]
+[; ;IO.c: 21: case 1:
+"21
 [e :U 1197 ]
-[; ;IO.c: 25: break;
-"25
-[e $U 1185  ]
-[; ;IO.c: 26: case 3:
-"26
-[e :U 1199 ]
-[; ;IO.c: 27: do { LATE2 = ~LATE2; } while(0);
-"27
-[e :U 1202 ]
-{
-[e = _LATE2 -> ~ -> _LATE2 `ui `b ]
-}
+[; ;IO.c: 22: if(state)do { LATB5 = 1; } while(0);
+"22
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 1198  ]
 [e :U 1201 ]
-[; ;IO.c: 28: break;
-"28
-[e $U 1185  ]
-[; ;IO.c: 29: case 4:
-"29
-[e :U 1203 ]
-[; ;IO.c: 30: do { LATE1 = ~LATE1; } while(0);
-"30
-[e :U 1206 ]
 {
-[e = _LATE1 -> ~ -> _LATE1 `ui `b ]
+[e = _LATB5 -> -> 1 `i `b ]
 }
+[e :U 1200 ]
+[e $U 1202  ]
+"23
+[e :U 1198 ]
+[; ;IO.c: 23: else do { LATB5 = 0; } while(0);
 [e :U 1205 ]
-[; ;IO.c: 31: break;
-"31
-[e $U 1185  ]
-[; ;IO.c: 32: case 5:
-"32
-[e :U 1207 ]
-[; ;IO.c: 33: do { LATE0 = ~LATE0; } while(0);
-"33
+{
+[e = _LATB5 -> -> 0 `i `b ]
+}
+[e :U 1204 ]
+[e :U 1202 ]
+[; ;IO.c: 24: break;
+"24
+[e $U 1186  ]
+[; ;IO.c: 25: case 2:
+"25
+[e :U 1206 ]
+[; ;IO.c: 26: if(state)do { LATD1 = 1; } while(0);
+"26
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 1207  ]
 [e :U 1210 ]
 {
-[e = _LATE0 -> ~ -> _LATE0 `ui `b ]
+[e = _LATD1 -> -> 1 `i `b ]
 }
 [e :U 1209 ]
-[; ;IO.c: 34: break;
-"34
-[e $U 1185  ]
-"35
-}
-[; ;IO.c: 35: }
-[e $U 1185  ]
-"15
-[e :U 1186 ]
-[e [\ _lednum , $ -> 0 `i 1187
- , $ -> 1 `i 1191
- , $ -> 2 `i 1195
- , $ -> 3 `i 1199
- , $ -> 4 `i 1203
- , $ -> 5 `i 1207
- 1185 ]
-"35
-[e :U 1185 ]
-[; ;IO.c: 36: }
-"36
-[e :UE 1184 ]
-}
-"39
-[v _ReadButtonState `(v ~T0 @X0 1 ef1`i ]
-"40
-{
-[; ;IO.c: 39: void ReadButtonState(int btnnum)
-[; ;IO.c: 40: {
-[e :U _ReadButtonState ]
-"39
-[v _btnnum `i ~T0 @X0 1 r1 ]
-"40
-[f ]
-[; ;IO.c: 41: switch (btnnum)
-"41
-[e $U 1213  ]
-[; ;IO.c: 42: {
-"42
-{
-[; ;IO.c: 43: case 0:
-"43
+[e $U 1211  ]
+"27
+[e :U 1207 ]
+[; ;IO.c: 27: else do { LATD1 = 0; } while(0);
 [e :U 1214 ]
-[; ;IO.c: 44: butnarray[btnnum] = PORTDbits.RD5;
-"44
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTDbits 0 5 ]
-[; ;IO.c: 45: break;
-"45
-[e $U 1212  ]
-[; ;IO.c: 46: case 1:
-"46
+{
+[e = _LATD1 -> -> 0 `i `b ]
+}
+[e :U 1213 ]
+[e :U 1211 ]
+[; ;IO.c: 28: break;
+"28
+[e $U 1186  ]
+[; ;IO.c: 29: case 3:
+"29
 [e :U 1215 ]
-[; ;IO.c: 47: butnarray[btnnum] = PORTBbits.RB0;
-"47
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 0 ]
-[; ;IO.c: 48: break;
-"48
-[e $U 1212  ]
-[; ;IO.c: 49: case 2:
-"49
+[; ;IO.c: 30: if(state)do { LATE2 = 1; } while(0);
+"30
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 1216  ]
+[e :U 1219 ]
+{
+[e = _LATE2 -> -> 1 `i `b ]
+}
+[e :U 1218 ]
+[e $U 1220  ]
+"31
 [e :U 1216 ]
-[; ;IO.c: 50: butnarray[btnnum] = PORTBbits.RB1;
+[; ;IO.c: 31: else do { LATE2 = 0; } while(0);
+[e :U 1223 ]
+{
+[e = _LATE2 -> -> 0 `i `b ]
+}
+[e :U 1222 ]
+[e :U 1220 ]
+[; ;IO.c: 32: break;
+"32
+[e $U 1186  ]
+[; ;IO.c: 33: case 4:
+"33
+[e :U 1224 ]
+[; ;IO.c: 34: if(state)do { LATE1 = 1; } while(0);
+"34
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 1225  ]
+[e :U 1228 ]
+{
+[e = _LATE1 -> -> 1 `i `b ]
+}
+[e :U 1227 ]
+[e $U 1229  ]
+"35
+[e :U 1225 ]
+[; ;IO.c: 35: else do { LATE1 = 0; } while(0);
+[e :U 1232 ]
+{
+[e = _LATE1 -> -> 0 `i `b ]
+}
+[e :U 1231 ]
+[e :U 1229 ]
+[; ;IO.c: 36: break;
+"36
+[e $U 1186  ]
+[; ;IO.c: 37: case 5:
+"37
+[e :U 1233 ]
+[; ;IO.c: 38: if(state)do { LATE1 = 1; } while(0);
+"38
+[e $ ! != -> _state `i -> -> -> 0 `i `uc `i 1234  ]
+[e :U 1237 ]
+{
+[e = _LATE1 -> -> 1 `i `b ]
+}
+[e :U 1236 ]
+[e $U 1238  ]
+"39
+[e :U 1234 ]
+[; ;IO.c: 39: else do { LATE1 = 0; } while(0);
+[e :U 1241 ]
+{
+[e = _LATE1 -> -> 0 `i `b ]
+}
+[e :U 1240 ]
+[e :U 1238 ]
+[; ;IO.c: 40: break;
+"40
+[e $U 1186  ]
+"41
+}
+[; ;IO.c: 41: }
+[e $U 1186  ]
+"15
+[e :U 1187 ]
+[e [\ _lednum , $ -> 0 `i 1188
+ , $ -> 1 `i 1197
+ , $ -> 2 `i 1206
+ , $ -> 3 `i 1215
+ , $ -> 4 `i 1224
+ , $ -> 5 `i 1233
+ 1186 ]
+"41
+[e :U 1186 ]
+[; ;IO.c: 42: }
+"42
+[e :UE 1185 ]
+}
+"45
+[v _ReadButtonState `(v ~T0 @X0 1 ef1`i ]
+"46
+{
+[; ;IO.c: 45: void ReadButtonState(int btnnum)
+[; ;IO.c: 46: {
+[e :U _ReadButtonState ]
+"45
+[v _btnnum `i ~T0 @X0 1 r1 ]
+"46
+[f ]
+[; ;IO.c: 47: switch (btnnum)
+"47
+[e $U 1244  ]
+[; ;IO.c: 48: {
+"48
+{
+[; ;IO.c: 49: case 0:
+"49
+[e :U 1245 ]
+[; ;IO.c: 50: butnarray[btnnum] = PORTDbits.RD5;
 "50
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 1 ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTDbits 0 5 ]
 [; ;IO.c: 51: break;
 "51
-[e $U 1212  ]
-[; ;IO.c: 52: case 3:
+[e $U 1243  ]
+[; ;IO.c: 52: case 1:
 "52
-[e :U 1217 ]
-[; ;IO.c: 53: butnarray[btnnum] = PORTBbits.RB2;
+[e :U 1246 ]
+[; ;IO.c: 53: butnarray[btnnum] = PORTBbits.RB0;
 "53
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 2 ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 0 ]
 [; ;IO.c: 54: break;
 "54
-[e $U 1212  ]
-[; ;IO.c: 55: case 4:
+[e $U 1243  ]
+[; ;IO.c: 55: case 2:
 "55
-[e :U 1218 ]
-[; ;IO.c: 56: butnarray[btnnum] = PORTBbits.RB4;
+[e :U 1247 ]
+[; ;IO.c: 56: butnarray[btnnum] = PORTBbits.RB1;
 "56
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 4 ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 1 ]
 [; ;IO.c: 57: break;
 "57
-[e $U 1212  ]
-[; ;IO.c: 58: case 5:
+[e $U 1243  ]
+[; ;IO.c: 58: case 3:
 "58
-[e :U 1219 ]
-[; ;IO.c: 59: butnarray[btnnum] = PORTAbits.RA0;
+[e :U 1248 ]
+[; ;IO.c: 59: butnarray[btnnum] = PORTBbits.RB2;
 "59
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 0 ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 2 ]
 [; ;IO.c: 60: break;
 "60
-[e $U 1212  ]
-[; ;IO.c: 61: case 6:
+[e $U 1243  ]
+[; ;IO.c: 61: case 4:
 "61
-[e :U 1220 ]
-[; ;IO.c: 62: butnarray[btnnum] = PORTAbits.RA1;
+[e :U 1249 ]
+[; ;IO.c: 62: butnarray[btnnum] = PORTBbits.RB4;
 "62
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 1 ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 4 ]
 [; ;IO.c: 63: break;
 "63
-[e $U 1212  ]
-[; ;IO.c: 64: case 7:
+[e $U 1243  ]
+[; ;IO.c: 64: case 5:
 "64
-[e :U 1221 ]
-[; ;IO.c: 65: butnarray[btnnum] = PORTAbits.RA2;
+[e :U 1250 ]
+[; ;IO.c: 65: butnarray[btnnum] = PORTAbits.RA0;
 "65
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 2 ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 0 ]
 [; ;IO.c: 66: break;
 "66
-[e $U 1212  ]
+[e $U 1243  ]
+[; ;IO.c: 67: case 6:
+"67
+[e :U 1251 ]
+[; ;IO.c: 68: butnarray[btnnum] = PORTAbits.RA1;
 "68
-}
-[; ;IO.c: 68: }
-[e $U 1212  ]
-"41
-[e :U 1213 ]
-[e [\ _btnnum , $ -> 0 `i 1214
- , $ -> 1 `i 1215
- , $ -> 2 `i 1216
- , $ -> 3 `i 1217
- , $ -> 4 `i 1218
- , $ -> 5 `i 1219
- , $ -> 6 `i 1220
- , $ -> 7 `i 1221
- 1212 ]
-"68
-[e :U 1212 ]
-[; ;IO.c: 69: }
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 1 ]
+[; ;IO.c: 69: break;
 "69
-[e :UE 1211 ]
-}
+[e $U 1243  ]
+[; ;IO.c: 70: case 7:
+"70
+[e :U 1252 ]
+[; ;IO.c: 71: butnarray[btnnum] = PORTAbits.RA2;
 "71
-[v _GetButtonState `(uc ~T0 @X0 1 ef1`i ]
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 2 ]
+[; ;IO.c: 72: break;
 "72
-{
-[; ;IO.c: 71: bool GetButtonState(int btnnum)
-[; ;IO.c: 72: {
-[e :U _GetButtonState ]
-"71
-[v _btnnum `i ~T0 @X0 1 r1 ]
-"72
-[f ]
-[; ;IO.c: 73: return butnarray[btnnum-1];
-"73
-[e ) *U + &U _butnarray * -> -> - _btnnum -> 1 `i `ui `ux -> -> # *U &U _butnarray `ui `ux ]
-[e $UE 1222  ]
-[; ;IO.c: 74: }
+[e $U 1243  ]
 "74
-[e :UE 1222 ]
+}
+[; ;IO.c: 74: }
+[e $U 1243  ]
+"47
+[e :U 1244 ]
+[e [\ _btnnum , $ -> 0 `i 1245
+ , $ -> 1 `i 1246
+ , $ -> 2 `i 1247
+ , $ -> 3 `i 1248
+ , $ -> 4 `i 1249
+ , $ -> 5 `i 1250
+ , $ -> 6 `i 1251
+ , $ -> 7 `i 1252
+ 1243 ]
+"74
+[e :U 1243 ]
+[; ;IO.c: 75: }
+"75
+[e :UE 1242 ]
+}
+"77
+[v _GetButtonState `(uc ~T0 @X0 1 ef1`i ]
+"78
+{
+[; ;IO.c: 77: bool GetButtonState(int btnnum)
+[; ;IO.c: 78: {
+[e :U _GetButtonState ]
+"77
+[v _btnnum `i ~T0 @X0 1 r1 ]
+"78
+[f ]
+[; ;IO.c: 79: return butnarray[btnnum-1];
+"79
+[e ) *U + &U _butnarray * -> -> - _btnnum -> 1 `i `ui `ux -> -> # *U &U _butnarray `ui `ux ]
+[e $UE 1253  ]
+[; ;IO.c: 80: }
+"80
+[e :UE 1253 ]
 }
