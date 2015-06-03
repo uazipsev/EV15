@@ -29,6 +29,7 @@ extern "C" {
 #define WHEELSPEED2             5
 #define WHEELSPEED3             6
 #define WHEELSPEED4             7
+#define BUTTONS_DDS             8
 
     //MCS Receive
 #define THROTTLE_OUTPUT         1
@@ -43,13 +44,15 @@ extern "C" {
 
     //DDS Receive
 #define BUTTON_REQUEST          1
+#define LED_DDS                 2
 
 
 
 
 #define DEBUG_ADDRESS 9
 
-#define ERRORS 1
+#define BUS_1_ERROR_DEBUG       1
+#define BUS_2_ERROR_DEBUG       2
 
 #ifdef	__cplusplus
 }
