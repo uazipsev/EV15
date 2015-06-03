@@ -6,6 +6,7 @@
  */
 
 #include <stdio.h>
+#include <stdbool.h>
 #include <stdlib.h>
 #include <xc.h>
 #include "main.h"
@@ -16,14 +17,10 @@
  */
 int main(int argc, char** argv) {
     Setup();
-    int x = 0;
     while(1)
     {
-       x = 0;
-       Delay(100);
-       INDICATOR = 1;
-       Delay(100);
-       INDICATOR = 0;
+        if(receiveData())
+            INDICATOR ^= 1;
     }
 
     return (EXIT_SUCCESS);

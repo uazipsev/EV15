@@ -11,7 +11,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
+extern void sendData(unsigned char whereToSend);
+extern bool receiveData();
+extern void ToSend(const unsigned char where, const unsigned int what);
   extern void Setup(void);
   extern void Delay(int wait);
 

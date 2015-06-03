@@ -4,6 +4,7 @@
 #include "Function.h"
 #include "pps.h"
 #include "pwm.h"
+#include "PinDef.h"
 #include "ADDRESSING.h"
 
 void Setup(void)
@@ -18,16 +19,18 @@ void Setup(void)
 
   PPSUnLock;
 
-  PPSout (_U1TX,_RP23);
   PPSout (_U2TX,_RP7);
   PPSout (_OC1,_RP5);
 
-  //PPSin (_U1RX,_RP22);
   PPSin (_U2RX,_RP6);
 
+    Pin_24_Output = TX1_OUTPUT;
+    RX1_Pin_Map = 25;
   PPSLock;
-
-  begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+  
+  UART_init();
+  begin(receiveArray, sizeof (receiveArray), BMM_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+  
   i2c_init();
   PinSetMode();
   PWM_Init();
@@ -44,7 +47,10 @@ void Delay(int wait)
 
 void PinSetMode(void)
 {
-    TRISBbits.TRISB1 = 0; //Set LED as output
+    TRISBbits.TRISB1  = 0; //Set LED as output
 
-    TRISBbits.TRISB5 = 0;  //Fan control OUT
+    TRISBbits.TRISB5  = 0;  //Fan control OUT
+    
+    TRISBbits.TRISB13 = 0; // RS485 Direction Pin OUTPUT
+    LATBbits.LATB13   = 0;
 }

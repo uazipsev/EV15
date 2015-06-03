@@ -9,6 +9,7 @@
 #include "CoolingControl.h"
 #include "DigiPot.h"
 #include "PinDef.h"
+#include "ADDRESSING.h"
 
 
 void Setup(void)
@@ -32,9 +33,11 @@ void Setup(void)
   PPSLock;
 
 
-
-  i2c_init();
   PinSetMode();
+  UART_init();         
+  begin(receiveArray, sizeof (receiveArray), MCS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+   
+  i2c_init();
   PotClear();
   PWM_Init();
   CoolingStart();
@@ -51,6 +54,13 @@ void Delay(int wait)
 
 void PinSetMode(void)
 {
+    AD1PCFGLbits.PCFG11=1;   
+    
+    LATCbits.LATC6=1;
+    
+    TRISBbits.TRISB13 = 0;
+    LATBbits.LATB13 = 0;
+    
     TRISBbits.TRISB1 = 0; //Set LED as output
     TRISAbits.TRISA0 = 0; //DAC relay OUT
     TRISAbits.TRISA10 = 0; //Set 12v DC/DC enable OUT

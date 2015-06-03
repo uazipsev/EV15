@@ -11,6 +11,15 @@
 #define true 1
 #define false 0
 
+#define RX1_Pin_Tris TRISCbits.TRISC8
+#define TX1_Pin_Tris TRISCbits.TRISC9
+#define RX1_Pin_Port PORTCbits.RC8
+#define TX1_Pin_Port PORTCbits.RC9
+#define RX1_Pin_Map RPINR18bits.U1RXR
+#define RX1_PIN_SET 24
+#define Pin_24_Output RPOR12bits.RP24R
+#define Pin_25_Output RPOR12bits.RP25R
+#define TX1_OUTPUT 3
 /*
  *  RS485 Flow control
  */

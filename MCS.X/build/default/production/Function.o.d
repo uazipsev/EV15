@@ -5,4 +5,5 @@ I2C.h  \
 pwm.h  \
  CoolingControl.h  \
 DigiPot.h  \
-PinDef.h 
+PinDef.h  \
+ADDRESSING.h 
