@@ -102,6 +102,19 @@ void bus2Update(){
                 resetCommTimers2();
             }
             break;
+            case BMM_UPDATE:
+            if (requestBMMData()) {
+                if (receiveCommBMM()) {
+                    commsBus2State++;
+                    resetCommTimers2();
+                }
+            } else {
+                //FLAG ERROR ON MCS COMMS -- Move on
+                BMM_COMMS_ERROR = true;
+                commsBus2State++;
+                resetCommTimers2();
+            }
+            break;
         case CHECK_STATE2:
             if (MCS_COMMS_ERROR) {
                 commsBus2State = ERROR_STATE2;
@@ -142,6 +155,10 @@ void sendErrorCode2() {
         errorState = errorState | 0x01;
         MCS_COMMS_ERROR = false;
     }
+    if (BMM_COMMS_ERROR) {
+        errorState= errorState | 0x02;
+        BMM_COMMS_ERROR = false;
+    }
     ToSend2(BUS_2_ERROR_DEBUG, errorState);
     sendData2(DEBUG_ADDRESS);
 }
@@ -180,6 +197,9 @@ bool requestSASData() {
 bool receiveCommSAS() {
     if (receiveData1()) {
         if (receiveArray1[RESPONSE_ADDRESS] == SAS_ADDRESS) {
+            throttle1=receiveArray1[THROTTLE1_SAS];
+            throttle2=receiveArray1[THROTTLE2_SAS];
+            brake=receiveArray1[BRAKE_SAS];
             readyToSendSAS = true;
             SASTimer = 0;
             return true;
@@ -284,7 +304,36 @@ bool receiveCommPDU() {
         } else return false;
     } else return false;
 }
+bool requestBMMData() {
+    if (((BMMTimer > 50) && (readyToSendBMM)) || (BMMTimer > 100)) {
+        static int BMMErrorCounter = 0;
+        if (!readyToSendBMM) {
+            BMMErrorCounter++;
+            if (BMMErrorCounter > 5) {
+                BMMErrorCounter = 0;
+                return false;
+            }
+        } else {
+            BMMErrorCounter = 0;
+            readyToSendBMM = false;
+        }
+        BMMTimer = 0;
+        RS485_Direction2(TALK);
+        ToSend(RESPONSE_ADDRESS, ECU_ADDRESS);
+        sendData(BMM_ADDRESS);
+    }
+    return true;
+}
 
+bool receiveCommBMM() {
+    if (receiveData()) {
+        if (receiveArray[RESPONSE_ADDRESS] == BMM_ADDRESS) {
+            readyToSendBMM = true;
+            BMMTimer = 0;
+            return true;
+        } else return false;
+    } else return false;
+}
 
 void checkCommDirection() {   
     //you have finished send and time has elapsed.. start listen

@@ -20,13 +20,13 @@ void UART_init(void)
     U1STAbits.URXISEL = 0b00; // Interrupt after one RX character is received
     IFS0bits.U1RXIF = 0; // Clear RX interrupt flag
     IFS0bits.U1TXIF = 0; // Clear TX interrupt flag
-    IEC0bits.U1RXIE = 1; // Enable RX interrupt
-    IEC0bits.U1TXIE = 1; // Enable TX interrupt
     U1MODEbits.UARTEN = 1; // Enable UART
     U1STAbits.UTXEN = 1; // Enable UART TX
 
     UART_buff_init(&input_buffer);
     UART_buff_init(&output_buffer);
+    IEC0bits.U1RXIE = 1; // Enable RX interrupt
+    IEC0bits.U1TXIE = 1; // Enable TX interrupt
 }
 
 void UART_buff_init(struct UART_ring_buff* _this)

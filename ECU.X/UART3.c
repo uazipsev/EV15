@@ -26,11 +26,11 @@ void UART3_init(void) {
     IFS5bits.U4TXIF = 0; // Clear TX interrupt flag
     IEC5bits.U4RXIE = 1; // Enable RX interrupt
     IEC5bits.U4TXIE = 1; // Enable TX interrupt
-    U4MODEbits.UARTEN = 1; // Enable UART
-    U4STAbits.UTXEN = 1; // Enable UART TX
 
     UART3_buff_init(&input_buffer3);
     UART3_buff_init(&output_buffer3);
+    U4MODEbits.UARTEN = 1; // Enable UART
+    U4STAbits.UTXEN = 1; // Enable UART TX
 }
 
 void UART3_buff_init(struct UART3_ring_buff* _this) {

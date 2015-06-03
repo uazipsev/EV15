@@ -10,6 +10,7 @@
 bool PrepSend;
 
 volatile unsigned int LEDtime=0,talkTime=0;
-
+volatile unsigned int ADCbuffer[6];
+bool ADCDataReady = false;
 #endif	/* INTERRUPT_HANDLER_H */
 

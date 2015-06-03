@@ -19,16 +19,17 @@ extern "C" {
 #define DDS_ADDRESS 3
 #define MCS_ADDRESS 4
 #define PDU_ADDRESS 5
+#define BMM_ADDRESS 6
 
     //ECU Data
 #define RESPONSE_ADDRESS        0
-#define THROTTLE1               1
-#define THROTTLE2               2
-#define BRAKE                   3
-#define WHEELSPEED1             4
-#define WHEELSPEED2             5
-#define WHEELSPEED3             6
-#define WHEELSPEED4             7
+#define THROTTLE1_SAS           1
+#define THROTTLE2_SAS           2
+#define BRAKE_SAS               3
+#define WHEELSPEED1_SAS         4
+#define WHEELSPEED2_SAS         5
+#define WHEELSPEED3_SAS         6
+#define WHEELSPEED4_SAS         7
 #define BUTTONS_DDS             8
 
     //MCS Receive

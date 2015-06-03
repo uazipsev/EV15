@@ -9,9 +9,6 @@
 
 void UART1_init(void)
 {
-//    LATDbits.LATD1 = 1;
-//    LATDbits.LATD2 = 1;
-
     // UART config
     U2MODEbits.STSEL = 0; // 1-stop bit
     U2MODEbits.PDSEL = 0; // No parity, 8-data bits

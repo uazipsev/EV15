@@ -23,13 +23,14 @@ extern "C" {
 
     //ECU Data
 #define RESPONSE_ADDRESS        0
-#define THROTTLE1               1
-#define THROTTLE2               2
+#define THROTTLE1_SAS           1
+#define THROTTLE2_SAS           2
 #define BRAKE_SAS               3
-#define WHEELSPEED1             4
-#define WHEELSPEED2             5
-#define WHEELSPEED3             6
-#define WHEELSPEED4             7
+#define WHEELSPEED1_SAS         4
+#define WHEELSPEED2_SAS         5
+#define WHEELSPEED3_SAS         6
+#define WHEELSPEED4_SAS         7
+#define BUTTONS_DDS             8
 
     //MCS Receive
 #define THROTTLE_OUTPUT         1
@@ -44,13 +45,15 @@ extern "C" {
 
     //DDS Receive
 #define BUTTON_REQUEST          1
+#define LED_DDS                 2
 
 
 
 
 #define DEBUG_ADDRESS 9
 
-#define ERRORS 1
+#define BUS_1_ERROR_DEBUG       1
+#define BUS_2_ERROR_DEBUG       2
 
 #ifdef	__cplusplus
 }

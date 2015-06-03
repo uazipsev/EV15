@@ -12,5 +12,8 @@ void initADC(void);
 void GetADC(void);
 void SetADC(void);
 
+void handleADCValues();
+extern volatile unsigned int ADCbuffer[6];
+unsigned int throttle1,throttle2,brake;
 #endif	/* ADC_H */
 

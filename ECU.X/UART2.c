@@ -27,11 +27,11 @@ void UART2_init(void) {
     IFS5bits.U3TXIF = 0; // Clear TX interrupt flag
     IEC5bits.U3RXIE = 1; // Enable RX interrupt
     IEC5bits.U3TXIE = 1; // Enable TX interrupt
+    UART2_buff_init(&input_buffer2);
+    UART2_buff_init(&output_buffer2);
     U3MODEbits.UARTEN = 1; // Enable UART
     U3STAbits.UTXEN = 1; // Enable UART TX
 
-    UART2_buff_init(&input_buffer2);
-    UART2_buff_init(&output_buffer2);
 }
 
 void UART2_buff_init(struct UART2_ring_buff* _this) {

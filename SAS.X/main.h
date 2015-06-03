@@ -11,7 +11,10 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
+    extern unsigned int throttle1,throttle2,brake;
+extern void handleADCValues();
+extern bool ADCDataReady;
+void checkCommDirection();
 void ledDebug();
 void prepAndSendData();
 extern bool Transmit_stall;
