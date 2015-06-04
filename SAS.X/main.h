@@ -11,23 +11,21 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    extern unsigned int throttle1,throttle2,brake;
-extern void handleADCValues();
-extern bool ADCDataReady;
-void checkCommDirection();
-void ledDebug();
-void prepAndSendData();
-extern bool Transmit_stall;
-extern volatile unsigned int talkTime;
-extern volatile unsigned int LEDtime;
-extern volatile int receiveArray[20];
+    extern volatile bool ADCSamp;
+    extern void handleADCValues();
+    extern volatile bool ADCDataReady;
+    extern volatile unsigned int LEDtime, ADCTime;
 
-extern void Delay(int ms);
-extern void Setup(void);
+    void ledDebug() {
+        if (LEDtime > 1000) {
+            LED ^= 1;
+            LEDtime = 0;
+        }
+    }
+    extern void updateComms();
+    extern void Delay(int ms);
+    extern void Setup(void);
 
-extern void sendData(unsigned char whereToSend);
-extern bool receiveData();
-extern void ToSend(const unsigned char where, const unsigned int what);
 #ifdef	__cplusplus
 }
 #endif

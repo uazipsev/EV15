@@ -103,12 +103,12 @@ Program Memory  [Origin = 0x200, Length = 0x15600]
 section                    address   length (PC units)   length (bytes) (dec)
 -------                    -------   -----------------   --------------------
 .text                        0x200               0x390           0x558  (1368)
-.text                        0x590               0xc32          0x124b  (4683)
-.dinit                      0x11c2                0x40            0x60  (96)
-.text                       0x1202                0x3c            0x5a  (90)
-.init.delay32               0x123e                0x1c            0x2a  (42)
+.text                        0x590               0xc34          0x124e  (4686)
+.dinit                      0x11c4                0x40            0x60  (96)
+.text                       0x1204                0x3c            0x5a  (90)
+.init.delay32               0x1240                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x1887  (6279) 4%
+                     Total program memory used (bytes):         0x188a  (6282) 4%
 
 
 Data Memory  [Origin = 0x800, Length = 0x4000]
@@ -266,20 +266,20 @@ External Symbols in Program Memory (by address):
                   0x000e96                  __U1RXInterrupt
                   0x000ebc                  __U1TXInterrupt
                   0x000ef6                  _Setup
-                  0x000f9a                  _Delay
-                  0x000fb8                  _PinSetMode
-                  0x000fca                  _i2c_wait
-                  0x000fe0                  _i2c_Write
-                  0x001084                  _i2c_init
-                  0x00109e                  _PWM_Init
-                  0x0010ea                  _Timmer2Init
-                  0x001108                  _PWM1update
-                  0x001134                  _PWM2update
-                  0x001160                  _updateComms
-                  0x0011a2                  _checkCommDirection
-                  0x001202                  _ledDebug
-                  0x001230                  _main
-                  0x00123e                  ___delay32
+                  0x000f9c                  _Delay
+                  0x000fba                  _PinSetMode
+                  0x000fcc                  _i2c_wait
+                  0x000fe2                  _i2c_Write
+                  0x001086                  _i2c_init
+                  0x0010a0                  _PWM_Init
+                  0x0010ec                  _Timmer2Init
+                  0x00110a                  _PWM1update
+                  0x001136                  _PWM2update
+                  0x001162                  _updateComms
+                  0x0011a4                  _checkCommDirection
+                  0x001204                  _ledDebug
+                  0x001232                  _main
+                  0x001240                  ___delay32
                   0xf80000                  __FBS.sec
                   0xf80002                  __FSS.sec
                   0xf80004                  __FGS.sec
@@ -290,7 +290,7 @@ External Symbols in Program Memory (by name):
                   0x0005dc                  _CRC8
                   0x000b12                  _CRCError
                   0x000c34                  _CRCcheck
-                  0x000f9a                  _Delay
+                  0x000f9c                  _Delay
                   0x000a80                  _FastTransfer_buffer_flush
                   0x000a42                  _FastTransfer_buffer_get
                   0x000aac                  _FastTransfer_buffer_modulo_inc
@@ -298,10 +298,10 @@ External Symbols in Program Memory (by name):
                   0x00035e                  _IdleI2C1
                   0x00039e                  _MasterWriteI2C1
                   0x00037c                  _MasterputsI2C1
-                  0x001108                  _PWM1update
-                  0x001134                  _PWM2update
-                  0x00109e                  _PWM_Init
-                  0x000fb8                  _PinSetMode
+                  0x00110a                  _PWM1update
+                  0x001136                  _PWM2update
+                  0x0010a0                  _PWM_Init
+                  0x000fba                  _PinSetMode
                   0x000e52                  _Receive_available
                   0x000e60                  _Receive_get
                   0x000e44                  _Receive_peek
@@ -309,7 +309,7 @@ External Symbols in Program Memory (by name):
                   0x000ef6                  _Setup
                   0x0003bc                  _StartI2C1
                   0x0003c0                  _StopI2C1
-                  0x0010ea                  _Timmer2Init
+                  0x0010ec                  _Timmer2Init
                   0x0009a0                  _ToSend
                   0x000dda                  _UART_buff_flush
                   0x000d9c                  _UART_buff_get
@@ -327,7 +327,7 @@ External Symbols in Program Memory (by name):
                   0x0002c0                  __T2Interrupt
                   0x000e96                  __U1RXInterrupt
                   0x000ebc                  __U1TXInterrupt
-                  0x00123e                  ___delay32
+                  0x001240                  ___delay32
                   0x00023c                  __data_init
                   0x00023c                  __data_init_standard
                   0x00022c                  __psv_init
@@ -335,26 +335,26 @@ External Symbols in Program Memory (by name):
                   0x000b1c                  _addressError
                   0x000b08                  _alignError
                   0x000590                  _begin
-                  0x0011a2                  _checkCommDirection
+                  0x0011a4                  _checkCommDirection
                   0x000bd6                  _crcBufS_get
                   0x000b30                  _crcBufS_put
                   0x000b88                  _crcBufS_status_put
                   0x000b26                  _dataAddressError
                   0x0004e0                  _free
-                  0x000fe0                  _i2c_Write
-                  0x001084                  _i2c_init
-                  0x000fca                  _i2c_wait
+                  0x000fe2                  _i2c_Write
+                  0x001086                  _i2c_init
+                  0x000fcc                  _i2c_wait
                   0x0002d2                  _initTimerOne
                   0x0002f2                  _initTimerTwo
-                  0x001202                  _ledDebug
-                  0x001230                  _main
+                  0x001204                  _ledDebug
+                  0x001232                  _main
                   0x0003c4                  _malloc
                   0x000574                  _memcpy
                   0x000582                  _memset
                   0x0004f6                  _realloc
                   0x0006bc                  _receiveData
                   0x000644                  _sendData
-                  0x001160                  _updateComms
+                  0x001162                  _updateComms
 
 Memory Configuration
 
@@ -518,17 +518,17 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x3efe
+.debug_info       0x000000       0x408d
  *(.debug_info)
  .debug_info      0x000000         0xaf build/default/production/ConfigBits.o
  .debug_info      0x0000af        0xce4 build/default/production/FastTransfer.o
- .debug_info      0x000d93        0xfd8 build/default/production/Function.o
- .debug_info      0x001d6b        0x30f build/default/production/main.o
- .debug_info      0x00207a        0x51d build/default/production/pwm.o
- .debug_info      0x002597        0x3c9 build/default/production/I2C.o
- .debug_info      0x002960        0xb74 build/default/production/UART.o
- .debug_info      0x0034d4        0x6fa build/default/production/Timers.o
- .debug_info      0x003bce        0x330 build/default/production/Communications.o
+ .debug_info      0x000d93       0x1167 build/default/production/Function.o
+ .debug_info      0x001efa        0x30f build/default/production/main.o
+ .debug_info      0x002209        0x51d build/default/production/pwm.o
+ .debug_info      0x002726        0x3c9 build/default/production/I2C.o
+ .debug_info      0x002aef        0xb74 build/default/production/UART.o
+ .debug_info      0x003663        0x6fa build/default/production/Timers.o
+ .debug_info      0x003d5d        0x330 build/default/production/Communications.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x90a
@@ -543,17 +543,17 @@ __FUID3
  .debug_abbrev    0x000771         0xfc build/default/production/Timers.o
  .debug_abbrev    0x00086d         0x9d build/default/production/Communications.o
 
-.debug_line       0x000000       0x1658
+.debug_line       0x000000       0x1660
  *(.debug_line)
  .debug_line      0x000000         0x24 build/default/production/ConfigBits.o
  .debug_line      0x000024        0x8b0 build/default/production/FastTransfer.o
- .debug_line      0x0008d4        0x1b6 build/default/production/Function.o
- .debug_line      0x000a8a         0xfe build/default/production/main.o
- .debug_line      0x000b88        0x1f5 build/default/production/pwm.o
- .debug_line      0x000d7d        0x233 build/default/production/I2C.o
- .debug_line      0x000fb0        0x3ac build/default/production/UART.o
- .debug_line      0x00135c        0x1bc build/default/production/Timers.o
- .debug_line      0x001518        0x140 build/default/production/Communications.o
+ .debug_line      0x0008d4        0x1be build/default/production/Function.o
+ .debug_line      0x000a92         0xfe build/default/production/main.o
+ .debug_line      0x000b90        0x1f5 build/default/production/pwm.o
+ .debug_line      0x000d85        0x233 build/default/production/I2C.o
+ .debug_line      0x000fb8        0x3ac build/default/production/UART.o
+ .debug_line      0x001364        0x1bc build/default/production/Timers.o
+ .debug_line      0x001520        0x140 build/default/production/Communications.o
 
 .debug_frame      0x000000        0x3c0
  *(.debug_frame)
@@ -566,16 +566,16 @@ __FUID3
  .debug_frame     0x000338         0x54 build/default/production/Timers.o
  .debug_frame     0x00038c         0x34 build/default/production/Communications.o
 
-.debug_str        0x000000        0x29b
+.debug_str        0x000000        0x2a7
  *(.debug_str)
  .debug_str       0x000000        0x13c build/default/production/FastTransfer.o
- .debug_str       0x00013c         0x76 build/default/production/Function.o
- .debug_str       0x0001b2          0x9 build/default/production/main.o
- .debug_str       0x0001bb         0x20 build/default/production/pwm.o
- .debug_str       0x0001db          0xd build/default/production/I2C.o
- .debug_str       0x0001e8         0x57 build/default/production/UART.o
- .debug_str       0x00023f         0x2f build/default/production/Timers.o
- .debug_str       0x00026e         0x2d build/default/production/Communications.o
+ .debug_str       0x00013c         0x82 build/default/production/Function.o
+ .debug_str       0x0001be          0x9 build/default/production/main.o
+ .debug_str       0x0001c7         0x20 build/default/production/pwm.o
+ .debug_str       0x0001e7          0xd build/default/production/I2C.o
+ .debug_str       0x0001f4         0x57 build/default/production/UART.o
+ .debug_str       0x00024b         0x2f build/default/production/Timers.o
+ .debug_str       0x00027a         0x2d build/default/production/Communications.o
 
 .debug_loc
  *(.debug_loc)
@@ -1887,72 +1887,72 @@ LOAD heap
 LOAD data_init
 
 .debug_pubtypes
-                  0x0000c0        0x3cc
+                  0x0000c0        0x3ef
  .debug_pubtypes
                   0x0000c0         0x12 build/default/production/ConfigBits.o
  .debug_pubtypes
                   0x0000d2         0x54 build/default/production/FastTransfer.o
  .debug_pubtypes
-                  0x000126        0x135 build/default/production/Function.o
+                  0x000126        0x158 build/default/production/Function.o
  .debug_pubtypes
-                  0x00025b         0x2f build/default/production/main.o
+                  0x00027e         0x2f build/default/production/main.o
  .debug_pubtypes
-                  0x00028a         0x73 build/default/production/pwm.o
+                  0x0002ad         0x73 build/default/production/pwm.o
  .debug_pubtypes
-                  0x0002fd         0x37 build/default/production/I2C.o
+                  0x000320         0x37 build/default/production/I2C.o
  .debug_pubtypes
-                  0x000334         0x9f build/default/production/UART.o
+                  0x000357         0x9f build/default/production/UART.o
  .debug_pubtypes
-                  0x0003d3         0x8a build/default/production/Timers.o
+                  0x0003f6         0x8a build/default/production/Timers.o
  .debug_pubtypes
-                  0x00045d         0x2f build/default/production/Communications.o
+                  0x000480         0x2f build/default/production/Communications.o
 
 __c30_signature
-                  0x00048c         0x84
+                  0x0004af         0x84
  __c30_signature
-                  0x00048c          0x6 build/default/production/ConfigBits.o
+                  0x0004af          0x6 build/default/production/ConfigBits.o
  __c30_signature
-                  0x000492          0x6 build/default/production/FastTransfer.o
+                  0x0004b5          0x6 build/default/production/FastTransfer.o
  __c30_signature
-                  0x000498          0x6 build/default/production/Function.o
+                  0x0004bb          0x6 build/default/production/Function.o
  __c30_signature
-                  0x00049e          0x6 build/default/production/main.o
+                  0x0004c1          0x6 build/default/production/main.o
  __c30_signature
-                  0x0004a4          0x6 build/default/production/pwm.o
+                  0x0004c7          0x6 build/default/production/pwm.o
  __c30_signature
-                  0x0004aa          0x6 build/default/production/I2C.o
+                  0x0004cd          0x6 build/default/production/I2C.o
  __c30_signature
-                  0x0004b0          0x6 build/default/production/UART.o
+                  0x0004d3          0x6 build/default/production/UART.o
  __c30_signature
-                  0x0004b6          0x6 build/default/production/Timers.o
+                  0x0004d9          0x6 build/default/production/Timers.o
  __c30_signature
-                  0x0004bc          0x6 build/default/production/Communications.o
+                  0x0004df          0x6 build/default/production/Communications.o
  __c30_signature
-                  0x0004c2          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(IdleI2C1.o)
+                  0x0004e5          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(IdleI2C1.o)
  __c30_signature
-                  0x0004c8          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterputsI2C1.o)
+                  0x0004eb          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterputsI2C1.o)
  __c30_signature
-                  0x0004ce          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterWriteI2C1.o)
+                  0x0004f1          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(MasterWriteI2C1.o)
  __c30_signature
-                  0x0004d4          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StartI2C1.o)
+                  0x0004f7          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StartI2C1.o)
  __c30_signature
-                  0x0004da          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StopI2C1.o)
+                  0x0004fd          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib/dsPIC33F\libp33FJ128GP804-elf.a(StopI2C1.o)
  __c30_signature
-                  0x0004e0          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
+                  0x000503          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(crt0_standard.o)
  __c30_signature
-                  0x0004e6          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
+                  0x000509          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(data_init_standard.o)
  __c30_signature
-                  0x0004ec          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x00050f          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
  __c30_signature
-                  0x0004f2          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
+                  0x000515          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(malloc.eo)
  __c30_signature
-                  0x0004f8          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
+                  0x00051b          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memcpy.eo)
  __c30_signature
-                  0x0004fe          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
+                  0x000521          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libc-elf.a(memset.eo)
  __c30_signature
-                  0x000504          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
+                  0x000527          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(sbrk.eo)
  __c30_signature
-                  0x00050a          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
+                  0x00052d          0x6 c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(brk.elo)
 
 .nbss               0x0800        0x2ca
  .nbss              0x0800        0x19c build/default/production/UART.o
@@ -2035,7 +2035,7 @@ __c30_signature
 .config_IESO      0xf80006          0x2
  .config_IESO     0xf80006          0x2 build/default/production/ConfigBits.o
 
-.text             0x000590        0xc32
+.text             0x000590        0xc34
  .text            0x000590        0x758 build/default/production/FastTransfer.o
                   0x000590                  _begin
                   0x0005dc                  _CRC8
@@ -2070,31 +2070,31 @@ __c30_signature
                   0x000e6e                  _Send_put
                   0x000e96                  __U1RXInterrupt
                   0x000ebc                  __U1TXInterrupt
- .text            0x000ef6         0xd4 build/default/production/Function.o
+ .text            0x000ef6         0xd6 build/default/production/Function.o
                   0x000ef6                  _Setup
-                  0x000f9a                  _Delay
-                  0x000fb8                  _PinSetMode
- .text            0x000fca         0xd4 build/default/production/I2C.o
-                  0x000fca                  _i2c_wait
-                  0x000fe0                  _i2c_Write
-                  0x001084                  _i2c_init
- .text            0x00109e         0xc2 build/default/production/pwm.o
-                  0x00109e                  _PWM_Init
-                  0x0010ea                  _Timmer2Init
-                  0x001108                  _PWM1update
-                  0x001134                  _PWM2update
- .text            0x001160         0x62 build/default/production/Communications.o
-                  0x001160                  _updateComms
-                  0x0011a2                  _checkCommDirection
+                  0x000f9c                  _Delay
+                  0x000fba                  _PinSetMode
+ .text            0x000fcc         0xd4 build/default/production/I2C.o
+                  0x000fcc                  _i2c_wait
+                  0x000fe2                  _i2c_Write
+                  0x001086                  _i2c_init
+ .text            0x0010a0         0xc2 build/default/production/pwm.o
+                  0x0010a0                  _PWM_Init
+                  0x0010ec                  _Timmer2Init
+                  0x00110a                  _PWM1update
+                  0x001136                  _PWM2update
+ .text            0x001162         0x62 build/default/production/Communications.o
+                  0x001162                  _updateComms
+                  0x0011a4                  _checkCommDirection
 
-.dinit            0x0011c2         0x40
- .dinit           0x0011c2         0x40 data_init
+.dinit            0x0011c4         0x40
+ .dinit           0x0011c4         0x40 data_init
 
-.text             0x001202         0x3c
- .text            0x001202         0x3c build/default/production/main.o
-                  0x001202                  _ledDebug
-                  0x001230                  _main
+.text             0x001204         0x3c
+ .text            0x001204         0x3c build/default/production/main.o
+                  0x001204                  _ledDebug
+                  0x001232                  _main
 
-.init.delay32     0x00123e         0x1c
- .init.delay32    0x00123e         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
-                  0x00123e                  ___delay32
+.init.delay32     0x001240         0x1c
+ .init.delay32    0x001240         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32.eo)
+                  0x001240                  ___delay32

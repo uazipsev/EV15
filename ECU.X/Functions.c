@@ -25,6 +25,8 @@ void Setup(void) {
     CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
+    INTCON1bits.NSTDIS=1; //No nesting of interrupts
+
     PPSUnLock;
     //RX0/TX0  -- RS485-1 (U3) --SAS -DDS
     Pin_42_Output = TX1_Output;
@@ -44,6 +46,7 @@ void Setup(void) {
 
     PPSout(_OC1, _RP37);
     PPSLock;
+
 
     UART_init();
     UART1_init();

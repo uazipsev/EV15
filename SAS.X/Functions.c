@@ -20,32 +20,22 @@ void Setup(void) {
 
 
     //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
-
-    PPSUnLock;
-    Pin_23_Output = TX1_OUTPUT;
-    RX1_Pin_Map = 22;
-
-    Pin_8_Output = TX2_OUTPUT;
-    RX2_Pin_Map = 7;
-
-    PPSLock;
-
-    UART_init();
-    //UART1_init();
-    begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
-    //begin(receiveArray1, sizeof (receiveArray1), SAS_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
-
-    initADC();
     timerOne();
     timerTwo();
+    UART_init();
+    begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+    //UART1_init();
+    //begin(receiveArray1, sizeof (receiveArray1), SAS_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
+
+    //initADC();
 }
 
 void timerOne(void)
 {
     T1CONbits.TON = 0; // turn off timer
     T1CONbits.TCS = 0;  //internal instruction clock (36,000,000 Hertz)
-    T1CONbits.TCKPS = 0b10;  //0b10 - 64 divider 0-1:1
-    PR1 = 586; //37500// 0.001s timer
+    T1CONbits.TCKPS = 0b10;  //11/10 /01  /00   //0b10 - 64 divider 0-1:1
+    PR1 = 586;             //75/600/4500/37500// 0.001s timer
     IFS0bits.T1IF = 0; // clear interrupt flag
     IEC0bits.T1IE = 1; // enable timer 1 interrupt
     T1CONbits.TON = 1; // turn on timer
@@ -60,7 +50,7 @@ void timerTwo(void)
     T2CONbits.TGATE = 0; //disable gated timer mode
     T2CONbits.TCKPS = 0b11; // 1:256 prescalar    60MHz/256= 234.375KHz (4.266us)
     TMR2 = 0x00; //clear timer register
-    PR2 = 300; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
+    PR2 = 65535; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
     IFS0bits.T2IF = 0; // clear timer2 interrupt flag
     IEC0bits.T2IE = 1; // enable timer2 interrupt
     T2CONbits.TON = 1; //enable timer 2
@@ -106,13 +96,21 @@ void timerTwo(void)
 
 void PinSetMode(void) {
     LED_Tris     = OUTPUT;
-    LED_Port     = OUTPUT; // LED indicator OUT
+    LED_Port          = 1; // LED indicator OUT
     RS485_1_Tris = OUTPUT; //RS485 Flow OUT
     RS485_1_Port = LISTEN;
     RX1_Pin_Tris = INPUT;
     RX1_Pin_Port = 1;
 
 
+    PPSUnLock;
+    Pin_23_Output = TX1_OUTPUT;
+    RX1_Pin_Map = 22;
+
+    Pin_8_Output = TX2_OUTPUT;
+    RX2_Pin_Map = 7;
+
+    PPSLock;
 }
 
 void Delay(int wait) {

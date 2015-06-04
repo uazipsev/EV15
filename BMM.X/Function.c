@@ -11,7 +11,7 @@ void Setup(void) {
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
 
-    //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
+    INTCON1bits.NSTDIS = 1; //no nesting of interrupts
 
     PPSUnLock;
     PPSout(_U2TX, _RP7);
