@@ -11,11 +11,26 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-extern void sendData(unsigned char whereToSend);
-extern bool receiveData();
-extern void ToSend(const unsigned char where, const unsigned int what);
-  extern void Setup(void);
-  extern void Delay(int wait);
+
+#include <stdio.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <xc.h>
+#include "PinDef.h"
+#include "ADDRESSING.h"
+
+    extern void Setup(void);
+    extern void Delay(int wait);
+
+    extern void updateComms();
+    extern volatile unsigned int LEDtime;
+
+    void ledDebug() {
+        if (LEDtime > 2) {
+            INDICATOR = !INDICATOR;
+            LEDtime = 0;
+        }
+    }
 
 #ifdef	__cplusplus
 }

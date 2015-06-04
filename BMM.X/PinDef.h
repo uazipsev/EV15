@@ -28,7 +28,7 @@
 /*
  *    LED :)
  */
-#define INDICATOR _LATB1
+#define INDICATOR LATBbits.LATB1
 
 /*
  *   Motor Control Pins

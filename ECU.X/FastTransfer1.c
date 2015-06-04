@@ -100,10 +100,10 @@ bool receiveData1() {
                     addressErrorCounter1++; // increments a counter whenever the wrong address is received
                     //if the address does not match the buffer is flushed for the size of
                     //the data packet plus one for the CRC
-                    int u;
-                    for (u = 0; u <= (rx_len1 + 1); u++) {
+                    //int u;
+                    //for (u = 0; u <= (rx_len1 + 1); u++) {
                         serial_read1();
-                    }
+                    //}
                     rx_len1 = 0; // reset length
                     return false;
                 }

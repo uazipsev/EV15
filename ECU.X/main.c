@@ -14,6 +14,9 @@
 #include "main.h"
 #define TRIP_THROTTLE 10
 #define TRIP_BRAKE    10
+
+void setMCSOutputs(unsigned int t1, unsigned int t2, unsigned int b);
+bool checkSASInputs(unsigned int t1, unsigned int t2, unsigned int b);
 int main(int argc, char** argv) {
     Setup();
     Delay(500);

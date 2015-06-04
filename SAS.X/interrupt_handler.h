@@ -9,6 +9,8 @@
 #define	INTERRUPT_HANDLER_H
 bool PrepSend;
 
+bool ADCSamp=true;
+unsigned int ADCTime;
 volatile unsigned int LEDtime=0,talkTime=0;
 volatile unsigned int ADCbuffer[6];
 bool ADCDataReady = false;

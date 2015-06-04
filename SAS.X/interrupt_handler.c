@@ -2,8 +2,6 @@
 #include <stdbool.h>
 #include "interrupt_handler.h"
 #include "PinDef.h"
-bool ADCSamp=true;
-unsigned int ADCTime;
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     LEDtime++;
     talkTime++;

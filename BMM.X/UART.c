@@ -8,9 +8,6 @@
 
 void UART_init(void)
 {
-//    LATDbits.LATD1 = 1;
-//    LATDbits.LATD2 = 1;
-
     // UART config
     U1MODEbits.STSEL = 0; // 1-stop bit
     U1MODEbits.PDSEL = 0; // No parity, 8-data bits
@@ -22,8 +19,6 @@ void UART_init(void)
     IFS0bits.U1TXIF = 0; // Clear TX interrupt flag
     IEC0bits.U1RXIE = 1; // Enable RX interrupt
     IEC0bits.U1TXIE = 1; // Enable TX interrupt
-    U1MODEbits.UARTEN = 1; // Enable UART
-    U1STAbits.UTXEN = 1; // Enable UART TX
 
     UART_buff_init(&input_buffer);
     UART_buff_init(&output_buffer);
@@ -140,7 +135,6 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void)
 {
-    //LED ^= 1;
     if (UART_buff_size(&output_buffer) > 0)
     {
         U1TXREG = UART_buff_get(&output_buffer);

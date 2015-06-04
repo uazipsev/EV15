@@ -16,10 +16,19 @@
 #define __DELAY_H 1
 #include <libpic30.h>
 #endif
-
+#include <xc.h>
+#include <stdbool.h>
+#include "pps.h"
+#include "PinDef.h"
+#include "ADDRESSING.h"
 
 #define PPSin(fn,pin)    iPPSInput(IN_FN_PPS##fn,IN_PIN_PPS##pin)
 #define PPSout(fn,pin)    iPPSOutput(OUT_PIN_PPS##pin,OUT_FN_PPS##fn)
+
+
+extern void PWM_Init(void);
+extern void initTimerTwo(void);
+extern void initTimerOne(void);
 
 extern void i2c_init(void);
 

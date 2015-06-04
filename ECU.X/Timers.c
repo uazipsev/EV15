@@ -25,12 +25,17 @@ void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     talkTime1++;
     talkTime2++;
     talkTime3++;
-    SASTimer++;
-    DDSTimer++;
-    MCSTimer++;
     BootTimer++;
-    PDUTimer++;
-    BMMTimer++;
+    if (SASTimer < COMM_TIMER_MAX_TIME)
+        SASTimer++;
+    if (DDSTimer < COMM_TIMER_MAX_TIME)
+        DDSTimer++;
+    if (MCSTimer < COMM_TIMER_MAX_TIME)
+        MCSTimer++;
+    if (PDUTimer < COMM_TIMER_MAX_TIME)
+        PDUTimer++;
+    if (BMMTimer < COMM_TIMER_MAX_TIME)
+        BMMTimer++;
     IFS0bits.T1IF = 0; // clear interrupt flag
 }
 

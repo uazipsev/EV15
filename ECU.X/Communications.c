@@ -178,7 +178,7 @@ bool requestSASData() {
         static int SASErrorCounter = 0;
         if (!readyToSendSAS) {
             SASErrorCounter++;
-            if (SASErrorCounter > 5) {
+            if (SASErrorCounter > 1) {
                 SASErrorCounter = 0;
                 return false;
             }
@@ -212,7 +212,7 @@ bool requestDDSData() {
         static int DDSErrorCounter = 0;
         if (!readyToSendDDS) {
             DDSErrorCounter++;
-            if (DDSErrorCounter > 5) {
+            if (DDSErrorCounter > 1) {
                 DDSErrorCounter = 0;
                 return false;
             }
@@ -247,7 +247,7 @@ bool requestMCSData() {
         static int MCSErrorCounter = 0;
         if (!readyToSendMCS) {
             MCSErrorCounter++;
-            if (MCSErrorCounter > 5) {
+            if (MCSErrorCounter > 1) {
                 MCSErrorCounter = 0;
                 return false;
             }
@@ -279,7 +279,7 @@ bool requestPDUData() {
         static int PDUErrorCounter = 0;
         if (!readyToSendPDU) {
             PDUErrorCounter++;
-            if (PDUErrorCounter > 5) {
+            if (PDUErrorCounter > 1) {
                 PDUErrorCounter = 0;
                 return false;
             }
@@ -309,7 +309,7 @@ bool requestBMMData() {
         static int BMMErrorCounter = 0;
         if (!readyToSendBMM) {
             BMMErrorCounter++;
-            if (BMMErrorCounter > 5) {
+            if (BMMErrorCounter > 1) {
                 BMMErrorCounter = 0;
                 return false;
             }
