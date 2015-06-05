@@ -7,7 +7,6 @@
 #include "adc.h"
 #include "../Global.h"
 #include "../Functions.h"
-#include "eusart1.h"
 
 
 /**
@@ -132,6 +131,55 @@ void ADC_ISR(void)
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
               Temp_Aquire = 0;
               Temp_Done = 1;
+              break;
+        }
+        ADC_Buffer_Point++;
+    }
+    if (Current_Aquire){
+        //Do the Batt sensor ADC
+        ADC_Result = ADC_GetConversionResult();
+        switch ( ADC_Buffer_Point )
+        {
+            case 0:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 1:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 2:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 3:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 4:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 5:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 6:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 7:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 8:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              ADC_StartConversion(Asen);
+              break;
+            case 9:
+              Current_Adc[ADC_Buffer_Point] = ADC_Result;
+              Current_Aquire = 0;
+              Current_Done = 1;
               break;
         }
         ADC_Buffer_Point++;

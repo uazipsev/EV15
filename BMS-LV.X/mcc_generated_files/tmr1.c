@@ -137,7 +137,7 @@ void TMR1_ISR(void)
     }
     if(CountCallBack == 1)
     {
-        //Current_Read();
+        Current_Read();
     }
     if(CountCallBack == 2)
     {

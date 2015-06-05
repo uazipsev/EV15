@@ -12,10 +12,10 @@
 #include <xc.h>
 #include "Communications.h"
 #include "ADDRESSING.h"
+#include "Functions.h"
 
 void respondECU();
-extern void Delay(long int wait);
-extern void Send_put(unsigned char _data);
+//extern void Send_put(unsigned char _data);
 
 void updateComms() {
     if (receiveData()) {

@@ -27,8 +27,10 @@
 #include "Tempeture.h"
 #include "Functions.h"
 #include "Bypass.h"
+#include "Current.h"
 
-
+char fault = 0;
+char infault = 0;
 
 int main(int argc, char** argv) {
     // Initialize the device
@@ -72,22 +74,56 @@ int main(int argc, char** argv) {
         {
             Temp_Done = 0;
             Temp_Convert();
-            //Temp_Fault();
+            Temp_Fault();
+            /*
             for (int x = 0;x<7;x++)
             {
                 printf("Battery  temp %d = %0.02f \r\n", x+1,Tempeture_Get(x));
             }
+            */
         }
         if (Volt_Done)
         {
             Volt_Done = 0;
             Battery_Convert();
             Battery_Fault();
+            /*
             for (int x = 0;x<7;x++)
             {
                 printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
             }
+            */
             RunBypas();
+        }
+        if (Current_Done)
+        {
+            Current_Done = 0;
+            Current_Convert();
+            Current_Fault();
+            /*
+            for (int x = 0;x<7;x++)
+            {
+                printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
+            }
+             */
+            fault = Current_Fault();
+        }
+        if((fault == 1) && (infault == 0))
+        {
+            //Shut down box
+            infault = 1;
+            Relay_RSET_SetHigh();
+            Delay(40);
+            Relay_RSET_SetLow();
+            Delay(40);    
+        }
+        if((fault == 0) && (infault == 1))
+        {
+            //Restart box
+            Relay_SET_SetHigh();
+            Delay(40);
+            Relay_SET_SetLow();
+            Delay(40);
         }
 /*
         for(int y = 0;y<7;y++)

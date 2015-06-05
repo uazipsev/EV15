@@ -8,6 +8,7 @@
 #ifndef CURRENT_H
 #define	CURRENT_H
 
+#define NUMFALTS 6
 
 extern float Current_Get();
 void Current_Convert();

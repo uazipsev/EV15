@@ -1,8 +1,7 @@
 #include "mcc_generated_files/mcc.h"
 #include "Functions.h"
 #include "PDU.h"
-
-extern void updateComms();
+#include "Communications.h"
 
 /*
                          Main application
