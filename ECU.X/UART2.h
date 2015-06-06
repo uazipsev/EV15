@@ -16,7 +16,7 @@ extern "C" {
 
 
 
-#define BAUD_SET 38400
+#define BAUD_SET 115200
 #define UART_BUFFER_SIZE 200
 #define CLOCK_RATE   36000000
 #define BAUD_RATE (((CLOCK_RATE/BAUD_SET)/16)-1)

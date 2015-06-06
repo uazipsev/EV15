@@ -10560,7 +10560,7 @@ while(status != I2C1_MESSAGE_FAIL)
 
 I2C1_MasterWrite( &writeBuffer,
 1,
-0x70,
+i2c_addr,
 &status);
 
 
@@ -10591,7 +10591,7 @@ while(status != I2C1_MESSAGE_FAIL)
 
 I2C1_MasterWrite( &writeBuffer,
 1,
-0x70,
+i2c_addr,
 &status);
 
 
@@ -10621,7 +10621,7 @@ while(status != I2C1_MESSAGE_FAIL)
 
 I2C1_MasterWrite( &writeBuffer,
 1,
-0x70,
+i2c_addr,
 &status);
 
 
@@ -10653,7 +10653,7 @@ while(status != I2C1_MESSAGE_FAIL)
 
 I2C1_MasterWrite( &writeBuffer,
 1,
-0x70,
+i2c_addr,
 &status);
 
 
@@ -10699,7 +10699,7 @@ while(status != I2C1_MESSAGE_FAIL)
 
 I2C1_MasterWrite( &writeBuffer,
 17,
-0x70,
+i2c_addr,
 &status);
 
 

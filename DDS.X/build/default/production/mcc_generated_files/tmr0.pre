@@ -10490,6 +10490,8 @@ void TMR0_ISR(void);
 # 314
 void TMR0_CallBack(void);
 
+volatile unsigned int time;
+
 # 386 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize (void);
 
@@ -10497,7 +10499,7 @@ void PIN_MANAGER_Initialize (void);
 void PIN_MANAGER_IOC(void);
 
 # 11 "mcc_generated_files/../IO.h"
-extern void SetLEDOut(int lednum);
+extern void SetLEDOut(int lednum,bool state);
 extern void ReadButtonState(int btnnum);
 extern bool GetButtonState(int btnnum);
 
@@ -10505,8 +10507,7 @@ extern bool GetButtonState(int btnnum);
 volatile uint16_t timer0ReloadVal16bit;
 
 # 22
-void TMR0_Initialize(void)
-{
+void TMR0_Initialize(void) {
 
 
 
@@ -10531,67 +10532,53 @@ INTCONbits.TMR0IE = 1;
 TMR0_StartTimer();
 }
 
-void TMR0_StartTimer(void)
-{
+void TMR0_StartTimer(void) {
 
 T0CONbits.TMR0ON = 1;
 }
 
-void TMR0_StopTimer(void)
-{
+void TMR0_StopTimer(void) {
 
 T0CONbits.TMR0ON = 0;
 }
 
-uint16_t TMR0_Read16bitTimer(void)
-{
+uint16_t TMR0_Read16bitTimer(void) {
 uint16_t readVal;
 uint8_t readValLow;
 uint8_t readValHigh;
 
 readValLow = TMR0L;
 readValHigh = TMR0H;
-readVal = ((uint16_t)readValHigh << 8) + readValLow;
+readVal = ((uint16_t) readValHigh << 8) + readValLow;
 
 return readVal;
 }
 
-void TMR0_Write16bitTimer(uint16_t timerVal)
-{
+void TMR0_Write16bitTimer(uint16_t timerVal) {
 
 TMR0H = timerVal >> 8;
 TMR0L = (uint8_t) timerVal;
 }
 
-void TMR0_Reload16bit(void)
-{
+void TMR0_Reload16bit(void) {
 
 TMR0H = timer0ReloadVal16bit >> 8;
 TMR0L = (uint8_t) timer0ReloadVal16bit;
 }
 
-
-
-void TMR0_ISR(void)
-{
+void TMR0_ISR(void) {
 static volatile uint16_t CountCallBack = 0;
 
 
-INTCONbits.TMR0IF = 0;
-
-
-
 TMR0H = timer0ReloadVal16bit >> 8;
 TMR0L = (uint8_t) timer0ReloadVal16bit;
 
-for(int x = 0;x<8;x++)
-{
+for (int x = 0; x < 8; x++) {
 ReadButtonState(x);
 }
+time++;
 
-
-if (++CountCallBack >= 5)
-{
+if (++CountCallBack >= 5) {
 
 TMR0_CallBack();
 
@@ -10599,11 +10586,10 @@ TMR0_CallBack();
 CountCallBack = 0;
 }
 
-
+INTCONbits.TMR0IF = 0;
 }
 
-void TMR0_CallBack(void)
-{
+void TMR0_CallBack(void) {
 do { LATA3 = ~LATA3; } while(0);
 
 

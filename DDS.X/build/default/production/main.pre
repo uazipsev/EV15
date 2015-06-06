@@ -10532,6 +10532,8 @@ void TMR0_ISR(void);
 # 314
 void TMR0_CallBack(void);
 
+volatile unsigned int time;
+
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
 typedef void * va_list[1];
 
@@ -10814,44 +10816,73 @@ extern void LEDclear(void);
 extern void LEDsetBar(int bar, int color);
 
 # 11 "IO.h"
-extern void SetLEDOut(int lednum);
+extern void SetLEDOut(int lednum,bool state);
 extern void ReadButtonState(int btnnum);
 extern bool GetButtonState(int btnnum);
 
+# 15 "Communications.h"
+void updateComms();
+unsigned int buttonsCollector();
+extern void Delay(int wait);
+void respondECU();
+void handleIndicators(int receivedIndicators);
+
 # 30 "main.c"
 void Delay(int wait);
-extern void updateComms();
 
-void main(void)
-{
+void main(void) {
 
 SYSTEM_Initialize();
 
-# 55
+# 53
 (INTCONbits.GIE = 1);
 
 
 (INTCONbits.PEIE = 1);
 
-# 65
+# 63
 int ADCNT = 1;
 LEDbegin(0x70);
+LEDbegin(0x71);
 do { LATA3 = 1; } while(0);
 
-LATCbits.LATC5=0;
-while (1)
-{
+LATCbits.LATC5 = 0;
+while (1) {
 updateComms();
 
-# 104
+# 76
+if (time > 1) {
+static unsigned int b;
+if (b < 72) {
+if (b < 24) {
+
+LEDsetBar(b, 2);
+LEDwriteDisplay(0x70);
+LEDwriteDisplay(0x71);
+} else if (b < 48) {
+
+LEDsetBar(b - 24, 3);
+LEDwriteDisplay(0x70);
+LEDwriteDisplay(0x71);
+} else {
+
+LEDsetBar(b - 48, 1);
+LEDwriteDisplay(0x70);
+LEDwriteDisplay(0x71);
+}
+
+b++;
+} else b = 0;
+time = 0;
+}
+
+# 131
 }
 }
 
-void Delay(int wait)
-{
+void Delay(int wait) {
 int x;
-for(x = 0;x<wait;x++)
-{
+for (x = 0; x < wait; x++) {
 _delay((unsigned long)((1)*(16000000/4000.0)));
 }
 }

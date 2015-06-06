@@ -41,7 +41,6 @@ void SetLEDOut(int lednum,bool state)
   }
 }
 
-
 void ReadButtonState(int btnnum)
 {
   switch (btnnum)
@@ -78,8 +77,3 @@ bool GetButtonState(int btnnum)
 {
     return butnarray[btnnum-1];
 }
-
-
-
-
-

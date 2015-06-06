@@ -10532,6 +10532,8 @@ void TMR0_ISR(void);
 # 314
 void TMR0_CallBack(void);
 
+volatile unsigned int time;
+
 # 7 "C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdarg.h"
 typedef void * va_list[1];
 
@@ -10837,7 +10839,6 @@ break;
 }
 }
 
-
 void ReadButtonState(int btnnum)
 {
 switch (btnnum)
@@ -10874,4 +10875,3 @@ bool GetButtonState(int btnnum)
 {
 return butnarray[btnnum-1];
 }
-

@@ -8381,6 +8381,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 278: void TMR0_Reload16bit(void);
 [; ;tmr0.h: 296: void TMR0_ISR(void);
 [; ;tmr0.h: 314: void TMR0_CallBack(void);
+"316 mcc_generated_files/tmr0.h
+[v _time `Vui ~T0 @X0 1 e ]
+[; ;tmr0.h: 316: volatile unsigned int time;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);

@@ -12,10 +12,10 @@
 extern "C" {
 #endif
 
-
-#define START_BUTTON 0
-#define START_LED  0
-#define DASH_LED2  1
+#define BMS_LED       5
+#define DASH_LED     3
+#define IMD_INDICATOR 2
+#define START_BUTTON  5
 
     extern int buttonArray[8];
     extern bool seekButtonChange();

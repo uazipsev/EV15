@@ -8303,10 +8303,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;LED_BarGraph.c: 22: I2C1_MasterWrite( &writeBuffer,
 [; ;LED_BarGraph.c: 23: 1,
-[; ;LED_BarGraph.c: 24: 0x70,
+[; ;LED_BarGraph.c: 24: i2c_addr,
 [; ;LED_BarGraph.c: 25: &status);
 "25
-[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> _i2c_addr `ui &U _status ]
 [; ;LED_BarGraph.c: 28: while(status == I2C1_MESSAGE_PENDING);
 "28
 [e $U 1184  ]
@@ -8391,10 +8391,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;LED_BarGraph.c: 53: I2C1_MasterWrite( &writeBuffer,
 [; ;LED_BarGraph.c: 54: 1,
-[; ;LED_BarGraph.c: 55: 0x70,
+[; ;LED_BarGraph.c: 55: i2c_addr,
 [; ;LED_BarGraph.c: 56: &status);
 "56
-[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> _i2c_addr `ui &U _status ]
 [; ;LED_BarGraph.c: 59: while(status == I2C1_MESSAGE_PENDING);
 "59
 [e $U 1196  ]
@@ -8473,10 +8473,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;LED_BarGraph.c: 83: I2C1_MasterWrite( &writeBuffer,
 [; ;LED_BarGraph.c: 84: 1,
-[; ;LED_BarGraph.c: 85: 0x70,
+[; ;LED_BarGraph.c: 85: i2c_addr,
 [; ;LED_BarGraph.c: 86: &status);
 "86
-[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> _i2c_addr `ui &U _status ]
 [; ;LED_BarGraph.c: 89: while(status == I2C1_MESSAGE_PENDING);
 "89
 [e $U 1207  ]
@@ -8561,10 +8561,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;LED_BarGraph.c: 115: I2C1_MasterWrite( &writeBuffer,
 [; ;LED_BarGraph.c: 116: 1,
-[; ;LED_BarGraph.c: 117: 0x70,
+[; ;LED_BarGraph.c: 117: i2c_addr,
 [; ;LED_BarGraph.c: 118: &status);
 "118
-[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> -> 112 `i `ui &U _status ]
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 1 `i `uc -> _i2c_addr `ui &U _status ]
 [; ;LED_BarGraph.c: 121: while(status == I2C1_MESSAGE_PENDING);
 "121
 [e $U 1218  ]
@@ -8679,10 +8679,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 {
 [; ;LED_BarGraph.c: 161: I2C1_MasterWrite( &writeBuffer,
 [; ;LED_BarGraph.c: 162: 17,
-[; ;LED_BarGraph.c: 163: 0x70,
+[; ;LED_BarGraph.c: 163: i2c_addr,
 [; ;LED_BarGraph.c: 164: &status);
 "164
-[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 17 `i `uc -> -> 112 `i `ui &U _status ]
+[e ( _I2C1_MasterWrite (4 , , , &U _writeBuffer -> -> 17 `i `uc -> _i2c_addr `ui &U _status ]
 [; ;LED_BarGraph.c: 167: while(status == I2C1_MESSAGE_PENDING);
 "167
 [e $U 1228  ]

@@ -14,7 +14,7 @@
 #include "DigiPot.h"
 #include "pwm.h"
 
-//The syetem needs to be started to mimimum values. 
+//The system needs to be started to minimum values. 
 void CoolingStart()
 {
     PotSetpoint(pumpStart);

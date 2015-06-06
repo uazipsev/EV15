@@ -14,12 +14,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TMR0_Initialize `(v ~T0 @X0 0 ef ]
 "113 mcc_generated_files/..\UART.h
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
-[v F9165 `(v ~T0 @X0 0 tf1`uc ]
-[v F9168 `(uc ~T0 @X0 0 tf ]
-[v F9171 `(i ~T0 @X0 0 tf ]
-[v F9174 `(uc ~T0 @X0 0 tf ]
+[v F9166 `(v ~T0 @X0 0 tf1`uc ]
+[v F9169 `(uc ~T0 @X0 0 tf ]
+[v F9172 `(i ~T0 @X0 0 tf ]
+[v F9175 `(uc ~T0 @X0 0 tf ]
 "87 mcc_generated_files/mcc.h
-[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9165`*F9168`*F9171`*F9174 ]
+[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9166`*F9169`*F9172`*F9175 ]
 "94
 [v _receiveArray `Vi ~T0 @X0 -> 0 `x e ]
 "126 mcc_generated_files/..\UART.h
@@ -8348,6 +8348,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 278: void TMR0_Reload16bit(void);
 [; ;tmr0.h: 296: void TMR0_ISR(void);
 [; ;tmr0.h: 314: void TMR0_CallBack(void);
+"316 mcc_generated_files/tmr0.h
+[v _time `Vui ~T0 @X0 1 e ]
+[; ;tmr0.h: 316: volatile unsigned int time;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);

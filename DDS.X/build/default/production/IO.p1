@@ -8346,6 +8346,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 278: void TMR0_Reload16bit(void);
 [; ;tmr0.h: 296: void TMR0_ISR(void);
 [; ;tmr0.h: 314: void TMR0_CallBack(void);
+"316 mcc_generated_files/tmr0.h
+[v _time `Vui ~T0 @X0 1 e ]
+[; ;tmr0.h: 316: volatile unsigned int time;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -8706,100 +8709,100 @@ Version 3.2 HI-TECH Software Intermediate Code
 "42
 [e :UE 1185 ]
 }
-"45
+"44
 [v _ReadButtonState `(v ~T0 @X0 1 ef1`i ]
-"46
-{
-[; ;IO.c: 45: void ReadButtonState(int btnnum)
-[; ;IO.c: 46: {
-[e :U _ReadButtonState ]
 "45
-[v _btnnum `i ~T0 @X0 1 r1 ]
-"46
-[f ]
-[; ;IO.c: 47: switch (btnnum)
-"47
-[e $U 1244  ]
-[; ;IO.c: 48: {
-"48
 {
-[; ;IO.c: 49: case 0:
-"49
-[e :U 1245 ]
-[; ;IO.c: 50: butnarray[btnnum] = PORTDbits.RD5;
-"50
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTDbits 0 5 ]
-[; ;IO.c: 51: break;
-"51
-[e $U 1243  ]
-[; ;IO.c: 52: case 1:
-"52
-[e :U 1246 ]
-[; ;IO.c: 53: butnarray[btnnum] = PORTBbits.RB0;
-"53
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 0 ]
-[; ;IO.c: 54: break;
-"54
-[e $U 1243  ]
-[; ;IO.c: 55: case 2:
-"55
-[e :U 1247 ]
-[; ;IO.c: 56: butnarray[btnnum] = PORTBbits.RB1;
-"56
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 1 ]
-[; ;IO.c: 57: break;
-"57
-[e $U 1243  ]
-[; ;IO.c: 58: case 3:
-"58
-[e :U 1248 ]
-[; ;IO.c: 59: butnarray[btnnum] = PORTBbits.RB2;
-"59
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 2 ]
-[; ;IO.c: 60: break;
-"60
-[e $U 1243  ]
-[; ;IO.c: 61: case 4:
-"61
-[e :U 1249 ]
-[; ;IO.c: 62: butnarray[btnnum] = PORTBbits.RB4;
-"62
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 4 ]
-[; ;IO.c: 63: break;
-"63
-[e $U 1243  ]
-[; ;IO.c: 64: case 5:
-"64
-[e :U 1250 ]
-[; ;IO.c: 65: butnarray[btnnum] = PORTAbits.RA0;
-"65
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 0 ]
-[; ;IO.c: 66: break;
-"66
-[e $U 1243  ]
-[; ;IO.c: 67: case 6:
-"67
-[e :U 1251 ]
-[; ;IO.c: 68: butnarray[btnnum] = PORTAbits.RA1;
-"68
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 1 ]
-[; ;IO.c: 69: break;
-"69
-[e $U 1243  ]
-[; ;IO.c: 70: case 7:
-"70
-[e :U 1252 ]
-[; ;IO.c: 71: butnarray[btnnum] = PORTAbits.RA2;
-"71
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 2 ]
-[; ;IO.c: 72: break;
-"72
-[e $U 1243  ]
-"74
-}
-[; ;IO.c: 74: }
-[e $U 1243  ]
+[; ;IO.c: 44: void ReadButtonState(int btnnum)
+[; ;IO.c: 45: {
+[e :U _ReadButtonState ]
+"44
+[v _btnnum `i ~T0 @X0 1 r1 ]
+"45
+[f ]
+[; ;IO.c: 46: switch (btnnum)
+"46
+[e $U 1244  ]
+[; ;IO.c: 47: {
 "47
+{
+[; ;IO.c: 48: case 0:
+"48
+[e :U 1245 ]
+[; ;IO.c: 49: butnarray[btnnum] = PORTDbits.RD5;
+"49
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTDbits 0 5 ]
+[; ;IO.c: 50: break;
+"50
+[e $U 1243  ]
+[; ;IO.c: 51: case 1:
+"51
+[e :U 1246 ]
+[; ;IO.c: 52: butnarray[btnnum] = PORTBbits.RB0;
+"52
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 0 ]
+[; ;IO.c: 53: break;
+"53
+[e $U 1243  ]
+[; ;IO.c: 54: case 2:
+"54
+[e :U 1247 ]
+[; ;IO.c: 55: butnarray[btnnum] = PORTBbits.RB1;
+"55
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 1 ]
+[; ;IO.c: 56: break;
+"56
+[e $U 1243  ]
+[; ;IO.c: 57: case 3:
+"57
+[e :U 1248 ]
+[; ;IO.c: 58: butnarray[btnnum] = PORTBbits.RB2;
+"58
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 2 ]
+[; ;IO.c: 59: break;
+"59
+[e $U 1243  ]
+[; ;IO.c: 60: case 4:
+"60
+[e :U 1249 ]
+[; ;IO.c: 61: butnarray[btnnum] = PORTBbits.RB4;
+"61
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 4 ]
+[; ;IO.c: 62: break;
+"62
+[e $U 1243  ]
+[; ;IO.c: 63: case 5:
+"63
+[e :U 1250 ]
+[; ;IO.c: 64: butnarray[btnnum] = PORTAbits.RA0;
+"64
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 0 ]
+[; ;IO.c: 65: break;
+"65
+[e $U 1243  ]
+[; ;IO.c: 66: case 6:
+"66
+[e :U 1251 ]
+[; ;IO.c: 67: butnarray[btnnum] = PORTAbits.RA1;
+"67
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 1 ]
+[; ;IO.c: 68: break;
+"68
+[e $U 1243  ]
+[; ;IO.c: 69: case 7:
+"69
+[e :U 1252 ]
+[; ;IO.c: 70: butnarray[btnnum] = PORTAbits.RA2;
+"70
+[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 2 ]
+[; ;IO.c: 71: break;
+"71
+[e $U 1243  ]
+"73
+}
+[; ;IO.c: 73: }
+[e $U 1243  ]
+"46
 [e :U 1244 ]
 [e [\ _btnnum , $ -> 0 `i 1245
  , $ -> 1 `i 1246
@@ -8810,28 +8813,28 @@ Version 3.2 HI-TECH Software Intermediate Code
  , $ -> 6 `i 1251
  , $ -> 7 `i 1252
  1243 ]
-"74
+"73
 [e :U 1243 ]
-[; ;IO.c: 75: }
-"75
+[; ;IO.c: 74: }
+"74
 [e :UE 1242 ]
 }
-"77
+"76
 [v _GetButtonState `(uc ~T0 @X0 1 ef1`i ]
-"78
-{
-[; ;IO.c: 77: bool GetButtonState(int btnnum)
-[; ;IO.c: 78: {
-[e :U _GetButtonState ]
 "77
+{
+[; ;IO.c: 76: bool GetButtonState(int btnnum)
+[; ;IO.c: 77: {
+[e :U _GetButtonState ]
+"76
 [v _btnnum `i ~T0 @X0 1 r1 ]
-"78
+"77
 [f ]
-[; ;IO.c: 79: return butnarray[btnnum-1];
-"79
+[; ;IO.c: 78: return butnarray[btnnum-1];
+"78
 [e ) *U + &U _butnarray * -> -> - _btnnum -> 1 `i `ui `ux -> -> # *U &U _butnarray `ui `ux ]
 [e $UE 1253  ]
-[; ;IO.c: 80: }
-"80
+[; ;IO.c: 79: }
+"79
 [e :UE 1253 ]
 }

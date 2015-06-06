@@ -21,7 +21,7 @@ void LEDBsetBrightness(int b, char i2c_addr) {
             // write one byte to EEPROM (3 is the number of bytes to write)
             I2C1_MasterWrite(   &writeBuffer,
                                     1,
-                                    0x70,
+                                    i2c_addr,
                                     &status);
 
             // wait for the message to be sent or status has changed.
@@ -52,7 +52,7 @@ void LEDblinkRate(int b, char i2c_addr) {
             // write one byte to EEPROM (3 is the number of bytes to write)
             I2C1_MasterWrite(  &writeBuffer,
                                     1,
-                                    0x70,
+                                    i2c_addr,
                                     &status);
 
             // wait for the message to be sent or status has changed.
@@ -82,7 +82,7 @@ void LEDbegin(char i2c_addr) {
             // write one byte to EEPROM (3 is the number of bytes to write)
             I2C1_MasterWrite(  &writeBuffer,
                                     1,
-                                    0x70,
+                                    i2c_addr,
                                     &status);
 
             // wait for the message to be sent or status has changed.
@@ -114,7 +114,7 @@ void LEDwriteDisplay(char i2c_addr) {
             // write one byte to EEPROM (3 is the number of bytes to write)
             I2C1_MasterWrite(  &writeBuffer,
                                     1,
-                                    0x70,
+                                    i2c_addr,
                                     &status);
 
             // wait for the message to be sent or status has changed.
@@ -160,7 +160,7 @@ void LEDwriteDisplay(char i2c_addr) {
             // write one byte to EEPROM (3 is the number of bytes to write)
             I2C1_MasterWrite(  &writeBuffer,
                                     17,
-                                    0x70,
+                                    i2c_addr,
                                     &status);
 
             // wait for the message to be sent or status has changed.

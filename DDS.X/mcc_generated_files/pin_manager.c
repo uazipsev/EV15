@@ -70,9 +70,7 @@ void PIN_MANAGER_Initialize(void)
     TRISE = 0x00;
     ANSELE = 0x00;
     TRISCbits.TRISC5=0;
-    INTCON2bits.nRBPU = 0x01;
-
-        
+    INTCON2bits.nRBPU = 0x01;        
 }
 /**
  End of File

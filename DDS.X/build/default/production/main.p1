@@ -61,8 +61,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S488 . . . . . . . . . . ]
 "8088
 [v _LATCbits `VS488 ~T0 @X0 0 e@3979 ]
-"31 main.c
+"15 Communications.h
 [v _updateComms `(v ~T0 @X0 0 ef ]
+"36 LED_BarGraph.h
+[v _LEDsetBar `(v ~T0 @X0 0 ef2`i`i ]
+"34
+[v _LEDwriteDisplay `(v ~T0 @X0 0 ef1`uc ]
 [v F8800 `(v ~T0 @X0 1 tf1`ul ]
 "161 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18.h
 [v __delay `JF8800 ~T0 @X0 0 e ]
@@ -8299,6 +8303,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.h: 278: void TMR0_Reload16bit(void);
 [; ;tmr0.h: 296: void TMR0_ISR(void);
 [; ;tmr0.h: 314: void TMR0_CallBack(void);
+"316 mcc_generated_files/tmr0.h
+[v _time `Vui ~T0 @X0 1 e ]
+[; ;tmr0.h: 316: volatile unsigned int time;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -8484,102 +8491,176 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;LED_BarGraph.h: 34: extern void LEDwriteDisplay(char i2c_addr);
 [; ;LED_BarGraph.h: 35: extern void LEDclear(void);
 [; ;LED_BarGraph.h: 36: extern void LEDsetBar(int bar, int color);
-[; ;IO.h: 11: extern void SetLEDOut(int lednum);
+[; ;IO.h: 11: extern void SetLEDOut(int lednum,bool state);
 [; ;IO.h: 12: extern void ReadButtonState(int btnnum);
 [; ;IO.h: 13: extern bool GetButtonState(int btnnum);
+[; ;Communications.h: 15: void updateComms();
+[; ;Communications.h: 16: unsigned int buttonsCollector();
+[; ;Communications.h: 17: extern void Delay(int wait);
+[; ;Communications.h: 18: void respondECU();
+[; ;Communications.h: 19: void handleIndicators(int receivedIndicators);
 [; ;main.c: 30: void Delay(int wait);
-[; ;main.c: 31: extern void updateComms();
-"33 main.c
+"32 main.c
 [v _main `(v ~T0 @X0 1 ef ]
-"34
 {
-[; ;main.c: 33: void main(void)
-[; ;main.c: 34: {
+[; ;main.c: 32: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 36: SYSTEM_Initialize();
-"36
+[; ;main.c: 34: SYSTEM_Initialize();
+"34
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 55: (INTCONbits.GIE = 1);
-"55
+[; ;main.c: 53: (INTCONbits.GIE = 1);
+"53
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 58: (INTCONbits.PEIE = 1);
-"58
+[; ;main.c: 56: (INTCONbits.PEIE = 1);
+"56
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-"65
+"63
 [v _ADCNT `i ~T0 @X0 1 a ]
-[; ;main.c: 65: int ADCNT = 1;
+[; ;main.c: 63: int ADCNT = 1;
 [e = _ADCNT -> 1 `i ]
-[; ;main.c: 66: LEDbegin(0x70);
-"66
+[; ;main.c: 64: LEDbegin(0x70);
+"64
 [e ( _LEDbegin (1 -> -> 112 `i `uc ]
-[; ;main.c: 67: do { LATA3 = 1; } while(0);
-"67
+[; ;main.c: 65: LEDbegin(0x71);
+"65
+[e ( _LEDbegin (1 -> -> 113 `i `uc ]
+[; ;main.c: 66: do { LATA3 = 1; } while(0);
+"66
 [e :U 1188 ]
 {
 [e = _LATA3 -> -> 1 `i `b ]
 }
 [e :U 1187 ]
-[; ;main.c: 69: LATCbits.LATC5=0;
-"69
+[; ;main.c: 68: LATCbits.LATC5 = 0;
+"68
 [e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 70: while (1)
-"70
+[; ;main.c: 69: while (1) {
+"69
 [e :U 1190 ]
-[; ;main.c: 71: {
-"71
 {
-[; ;main.c: 72: updateComms();
-"72
+[; ;main.c: 70: updateComms();
+"70
 [e ( _updateComms ..  ]
-"104
+[; ;main.c: 76: if (time > 1) {
+"76
+[e $ ! > _time -> -> 1 `i `ui 1192  ]
+{
+"77
+[v F9230 `ui ~T0 @X0 1 s b ]
+[; ;main.c: 77: static unsigned int b;
+[; ;main.c: 78: if (b < 72) {
+"78
+[e $ ! < F9230 -> -> 72 `i `ui 1193  ]
+{
+[; ;main.c: 79: if (b < 24) {
+"79
+[e $ ! < F9230 -> -> 24 `i `ui 1194  ]
+{
+[; ;main.c: 81: LEDsetBar(b, 2);
+"81
+[e ( _LEDsetBar (2 , -> F9230 `i -> 2 `i ]
+[; ;main.c: 82: LEDwriteDisplay(0x70);
+"82
+[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
+[; ;main.c: 83: LEDwriteDisplay(0x71);
+"83
+[e ( _LEDwriteDisplay (1 -> -> 113 `i `uc ]
+"84
+}
+[; ;main.c: 84: } else if (b < 48) {
+[e $U 1195  ]
+[e :U 1194 ]
+[e $ ! < F9230 -> -> 48 `i `ui 1196  ]
+{
+[; ;main.c: 86: LEDsetBar(b - 24, 3);
+"86
+[e ( _LEDsetBar (2 , -> - F9230 -> -> 24 `i `ui `i -> 3 `i ]
+[; ;main.c: 87: LEDwriteDisplay(0x70);
+"87
+[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
+[; ;main.c: 88: LEDwriteDisplay(0x71);
+"88
+[e ( _LEDwriteDisplay (1 -> -> 113 `i `uc ]
+"89
+}
+[; ;main.c: 89: } else {
+[e $U 1197  ]
+[e :U 1196 ]
+{
+[; ;main.c: 91: LEDsetBar(b - 48, 1);
+"91
+[e ( _LEDsetBar (2 , -> - F9230 -> -> 48 `i `ui `i -> 1 `i ]
+[; ;main.c: 92: LEDwriteDisplay(0x70);
+"92
+[e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
+[; ;main.c: 93: LEDwriteDisplay(0x71);
+"93
+[e ( _LEDwriteDisplay (1 -> -> 113 `i `uc ]
+"94
+}
+[e :U 1197 ]
+[e :U 1195 ]
+[; ;main.c: 94: }
+[; ;main.c: 96: b++;
+"96
+[e ++ F9230 -> -> 1 `i `ui ]
+"97
+}
+[; ;main.c: 97: } else b = 0;
+[e $U 1198  ]
+[e :U 1193 ]
+[e = F9230 -> -> 0 `i `ui ]
+[e :U 1198 ]
+[; ;main.c: 98: time = 0;
+"98
+[e = _time -> -> 0 `i `ui ]
+"99
+}
+[e :U 1192 ]
+"131
 }
 [e :U 1189 ]
-"70
+"69
 [e $U 1190  ]
 [e :U 1191 ]
-[; ;main.c: 104: }
-[; ;main.c: 105: }
-"105
+[; ;main.c: 99: }
+[; ;main.c: 131: }
+[; ;main.c: 132: }
+"132
 [e :UE 1185 ]
 }
-"107
+"134
 [v _Delay `(v ~T0 @X0 1 ef1`i ]
-"108
 {
-[; ;main.c: 107: void Delay(int wait)
-[; ;main.c: 108: {
+[; ;main.c: 134: void Delay(int wait) {
 [e :U _Delay ]
-"107
 [v _wait `i ~T0 @X0 1 r1 ]
-"108
 [f ]
-"109
+"135
 [v _x `i ~T0 @X0 1 a ]
-[; ;main.c: 109: int x;
-[; ;main.c: 110: for(x = 0;x<wait;x++)
-"110
+[; ;main.c: 135: int x;
+[; ;main.c: 136: for (x = 0; x < wait; x++) {
+"136
 {
 [e = _x -> 0 `i ]
-[e $U 1196  ]
-"111
-[e :U 1193 ]
-[; ;main.c: 111: {
+[e $U 1203  ]
+[e :U 1200 ]
 {
-[; ;main.c: 112: _delay((unsigned long)((1)*(16000000/4000.0)));
-"112
+[; ;main.c: 137: _delay((unsigned long)((1)*(16000000/4000.0)));
+"137
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"113
+"138
 }
-"110
+"136
 [e ++ _x -> 1 `i ]
-[e :U 1196 ]
-[e $ < _x _wait 1193  ]
-[e :U 1194 ]
-"113
+[e :U 1203 ]
+[e $ < _x _wait 1200  ]
+[e :U 1201 ]
+"138
 }
-[; ;main.c: 113: }
-[; ;main.c: 114: }
-"114
-[e :UE 1192 ]
+[; ;main.c: 138: }
+[; ;main.c: 139: }
+"139
+[e :UE 1199 ]
 }

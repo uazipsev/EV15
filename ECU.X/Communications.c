@@ -19,8 +19,6 @@
 #include "ADDRESSING.h"
 #include "Communications.h"
 
-
-
 void updateComms() {
     checkCommDirection();
     checkCommDirection1();
@@ -28,8 +26,8 @@ void updateComms() {
     bus2Update();
 }
 
-void bus1Update(){
-     switch (commsBus1State) {
+void bus1Update() {
+    switch (commsBus1State) {
         case SAS_UPDATE:
             if (requestSASData()) {
                 if (receiveCommSAS()) {
@@ -87,9 +85,10 @@ void bus1Update(){
     }
 
 }
-void bus2Update(){
-    switch(commsBus2State){
-      case MCS_UPDATE:
+
+void bus2Update() {
+    switch (commsBus2State) {
+        case MCS_UPDATE:
             if (requestMCSData()) {
                 if (receiveCommMCS()) {
                     commsBus2State++;
@@ -102,7 +101,7 @@ void bus2Update(){
                 resetCommTimers2();
             }
             break;
-            case BMM_UPDATE:
+        case BMM_UPDATE:
             if (requestBMMData()) {
                 if (receiveCommBMM()) {
                     commsBus2State++;
@@ -124,7 +123,7 @@ void bus2Update(){
             break;
         case ERROR_STATE2:
             sendErrorCode2();
-            commsBus2State=MCS_UPDATE;
+            commsBus2State = MCS_UPDATE;
             break;
         case NUM_STATES2:
             break;
@@ -132,6 +131,7 @@ void bus2Update(){
 }
 
 //  Error Code Handling
+
 void sendErrorCode() {
     unsigned int errorState = 0;
     if (DDS_COMMS_ERROR) {
@@ -149,14 +149,15 @@ void sendErrorCode() {
     ToSend2(BUS_1_ERROR_DEBUG, errorState);
     sendData2(DEBUG_ADDRESS);
 }
+
 void sendErrorCode2() {
-    unsigned int errorState = 0;   
+    unsigned int errorState = 0;
     if (MCS_COMMS_ERROR) {
         errorState = errorState | 0x01;
         MCS_COMMS_ERROR = false;
     }
     if (BMM_COMMS_ERROR) {
-        errorState= errorState | 0x02;
+        errorState = errorState | 0x02;
         BMM_COMMS_ERROR = false;
     }
     ToSend2(BUS_2_ERROR_DEBUG, errorState);
@@ -164,14 +165,18 @@ void sendErrorCode2() {
 }
 
 //  Timer Resets Per Bus
+
 void resetCommTimers() {
     SASTimer = 0;
     DDSTimer = 0;
     PDUTimer = 0;
 }
+
 void resetCommTimers2() {
     MCSTimer = 0;
+    BMMTimer = 0;
 }
+
 bool requestSASData() {
     //If either timeout or response with delay already occured
     if (((SASTimer > 50) && (readyToSendSAS)) || (SASTimer > 100)) {
@@ -194,12 +199,13 @@ bool requestSASData() {
 
     return true;
 }
+
 bool receiveCommSAS() {
     if (receiveData1()) {
         if (receiveArray1[RESPONSE_ADDRESS] == SAS_ADDRESS) {
-            throttle1=receiveArray1[THROTTLE1_SAS];
-            throttle2=receiveArray1[THROTTLE2_SAS];
-            brake=receiveArray1[BRAKE_SAS];
+            throttle1 = receiveArray1[THROTTLE1_SAS];
+            throttle2 = receiveArray1[THROTTLE2_SAS];
+            brake = receiveArray1[BRAKE_SAS];
             readyToSendSAS = true;
             SASTimer = 0;
             return true;
@@ -233,7 +239,7 @@ bool requestDDSData() {
 bool receiveCommDDS() {
     if (receiveData1()) {
         if (receiveArray1[RESPONSE_ADDRESS] == DDS_ADDRESS) {
-            buttons=receiveArray1[BUTTONS_DDS];
+            buttons = receiveArray1[BUTTONS_DDS];
             readyToSendDDS = true;
             DDSTimer = 0;
             return true;
@@ -241,9 +247,8 @@ bool receiveCommDDS() {
     } else return false;
 }
 
-
 bool requestMCSData() {
-   if (((MCSTimer > 50) && (readyToSendMCS)) || (MCSTimer > 100)) {
+    if (((MCSTimer > 50) && (readyToSendMCS)) || (MCSTimer > 100)) {
         static int MCSErrorCounter = 0;
         if (!readyToSendMCS) {
             MCSErrorCounter++;
@@ -304,6 +309,7 @@ bool receiveCommPDU() {
         } else return false;
     } else return false;
 }
+
 bool requestBMMData() {
     if (((BMMTimer > 50) && (readyToSendBMM)) || (BMMTimer > 100)) {
         static int BMMErrorCounter = 0;
@@ -335,7 +341,7 @@ bool receiveCommBMM() {
     } else return false;
 }
 
-void checkCommDirection() {   
+void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
     if (Transmit_stall && (talkTime > 2)) {
         RS485_Direction1(LISTEN);

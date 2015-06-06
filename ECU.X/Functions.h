@@ -28,6 +28,7 @@
 #define Pin_42_Output RPOR4bits.RP42R
 #define Pin_49_Output RPOR5bits.RP49R
 #define Pin_55_Output RPOR6bits.RP55R
+#define Pin_56_Output RPOR7bits.RP56R
 #define Pin_70_Output RPOR8bits.RP70R
 
 #define TX1_Output 1

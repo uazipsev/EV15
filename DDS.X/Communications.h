@@ -11,16 +11,12 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-    extern volatile int receiveArray[20];
-    void updateComms();
-extern void sendData(unsigned char whereToSend);
-extern bool receiveData();
-extern void ToSend(const unsigned char where, const unsigned int what);
 
-unsigned int buttonsCollector();
-extern void Delay(int wait);
-void respondECU();
-void handleIndicators(int receivedIndicators);
+    void updateComms();
+    unsigned int buttonsCollector();
+    extern void Delay(int wait);
+    void respondECU();
+    void handleIndicators(int receivedIndicators);
 #ifdef	__cplusplus
 }
 #endif

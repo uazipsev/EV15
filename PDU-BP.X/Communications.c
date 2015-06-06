@@ -19,9 +19,9 @@ void respondECU();
 
 void updateComms() {
     if (receiveData()) {
-        if (receiveArray[RESPONSE_ADDRESS] == ECU_ADDRESS) {
+        //if (receiveArray[RESPONSE_ADDRESS] == ECU_ADDRESS) {
             respondECU();
-        }
+        //}
     }
 }
 
