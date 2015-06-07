@@ -128,6 +128,9 @@ void Send_put(unsigned char _data)
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void)
 {
+      if(U1STAbits.OERR){
+        U1STAbits.OERR=0;
+    }
     unsigned char data = U1RXREG;
     UART_buff_put(&input_buffer, data);
     IFS0bits.U1RXIF = 0; // Clear RX interrupt flag

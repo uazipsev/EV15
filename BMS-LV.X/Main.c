@@ -68,8 +68,13 @@ int main(int argc, char** argv) {
     //INTERRUPT_PeripheralInterruptDisable();
     //int ADCNT = 0;
     //INDICATOR_SetHigh();
+    LATCbits.LATC5 =1;
+    printf("start");
     while (1)
     {
+        
+    printf("start");
+        
         if (Temp_Done)
         {
             Temp_Done = 0;
@@ -87,12 +92,12 @@ int main(int argc, char** argv) {
             Volt_Done = 0;
             Battery_Convert();
             Battery_Fault();
-            /*
+            
             for (int x = 0;x<7;x++)
             {
                 printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
             }
-            */
+            
             RunBypas();
         }
         if (Current_Done)

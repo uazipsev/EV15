@@ -215,6 +215,41 @@ AN_CELL1 7
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "8040
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
+[s S807 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"8088
+[s S816 . 1 `uc 1 LC0 1 0 :1:0 
+]
+[s S818 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 LC1 1 0 :1:1 
+]
+[s S821 . 1 `uc 1 . 1 0 :2:0 
+`uc 1 LC2 1 0 :1:2 
+]
+[s S824 . 1 `uc 1 . 1 0 :3:0 
+`uc 1 LC3 1 0 :1:3 
+]
+[s S827 . 1 `uc 1 . 1 0 :4:0 
+`uc 1 LC4 1 0 :1:4 
+]
+[s S830 . 1 `uc 1 . 1 0 :5:0 
+`uc 1 LC5 1 0 :1:5 
+]
+[s S833 . 1 `uc 1 . 1 0 :6:0 
+`uc 1 LC6 1 0 :1:6 
+]
+[s S836 . 1 `uc 1 . 1 0 :7:0 
+`uc 1 LC7 1 0 :1:7 
+]
+[u S839 . 1 `S807 1 . 1 0 `S816 1 . 1 0 `S818 1 . 1 0 `S821 1 . 1 0 `S824 1 . 1 0 `S827 1 . 1 0 `S830 1 . 1 0 `S833 1 . 1 0 `S836 1 . 1 0 ]
+[v _LATCbits LATCbits `VES839  1 e 1 @3979 ]
 "8172
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8304
@@ -535,30 +570,32 @@ AN_CELL1 7
 "35 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-LV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"148
+"96
+[v main@x x `i  1 a 2 86 ]
+"153
 } 0
 "464 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\doprnt.c
 [v _printf printf `(i  1 e 2 0 ]
 {
 "528
-[v printf@val val `ul  1 a 4 63 ]
-[u S958 . 4 `ul 1 vd 4 0 `d 1 integ 3 0 ]
+[v printf@val val `ul  1 a 4 65 ]
+[u S1046 . 4 `ul 1 vd 4 0 `d 1 integ 3 0 ]
 "526
-[v printf@tmpval tmpval `S958  1 a 4 59 ]
+[v printf@tmpval tmpval `S1046  1 a 4 61 ]
 "516
-[v printf@fval fval `d  1 a 3 73 ]
+[v printf@fval fval `d  1 a 3 75 ]
 "504
-[v printf@prec prec `i  1 a 2 76 ]
+[v printf@prec prec `i  1 a 2 78 ]
 "501
-[v printf@width width `i  1 a 2 71 ]
+[v printf@width width `i  1 a 2 73 ]
 "508
-[v printf@flag flag `us  1 a 2 69 ]
+[v printf@flag flag `us  1 a 2 71 ]
 "516
-[v printf@exp exp `i  1 a 2 67 ]
+[v printf@exp exp `i  1 a 2 69 ]
 "466
-[v printf@ap ap `[1]*.39v  1 a 2 57 ]
+[v printf@ap ap `[1]*.39v  1 a 2 59 ]
 "499
-[v printf@c c `c  1 a 1 78 ]
+[v printf@c c `c  1 a 1 80 ]
 "464
 [v printf@f f `*.25Cuc  1 p 2 43 ]
 "1541
@@ -819,7 +856,7 @@ AN_CELL1 7
 [v _Current_Fault Current_Fault `(uc  1 e 1 0 ]
 {
 "22
-[v Current_Fault@i_884 i `i  1 a 2 41 ]
+[v Current_Fault@i_973 i `i  1 a 2 41 ]
 "16
 [v Current_Fault@i i `i  1 a 2 39 ]
 "15

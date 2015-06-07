@@ -26,6 +26,40 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1109 . . . . . . ]
 "17650
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
+"8046
+[s S489 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S489 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
+"8056
+[s S490 :1 `uc 1 ]
+[n S490 . LC0 ]
+"8059
+[s S491 :1 `uc 1 :1 `uc 1 ]
+[n S491 . . LC1 ]
+"8063
+[s S492 :2 `uc 1 :1 `uc 1 ]
+[n S492 . . LC2 ]
+"8067
+[s S493 :3 `uc 1 :1 `uc 1 ]
+[n S493 . . LC3 ]
+"8071
+[s S494 :4 `uc 1 :1 `uc 1 ]
+[n S494 . . LC4 ]
+"8075
+[s S495 :5 `uc 1 :1 `uc 1 ]
+[n S495 . . LC5 ]
+"8079
+[s S496 :6 `uc 1 :1 `uc 1 ]
+[n S496 . . LC6 ]
+"8083
+[s S497 :7 `uc 1 :1 `uc 1 ]
+[n S497 . . LC7 ]
+"8045
+[u S488 `S489 1 `S490 1 `S491 1 `S492 1 `S493 1 `S494 1 `S495 1 `S496 1 `S497 1 ]
+[n S488 . . . . . . . . . . ]
+"8088
+[v _LATCbits `VS488 ~T0 @X0 0 e@3979 ]
+"207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
+[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
 "13 Global.h
 [v _Temp_Done `i ~T0 @X0 0 e ]
 "16 Tempeture.h
@@ -38,6 +72,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Battery_Convert `(v ~T0 @X0 0 ef ]
 "12
 [v _Battery_Fault `(uc ~T0 @X0 0 ef ]
+"16
+[v _Battery_Get `(f ~T0 @X0 0 ef1`i ]
 "12 Bypass.h
 [v _RunBypas `(i ~T0 @X0 0 ef ]
 "14 Global.h
@@ -46,9 +82,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Current_Convert `(v ~T0 @X0 0 ef ]
 "17
 [v _Current_Fault `(uc ~T0 @X0 0 ef ]
-"207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"13 Current.h
+"13
 [v _Current_Get `(f ~T0 @X0 0 ef ]
 "19027 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATD2 `Vb ~T0 @X0 0 e@31842 ]
@@ -8451,156 +8485,191 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 62: (INTCONbits.PEIE = 1);
 "62
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;Main.c: 71: while (1)
+[; ;Main.c: 71: LATCbits.LATC5 =1;
 "71
-[e :U 1191 ]
-[; ;Main.c: 72: {
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;Main.c: 72: printf("start");
 "72
-{
-[; ;Main.c: 73: if (Temp_Done)
+[e ( _printf :s 1C ]
+[; ;Main.c: 73: while (1)
 "73
-[e $ ! != _Temp_Done -> 0 `i 1193  ]
+[e :U 1191 ]
 [; ;Main.c: 74: {
 "74
 {
-[; ;Main.c: 75: Temp_Done = 0;
-"75
-[e = _Temp_Done -> 0 `i ]
-[; ;Main.c: 76: Temp_Convert();
+[; ;Main.c: 76: printf("start");
 "76
+[e ( _printf :s 2C ]
+[; ;Main.c: 78: if (Temp_Done)
+"78
+[e $ ! != _Temp_Done -> 0 `i 1193  ]
+[; ;Main.c: 79: {
+"79
+{
+[; ;Main.c: 80: Temp_Done = 0;
+"80
+[e = _Temp_Done -> 0 `i ]
+[; ;Main.c: 81: Temp_Convert();
+"81
 [e ( _Temp_Convert ..  ]
-[; ;Main.c: 77: Temp_Fault();
-"77
+[; ;Main.c: 82: Temp_Fault();
+"82
 [e ( _Temp_Fault ..  ]
-"84
+"89
 }
 [e :U 1193 ]
-[; ;Main.c: 84: }
-[; ;Main.c: 85: if (Volt_Done)
-"85
+[; ;Main.c: 89: }
+[; ;Main.c: 90: if (Volt_Done)
+"90
 [e $ ! != _Volt_Done -> 0 `i 1194  ]
-[; ;Main.c: 86: {
-"86
+[; ;Main.c: 91: {
+"91
 {
-[; ;Main.c: 87: Volt_Done = 0;
-"87
+[; ;Main.c: 92: Volt_Done = 0;
+"92
 [e = _Volt_Done -> 0 `i ]
-[; ;Main.c: 88: Battery_Convert();
-"88
+[; ;Main.c: 93: Battery_Convert();
+"93
 [e ( _Battery_Convert ..  ]
-[; ;Main.c: 89: Battery_Fault();
-"89
+[; ;Main.c: 94: Battery_Fault();
+"94
 [e ( _Battery_Fault ..  ]
-[; ;Main.c: 96: RunBypas();
+[; ;Main.c: 96: for (int x = 0;x<7;x++)
 "96
-[e ( _RunBypas ..  ]
+{
+[v _x `i ~T0 @X0 1 a ]
+[e = _x -> 0 `i ]
+[e $ < _x -> 7 `i 1195  ]
+[e $U 1196  ]
 "97
+[e :U 1195 ]
+[; ;Main.c: 97: {
+{
+[; ;Main.c: 98: printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
+"98
+[e ( _printf , , (. :s 3C + _x -> 1 `i -> ( _Battery_Get (1 _x `d ]
+"99
+}
+"96
+[e ++ _x -> 1 `i ]
+[e $ < _x -> 7 `i 1195  ]
+[e :U 1196 ]
+"99
+}
+[; ;Main.c: 99: }
+[; ;Main.c: 101: RunBypas();
+"101
+[e ( _RunBypas ..  ]
+"102
 }
 [e :U 1194 ]
-[; ;Main.c: 97: }
-[; ;Main.c: 98: if (Current_Done)
-"98
-[e $ ! != _Current_Done -> 0 `i 1195  ]
-[; ;Main.c: 99: {
-"99
-{
-[; ;Main.c: 100: Current_Done = 0;
-"100
-[e = _Current_Done -> 0 `i ]
-[; ;Main.c: 101: Current_Convert();
-"101
-[e ( _Current_Convert ..  ]
-[; ;Main.c: 102: fault = Current_Fault();
-"102
-[e = _fault ( _Current_Fault ..  ]
-[; ;Main.c: 103: printf("Current %d = %0.02f \r\n",Current_Get());
+[; ;Main.c: 102: }
+[; ;Main.c: 103: if (Current_Done)
 "103
-[e ( _printf , (. :s 1C -> ( _Current_Get ..  `d ]
+[e $ ! != _Current_Done -> 0 `i 1198  ]
+[; ;Main.c: 104: {
 "104
-}
-[e :U 1195 ]
-[; ;Main.c: 104: }
-[; ;Main.c: 105: if((fault == 1) && (infault == 0))
-"105
-[e $ ! && == -> _fault `i -> 1 `i == -> _infault `i -> 0 `i 1196  ]
-[; ;Main.c: 106: {
-"106
 {
-[; ;Main.c: 108: infault = 1;
+[; ;Main.c: 105: Current_Done = 0;
+"105
+[e = _Current_Done -> 0 `i ]
+[; ;Main.c: 106: Current_Convert();
+"106
+[e ( _Current_Convert ..  ]
+[; ;Main.c: 107: fault = Current_Fault();
+"107
+[e = _fault ( _Current_Fault ..  ]
+[; ;Main.c: 108: printf("Current %d = %0.02f \r\n",Current_Get());
 "108
-[e = _infault -> -> 1 `i `uc ]
-[; ;Main.c: 109: do { LATD2 = 1; } while(0);
+[e ( _printf , (. :s 4C -> ( _Current_Get ..  `d ]
 "109
-[e :U 1199 ]
+}
+[e :U 1198 ]
+[; ;Main.c: 109: }
+[; ;Main.c: 110: if((fault == 1) && (infault == 0))
+"110
+[e $ ! && == -> _fault `i -> 1 `i == -> _infault `i -> 0 `i 1199  ]
+[; ;Main.c: 111: {
+"111
+{
+[; ;Main.c: 113: infault = 1;
+"113
+[e = _infault -> -> 1 `i `uc ]
+[; ;Main.c: 114: do { LATD2 = 1; } while(0);
+"114
+[e :U 1202 ]
 {
 [e = _LATD2 -> -> 1 `i `b ]
 }
-[e :U 1198 ]
-[; ;Main.c: 110: Delay(40);
-"110
+[e :U 1201 ]
+[; ;Main.c: 115: Delay(40);
+"115
 [e ( _Delay (1 -> 40 `i ]
-[; ;Main.c: 111: do { LATD2 = 0; } while(0);
-"111
-[e :U 1202 ]
+[; ;Main.c: 116: do { LATD2 = 0; } while(0);
+"116
+[e :U 1205 ]
 {
 [e = _LATD2 -> -> 0 `i `b ]
 }
-[e :U 1201 ]
-[; ;Main.c: 112: Delay(40);
-"112
+[e :U 1204 ]
+[; ;Main.c: 117: Delay(40);
+"117
 [e ( _Delay (1 -> 40 `i ]
-[; ;Main.c: 113: printf("FAULT \r\n");
-"113
-[e ( _printf :s 2C ]
-"114
-}
-[e :U 1196 ]
-[; ;Main.c: 114: }
-[; ;Main.c: 115: if((fault == 0) && (infault == 1))
-"115
-[e $ ! && == -> _fault `i -> 0 `i == -> _infault `i -> 1 `i 1203  ]
-[; ;Main.c: 116: {
-"116
-{
-[; ;Main.c: 118: do { LATD3 = 1; } while(0);
+[; ;Main.c: 118: printf("FAULT \r\n");
 "118
-[e :U 1206 ]
+[e ( _printf :s 5C ]
+"119
+}
+[e :U 1199 ]
+[; ;Main.c: 119: }
+[; ;Main.c: 120: if((fault == 0) && (infault == 1))
+"120
+[e $ ! && == -> _fault `i -> 0 `i == -> _infault `i -> 1 `i 1206  ]
+[; ;Main.c: 121: {
+"121
+{
+[; ;Main.c: 123: do { LATD3 = 1; } while(0);
+"123
+[e :U 1209 ]
 {
 [e = _LATD3 -> -> 1 `i `b ]
 }
-[e :U 1205 ]
-[; ;Main.c: 119: Delay(40);
-"119
+[e :U 1208 ]
+[; ;Main.c: 124: Delay(40);
+"124
 [e ( _Delay (1 -> 40 `i ]
-[; ;Main.c: 120: do { LATD3 = 0; } while(0);
-"120
-[e :U 1209 ]
+[; ;Main.c: 125: do { LATD3 = 0; } while(0);
+"125
+[e :U 1212 ]
 {
 [e = _LATD3 -> -> 0 `i `b ]
 }
-[e :U 1208 ]
-[; ;Main.c: 121: Delay(40);
-"121
+[e :U 1211 ]
+[; ;Main.c: 126: Delay(40);
+"126
 [e ( _Delay (1 -> 40 `i ]
-"122
+"127
 }
-[e :U 1203 ]
-"146
+[e :U 1206 ]
+"151
 }
 [e :U 1190 ]
-"71
+"73
 [e $U 1191  ]
 [e :U 1192 ]
-[; ;Main.c: 122: }
-[; ;Main.c: 146: }
-[; ;Main.c: 147: return (0);
-"147
+[; ;Main.c: 127: }
+[; ;Main.c: 151: }
+[; ;Main.c: 152: return (0);
+"152
 [e ) -> 0 `i ]
 [e $UE 1183  ]
-[; ;Main.c: 148: }
-"148
+[; ;Main.c: 153: }
+"153
 [e :UE 1183 ]
 }
 [p f _printf 8462468 ]
-[a 1C 67 117 114 114 101 110 116 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]
-[a 2C 70 65 85 76 84 32 13 10 0 ]
+[a 1C 115 116 97 114 116 0 ]
+[a 2C 115 116 97 114 116 0 ]
+[a 3C 66 97 116 116 101 114 121 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]
+[a 4C 67 117 114 114 101 110 116 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]
+[a 5C 70 65 85 76 84 32 13 10 0 ]

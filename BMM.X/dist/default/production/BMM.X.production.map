@@ -518,17 +518,17 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x408d
+.debug_info       0x000000       0x4033
  *(.debug_info)
- .debug_info      0x000000         0xaf build/default/production/ConfigBits.o
- .debug_info      0x0000af        0xce4 build/default/production/FastTransfer.o
- .debug_info      0x000d93       0x1167 build/default/production/Function.o
- .debug_info      0x001efa        0x30f build/default/production/main.o
- .debug_info      0x002209        0x51d build/default/production/pwm.o
- .debug_info      0x002726        0x3c9 build/default/production/I2C.o
- .debug_info      0x002aef        0xb74 build/default/production/UART.o
- .debug_info      0x003663        0x6fa build/default/production/Timers.o
- .debug_info      0x003d5d        0x330 build/default/production/Communications.o
+ .debug_info      0x000000         0xa5 build/default/production/ConfigBits.o
+ .debug_info      0x0000a5        0xcda build/default/production/FastTransfer.o
+ .debug_info      0x000d7f       0x115d build/default/production/Function.o
+ .debug_info      0x001edc        0x305 build/default/production/main.o
+ .debug_info      0x0021e1        0x513 build/default/production/pwm.o
+ .debug_info      0x0026f4        0x3bf build/default/production/I2C.o
+ .debug_info      0x002ab3        0xb6a build/default/production/UART.o
+ .debug_info      0x00361d        0x6f0 build/default/production/Timers.o
+ .debug_info      0x003d0d        0x326 build/default/production/Communications.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x90a

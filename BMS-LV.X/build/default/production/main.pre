@@ -10743,15 +10743,20 @@ do { LATD3 = 0; } while(0);
 (INTCONbits.PEIE = 1);
 
 # 71
+LATCbits.LATC5 =1;
+printf("start");
 while (1)
 {
+
+printf("start");
+
 if (Temp_Done)
 {
 Temp_Done = 0;
 Temp_Convert();
 Temp_Fault();
 
-# 84
+# 89
 }
 if (Volt_Done)
 {
@@ -10759,7 +10764,11 @@ Volt_Done = 0;
 Battery_Convert();
 Battery_Fault();
 
-# 96
+for (int x = 0;x<7;x++)
+{
+printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
+}
+
 RunBypas();
 }
 if (Current_Done)
@@ -10788,7 +10797,7 @@ do { LATD3 = 0; } while(0);
 Delay(40);
 }
 
-# 146
+# 151
 }
 return (0);
 }

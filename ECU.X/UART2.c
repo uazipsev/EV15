@@ -117,6 +117,9 @@ void Send_put2(unsigned char _data) {
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U3RXInterrupt(void) {
+    if(U3STAbits.OERR){
+        U3STAbits.OERR=0;
+    }
     unsigned char data = U3RXREG;
     UART2_buff_put(&input_buffer2, data);
     IFS5bits.U3RXIF = 0; // Clear RX interrupt flag
