@@ -19,7 +19,7 @@ void setMCSOutputs(unsigned int t1, unsigned int t2, unsigned int b);
 bool checkSASInputs(unsigned int t1, unsigned int t2, unsigned int b);
 int main(int argc, char** argv) {
     Setup();
-    Delay(500);
+    Delay(1000);
     while (1) {
         ledDebug();
         updateComms();

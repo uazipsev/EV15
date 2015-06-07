@@ -31,6 +31,7 @@ extern "C" {
 #define WHEELSPEED3_SAS         6
 #define WHEELSPEED4_SAS         7
 #define BUTTONS_DDS             8
+#define POWER_STATE             9
 
     //MCS Receive
 #define THROTTLE_OUTPUT         1

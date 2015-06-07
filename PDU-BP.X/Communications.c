@@ -28,7 +28,8 @@ void updateComms() {
 void respondECU() {
     LATCbits.LATC5 = 1;
     ToSend(RESPONSE_ADDRESS, PDU_ADDRESS);
-    Delay(3);
+    ToSend(POWER_STATE, PDU_ADDRESS);
+    Delay(5);
 
     sendData(ECU_ADDRESS);
     Delay(3);

@@ -26,7 +26,7 @@ int main(int argc, char** argv) {
         if(receiveData())
         {
             LATBbits.LATB13 =1;
-            Delay(2);
+            Delay(5);
             ToSend(RESPONSE_ADDRESS,MCS_ADDRESS);
             sendData(ECU_ADDRESS);
             Delay(3);
