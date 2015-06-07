@@ -12,35 +12,37 @@
 extern "C" {
 #endif
 
-
+#define CLOSE_COMM_TIME    4
+#define BOARD_TIMEOUT     45
+#define BOARD_RESEND_MIN  15
 extern void RTD(int lenth);
 
 extern void sendData(unsigned char whereToSend);
 extern bool receiveData();
 extern void ToSend(const unsigned char where, const unsigned int what);
 extern volatile int receiveArray[20];
-extern bool Transmit_stall;
+extern volatile  bool Transmit_stall;
 extern volatile unsigned int talkTime;
 
 extern void sendData1(unsigned char whereToSend);
 extern bool receiveData1();
 extern void ToSend1(const unsigned char where, const unsigned int what);
 extern volatile int receiveArray1[20];
-extern bool Transmit_stall1;
+extern volatile  bool Transmit_stall1;
 extern volatile unsigned int talkTime1;
 
 extern void sendData2(unsigned char whereToSend);
 extern bool receiveData2();
 extern void ToSend2(const unsigned char where, const unsigned int what);
 extern volatile int receiveArray2[20];
-extern bool Transmit_stall2;
+extern volatile  bool Transmit_stall2;
 extern volatile unsigned int talkTime2;
 
 extern void sendData3(unsigned char whereToSend);
 extern bool receiveData3();
 extern void ToSend3(const unsigned char where, const unsigned int what);
 extern volatile int receiveArray3[20];
-extern bool Transmit_stall3;
+extern volatile  bool Transmit_stall3;
 extern volatile unsigned int talkTime3;
 
 extern volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer, BMMTimer, BootTimer;

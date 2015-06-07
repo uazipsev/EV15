@@ -7,7 +7,17 @@
 #ifndef _BV
   #define _BV(bit) (1<<(bit))
 #endif
-
+void LEDsetValue(int value,int color){
+    if(value>24) value=24;
+    if(value<0) value=0;
+    int k;
+    for(k=0;k<24;k++){
+        if(k<value) LEDsetBar(k, color);
+        else LEDsetBar(k,LED_OFF);
+    }
+    return;
+    
+}
 void LEDBsetBrightness(int b, char i2c_addr) {
   if (b > 15) b = 15;
     uint8_t         writeBuffer[2];

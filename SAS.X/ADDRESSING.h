@@ -46,6 +46,8 @@ extern "C" {
     //DDS Receive
 #define BUTTON_REQUEST          1
 #define LED_DDS                 2
+#define THROTTLE_DDS            3
+#define BRAKE_DDS               4
 
 
 

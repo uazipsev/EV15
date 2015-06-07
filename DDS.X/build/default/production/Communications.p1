@@ -18,6 +18,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _respondECU `(v ~T0 @X0 0 ef ]
 "19
 [v _handleIndicators `(v ~T0 @X0 0 ef1`i ]
+"20
+[v _TBbarGraphs `(v ~T0 @X0 0 ef2`i`i ]
 "8046 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S489 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S489 . LATC0 LATC1 LATC2 LATC3 LATC4 LATC5 LATC6 LATC7 ]
@@ -58,9 +60,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Delay `(v ~T0 @X0 0 ef1`i ]
 "15 FastTransfer.h
 [v _sendData `(v ~T0 @X0 0 ef1`uc ]
-"27 Communications.c
+"28 Communications.c
 [v _SetLEDOut `(v ~T0 @X0 0 ef2`i`uc ]
-"42
+"49
 [v _GetButtonState `(uc ~T0 @X0 0 ef1`i ]
 [; ;stdbool.h: 12: typedef unsigned char bool;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -8341,11 +8343,16 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;FastTransfer.h: 78: void crcBufS_status_put(struct crcBufS* _this, unsigned char time, unsigned char status);
 [; ;FastTransfer.h: 79: unsigned char crcBufS_get(struct crcBufS* _this, unsigned char time, unsigned char space);
 [; ;FastTransfer.h: 80: void CRCcheck(void);
+"14 Communications.h
+[v _throttle `ui ~T0 @X0 1 e ]
+[v _brake `ui ~T0 @X0 1 e ]
+[; ;Communications.h: 14: unsigned int throttle, brake;
 [; ;Communications.h: 15: void updateComms();
 [; ;Communications.h: 16: unsigned int buttonsCollector();
 [; ;Communications.h: 17: extern void Delay(int wait);
 [; ;Communications.h: 18: void respondECU();
 [; ;Communications.h: 19: void handleIndicators(int receivedIndicators);
+[; ;Communications.h: 20: void TBbarGraphs(int t, int b);
 "7 Communications.c
 [v _updateComms `(v ~T0 @X0 1 ef ]
 {
@@ -8362,141 +8369,166 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Communications.c: 12: handleIndicators(receiveArray[2]);
 "12
 [e ( _handleIndicators (1 *U + &U _receiveArray * -> -> -> 2 `i `ui `ux -> -> # *U &U _receiveArray `ui `ux ]
-[; ;Communications.c: 13: receiveArray[0] = 0;
+[; ;Communications.c: 13: TBbarGraphs(receiveArray[3], receiveArray[4]);
 "13
-[e = *U + &U _receiveArray * -> -> -> 0 `i `ui `ux -> -> # *U &U _receiveArray `ui `ux -> 0 `i ]
+[e ( _TBbarGraphs (2 , *U + &U _receiveArray * -> -> -> 3 `i `ui `ux -> -> # *U &U _receiveArray `ui `ux *U + &U _receiveArray * -> -> -> 4 `i `ui `ux -> -> # *U &U _receiveArray `ui `ux ]
+[; ;Communications.c: 14: receiveArray[0] = 0;
 "14
+[e = *U + &U _receiveArray * -> -> -> 0 `i `ui `ux -> -> # *U &U _receiveArray `ui `ux -> 0 `i ]
+"15
 }
 [e :U 1182 ]
-[; ;Communications.c: 14: }
 [; ;Communications.c: 15: }
-"15
+[; ;Communications.c: 16: }
+"16
 [e :UE 1181 ]
 }
-"17
+"18
 [v _respondECU `(v ~T0 @X0 1 ef ]
 {
-[; ;Communications.c: 17: void respondECU() {
+[; ;Communications.c: 18: void respondECU() {
 [e :U _respondECU ]
 [f ]
-[; ;Communications.c: 18: LATCbits.LATC5 = 1;
-"18
-[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
-[; ;Communications.c: 19: ToSend(0, 3);
+[; ;Communications.c: 19: LATCbits.LATC5 = 1;
 "19
-[e ( _ToSend (2 , -> -> 0 `i `uc -> -> 3 `i `ui ]
-[; ;Communications.c: 20: ToSend(8, buttonsCollector());
+[e = . . _LATCbits 0 5 -> -> 1 `i `uc ]
+[; ;Communications.c: 20: ToSend(0, 3);
 "20
-[e ( _ToSend (2 , -> -> 8 `i `uc ( _buttonsCollector ..  ]
-[; ;Communications.c: 21: Delay(2);
+[e ( _ToSend (2 , -> -> 0 `i `uc -> -> 3 `i `ui ]
+[; ;Communications.c: 21: ToSend(8, buttonsCollector());
 "21
-[e ( _Delay (1 -> 2 `i ]
-[; ;Communications.c: 22: sendData(1);
+[e ( _ToSend (2 , -> -> 8 `i `uc ( _buttonsCollector ..  ]
+[; ;Communications.c: 22: Delay(5);
 "22
-[e ( _sendData (1 -> -> 1 `i `uc ]
-[; ;Communications.c: 23: Delay(3);
+[e ( _Delay (1 -> 5 `i ]
+[; ;Communications.c: 23: sendData(1);
 "23
-[e ( _Delay (1 -> 3 `i ]
-[; ;Communications.c: 24: LATCbits.LATC5 = 0;
+[e ( _sendData (1 -> -> 1 `i `uc ]
+[; ;Communications.c: 24: Delay(3);
 "24
-[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;Communications.c: 25: }
+[e ( _Delay (1 -> 3 `i ]
+[; ;Communications.c: 25: LATCbits.LATC5 = 0;
 "25
+[e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
+[; ;Communications.c: 26: }
+"26
 [e :UE 1183 ]
 }
-[; ;Communications.c: 27: extern void SetLEDOut(int lednum, bool state);
-"30
+[; ;Communications.c: 28: extern void SetLEDOut(int lednum, bool state);
+"31
 [v _handleIndicators `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Communications.c: 30: void handleIndicators(int receivedIndicators) {
+[; ;Communications.c: 31: void handleIndicators(int receivedIndicators) {
 [e :U _handleIndicators ]
 [v _receivedIndicators `i ~T0 @X0 1 r1 ]
 [f ]
-"31
-[v F8924 `i ~T0 @X0 1 s oldIndicators ]
-[i F8924
+"32
+[v F8929 `i ~T0 @X0 1 s oldIndicators ]
+[i F8929
 -> 0 `i
 ]
-[; ;Communications.c: 31: static int oldIndicators = 0;
-[; ;Communications.c: 32: if (receivedIndicators != oldIndicators) {
-"32
-[e $ ! != _receivedIndicators F8924 1185  ]
-{
+[; ;Communications.c: 32: static int oldIndicators = 0;
+[; ;Communications.c: 33: if (receivedIndicators != oldIndicators) {
 "33
-[v _i `i ~T0 @X0 1 a ]
-[; ;Communications.c: 33: int i = 0;
-[e = _i -> 0 `i ]
-[; ;Communications.c: 34: for (i = 0; i < 6; i++) {
+[e $ ! != _receivedIndicators F8929 1185  ]
+{
 "34
+[v _i `i ~T0 @X0 1 a ]
+[; ;Communications.c: 34: int i = 0;
+[e = _i -> 0 `i ]
+[; ;Communications.c: 35: for (i = 0; i < 6; i++) {
+"35
 {
 [e = _i -> 0 `i ]
 [e $ < _i -> 6 `i 1186  ]
 [e $U 1187  ]
 [e :U 1186 ]
 {
-[; ;Communications.c: 35: SetLEDOut(i, ((receivedIndicators >> i)&0x01));
-"35
-[e ( _SetLEDOut (2 , _i -> & >> _receivedIndicators _i -> 1 `i `uc ]
+[; ;Communications.c: 36: SetLEDOut(i, ((receivedIndicators >> i)&0x01));
 "36
+[e ( _SetLEDOut (2 , _i -> & >> _receivedIndicators _i -> 1 `i `uc ]
+"37
 }
-"34
+"35
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 6 `i 1186  ]
 [e :U 1187 ]
-"36
-}
-[; ;Communications.c: 36: }
-[; ;Communications.c: 37: oldIndicators = receivedIndicators;
 "37
-[e = F8924 _receivedIndicators ]
+}
+[; ;Communications.c: 37: }
+[; ;Communications.c: 38: oldIndicators = receivedIndicators;
 "38
+[e = F8929 _receivedIndicators ]
+"39
 }
 [e :U 1185 ]
-[; ;Communications.c: 38: }
 [; ;Communications.c: 39: }
-"39
+[; ;Communications.c: 41: }
+"41
 [e :UE 1184 ]
 }
-[; ;Communications.c: 42: extern bool GetButtonState(int btnnum);
+"42
+[v _TBbarGraphs `(v ~T0 @X0 1 ef2`i`i ]
+"43
+{
+[; ;Communications.c: 42: void TBbarGraphs(int t, int b)
+[; ;Communications.c: 43: {
+[e :U _TBbarGraphs ]
+"42
+[v _t `i ~T0 @X0 1 r1 ]
+[v _b `i ~T0 @X0 1 r2 ]
+"43
+[f ]
+[; ;Communications.c: 44: throttle=t;
+"44
+[e = _throttle -> _t `ui ]
+[; ;Communications.c: 45: brake=b;
 "45
+[e = _brake -> _b `ui ]
+[; ;Communications.c: 46: }
+"46
+[e :UE 1189 ]
+}
+[; ;Communications.c: 49: extern bool GetButtonState(int btnnum);
+"52
 [v _buttonsCollector `(ui ~T0 @X0 1 ef ]
 {
-[; ;Communications.c: 45: unsigned int buttonsCollector() {
+[; ;Communications.c: 52: unsigned int buttonsCollector() {
 [e :U _buttonsCollector ]
 [f ]
-"46
+"53
 [v _sendVal `ui ~T0 @X0 1 a ]
-[; ;Communications.c: 46: unsigned int sendVal = 0;
+[; ;Communications.c: 53: unsigned int sendVal = 0;
 [e = _sendVal -> -> 0 `i `ui ]
-"47
+"54
 [v _i `i ~T0 @X0 1 a ]
-[; ;Communications.c: 47: int i = 0;
+[; ;Communications.c: 54: int i = 0;
 [e = _i -> 0 `i ]
-[; ;Communications.c: 48: for (i = 0; i < 8; i++) {
-"48
+[; ;Communications.c: 55: for (i = 0; i < 8; i++) {
+"55
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 8 `i 1190  ]
-[e $U 1191  ]
-[e :U 1190 ]
-{
-[; ;Communications.c: 49: sendVal = sendVal | ((GetButtonState(i)&0x01) << i);
-"49
-[e = _sendVal | _sendVal -> << & -> ( _GetButtonState (1 _i `i -> 1 `i _i `ui ]
-"50
-}
-"48
-[e ++ _i -> 1 `i ]
-[e $ < _i -> 8 `i 1190  ]
+[e $ < _i -> 8 `i 1191  ]
+[e $U 1192  ]
 [e :U 1191 ]
-"50
+{
+[; ;Communications.c: 56: sendVal = sendVal | ((GetButtonState(i)&0x01) << i);
+"56
+[e = _sendVal | _sendVal -> << & -> ( _GetButtonState (1 _i `i -> 1 `i _i `ui ]
+"57
 }
-[; ;Communications.c: 50: }
-[; ;Communications.c: 51: return sendVal;
-"51
+"55
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 8 `i 1191  ]
+[e :U 1192 ]
+"57
+}
+[; ;Communications.c: 57: }
+[; ;Communications.c: 58: return sendVal;
+"58
 [e ) _sendVal ]
-[e $UE 1189  ]
-[; ;Communications.c: 52: }
-"52
-[e :UE 1189 ]
+[e $UE 1190  ]
+[; ;Communications.c: 59: }
+"59
+[e :UE 1190 ]
 }

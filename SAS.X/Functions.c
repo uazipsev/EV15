@@ -19,7 +19,7 @@ void Setup(void) {
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
 
-    //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
+    INTCON1bits.NSTDIS = 1; //no nesting of interrupts
     timerOne();
     timerTwo();
     UART_init();
@@ -50,7 +50,7 @@ void timerTwo(void)
     T2CONbits.TGATE = 0; //disable gated timer mode
     T2CONbits.TCKPS = 0b11; // 1:256 prescalar    60MHz/256= 234.375KHz (4.266us)
     TMR2 = 0x00; //clear timer register
-    PR2 = 65535; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
+    PR2 = 3000; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
     IFS0bits.T2IF = 0; // clear timer2 interrupt flag
     IEC0bits.T2IE = 1; // enable timer2 interrupt
     T2CONbits.TON = 1; //enable timer 2

@@ -42,8 +42,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _ReadButtonState `(v ~T0 @X0 0 ef1`i ]
 "314 mcc_generated_files/tmr0.h
 [v _TMR0_CallBack `(v ~T0 @X0 0 ef ]
-"18981 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _LATA3 `Vb ~T0 @X0 0 e@31819 ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8460,13 +8458,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr0.c: 104: void TMR0_CallBack(void) {
 [e :U _TMR0_CallBack ]
 [f ]
-[; ;tmr0.c: 105: do { LATA3 = ~LATA3; } while(0);
-"105
-[e :U 1192 ]
-{
-[e = _LATA3 -> ~ -> _LATA3 `ui `b ]
-}
-[e :U 1191 ]
 [; ;tmr0.c: 109: }
 "109
 [e :UE 1189 ]

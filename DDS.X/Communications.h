@@ -11,12 +11,13 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
+    unsigned int throttle, brake;
     void updateComms();
     unsigned int buttonsCollector();
     extern void Delay(int wait);
     void respondECU();
     void handleIndicators(int receivedIndicators);
+    void TBbarGraphs(int t, int b);
 #ifdef	__cplusplus
 }
 #endif

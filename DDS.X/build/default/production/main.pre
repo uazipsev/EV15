@@ -10808,6 +10808,7 @@ extern char * ftoa(float f, int * status);
 # 29 "LED_BarGraph.h"
 long int displaybuffer[10];
 
+extern void LEDsetValue(int value,int color);
 extern void LEDBsetBrightness(int b, char i2c_addr);
 extern void LEDblinkRate(int b, char i2c_addr);
 extern void LEDbegin(char i2c_addr);
@@ -10820,12 +10821,14 @@ extern void SetLEDOut(int lednum,bool state);
 extern void ReadButtonState(int btnnum);
 extern bool GetButtonState(int btnnum);
 
-# 15 "Communications.h"
+# 14 "Communications.h"
+unsigned int throttle, brake;
 void updateComms();
 unsigned int buttonsCollector();
 extern void Delay(int wait);
 void respondECU();
 void handleIndicators(int receivedIndicators);
+void TBbarGraphs(int t, int b);
 
 # 30 "main.c"
 void Delay(int wait);
@@ -10852,31 +10855,15 @@ updateComms();
 
 # 76
 if (time > 1) {
-static unsigned int b;
-if (b < 72) {
-if (b < 24) {
-
-LEDsetBar(b, 2);
+LEDsetValue(throttle/2.75,1);
 LEDwriteDisplay(0x70);
+LEDsetValue(brake/2.75,1);
 LEDwriteDisplay(0x71);
-} else if (b < 48) {
-
-LEDsetBar(b - 24, 3);
-LEDwriteDisplay(0x70);
-LEDwriteDisplay(0x71);
-} else {
-
-LEDsetBar(b - 48, 1);
-LEDwriteDisplay(0x70);
-LEDwriteDisplay(0x71);
+do { LATA3 = ~LATA3; } while(0);
+time=0;
 }
 
-b++;
-} else b = 0;
-time = 0;
-}
-
-# 131
+# 115
 }
 }
 

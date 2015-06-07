@@ -10440,12 +10440,14 @@ void crcBufS_status_put(struct crcBufS* _this, unsigned char time, unsigned char
 unsigned char crcBufS_get(struct crcBufS* _this, unsigned char time, unsigned char space);
 void CRCcheck(void);
 
-# 15 "Communications.h"
+# 14 "Communications.h"
+unsigned int throttle, brake;
 void updateComms();
 unsigned int buttonsCollector();
 extern void Delay(int wait);
 void respondECU();
 void handleIndicators(int receivedIndicators);
+void TBbarGraphs(int t, int b);
 
 # 7 "Communications.c"
 void updateComms() {
@@ -10454,6 +10456,7 @@ if (receiveData()) {
 respondECU();
 
 handleIndicators(receiveArray[2]);
+TBbarGraphs(receiveArray[3], receiveArray[4]);
 receiveArray[0] = 0;
 }
 }
@@ -10462,7 +10465,7 @@ void respondECU() {
 LATCbits.LATC5 = 1;
 ToSend(0, 3);
 ToSend(8, buttonsCollector());
-Delay(2);
+Delay(5);
 sendData(1);
 Delay(3);
 LATCbits.LATC5 = 0;
@@ -10480,6 +10483,12 @@ SetLEDOut(i, ((receivedIndicators >> i)&0x01));
 }
 oldIndicators = receivedIndicators;
 }
+
+}
+void TBbarGraphs(int t, int b)
+{
+throttle=t;
+brake=b;
 }
 
 

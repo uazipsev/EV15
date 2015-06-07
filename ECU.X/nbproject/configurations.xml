@@ -19,8 +19,8 @@
       <itemPath>FastTransfer3.h</itemPath>
       <itemPath>Timers.h</itemPath>
       <itemPath>Communications.h</itemPath>
-      <itemPath>ADDRESSING.h</itemPath>
       <itemPath>DDS_Interface.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

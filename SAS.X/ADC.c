@@ -9,7 +9,6 @@ void initADC(void)
     AD1CON3 = AD1CON1 & 0X0000;
     AD1CON4 = AD1CON1 & 0X0000;
     AD1CON1bits.ADSIDL = 0;     //ADC on during idle
-
     AD1CON1bits.FORM = 0;       // Data Output Format: unsigned Integer
     AD1CON1bits.SSRC = 7;       // Sample Clock Source: Internal Timer
     AD1CON1bits.AD12B = 1;      // 12-bit ADC operation
@@ -20,6 +19,7 @@ void initADC(void)
     AD1CON2bits.CHPS = 0;       // Converts CH0
     AD1CON3bits.ADRC = 0;       // ADC Clock is derived from Systems Clock = 0 /Internal RC =1
     AD1CON3bits.ADCS = 63;      // ADC Conversion Clock
+    //AD1CON3bits.SAMC = 31;      // ADC Sample Time Internal RC
     //AD1CHS0: A/D Input Select Register
     AD1CHS0bits.CH0SA = 0;      // MUXA +ve input selection (AIN0) for CH0
     AD1CHS0bits.CH0NA = 0;      // MUXA -ve input selection (Vref-) for CH0
@@ -35,14 +35,36 @@ void initADC(void)
     AD1CSSL = 0x003F;
 
     //AD1CON1bits.ASAM = 1;
-    AD1CON1bits.ADON = 1;
-    AD1CON1bits.DONE = 0;
-    AD1CON1bits.SAMP = 1;
 
     IFS0bits.AD1IF = 0;
     IEC0bits.AD1IE = 1;
+    
+    AD1CON1bits.ADON = 1;
+    AD1CON1bits.DONE = 0;
+    AD1CON1bits.SAMP = 1;
 }
 
+int ADC = 0;
+int ADCPorts[3]={1,2,5};
+void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void) {
+    if (!ADCDataReady) {
+        ADCbuffer[ADC] = ADC1BUF0;
+        ADC++;
+        //ADCSamp=false;
+        //ADCTime=0;
+        //IEC0bits.AD1IE = 0;
+    }
+    if (ADC > 2) {
+        //ADCTime=0;
+        ADCDataReady = 1;
+        ADC = 0;
+        //ADCSamp=true;
+        IEC0bits.AD1IE = 0;
+    }
+    AD1CHS0bits.CH0SA = ADCPorts[ADC];
+    AD1CON1bits.SAMP = 1;
+    IFS0bits.AD1IF = 0; // clear ADC interrupt flag
+}
 void GetADC(void)
 {
 
@@ -54,12 +76,12 @@ void SetADC(void)
 }
 
 void handleADCValues(){
-    //throttle1=ADCbuffer[0];
-    throttle1=ADCbuffer[1];
-    throttle2=ADCbuffer[2];
-    //throttle1=ADCbuffer[3];
-    //throttle2=ADCbuffer[4];
-    brake=ADCbuffer[5];
+    //throttle1=(ADCbuffer[0]/4095.0)*100.0; //LOWVOLTs
+    throttle1=(ADCbuffer[0]/4095.0)*100.0;
+    throttle2=(ADCbuffer[1]/4095.0)*100.0;
+    brake=(ADCbuffer[2]/4095.0)*100.0;
+    //throttle2=(ADCbuffer[3]/4095.0)*100.0;
+    //brake=(ADCbuffer[4]/4095.0)*100.0;
 }
 //void readADCValues() {
 //    if ((ADCdata == 1)) {

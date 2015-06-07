@@ -14,6 +14,7 @@
 
 
 #include <xc.h>
+#include <stdlib.h>
 #include <stdbool.h>
 #include "PinDef.h"
 #include "ADDRESSING.h"
@@ -178,8 +179,8 @@ void resetCommTimers2() {
 }
 
 bool requestSASData() {
-    //If either timeout or response with delay already occured
-    if (((SASTimer > 50) && (readyToSendSAS)) || (SASTimer > 100)) {
+    //If either timeout or response with delay already occurred
+    if (((SASTimer > BOARD_RESEND_MIN) && (readyToSendSAS)) || (SASTimer > BOARD_TIMEOUT)) {
         static int SASErrorCounter = 0;
         if (!readyToSendSAS) {
             SASErrorCounter++;
@@ -214,7 +215,7 @@ bool receiveCommSAS() {
 }
 
 bool requestDDSData() {
-    if (((DDSTimer > 50) && (readyToSendDDS)) || (DDSTimer > 100)) {
+    if (((DDSTimer > BOARD_RESEND_MIN) && (readyToSendDDS)) || (DDSTimer > BOARD_TIMEOUT)) {
         static int DDSErrorCounter = 0;
         if (!readyToSendDDS) {
             DDSErrorCounter++;
@@ -227,6 +228,8 @@ bool requestDDSData() {
             DDSErrorCounter = 0;
         }
         ToSend1(RESPONSE_ADDRESS, ECU_ADDRESS);
+        ToSend1(THROTTLE_DDS,throttle1);
+        ToSend1(BRAKE_DDS,brake);
         ToSend1(LED_DDS, indicators);
         RS485_Direction1(TALK);
         sendData1(DDS_ADDRESS);
@@ -248,7 +251,7 @@ bool receiveCommDDS() {
 }
 
 bool requestMCSData() {
-    if (((MCSTimer > 50) && (readyToSendMCS)) || (MCSTimer > 100)) {
+    if (((MCSTimer > BOARD_RESEND_MIN) && (readyToSendMCS)) || (MCSTimer > BOARD_TIMEOUT)) {
         static int MCSErrorCounter = 0;
         if (!readyToSendMCS) {
             MCSErrorCounter++;
@@ -280,7 +283,7 @@ bool receiveCommMCS() {
 }
 
 bool requestPDUData() {
-    if (((PDUTimer > 50) && (readyToSendPDU)) || (PDUTimer > 100)) {
+    if (((PDUTimer > BOARD_RESEND_MIN) && (readyToSendPDU)) || (PDUTimer > BOARD_TIMEOUT)) {
         static int PDUErrorCounter = 0;
         if (!readyToSendPDU) {
             PDUErrorCounter++;
@@ -311,7 +314,7 @@ bool receiveCommPDU() {
 }
 
 bool requestBMMData() {
-    if (((BMMTimer > 50) && (readyToSendBMM)) || (BMMTimer > 100)) {
+    if (((BMMTimer > BOARD_RESEND_MIN) && (readyToSendBMM)) || (BMMTimer > BOARD_TIMEOUT)) {
         static int BMMErrorCounter = 0;
         if (!readyToSendBMM) {
             BMMErrorCounter++;
@@ -343,14 +346,15 @@ bool receiveCommBMM() {
 
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall && (talkTime > 2)) {
+    if (Transmit_stall && (talkTime > CLOSE_COMM_TIME)) {
         RS485_Direction1(LISTEN);
     }
 }
 
 void checkCommDirection1() {
+    if(!Transmit_stall1) talkTime1=0;
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall1 && (talkTime1 > 2)) {
+    if (Transmit_stall1 && (talkTime1 > CLOSE_COMM_TIME)) {
         RS485_Direction2(LISTEN);
     }
 }

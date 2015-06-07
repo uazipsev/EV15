@@ -34,7 +34,7 @@ struct UART3_ring_buff {
 struct UART3_ring_buff input_buffer3;
 struct UART3_ring_buff output_buffer3;
 
-bool Transmit_stall3 = true;
+ volatile bool Transmit_stall3 = true;
 
 void UART3_init(void);
 

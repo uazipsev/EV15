@@ -1,6 +1,7 @@
 
 #include "Communications.h"
 
+bool pendingSend=false;
 void updateComms() {
     if (receiveData()) {
         talkTime = 0;

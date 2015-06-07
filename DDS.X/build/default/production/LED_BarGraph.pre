@@ -4,6 +4,7 @@
 # 29 "LED_BarGraph.h"
 long int displaybuffer[10];
 
+extern void LEDsetValue(int value,int color);
 extern void LEDBsetBrightness(int b, char i2c_addr);
 extern void LEDblinkRate(int b, char i2c_addr);
 extern void LEDbegin(char i2c_addr);
@@ -10546,7 +10547,18 @@ bool I2C1_MasterQueueIsFull(void);
 void I2C1_BusCollisionISR( void );
 void I2C1_ISR ( void );
 
-# 11 "LED_BarGraph.c"
+# 10 "LED_BarGraph.c"
+void LEDsetValue(int value,int color){
+if(value>24) value=24;
+if(value<0) value=0;
+int k;
+for(k=0;k<24;k++){
+if(k<value) LEDsetBar(k, color);
+else LEDsetBar(k,0);
+}
+return;
+
+}
 void LEDBsetBrightness(int b, char i2c_addr) {
 if (b > 15) b = 15;
 uint8_t writeBuffer[2];

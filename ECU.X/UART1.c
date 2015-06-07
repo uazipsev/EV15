@@ -121,11 +121,12 @@ void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void) {
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U2TXInterrupt(void) {
-    //LED ^= 1;
+    talkTime1=0;
     if (UART1_buff_size(&output_buffer1) > 0) {
         U2TXREG = UART1_buff_get(&output_buffer1);
     } else {
         Transmit_stall1 = true;
+       
     }
     IFS1bits.U2TXIF = 0; // Clear TX interrupt flag
 }
