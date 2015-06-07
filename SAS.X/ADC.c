@@ -60,7 +60,6 @@ void handleADCValues(){
     //throttle1=ADCbuffer[3];
     //throttle2=ADCbuffer[4];
     brake=ADCbuffer[5];
-
 }
 //void readADCValues() {
 //    if ((ADCdata == 1)) {

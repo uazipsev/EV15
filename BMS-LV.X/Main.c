@@ -99,14 +99,8 @@ int main(int argc, char** argv) {
         {
             Current_Done = 0;
             Current_Convert();
-            Current_Fault();
-            /*
-            for (int x = 0;x<7;x++)
-            {
-                printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
-            }
-             */
             fault = Current_Fault();
+            printf("Current %d = %0.02f \r\n",Current_Get());
         }
         if((fault == 1) && (infault == 0))
         {
@@ -116,6 +110,7 @@ int main(int argc, char** argv) {
             Delay(40);
             Relay_RSET_SetLow();
             Delay(40);    
+            printf("FAULT \r\n");
         }
         if((fault == 0) && (infault == 1))
         {

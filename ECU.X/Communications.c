@@ -115,7 +115,7 @@ void bus2Update() {
             }
             break;
         case CHECK_STATE2:
-            if (MCS_COMMS_ERROR) {
+            if (MCS_COMMS_ERROR || BMM_COMMS_ERROR) {
                 commsBus2State = ERROR_STATE2;
             } else
                 //otherwise continue the normal comms update
