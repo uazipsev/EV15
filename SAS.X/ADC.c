@@ -1,6 +1,6 @@
 #include "ADC.h"
 #include <xc.h>
-
+#include <math.h>
 
 void initADC(void)
 {
@@ -50,15 +50,13 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void) {
     if (!ADCDataReady) {
         ADCbuffer[ADC] = ADC1BUF0;
         ADC++;
-        //ADCSamp=false;
-        //ADCTime=0;
+        
         //IEC0bits.AD1IE = 0;
     }
     if (ADC > 2) {
-        //ADCTime=0;
+        ADCTime=0;
         ADCDataReady = 1;
-        ADC = 0;
-        //ADCSamp=true;
+        ADC=0;
         IEC0bits.AD1IE = 0;
     }
     AD1CHS0bits.CH0SA = ADCPorts[ADC];
@@ -77,59 +75,13 @@ void SetADC(void)
 
 void handleADCValues(){
     //throttle1=(ADCbuffer[0]/4095.0)*100.0; //LOWVOLTs
-    throttle1=(ADCbuffer[0]/4095.0)*100.0;
+    throttle1=((ADCbuffer[0]/4095.0)*100.0);   
     throttle2=(ADCbuffer[1]/4095.0)*100.0;
     brake=(ADCbuffer[2]/4095.0)*100.0;
+//    if(brake>45){
+//    brake=0.0001*pow(brake,3.1137);
+//    }
+//    else brake = brake*0.4848-6.303;
     //throttle2=(ADCbuffer[3]/4095.0)*100.0;
     //brake=(ADCbuffer[4]/4095.0)*100.0;
 }
-//void readADCValues() {
-//    if ((ADCdata == 1)) {
-//        for (i = 0; i < 6; i++) {
-//            DELAY_100uS;
-//            readings[i] = buffer[i];
-//        }
-//        ADCdata = 0;
-//        //        throttle1=readings[2];
-//        //        throttle2=readings[3];
-//        //Check values for out of range low to avoid rollover
-//        throttle1 = (unsigned int) (readings[1] / 9) - 54;
-//        throttle2 = (unsigned int) ((2095 - readings[5])*0.2298);
-//        if ((throttle1 < 3)||(throttle1>200)) {
-//            throttle1 = 0;
-//        } else if (throttle1 > 100) {
-//            throttle1 = 100;
-//        } else if (throttle1 > 10) {
-//            throttle1 = throttle1 - 4;
-//        }
-//        if ((throttle2 < 4)||(throttle2>200)) {
-//            throttle2 = 0;
-//        } else if (throttle2 > 100) {
-//            throttle2 = 100;
-//        }
-//         brake1 = readings[3];
-////         brake2=readings[2];
-////        brake1 = (980 - readings[3]);
-////        if ((brake1<45) || (brake1 > 900)) {
-////            brake1 = 0;
-////        }
-////        brake1=brake1/9;
-////        if(brake1>100){
-////            brake1=100;
-////        }
-//        brakeLightCheck();
-//        brake2 = readings[2] - 350;
-//        if ((brake2 < 0) || (brake2 > 1200)) {
-//            brake2 = 0;
-//        }
-//        brake2=brake2/8;
-//        if(brake2>100){
-//            brake2=100;
-//        }
-//        //Change all 0-100's to 0-4095
-////        throttle1 = (unsigned int) throttle1 * 40.95;
-////        throttle2 = (unsigned int) throttle2 * 40.95;
-////        brake1 = (unsigned int) (brake1 * 40.95);
-////        brake2 = (unsigned int) (brake2 * 40.95);
-//    }
-//}

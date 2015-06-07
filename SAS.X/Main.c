@@ -8,24 +8,18 @@
 
 int main(void) {
     Setup();
-    LED = 1;   
+    LED = 1;
     while (1) {
         ledDebug();
         //Comms handling
         updateComms();
-                if (ADCDataReady) {
-                    ADCDataReady = false;
-                    handleADCValues();
-                    IEC0bits.AD1IE = 1;
-                    //ADCTime=0;
-                    //ADCSamp=false;
-                }
-//                if((!ADCSamp) && (!ADCDataReady)){// && (ADCTime>0)){
-//                    IEC0bits.AD1IE = 1;
-//                    AD1CON1bits.SAMP = 1;
-//                    ADCSamp=true;
-//                    ADCTime=0;
-//                }
+        if ((ADCDataReady) && (ADCTime > 0)) {          
+            ADCDataReady = false;
+            handleADCValues();
+            IEC0bits.AD1IE = 1;
+            //AD1CON1bits.ADON = 1;
+            ADCTime = 0;
+        }
     }
 }
 

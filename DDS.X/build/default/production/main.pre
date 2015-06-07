@@ -10855,9 +10855,9 @@ updateComms();
 
 # 76
 if (time > 1) {
-LEDsetValue(throttle/2.75,1);
+LEDsetValue((throttle)*(24.0/100.0),1);
 LEDwriteDisplay(0x70);
-LEDsetValue(brake/2.75,1);
+LEDsetValue((brake)*(24.0/100.0),1);
 LEDwriteDisplay(0x71);
 do { LATA3 = ~LATA3; } while(0);
 time=0;

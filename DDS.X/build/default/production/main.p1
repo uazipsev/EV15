@@ -8552,15 +8552,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 "76
 [e $ ! > _time -> -> 1 `i `ui 1192  ]
 {
-[; ;main.c: 77: LEDsetValue(throttle/2.75,1);
+[; ;main.c: 77: LEDsetValue((throttle)*(24.0/100.0),1);
 "77
-[e ( _LEDsetValue (2 , -> / -> _throttle `d .2.75 `i -> 1 `i ]
+[e ( _LEDsetValue (2 , -> * -> _throttle `d / .24.0 .100.0 `i -> 1 `i ]
 [; ;main.c: 78: LEDwriteDisplay(0x70);
 "78
 [e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-[; ;main.c: 79: LEDsetValue(brake/2.75,1);
+[; ;main.c: 79: LEDsetValue((brake)*(24.0/100.0),1);
 "79
-[e ( _LEDsetValue (2 , -> / -> _brake `d .2.75 `i -> 1 `i ]
+[e ( _LEDsetValue (2 , -> * -> _brake `d / .24.0 .100.0 `i -> 1 `i ]
 [; ;main.c: 80: LEDwriteDisplay(0x71);
 "80
 [e ( _LEDwriteDisplay (1 -> -> 113 `i `uc ]

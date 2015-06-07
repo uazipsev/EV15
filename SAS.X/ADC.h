@@ -19,6 +19,6 @@ volatile unsigned int ADCbuffer[6];
 volatile bool ADCDataReady = false;
 void handleADCValues();
 extern volatile unsigned int ADCbuffer[6];
-unsigned int throttle1,throttle2,brake;
+float throttle1,throttle2,brake;
 #endif	/* ADC_H */
 

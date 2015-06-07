@@ -21,7 +21,7 @@ void Setup(void) {
 
     INTCON1bits.NSTDIS = 1; //no nesting of interrupts
     timerOne();
-    timerTwo();
+    //timerTwo();
     UART_init();
     begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
     //UART1_init();
@@ -49,8 +49,8 @@ void timerTwo(void)
     T2CONbits.TCS = 0; //internal instruction clock (36,000,000 Hertz)
     T2CONbits.TGATE = 0; //disable gated timer mode
     T2CONbits.TCKPS = 0b11; // 1:256 prescalar    60MHz/256= 234.375KHz (4.266us)
-    TMR2 = 0x00; //clear timer register
-    PR2 = 3000; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
+    //TMR2 = 0x00; //clear timer register
+    PR2 = 30000; //- set to 279 ms per overflow (4.266 us * 65535)= 279 ms
     IFS0bits.T2IF = 0; // clear timer2 interrupt flag
     IEC0bits.T2IE = 1; // enable timer2 interrupt
     T2CONbits.TON = 1; //enable timer 2

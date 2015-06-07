@@ -74,9 +74,9 @@ void main(void) {
         //printf("ADC Volume = %d",ADCNT);
         
         if (time > 1) {
-            LEDsetValue(throttle/2.75,LED_RED);            
+            LEDsetValue((throttle)*(24.0/100.0),LED_RED);            
             LEDwriteDisplay(0x70);
-            LEDsetValue(brake/2.75,LED_RED);            
+            LEDsetValue((brake)*(24.0/100.0),LED_RED);            
             LEDwriteDisplay(0x71);
             INDICATOR_Toggle();
             time=0;

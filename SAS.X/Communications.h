@@ -15,7 +15,7 @@
 
 
 extern bool Transmit_stall;
-extern unsigned int throttle1,throttle2,brake;
+extern float throttle1,throttle2,brake;
 extern volatile unsigned int talkTime;
 void updateComms(); 
 void prepAndSendData();

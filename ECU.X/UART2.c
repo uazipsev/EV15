@@ -9,6 +9,7 @@
 #include <xc.h>
 #include <stdbool.h>
 #include <stdlib.h>
+#include <stdio.h>
 #include "UART2.h"
 #include "PinDef.h"
 #define ON         0

@@ -8,7 +8,7 @@ void updateComms() {
         talkTime = 0;
         pendingSend = true;
     }
-    if (pendingSend && talkTime > 500) {
+    if (pendingSend && talkTime > 50) {
         RS485_1_Port = TALK;
         talkTime = 0;
         prepAndSendData();
@@ -38,7 +38,7 @@ void prepAndSendData() {
 
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall && (talkTime > 500) && (RS485_1_Port == TALK)) {
+    if (Transmit_stall && (talkTime > 150) && (RS485_1_Port == TALK)) {
         RS485_1_Port = LISTEN;
     }
 }

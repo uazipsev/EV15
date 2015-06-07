@@ -16,11 +16,19 @@
 #include <xc.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <stdint.h>
+#include <stdio.h>
 #include "PinDef.h"
 #include "ADDRESSING.h"
 #include "Communications.h"
 
+
 void updateComms() {
+    static bool startup=false;
+    if(!startup) {
+        setbuf(stdout, NULL);
+        startup=true;
+    }
     checkCommDirection();
     checkCommDirection1();
     bus1Update();
@@ -131,24 +139,50 @@ void bus2Update() {
     }
 }
 
+void debugSAS(){    
+    ToSend2(5,throttle1);
+    ToSend2(6,throttle2);
+    ToSend2(7,brake);    
+    sendData2(DEBUG_ADDRESS);   
+    
+}
+
+
 //  Error Code Handling
 
+extern void Send_put2(unsigned char _data);
+extern unsigned char Receive_get2(void);
+char getch(void) {
+    return Receive_get2();
+}
+
+void putch(char txData) {
+    Send_put2(txData);
+}
+
+//void _mon_putc(char c){    
+//    Send_put2(c);
+//}
 void sendErrorCode() {
     unsigned int errorState = 0;
     if (DDS_COMMS_ERROR) {
         errorState = errorState | 0x01;
         DDS_COMMS_ERROR = false;
+        //printf("DDS Communications Error \r\n");
     }
     if (SAS_COMMS_ERROR) {
         errorState = errorState | 0x02;
         SAS_COMMS_ERROR = false;
+        //printf("SAS Communications Error \r\n");
     }
     if (PDU_COMMS_ERROR) {
         errorState = errorState | 0x04;
         PDU_COMMS_ERROR = false;
+        //printf("PDU Communications Error \r\n");
     }
-    ToSend2(BUS_1_ERROR_DEBUG, errorState);
-    sendData2(DEBUG_ADDRESS);
+    
+    //ToSend2(BUS_1_ERROR_DEBUG, errorState);
+    //sendData2(DEBUG_ADDRESS);
 }
 
 void sendErrorCode2() {
@@ -161,8 +195,9 @@ void sendErrorCode2() {
         errorState = errorState | 0x02;
         BMM_COMMS_ERROR = false;
     }
-    ToSend2(BUS_2_ERROR_DEBUG, errorState);
-    sendData2(DEBUG_ADDRESS);
+    //debugSAS();
+    //ToSend2(BUS_2_ERROR_DEBUG, errorState);
+    //sendData2(DEBUG_ADDRESS);
 }
 
 //  Timer Resets Per Bus

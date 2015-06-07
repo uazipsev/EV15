@@ -9,6 +9,7 @@
 #include "PinDef.h"
 #include "ADDRESSING.h"
 #include <libpic30.h>
+#include <stdio.h>
 #include <stdbool.h>
 #include "Functions.h"
 
@@ -46,7 +47,6 @@ void Setup(void) {
 
     PPSout(_OC1, _RP37);
     PPSLock;
-
 
     UART_init();
     UART1_init();
