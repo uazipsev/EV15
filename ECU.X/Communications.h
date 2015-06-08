@@ -12,11 +12,62 @@
 extern "C" {
 #endif
 
-#define CLOSE_COMM_TIME    4
-#define BOARD_TIMEOUT     45
-#define BOARD_RESEND_MIN  15
+
+//COMMUNICATIONS METHODS
+void updateComms();
+
+enum bus1CommState{SAS_UPDATE=0, DDS_UPDATE=1, PDU_UPDATE=2, CHECK_STATE1=3, ERROR_STATE1=4, NUM_STATES1=5};
+enum bus1CommState commsBus1State=SAS_UPDATE;
+void checkCommDirection();
+void bus1Update();
+void resetCommTimers();
+void RS485_Direction1(int T_L);
+void sendErrorCode();
+
+enum bus2CommState{MCS_UPDATE=0, BMM_UPDATE=1, CHECK_STATE2=2,ERROR_STATE2=3,NUM_STATES2=4};
+enum bus2CommState commsBus2State=MCS_UPDATE;
+void checkCommDirection1();
+void bus2Update();
+void resetCommTimers2();
+void RS485_Direction2(int T_L);
+void sendErrorCode2();
+
+
+
+//SAS
+extern bool receiveCommSAS();
+extern bool requestSASData();
+extern bool readyToSendSAS;
+extern bool SAS_COMMS_ERROR;
+
+//
+
+extern bool requestBMMData();
+extern bool receiveCommBMM();
+extern bool readyToSendBMM;
+extern bool BMM_COMMS_ERROR;
+//
+extern bool requestMCSData();
+extern bool receiveCommMCS();
+extern bool readyToSendMCS;
+extern bool MCS_COMMS_ERROR;
+//
+
+extern bool requestDDSData();
+extern bool receiveCommDDS();
+extern bool readyToSendDDS;
+extern bool DDS_COMMS_ERROR;
+//
+
+
+extern bool requestPDUData();
+extern bool receiveCommPDU();
+extern bool readyToSendPDU;
+extern bool PDU_COMMS_ERROR;
+//HORN METHOD
 extern void RTD(int lenth);
 
+//FAST TRANSFER / UART STUFF
 extern void sendData(unsigned char whereToSend);
 extern bool receiveData();
 extern void ToSend(const unsigned char where, const unsigned int what);
@@ -45,58 +96,14 @@ extern volatile int receiveArray3[20];
 extern volatile  bool Transmit_stall3;
 extern volatile unsigned int talkTime3;
 
-extern volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer, BMMTimer, BootTimer;
-
-enum bus1CommState{SAS_UPDATE=0, DDS_UPDATE=1, PDU_UPDATE=2, CHECK_STATE1=3, ERROR_STATE1=4, NUM_STATES1=5};
-enum bus1CommState commsBus1State=SAS_UPDATE;
-
-enum bus2CommState{MCS_UPDATE=0, BMM_UPDATE=1, CHECK_STATE2=2,ERROR_STATE2=3,NUM_STATES2=4};
-enum bus2CommState commsBus2State=MCS_UPDATE;
-
-bool readyToSendSAS = true;
-bool readyToSendDDS = true;
-bool readyToSendPDU = true;
-bool readyToSendMCS = true;
-bool readyToSendBMM = true;
-
-bool SAS_COMMS_ERROR = false;
-bool DDS_COMMS_ERROR = false;
-bool MCS_COMMS_ERROR = false;
-bool PDU_COMMS_ERROR = false;
-bool BMM_COMMS_ERROR = false;
-
-void updateComms();
-void sendErrorCode();
-void sendErrorCode2();
-void RS485_Direction1(int T_L);
-void RS485_Direction2(int T_L);
-
-void checkCommDirection();
-void checkCommDirection1();
-void bus1Update();
-void bus2Update();
 
 
-bool receiveCommSAS();
-bool receiveCommDDS();
-bool receiveCommMCS();
-bool receiveCommPDU();
-bool receiveCommBMM();
 
-bool requestSASData();
-bool requestDDSData();
-bool requestMCSData();
-bool requestPDUData();
-bool requestBMMData();
 
-void resetCommTimers();
-void resetCommTimers2();
 
-//DDS
-extern unsigned int indicators;
-extern unsigned int buttons;
-//SAS
-extern unsigned int throttle1,throttle2,brake;
+
+
+
 
 #ifdef	__cplusplus
 }

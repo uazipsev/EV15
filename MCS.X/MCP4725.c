@@ -18,7 +18,7 @@
 char i2cdata[20];
 
 //loads data to DAC 1
-void SetDAC1(long int value)
+void SetDAC1(unsigned int value)
 {
     i2cdata[0] = value >> 8;
     i2cdata[1] = value & 0x00ff;
@@ -26,7 +26,7 @@ void SetDAC1(long int value)
 }
 
 //loads data to DAC 2
-void SetDAC2(long int value)
+void SetDAC2(unsigned int value)
 {
     i2cdata[0] = value >> 8;
     i2cdata[1] = value & 0x00ff;
@@ -36,7 +36,7 @@ void SetDAC2(long int value)
 
 //Set up DAC to save start up set point
 //NOTE: this fcn needs revised. see pg 25 of Data sheet
-void ConfigDAC(char address,long int setpoint)
+void ConfigDAC(char address,unsigned int setpoint)
 {
     i2cdata[0] = setpoint >> 8;
     i2cdata[1] = setpoint & 0x00ff;

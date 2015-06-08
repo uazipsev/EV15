@@ -10,7 +10,7 @@
 
 #include <stdbool.h>
 
-int past_dirrection = 0;
+
 
 typedef enum Directionality
 {
@@ -18,10 +18,13 @@ typedef enum Directionality
   backward = 2,
   stop = 3
 }dirr;
-
-void SetMotor(int speed, enum Directionality direction);
+#define forward     1
+#define backward    2
+#define stop        3
+void SetMotor(int speed, int direction);
 void SetRegen(int amount);
 void Regen(bool enable);
+bool motorControllerValuesCheck(int t, int b);
 
 #endif	/* MOTORCONTROLER_H */
 

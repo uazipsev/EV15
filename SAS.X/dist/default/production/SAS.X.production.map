@@ -610,17 +610,17 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x5297
+.debug_info       0x000000       0x52f1
  *(.debug_info)
- .debug_info      0x000000        0x2ea build/default/production/interrupt_handler.o
- .debug_info      0x0002ea        0x478 build/default/production/main.o
- .debug_info      0x000762        0xb86 build/default/production/FastTransfer.o
- .debug_info      0x0012e8       0x1770 build/default/production/Functions.o
- .debug_info      0x002a58         0xa4 build/default/production/ConfigBit.o
- .debug_info      0x002afc        0xd41 build/default/production/ADC.o
- .debug_info      0x00383d        0xb6a build/default/production/UART.o
- .debug_info      0x0043a7        0xc02 build/default/production/UART1.o
- .debug_info      0x004fa9        0x2ee build/default/production/Communications.o
+ .debug_info      0x000000        0x2f4 build/default/production/interrupt_handler.o
+ .debug_info      0x0002f4        0x482 build/default/production/main.o
+ .debug_info      0x000776        0xb90 build/default/production/FastTransfer.o
+ .debug_info      0x001306       0x177a build/default/production/Functions.o
+ .debug_info      0x002a80         0xae build/default/production/ConfigBit.o
+ .debug_info      0x002b2e        0xd4b build/default/production/ADC.o
+ .debug_info      0x003879        0xb74 build/default/production/UART.o
+ .debug_info      0x0043ed        0xc0c build/default/production/UART1.o
+ .debug_info      0x004ff9        0x2f8 build/default/production/Communications.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0x9c5

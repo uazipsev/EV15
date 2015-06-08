@@ -21,6 +21,11 @@
       <itemPath>Communications.h</itemPath>
       <itemPath>DDS_Interface.h</itemPath>
       <itemPath>ADDRESSING.h</itemPath>
+      <itemPath>SASComms.h</itemPath>
+      <itemPath>MCSComms.h</itemPath>
+      <itemPath>DDSComms.h</itemPath>
+      <itemPath>PDUComms.h</itemPath>
+      <itemPath>BMMComms.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -45,6 +50,11 @@
       <itemPath>Timers.c</itemPath>
       <itemPath>Communications.c</itemPath>
       <itemPath>DDS_Interface.c</itemPath>
+      <itemPath>SASComms.c</itemPath>
+      <itemPath>MCSComms.c</itemPath>
+      <itemPath>DDSComms.c</itemPath>
+      <itemPath>PDUComms.c</itemPath>
+      <itemPath>BMMComms.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

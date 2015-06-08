@@ -32,6 +32,8 @@ extern void Send_put(unsigned char _data);
 
 extern void UART_init(void);
 
+extern void timerOne();
+extern void timerTwo();
 
 extern void Setup(void);
 extern void Delay(int wait);

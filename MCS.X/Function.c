@@ -38,9 +38,11 @@ void Setup(void)
   begin(receiveArray, sizeof (receiveArray), MCS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
    
   i2c_init();
+  timerOne();
   PotClear();
   PWM_Init();
   CoolingStart();
+
 }
 
 void Delay(int wait)
@@ -56,18 +58,18 @@ void PinSetMode(void)
 {
     AD1PCFGLbits.PCFG11=1;   
     
-    LATCbits.LATC6=1;
+    LATCbits.LATC6    = 1;
     
     TRISBbits.TRISB13 = 0;
-    LATBbits.LATB13 = 0;
+    LATBbits.LATB13   = 0;
     
-    TRISBbits.TRISB1 = 0; //Set LED as output
-    TRISAbits.TRISA0 = 0; //DAC relay OUT
+    TRISBbits.TRISB1  = 0; //Set LED as output
+    TRISAbits.TRISA0  = 0; //DAC relay OUT
     TRISAbits.TRISA10 = 0; //Set 12v DC/DC enable OUT
 
     TRISBbits.TRISB15 = 0; //DigiPot CS OUT
     TRISBbits.TRISB14 = 0; //DigiPot INC OUT
-    TRISAbits.TRISA7 = 0;  //DigiPot UP_DN OUT
+    TRISAbits.TRISA7  = 0;  //DigiPot UP_DN OUT
 
-    TRISBbits.TRISB5 = 0;  //Fan control OUT
+    TRISBbits.TRISB5  = 0;  //Fan control OUT
 }

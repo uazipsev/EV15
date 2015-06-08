@@ -64,7 +64,9 @@
 #define Pin_22_Output RPOR11bits.RP22R
 #define Pin_23_Output RPOR11bits.RP23R
 #define TX1_OUTPUT 3
-
+#define RS485_1_Port LATBbits.LATB13
+#define TALK 1
+#define LISTEN 0
 
 #endif	/* PINDEF_H */
 

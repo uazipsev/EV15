@@ -10,33 +10,23 @@
 #include "xc.h"
 #include "PinDef.h"
 #include "main.h"
+#include "Communications.h"
 #include "ADDRESSING.h"
-
-
 
 /*
  * 
  */
 int main(int argc, char** argv) {
     Setup();
-    //int x = 0;
     LATBbits.LATB13=0;
+    LATAbits.LATA0=1;
+
+    SetMotor(0,1);
+    SetRegen(0);
     while(1)
     {
-        if(receiveData())
-        {
-            LATBbits.LATB13 =1;
-            Delay(5);
-            ToSend(RESPONSE_ADDRESS,MCS_ADDRESS);
-            sendData(ECU_ADDRESS);
-            Delay(3);
-            LATBbits.LATB13 =0;
-        }
-       //x = 0;
-       //Delay(100);
-       //INDICATOR = 1;
-       //Delay(100);
-       //INDICATOR = 0;
+        updateComms();
+        ledDebug();       
     }
 
     return (EXIT_SUCCESS);
