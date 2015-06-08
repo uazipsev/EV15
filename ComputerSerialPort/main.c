@@ -1,3 +1,4 @@
+
 /*
 
 
@@ -6,8 +7,8 @@
   
   The program accepts a number of inputs to say which board to send a packet to
   Comm port must be identified as a define for it to work with your comm port
-*/
-  
+ */
+
 #include    <windows.h>
 #include    <stdlib.h>
 #include    <stdio.h>
@@ -18,21 +19,25 @@
 
 #define CommPort "COM3"
 
+#define polynomial 0x8C  //polynomial used to calculate crc
 HANDLE hSerial;
 COMMTIMEOUTS timeouts;
 COMMCONFIG dcbSerialParams;
-char packet[9], buffRead[100];
+char packet[20], buffRead[100];
 char *buffWrite;
 DWORD dwBytesWritten, dwBytesRead;
 void setupComm();
 void terminalBuffer(char * bufR, char * bufW, int numberWordsR, int numberWordsW);
 DWORD readBytes(char * buf, DWORD nread);
 DWORD writeBytes(char * buf, DWORD nwrite);
-void prepGenericBMMPacket();
-void prepGenericPDUPacket();
-void prepGenericSASPacket();
-void prepGenericDDSPacket();
-void prepGenericMCSPacket();
+char CRC8(char * data, char len);
+int prepGenericBMMPacket();
+int prepGenericPDUPacket();
+int prepGenericSASPacket();
+int prepGenericDDSPacket();
+int prepGenericMCSPacket();
+int numBytesToWrite;
+int prepTBMCSPacket(int t, int b);
 
 int main(int argc, char *argv[]) {
     printf("\n");
@@ -42,21 +47,24 @@ int main(int argc, char *argv[]) {
             char * a = argv[i];
             if ((strcmp(a, "MCS") == 0) || (strcmp(a, "mcs") == 0)) {
                 printf("Going to do a request for MCS.\n");
-                prepGenericMCSPacket();
+                numBytesToWrite = prepGenericMCSPacket();
+            } else if ((strcmp(a, "MCS1") == 0) || (strcmp(a, "mcs1") == 0)) {
+                printf("Going to do a request for MCS.\n");
+                numBytesToWrite = prepTBMCSPacket(1000, 1000);
             } else if ((strcmp(a, "SAS") == 0) || (strcmp(a, "sas") == 0)) {
                 printf("Going to do a request for SAS.\n");
-                prepGenericSASPacket();
+                numBytesToWrite = prepGenericSASPacket();
             } else if ((strcmp(a, "PDU") == 0) || (strcmp(a, "pdu") == 0)) {
                 printf("Going to do a request for PDU.\n");
-                prepGenericPDUPacket();
+                numBytesToWrite = prepGenericPDUPacket();
             } else if ((strcmp(a, "BMM") == 0) || (strcmp(a, "bmm") == 0)) {
                 printf("Going to do a request for BMM.\n");
-                prepGenericBMMPacket();
+                numBytesToWrite = prepGenericBMMPacket();
             } else if ((strcmp(a, "DDS") == 0) || (strcmp(a, "dds") == 0)) {
                 printf("Going to do a request for DDS.\n");
-                prepGenericDDSPacket();
+                numBytesToWrite = prepGenericDDSPacket();
             } else {
-                printf("No request was made for an output board \n");
+                printf("No request or a bad request was made for an output board \n");
                 printf("Please type any of the following after calling the program:\n\n");
                 printf("-MCS\n-SAS\n-PDU\n-BMM\n-DDS\n");
             }
@@ -68,7 +76,7 @@ int main(int argc, char *argv[]) {
 
     }
     setupComm();
-    int numBytesWritten = writeBytes(packet, 9); //Writebytes from
+    int numBytesWritten = writeBytes(packet, numBytesToWrite); //Writebytes from
     int numBytesRead = readBytes(buffRead, 25); //Grab 15 bytes if possible, store in buffRead, return number actually read
     terminalBuffer(buffRead, packet, numBytesRead, numBytesWritten); //Output bytes buffer
 
@@ -76,7 +84,56 @@ int main(int argc, char *argv[]) {
     return 1;
 }
 
-void prepGenericBMMPacket() {
+char CRC8(char * data, char len) {
+    char crc = 0x00;
+    while (len>=0) {
+        char extract = *data++;
+        char tempI;
+        for (tempI = 8; tempI; tempI--) {
+            char sum = (crc ^ extract) & 0x01;
+            crc >>= 1;
+            if (sum) {
+                crc ^= polynomial;
+            }
+            extract >>= 1;
+        }
+        len--;
+    }
+    return crc;
+}
+
+int prepTBMCSPacket(int t, int b) {
+    char tHigh, tLow, bHigh, bLow;
+    tLow = (t & 0x00FF);
+    tHigh = ((t & 0xFF00) >> 8);
+    bLow = (b & 0x00FF);
+    bHigh = ((b & 0xFF00) >> 8);
+    packet[0] = 0x06;
+    packet[1] = 0x85;
+    packet[2] = 0x04;
+    packet[3] = 0x01;
+    packet[4] = 0x09;
+    packet[5] = 0x00;
+    packet[6] = 0x01;
+    packet[7] = 0x00;
+    packet[8] = 0x01;
+    packet[9] = tHigh;
+    packet[10] = tLow;
+    packet[11] = 0x02;
+    packet[12] = bHigh;
+    packet[13] = bLow;
+
+    int dataBytes=9;
+    int k = 0;
+    char crcArray[dataBytes];
+    for (k = 0; k < dataBytes; k++) {
+        crcArray[k] = packet[k + 5];
+    }
+    packet[14] = CRC8(crcArray, 9);
+    return 15;
+}
+
+int prepGenericBMMPacket() {
     packet[0] = 0x06;
     packet[1] = 0x85;
     packet[2] = 0x05;
@@ -85,10 +142,12 @@ void prepGenericBMMPacket() {
     packet[5] = 0x00;
     packet[6] = 0x01;
     packet[7] = 0x00;
-    packet[8] = 0xC4; //-------------
+    packet[8] = CRC8(packet, 3);
+    ; //-------------
+    return 9;
 }
 
-void prepGenericPDUPacket() {
+int prepGenericPDUPacket() {
     packet[0] = 0x06;
     packet[1] = 0x85;
     packet[2] = 0x05;
@@ -97,10 +156,11 @@ void prepGenericPDUPacket() {
     packet[5] = 0x00;
     packet[6] = 0x01;
     packet[7] = 0x00;
-    packet[8] = 0xC4; //-------------
+    packet[8] = CRC8(packet, 3); //-------------
+    return 9;
 }
 
-void prepGenericSASPacket() {
+int prepGenericSASPacket() {
     packet[0] = 0x06;
     packet[1] = 0x85;
     packet[2] = 0x02;
@@ -109,10 +169,11 @@ void prepGenericSASPacket() {
     packet[5] = 0x00;
     packet[6] = 0x01;
     packet[7] = 0x00;
-    packet[8] = 0xC4; //-------------
+    packet[8] = CRC8(packet, 3); //-------------
+    return 9;
 }
 
-void prepGenericDDSPacket() {
+int prepGenericDDSPacket() {
     packet[0] = 0x06;
     packet[1] = 0x85;
     packet[2] = 0x03;
@@ -121,10 +182,11 @@ void prepGenericDDSPacket() {
     packet[5] = 0x00;
     packet[6] = 0x01;
     packet[7] = 0x00;
-    packet[8] = 0xC4; //-------------
+    packet[8] = CRC8(packet, 3); //-------------
+    return 9;
 }
 
-void prepGenericMCSPacket() {
+int prepGenericMCSPacket() {
     packet[0] = 0x06;
     packet[1] = 0x85;
     packet[2] = 0x04;
@@ -134,6 +196,7 @@ void prepGenericMCSPacket() {
     packet[6] = 0x01;
     packet[7] = 0x00;
     packet[8] = 0xC4;
+    return 9;
 }
 
 void setupComm() {
