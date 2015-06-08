@@ -1,5 +1,13 @@
+/*
 
 
+  Author : Zac Kilburn
+  This is a simple communications system for comm ports 
+  
+  The program accepts a number of inputs to say which board to send a packet to
+  Comm port must be identified as a define for it to work with your comm port
+*/
+  
 #include    <windows.h>
 #include    <stdlib.h>
 #include    <stdio.h>
@@ -8,6 +16,7 @@
 #include    <time.h>
 //#include  <windef.h>
 
+#define CommPort "COM3"
 
 HANDLE hSerial;
 COMMTIMEOUTS timeouts;
@@ -128,7 +137,7 @@ void prepGenericMCSPacket() {
 }
 
 void setupComm() {
-    hSerial = CreateFile("COM3", GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
+    hSerial = CreateFile(CommPort, GENERIC_READ | GENERIC_WRITE, 0, NULL, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, NULL);
 
     if (hSerial == INVALID_HANDLE_VALUE) {
         if (GetLastError() == ERROR_FILE_NOT_FOUND) {
