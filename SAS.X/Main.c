@@ -13,7 +13,7 @@ int main(void) {
         ledDebug();
         //Comms handling
         updateComms();
-        if ((ADCDataReady) && (ADCTime > 0)) {          
+        if ((ADCDataReady) && (ADCTime > 0)) {
             ADCDataReady = false;
             handleADCValues();
             IEC0bits.AD1IE = 1;

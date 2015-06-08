@@ -15,6 +15,7 @@
 
 void setMCSOutputs(unsigned int t1, unsigned int t2, unsigned int b);
 bool checkSASInputs(unsigned int t1, unsigned int t2, unsigned int b);
+
 int main(int argc, char** argv) {
     Setup();
     Delay(1000);
@@ -22,12 +23,12 @@ int main(int argc, char** argv) {
         ledDebug();
         updateComms();
         //DDS Process Data
-        if(seekButtonChange()){                 
-                changeLEDState(IMD_INDICATOR,!buttonArray[1]);              
-                changeLEDState(DASH_LED,!buttonArray[2]);                         
-                changeLEDState(BMS_LED,!buttonArray[3]);  
+        if (seekButtonChange()) {
+            changeLEDState(IMD_INDICATOR, !buttonArray[1]);
+            changeLEDState(DASH_LED, !buttonArray[2]);
+            changeLEDState(BMS_LED, !buttonArray[3]);
         }
-        
+
 
     }
     return (EXIT_SUCCESS);

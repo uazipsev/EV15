@@ -15,9 +15,9 @@
 
 
 extern bool Transmit_stall;
-extern float throttle1,throttle2,brake;
+extern float throttle1, throttle2, brake;
 extern volatile unsigned int talkTime;
-void updateComms(); 
+void updateComms();
 void prepAndSendData();
 void checkCommDirection();
 #endif	/* COMMUNICATIONS_H */

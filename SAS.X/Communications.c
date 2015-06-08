@@ -1,7 +1,8 @@
 
 #include "Communications.h"
 
-bool pendingSend=false;
+bool pendingSend = false;
+
 void updateComms() {
     checkCommDirection();
     if (receiveData()) {

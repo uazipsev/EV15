@@ -115,8 +115,8 @@ void Send_put(unsigned char _data) {
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
-    if(U1STAbits.OERR){
-        U1STAbits.OERR=0;
+    if (U1STAbits.OERR) {
+        U1STAbits.OERR = 0;
     }
     unsigned char data = U1RXREG;
     UART_buff_put(&input_buffer, data);
@@ -125,11 +125,11 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void) {
     //LED ^= 1;
-    talkTime=0;
+    talkTime = 0;
     if (UART_buff_size(&output_buffer) > 0) {
         U1TXREG = UART_buff_get(&output_buffer);
     } else {
-        
+
         Transmit_stall = true;
     }
     IFS0bits.U1TXIF = 0; // Clear TX interrupt flag

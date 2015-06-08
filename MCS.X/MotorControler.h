@@ -10,14 +10,11 @@
 
 #include <stdbool.h>
 
-
-
-typedef enum Directionality
-{
-  forward = 1,
-  backward = 2,
-  stop = 3
-}dirr;
+typedef enum Directionality {
+    forward = 1,
+    backward = 2,
+    stop = 3
+} dirr;
 #define forward     1
 #define backward    2
 #define stop        3

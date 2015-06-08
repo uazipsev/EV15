@@ -27,7 +27,6 @@
 #include "PDUComms.h"
 #include "BMMComms.h"
 
-
 void updateComms() {
     static bool startup = false;
     if (!startup) {
@@ -99,22 +98,26 @@ void bus1Update() {
     }
 
 }
+
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
     if (Transmit_stall && (talkTime > CLOSE_COMM_TIME)) {
         RS485_Direction1(LISTEN);
     }
 }
+
 void resetCommTimers() {
     SASTimer = 0;
     DDSTimer = 0;
     PDUTimer = 0;
 }
+
 void RS485_Direction1(int T_L) {
     RS485_1_Direction = T_L;
     talkTime = 0;
 
 }
+
 void sendErrorCode() {
     unsigned int errorState = 0;
     if (DDS_COMMS_ERROR) {
@@ -180,6 +183,7 @@ void bus2Update() {
             break;
     }
 }
+
 void checkCommDirection1() {
     if (!Transmit_stall1) talkTime1 = 0;
     //you have finished send and time has elapsed.. start listen
@@ -187,15 +191,18 @@ void checkCommDirection1() {
         RS485_Direction2(LISTEN);
     }
 }
+
 void resetCommTimers2() {
     MCSTimer = 0;
     BMMTimer = 0;
 }
+
 void RS485_Direction2(int T_L) {
     RS485_2_Direction = T_L;
     talkTime1 = 0;
 
 }
+
 void sendErrorCode2() {
     unsigned int errorState = 0;
     if (MCS_COMMS_ERROR) {

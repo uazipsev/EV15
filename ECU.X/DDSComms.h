@@ -20,19 +20,19 @@ extern "C" {
 #define BOARD_TIMEOUT     45
 #define BOARD_RESEND_MIN  15
 
-extern volatile unsigned int DDSTimer;
+    extern volatile unsigned int DDSTimer;
 
-//DDS
-extern unsigned int indicators;
-extern unsigned int buttons;
-extern unsigned int throttle1,throttle2,brake;
+    //DDS
+    extern unsigned int indicators;
+    extern unsigned int buttons;
+    extern unsigned int throttle1, throttle2, brake;
 
-extern void sendData1(unsigned char whereToSend);
-extern bool receiveData1();
-extern void ToSend1(const unsigned char where, const unsigned int what);
-extern volatile int receiveArray1[20];
+    extern void sendData1(unsigned char whereToSend);
+    extern bool receiveData1();
+    extern void ToSend1(const unsigned char where, const unsigned int what);
+    extern volatile int receiveArray1[20];
 
-extern void RS485_Direction1(int T_L);
+    extern void RS485_Direction1(int T_L);
 
 #ifdef	__cplusplus
 }

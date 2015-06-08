@@ -15,11 +15,12 @@ extern "C" {
     extern void Setup(void);
     extern void Delay(int wait);
     extern volatile unsigned int LEDtime;
-    void ledDebug(){
-        if(LEDtime>1000){
-            LEDtime=0;
 
-           INDICATOR ^= 1;
+    void ledDebug() {
+        if (LEDtime > 1000) {
+            LEDtime = 0;
+
+            INDICATOR ^= 1;
         }
 
     }

@@ -15,8 +15,7 @@ char data[NUMOFBYTES] = 0;
 int CurrentADC[6] = 0;
 int Current[6] = 0;
 
-typedef enum
-{
+typedef enum {
     SAS = 1,
     DDS = 2,
     MCS = 3,
@@ -25,7 +24,7 @@ typedef enum
     AUX = 6,
     ON = 1,
     OFF = 0
-}device;
+} device;
 
 extern void PDUStartup(void);
 void EnableSlavePower(device slave, int onof);

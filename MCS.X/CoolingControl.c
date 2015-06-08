@@ -14,14 +14,13 @@
 #include "DigiPot.h"
 #include "pwm.h"
 
-//The system needs to be started to minimum values. 
-void CoolingStart()
-{
+//The system needs to be started to minimum values.
+
+void CoolingStart() {
     PotSetpoint(pumpStart);
     PWMupdate(fanStart);
 }
 
-void CoolingUpdate(void)
-{
+void CoolingUpdate(void) {
 
 }

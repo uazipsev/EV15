@@ -3,6 +3,7 @@ bool requestBMMData();
 bool receiveCommBMM();
 bool readyToSendBMM = true;
 bool BMM_COMMS_ERROR = false;
+
 bool requestBMMData() {
     if (((BMMTimer > BOARD_RESEND_MIN) && (readyToSendBMM)) || (BMMTimer > BOARD_TIMEOUT)) {
         static int BMMErrorCounter = 0;

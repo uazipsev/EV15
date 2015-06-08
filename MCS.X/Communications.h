@@ -19,15 +19,15 @@ extern "C" {
 #include "ADDRESSING.h"
 
 
-extern void sendData(unsigned char whereToSend);
-extern bool receiveData();
-extern void ToSend(const unsigned char where, const unsigned int what);
-extern volatile int receiveArray[20];
-extern bool Transmit_stall;
-extern volatile unsigned int talkTime;
-void updateComms();
-void checkCommDirection();
-void respondECU();
+    extern void sendData(unsigned char whereToSend);
+    extern bool receiveData();
+    extern void ToSend(const unsigned char where, const unsigned int what);
+    extern volatile int receiveArray[20];
+    extern bool Transmit_stall;
+    extern volatile unsigned int talkTime;
+    void updateComms();
+    void checkCommDirection();
+    void respondECU();
 
 
 #ifdef	__cplusplus

@@ -116,8 +116,8 @@ void Send_put3(unsigned char _data) {
 }
 
 void __attribute__((interrupt, no_auto_psv)) _U4RXInterrupt(void) {
-    if(U4STAbits.OERR){
-        U4STAbits.OERR=0;
+    if (U4STAbits.OERR) {
+        U4STAbits.OERR = 0;
     }
     unsigned char data = U4RXREG;
     UART3_buff_put(&input_buffer3, data);

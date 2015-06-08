@@ -18,10 +18,8 @@
 #define ON         0
 #define OFF        1
 
-
-
 void EUSART1_Initialize(void) {
-      // disable interrupts before changing states
+    // disable interrupts before changing states
     PIE1bits.RC1IE = 0;
     PIE1bits.TX1IE = 0;
 
@@ -139,8 +137,7 @@ void Send_put(unsigned char _data) {
 }
 
 void EUSART1_Receive_ISR(void) {
-     if(1 == RC1STAbits.OERR)
-    {
+    if (1 == RC1STAbits.OERR) {
         // EUSART1 error - restart
 
         RC1STAbits.CREN = 0;
@@ -160,15 +157,10 @@ void EUSART1_Transmit_ISR(void) {
     }
 }
 
-
-
-
-char getch(void)
-{
+char getch(void) {
     return Receive_get();
 }
 
-void putch(char txData)
-{
+void putch(char txData) {
     Send_put(txData);
 }

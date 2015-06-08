@@ -13,12 +13,12 @@ void GetADC(void);
 void SetADC(void);
 
 void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void);
-volatile unsigned int ADCTime=0;
-volatile bool ADCSamp=true;
+volatile unsigned int ADCTime = 0;
+volatile bool ADCSamp = true;
 volatile unsigned int ADCbuffer[6];
 volatile bool ADCDataReady = false;
 void handleADCValues();
 extern volatile unsigned int ADCbuffer[6];
-float throttle1,throttle2,brake;
+float throttle1, throttle2, brake;
 #endif	/* ADC_H */
 

@@ -54,7 +54,7 @@ void sendData(unsigned char whereToSend) {
 
     //calculate the crc
     unsigned char CS = CRC8(sendStructAddress, ring_buffer.count);
-    
+
     serial_write(0x06); //start address
     serial_write(0x85); //start address
     serial_write(whereToSend);
@@ -70,7 +70,7 @@ void sendData(unsigned char whereToSend) {
 
     //send the crc
     serial_write(CS);
-    
+
     //record the sent message data for aknak check later
     crcBufS_put(&crc_buffer, whereToSend, CS, 0);
 

@@ -72,14 +72,14 @@ void main(void) {
         // ADCNT = ADC_GetConversion(Volume);
         // Add your application code
         //printf("ADC Volume = %d",ADCNT);
-        
+
         if (time > 1) {
-            LEDsetValue((throttle)*(24.0/100.0),LED_RED);            
+            LEDsetValue((throttle)*(24.0 / 100.0), LED_RED);
             LEDwriteDisplay(0x70);
-            LEDsetValue((brake)*(24.0/100.0),LED_RED);            
+            LEDsetValue((brake)*(24.0 / 100.0), LED_RED);
             LEDwriteDisplay(0x71);
             INDICATOR_Toggle();
-            time=0;
+            time = 0;
         }
         //        for (uint8_t b=0; b<24; b++) {
         //           LEDsetBar(b, LED_YELLOW);

@@ -4,6 +4,7 @@ bool requestDDSData();
 bool receiveCommDDS();
 bool readyToSendDDS = true;
 bool DDS_COMMS_ERROR = false;
+
 bool requestDDSData() {
     if (((DDSTimer > BOARD_RESEND_MIN) && (readyToSendDDS)) || (DDSTimer > BOARD_TIMEOUT)) {
         static int DDSErrorCounter = 0;

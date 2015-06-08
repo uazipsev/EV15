@@ -4,6 +4,7 @@ bool receiveCommSAS();
 bool requestSASData();
 bool readyToSendSAS = true;
 bool SAS_COMMS_ERROR = false;
+
 void debugSAS() {
     ToSend2(5, throttle1);
     ToSend2(6, throttle2);
@@ -11,6 +12,7 @@ void debugSAS() {
     sendData2(DEBUG_ADDRESS);
 
 }
+
 bool requestSASData() {
     //If either timeout or response with delay already occurred
     if (((SASTimer > BOARD_RESEND_MIN) && (readyToSendSAS)) || (SASTimer > BOARD_TIMEOUT)) {
@@ -34,13 +36,13 @@ bool requestSASData() {
     return true;
 }
 
-bool checkSASInputs(unsigned int t1, unsigned int t2, unsigned int b){
+bool checkSASInputs(unsigned int t1, unsigned int t2, unsigned int b) {
     //throttle consistency check
-    if(!((t1+(t1/10)>t2)&&(t1-(t1/10)<t2))){
+    if (!((t1 + (t1 / 10) > t2) && (t1 - (t1 / 10) < t2))) {
         return false;
     }
     //Brake vs. throttle safety
-    if(((t1+t2/2)>TRIP_THROTTLE)&&(b>TRIP_BRAKE)){
+    if (((t1 + t2 / 2) > TRIP_THROTTLE) && (b > TRIP_BRAKE)) {
         return false;
     }
     return true;

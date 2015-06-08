@@ -11,65 +11,60 @@
 #include "PinDef.h"
 #include "ADDRESSING.h"
 
+void Setup(void) {
+    // setup internal clock for 66MHz/33MIPS
+    // 12/2=6*22=132/2=66
+    CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2
+    PLLFBD = 22; // pll multiplier (M) = +2
+    CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
+    while (!OSCCONbits.LOCK); // wait for PLL ready
 
-void Setup(void)
-{
-  // setup internal clock for 66MHz/33MIPS
-  // 12/2=6*22=132/2=66
-  CLKDIVbits.PLLPRE=0;        // PLLPRE (N2) 0=/2
-  PLLFBD=22;                  // pll multiplier (M) = +2
-  CLKDIVbits.PLLPOST=0;       // PLLPOST (N1) 0=/2
-  while(!OSCCONbits.LOCK);    // wait for PLL ready
+    PPSUnLock;
 
-  PPSUnLock;
+    PPSout(_U2TX, _RP7);
+    PPSout(_OC1, _RP5);
 
-  PPSout (_U2TX,_RP7);
-  PPSout (_OC1,_RP5);
-
-  PPSin (_U2RX,_RP6);
+    PPSin(_U2RX, _RP6);
 
     Pin_23_Output = TX1_OUTPUT;
     RX1_Pin_Map = 22;
-  PPSLock;
+    PPSLock;
 
 
-  PinSetMode();
-  UART_init();         
-  begin(receiveArray, sizeof (receiveArray), MCS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
-   
-  i2c_init();
-  timerOne();
-  PotClear();
-  PWM_Init();
-  CoolingStart();
+    PinSetMode();
+    UART_init();
+    begin(receiveArray, sizeof (receiveArray), MCS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+
+    i2c_init();
+    timerOne();
+    PotClear();
+    PWM_Init();
+    CoolingStart();
 
 }
 
-void Delay(int wait)
-{
+void Delay(int wait) {
     int x;
-    for(x = 0;x<wait;x++)
-    {
-       delay_ms(1);  //using predif fcn
+    for (x = 0; x < wait; x++) {
+        delay_ms(1); //using predif fcn
     }
 }
 
-void PinSetMode(void)
-{
-    AD1PCFGLbits.PCFG11=1;   
-    
-    LATCbits.LATC6    = 1;
-    
+void PinSetMode(void) {
+    AD1PCFGLbits.PCFG11 = 1;
+
+    LATCbits.LATC6 = 1;
+
     TRISBbits.TRISB13 = 0;
-    LATBbits.LATB13   = 0;
-    
-    TRISBbits.TRISB1  = 0; //Set LED as output
-    TRISAbits.TRISA0  = 0; //DAC relay OUT
+    LATBbits.LATB13 = 0;
+
+    TRISBbits.TRISB1 = 0; //Set LED as output
+    TRISAbits.TRISA0 = 0; //DAC relay OUT
     TRISAbits.TRISA10 = 0; //Set 12v DC/DC enable OUT
 
     TRISBbits.TRISB15 = 0; //DigiPot CS OUT
     TRISBbits.TRISB14 = 0; //DigiPot INC OUT
-    TRISAbits.TRISA7  = 0;  //DigiPot UP_DN OUT
+    TRISAbits.TRISA7 = 0; //DigiPot UP_DN OUT
 
-    TRISBbits.TRISB5  = 0;  //Fan control OUT
+    TRISBbits.TRISB5 = 0; //Fan control OUT
 }

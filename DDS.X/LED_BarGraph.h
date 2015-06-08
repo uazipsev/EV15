@@ -28,7 +28,7 @@
 
 long int displaybuffer[10];
 
-extern void LEDsetValue(int value,int color);
+extern void LEDsetValue(int value, int color);
 extern void LEDBsetBrightness(int b, char i2c_addr);
 extern void LEDblinkRate(int b, char i2c_addr);
 extern void LEDbegin(char i2c_addr);

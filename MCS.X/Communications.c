@@ -1,15 +1,16 @@
 #include "Communications.h"
 #include "MotorControler.h"
-int throttleOut=0, brakeOut=0;
-bool pendingSend=false;
+int throttleOut = 0, brakeOut = 0;
+bool pendingSend = false;
+
 void updateComms() {
     checkCommDirection();
     if (receiveData()) {
         throttleOut = receiveArray[THROTTLE_OUTPUT];
-        brakeOut    = receiveArray[BRAKE_OUTPUT];
-        SetMotor(throttleOut,1);
-        SetRegen(brakeOut);        
-        talkTime    = 0;
+        brakeOut = receiveArray[BRAKE_OUTPUT];
+        SetMotor(throttleOut, 1);
+        SetRegen(brakeOut);
+        talkTime = 0;
         pendingSend = true;
     }
     if (pendingSend && talkTime > 50) {
@@ -23,7 +24,7 @@ void updateComms() {
 void respondECU() {
     ToSend(RESPONSE_ADDRESS, MCS_ADDRESS);
     sendData(ECU_ADDRESS);
-    talkTime=0;
+    talkTime = 0;
 
 }
 

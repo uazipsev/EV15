@@ -12,9 +12,9 @@
 extern "C" {
 #endif
 
-void timerTwo(void);
-void timerOne(void);
-volatile unsigned int talkTime, LEDtime;
+    void timerTwo(void);
+    void timerOne(void);
+    volatile unsigned int talkTime, LEDtime;
 
 
 #ifdef	__cplusplus

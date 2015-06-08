@@ -3,6 +3,7 @@ bool requestPDUData();
 bool receiveCommPDU();
 bool readyToSendPDU = true;
 bool PDU_COMMS_ERROR = false;
+
 bool requestPDUData() {
     if (((PDUTimer > BOARD_RESEND_MIN) && (readyToSendPDU)) || (PDUTimer > BOARD_TIMEOUT)) {
         static int PDUErrorCounter = 0;

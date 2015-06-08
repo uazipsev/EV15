@@ -13,7 +13,7 @@ void Setup(void) {
     // setup internal clock for 72MHz/36MIPS
     // 12 /2 = 6  *24 = 144 / 2=72
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2c
-    CLKDIVbits.DOZE=0;
+    CLKDIVbits.DOZE = 0;
     PLLFBD = 22; // pll multiplier (M) = +2
     CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
     while (!OSCCONbits.LOCK); // wait for PLL ready
@@ -30,20 +30,19 @@ void Setup(void) {
     initADC();
 }
 
-void timerOne(void)
-{
+void timerOne(void) {
     T1CONbits.TON = 0; // turn off timer
-    T1CONbits.TCS = 0;  //internal instruction clock (36,000,000 Hertz)
-    T1CONbits.TCKPS = 0b10;  //11/10 /01  /00   //0b10 - 64 divider 0-1:1
-    PR1 = 586;             //75/600/4500/37500// 0.001s timer
+    T1CONbits.TCS = 0; //internal instruction clock (36,000,000 Hertz)
+    T1CONbits.TCKPS = 0b10; //11/10 /01  /00   //0b10 - 64 divider 0-1:1
+    PR1 = 586; //75/600/4500/37500// 0.001s timer
     IFS0bits.T1IF = 0; // clear interrupt flag
     IEC0bits.T1IE = 1; // enable timer 1 interrupt
     T1CONbits.TON = 1; // turn on timer
 }
 //
-void timerTwo(void)
-{
-        // timer 2
+
+void timerTwo(void) {
+    // timer 2
     T2CONbits.T32 = 0;
     T2CONbits.TON = 0; //disable timer 2
     T2CONbits.TCS = 0; //internal instruction clock (36,000,000 Hertz)
@@ -95,8 +94,8 @@ void timerTwo(void)
 //}
 
 void PinSetMode(void) {
-    LED_Tris     = OUTPUT;
-    LED_Port          = 1; // LED indicator OUT
+    LED_Tris = OUTPUT;
+    LED_Port = 1; // LED indicator OUT
     RS485_1_Tris = OUTPUT; //RS485 Flow OUT
     RS485_1_Port = LISTEN;
     RX1_Pin_Tris = INPUT;

@@ -33,7 +33,7 @@ extern "C" {
     extern void Delay(int ms);
     extern void Setup(void);
 
-    unsigned int throttle1,throttle2,brake;
+    unsigned int throttle1, throttle2, brake;
 
 #ifdef	__cplusplus
 }

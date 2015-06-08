@@ -11,15 +11,15 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-void initTimerOne();
+    void initTimerOne();
 #define COMM_TIMER_MAX_TIME 200
-volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer, BMMTimer, BootTimer;
-volatile unsigned int time;
+    volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer, BMMTimer, BootTimer;
+    volatile unsigned int time;
 
-volatile unsigned int talkTime;
-volatile unsigned int talkTime1;
-volatile unsigned int talkTime2;
-volatile unsigned int talkTime3;
+    volatile unsigned int talkTime;
+    volatile unsigned int talkTime1;
+    volatile unsigned int talkTime2;
+    volatile unsigned int talkTime3;
 
 
 #ifdef	__cplusplus

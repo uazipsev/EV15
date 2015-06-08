@@ -102,7 +102,7 @@ bool receiveData1() {
                     //the data packet plus one for the CRC
                     //int u;
                     //for (u = 0; u <= (rx_len1 + 1); u++) {
-                        serial_read1();
+                    serial_read1();
                     //}
                     rx_len1 = 0; // reset length
                     return false;

@@ -37,12 +37,12 @@ void handleIndicators(int receivedIndicators) {
         }
         oldIndicators = receivedIndicators;
     }
-    
+
 }
-void TBbarGraphs(int t, int b)
-{
-    throttle=t;
-    brake=b;    
+
+void TBbarGraphs(int t, int b) {
+    throttle = t;
+    brake = b;
 }
 
 

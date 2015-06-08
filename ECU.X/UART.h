@@ -28,7 +28,7 @@ struct UART_ring_buff {
 struct UART_ring_buff input_buffer;
 struct UART_ring_buff output_buffer;
 
- volatile bool Transmit_stall = true;
+volatile bool Transmit_stall = true;
 
 void UART_init(void);
 void UART_buff_init(struct UART_ring_buff* _this);

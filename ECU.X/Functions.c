@@ -26,17 +26,17 @@ void Setup(void) {
     CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
-    INTCON1bits.NSTDIS=1; //No nesting of interrupts
+    INTCON1bits.NSTDIS = 1; //No nesting of interrupts
 
     PPSUnLock;
     //RX0/TX0  -- RS485-1 (U3) --SAS -DDS
     Pin_42_Output = TX1_Output;
     RX1_Pin_Map = 43;
-    
+
     //RX1/TX1  -- RS485-2 (U1) --BMM -MCS
     Pin_49_Output = TX2_Output;
     RX2_Pin_Map = 48;
-    
+
     //RX/TX  --SWITCH becomes RX3/TX3 (USB) -> RX4/TX4 (WIRELESS)
     Pin_55_Output = TX3_Output;
     RX3_Pin_Map = 56;
@@ -78,14 +78,14 @@ void PinSetMode(void) {
     RS485_1_Direction = LISTEN;
     RS485_2_Direction = LISTEN;
 
-    ANSELCbits.ANSC0=0;
-//RX0_Tris=OUTPUT;
-//TX0_Tris=OUTPUT;
-//RX1_Tris=OUTPUT;
-//TX1_Tris=OUTPUT;
-//RX_Tris=OUTPUT;
-//TX_Tris=OUTPUT;
-//RX2_Tris=OUTPUT;
-//TX2_Tris=OUTPUT;
+    ANSELCbits.ANSC0 = 0;
+    //RX0_Tris=OUTPUT;
+    //TX0_Tris=OUTPUT;
+    //RX1_Tris=OUTPUT;
+    //TX1_Tris=OUTPUT;
+    //RX_Tris=OUTPUT;
+    //TX_Tris=OUTPUT;
+    //RX2_Tris=OUTPUT;
+    //TX2_Tris=OUTPUT;
 
 }

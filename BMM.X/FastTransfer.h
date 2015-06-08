@@ -13,9 +13,9 @@
 
 volatile int receiveArray[20];
 
-  extern void Delay(int wait);
+extern void Delay(int wait);
 
-void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void),int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 void sendData(unsigned char whereToSend);
 bool receiveData();
 void ToSend(const unsigned char where, const unsigned int what);
@@ -53,8 +53,7 @@ unsigned char rx_address; //RX address received
 #define CRC_DEPTH 3  // how many pieces of data are stored with each CRC send event
 #define CRC_BUFFER_SIZE (CRC_COUNT * CRC_DEPTH) //crc buffer size 5 deep and 3 bytes an entry
 
-struct ringBufS
-{ // this is where the send data is stored before sending
+struct ringBufS { // this is where the send data is stored before sending
     unsigned char buf[BUFFER_SIZE];
     int head;
     int tail;
@@ -62,15 +61,13 @@ struct ringBufS
 };
 struct ringBufS ring_buffer;
 
-union stuff
-{ // this union is used to join and disassemble integers
+union stuff { // this union is used to join and disassemble integers
     unsigned char parts[2];
     unsigned int integer;
 };
 union stuff group;
 
-struct crcBufS
-{ // this is where the address where sent to, the sent crc, the status of the AKNAK
+struct crcBufS { // this is where the address where sent to, the sent crc, the status of the AKNAK
     unsigned char buf[CRC_BUFFER_SIZE];
     int head;
 };
