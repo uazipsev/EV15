@@ -11,20 +11,31 @@
 #define true 1
 #define false 0
 
-#define RX1_Pin_Tris TRISCbits.TRISC8
-#define TX1_Pin_Tris TRISCbits.TRISC9
-#define RX1_Pin_Port PORTCbits.RC8
-#define TX1_Pin_Port PORTCbits.RC9
+#define OUTPUT 0
+#define INPUT  1
+
 #define RX1_Pin_Map RPINR18bits.U1RXR
+#define RX2_Pin_Map RPINR19bits.U2RXR
 #define RX1_PIN_SET 24
+#define RX2_PIN_SET 22
+#define Pin_22_Output RPOR11bits.RP22R
+#define Pin_23_Output RPOR11bits.RP23R
 #define Pin_24_Output RPOR12bits.RP24R
 #define Pin_25_Output RPOR12bits.RP25R
 #define TX1_OUTPUT 3
+#define TX2_OUTPUT 5
 /*
  *  RS485 Flow control
  */
 #define RS_RE_DE PORTBbits.RB0
+/*
+ *      BMS Bus Select Mux Pins
+ */
 
+ #define S0_TRIS TRISAbits.TRISA4     //Select Comm Line Mux S0
+ #define S1_TRIS TRISBbits.TRISB4     //Select Comm Line Mux S1
+ #define S0 LATAbits.LATA4
+ #define S1 LATBbits.LATB4
 /*
  *    LED :)
  */

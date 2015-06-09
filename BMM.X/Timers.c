@@ -1,9 +1,10 @@
 
 
 #include "Timers.h"
-
+volatile unsigned int slaveTime;
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     talkTime++;
+    slaveTime++;
     TMR1 = 0x00;
     IFS0bits.T1IF = 0; // clear interrupt flag
 }

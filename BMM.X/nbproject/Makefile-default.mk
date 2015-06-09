@@ -45,17 +45,17 @@ OBJECTDIR=build/${CND_CONF}/${IMAGE_TYPE}
 DISTDIR=dist/${CND_CONF}/${IMAGE_TYPE}
 
 # Source Files Quoted if spaced
-SOURCEFILES_QUOTED_IF_SPACED=ConfigBits.c FastTransfer.c Function.c main.c pwm.c I2C.c UART.c Timers.c Communications.c
+SOURCEFILES_QUOTED_IF_SPACED=ConfigBits.c FastTransfer.c Function.c main.c pwm.c I2C.c UART.c Timers.c Communications.c UART1.c FastTransfer1.c
 
 # Object Files Quoted if spaced
-OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/Timers.o ${OBJECTDIR}/Communications.o
-POSSIBLE_DEPFILES=${OBJECTDIR}/ConfigBits.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/Function.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/pwm.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/Timers.o.d ${OBJECTDIR}/Communications.o.d
+OBJECTFILES_QUOTED_IF_SPACED=${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/Timers.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/UART1.o ${OBJECTDIR}/FastTransfer1.o
+POSSIBLE_DEPFILES=${OBJECTDIR}/ConfigBits.o.d ${OBJECTDIR}/FastTransfer.o.d ${OBJECTDIR}/Function.o.d ${OBJECTDIR}/main.o.d ${OBJECTDIR}/pwm.o.d ${OBJECTDIR}/I2C.o.d ${OBJECTDIR}/UART.o.d ${OBJECTDIR}/Timers.o.d ${OBJECTDIR}/Communications.o.d ${OBJECTDIR}/UART1.o.d ${OBJECTDIR}/FastTransfer1.o.d
 
 # Object Files
-OBJECTFILES=${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/Timers.o ${OBJECTDIR}/Communications.o
+OBJECTFILES=${OBJECTDIR}/ConfigBits.o ${OBJECTDIR}/FastTransfer.o ${OBJECTDIR}/Function.o ${OBJECTDIR}/main.o ${OBJECTDIR}/pwm.o ${OBJECTDIR}/I2C.o ${OBJECTDIR}/UART.o ${OBJECTDIR}/Timers.o ${OBJECTDIR}/Communications.o ${OBJECTDIR}/UART1.o ${OBJECTDIR}/FastTransfer1.o
 
 # Source Files
-SOURCEFILES=ConfigBits.c FastTransfer.c Function.c main.c pwm.c I2C.c UART.c Timers.c Communications.c
+SOURCEFILES=ConfigBits.c FastTransfer.c Function.c main.c pwm.c I2C.c UART.c Timers.c Communications.c UART1.c FastTransfer1.c
 
 
 CFLAGS=
@@ -145,6 +145,20 @@ ${OBJECTDIR}/Communications.o: Communications.c  nbproject/Makefile-${CND_CONF}.
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Communications.c  -o ${OBJECTDIR}/Communications.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Communications.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/Communications.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
+${OBJECTDIR}/UART1.o: UART1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART1.o.d 
+	@${RM} ${OBJECTDIR}/UART1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  UART1.c  -o ${OBJECTDIR}/UART1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART1.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/UART1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/FastTransfer1.o: FastTransfer1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FastTransfer1.o.d 
+	@${RM} ${OBJECTDIR}/FastTransfer1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  FastTransfer1.c  -o ${OBJECTDIR}/FastTransfer1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/FastTransfer1.o.d"      -g -D__DEBUG -D__MPLAB_DEBUGGER_PK3=1    -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/FastTransfer1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
 else
 ${OBJECTDIR}/ConfigBits.o: ConfigBits.c  nbproject/Makefile-${CND_CONF}.mk
 	@${MKDIR} "${OBJECTDIR}" 
@@ -208,6 +222,20 @@ ${OBJECTDIR}/Communications.o: Communications.c  nbproject/Makefile-${CND_CONF}.
 	@${RM} ${OBJECTDIR}/Communications.o 
 	${MP_CC} $(MP_EXTRA_CC_PRE)  Communications.c  -o ${OBJECTDIR}/Communications.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/Communications.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
 	@${FIXDEPS} "${OBJECTDIR}/Communications.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/UART1.o: UART1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/UART1.o.d 
+	@${RM} ${OBJECTDIR}/UART1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  UART1.c  -o ${OBJECTDIR}/UART1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/UART1.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/UART1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
+	
+${OBJECTDIR}/FastTransfer1.o: FastTransfer1.c  nbproject/Makefile-${CND_CONF}.mk
+	@${MKDIR} "${OBJECTDIR}" 
+	@${RM} ${OBJECTDIR}/FastTransfer1.o.d 
+	@${RM} ${OBJECTDIR}/FastTransfer1.o 
+	${MP_CC} $(MP_EXTRA_CC_PRE)  FastTransfer1.c  -o ${OBJECTDIR}/FastTransfer1.o  -c -mcpu=$(MP_PROCESSOR_OPTION)  -MMD -MF "${OBJECTDIR}/FastTransfer1.o.d"        -g -omf=elf -O0 -msmart-io=1 -Wall -msfr-warn=off
+	@${FIXDEPS} "${OBJECTDIR}/FastTransfer1.o.d" $(SILENT)  -rsi ${MP_CC_DIR}../ 
 	
 endif
 

@@ -14,6 +14,8 @@
       <itemPath>ADDRESSING.h</itemPath>
       <itemPath>Timers.h</itemPath>
       <itemPath>Communications.h</itemPath>
+      <itemPath>UART1.h</itemPath>
+      <itemPath>FastTransfer1.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -31,6 +33,8 @@
       <itemPath>UART.c</itemPath>
       <itemPath>Timers.c</itemPath>
       <itemPath>Communications.c</itemPath>
+      <itemPath>UART1.c</itemPath>
+      <itemPath>FastTransfer1.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

@@ -25,6 +25,9 @@ extern "C" {
     extern void sendData(unsigned char whereToSend);
     extern bool receiveData();
     extern void ToSend(const unsigned char where, const unsigned int what);
+    extern void sendData1(unsigned char whereToSend);
+    extern bool receiveData1();
+    extern void ToSend1(const unsigned char where, const unsigned int what);
     void updateComms();
     void checkCommDirection();
     extern bool Transmit_stall;

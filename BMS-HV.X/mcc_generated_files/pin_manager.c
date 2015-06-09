@@ -23,8 +23,8 @@ void PIN_MANAGER_Initialize(void)
     ANSELD = 0xD1;
 
     LATE = 0x00;
-    TRISE = 0x05;
-    ANSELE = 0x05;
+    TRISE = 0x04;
+    ANSELE = 0x04;
 
     INTCON2bits.nRBPU = 0x01;
 
