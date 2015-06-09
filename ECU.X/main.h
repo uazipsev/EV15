@@ -12,19 +12,9 @@
 extern "C" {
 #endif
 
-#define BMS_LED        5
-#define ACTIVE_LED     3
-#define IMD_INDICATOR  2
-#define START_BUTTON   2
-#define AUX_BUTTON     1
 
-
-    extern unsigned int throttle1, throttle2, brake;
+    extern unsigned int brake;
     void updateBrakeLight();
-    void updateECUState();
-    extern int buttonArray[8];
-    extern bool seekButtonChange();
-    extern void changeLEDState(int LED, bool state);
     extern volatile unsigned int time;
 
     void ledDebug() {
@@ -33,7 +23,6 @@ extern "C" {
             time = 0;
         }
     }
-    extern volatile unsigned int BootTimer;
     extern void updateComms();
     extern void Delay(int ms);
     extern void Setup(void);

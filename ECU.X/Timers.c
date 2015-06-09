@@ -26,6 +26,7 @@ void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     talkTime2++;
     talkTime3++;
     BootTimer++;
+    DebugTimer++;
     if (SASTimer < COMM_TIMER_MAX_TIME)
         SASTimer++;
     if (DDSTimer < COMM_TIMER_MAX_TIME)

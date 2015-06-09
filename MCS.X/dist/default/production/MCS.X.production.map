@@ -581,21 +581,21 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x4d03
+.debug_info       0x000000       0x4d85
  *(.debug_info)
- .debug_info      0x000000        0x402 build/default/production/main.o
- .debug_info      0x000402        0x3b4 build/default/production/DigiPot.o
- .debug_info      0x0007b6       0x1321 build/default/production/Function.o
- .debug_info      0x001ad7        0x456 build/default/production/MotorControler.o
- .debug_info      0x001f2d        0xb81 build/default/production/FastTransfer.o
- .debug_info      0x002aae        0x17c build/default/production/MCP4725.o
- .debug_info      0x002c2a         0xd2 build/default/production/CoolingControl.o
- .debug_info      0x002cfc         0xa5 build/default/production/ConfigBits.o
- .debug_info      0x002da1        0x5ca build/default/production/I2C.o
- .debug_info      0x00336b        0x39f build/default/production/pwm.o
- .debug_info      0x00370a        0xb6a build/default/production/UART.o
- .debug_info      0x004274        0x3c4 build/default/production/Communications.o
- .debug_info      0x004638        0x6cb build/default/production/Timers.o
+ .debug_info      0x000000        0x40c build/default/production/main.o
+ .debug_info      0x00040c        0x3be build/default/production/DigiPot.o
+ .debug_info      0x0007ca       0x132b build/default/production/Function.o
+ .debug_info      0x001af5        0x460 build/default/production/MotorControler.o
+ .debug_info      0x001f55        0xb8b build/default/production/FastTransfer.o
+ .debug_info      0x002ae0        0x186 build/default/production/MCP4725.o
+ .debug_info      0x002c66         0xdc build/default/production/CoolingControl.o
+ .debug_info      0x002d42         0xaf build/default/production/ConfigBits.o
+ .debug_info      0x002df1        0x5d4 build/default/production/I2C.o
+ .debug_info      0x0033c5        0x3a9 build/default/production/pwm.o
+ .debug_info      0x00376e        0xb74 build/default/production/UART.o
+ .debug_info      0x0042e2        0x3ce build/default/production/Communications.o
+ .debug_info      0x0046b0        0x6d5 build/default/production/Timers.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0xc12

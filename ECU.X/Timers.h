@@ -13,7 +13,7 @@ extern "C" {
 #endif
     void initTimerOne();
 #define COMM_TIMER_MAX_TIME 200
-    volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer, BMMTimer, BootTimer;
+    volatile unsigned int SASTimer, DDSTimer, MCSTimer, PDUTimer, BMMTimer, BootTimer,DebugTimer;
     volatile unsigned int time;
 
     volatile unsigned int talkTime;
