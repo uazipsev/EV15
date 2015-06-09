@@ -4,7 +4,7 @@
 # 29 "LED_BarGraph.h"
 long int displaybuffer[10];
 
-extern void LEDsetValue(int value,int color);
+extern void LEDsetValue(int value, int color);
 extern void LEDBsetBrightness(int b, char i2c_addr);
 extern void LEDblinkRate(int b, char i2c_addr);
 extern void LEDbegin(char i2c_addr);
@@ -10547,18 +10547,19 @@ bool I2C1_MasterQueueIsFull(void);
 void I2C1_BusCollisionISR( void );
 void I2C1_ISR ( void );
 
-# 10 "LED_BarGraph.c"
-void LEDsetValue(int value,int color){
-if(value>24) value=24;
-if(value<0) value=0;
+# 11 "LED_BarGraph.c"
+void LEDsetValue(int value, int color) {
+if (value > 24) value = 24;
+if (value < 0) value = 0;
 int k;
-for(k=0;k<24;k++){
-if(k<value) LEDsetBar(k, color);
-else LEDsetBar(k,0);
+for (k = 0; k < 24; k++) {
+if (k < value) LEDsetBar(k, color);
+else LEDsetBar(k, 0);
 }
 return;
 
 }
+
 void LEDBsetBrightness(int b, char i2c_addr) {
 if (b > 15) b = 15;
 uint8_t writeBuffer[2];
@@ -10567,16 +10568,15 @@ writeBuffer[0] = (0xE0 | b);
 I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
 
 timeOut = 0;
-while(status != I2C1_MESSAGE_FAIL)
-{
+while (status != I2C1_MESSAGE_FAIL) {
 
-I2C1_MasterWrite( &writeBuffer,
+I2C1_MasterWrite(&writeBuffer,
 1,
 i2c_addr,
 &status);
 
 
-while(status == I2C1_MESSAGE_PENDING);
+while (status == I2C1_MESSAGE_PENDING);
 
 if (status == I2C1_MESSAGE_COMPLETE)
 break;
@@ -10594,20 +10594,19 @@ void LEDblinkRate(int b, char i2c_addr) {
 if (b > 3) b = 0;
 uint8_t writeBuffer[2];
 uint16_t timeOut;
-writeBuffer[0]= (0x80 | 0x01 | (b << 1));
+writeBuffer[0] = (0x80 | 0x01 | (b << 1));
 I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
 
 timeOut = 0;
-while(status != I2C1_MESSAGE_FAIL)
-{
+while (status != I2C1_MESSAGE_FAIL) {
 
-I2C1_MasterWrite( &writeBuffer,
+I2C1_MasterWrite(&writeBuffer,
 1,
 i2c_addr,
 &status);
 
 
-while(status == I2C1_MESSAGE_PENDING);
+while (status == I2C1_MESSAGE_PENDING);
 
 if (status == I2C1_MESSAGE_COMPLETE)
 break;
@@ -10624,20 +10623,19 @@ timeOut++;
 void LEDbegin(char i2c_addr) {
 uint8_t writeBuffer[3];
 uint16_t timeOut;
-writeBuffer[0]=0x21;
+writeBuffer[0] = 0x21;
 I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
 
 timeOut = 0;
-while(status != I2C1_MESSAGE_FAIL)
-{
+while (status != I2C1_MESSAGE_FAIL) {
 
-I2C1_MasterWrite( &writeBuffer,
+I2C1_MasterWrite(&writeBuffer,
 1,
 i2c_addr,
 &status);
 
 
-while(status == I2C1_MESSAGE_PENDING);
+while (status == I2C1_MESSAGE_PENDING);
 
 if (status == I2C1_MESSAGE_COMPLETE)
 break;
@@ -10649,8 +10647,8 @@ else
 timeOut++;
 }
 
-LEDblinkRate(0,i2c_addr);
-LEDBsetBrightness(15,i2c_addr);
+LEDblinkRate(0, i2c_addr);
+LEDBsetBrightness(15, i2c_addr);
 }
 
 void LEDwriteDisplay(char i2c_addr) {
@@ -10660,16 +10658,15 @@ writeBuffer[0] = 0x00;
 I2C1_MESSAGE_STATUS status = I2C1_MESSAGE_PENDING;
 
 timeOut = 0;
-while(status != I2C1_MESSAGE_FAIL)
-{
+while (status != I2C1_MESSAGE_FAIL) {
 
-I2C1_MasterWrite( &writeBuffer,
+I2C1_MasterWrite(&writeBuffer,
 1,
 i2c_addr,
 &status);
 
 
-while(status == I2C1_MESSAGE_PENDING);
+while (status == I2C1_MESSAGE_PENDING);
 
 if (status == I2C1_MESSAGE_COMPLETE)
 break;
@@ -10706,16 +10703,15 @@ writeBuffer[17] = displaybuffer[8] & 0xFF;
 writeBuffer[18] = displaybuffer[8] >> 8;
 
 timeOut = 0;
-while(status != I2C1_MESSAGE_FAIL)
-{
+while (status != I2C1_MESSAGE_FAIL) {
 
-I2C1_MasterWrite( &writeBuffer,
+I2C1_MasterWrite(&writeBuffer,
 17,
 i2c_addr,
 &status);
 
 
-while(status == I2C1_MESSAGE_PENDING);
+while (status == I2C1_MESSAGE_PENDING);
 
 if (status == I2C1_MESSAGE_COMPLETE)
 break;
@@ -10729,7 +10725,7 @@ timeOut++;
 }
 
 void LEDclear(void) {
-for (uint8_t i=0; i<8; i++) {
+for (uint8_t i = 0; i < 8; i++) {
 displaybuffer[i] = 0;
 }
 }
@@ -10751,16 +10747,16 @@ if (color == 1) {
 
 displaybuffer[c] |= (1<<(a));
 
-displaybuffer[c] &= ~(1<<(a+8));
+displaybuffer[c] &= ~(1<<(a + 8));
 } else if (color == 2) {
 
-displaybuffer[c] |= (1<<(a)) | (1<<(a+8));
+displaybuffer[c] |= (1<<(a)) | (1<<(a + 8));
 } else if (color == 0) {
 
-displaybuffer[c] &= ~(1<<(a)) & ~(1<<(a+8));
+displaybuffer[c] &= ~(1<<(a)) & ~(1<<(a + 8));
 } else if (color == 3) {
 
-displaybuffer[c] |= (1<<(a+8));
+displaybuffer[c] |= (1<<(a + 8));
 
 displaybuffer[c] &= ~(1<<(a));
 }

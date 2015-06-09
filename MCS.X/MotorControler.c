@@ -63,7 +63,11 @@ void directionMismatchCheck(int direction) {
 //Set Regen amout ( to DAC)
 
 void SetRegen(int amount) {
+    static int lastRegen;
+    if(amount != lastRegen){
     SetDAC2(amount);
+    lastRegen=amount;
+    }
 }
 
 // toggles regen

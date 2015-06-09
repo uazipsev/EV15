@@ -21,13 +21,13 @@ void Setup(void) {
 
     INTCON1bits.NSTDIS = 1; //no nesting of interrupts
     timerOne();
+    initADC();
     //timerTwo();
-    UART_init();
     begin(receiveArray, sizeof (receiveArray), SAS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+    UART_init();
     //UART1_init();
     //begin(receiveArray1, sizeof (receiveArray1), SAS_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
 
-    initADC();
 }
 
 void timerOne(void) {
@@ -101,7 +101,7 @@ void PinSetMode(void) {
     RX1_Pin_Tris = INPUT;
     RX1_Pin_Port = 1;
 
-
+    RS485_1_Port = 0;
     PPSUnLock;
     Pin_23_Output = TX1_OUTPUT;
     RX1_Pin_Map = 22;

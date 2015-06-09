@@ -2,19 +2,24 @@
 #include "Communications.h"
 
 bool pendingSend = false;
-
+bool portClosed=true;
 void updateComms() {
     checkCommDirection();
-    if (receiveData()) {
+    if (receiveData() && !pendingSend) {
         talkTime = 0;
         pendingSend = true;
+        portClosed=true;
     }
-    if (pendingSend && talkTime > 50) {
+    else if(pendingSend && portClosed && talkTime > 5){
+        talkTime=0;
+        portClosed=false;
         RS485_1_Port = TALK;
+    }
+    else if (pendingSend && talkTime > 5 && !portClosed) {
         talkTime = 0;
         prepAndSendData();
         pendingSend = false;
-    }
+    }   
 }
 
 void prepAndSendData() {
@@ -39,7 +44,8 @@ void prepAndSendData() {
 
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall && (talkTime > 150) && (RS485_1_Port == TALK)) {
+    if (Transmit_stall && (talkTime > 10) && (RS485_1_Port == TALK) && !pendingSend && !portClosed) {
         RS485_1_Port = LISTEN;
+        portClosed=true;
     }
 }

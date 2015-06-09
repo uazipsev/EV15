@@ -19,7 +19,7 @@ void respondECU() {
     LATCbits.LATC5 = 1;
     ToSend(RESPONSE_ADDRESS, DDS_ADDRESS);
     ToSend(BUTTONS_DDS, buttonsCollector());
-    Delay(1);
+    Delay(9);
     sendData(ECU_ADDRESS);
     Delay(3);
     LATCbits.LATC5 = 0;

@@ -10808,41 +10808,37 @@ extern char * ftoa(float f, int * status);
 # 11 "IO.c"
 bool butnarray[8];
 
-void SetLEDOut(int lednum,bool state)
-{
-switch (lednum)
-{
+void SetLEDOut(int lednum, bool state) {
+switch (lednum) {
 case 0:
-if(state)do { LATB3 = 1; } while(0);
+if (state)do { LATB3 = 1; } while(0);
 else do { LATB3 = 0; } while(0);
 break;
 case 1:
-if(state)do { LATB5 = 1; } while(0);
+if (state)do { LATB5 = 1; } while(0);
 else do { LATB5 = 0; } while(0);
 break;
 case 2:
-if(state)do { LATD1 = 1; } while(0);
+if (state)do { LATD1 = 1; } while(0);
 else do { LATD1 = 0; } while(0);
 break;
 case 3:
-if(state)do { LATE2 = 1; } while(0);
+if (state)do { LATE2 = 1; } while(0);
 else do { LATE2 = 0; } while(0);
 break;
 case 4:
-if(state)do { LATE1 = 1; } while(0);
+if (state)do { LATE1 = 1; } while(0);
 else do { LATE1 = 0; } while(0);
 break;
 case 5:
-if(state)do { LATE1 = 1; } while(0);
+if (state)do { LATE1 = 1; } while(0);
 else do { LATE1 = 0; } while(0);
 break;
 }
 }
 
-void ReadButtonState(int btnnum)
-{
-switch (btnnum)
-{
+void ReadButtonState(int btnnum) {
+switch (btnnum) {
 case 0:
 butnarray[btnnum] = PORTDbits.RD5;
 break;
@@ -10871,7 +10867,6 @@ break;
 }
 }
 
-bool GetButtonState(int btnnum)
-{
-return butnarray[btnnum-1];
+bool GetButtonState(int btnnum) {
+return butnarray[btnnum - 1];
 }

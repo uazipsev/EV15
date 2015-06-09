@@ -10641,7 +10641,7 @@ int Receive_available(void);
 unsigned char Receive_get(void);
 void Send_put(unsigned char _data);
 
-# 23 "UART.c"
+# 21 "UART.c"
 void EUSART1_Initialize(void) {
 
 PIE1bits.RC1IE = 0;
@@ -10679,7 +10679,7 @@ PIE1bits.RC1IE = 1;
 
 void UART_buff_init(struct UART_ring_buff* _this) {
 
-# 67
+# 65
 memset(_this, 0, sizeof (*_this));
 }
 
@@ -10755,8 +10755,7 @@ PIE1bits.TX1IE = 1;
 }
 
 void EUSART1_Receive_ISR(void) {
-if(1 == RC1STAbits.OERR)
-{
+if (1 == RC1STAbits.OERR) {
 
 
 RC1STAbits.CREN = 0;
@@ -10776,15 +10775,10 @@ PIE1bits.TX1IE = 0;
 }
 }
 
-
-
-
-char getch(void)
-{
+char getch(void) {
 return Receive_get();
 }
 
-void putch(char txData)
-{
+void putch(char txData) {
 Send_put(txData);
 }

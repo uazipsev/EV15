@@ -27,23 +27,88 @@
 #include "PDUComms.h"
 #include "BMMComms.h"
 
+enum ECUstates {
+    stopped = 0,
+    booting = 1,
+    running = 2,
+    stopping = 3,
+    fault      = 4,
+    NUM_STATES = 5
+} ;
+extern enum ECUstates currentState;
+
+struct commsStates {
+    
+    bool DDS;
+    bool MCS;
+    bool SAS;
+    bool BMM;
+    bool PDU;
+};
+extern struct commsStates comms;
+
+
 void updateComms() {
-    static bool startup = false;
-    if (!startup) {
-        setbuf(stdout, NULL);
-        startup = true;
-    }
     checkCommDirection();
     checkCommDirection1();
+ 
     bus1Update();
-    bus2Update();
+    bus2Update();   
+    
+    
+    static enum ECUstates previousState = NUM_STATES;
+    switch(currentState){
+         case stopped:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;
+            }
+            
+            break;
+        case booting:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;               
+            }                
+            
+            break;
+        case running:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;                
+            }
+            
+            break;
+        case stopping:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;
+            }
+            
+            break;
+        case fault:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;
+                
+            }
+            break;
+        case NUM_STATES:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;
+                
+            }
+            break;
+    }
 }
 
 void bus1Update() {
     switch (commsBus1State) {
         case SAS_UPDATE:
             if (requestSASData()) {
-                if (receiveCommSAS()) {
+                if (receiveCommSAS()) {                    
+                    comms.SAS=true;
                     commsBus1State++;
                     resetCommTimers();
                 }
@@ -56,7 +121,8 @@ void bus1Update() {
             break;
         case DDS_UPDATE:
             if (requestDDSData()) {
-                if (receiveCommDDS()) {
+                if (receiveCommDDS()) {                    
+                    comms.DDS=true;
                     commsBus1State++;
                     resetCommTimers();
                 }
@@ -69,7 +135,8 @@ void bus1Update() {
             break;
         case PDU_UPDATE:
             if (requestPDUData()) {
-                if (receiveCommPDU()) {
+                if (receiveCommPDU()) {                    
+                    comms.PDU=true;
                     commsBus1State++;
                     resetCommTimers();
                 }
@@ -94,7 +161,6 @@ void bus1Update() {
             break;
         case NUM_STATES1:
             break;
-
     }
 
 }
@@ -121,21 +187,20 @@ void RS485_Direction1(int T_L) {
 void sendErrorCode() {
     unsigned int errorState = 0;
     if (DDS_COMMS_ERROR) {
+        comms.DDS=false;
         errorState = errorState | 0x01;
-        DDS_COMMS_ERROR = false;
-        //printf("DDS Communications Error \r\n");
+        DDS_COMMS_ERROR = false;       
     }
     if (SAS_COMMS_ERROR) {
+        comms.SAS=false;
         errorState = errorState | 0x02;
         SAS_COMMS_ERROR = false;
-        //printf("SAS Communications Error \r\n");
     }
-    if (PDU_COMMS_ERROR) {
+    if (PDU_COMMS_ERROR) {        
+        comms.PDU=false;
         errorState = errorState | 0x04;
         PDU_COMMS_ERROR = false;
-        //printf("PDU Communications Error \r\n");
     }
-
     //ToSend2(BUS_1_ERROR_DEBUG, errorState);
     //sendData2(DEBUG_ADDRESS);
 }
@@ -144,7 +209,8 @@ void bus2Update() {
     switch (commsBus2State) {
         case MCS_UPDATE:
             if (requestMCSData()) {
-                if (receiveCommMCS()) {
+                if (receiveCommMCS()) {                    
+                    comms.MCS=true;
                     commsBus2State++;
                     resetCommTimers2();
                 }
@@ -157,7 +223,8 @@ void bus2Update() {
             break;
         case BMM_UPDATE:
             if (requestBMMData()) {
-                if (receiveCommBMM()) {
+                if (receiveCommBMM()) {                    
+                    comms.BMM=true;
                     commsBus2State++;
                     resetCommTimers2();
                 }
@@ -205,11 +272,13 @@ void RS485_Direction2(int T_L) {
 
 void sendErrorCode2() {
     unsigned int errorState = 0;
-    if (MCS_COMMS_ERROR) {
+    if (MCS_COMMS_ERROR) {        
+        comms.MCS=false;
         errorState = errorState | 0x01;
         MCS_COMMS_ERROR = false;
     }
     if (BMM_COMMS_ERROR) {
+        comms.BMM=false;
         errorState = errorState | 0x02;
         BMM_COMMS_ERROR = false;
     }

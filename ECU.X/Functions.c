@@ -77,7 +77,8 @@ void PinSetMode(void) {
     RS485_2_Direction_Tris = OUTPUT;
     RS485_1_Direction = LISTEN;
     RS485_2_Direction = LISTEN;
-
+    TRISCbits.TRISC10=OUTPUT;
+    LATCbits.LATC10 = 0;
     ANSELCbits.ANSC0 = 0;
     //RX0_Tris=OUTPUT;
     //TX0_Tris=OUTPUT;

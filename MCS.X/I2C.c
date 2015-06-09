@@ -14,6 +14,19 @@
 #include "I2C.h"
 #include <i2c.h>
 
+char * i2cBuffer;
+
+enum i2cState {
+    startWrite = 0,
+    sendAddress = 1,
+    waitI2CIdle = 2,
+    writeByte = 3,
+    stopBus = 4,
+    haltBus = 5
+} writeState;
+
+bool writeInProgress = false;
+
 //I2C init code - startup I2C
 
 void i2c_init(void) {
@@ -30,8 +43,8 @@ void i2c_init(void) {
 
 void i2c_wait(unsigned int cnt) {
     while (--cnt) {
-        asm( "nop");
-        asm( "nop");
+        asm("nop");
+        asm("nop");
     }
 }
 
@@ -68,32 +81,104 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes) {
         if (I2C1STATbits.ACKSTAT)
             break;
     }
-    status = MasterputsI2C1(pWrite);
-
-    if (status == -3)
-        while (1);
+//    //WHAT IS THIS?
+//    status = MasterputsI2C1(pWrite);
+//
+//    if (status == -3)
+//        while (1);
 
     StopI2C1(); //Send the Stop condition
     IdleI2C1(); //Wait to complete
 
-    // wait for device to complete write process. poll the ack status
-    while (1) {
-        i2c_wait(10);
+    //    // wait for device to complete write process. poll the ack status
+    //    while (1) {
+    //        i2c_wait(10);
+    //
+    //        StartI2C1(); //Send the Start Bit
+    //        IdleI2C1(); //Wait to complete
+    //
+    //        MasterWriteI2C1(i2cData[0]);
+    //        IdleI2C1(); //Wait to complete
+    //
+    //        if (I2C1STATbits.ACKSTAT == 0) //eeprom has acknowledged
+    //        {
+    //            StopI2C1(); //Send the Stop condition
+    //            IdleI2C1(); //Wait to complete
+    //            break;
+    //        }
+    //
+    //        StopI2C1(); //Send the Stop condition
+    //        IdleI2C1(); //Wait to complete
+    //    }
+}
 
-        StartI2C1(); //Send the Start Bit
-        IdleI2C1(); //Wait to complete
+bool i2c_startCommand() {
+    return true;
+}
 
-        MasterWriteI2C1(i2cData[0]);
-        IdleI2C1(); //Wait to complete
+bool i2c_idle() {
+    return true;
+}
 
-        if (I2C1STATbits.ACKSTAT == 0) //eeprom has acknowledged
-        {
-            StopI2C1(); //Send the Stop condition
-            IdleI2C1(); //Wait to complete
-            break;
+bool i2c_writeByte(char c) {
+    return true;
+}
+
+bool i2c_addressSend(char addr) {
+    return true;
+}
+
+bool i2c_stopCommand() {
+    return true;
+}
+
+bool i2c_haltBus() {
+    return true;
+}
+
+void writeStateUpdate() {
+    static int byteNum;
+    if (writeInProgress) {
+        switch (writeState) {
+            case startWrite:
+                if (i2c_startCommand()) {
+                    writeState++;
+                }
+                break;
+            case sendAddress:
+                if (i2c_addressSend(0x60)) {
+                    writeState++;
+                }
+                break;
+            case waitI2CIdle:
+                if (i2c_idle()) {
+                    writeState++;
+                }
+                break;
+            case writeByte:
+                if (i2c_writeByte(i2cBuffer[byteNum])) {
+                    writeState++;
+                }
+                break;
+            case stopBus:
+                if (i2c_stopCommand()) {
+                    writeState++;
+                }
+                break;
+            case haltBus:
+                if (i2c_haltBus()) {
+                    writeState++;
+                }
+                break;
         }
-
-        StopI2C1(); //Send the Stop condition
-        IdleI2C1(); //Wait to complete
     }
+}
+
+void readStateUpdate() {
+
+}
+
+void i2cUpdate() {
+    writeStateUpdate();
+    readStateUpdate();
 }

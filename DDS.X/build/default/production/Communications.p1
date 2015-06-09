@@ -8398,9 +8398,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Communications.c: 21: ToSend(8, buttonsCollector());
 "21
 [e ( _ToSend (2 , -> -> 8 `i `uc ( _buttonsCollector ..  ]
-[; ;Communications.c: 22: Delay(1);
+[; ;Communications.c: 22: Delay(9);
 "22
-[e ( _Delay (1 -> 1 `i ]
+[e ( _Delay (1 -> 9 `i ]
 [; ;Communications.c: 23: sendData(1);
 "23
 [e ( _sendData (1 -> -> 1 `i `uc ]
@@ -8467,22 +8467,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 "41
 [e :UE 1184 ]
 }
-"42
-[v _TBbarGraphs `(v ~T0 @X0 1 ef2`i`i ]
 "43
+[v _TBbarGraphs `(v ~T0 @X0 1 ef2`i`i ]
 {
-[; ;Communications.c: 42: void TBbarGraphs(int t, int b)
-[; ;Communications.c: 43: {
+[; ;Communications.c: 43: void TBbarGraphs(int t, int b) {
 [e :U _TBbarGraphs ]
-"42
 [v _t `i ~T0 @X0 1 r1 ]
 [v _b `i ~T0 @X0 1 r2 ]
-"43
 [f ]
-[; ;Communications.c: 44: throttle=t;
+[; ;Communications.c: 44: throttle = t;
 "44
 [e = _throttle -> _t `ui ]
-[; ;Communications.c: 45: brake=b;
+[; ;Communications.c: 45: brake = b;
 "45
 [e = _brake -> _b `ui ]
 [; ;Communications.c: 46: }

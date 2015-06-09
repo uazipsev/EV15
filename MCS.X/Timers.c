@@ -29,6 +29,7 @@ void timerTwo(void) {
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     LEDtime++;
     talkTime++;
+    safetyTime++;
     IFS0bits.T1IF = 0; // clear interrupt flag
 }
 

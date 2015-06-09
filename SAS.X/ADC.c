@@ -50,7 +50,6 @@ void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void) {
     if (!ADCDataReady) {
         ADCbuffer[ADC] = ADC1BUF0;
         ADC++;
-
         //IEC0bits.AD1IE = 0;
     }
     if (ADC > 2) {
@@ -73,14 +72,8 @@ void SetADC(void) {
 }
 
 void handleADCValues() {
-    //throttle1=(ADCbuffer[0]/4095.0)*100.0; //LOWVOLTs
-    throttle1 = ((ADCbuffer[0] / 4095.0)*100.0);
-    throttle2 = (ADCbuffer[1] / 4095.0)*100.0;
-    brake = (ADCbuffer[2] / 4095.0)*100.0;
-    //    if(brake>45){
-    //    brake=0.0001*pow(brake,3.1137);
-    //    }
-    //    else brake = brake*0.4848-6.303;
-    //throttle2=(ADCbuffer[3]/4095.0)*100.0;
-    //brake=(ADCbuffer[4]/4095.0)*100.0;
+    throttle1 = ADCbuffer[0];
+    throttle2 = ADCbuffer[1];
+    brake     = ADCbuffer[2];
+    
 }

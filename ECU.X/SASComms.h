@@ -23,7 +23,6 @@ extern "C" {
 #define BOARD_RESEND_MIN  15
     //SAS
     extern volatile unsigned int SASTimer;
-    extern unsigned int throttle1, throttle2, brake;
 
     extern void sendData1(unsigned char whereToSend);
     extern bool receiveData1();

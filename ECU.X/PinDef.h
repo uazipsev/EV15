@@ -21,6 +21,7 @@
  */
 #define INDICATOR _LATE13
 
+#define SS_RELAY _LATC10
 /*
  *    Relay control 
  */

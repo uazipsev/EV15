@@ -14,7 +14,7 @@ extern "C" {
 
     void timerTwo(void);
     void timerOne(void);
-    volatile unsigned int talkTime, LEDtime;
+    volatile unsigned int talkTime, LEDtime,safetyTime;
 
 
 #ifdef	__cplusplus

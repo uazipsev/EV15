@@ -8485,14 +8485,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "29 LED_BarGraph.h
 [v _displaybuffer `l ~T0 @X0 -> 10 `i e ]
 [; ;LED_BarGraph.h: 29: long int displaybuffer[10];
-[; ;LED_BarGraph.h: 31: extern void LEDsetValue(int value,int color);
+[; ;LED_BarGraph.h: 31: extern void LEDsetValue(int value, int color);
 [; ;LED_BarGraph.h: 32: extern void LEDBsetBrightness(int b, char i2c_addr);
 [; ;LED_BarGraph.h: 33: extern void LEDblinkRate(int b, char i2c_addr);
 [; ;LED_BarGraph.h: 34: extern void LEDbegin(char i2c_addr);
 [; ;LED_BarGraph.h: 35: extern void LEDwriteDisplay(char i2c_addr);
 [; ;LED_BarGraph.h: 36: extern void LEDclear(void);
 [; ;LED_BarGraph.h: 37: extern void LEDsetBar(int bar, int color);
-[; ;IO.h: 11: extern void SetLEDOut(int lednum,bool state);
+[; ;IO.h: 11: extern void SetLEDOut(int lednum, bool state);
 [; ;IO.h: 12: extern void ReadButtonState(int btnnum);
 [; ;IO.h: 13: extern bool GetButtonState(int btnnum);
 "14 Communications.h
@@ -8552,13 +8552,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 "76
 [e $ ! > _time -> -> 1 `i `ui 1192  ]
 {
-[; ;main.c: 77: LEDsetValue((throttle)*(24.0/100.0),1);
+[; ;main.c: 77: LEDsetValue((throttle)*(24.0 / 100.0), 1);
 "77
 [e ( _LEDsetValue (2 , -> * -> _throttle `d / .24.0 .100.0 `i -> 1 `i ]
 [; ;main.c: 78: LEDwriteDisplay(0x70);
 "78
 [e ( _LEDwriteDisplay (1 -> -> 112 `i `uc ]
-[; ;main.c: 79: LEDsetValue((brake)*(24.0/100.0),1);
+[; ;main.c: 79: LEDsetValue((brake)*(24.0 / 100.0), 1);
 "79
 [e ( _LEDsetValue (2 , -> * -> _brake `d / .24.0 .100.0 `i -> 1 `i ]
 [; ;main.c: 80: LEDwriteDisplay(0x71);
@@ -8571,7 +8571,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e = _LATA3 -> ~ -> _LATA3 `ui `b ]
 }
 [e :U 1194 ]
-[; ;main.c: 82: time=0;
+[; ;main.c: 82: time = 0;
 "82
 [e = _time -> -> 0 `i `ui ]
 "83

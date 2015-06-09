@@ -46,8 +46,6 @@ unsigned char CRC8(const unsigned char * data, unsigned char len) {
 //Sends out send buffer with a 2 start bytes, where the packet is going, where it came from, the size of the data packet, the data and the crc.
 
 void sendData(unsigned char whereToSend) {
-    //Enable RS485 TX
-    RS_RE_DE = 1;
     //calculate the crc
     unsigned char CS = CRC8(sendStructAddress, ring_buffer.count);
 
@@ -67,9 +65,6 @@ void sendData(unsigned char whereToSend) {
     //send the crc
     serial_write(CS);
 
-    Delay(1);
-    //Disable RS485 TX
-    RS_RE_DE = 0;
 
     //record the sent message data for aknak check later
     crcBufS_put(&crc_buffer, whereToSend, CS, 0);

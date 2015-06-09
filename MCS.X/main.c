@@ -15,7 +15,7 @@
 
 extern void SetDAC1(unsigned int value);
 extern void SetDAC2(unsigned int value);
-
+extern void i2cUpdate();
 /*
  * 
  */
@@ -29,6 +29,7 @@ int main(int argc, char** argv) {
     while (1) {
         updateComms();
         ledDebug();
+        //I2Cupdate();
     }
 
     return (EXIT_SUCCESS);
