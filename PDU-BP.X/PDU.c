@@ -18,7 +18,7 @@ void PDUStartup(void) {
     //now enable SAS and DDS
     EnableSlavePower(SAS, ON);
     EnableSlavePower(DDS, ON);
-    EnableSlavePower(MCS, ON);
+    //EnableSlavePower(MCS, ON);
     EnableSlavePower(BMM, ON);
     EnableSlavePower(TSS, ON);
     Update();
@@ -30,19 +30,19 @@ void PDUStartup(void) {
 
 void EnableSlavePower(device slave, int onof) {
     switch (slave) {
-        case TSS:
+        case DDS:
             SetPin595(2, 1, onof);
             break;
-        case MCS:
+        case SAS:
             SetPin595(3, 1, onof);
             break;
-        case DDS:
+        case MCS:
             SetPin595(2, 6, onof);
             break;
         case BMM:
             SetPin595(3, 6, onof);
             break;
-        case SAS:
+        case TSS:
             SetPin595(1, 1, onof);
             break;
         case AUX:

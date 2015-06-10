@@ -20,6 +20,11 @@ extern "C" {
 #define DEBUG_BUTTON   1
 
     void updateECUState();
+extern int buttonArray[8];
+extern bool seekButtonChange();
+extern void changeLEDState(int LED, bool state);
+extern volatile unsigned int BootTimer;
+
 struct powerStates {
     bool DDS;
     bool MCS;

@@ -16,9 +16,9 @@ int CurrentADC[6] = 0;
 int Current[6] = 0;
 
 typedef enum {
-    SAS = 1,
-    DDS = 2,
-    MCS = 3,
+    DDS = 1,
+    MCS = 2,
+    SAS = 3,
     BMM = 4,
     TSS = 5,
     AUX = 6,

@@ -50,21 +50,21 @@ void writeRegisters(void) {
     OUTEN_SetHigh();
     int val = 0;
     LAT_SetLow(); // set select low
-    Delay(2);
+    //Delay(2);
     for (int i = RegPins - 1; i >= 0; i--) {
         CLK_SetLow(); //Set clock low (data is shifted in on rising edge)
         LAT_SetLow(); // set select low
-        Delay(2);
+        //Delay(2);
         val = registers[i];
         if (val == HIGH) {
             DATA_OUT_SetHigh();
         } else if (val == LOW) {
             DATA_OUT_SetLow();
         }
-        Delay(2);
+        //Delay(2);
         CLK_SetHigh(); //shift data in
         LAT_SetHigh();
-        Delay(2);
+        //Delay(2);
     }
     LAT_SetLow(); //Set latch high puting sent data to output
     CLK_SetLow();

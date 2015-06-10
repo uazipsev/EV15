@@ -4,21 +4,23 @@
 #include "PinDef.h"
 #include "StateMachine.h"
 #include "debug.h"
-extern int buttonArray[8];
-extern bool seekButtonChange();
-extern void changeLEDState(int LED, bool state);
-extern volatile unsigned int BootTimer;
 
-extern enum debugStates debugState;
-
+//Each board has a condition that says which fault it is experiencing if any
 int DDS_FAULT_CONDITION, MCS_FAULT_CONDITION, SAS_FAULT_CONDITION, BMM_FAULT_CONDITION, PDU_FAULT_CONDITION, ECU_FAULT_CONDITION;
-
+//Control the debug state
+extern enum debugStates debugState;
+//Record and report fault conditions
 struct faultStates faults;
-enum ECUstates currentState;
+//Record and control ECU states
+enum ECUstates currentState=stopped;
+//Record and control comm states
 struct commsStates comms;
+//Control the power rails on the PDU
 struct powerStates powerSet;
-
+//Check to see if boot is completed
 bool bootSequenceCompleted();
+
+bool checkForBootupTimeout();
 bool faultChecker();
 
 void updateECUState() {
@@ -77,40 +79,18 @@ void updateECUState() {
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
+                //Power up the MCS
                 powerSet.MCS = true;
+                //Set the safety system to boot
                 SS_RELAY = 1;
+                //reset timeout timer
                 BootTimer = 0;
             }
-            if (bootSequenceCompleted() && comms.MCS) {
-                currentState++;
-            } else {
-                if (BootTimer > 0 && BootTimer <= 5) {
-                    changeLEDState(ACTIVE_LED, 0);
-                } else if (BootTimer > 250 && BootTimer <= 255) {
-                    changeLEDState(ACTIVE_LED, 1);
-                } else if (BootTimer > 500 && BootTimer <= 505) {
-                    changeLEDState(ACTIVE_LED, 0);
-                } else if (BootTimer > 750 && BootTimer <= 755) {
-                    changeLEDState(ACTIVE_LED, 1);
-                } else if (BootTimer > 1000 && BootTimer <= 1005) {
-                    changeLEDState(ACTIVE_LED, 0);
-                } else if (BootTimer > 1250 && BootTimer <= 1255) {
-                    changeLEDState(ACTIVE_LED, 1);
-                } else if (BootTimer > 1500 && BootTimer <= 1505) {
-                    changeLEDState(ACTIVE_LED, 0);
-                } else if (BootTimer > 1750 && BootTimer <= 1755) {
-                    changeLEDState(ACTIVE_LED, 1);
-                } else if (BootTimer > 2000 && BootTimer <= 2005) {
-                    changeLEDState(ACTIVE_LED, 0);
-                } else if (BootTimer > 2250 && BootTimer <= 2255) {
-                    changeLEDState(ACTIVE_LED, 1);
-                } else if (BootTimer > 2500 && BootTimer <= 2505) {
-                    changeLEDState(ACTIVE_LED, 0);
-                } else if (BootTimer > 2750 && BootTimer <= 2755) {
-                    changeLEDState(ACTIVE_LED, 1);
-                }
-                if(BootTimer>3500) currentState--;
-            }
+
+            //Wait for complete or for timeout
+            if (bootSequenceCompleted()) currentState++;
+            else checkForBootupTimeout();
+
             //if start button changes to depressed here, exit boot sequence
             if (seekButtonChange()) {
                 if (!buttonArray[START_BUTTON]) {
@@ -156,9 +136,10 @@ void updateECUState() {
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
-
             }
-            debugState=FAULT_RECOVERY;
+
+            debugState = FAULT_RECOVERY;
+
             if (seekButtonChange()) {
                 changeLEDState(IMD_INDICATOR, !buttonArray[DEBUG_BUTTON]);
                 changeLEDState(ACTIVE_LED, !buttonArray[START_BUTTON]);
@@ -175,14 +156,45 @@ void updateECUState() {
 }
 
 bool faultChecker() {
-    if (MCS_FAULT_CONDITION || DDS_FAULT_CONDITION || PDU_FAULT_CONDITION || SAS_FAULT_CONDITION || BMM_FAULT_CONDITION)
+    if (MCS_FAULT_CONDITION || DDS_FAULT_CONDITION || PDU_FAULT_CONDITION || SAS_FAULT_CONDITION || BMM_FAULT_CONDITION || ECU_FAULT_CONDITION)
         return true;
     else
         return false;
 }
 
 bool bootSequenceCompleted() {
-
-    if (BootTimer > 3000) return true;
+    if ((BootTimer > 3000) && comms.MCS) return true;
     else return false;
+}
+
+bool checkForBootupTimeout() {
+    if (BootTimer > 0 && BootTimer <= 5) {
+        changeLEDState(ACTIVE_LED, 0);
+    } else if (BootTimer > 250 && BootTimer <= 255) {
+        changeLEDState(ACTIVE_LED, 1);
+    } else if (BootTimer > 500 && BootTimer <= 505) {
+        changeLEDState(ACTIVE_LED, 0);
+    } else if (BootTimer > 750 && BootTimer <= 755) {
+        changeLEDState(ACTIVE_LED, 1);
+    } else if (BootTimer > 1000 && BootTimer <= 1005) {
+        changeLEDState(ACTIVE_LED, 0);
+    } else if (BootTimer > 1250 && BootTimer <= 1255) {
+        changeLEDState(ACTIVE_LED, 1);
+    } else if (BootTimer > 1500 && BootTimer <= 1505) {
+        changeLEDState(ACTIVE_LED, 0);
+    } else if (BootTimer > 1750 && BootTimer <= 1755) {
+        changeLEDState(ACTIVE_LED, 1);
+    } else if (BootTimer > 2000 && BootTimer <= 2005) {
+        changeLEDState(ACTIVE_LED, 0);
+    } else if (BootTimer > 2250 && BootTimer <= 2255) {
+        changeLEDState(ACTIVE_LED, 1);
+    } else if (BootTimer > 2500 && BootTimer <= 2505) {
+        changeLEDState(ACTIVE_LED, 0);
+    } else if (BootTimer > 2750 && BootTimer <= 2755) {
+        changeLEDState(ACTIVE_LED, 1);
+    }
+    if (BootTimer > 3500) {
+        currentState--;
+    }
+
 }
