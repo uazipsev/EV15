@@ -16,6 +16,8 @@ extern "C" {
 #include "ADDRESSING.h"
 #include <stdbool.h>
 
+extern int DDS_FAULT_CONDITION;
+
 #define CLOSE_COMM_TIME    4
 #define BOARD_TIMEOUT     45
 #define BOARD_RESEND_MIN  15

@@ -20,6 +20,7 @@ extern "C" {
 #define BOARD_TIMEOUT     45
 #define BOARD_RESEND_MIN  15
 
+extern int MCS_FAULT_CONDITION;
     //MCS
     extern volatile unsigned int MCSTimer;
 

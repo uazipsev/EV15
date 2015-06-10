@@ -14,7 +14,6 @@
 #include "main.h"
 #include "StateMachine.h"
 
-
 int main(int argc, char** argv) {
     Setup();
     Delay(1000);

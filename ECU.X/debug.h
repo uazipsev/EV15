@@ -15,12 +15,15 @@ extern "C" {
 #include <xc.h>
 #include <stdbool.h>
 
-#define NO_DEBUG            0
-#define THROTTLE_BRAKE      1
-#define BATTERY_DEBUG_VOLTS 2
-#define BATTERY_DEBUG_TEMPS 3
-#define BATTERY_DEBUG_POWER 4
-#define MAX_DEBUG_STATES    4
+enum debugStates {
+    NO_DEBUG = 0,
+    THROTTLE_BRAKE = 1,
+    BATTERY_DEBUG_VOLTS = 2,
+    BATTERY_DEBUG_TEMPS = 3,
+    BATTERY_DEBUG_POWER = 4,
+    FAULT_RECOVERY = 5,
+    NUM_DEBUG_STATES = 6
+};
     extern unsigned int throttle1, throttle2, brake;
     extern void handleDebugRequests();
     extern volatile unsigned int DebugTimer;
