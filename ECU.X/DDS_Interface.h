@@ -24,7 +24,7 @@ extern "C" {
 int buttonArray[8];
 unsigned int buttons=0;
 unsigned int indicators=0;
-bool seekButtonChange();
+int seekButtonChange();
 void changeLEDState(int LED,bool state);
 
 

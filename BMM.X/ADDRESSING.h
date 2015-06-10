@@ -31,10 +31,17 @@ extern "C" {
 #define WHEELSPEED3_SAS         6
 #define WHEELSPEED4_SAS         7
 #define BUTTONS_DDS             8
+#define POWER_STATE             9
+#define MCS_FAULT               10
+#define DDS_FAULT               11
+#define PDU_FAULT               12
+#define SAS_FAULT               13
+#define BMM_FAULT               14
 
     //MCS Receive
 #define THROTTLE_OUTPUT         1
 #define BRAKE_OUTPUT            2
+#define OUTPUT_ACTIVE           3
 
     //PDU Receive
 #define POWER_RAILS             1
@@ -46,7 +53,11 @@ extern "C" {
     //DDS Receive
 #define BUTTON_REQUEST          1
 #define LED_DDS                 2
+#define THROTTLE_DDS            3
+#define BRAKE_DDS               4
 
+    //BMM Receive
+#define BMM_COMM_STATE          1
 
 
 
@@ -54,6 +65,9 @@ extern "C" {
 
 #define BUS_1_ERROR_DEBUG       1
 #define BUS_2_ERROR_DEBUG       2
+
+#define TALK 1
+#define LISTEN 0
 
 #ifdef	__cplusplus
 }

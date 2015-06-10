@@ -4,6 +4,7 @@
 #include "PinDef.h"
 #include "StateMachine.h"
 #include "debug.h"
+#include "StoppedState.h"
 
 //Each board has a condition that says which fault it is experiencing if any
 int DDS_FAULT_CONDITION, MCS_FAULT_CONDITION, SAS_FAULT_CONDITION, BMM_FAULT_CONDITION, PDU_FAULT_CONDITION, ECU_FAULT_CONDITION;
@@ -12,7 +13,7 @@ extern enum debugStates debugState;
 //Record and report fault conditions
 struct faultStates faults;
 //Record and control ECU states
-enum ECUstates currentState=stopped;
+enum ECUstates currentState = stopped;
 //Record and control comm states
 struct commsStates comms;
 //Control the power rails on the PDU
@@ -40,39 +41,7 @@ void updateECUState() {
                 powerSet.MCS = false;
                 SS_RELAY = 0;
             }
-            handleDebugRequests();
-            //If start button is depressed, do start system request, show on LED
-            if (seekButtonChange()) {
-                if (!buttonArray[START_BUTTON]) {
-                    changeLEDState(ACTIVE_LED, !buttonArray[START_BUTTON]);
-                    currentState++;
-                }
-                if (!buttonArray[DEBUG_BUTTON]) {
-                    if (debugState < NUM_DEBUG_STATES - 1) {
-                        debugState++;
-                    } else debugState = 0;
-                    switch (debugState) {
-                        case NO_DEBUG:
-                            comms.BMM_SEND = BATTERY_FAULT;
-                            break;
-                        case THROTTLE_BRAKE:
-                            break;
-                        case BATTERY_DEBUG_VOLTS:
-                            comms.BMM_SEND = BATTERY_VOLTS;
-                            break;
-                        case BATTERY_DEBUG_TEMPS:
-                            comms.BMM_SEND = BATTERY_TEMPS;
-                            break;
-                        case BATTERY_DEBUG_POWER:
-                            comms.BMM_SEND = BATTERY_POWER;
-                            break;
-                        case FAULT_RECOVERY:
-                            break;
-                        case NUM_DEBUG_STATES:
-                            break;
-                    }
-                }
-            }
+            updateStoppedState();
             break;
             //CAR IS ATTEMPTING TO BOOT UP
         case booting:
@@ -145,6 +114,22 @@ void updateECUState() {
                 changeLEDState(ACTIVE_LED, !buttonArray[START_BUTTON]);
             }
             break;
+        case override:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;
+                changeLEDState(ACTIVE_LED, 1);
+            }
+
+            switch (seekButtonChange()) {
+                case START_BUTTON:
+                    if (!buttonArray[START_BUTTON]) {
+                        changeLEDState(ACTIVE_LED, buttonArray[START_BUTTON]);
+                        currentState = stopping;
+                    }
+                    break;
+            }
+            break;
         case NUM_STATES:
             //Means this is your first time in this state
             if (previousState != currentState) {
@@ -152,6 +137,7 @@ void updateECUState() {
 
             }
             break;
+
     }
 }
 
@@ -195,6 +181,8 @@ bool checkForBootupTimeout() {
     }
     if (BootTimer > 3500) {
         currentState--;
+        return true;
     }
+    return false;
 
 }

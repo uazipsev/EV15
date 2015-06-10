@@ -6,6 +6,8 @@ bool portClosed=true;
 void updateComms() {
     checkCommDirection();
     if (receiveData()) {
+        static bool carActive=false;
+        if(carActive!=)
         if (throttleOut != receiveArray[THROTTLE_OUTPUT]) {
             throttleOut = receiveArray[THROTTLE_OUTPUT];
             SetMotor(throttleOut, 1);

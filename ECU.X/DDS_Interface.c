@@ -1,13 +1,13 @@
 #include "DDS_Interface.h"
 
-bool seekButtonChange() {
+int seekButtonChange() {
     int i = 0;
-    bool changeInButton = false;
+    int changeInButton = 0;
     for (i = 0; i < 8; i++) {
         bool buttonState = ((buttons >> i)&(0x01));
         if (buttonArray[i] != buttonState) {
             buttonArray[i] = buttonState;
-            changeInButton = true;
+            changeInButton = i;
         }
     }
     return changeInButton;

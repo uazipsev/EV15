@@ -11,11 +11,11 @@
       <itemPath>I2C.h</itemPath>
       <itemPath>UART.h</itemPath>
       <itemPath>main.h</itemPath>
-      <itemPath>ADDRESSING.h</itemPath>
       <itemPath>Timers.h</itemPath>
       <itemPath>Communications.h</itemPath>
       <itemPath>UART1.h</itemPath>
       <itemPath>FastTransfer1.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

@@ -21,7 +21,7 @@ extern "C" {
 
     void updateECUState();
 extern int buttonArray[8];
-extern bool seekButtonChange();
+extern int seekButtonChange();
 extern void changeLEDState(int LED, bool state);
 extern volatile unsigned int BootTimer;
 
@@ -30,7 +30,7 @@ struct powerStates {
     bool MCS;
     bool SAS;
     bool BMM;
-} ;
+};
 
 enum BMM {
     BATTERY_FAULT = 0,
@@ -66,7 +66,8 @@ enum ECUstates {
     running = 2,
     stopping = 3,
     fault = 4,
-    NUM_STATES = 5
+    override = 5,
+    NUM_STATES = 6
 };
 #ifdef	__cplusplus
 }

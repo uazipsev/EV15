@@ -24,6 +24,7 @@ enum debugStates {
     FAULT_RECOVERY = 5,
     NUM_DEBUG_STATES = 6
 };
+
     extern unsigned int throttle1, throttle2, brake;
     extern void handleDebugRequests();
     extern volatile unsigned int DebugTimer;

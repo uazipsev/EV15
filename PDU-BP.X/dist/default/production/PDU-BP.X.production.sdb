@@ -73,7 +73,7 @@ OFF 0
 [v ___lmul __lmul `(ul  1 e 4 0 ]
 "21 C:\Users\User\Documents\Repositories\EV2015\trunk\PDU-BP.X\Communications.c
 [v _updateComms updateComms `(v  1 e 0 0 ]
-"34
+"33
 [v _processPowerRequest processPowerRequest `(v  1 e 0 0 ]
 "48
 [v _respondECU respondECU `(v  1 e 0 0 ]
@@ -675,7 +675,7 @@ OFF 0
 {
 "23
 [v updateComms@previousPowerState previousPowerState `i  1 s 2 previousPowerState ]
-"31
+"30
 } 0
 "48
 [v _respondECU respondECU `(v  1 e 0 0 ]
@@ -876,7 +876,7 @@ OFF 0
 [v CRC8@len len `uc  1 p 1 28 ]
 "49
 } 0
-"34 C:\Users\User\Documents\Repositories\EV2015\trunk\PDU-BP.X\Communications.c
+"33 C:\Users\User\Documents\Repositories\EV2015\trunk\PDU-BP.X\Communications.c
 [v _processPowerRequest processPowerRequest `(v  1 e 0 0 ]
 {
 [v processPowerRequest@powerSet powerSet `i  1 p 2 0 ]
