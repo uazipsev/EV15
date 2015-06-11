@@ -75,7 +75,7 @@ void updateComms() {
 
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall && (talkTime > 15) && (RS485_Port == TALK)) {
+    if (Transmit_stall && (talkTime > 5) && (RS485_Port == TALK)) {
         RS485_Port = LISTEN;
     }
 }

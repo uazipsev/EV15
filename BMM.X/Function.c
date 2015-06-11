@@ -13,7 +13,7 @@ void Setup(void) {
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
 
-    INTCON1bits.NSTDIS = 1; //no nesting of interrupts
+    //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
 
     PPSUnLock;
     PPSout(_OC1, _RP5);
@@ -22,16 +22,15 @@ void Setup(void) {
     Pin_22_Output = TX2_OUTPUT;
     RX2_Pin_Map = 23;
     PPSLock;
-    UART_init();
-    begin(receiveArray, sizeof (receiveArray), BMM_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
-    UART1_init();
-    begin1(receiveArray1, sizeof (receiveArray1), BMM_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
 
     
     
     initTimerOne();
-
     initTimerTwo();
+    begin(receiveArray, sizeof (receiveArray), BMM_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+    UART_init();
+    begin1(receiveArray1, sizeof (receiveArray1), BMM_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
+    UART1_init();
     //i2c_init();
     //PWM_Init();
 }
