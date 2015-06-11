@@ -3,6 +3,7 @@
 
 void Setup(void) {
     PinSetMode();
+    INDICATOR = 1;
     // setup internal clock for 72MHz/36MIPS
     // 12 /2 = 6  *24 = 144 / 2=72
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2c
@@ -45,9 +46,11 @@ void Delay(int wait) {
 void PinSetMode(void) {
     AD1PCFGL = 0XFFFF;
     TRISBbits.TRISB1 = OUTPUT; //Set LED as output
+    TRISBbits.TRISB5 = OUTPUT; //BMS Slave Turn on
+    TRISBbits.TRISB6 = OUTPUT; //Fan control OUT
 
-    TRISBbits.TRISB5 = OUTPUT; //Fan control OUT
-
+    TRISAbits.TRISA4 = OUTPUT;
+    TRISAbits.TRISA7 = OUTPUT;
     TRISBbits.TRISB13 = OUTPUT; // RS485 Direction Pin OUTPUT
     LATBbits.LATB13 = 0;
     
@@ -58,5 +61,7 @@ void PinSetMode(void) {
     S1_TRIS=OUTPUT;     //Select Comm Line Mux S1
     S0 =0;
     S1 =1;
+    
+    BMS_TURN_ON = 1;
     
 }

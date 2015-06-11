@@ -19,7 +19,7 @@ extern "C" {
 
 
 #define polynomial 0x8C  //polynomial used to calculate crc
-#define BUFFER_SIZE 400 //ring buffer size
+#define BUFFER_SIZE 200 //ring buffer size
 #define CRC_COUNT 5 // how many AKNAKs are stored
 #define CRC_DEPTH 3  // how many pieces of data are stored with each CRC send event
 #define CRC_BUFFER_SIZE (CRC_COUNT * CRC_DEPTH) //crc buffer size 5 deep and 3 bytes an entry

@@ -10583,6 +10583,6 @@ return fault;
 float Battery_Get(int channelnum)
 {
 
-return Battery_Volt[channelnum];
+return Battery_Volt[channelnum]*1000.0;
 }
 

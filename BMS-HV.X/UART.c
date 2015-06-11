@@ -18,8 +18,8 @@
 #define ON         0
 #define OFF        1
 
-void UART_init(void) {
-      // disable interrupts before changing states
+void EUSART1_Initialize(void) {
+    // disable interrupts before changing states
     PIE1bits.RC1IE = 0;
     PIE1bits.TX1IE = 0;
 
@@ -34,8 +34,8 @@ void UART_init(void) {
     // CSRC slave_mode; TRMT TSR_empty; TXEN enabled; BRGH hi_speed; SYNC asynchronous; SENDB sync_break_complete; TX9D 0x0; TX9 8-bit;
     TX1STA = 0x26;
 
-    // Baud Rate = 57600; SPBRGL 34;
-    SPBRG1 = 0x22;
+    // Baud Rate = 57600; SPBRGL 34(0x22); @38400 ~ 68
+    SPBRG1 = BAUD_RATE;
 
     // Baud Rate = 57600; SPBRGH 0;
     SPBRGH1 = 0x00;
@@ -45,10 +45,12 @@ void UART_init(void) {
 
     // RCREG 0;
     RCREG1 = 0x00;
+
     UART_buff_init(&input_buffer);
     UART_buff_init(&output_buffer);
     // enable receive interrupt
     PIE1bits.RC1IE = 1;
+    //PIE1bits.TX1IE = 1;
 }
 
 void UART_buff_init(struct UART_ring_buff* _this) {
@@ -130,12 +132,12 @@ void Send_put(unsigned char _data) {
     if (Transmit_stall == 1) {
         Transmit_stall = 0;
         TXREG1 = UART_buff_get(&output_buffer);
+        PIE1bits.TX1IE = 1;
     }
 }
 
 void EUSART1_Receive_ISR(void) {
-     if(1 == RC1STAbits.OERR)
-    {
+    if (1 == RC1STAbits.OERR) {
         // EUSART1 error - restart
 
         RC1STAbits.CREN = 0;
@@ -151,18 +153,14 @@ void EUSART1_Transmit_ISR(void) {
         TXREG1 = UART_buff_get(&output_buffer);
     } else {
         Transmit_stall = 1;
+        PIE1bits.TX1IE = 0;
     }
 }
 
-
-
-
-char getch(void)
-{
+char getch(void) {
     return Receive_get();
 }
 
-void putch(char txData)
-{
+void putch(char txData) {
     Send_put(txData);
 }

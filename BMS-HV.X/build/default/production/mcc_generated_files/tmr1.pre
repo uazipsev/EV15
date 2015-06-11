@@ -10638,7 +10638,7 @@ TMR1L = (uint8_t) timer1ReloadVal;
 if (++CountCallBack >= 4)
 {
 
-do { LATA4 = ~LATA4; } while(0);
+
 
 
 CountCallBack = 0;
@@ -10647,14 +10647,8 @@ if(CountCallBack == 1)
 {
 
 }
-if(CountCallBack == 2)
-{
-Battery_Read();
-}
-if(CountCallBack == 3)
-{
-Temp_Read();
-}
+
+# 143
 }
 
 void TMR1_CallBack(void)

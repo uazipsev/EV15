@@ -123,7 +123,7 @@ void TMR1_ISR(void)
     if (++CountCallBack >= TMR1_INTERRUPT_TICKER_FACTOR)
     {
         // ticker function call
-        Indicator_Toggle();
+        //Indicator_Toggle();
 
         // reset ticker counter
         CountCallBack = 0;
@@ -132,14 +132,14 @@ void TMR1_ISR(void)
     {
         //Current_Read();
     }
-    if(CountCallBack == 2)
-    {
-        Battery_Read();
-    }
-    if(CountCallBack == 3)
-    {
-        Temp_Read();
-    }
+//    if(CountCallBack == 2)
+//    {
+//        Battery_Read();
+//    }
+//    if(CountCallBack == 3)
+//    {
+//        Temp_Read();
+//    }
 }
 
 void TMR1_CallBack(void)

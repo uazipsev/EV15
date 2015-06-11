@@ -1,4 +1,7 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"102 mcc_generated_files/../UART.h
+[s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1183 UART_ring_buff buf head tail count ]
 "18987 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [v _LATA6 `Vb ~T0 @X0 0 e@31822 ]
 "19007
@@ -8330,6 +8333,49 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 278: void ADC_ISR(void);
+[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
+[; ;UART.h: 23: uint8_t EUSART1_Read(void);
+[; ;UART.h: 48: void EUSART1_Write(uint8_t txData);
+[; ;UART.h: 69: void EUSART1_Transmit_ISR(void);
+[; ;UART.h: 90: void EUSART1_Receive_ISR(void);
+[; ;UART.h: 92: char getch(void);
+[; ;UART.h: 93: void putch(char txData);
+[; ;UART.h: 99: extern volatile unsigned int talkTime;
+[; ;UART.h: 100: void *memset(void *s, int c, size_t n);
+[; ;UART.h: 102: struct UART_ring_buff {
+[; ;UART.h: 103: unsigned char buf[200];
+[; ;UART.h: 104: int head;
+[; ;UART.h: 105: int tail;
+[; ;UART.h: 106: int count;
+[; ;UART.h: 107: };
+"109 mcc_generated_files/../UART.h
+[v _input_buffer `S1183 ~T0 @X0 1 e ]
+[; ;UART.h: 109: struct UART_ring_buff input_buffer;
+"110
+[v _output_buffer `S1183 ~T0 @X0 1 e ]
+[; ;UART.h: 110: struct UART_ring_buff output_buffer;
+"112
+[v _Transmit_stall `uc ~T0 @X0 1 e ]
+[i _Transmit_stall
+-> -> 1 `i `uc
+]
+[; ;UART.h: 112: bool Transmit_stall = 1;
+[; ;UART.h: 113: void EUSART1_Initialize(void);
+[; ;UART.h: 114: void UART_buff_init(struct UART_ring_buff* _this);
+[; ;UART.h: 115: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
+[; ;UART.h: 116: unsigned char UART_buff_get(struct UART_ring_buff* _this);
+[; ;UART.h: 117: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
+[; ;UART.h: 118: int UART_buff_size(struct UART_ring_buff* _this);
+[; ;UART.h: 119: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;UART.h: 120: unsigned char UART_buff_peek(struct UART_ring_buff* _this);
+[; ;UART.h: 123: unsigned char Receive_peek(void);
+[; ;UART.h: 124: int Receive_available(void);
+[; ;UART.h: 125: unsigned char Receive_get(void);
+[; ;UART.h: 126: void Send_put(unsigned char _data);
 [; ;tmr1.h: 95: void TMR1_Initialize(void);
 [; ;tmr1.h: 126: void TMR1_StartTimer(void);
 [; ;tmr1.h: 156: void TMR1_StopTimer(void);
@@ -8340,9 +8386,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
 [; ;tmr1.h: 346: void TMR1_ISR(void);
 [; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 87: extern void UART_init(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
 [; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 [; ;mcc.h: 91: extern unsigned char Receive_peek(void);
 [; ;mcc.h: 92: extern int Receive_available(void);
@@ -8364,58 +8409,58 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;Functions.c: 17: if (Channel & 0x01)
 "17
-[e $ ! != & _Channel -> 1 `i -> 0 `i 1184  ]
+[e $ ! != & _Channel -> 1 `i -> 0 `i 1185  ]
 [; ;Functions.c: 18: {
 "18
 {
 [; ;Functions.c: 19: do { LATA6 = ~LATA6; } while(0);
 "19
-[e :U 1187 ]
+[e :U 1188 ]
 {
 [e = _LATA6 -> ~ -> _LATA6 `ui `b ]
 }
-[e :U 1186 ]
+[e :U 1187 ]
 "20
 }
-[e :U 1184 ]
+[e :U 1185 ]
 [; ;Functions.c: 20: }
 [; ;Functions.c: 21: if ((Channel>>1) & 0x01)
 "21
-[e $ ! != & >> _Channel -> 1 `i -> 1 `i -> 0 `i 1188  ]
+[e $ ! != & >> _Channel -> 1 `i -> 1 `i -> 0 `i 1189  ]
 [; ;Functions.c: 22: {
 "22
 {
 [; ;Functions.c: 23: do { LATC0 = ~LATC0; } while(0);
 "23
-[e :U 1191 ]
+[e :U 1192 ]
 {
 [e = _LATC0 -> ~ -> _LATC0 `ui `b ]
 }
-[e :U 1190 ]
+[e :U 1191 ]
 "24
 }
-[e :U 1188 ]
+[e :U 1189 ]
 [; ;Functions.c: 24: }
 [; ;Functions.c: 25: if ((Channel>>2) & 0x01)
 "25
-[e $ ! != & >> _Channel -> 2 `i -> 1 `i -> 0 `i 1192  ]
+[e $ ! != & >> _Channel -> 2 `i -> 1 `i -> 0 `i 1193  ]
 [; ;Functions.c: 26: {
 "26
 {
 [; ;Functions.c: 27: do { LATC1 = ~LATC1; } while(0);
 "27
-[e :U 1195 ]
+[e :U 1196 ]
 {
 [e = _LATC1 -> ~ -> _LATC1 `ui `b ]
 }
-[e :U 1194 ]
+[e :U 1195 ]
 "28
 }
-[e :U 1192 ]
+[e :U 1193 ]
 [; ;Functions.c: 28: }
 [; ;Functions.c: 29: }
 "29
-[e :UE 1183 ]
+[e :UE 1184 ]
 }
 "37
 [v _Delay `(v ~T0 @X0 1 ef1`l ]
@@ -8436,9 +8481,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 "40
 {
 [e _wait ]
-[e $U 1200  ]
+[e $U 1201  ]
 "41
-[e :U 1197 ]
+[e :U 1198 ]
 [; ;Functions.c: 41: {
 {
 [; ;Functions.c: 42: _delay((unsigned long)((1)*(8000000/4000.0)));
@@ -8448,13 +8493,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "40
 [e ++ _wait -> -> 1 `i `l ]
-[e :U 1200 ]
-[e $ < _wait _d_lenth 1197  ]
-[e :U 1198 ]
+[e :U 1201 ]
+[e $ < _wait _d_lenth 1198  ]
+[e :U 1199 ]
 "43
 }
 [; ;Functions.c: 43: }
 [; ;Functions.c: 44: }
 "44
-[e :UE 1196 ]
+[e :UE 1197 ]
 }

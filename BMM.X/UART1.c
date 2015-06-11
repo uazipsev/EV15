@@ -102,8 +102,8 @@ unsigned char Receive_get1(void) {
 
 void Send_put1(unsigned char _data) {
     UART1_buff_put(&output_buffer1, _data);
-    if (Transmit1_stall == true) {
-        Transmit1_stall = false;
+    if (Transmit_stall1 == true) {
+        Transmit_stall1 = false;
         U2TXREG = UART1_buff_get(&output_buffer1);
     }
 }
@@ -124,7 +124,7 @@ void __attribute__((interrupt, no_auto_psv)) _U2TXInterrupt(void) {
     if (UART1_buff_size(&output_buffer1) > 0) {
         U2TXREG = UART1_buff_get(&output_buffer1);
     } else {
-        Transmit1_stall = true;
+        Transmit_stall1 = true;
     }
     IFS1bits.U2TXIF = 0; // Clear TX interrupt flag
 }

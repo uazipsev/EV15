@@ -28,7 +28,7 @@ extern "C" {
     bool receiveData1();
     void ToSend1(const unsigned char where, const unsigned int what);
 
-    volatile int receiveArray1[20];
+    volatile int receiveArray1[100];
 
     //INTERNAL METHODS/VARIABLES HERE
     unsigned char AKNAK1(unsigned char module);

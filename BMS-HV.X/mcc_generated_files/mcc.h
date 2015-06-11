@@ -54,6 +54,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "interrupt_manager.h"
 #include "adc.h"
 //include "eusart1.h"
+#include "../UART.h"
 #include "tmr1.h"
 
 #define _XTAL_FREQ  8000000
@@ -84,7 +85,6 @@ void SYSTEM_Initialize(void);
  */
 void OSCILLATOR_Initialize(void);
 
-extern void UART_init(void);
 
 extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 

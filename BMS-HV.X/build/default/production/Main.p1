@@ -1,6 +1,9 @@
 Version 3.2 HI-TECH Software Intermediate Code
+"102 mcc_generated_files/../UART.h
+[s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
+[n S1183 UART_ring_buff buf head tail count ]
 [p mainexit ]
-"72 mcc_generated_files/mcc.h
+"73 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "17609 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S1110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -22,24 +25,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1109 . . . . . . ]
 "17650
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
-"207 C:\Program Files (x86)\Microchip\xc8\v1.34\include\stdio.h
-[v _printf `(i ~T0 @X0 0 ev`*Cuc ]
-"8 Global.h
-[v _Temp_Done `i ~T0 @X0 0 e ]
-"16 Tempeture.h
-[v _Temp_Convert `(v ~T0 @X0 0 ef ]
-"13
-[v _Temp_Fault `(uc ~T0 @X0 0 ef ]
-"7 Global.h
-[v _Volt_Done `i ~T0 @X0 0 e ]
-"14 Battery.h
-[v _Battery_Convert `(v ~T0 @X0 0 ef ]
-"11
-[v _Battery_Fault `(uc ~T0 @X0 0 ef ]
-"12 Bypass.h
-[v _RunBypas `(i ~T0 @X0 0 ef ]
-"15 Battery.h
-[v _Battery_Get `(f ~T0 @X0 0 ef1`i ]
 "29 Main.c
 [v _updateComms `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -8328,25 +8313,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 232: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 262: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 278: void ADC_ISR(void);
-[; ;tmr1.h: 95: void TMR1_Initialize(void);
-[; ;tmr1.h: 126: void TMR1_StartTimer(void);
-[; ;tmr1.h: 156: void TMR1_StopTimer(void);
-[; ;tmr1.h: 190: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 216: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 248: void TMR1_Reload(void);
-[; ;tmr1.h: 289: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 346: void TMR1_ISR(void);
-[; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;mcc.h: 72: void SYSTEM_Initialize(void);
-[; ;mcc.h: 85: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 87: extern void UART_init(void);
-[; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
-[; ;mcc.h: 91: extern unsigned char Receive_peek(void);
-[; ;mcc.h: 92: extern int Receive_available(void);
-[; ;mcc.h: 93: extern unsigned char Receive_get(void);
-[; ;mcc.h: 94: extern void Send_put(unsigned char _data);
-[; ;mcc.h: 96: extern volatile int receiveArray[20];
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
 [; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
@@ -8377,6 +8343,67 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 202: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
 [; ;stdio.h: 206: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 207: extern int printf(const char *, ...);
+[; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 115: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 117: extern char * ftoa(float f, int * status);
+[; ;UART.h: 23: uint8_t EUSART1_Read(void);
+[; ;UART.h: 48: void EUSART1_Write(uint8_t txData);
+[; ;UART.h: 69: void EUSART1_Transmit_ISR(void);
+[; ;UART.h: 90: void EUSART1_Receive_ISR(void);
+[; ;UART.h: 92: char getch(void);
+[; ;UART.h: 93: void putch(char txData);
+[; ;UART.h: 99: extern volatile unsigned int talkTime;
+[; ;UART.h: 100: void *memset(void *s, int c, size_t n);
+[; ;UART.h: 102: struct UART_ring_buff {
+[; ;UART.h: 103: unsigned char buf[200];
+[; ;UART.h: 104: int head;
+[; ;UART.h: 105: int tail;
+[; ;UART.h: 106: int count;
+[; ;UART.h: 107: };
+"109 mcc_generated_files/../UART.h
+[v _input_buffer `S1183 ~T0 @X0 1 e ]
+[; ;UART.h: 109: struct UART_ring_buff input_buffer;
+"110
+[v _output_buffer `S1183 ~T0 @X0 1 e ]
+[; ;UART.h: 110: struct UART_ring_buff output_buffer;
+"112
+[v _Transmit_stall `uc ~T0 @X0 1 e ]
+[i _Transmit_stall
+-> -> 1 `i `uc
+]
+[; ;UART.h: 112: bool Transmit_stall = 1;
+[; ;UART.h: 113: void EUSART1_Initialize(void);
+[; ;UART.h: 114: void UART_buff_init(struct UART_ring_buff* _this);
+[; ;UART.h: 115: void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
+[; ;UART.h: 116: unsigned char UART_buff_get(struct UART_ring_buff* _this);
+[; ;UART.h: 117: void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
+[; ;UART.h: 118: int UART_buff_size(struct UART_ring_buff* _this);
+[; ;UART.h: 119: unsigned int UART_buff_modulo_inc(const unsigned int value, const unsigned int modulus);
+[; ;UART.h: 120: unsigned char UART_buff_peek(struct UART_ring_buff* _this);
+[; ;UART.h: 123: unsigned char Receive_peek(void);
+[; ;UART.h: 124: int Receive_available(void);
+[; ;UART.h: 125: unsigned char Receive_get(void);
+[; ;UART.h: 126: void Send_put(unsigned char _data);
+[; ;tmr1.h: 95: void TMR1_Initialize(void);
+[; ;tmr1.h: 126: void TMR1_StartTimer(void);
+[; ;tmr1.h: 156: void TMR1_StopTimer(void);
+[; ;tmr1.h: 190: uint16_t TMR1_ReadTimer(void);
+[; ;tmr1.h: 216: void TMR1_WriteTimer(uint16_t timerVal);
+[; ;tmr1.h: 248: void TMR1_Reload(void);
+[; ;tmr1.h: 289: void TMR1_StartSinglePulseAcquisition(void);
+[; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
+[; ;tmr1.h: 346: void TMR1_ISR(void);
+[; ;tmr1.h: 365: void TMR1_CallBack(void);
+[; ;mcc.h: 73: void SYSTEM_Initialize(void);
+[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;mcc.h: 91: extern unsigned char Receive_peek(void);
+[; ;mcc.h: 92: extern int Receive_available(void);
+[; ;mcc.h: 93: extern unsigned char Receive_get(void);
+[; ;mcc.h: 94: extern void Send_put(unsigned char _data);
+[; ;mcc.h: 96: extern volatile int receiveArray[20];
 [; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
 [; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
@@ -8422,111 +8449,27 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 54: (INTCONbits.PEIE = 1);
 "54
 [e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;Main.c: 63: printf("Hi Rick");
-"63
-[e ( _printf :s 1C ]
 [; ;Main.c: 64: while (1)
 "64
-[e :U 1185 ]
+[e :U 1186 ]
 [; ;Main.c: 65: {
 "65
 {
-[; ;Main.c: 66: if (Temp_Done)
-"66
-[e $ ! != _Temp_Done -> 0 `i 1187  ]
-[; ;Main.c: 67: {
-"67
-{
-[; ;Main.c: 68: Temp_Convert();
-"68
-[e ( _Temp_Convert ..  ]
-[; ;Main.c: 69: Temp_Fault();
-"69
-[e ( _Temp_Fault ..  ]
-[; ;Main.c: 70: for (int x = 0;x<9;x++)
-"70
-{
-[v _x `i ~T0 @X0 1 a ]
-[e = _x -> 0 `i ]
-[e $ < _x -> 9 `i 1188  ]
-[e $U 1189  ]
-"71
-[e :U 1188 ]
-[; ;Main.c: 71: {
-{
-"73
-}
-"70
-[e ++ _x -> 1 `i ]
-[e $ < _x -> 9 `i 1188  ]
-[e :U 1189 ]
-"73
-}
-"74
-}
-[e :U 1187 ]
-[; ;Main.c: 73: }
-[; ;Main.c: 74: }
-[; ;Main.c: 75: if (Volt_Done)
-"75
-[e $ ! != _Volt_Done -> 0 `i 1191  ]
-[; ;Main.c: 76: {
-"76
-{
-[; ;Main.c: 77: Battery_Convert();
-"77
-[e ( _Battery_Convert ..  ]
-[; ;Main.c: 78: Battery_Fault();
-"78
-[e ( _Battery_Fault ..  ]
-[; ;Main.c: 79: RunBypas();
-"79
-[e ( _RunBypas ..  ]
-[; ;Main.c: 80: for (int x = 0;x<9;x++)
-"80
-{
-[v _x `i ~T0 @X0 1 a ]
-[e = _x -> 0 `i ]
-[e $ < _x -> 9 `i 1192  ]
-[e $U 1193  ]
-"81
-[e :U 1192 ]
-[; ;Main.c: 81: {
-{
-[; ;Main.c: 82: printf("Battery %d = %0.02f \r\n", x,Battery_Get(x));
-"82
-[e ( _printf , , (. :s 2C _x -> ( _Battery_Get (1 _x `d ]
-"83
-}
-"80
-[e ++ _x -> 1 `i ]
-[e $ < _x -> 9 `i 1192  ]
-[e :U 1193 ]
-"83
-}
-"84
-}
-[e :U 1191 ]
-[; ;Main.c: 83: }
-[; ;Main.c: 84: }
 [; ;Main.c: 85: updateComms();
 "85
 [e ( _updateComms ..  ]
 "102
 }
-[e :U 1184 ]
+[e :U 1185 ]
 "64
-[e $U 1185  ]
-[e :U 1186 ]
+[e $U 1186  ]
+[e :U 1187 ]
 [; ;Main.c: 102: }
 [; ;Main.c: 103: return (0);
 "103
 [e ) -> 0 `i ]
-[e $UE 1183  ]
+[e $UE 1184  ]
 [; ;Main.c: 104: }
 "104
-[e :UE 1183 ]
+[e :UE 1184 ]
 }
-[p f _printf 8462468 ]
-[a 1C 72 105 32 82 105 99 107 0 ]
-[a 2C 66 97 116 116 101 114 121 32 37 100 32 61 32 37 48 46 48 50 102 32 13 10 0 ]

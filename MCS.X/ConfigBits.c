@@ -34,7 +34,7 @@
 #pragma config WDTPOST = PS32768        // Watchdog Timer Postscaler (1:32,768)
 #pragma config WDTPRE = PR128           // WDT Prescaler (1:128)
 #pragma config WINDIS = OFF             // Watchdog Timer Window (Watchdog Timer in Non-Window mode)
-#pragma config FWDTEN = ON              // Watchdog Timer Enable (Watchdog timer always enabled)
+#pragma config FWDTEN = OFF              // Watchdog Timer Enable (Watchdog timer always enabled)
 
 // FPOR
 #pragma config FPWRT = PWR128           // POR Timer Value (128ms)

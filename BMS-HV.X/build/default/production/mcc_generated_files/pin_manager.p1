@@ -31,6 +31,17 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _TRISE `Vuc ~T0 @X0 0 e@3990 ]
 "253
 [v _ANSELE `Vuc ~T0 @X0 0 e@3900 ]
+"8859
+[s S531 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S531 . TRISC0 TRISC1 TRISC2 TRISC3 TRISC4 TRISC5 TRISC6 TRISC7 ]
+"8869
+[s S532 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S532 . RC0 RC1 RC2 RC3 RC4 RC5 RC6 RC7 ]
+"8858
+[u S530 `S531 1 `S532 1 ]
+[n S530 . . . ]
+"8880
+[v _TRISCbits `VS530 ~T0 @X0 0 e@3988 ]
 "17540
 [s S1106 :7 `uc 1 :1 `uc 1 ]
 [n S1106 . . NOT_RBPU ]
@@ -8253,9 +8264,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 15: WPUB = 0x00;
 "15
 [e = _WPUB -> -> 0 `i `uc ]
-[; ;pin_manager.c: 17: LATC = 0x08;
+[; ;pin_manager.c: 17: LATC = 0x48;
 "17
-[e = _LATC -> -> 8 `i `uc ]
+[e = _LATC -> -> 72 `i `uc ]
 [; ;pin_manager.c: 18: TRISC = 0xC4;
 "18
 [e = _TRISC -> -> 196 `i `uc ]
@@ -8277,13 +8288,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 26: TRISE = 0x04;
 "26
 [e = _TRISE -> -> 4 `i `uc ]
-[; ;pin_manager.c: 27: ANSELE = 0x00;
+[; ;pin_manager.c: 27: ANSELE = 0x04;
 "27
-[e = _ANSELE -> -> 0 `i `uc ]
-[; ;pin_manager.c: 29: INTCON2bits.nRBPU = 0x01;
+[e = _ANSELE -> -> 4 `i `uc ]
+[; ;pin_manager.c: 29: TRISCbits.TRISC6 = 1;
 "29
+[e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
+[; ;pin_manager.c: 30: TRISCbits.TRISC7 = 1;
+"30
+[e = . . _TRISCbits 0 7 -> -> 1 `i `uc ]
+[; ;pin_manager.c: 34: INTCON2bits.nRBPU = 0x01;
+"34
 [e = . . _INTCON2bits 1 7 -> -> 1 `i `uc ]
-[; ;pin_manager.c: 32: }
-"32
+[; ;pin_manager.c: 37: }
+"37
 [e :UE 1178 ]
 }

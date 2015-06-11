@@ -69,12 +69,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _T1GCONbits `VS1019 ~T0 @X0 0 e@4044 ]
 "9 mcc_generated_files/../Global.h
 [v _CountCallBack `i ~T0 @X0 0 e ]
-"18983 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
-[v _LATA4 `Vb ~T0 @X0 0 e@31820 ]
-"12 mcc_generated_files/../Battery.h
-[v _Battery_Read `(v ~T0 @X0 0 ef ]
-"14 mcc_generated_files/../Tempeture.h
-[v _Temp_Read `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8539,13 +8533,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 124: {
 "124
 {
-[; ;tmr1.c: 126: do { LATA4 = ~LATA4; } while(0);
-"126
-[e :U 1192 ]
-{
-[e = _LATA4 -> ~ -> _LATA4 `ui `b ]
-}
-[e :U 1191 ]
 [; ;tmr1.c: 129: CountCallBack = 0;
 "129
 [e = _CountCallBack -> 0 `i ]
@@ -8555,40 +8542,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.c: 130: }
 [; ;tmr1.c: 131: if(CountCallBack == 1)
 "131
-[e $ ! == _CountCallBack -> 1 `i 1193  ]
+[e $ ! == _CountCallBack -> 1 `i 1190  ]
 [; ;tmr1.c: 132: {
 "132
 {
 "134
 }
-[e :U 1193 ]
+[e :U 1190 ]
 [; ;tmr1.c: 134: }
-[; ;tmr1.c: 135: if(CountCallBack == 2)
-"135
-[e $ ! == _CountCallBack -> 2 `i 1194  ]
-[; ;tmr1.c: 136: {
-"136
-{
-[; ;tmr1.c: 137: Battery_Read();
-"137
-[e ( _Battery_Read ..  ]
-"138
-}
-[e :U 1194 ]
-[; ;tmr1.c: 138: }
-[; ;tmr1.c: 139: if(CountCallBack == 3)
-"139
-[e $ ! == _CountCallBack -> 3 `i 1195  ]
-[; ;tmr1.c: 140: {
-"140
-{
-[; ;tmr1.c: 141: Temp_Read();
-"141
-[e ( _Temp_Read ..  ]
-"142
-}
-[e :U 1195 ]
-[; ;tmr1.c: 142: }
 [; ;tmr1.c: 143: }
 "143
 [e :UE 1188 ]
@@ -8603,5 +8564,5 @@ Version 3.2 HI-TECH Software Intermediate Code
 [f ]
 [; ;tmr1.c: 148: }
 "148
-[e :UE 1196 ]
+[e :UE 1191 ]
 }

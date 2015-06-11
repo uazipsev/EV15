@@ -14,7 +14,7 @@ void PIN_MANAGER_Initialize(void)
     ANSELB = 0x34;
     WPUB = 0x00;
 
-    LATC = 0x08;
+    LATC = 0x48;
     TRISC = 0xC4;
     ANSELC = 0x04;
 
@@ -25,6 +25,11 @@ void PIN_MANAGER_Initialize(void)
     LATE = 0x00;
     TRISE = 0x04;
     ANSELE = 0x04;
+    
+    TRISCbits.TRISC6 = 1;
+    TRISCbits.TRISC7 = 1;
+    //LATCbits.LATC6 = 1;
+    //LATCbits.LATC7 = 1;
 
     INTCON2bits.nRBPU = 0x01;
 

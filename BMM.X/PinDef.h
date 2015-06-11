@@ -31,11 +31,16 @@
 /*
  *      BMS Bus Select Mux Pins
  */
-
  #define S0_TRIS TRISAbits.TRISA4     //Select Comm Line Mux S0
  #define S1_TRIS TRISBbits.TRISB4     //Select Comm Line Mux S1
  #define S0 LATAbits.LATA4
  #define S1 LATBbits.LATB4
+/*
+ 
+ */
+#define BMS_TURN_ON LATBbits.LATB5
+
+
 /*
  *    LED :)
  */

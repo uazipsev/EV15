@@ -16,6 +16,8 @@
       <itemPath>UART1.h</itemPath>
       <itemPath>FastTransfer1.h</itemPath>
       <itemPath>ADDRESSING.h</itemPath>
+      <itemPath>SlaveAddressing.h</itemPath>
+      <itemPath>SlaveCommunications.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -35,6 +37,7 @@
       <itemPath>Communications.c</itemPath>
       <itemPath>UART1.c</itemPath>
       <itemPath>FastTransfer1.c</itemPath>
+      <itemPath>SlaveCommunications.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

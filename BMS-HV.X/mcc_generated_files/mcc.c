@@ -115,12 +115,10 @@ void SYSTEM_Initialize(void) {
     PIN_MANAGER_Initialize();
     INTERRUPT_Initialize();
     ADC_Initialize();
-    //EUSART1_Initialize();
-
-    UART_init();
+    EUSART1_Initialize();
     TMR1_Initialize();
-
     begin(receiveArray, sizeof (receiveArray), ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+
 
 }
 

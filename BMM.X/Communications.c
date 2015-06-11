@@ -1,34 +1,97 @@
 
 #include "Communications.h"
+#include "SlaveCommunications.h"
 
-extern volatile unsigned int slaveTime;
-void sendSlavePacket();
+enum BMM {
+    BATTERY_FAULT = 0,
+    BATTERY_VOLTS = 1,
+    BATTERY_TEMPS = 2,
+    BATTERY_POWER = 3
+} COMM_STATE;
+int faultFlag = 0;
+int slaveaddr = 0;
+
 void updateComms() {
+    checkSlaveCommDirection();
     checkCommDirection();
     if (receiveData()) {
         talkTime = 0;
+        COMM_STATE=receiveArray[BMM_COMM_STATE];
         pendingSend = true;
         RS485_Port = TALK;
     }
     if (pendingSend && talkTime > 5) {
-        talkTime = 0;
         ToSend(RESPONSE_ADDRESS, BMM_ADDRESS);
+        static int lastCommState = 0;
+        switch (COMM_STATE) {
+            case BATTERY_VOLTS:
+                if (lastCommState != COMM_STATE) {
+                    lastCommState = COMM_STATE;
+                    slaveaddr = 0;
+                }
+                populateBatteryV(slaveaddr++);
+                if (slaveaddr >= NUMSLAVES) slaveaddr = 0;
+                break;
+            case BATTERY_TEMPS:
+                if (lastCommState != COMM_STATE) {
+                    lastCommState = COMM_STATE;
+                    slaveaddr = 0;
+                }
+                populateBatteryT(slaveaddr++);
+                if (slaveaddr >= NUMSLAVES) slaveaddr = 0;
+                break;
+            case BATTERY_POWER:
+                if (lastCommState != COMM_STATE) {
+                    lastCommState = COMM_STATE;
+                }
+
+                break;
+            case BATTERY_FAULT:
+                if (lastCommState != COMM_STATE) {
+                    lastCommState = COMM_STATE;
+                }
+
+                break;
+
+            default:
+                break;
+
+        }
+        ToSend(BMM_FAULT, faultFlag);
+        switch (faultFlag) {
+            case 1:
+            case 2:
+            case 3:
+            default:
+                break;
+        }
         sendData(ECU_ADDRESS);
         pendingSend = false;
+        
+        talkTime = 0;
     }
-    if(slaveTime>10){
-        slaveTime=0;
-        sendSlavePacket();
-    }
+
 }
 
-void sendSlavePacket(){
-    ToSend1(RESPONSE_ADDRESS,BMM_ADDRESS);
-    sendData1(1);
-}
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
     if (Transmit_stall && (talkTime > 15) && (RS485_Port == TALK)) {
         RS485_Port = LISTEN;
     }
 }
+
+void populateBatteryT(int slave) {
+    int j = 0;
+    for (j = 0; j < BATTPERSLAVE; j++) {
+        ToSend(BATTERYT + j, BVolts[slave][j]);
+    }
+}
+
+void populateBatteryV(int slave) {
+
+    int j = 0;
+    for (j = 0; j < BATTPERSLAVE; j++) {
+        ToSend(BATTERYT + j, BTemps[slave][j]);
+    }
+}
+

@@ -25,13 +25,13 @@ extern "C" {
     extern void sendData(unsigned char whereToSend);
     extern bool receiveData();
     extern void ToSend(const unsigned char where, const unsigned int what);
-    extern void sendData1(unsigned char whereToSend);
-    extern bool receiveData1();
-    extern void ToSend1(const unsigned char where, const unsigned int what);
+    extern volatile int receiveArray[100];
     void updateComms();
     void checkCommDirection();
     extern bool Transmit_stall;
     bool pendingSend = false;
+    void populateBatteryT(int slave);
+    void populateBatteryV(int slave);
 
 
 #ifdef	__cplusplus

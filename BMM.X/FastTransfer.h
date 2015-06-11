@@ -11,7 +11,7 @@
 //the capital D is so there is no interference with the lower case d of EasyTransfer
 #define Details(name) (int*)&name,sizeof(name)
 
-volatile int receiveArray[20];
+volatile int receiveArray[100];
 
 extern void Delay(int wait);
 
@@ -25,7 +25,6 @@ unsigned int CRCError(void);
 unsigned int addressError(void);
 unsigned int dataAddressError(void);
 
-volatile int receiveArray[20];
 
 
 void (*serial_write)(unsigned char);

@@ -10626,8 +10626,7 @@ struct UART_ring_buff input_buffer;
 struct UART_ring_buff output_buffer;
 
 bool Transmit_stall = 1;
-
-void UART_init(void);
+void EUSART1_Initialize(void);
 void UART_buff_init(struct UART_ring_buff* _this);
 void UART_buff_put(struct UART_ring_buff* _this, const unsigned char c);
 unsigned char UART_buff_get(struct UART_ring_buff* _this);
@@ -10643,7 +10642,7 @@ unsigned char Receive_get(void);
 void Send_put(unsigned char _data);
 
 # 21 "UART.c"
-void UART_init(void) {
+void EUSART1_Initialize(void) {
 
 PIE1bits.RC1IE = 0;
 PIE1bits.TX1IE = 0;
@@ -10660,7 +10659,7 @@ RC1STA = 0x98;
 TX1STA = 0x26;
 
 
-SPBRG1 = 0x22;
+SPBRG1 = (((8000000/38400)/4)-1);
 
 
 SPBRGH1 = 0x00;
@@ -10670,15 +10669,17 @@ TXREG1 = 0x00;
 
 
 RCREG1 = 0x00;
+
 UART_buff_init(&input_buffer);
 UART_buff_init(&output_buffer);
 
 PIE1bits.RC1IE = 1;
+
 }
 
 void UART_buff_init(struct UART_ring_buff* _this) {
 
-# 63
+# 65
 memset(_this, 0, sizeof (*_this));
 }
 
@@ -10749,12 +10750,12 @@ UART_buff_put(&output_buffer, _data);
 if (Transmit_stall == 1) {
 Transmit_stall = 0;
 TXREG1 = UART_buff_get(&output_buffer);
+PIE1bits.TX1IE = 1;
 }
 }
 
 void EUSART1_Receive_ISR(void) {
-if(1 == RC1STAbits.OERR)
-{
+if (1 == RC1STAbits.OERR) {
 
 
 RC1STAbits.CREN = 0;
@@ -10770,18 +10771,14 @@ if (UART_buff_size(&output_buffer) > 0) {
 TXREG1 = UART_buff_get(&output_buffer);
 } else {
 Transmit_stall = 1;
+PIE1bits.TX1IE = 0;
 }
 }
 
-
-
-
-char getch(void)
-{
+char getch(void) {
 return Receive_get();
 }
 
-void putch(char txData)
-{
+void putch(char txData) {
 Send_put(txData);
 }

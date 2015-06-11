@@ -12,7 +12,7 @@
  */
 
 int main(int argc, char** argv) {
-    Setup();
+    Setup(); 
     while (1) {
         ledDebug();
         updateComms();

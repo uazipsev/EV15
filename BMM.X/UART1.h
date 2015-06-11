@@ -27,7 +27,7 @@ struct UART1_ring_buff {
 struct UART1_ring_buff input_buffer1;
 struct UART1_ring_buff output_buffer1;
 
-bool Transmit1_stall = true;
+bool Transmit_stall1 = true;
 
 void UART1_init(void);
 void UART1_buff_init(struct UART1_ring_buff* _this);

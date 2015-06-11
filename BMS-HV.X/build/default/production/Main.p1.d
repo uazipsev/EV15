@@ -6,6 +6,7 @@ Global.h  \
 mcc_generated_files/mcc.h  \
 Functions.h  \
 mcc_generated_files/adc.h  \
+mcc_generated_files/../UART.h  \
 Tempeture.h  \
 Battery.h  \
 mcc_generated_files/interrupt_manager.h  \

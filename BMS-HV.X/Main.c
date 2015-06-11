@@ -60,28 +60,28 @@ int main(int argc, char** argv) {
     //INTERRUPT_PeripheralInterruptDisable();
     //int ADCNT = 0;
     //INDICATOR_SetHigh();
-    printf("Hi Rick");
+    //printf("Hi Rick");
     while (1)
     {
-        if (Temp_Done)  //<! This alerts the user that we are done gathering data (Temp)
-        {
-            Temp_Convert();  //<! Gets ADC counts and converts it to temp (F)
-            Temp_Fault();    //<! Detects over temp conditions
-            for (int x = 0;x<9;x++)
-            {
-                //printf("Temp %d = %f \r\n", x,Tempeture_Get(x));
-            }
-        }
-        if (Volt_Done)
-        {
-            Battery_Convert();     //<! Converts ADC counts to bat volts
-            Battery_Fault();       //<! Detects over volt conditions
-            RunBypas();            //<! Runs bypass on required batteries
-            for (int x = 0;x<9;x++)
-            {
-                printf("Battery %d = %0.02f \r\n", x,Battery_Get(x));
-            }
-        }
+//        if (Temp_Done)  //<! This alerts the user that we are done gathering data (Temp)
+//        {
+//            Temp_Convert();  //<! Gets ADC counts and converts it to temp (F)
+//            Temp_Fault();    //<! Detects over temp conditions
+//            for (int x = 0;x<9;x++)
+//            {
+//                //printf("Temp %d = %f \r\n", x,Tempeture_Get(x));
+//            }
+//        }
+//        if (Volt_Done)
+//        {
+//            Battery_Convert();     //<! Converts ADC counts to bat volts
+//            Battery_Fault();       //<! Detects over volt conditions
+//            RunBypas();            //<! Runs bypass on required batteries
+//            for (int x = 0;x<9;x++)
+//            {
+//                //printf("Battery %d = %0.02f \r\n", x,Battery_Get(x));
+//            }
+//        }
         updateComms();
         /*
         for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)

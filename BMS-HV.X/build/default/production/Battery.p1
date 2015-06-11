@@ -8454,9 +8454,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _channelnum `i ~T0 @X0 1 r1 ]
 "94
 [f ]
-[; ;Battery.c: 96: return Battery_Volt[channelnum];
+[; ;Battery.c: 96: return Battery_Volt[channelnum]*1000.0;
 "96
-[e ) *U + &U _Battery_Volt * -> -> _channelnum `ui `ux -> -> # *U &U _Battery_Volt `ui `ux ]
+[e ) -> * -> *U + &U _Battery_Volt * -> -> _channelnum `ui `ux -> -> # *U &U _Battery_Volt `ui `ux `d .1000.0 `f ]
 [e $UE 1195  ]
 [; ;Battery.c: 97: }
 "97
