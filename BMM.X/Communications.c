@@ -13,6 +13,8 @@ int slaveaddr = 0;
 bool portClosed = false;
 
 void updateComms() {
+    checkSlaveCommDirection();
+    updateSlaveCommunications();
     if (receiveData()) {
         talkTime = 0;
         COMM_STATE = receiveArray[BMM_COMM_STATE];
@@ -70,8 +72,6 @@ void updateComms() {
 
         talkTime = 0;
     }
-    updateSlaveCommunications();
-    checkSlaveCommDirection();
     checkCommDirection();
 }
 

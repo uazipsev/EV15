@@ -13,8 +13,9 @@ void updateComms() {
 //        ToSend(RESPONSE_ADDRESS, THIS_ADDRESS);
 //        sendData(BMM_ADDRESS);
     if (receiveData()) {
+        Delay(3);
         RS485 = 1;
-        Delay(2);
+        Delay(4);
         ToSend(RESPONSE_ADDRESS, THIS_ADDRESS);
         ToSend(BATTERY1V, Battery_Get(0));
         ToSend(BATTERY2V, Battery_Get(1));
@@ -36,8 +37,8 @@ void updateComms() {
         ToSend(BATTERY8T, Tempeture_Get(7));
         ToSend(BATTERY9T, Tempeture_Get(8));
         ToSend(BATTERY10T, Tempeture_Get(9));
-        sendData(BMM_ADDRESS);
-        Delay(2);
+        sendData(BMM_MASTER_ADDRESS);
+        Delay(10);
         RS485 = 0;
         LATAbits.LATA4 ^= 1;
     }

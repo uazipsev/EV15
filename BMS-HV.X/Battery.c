@@ -4,7 +4,7 @@
 #include "Global.h"
 #include "mcc_generated_files/adc.h"
 
-float Battery_Volt[10];
+float Battery_Volt[10]={3.000,3.000,3.000,3.000,3.000,3.000,3.000,3.000,3.000,3.000};
 float TempBattery_Volt[10];
 float PrevBattery_Volt[10];
 

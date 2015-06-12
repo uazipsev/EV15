@@ -12,6 +12,15 @@
 extern "C" {
 #endif
 
+#define BMM_MASTER_ADDRESS 16
+
+#define NUM_FAILS_TO_FAULT 4
+
+#define NUMSLAVES    14
+#define TEMPPERSLAVE 10
+#define BATTPERSLAVE 10
+
+#define BATTERYV    1
 #define BATTERY1V   1
 #define BATTERY2V   2
 #define BATTERY3V   3
@@ -22,6 +31,8 @@ extern "C" {
 #define BATTERY8V   8
 #define BATTERY9V   9
 #define BATTERY10V  10
+
+#define BATTERYT    11
 #define BATTERY1T   11
 #define BATTERY2T   12
 #define BATTERY3T   13
@@ -32,6 +43,14 @@ extern "C" {
 #define BATTERY8T   18
 #define BATTERY9T   19
 #define BATTERY10T   20
+
+#define SLAVE_ADDRESS_SEND 21
+#define BATTERYFAULT 22
+#define FAULTINGBATTERY 23
+
+#define BATTERYV_ECU 31
+#define BATTERYT_ECU 41
+
 
 
 

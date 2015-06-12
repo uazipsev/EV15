@@ -53,7 +53,8 @@ void PinSetMode(void) {
     TRISBbits.TRISB13 = OUTPUT; // RS485 Direction Pin OUTPUT
     LATBbits.LATB13 = 0;
     
-    TRISCbits.TRISC7 = 1;
+    //TRISCbits.TRISC7 = 1;
+    LATCbits.LATC6=1;
     LATCbits.LATC7=1;
     
     S0_TRIS=OUTPUT;     //Select Comm Line Mux S0

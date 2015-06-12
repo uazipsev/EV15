@@ -1,6 +1,8 @@
 Version 3.2 HI-TECH Software Intermediate Code
 "16 Communications.h
 [v _receiveData `(uc ~T0 @X0 0 ef ]
+"10 Communications.c
+[v _Delay `(v ~T0 @X0 0 ef1`l ]
 "8310 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S509 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S509 . LATE0 LATE1 LATE2 ]
@@ -33,8 +35,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S508 . . . . . . . . . . ]
 "8347
 [v _LATEbits `VS508 ~T0 @X0 0 e@3981 ]
-"10 Communications.c
-[v _Delay `(v ~T0 @X0 0 ef1`l ]
 "17 Communications.h
 [v _ToSend `(v ~T0 @X0 0 ef2`Cuc`Cui ]
 "15 Battery.h
@@ -8278,92 +8278,95 @@ Version 3.2 HI-TECH Software Intermediate Code
 "15
 [e $ ! != -> ( _receiveData ..  `i -> -> -> 0 `i `uc `i 1179  ]
 {
-[; ;Communications.c: 16: LATEbits.LATE1 = 1;
+[; ;Communications.c: 16: Delay(3);
 "16
-[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
-[; ;Communications.c: 17: Delay(2);
+[e ( _Delay (1 -> -> 3 `i `l ]
+[; ;Communications.c: 17: LATEbits.LATE1 = 1;
 "17
-[e ( _Delay (1 -> -> 2 `i `l ]
-[; ;Communications.c: 18: ToSend(0, 1);
+[e = . . _LATEbits 0 1 -> -> 1 `i `uc ]
+[; ;Communications.c: 18: Delay(4);
 "18
-[e ( _ToSend (2 , -> -> 0 `i `uc -> -> 1 `i `ui ]
-[; ;Communications.c: 19: ToSend(1, Battery_Get(0));
+[e ( _Delay (1 -> -> 4 `i `l ]
+[; ;Communications.c: 19: ToSend(0, 1);
 "19
-[e ( _ToSend (2 , -> -> 1 `i `uc -> ( _Battery_Get (1 -> 0 `i `ui ]
-[; ;Communications.c: 20: ToSend(2, Battery_Get(1));
+[e ( _ToSend (2 , -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Communications.c: 20: ToSend(1, Battery_Get(0));
 "20
-[e ( _ToSend (2 , -> -> 2 `i `uc -> ( _Battery_Get (1 -> 1 `i `ui ]
-[; ;Communications.c: 21: ToSend(3, Battery_Get(2));
+[e ( _ToSend (2 , -> -> 1 `i `uc -> ( _Battery_Get (1 -> 0 `i `ui ]
+[; ;Communications.c: 21: ToSend(2, Battery_Get(1));
 "21
-[e ( _ToSend (2 , -> -> 3 `i `uc -> ( _Battery_Get (1 -> 2 `i `ui ]
-[; ;Communications.c: 22: ToSend(4, Battery_Get(3));
+[e ( _ToSend (2 , -> -> 2 `i `uc -> ( _Battery_Get (1 -> 1 `i `ui ]
+[; ;Communications.c: 22: ToSend(3, Battery_Get(2));
 "22
-[e ( _ToSend (2 , -> -> 4 `i `uc -> ( _Battery_Get (1 -> 3 `i `ui ]
-[; ;Communications.c: 23: ToSend(5, Battery_Get(4));
+[e ( _ToSend (2 , -> -> 3 `i `uc -> ( _Battery_Get (1 -> 2 `i `ui ]
+[; ;Communications.c: 23: ToSend(4, Battery_Get(3));
 "23
-[e ( _ToSend (2 , -> -> 5 `i `uc -> ( _Battery_Get (1 -> 4 `i `ui ]
-[; ;Communications.c: 24: ToSend(6, Battery_Get(5));
+[e ( _ToSend (2 , -> -> 4 `i `uc -> ( _Battery_Get (1 -> 3 `i `ui ]
+[; ;Communications.c: 24: ToSend(5, Battery_Get(4));
 "24
-[e ( _ToSend (2 , -> -> 6 `i `uc -> ( _Battery_Get (1 -> 5 `i `ui ]
-[; ;Communications.c: 25: ToSend(7, Battery_Get(6));
+[e ( _ToSend (2 , -> -> 5 `i `uc -> ( _Battery_Get (1 -> 4 `i `ui ]
+[; ;Communications.c: 25: ToSend(6, Battery_Get(5));
 "25
-[e ( _ToSend (2 , -> -> 7 `i `uc -> ( _Battery_Get (1 -> 6 `i `ui ]
-[; ;Communications.c: 26: ToSend(8, Battery_Get(7));
+[e ( _ToSend (2 , -> -> 6 `i `uc -> ( _Battery_Get (1 -> 5 `i `ui ]
+[; ;Communications.c: 26: ToSend(7, Battery_Get(6));
 "26
-[e ( _ToSend (2 , -> -> 8 `i `uc -> ( _Battery_Get (1 -> 7 `i `ui ]
-[; ;Communications.c: 27: ToSend(9, Battery_Get(8));
+[e ( _ToSend (2 , -> -> 7 `i `uc -> ( _Battery_Get (1 -> 6 `i `ui ]
+[; ;Communications.c: 27: ToSend(8, Battery_Get(7));
 "27
-[e ( _ToSend (2 , -> -> 9 `i `uc -> ( _Battery_Get (1 -> 8 `i `ui ]
-[; ;Communications.c: 28: ToSend(10, Battery_Get(9));
+[e ( _ToSend (2 , -> -> 8 `i `uc -> ( _Battery_Get (1 -> 7 `i `ui ]
+[; ;Communications.c: 28: ToSend(9, Battery_Get(8));
 "28
-[e ( _ToSend (2 , -> -> 10 `i `uc -> ( _Battery_Get (1 -> 9 `i `ui ]
-[; ;Communications.c: 29: ToSend(11, Tempeture_Get(0));
+[e ( _ToSend (2 , -> -> 9 `i `uc -> ( _Battery_Get (1 -> 8 `i `ui ]
+[; ;Communications.c: 29: ToSend(10, Battery_Get(9));
 "29
-[e ( _ToSend (2 , -> -> 11 `i `uc -> ( _Tempeture_Get (1 -> 0 `i `ui ]
-[; ;Communications.c: 30: ToSend(12, Tempeture_Get(1));
+[e ( _ToSend (2 , -> -> 10 `i `uc -> ( _Battery_Get (1 -> 9 `i `ui ]
+[; ;Communications.c: 30: ToSend(11, Tempeture_Get(0));
 "30
-[e ( _ToSend (2 , -> -> 12 `i `uc -> ( _Tempeture_Get (1 -> 1 `i `ui ]
-[; ;Communications.c: 31: ToSend(13, Tempeture_Get(2));
+[e ( _ToSend (2 , -> -> 11 `i `uc -> ( _Tempeture_Get (1 -> 0 `i `ui ]
+[; ;Communications.c: 31: ToSend(12, Tempeture_Get(1));
 "31
-[e ( _ToSend (2 , -> -> 13 `i `uc -> ( _Tempeture_Get (1 -> 2 `i `ui ]
-[; ;Communications.c: 32: ToSend(14, Tempeture_Get(3));
+[e ( _ToSend (2 , -> -> 12 `i `uc -> ( _Tempeture_Get (1 -> 1 `i `ui ]
+[; ;Communications.c: 32: ToSend(13, Tempeture_Get(2));
 "32
-[e ( _ToSend (2 , -> -> 14 `i `uc -> ( _Tempeture_Get (1 -> 3 `i `ui ]
-[; ;Communications.c: 33: ToSend(15, Tempeture_Get(4));
+[e ( _ToSend (2 , -> -> 13 `i `uc -> ( _Tempeture_Get (1 -> 2 `i `ui ]
+[; ;Communications.c: 33: ToSend(14, Tempeture_Get(3));
 "33
-[e ( _ToSend (2 , -> -> 15 `i `uc -> ( _Tempeture_Get (1 -> 4 `i `ui ]
-[; ;Communications.c: 34: ToSend(16, Tempeture_Get(5));
+[e ( _ToSend (2 , -> -> 14 `i `uc -> ( _Tempeture_Get (1 -> 3 `i `ui ]
+[; ;Communications.c: 34: ToSend(15, Tempeture_Get(4));
 "34
-[e ( _ToSend (2 , -> -> 16 `i `uc -> ( _Tempeture_Get (1 -> 5 `i `ui ]
-[; ;Communications.c: 35: ToSend(17, Tempeture_Get(6));
+[e ( _ToSend (2 , -> -> 15 `i `uc -> ( _Tempeture_Get (1 -> 4 `i `ui ]
+[; ;Communications.c: 35: ToSend(16, Tempeture_Get(5));
 "35
-[e ( _ToSend (2 , -> -> 17 `i `uc -> ( _Tempeture_Get (1 -> 6 `i `ui ]
-[; ;Communications.c: 36: ToSend(18, Tempeture_Get(7));
+[e ( _ToSend (2 , -> -> 16 `i `uc -> ( _Tempeture_Get (1 -> 5 `i `ui ]
+[; ;Communications.c: 36: ToSend(17, Tempeture_Get(6));
 "36
-[e ( _ToSend (2 , -> -> 18 `i `uc -> ( _Tempeture_Get (1 -> 7 `i `ui ]
-[; ;Communications.c: 37: ToSend(19, Tempeture_Get(8));
+[e ( _ToSend (2 , -> -> 17 `i `uc -> ( _Tempeture_Get (1 -> 6 `i `ui ]
+[; ;Communications.c: 37: ToSend(18, Tempeture_Get(7));
 "37
-[e ( _ToSend (2 , -> -> 19 `i `uc -> ( _Tempeture_Get (1 -> 8 `i `ui ]
-[; ;Communications.c: 38: ToSend(20, Tempeture_Get(9));
+[e ( _ToSend (2 , -> -> 18 `i `uc -> ( _Tempeture_Get (1 -> 7 `i `ui ]
+[; ;Communications.c: 38: ToSend(19, Tempeture_Get(8));
 "38
-[e ( _ToSend (2 , -> -> 20 `i `uc -> ( _Tempeture_Get (1 -> 9 `i `ui ]
-[; ;Communications.c: 39: sendData(6);
+[e ( _ToSend (2 , -> -> 19 `i `uc -> ( _Tempeture_Get (1 -> 8 `i `ui ]
+[; ;Communications.c: 39: ToSend(20, Tempeture_Get(9));
 "39
-[e ( _sendData (1 -> -> 6 `i `uc ]
-[; ;Communications.c: 40: Delay(2);
+[e ( _ToSend (2 , -> -> 20 `i `uc -> ( _Tempeture_Get (1 -> 9 `i `ui ]
+[; ;Communications.c: 40: sendData(16);
 "40
-[e ( _Delay (1 -> -> 2 `i `l ]
-[; ;Communications.c: 41: LATEbits.LATE1 = 0;
+[e ( _sendData (1 -> -> 16 `i `uc ]
+[; ;Communications.c: 41: Delay(10);
 "41
-[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
-[; ;Communications.c: 42: LATAbits.LATA4 ^= 1;
+[e ( _Delay (1 -> -> 10 `i `l ]
+[; ;Communications.c: 42: LATEbits.LATE1 = 0;
 "42
-[e =^ . . _LATAbits 0 4 -> -> 1 `i `uc ]
+[e = . . _LATEbits 0 1 -> -> 0 `i `uc ]
+[; ;Communications.c: 43: LATAbits.LATA4 ^= 1;
 "43
+[e =^ . . _LATAbits 0 4 -> -> 1 `i `uc ]
+"44
 }
 [e :U 1179 ]
-[; ;Communications.c: 43: }
-[; ;Communications.c: 45: }
-"45
+[; ;Communications.c: 44: }
+[; ;Communications.c: 46: }
+"46
 [e :UE 1178 ]
 }

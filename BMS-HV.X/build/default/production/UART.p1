@@ -8715,76 +8715,76 @@ Version 3.2 HI-TECH Software Intermediate Code
 "145
 }
 [e :U 1204 ]
-"146
+"153
 [v _data `uc ~T0 @X0 1 a ]
 [; ;UART.c: 145: }
-[; ;UART.c: 146: unsigned char data = RCREG1;
+[; ;UART.c: 153: unsigned char data = RCREG1;
 [e = _data _RCREG1 ]
-[; ;UART.c: 147: UART_buff_put(&input_buffer, data);
-"147
+[; ;UART.c: 154: UART_buff_put(&input_buffer, data);
+"154
 [e ( _UART_buff_put (2 , &U _input_buffer _data ]
-[; ;UART.c: 148: }
-"148
+[; ;UART.c: 155: }
+"155
 [e :UE 1203 ]
 }
-"150
+"157
 [v _EUSART1_Transmit_ISR `(v ~T0 @X0 1 ef ]
 {
-[; ;UART.c: 150: void EUSART1_Transmit_ISR(void) {
+[; ;UART.c: 157: void EUSART1_Transmit_ISR(void) {
 [e :U _EUSART1_Transmit_ISR ]
 [f ]
-[; ;UART.c: 152: if (UART_buff_size(&output_buffer) > 0) {
-"152
+[; ;UART.c: 159: if (UART_buff_size(&output_buffer) > 0) {
+"159
 [e $ ! > ( _UART_buff_size (1 &U _output_buffer -> 0 `i 1206  ]
 {
-[; ;UART.c: 153: TXREG1 = UART_buff_get(&output_buffer);
-"153
+[; ;UART.c: 160: TXREG1 = UART_buff_get(&output_buffer);
+"160
 [e = _TXREG1 ( _UART_buff_get (1 &U _output_buffer ]
-"154
+"161
 }
-[; ;UART.c: 154: } else {
+[; ;UART.c: 161: } else {
 [e $U 1207  ]
 [e :U 1206 ]
 {
-[; ;UART.c: 155: Transmit_stall = 1;
-"155
+[; ;UART.c: 162: Transmit_stall = 1;
+"162
 [e = _Transmit_stall -> -> 1 `i `uc ]
-[; ;UART.c: 156: PIE1bits.TX1IE = 0;
-"156
+[; ;UART.c: 163: PIE1bits.TX1IE = 0;
+"163
 [e = . . _PIE1bits 0 4 -> -> 0 `i `uc ]
-"157
+"164
 }
 [e :U 1207 ]
-[; ;UART.c: 157: }
-[; ;UART.c: 158: }
-"158
+[; ;UART.c: 164: }
+[; ;UART.c: 165: }
+"165
 [e :UE 1205 ]
 }
-"160
+"167
 [v _getch `(uc ~T0 @X0 1 ef ]
 {
-[; ;UART.c: 160: char getch(void) {
+[; ;UART.c: 167: char getch(void) {
 [e :U _getch ]
 [f ]
-[; ;UART.c: 161: return Receive_get();
-"161
+[; ;UART.c: 168: return Receive_get();
+"168
 [e ) ( _Receive_get ..  ]
 [e $UE 1208  ]
-[; ;UART.c: 162: }
-"162
+[; ;UART.c: 169: }
+"169
 [e :UE 1208 ]
 }
-"164
+"171
 [v _putch `(v ~T0 @X0 1 ef1`uc ]
 {
-[; ;UART.c: 164: void putch(char txData) {
+[; ;UART.c: 171: void putch(char txData) {
 [e :U _putch ]
 [v _txData `uc ~T0 @X0 1 r1 ]
 [f ]
-[; ;UART.c: 165: Send_put(txData);
-"165
+[; ;UART.c: 172: Send_put(txData);
+"172
 [e ( _Send_put (1 _txData ]
-[; ;UART.c: 166: }
-"166
+[; ;UART.c: 173: }
+"173
 [e :UE 1209 ]
 }

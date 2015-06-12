@@ -143,6 +143,13 @@ void EUSART1_Receive_ISR(void) {
         RC1STAbits.CREN = 0;
         RC1STAbits.CREN = 1;
     }
+//    if (1 == RC1STAbits.FERR) {
+//        // EUSART1 error - restart
+//
+//        RC1STAbits.CREN = 0;
+//        RC1STAbits.CREN = 1;
+//    }
+
     unsigned char data = RCREG1;
     UART_buff_put(&input_buffer, data);
 }

@@ -16,6 +16,8 @@ extern "C" {
 #define NUM_FAILS_TO_FAULT 4
 
 #define NUMSLAVES    14
+#define NUMSLAVES1    7
+#define NUMSLAVES2    7
 #define TEMPPERSLAVE 10
 #define BATTPERSLAVE 10
 

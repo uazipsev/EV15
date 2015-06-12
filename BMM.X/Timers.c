@@ -19,7 +19,7 @@ void initTimerOne(void) {
     T1CONbits.TCS = 0; //internal instruction clock (36,000,000 Hertz)
     T1CONbits.TCKPS = 0b10; //0b10 - 64 divider 0-1:1
     TMR1 = 0x00;
-    PR1 = 600; //37500// 0.001s timer
+    PR1 = 700; //37500// 0.001s timer
     IFS0bits.T1IF = 0; // clear interrupt flag
     IEC0bits.T1IE = 1; // enable timer 1 interrupt
     T1CONbits.TON = 1; // turn on timer
@@ -41,16 +41,16 @@ void initTimerTwo(void) {
 
 void updateTimers() {
     static unsigned long int lastLEDTime, lastTalkTime, lastSlaveTime;
-    if (lastLEDTime != time) {
+    //if (lastLEDTime != time) {
         LEDtime += (time - lastLEDTime);
         lastLEDTime = time;
-    }
-    if (lastSlaveTime != time) {
+    //}
+    //if (lastSlaveTime != time) {
         slaveTime += (time - lastSlaveTime);
         lastSlaveTime = time;
-    }
-    if (lastTalkTime != time) {
+    //}
+    //if (lastTalkTime != time) {
         talkTime += (time - lastTalkTime);
         lastTalkTime = time;
-    }
+    //}
 }

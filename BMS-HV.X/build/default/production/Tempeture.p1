@@ -8283,10 +8283,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _Temp_DegF `f ~T0 @X0 -> 10 `i e ]
 [i _Temp_DegF
 :U ..
--> -> 0 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
+-> -> 70 `i `f
 ..
 ]
-[; ;Tempeture.c: 8: float Temp_DegF[10] = 0;
+[; ;Tempeture.c: 8: float Temp_DegF[10] = {70,70,70,70,70,70,70,70,70,70};
 "9
 [v _TmpTemp_DegF `f ~T0 @X0 -> 10 `i e ]
 [i _TmpTemp_DegF

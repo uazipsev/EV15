@@ -10403,8 +10403,9 @@ void updateComms() {
 
 
 if (receiveData()) {
+Delay(3);
 LATEbits.LATE1 = 1;
-Delay(2);
+Delay(4);
 ToSend(0, 1);
 ToSend(1, Battery_Get(0));
 ToSend(2, Battery_Get(1));
@@ -10426,8 +10427,8 @@ ToSend(17, Tempeture_Get(6));
 ToSend(18, Tempeture_Get(7));
 ToSend(19, Tempeture_Get(8));
 ToSend(20, Tempeture_Get(9));
-sendData(6);
-Delay(2);
+sendData(16);
+Delay(10);
 LATEbits.LATE1 = 0;
 LATAbits.LATA4 ^= 1;
 }

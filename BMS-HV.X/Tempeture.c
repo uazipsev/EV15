@@ -5,7 +5,7 @@
 #include "mcc_generated_files/adc.h"
 #include "../math.h"
 
-float Temp_DegF[10] = 0;
+float Temp_DegF[10] = {70,70,70,70,70,70,70,70,70,70};
 float TmpTemp_DegF[10] = 0;
 float PrevTemp_DegF[10] = 0;
 
