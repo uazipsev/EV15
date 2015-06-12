@@ -10,17 +10,19 @@ enum BMM {
 } COMM_STATE;
 int faultFlag = 0;
 int slaveaddr = 0;
+bool portClosed = false;
 
 void updateComms() {
-    checkSlaveCommDirection();
-    checkCommDirection();
     if (receiveData()) {
         talkTime = 0;
-        COMM_STATE=receiveArray[BMM_COMM_STATE];
+        COMM_STATE = receiveArray[BMM_COMM_STATE];
         pendingSend = true;
-        RS485_Port = TALK;
     }
-    if (pendingSend && talkTime > 5) {
+    if (!portClosed && pendingSend && talkTime > 5) {
+        RS485_Port = TALK;
+        portClosed = true;
+    }
+    if (pendingSend && talkTime > 6 && portClosed) {
         ToSend(RESPONSE_ADDRESS, BMM_ADDRESS);
         static int lastCommState = 0;
         switch (COMM_STATE) {
@@ -44,13 +46,11 @@ void updateComms() {
                 if (lastCommState != COMM_STATE) {
                     lastCommState = COMM_STATE;
                 }
-
                 break;
             case BATTERY_FAULT:
                 if (lastCommState != COMM_STATE) {
                     lastCommState = COMM_STATE;
                 }
-
                 break;
 
             default:
@@ -67,31 +67,35 @@ void updateComms() {
         }
         sendData(ECU_ADDRESS);
         pendingSend = false;
-        
+
         talkTime = 0;
     }
-
+    updateSlaveCommunications();
+    checkSlaveCommDirection();
+    checkCommDirection();
 }
 
 void checkCommDirection() {
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall && (talkTime > 5) && (RS485_Port == TALK)) {
+    if (Transmit_stall && (talkTime > 12) && (RS485_Port == TALK) && portClosed && !pendingSend) {
         RS485_Port = LISTEN;
+        portClosed = false;
     }
 }
 
 void populateBatteryT(int slave) {
+    ToSend(SLAVE_ADDRESS_SEND, slave);
     int j = 0;
     for (j = 0; j < BATTPERSLAVE; j++) {
-        ToSend(BATTERYT + j, BVolts[slave][j]);
+        ToSend(BATTERYT_ECU + j, BTemps[slave][j]);
     }
 }
 
 void populateBatteryV(int slave) {
-
+    ToSend(SLAVE_ADDRESS_SEND, slave);
     int j = 0;
     for (j = 0; j < BATTPERSLAVE; j++) {
-        ToSend(BATTERYT + j, BTemps[slave][j]);
+        ToSend(BATTERYV_ECU + j, BVolts[slave][j]);
     }
 }
 

@@ -1,16 +1,16 @@
 
 
 #include "Timers.h"
-volatile unsigned int slaveTime;
+volatile unsigned long int slaveTime,time;
+volatile unsigned long int LEDtime = 0, talkTime = 0;
+void updateTimers();
+
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
-    talkTime++;
-    slaveTime++;
-    TMR1 = 0x00;
+    time++;
     IFS0bits.T1IF = 0; // clear interrupt flag
 }
 
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
-    LEDtime++;
     IFS0bits.T2IF = 0; // clear timer interrupt flag
 }
 
@@ -37,4 +37,20 @@ void initTimerTwo(void) {
     IFS0bits.T2IF = 0; // clear timer2 interrupt flag
     IEC0bits.T2IE = 1; // enable timer2 interrupt
     T2CONbits.TON = 1; //enable timer 2
+}
+
+void updateTimers() {
+    static unsigned long int lastLEDTime, lastTalkTime, lastSlaveTime;
+    if (lastLEDTime != time) {
+        LEDtime += (time - lastLEDTime);
+        lastLEDTime = time;
+    }
+    if (lastSlaveTime != time) {
+        slaveTime += (time - lastSlaveTime);
+        lastSlaveTime = time;
+    }
+    if (lastTalkTime != time) {
+        talkTime += (time - lastTalkTime);
+        lastTalkTime = time;
+    }
 }

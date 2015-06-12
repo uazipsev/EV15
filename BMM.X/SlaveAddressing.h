@@ -1,4 +1,4 @@
-/* 
+/*
  * File:   SlaveAddressing.h
  * Author: User
  *
@@ -11,6 +11,7 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
+#define BMM_MASTER_ADDRESS 16
 
 #define NUM_FAILS_TO_FAULT 4
 
@@ -45,6 +46,9 @@ extern "C" {
 #define SLAVE_ADDRESS_SEND 21
 #define BATTERYFAULT 22
 #define FAULTINGBATTERY 23
+
+#define BATTERYV_ECU 31
+#define BATTERYT_ECU 41
 
 
 

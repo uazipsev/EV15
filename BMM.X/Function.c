@@ -26,10 +26,10 @@ void Setup(void) {
     
     
     initTimerOne();
-    initTimerTwo();
+    //initTimerTwo();
     begin(receiveArray, sizeof (receiveArray), BMM_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
     UART_init();
-    begin1(receiveArray1, sizeof (receiveArray1), BMM_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
+    begin1(receiveArray1, sizeof (receiveArray1), BMM_MASTER_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
     UART1_init();
     //i2c_init();
     //PWM_Init();

@@ -21,7 +21,7 @@ unsigned int CRCError(void);
 unsigned int addressError(void);
 unsigned int dataAddressError(void);
 
-volatile int receiveArray[20];
+volatile int receiveArray[100];
 
 void (*serial_write)(unsigned char);
 unsigned char (*serial_read)(void);

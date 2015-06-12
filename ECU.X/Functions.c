@@ -13,11 +13,11 @@
 #include <stdbool.h>
 #include "Functions.h"
 
-extern volatile int receiveArray[20];
 extern void PWM_Init(void);
 
 void Setup(void) {
 
+                   __C30_UART=2;
     PinSetMode();
     // setup internal clock for 72MHz/36MIPS
     // 12/2=6*24=132/2=72

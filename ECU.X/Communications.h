@@ -12,6 +12,36 @@
 extern "C" {
 #endif
 
+    enum ECUstates {
+        stopped = 0,
+        booting = 1,
+        running = 2,
+        stopping = 3,
+        fault = 4,
+        NUM_STATES = 5
+    };
+    extern enum ECUstates currentState;
+
+    enum BMM {
+        BATTERY_FAULT = 0,
+        BATTERY_VOLTS = 1,
+        BATTERY_TEMPS = 2,
+        BATTERY_POWER = 3
+    };
+
+    struct commsStates {
+        bool DDS;
+        bool MCS;
+        bool SAS;
+        bool BMM;
+        bool PDU;
+        int DDS_SEND;
+        int MCS_SEND;
+        int SAS_SEND;
+        enum BMM BMM_SEND;
+        int PDU_SEND;
+    };
+    extern struct commsStates comms;
 
     //COMMUNICATIONS METHODS
     void updateComms();
@@ -46,8 +76,8 @@ extern "C" {
 
     //
 
-    extern bool requestBMMData();
-    extern bool receiveCommBMM();
+    extern bool requestBMMData(struct commsStates * cS);
+    extern bool receiveCommBMM(struct commsStates * cS);
     extern bool readyToSendBMM;
     extern bool BMM_COMMS_ERROR;
     //
@@ -75,7 +105,7 @@ extern "C" {
     extern void sendData(unsigned char whereToSend);
     extern bool receiveData();
     extern void ToSend(const unsigned char where, const unsigned int what);
-    extern volatile int receiveArray[20];
+    extern volatile int receiveArray[100];
     extern volatile bool Transmit_stall;
     extern volatile unsigned int talkTime;
 

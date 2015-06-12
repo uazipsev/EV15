@@ -16,6 +16,8 @@ void updateSlaveCommunications() {
         sendSlavePacket(slaveaddr);
         pendingSend1 = false;
     }
+
+
     if (receiveData1()) {
         static bool wrongReturn = false;
         //Received when expecting it
@@ -56,7 +58,8 @@ void updateSlaveCommunications() {
             //Received when not expecting it
             //FAULT?
         }
-    } else {
+    }
+    else {
         //You didnt receive after sending
         if (!pendingSend1) {
             if (slaveTime > 50) { //if timed out
@@ -77,6 +80,7 @@ void updateSlaveCommunications() {
             }
         }
     }
+
 }
 
 void sendSlavePacket(int slave) {
@@ -87,8 +91,8 @@ void sendSlavePacket(int slave) {
 
 void checkSlaveCommDirection() {
     //you have finished send and time has elapsed.. start listen
-    if (Transmit_stall1 && (slaveTime > 10) && ((RS485_SLAVE_Port == !TALK) || (RS485_SLAVE_Port1 == !TALK))) {
-        RS485_SLAVE_Port = !LISTEN;
-        RS485_SLAVE_Port1 = !LISTEN;
+    if (Transmit_stall1 && (slaveTime > 25) && ((RS485_SLAVE_Port == !TALK) || (RS485_SLAVE_Port1 == !TALK))&& !pendingSend1) {
+//        RS485_SLAVE_Port = !LISTEN;
+//        RS485_SLAVE_Port1 = !LISTEN;
     }
 }

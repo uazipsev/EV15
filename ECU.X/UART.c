@@ -125,11 +125,11 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 
 void __attribute__((interrupt, no_auto_psv)) _U1TXInterrupt(void) {
     //LED ^= 1;
-    talkTime = 0;
     if (UART_buff_size(&output_buffer) > 0) {
         U1TXREG = UART_buff_get(&output_buffer);
     } else {
 
+        talkTime = 0;
         Transmit_stall = true;
     }
     IFS0bits.U1TXIF = 0; // Clear TX interrupt flag

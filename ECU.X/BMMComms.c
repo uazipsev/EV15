@@ -28,7 +28,7 @@ int current1, current2, bigVolts;
 int faultingBattery;
 bool batteryFault = false;
 bool requestBMMData(struct commsStates * cS);
-bool receiveCommBMM();
+bool receiveCommBMM(struct commsStates * cS);
 bool readyToSendBMM = true;
 bool BMM_COMMS_ERROR = false;
 
@@ -64,6 +64,7 @@ bool requestBMMData(struct commsStates * cS) {
         }
         ToSend(RESPONSE_ADDRESS, ECU_ADDRESS);
         sendData(BMM_ADDRESS);
+        RS485_Direction2(TALK);
     }
     return true;
 }
@@ -71,7 +72,6 @@ bool requestBMMData(struct commsStates * cS) {
 bool receiveCommBMM(struct commsStates * cS) {
     int j;
     if (receiveData()) {
-        if (receiveArray[RESPONSE_ADDRESS] == BMM_ADDRESS) {
             switch ((*cS).BMM_SEND) {
                 case BATTERY_FAULT:
                     if (receiveArray[BATTERYFAULT]) {
@@ -81,11 +81,11 @@ bool receiveCommBMM(struct commsStates * cS) {
                     break;
                 case BATTERY_VOLTS:
                     for (j = 0; j < BATTPERSLAVE; j++)
-                        milliVolts[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYV + j];
+                        milliVolts[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYV_ECU + j];
                     break;
                 case BATTERY_TEMPS:
                     for (j = 0; j < BATTPERSLAVE; j++)
-                        temps[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYV + j];
+                        temps[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYT_ECU + j];
                     break;
                 case BATTERY_POWER:
 
@@ -94,6 +94,5 @@ bool receiveCommBMM(struct commsStates * cS) {
             readyToSendBMM = true;
             BMMTimer = 0;
             return true;
-        } else return false;
     } else return false;
 }

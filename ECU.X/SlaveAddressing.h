@@ -46,6 +46,9 @@ extern "C" {
 #define BATTERYFAULT 22
 #define FAULTINGBATTERY 23
 
+#define BATTERYV_ECU 31
+#define BATTERYT_ECU 41
+
 
 
 

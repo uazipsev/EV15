@@ -66,7 +66,7 @@ extern void begin1(volatile int * ptr, unsigned char maxSize, unsigned char give
 extern void begin2(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 extern void begin3(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
 
-extern volatile int receiveArray[20];
+extern volatile int receiveArray[100];
 extern volatile int receiveArray1[20];
 extern volatile int receiveArray2[20];
 extern volatile int receiveArray3[20];

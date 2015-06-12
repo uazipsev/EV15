@@ -27,43 +27,12 @@
 #include "PDUComms.h"
 #include "BMMComms.h"
 
-enum ECUstates {
-    stopped = 0,
-    booting = 1,
-    running = 2,
-    stopping = 3,
-    fault = 4,
-    NUM_STATES = 5
-};
-extern enum ECUstates currentState;
-
-enum BMM {
-    BATTERY_FAULT = 0,
-    BATTERY_VOLTS = 1,
-    BATTERY_TEMPS = 2,
-    BATTERY_POWER = 3
-};
-
-struct commsStates {
-    bool DDS;
-    bool MCS;
-    bool SAS;
-    bool BMM;
-    bool PDU;
-    int DDS_SEND;
-    int MCS_SEND;
-    int SAS_SEND;
-    enum BMM BMM_SEND;
-    int PDU_SEND;
-};
-extern struct commsStates comms;
-
 void updateComms() {
-    checkCommDirection();
-    checkCommDirection1();
 
     bus1Update();
     bus2Update();
+    checkCommDirection();
+    checkCommDirection1();
 
 
     static enum ECUstates previousState = NUM_STATES;
@@ -100,15 +69,15 @@ void updateComms() {
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
-
             }
+
             break;
         case NUM_STATES:
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
-
             }
+
             break;
     }
 }
@@ -172,7 +141,6 @@ void bus1Update() {
         case NUM_STATES1:
             break;
     }
-
 }
 
 void checkCommDirection() {
@@ -191,7 +159,6 @@ void resetCommTimers() {
 void RS485_Direction1(int T_L) {
     RS485_1_Direction = T_L;
     talkTime = 0;
-
 }
 
 void sendErrorCode() {
@@ -233,7 +200,7 @@ void bus2Update() {
             break;
         case BMM_UPDATE:
             if (requestBMMData(&comms)) {
-                if (receiveCommBMM()) {
+                if (receiveCommBMM(&comms)) {
                     comms.BMM = true;
                     commsBus2State++;
                     resetCommTimers2();
@@ -262,7 +229,6 @@ void bus2Update() {
 }
 
 void checkCommDirection1() {
-    if (!Transmit_stall1) talkTime1 = 0;
     //you have finished send and time has elapsed.. start listen
     if (Transmit_stall1 && (talkTime1 > CLOSE_COMM_TIME)) {
         RS485_Direction2(LISTEN);
@@ -277,7 +243,6 @@ void resetCommTimers2() {
 void RS485_Direction2(int T_L) {
     RS485_2_Direction = T_L;
     talkTime1 = 0;
-
 }
 
 void sendErrorCode2() {

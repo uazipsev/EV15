@@ -26,7 +26,7 @@ extern "C" {
 
     extern void updateSlaveCommunications();
 
-    extern volatile unsigned int slaveTime;
+    extern volatile unsigned long int slaveTime;
     extern void sendSlavePacket(int slave);
     extern int BVolts[NUMSLAVES][BATTPERSLAVE];
     extern int BTemps[NUMSLAVES][TEMPPERSLAVE];

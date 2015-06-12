@@ -23,10 +23,13 @@ extern "C" {
     extern void Delay(int wait);
 
     extern void updateComms();
-    extern volatile unsigned int LEDtime;
+    extern volatile unsigned long int LEDtime;
 
+    extern void sendData(unsigned char whereToSend);
+    extern bool receiveData();
+    extern void ToSend(const unsigned char where, const unsigned int what);
     void ledDebug() {
-        if (LEDtime > 2) {
+        if (LEDtime > 500) {
             INDICATOR = !INDICATOR;
             LEDtime = 0;
         }

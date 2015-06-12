@@ -18,9 +18,6 @@ extern "C" {
 
 extern int DDS_FAULT_CONDITION;
 
-#define CLOSE_COMM_TIME    4
-#define BOARD_TIMEOUT     45
-#define BOARD_RESEND_MIN  15
 
     extern volatile unsigned int DDSTimer;
 
