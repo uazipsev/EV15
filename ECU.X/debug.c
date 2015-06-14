@@ -27,6 +27,7 @@ extern struct commsStates comms;
 enum debugStates debugState;
 extern int DDS_FAULT_CONDITION, MCS_FAULT_CONDITION, SAS_FAULT_CONDITION, BMM_FAULT_CONDITION, PDU_FAULT_CONDITION, ECU_FAULT_CONDITION;
 
+extern int BMMADC[4];
 extern int milliVolts[NUMSLAVES][BATTPERSLAVE];
 extern int temps[NUMSLAVES][BATTPERSLAVE];
 extern int current1, current2, bigVolts;
@@ -58,6 +59,11 @@ void handleDebugRequests() {
                     comms.BMM_SEND = BATTERY_FAULT;
 
                 }
+                
+                printf("BMMADC[0]:      %d\n", BMMADC[0]);
+                printf("BMMADC[1]:      %d\n", BMMADC[1]);
+                printf("BMMADC[2]:      %d\n", BMMADC[2]);
+                printf("BMMADC[3]:      %d\n", BMMADC[3]);
                 break;
             case THROTTLE_BRAKE:
                 //This is the first time through the loop

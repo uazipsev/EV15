@@ -1,7 +1,7 @@
 
 
 #include "Timers.h"
-volatile unsigned long int slaveTime,time;
+volatile unsigned long int slaveTime,time,ADCTime;
 volatile unsigned long int LEDtime = 0, talkTime = 0;
 void updateTimers();
 
@@ -40,7 +40,7 @@ void initTimerTwo(void) {
 }
 
 void updateTimers() {
-    static unsigned long int lastLEDTime, lastTalkTime, lastSlaveTime;
+    static unsigned long int lastLEDTime, lastTalkTime, lastSlaveTime,lastADCTime;
     //if (lastLEDTime != time) {
         LEDtime += (time - lastLEDTime);
         lastLEDTime = time;
@@ -53,4 +53,6 @@ void updateTimers() {
         talkTime += (time - lastTalkTime);
         lastTalkTime = time;
     //}
+        ADCTime += (time - lastADCTime);
+        lastADCTime = time;
 }

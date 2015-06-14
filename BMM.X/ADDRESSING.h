@@ -11,7 +11,9 @@
 #ifdef	__cplusplus
 extern "C" {
 #endif
-
+#define CLOSE_COMM_TIME 7
+#define BOARD_RESEND_MIN 25
+#define BOARD_TIMEOUT 50
 
     //Addresses
 #define ECU_ADDRESS 1
@@ -37,6 +39,10 @@ extern "C" {
 #define PDU_FAULT               12
 #define SAS_FAULT               13
 #define BMM_FAULT               14
+#define CURRENT_BMM1            15
+#define CURRENT_BMM2             16
+#define CURRENT_BMM3             17
+#define CURRENT_BMM4            18
     
 
     //MCS Receive

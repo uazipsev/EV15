@@ -1,6 +1,7 @@
 #include "BMMComms.h"
 #include "SlaveAddressing.h"
 extern int BMM_FAULT_CONDITION;
+int BMMADC[4];
 
 enum BMM {
     BATTERY_FAULT = 0,
@@ -72,27 +73,31 @@ bool requestBMMData(struct commsStates * cS) {
 bool receiveCommBMM(struct commsStates * cS) {
     int j;
     if (receiveData()) {
-            switch ((*cS).BMM_SEND) {
-                case BATTERY_FAULT:
-                    if (receiveArray[BATTERYFAULT]) {
-                        batteryFault = true;
-                        faultingBattery = (receiveArray[SLAVE_ADDRESS_SEND] * BATTPERSLAVE) + receiveArray[FAULTINGBATTERY];
-                    }
-                    break;
-                case BATTERY_VOLTS:
-                    for (j = 0; j < BATTPERSLAVE; j++)
-                        milliVolts[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYV_ECU + j];
-                    break;
-                case BATTERY_TEMPS:
-                    for (j = 0; j < BATTPERSLAVE; j++)
-                        temps[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYT_ECU + j];
-                    break;
-                case BATTERY_POWER:
+        switch ((*cS).BMM_SEND) {
+            case BATTERY_FAULT:
+                BMMADC[0] = receiveArray[CURRENT_BMM1];
+                BMMADC[1] = receiveArray[CURRENT_BMM2];
+                BMMADC[2] = receiveArray[CURRENT_BMM3];
+                BMMADC[3] = receiveArray[CURRENT_BMM4];
+                if (receiveArray[BATTERYFAULT]) {
+                    batteryFault = true;
+                    faultingBattery = (receiveArray[SLAVE_ADDRESS_SEND] * BATTPERSLAVE) + receiveArray[FAULTINGBATTERY];
+                }
+                break;
+            case BATTERY_VOLTS:
+                for (j = 0; j < BATTPERSLAVE; j++)
+                    milliVolts[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYV_ECU + j];
+                break;
+            case BATTERY_TEMPS:
+                for (j = 0; j < BATTPERSLAVE; j++)
+                    temps[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYT_ECU + j];
+                break;
+            case BATTERY_POWER:
 
-                    break;
-            }
-            readyToSendBMM = true;
-            BMMTimer = 0;
-            return true;
+                break;
+        }
+        readyToSendBMM = true;
+        BMMTimer = 0;
+        return true;
     } else return false;
 }

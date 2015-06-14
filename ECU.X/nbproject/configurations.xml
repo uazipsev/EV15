@@ -20,7 +20,6 @@
       <itemPath>Timers.h</itemPath>
       <itemPath>Communications.h</itemPath>
       <itemPath>DDS_Interface.h</itemPath>
-      <itemPath>ADDRESSING.h</itemPath>
       <itemPath>SASComms.h</itemPath>
       <itemPath>MCSComms.h</itemPath>
       <itemPath>DDSComms.h</itemPath>
@@ -30,6 +29,7 @@
       <itemPath>StateMachine.h</itemPath>
       <itemPath>StoppedState.h</itemPath>
       <itemPath>SlaveAddressing.h</itemPath>
+      <itemPath>ADDRESSING.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"

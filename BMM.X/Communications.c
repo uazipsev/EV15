@@ -2,6 +2,7 @@
 #include "Communications.h"
 #include "SlaveCommunications.h"
 
+extern int ADCReadings[4];
 enum BMM {
     BATTERY_FAULT = 0,
     BATTERY_VOLTS = 1,
@@ -53,6 +54,10 @@ void updateComms() {
                 if (lastCommState != COMM_STATE) {
                     lastCommState = COMM_STATE;
                 }
+                ToSend(CURRENT_BMM1,ADCReadings[0]);
+                ToSend(CURRENT_BMM2,ADCReadings[1]);
+                ToSend(CURRENT_BMM3,ADCReadings[2]);
+                ToSend(CURRENT_BMM4,ADCReadings[3]);
                 break;
 
             default:
