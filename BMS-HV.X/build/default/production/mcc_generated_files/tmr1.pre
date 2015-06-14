@@ -10638,7 +10638,7 @@ TMR1L = (uint8_t) timer1ReloadVal;
 if (++CountCallBack >= 4)
 {
 
-
+do { LATA4 = ~LATA4; } while(0);
 
 
 CountCallBack = 0;

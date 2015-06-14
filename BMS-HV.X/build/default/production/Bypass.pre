@@ -10514,7 +10514,7 @@ int cellbyp = 0;
 int i = 0;
 float batvolt = 0;
 
-for(i = 0; i<9;i++)
+for(i = 0; i<=9;i++)
 {
 batvolt = Battery_Get(i);
 

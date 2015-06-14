@@ -8515,18 +8515,18 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 85: updateComms();
 "85
 [e ( _updateComms ..  ]
-"102
+"103
 }
 [e :U 1185 ]
 "64
 [e $U 1186  ]
 [e :U 1187 ]
-[; ;Main.c: 102: }
-[; ;Main.c: 103: return (0);
-"103
+[; ;Main.c: 103: }
+[; ;Main.c: 104: return (0);
+"104
 [e ) -> 0 `i ]
 [e $UE 1184  ]
-[; ;Main.c: 104: }
-"104
+[; ;Main.c: 105: }
+"105
 [e :UE 1184 ]
 }

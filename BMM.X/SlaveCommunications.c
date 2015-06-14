@@ -65,13 +65,13 @@ void updateSlaveCommunications() {
             } else if (slaveaddr == NUMSLAVES1) {
                 slaveaddr++;
                 //send to slave set 2
-                S1 = 0;
+                S1 = 1;
             } else if (slaveaddr < NUMSLAVES) {
                 slaveaddr++;
             } else {
                 slaveaddr = 1;
                 //Back to slave set 1
-                S1 = 1;
+                S1 = 0;
             }
             //            }//Else you heard from the wrong address -- try a resend
             //            else if (!wrongReturn) {
@@ -115,13 +115,13 @@ void updateSlaveCommunications() {
                 } else if (slaveaddr == NUMSLAVES1) {
                     slaveaddr++;
                     //send to slave set 2
-                    S1 = 0;
+                    S1 = 1;
                 } else if (slaveaddr < NUMSLAVES) {
                     slaveaddr++;
                 } else {
                     slaveaddr = 1;
                     //Back to slave set 1
-                    S1 = 1;
+                    S1 = 0;
                 }
             }
         }

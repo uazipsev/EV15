@@ -8312,11 +8312,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 "34
 [v _x `i ~T0 @X0 1 a ]
 [; ;Battery.c: 34: int x;
-[; ;Battery.c: 35: for (x = 0; x < 9; x++) {
+[; ;Battery.c: 35: for (x = 0; x <= 9; x++) {
 "35
 {
 [e = _x -> 0 `i ]
-[e $ < _x -> 9 `i 1180  ]
+[e $ <= _x -> 9 `i 1180  ]
 [e $U 1181  ]
 [e :U 1180 ]
 {
@@ -8327,7 +8327,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "35
 [e ++ _x -> 1 `i ]
-[e $ < _x -> 9 `i 1180  ]
+[e $ <= _x -> 9 `i 1180  ]
 [e :U 1181 ]
 "37
 }
@@ -8348,31 +8348,31 @@ Version 3.2 HI-TECH Software Intermediate Code
 "50
 [v _x `i ~T0 @X0 1 a ]
 [; ;Battery.c: 50: int x;
-[; ;Battery.c: 51: for (x = 0; x < 9; x++) {
+[; ;Battery.c: 51: for (x = 0; x <= 9; x++) {
 "51
 {
 [e = _x -> 0 `i ]
-[e $ < _x -> 9 `i 1184  ]
+[e $ <= _x -> 9 `i 1184  ]
 [e $U 1185  ]
 [e :U 1184 ]
 {
-[; ;Battery.c: 52: Battery_Volt[x] = (0.88 * TempBattery_Volt[x] + ((1 - 0.88) * PrevBattery_Volt[x]));
+[; ;Battery.c: 52: Battery_Volt[x] = TempBattery_Volt[x];
 "52
-[e = *U + &U _Battery_Volt * -> -> _x `ui `ux -> -> # *U &U _Battery_Volt `ui `ux -> + * .0.88 -> *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux `d * - -> -> 1 `i `d .0.88 -> *U + &U _PrevBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _PrevBattery_Volt `ui `ux `d `f ]
+[e = *U + &U _Battery_Volt * -> -> _x `ui `ux -> -> # *U &U _Battery_Volt `ui `ux *U + &U _TempBattery_Volt * -> -> _x `ui `ux -> -> # *U &U _TempBattery_Volt `ui `ux ]
 "53
 }
 "51
 [e ++ _x -> 1 `i ]
-[e $ < _x -> 9 `i 1184  ]
+[e $ <= _x -> 9 `i 1184  ]
 [e :U 1185 ]
 "53
 }
 [; ;Battery.c: 53: }
-[; ;Battery.c: 54: for (x = 0; x < 9; x++) {
+[; ;Battery.c: 54: for (x = 0; x <= 9; x++) {
 "54
 {
 [e = _x -> 0 `i ]
-[e $ < _x -> 9 `i 1187  ]
+[e $ <= _x -> 9 `i 1187  ]
 [e $U 1188  ]
 [e :U 1187 ]
 {
@@ -8383,7 +8383,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "54
 [e ++ _x -> 1 `i ]
-[e $ < _x -> 9 `i 1187  ]
+[e $ <= _x -> 9 `i 1187  ]
 [e :U 1188 ]
 "56
 }
@@ -8402,12 +8402,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _fault `uc ~T0 @X0 1 a ]
 [; ;Battery.c: 67: char fault = 0;
 [e = _fault -> -> 0 `i `uc ]
-[; ;Battery.c: 68: for (int i = 0; i < 9; i++) {
+[; ;Battery.c: 68: for (int i = 0; i <= 9; i++) {
 "68
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 9 `i 1191  ]
+[e $ <= _i -> 9 `i 1191  ]
 [e $U 1192  ]
 [e :U 1191 ]
 {
@@ -8425,7 +8425,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "68
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 9 `i 1191  ]
+[e $ <= _i -> 9 `i 1191  ]
 [e :U 1192 ]
 "72
 }
@@ -8446,9 +8446,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [e :U _Battery_Get ]
 [v _channelnum `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Battery.c: 86: return Battery_Volt[channelnum]*1000.0;
+[; ;Battery.c: 86: return Battery_Volt[channelnum];
 "86
-[e ) -> * -> *U + &U _Battery_Volt * -> -> _channelnum `ui `ux -> -> # *U &U _Battery_Volt `ui `ux `d .1000.0 `f ]
+[e ) *U + &U _Battery_Volt * -> -> _channelnum `ui `ux -> -> # *U &U _Battery_Volt `ui `ux ]
 [e $UE 1195  ]
 [; ;Battery.c: 87: }
 "87

@@ -65,7 +65,7 @@ void PinSetMode(void) {
     S0_TRIS=OUTPUT;     //Select Comm Line Mux S0
     S1_TRIS=OUTPUT;     //Select Comm Line Mux S1
     S0 =0;
-    S1 =1;
+    S1 =0;
     
     BMS_TURN_ON = 1;
     

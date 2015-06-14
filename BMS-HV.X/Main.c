@@ -83,6 +83,7 @@ int main(int argc, char** argv) {
 //            }
         }
         updateComms();
+        
         /*
         for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)
         {

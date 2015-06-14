@@ -132,7 +132,7 @@ int RunBypas()
     int i = 0;
     float batvolt = 0;
 
-    for(i = 0; i<NUMOFBATT;i++)      //<! runs threw num of batteries
+    for(i = 0; i<=NUMOFBATT;i++)      //<! runs threw num of batteries
     {
         batvolt = Battery_Get(i);    //<! gets battery voltage
 

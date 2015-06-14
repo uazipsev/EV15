@@ -8674,11 +8674,11 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _batvolt `f ~T0 @X0 1 a ]
 [; ;Bypass.c: 133: float batvolt = 0;
 [e = _batvolt -> -> 0 `i `f ]
-[; ;Bypass.c: 135: for(i = 0; i<9;i++)
+[; ;Bypass.c: 135: for(i = 0; i<=9;i++)
 "135
 {
 [e = _i -> 0 `i ]
-[e $ < _i -> 9 `i 1272  ]
+[e $ <= _i -> 9 `i 1272  ]
 [e $U 1273  ]
 "136
 [e :U 1272 ]
@@ -8719,7 +8719,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 }
 "135
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 9 `i 1272  ]
+[e $ <= _i -> 9 `i 1272  ]
 [e :U 1273 ]
 "148
 }

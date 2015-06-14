@@ -229,7 +229,7 @@ Battery4 5
 [v _WPUB WPUB `VEuc  1 e 1 @3937 ]
 "7776
 [v _LATA LATA `VEuc  1 e 1 @3977 ]
-[s S1265 . 1 `uc 1 LATA0 1 0 :1:0 
+[s S1266 . 1 `uc 1 LATA0 1 0 :1:0 
 `uc 1 LATA1 1 0 :1:1 
 `uc 1 LATA2 1 0 :1:2 
 `uc 1 LATA3 1 0 :1:3 
@@ -239,31 +239,31 @@ Battery4 5
 `uc 1 LATA7 1 0 :1:7 
 ]
 "7824
-[s S1274 . 1 `uc 1 LA0 1 0 :1:0 
+[s S1275 . 1 `uc 1 LA0 1 0 :1:0 
 ]
-[s S1276 . 1 `uc 1 . 1 0 :1:0 
+[s S1277 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LA1 1 0 :1:1 
 ]
-[s S1279 . 1 `uc 1 . 1 0 :2:0 
+[s S1280 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LA2 1 0 :1:2 
 ]
-[s S1282 . 1 `uc 1 . 1 0 :3:0 
+[s S1283 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LA3 1 0 :1:3 
 ]
-[s S1285 . 1 `uc 1 . 1 0 :4:0 
+[s S1286 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LA4 1 0 :1:4 
 ]
-[s S1288 . 1 `uc 1 . 1 0 :5:0 
+[s S1289 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LA5 1 0 :1:5 
 ]
-[s S1291 . 1 `uc 1 . 1 0 :6:0 
+[s S1292 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LA6 1 0 :1:6 
 ]
-[s S1294 . 1 `uc 1 . 1 0 :7:0 
+[s S1295 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LA7 1 0 :1:7 
 ]
-[u S1297 . 1 `S1265 1 . 1 0 `S1274 1 . 1 0 `S1276 1 . 1 0 `S1279 1 . 1 0 `S1282 1 . 1 0 `S1285 1 . 1 0 `S1288 1 . 1 0 `S1291 1 . 1 0 `S1294 1 . 1 0 ]
-[v _LATAbits LATAbits `VES1297  1 e 1 @3977 ]
+[u S1298 . 1 `S1266 1 . 1 0 `S1275 1 . 1 0 `S1277 1 . 1 0 `S1280 1 . 1 0 `S1283 1 . 1 0 `S1286 1 . 1 0 `S1289 1 . 1 0 `S1292 1 . 1 0 `S1295 1 . 1 0 ]
+[v _LATAbits LATAbits `VES1298  1 e 1 @3977 ]
 "7908
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "8040
@@ -272,43 +272,43 @@ Battery4 5
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8304
 [v _LATE LATE `VEuc  1 e 1 @3981 ]
-[s S1196 . 1 `uc 1 LATE0 1 0 :1:0 
+[s S1197 . 1 `uc 1 LATE0 1 0 :1:0 
 `uc 1 LATE1 1 0 :1:1 
 `uc 1 LATE2 1 0 :1:2 
 ]
 "8347
-[s S1200 . 1 `uc 1 LE0 1 0 :1:0 
+[s S1201 . 1 `uc 1 LE0 1 0 :1:0 
 ]
-[s S1202 . 1 `uc 1 . 1 0 :1:0 
+[s S1203 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LE1 1 0 :1:1 
 ]
-[s S1205 . 1 `uc 1 . 1 0 :2:0 
+[s S1206 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LE2 1 0 :1:2 
 ]
-[s S1208 . 1 `uc 1 . 1 0 :3:0 
+[s S1209 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LE3 1 0 :1:3 
 ]
-[s S1211 . 1 `uc 1 . 1 0 :4:0 
+[s S1212 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LE4 1 0 :1:4 
 ]
-[s S1214 . 1 `uc 1 . 1 0 :5:0 
+[s S1215 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LE5 1 0 :1:5 
 ]
-[s S1217 . 1 `uc 1 . 1 0 :6:0 
+[s S1218 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LE6 1 0 :1:6 
 ]
-[s S1220 . 1 `uc 1 . 1 0 :7:0 
+[s S1221 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LE7 1 0 :1:7 
 ]
-[u S1223 . 1 `S1196 1 . 1 0 `S1200 1 . 1 0 `S1202 1 . 1 0 `S1205 1 . 1 0 `S1208 1 . 1 0 `S1211 1 . 1 0 `S1214 1 . 1 0 `S1217 1 . 1 0 `S1220 1 . 1 0 ]
-[v _LATEbits LATEbits `VES1223  1 e 1 @3981 ]
+[u S1224 . 1 `S1197 1 . 1 0 `S1201 1 . 1 0 `S1203 1 . 1 0 `S1206 1 . 1 0 `S1209 1 . 1 0 `S1212 1 . 1 0 `S1215 1 . 1 0 `S1218 1 . 1 0 `S1221 1 . 1 0 ]
+[v _LATEbits LATEbits `VES1224  1 e 1 @3981 ]
 "8406
 [v _TRISA TRISA `VEuc  1 e 1 @3986 ]
 "8627
 [v _TRISB TRISB `VEuc  1 e 1 @3987 ]
 "8848
 [v _TRISC TRISC `VEuc  1 e 1 @3988 ]
-[s S412 . 1 `uc 1 TRISC0 1 0 :1:0 
+[s S413 . 1 `uc 1 TRISC0 1 0 :1:0 
 `uc 1 TRISC1 1 0 :1:1 
 `uc 1 TRISC2 1 0 :1:2 
 `uc 1 TRISC3 1 0 :1:3 
@@ -318,7 +318,7 @@ Battery4 5
 `uc 1 TRISC7 1 0 :1:7 
 ]
 "8880
-[s S421 . 1 `uc 1 RC0 1 0 :1:0 
+[s S422 . 1 `uc 1 RC0 1 0 :1:0 
 `uc 1 RC1 1 0 :1:1 
 `uc 1 RC2 1 0 :1:2 
 `uc 1 RC3 1 0 :1:3 
@@ -327,8 +327,8 @@ Battery4 5
 `uc 1 RC6 1 0 :1:6 
 `uc 1 RC7 1 0 :1:7 
 ]
-[u S430 . 1 `S412 1 . 1 0 `S421 1 . 1 0 ]
-[v _TRISCbits TRISCbits `VES430  1 e 1 @3988 ]
+[u S431 . 1 `S413 1 . 1 0 `S422 1 . 1 0 ]
+[v _TRISCbits TRISCbits `VES431  1 e 1 @3988 ]
 "9069
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
 "9290
@@ -367,7 +367,7 @@ Battery4 5
 ]
 [u S39 . 1 `S26 1 . 1 0 `S34 1 . 1 0 ]
 [v _PIR1bits PIR1bits `VES39  1 e 1 @3998 ]
-[s S576 . 1 `uc 1 TMR1IP 1 0 :1:0 
+[s S577 . 1 `uc 1 TMR1IP 1 0 :1:0 
 `uc 1 TMR2IP 1 0 :1:1 
 `uc 1 CCP1IP 1 0 :1:2 
 `uc 1 SSP1IP 1 0 :1:3 
@@ -376,16 +376,16 @@ Battery4 5
 `uc 1 ADIP 1 0 :1:6 
 ]
 "9927
-[s S584 . 1 `uc 1 . 1 0 :3:0 
+[s S585 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 SSPIP 1 0 :1:3 
 `uc 1 TXIP 1 0 :1:4 
 `uc 1 RCIP 1 0 :1:5 
 ]
-[u S589 . 1 `S576 1 . 1 0 `S584 1 . 1 0 ]
-[v _IPR1bits IPR1bits `VES589  1 e 1 @3999 ]
+[u S590 . 1 `S577 1 . 1 0 `S585 1 . 1 0 ]
+[v _IPR1bits IPR1bits `VES590  1 e 1 @3999 ]
 "10698
 [v _RC1STA RC1STA `VEuc  1 e 1 @4011 ]
-[s S1398 . 1 `uc 1 RX9D 1 0 :1:0 
+[s S1399 . 1 `uc 1 RX9D 1 0 :1:0 
 `uc 1 OERR 1 0 :1:1 
 `uc 1 FERR 1 0 :1:2 
 `uc 1 ADDEN 1 0 :1:3 
@@ -395,10 +395,10 @@ Battery4 5
 `uc 1 SPEN 1 0 :1:7 
 ]
 "11041
-[s S1407 . 1 `uc 1 . 1 0 :3:0 
+[s S1408 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 ADEN 1 0 :1:3 
 ]
-[s S1410 . 1 `uc 1 RX9D1 1 0 :1:0 
+[s S1411 . 1 `uc 1 RX9D1 1 0 :1:0 
 `uc 1 OERR1 1 0 :1:1 
 `uc 1 FERR1 1 0 :1:2 
 `uc 1 ADDEN1 1 0 :1:3 
@@ -407,19 +407,19 @@ Battery4 5
 `uc 1 RX91 1 0 :1:6 
 `uc 1 SPEN1 1 0 :1:7 
 ]
-[s S1419 . 1 `uc 1 . 1 0 :6:0 
+[s S1420 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC8_9 1 0 :1:6 
 ]
-[s S1422 . 1 `uc 1 . 1 0 :6:0 
+[s S1423 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 RC9 1 0 :1:6 
 ]
-[s S1425 . 1 `uc 1 RCD8 1 0 :1:0 
+[s S1426 . 1 `uc 1 RCD8 1 0 :1:0 
 ]
-[s S1427 . 1 `uc 1 . 1 0 :5:0 
+[s S1428 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 SRENA 1 0 :1:5 
 ]
-[u S1430 . 1 `S1398 1 . 1 0 `S1407 1 . 1 0 `S1410 1 . 1 0 `S1419 1 . 1 0 `S1422 1 . 1 0 `S1425 1 . 1 0 `S1427 1 . 1 0 ]
-[v _RC1STAbits RC1STAbits `VES1430  1 e 1 @4011 ]
+[u S1431 . 1 `S1399 1 . 1 0 `S1408 1 . 1 0 `S1411 1 . 1 0 `S1420 1 . 1 0 `S1423 1 . 1 0 `S1426 1 . 1 0 `S1428 1 . 1 0 ]
+[v _RC1STAbits RC1STAbits `VES1431  1 e 1 @4011 ]
 "11159
 [v _TX1STA TX1STA `VEuc  1 e 1 @4012 ]
 "11530
@@ -438,15 +438,15 @@ Battery4 5
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
 "14051
 [v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
-[s S283 . 1 `uc 1 . 1 0 :1:0 
+[s S284 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_NOT_DONE 1 0 :1:1 
 ]
 "14096
-[s S286 . 1 `uc 1 ADON 1 0 :1:0 
+[s S287 . 1 `uc 1 ADON 1 0 :1:0 
 `uc 1 GO_nDONE 1 0 :1:1 
 `uc 1 CHS 1 0 :5:2 
 ]
-[s S290 . 1 `uc 1 . 1 0 :1:0 
+[s S291 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO 1 0 :1:1 
 `uc 1 CHS0 1 0 :1:2 
 `uc 1 CHS1 1 0 :1:3 
@@ -454,23 +454,23 @@ Battery4 5
 `uc 1 CHS3 1 0 :1:5 
 `uc 1 CHS4 1 0 :1:6 
 ]
-[s S298 . 1 `uc 1 . 1 0 :1:0 
+[s S299 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 DONE 1 0 :1:1 
 ]
-[s S301 . 1 `uc 1 . 1 0 :1:0 
+[s S302 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_DONE 1 0 :1:1 
 ]
-[s S304 . 1 `uc 1 . 1 0 :1:0 
+[s S305 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 nDONE 1 0 :1:1 
 ]
-[s S307 . 1 `uc 1 . 1 0 :1:0 
+[s S308 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GO_DONE 1 0 :1:1 
 ]
-[s S310 . 1 `uc 1 . 1 0 :1:0 
+[s S311 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 GODONE 1 0 :1:1 
 ]
-[u S313 . 1 `S283 1 . 1 0 `S286 1 . 1 0 `S290 1 . 1 0 `S298 1 . 1 0 `S301 1 . 1 0 `S304 1 . 1 0 `S307 1 . 1 0 `S310 1 . 1 0 ]
-[v _ADCON0bits ADCON0bits `VES313  1 e 1 @4034 ]
+[u S314 . 1 `S284 1 . 1 0 `S287 1 . 1 0 `S291 1 . 1 0 `S299 1 . 1 0 `S302 1 . 1 0 `S305 1 . 1 0 `S308 1 . 1 0 `S311 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES314  1 e 1 @4034 ]
 "14181
 [v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
 "14200
@@ -532,22 +532,22 @@ Battery4 5
 [v _TMR1L TMR1L `VEuc  1 e 1 @4046 ]
 "16515
 [v _TMR1H TMR1H `VEuc  1 e 1 @4047 ]
-[s S509 . 1 `uc 1 NOT_BOR 1 0 :1:0 
+[s S510 . 1 `uc 1 NOT_BOR 1 0 :1:0 
 ]
 "16577
-[s S511 . 1 `uc 1 . 1 0 :1:0 
+[s S512 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 NOT_POR 1 0 :1:1 
 ]
-[s S514 . 1 `uc 1 . 1 0 :2:0 
+[s S515 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 NOT_PD 1 0 :1:2 
 ]
-[s S517 . 1 `uc 1 . 1 0 :3:0 
+[s S518 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 NOT_TO 1 0 :1:3 
 ]
-[s S520 . 1 `uc 1 . 1 0 :4:0 
+[s S521 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 NOT_RI 1 0 :1:4 
 ]
-[s S523 . 1 `uc 1 nBOR 1 0 :1:0 
+[s S524 . 1 `uc 1 nBOR 1 0 :1:0 
 `uc 1 nPOR 1 0 :1:1 
 `uc 1 nPD 1 0 :1:2 
 `uc 1 nTO 1 0 :1:3 
@@ -556,23 +556,23 @@ Battery4 5
 `uc 1 SBOREN 1 0 :1:6 
 `uc 1 IPEN 1 0 :1:7 
 ]
-[s S532 . 1 `uc 1 BOR 1 0 :1:0 
+[s S533 . 1 `uc 1 BOR 1 0 :1:0 
 `uc 1 POR 1 0 :1:1 
 `uc 1 PD 1 0 :1:2 
 `uc 1 TO 1 0 :1:3 
 `uc 1 RI 1 0 :1:4 
 ]
-[u S538 . 1 `S509 1 . 1 0 `S511 1 . 1 0 `S514 1 . 1 0 `S517 1 . 1 0 `S520 1 . 1 0 `S523 1 . 1 0 `S532 1 . 1 0 ]
-[v _RCONbits RCONbits `VES538  1 e 1 @4048 ]
+[u S539 . 1 `S510 1 . 1 0 `S512 1 . 1 0 `S515 1 . 1 0 `S518 1 . 1 0 `S521 1 . 1 0 `S524 1 . 1 0 `S533 1 . 1 0 ]
+[v _RCONbits RCONbits `VES539  1 e 1 @4048 ]
 "16693
 [v _OSCCON2 OSCCON2 `VEuc  1 e 1 @4050 ]
 "16749
 [v _OSCCON OSCCON `VEuc  1 e 1 @4051 ]
-[s S452 . 1 `uc 1 . 1 0 :7:0 
+[s S453 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 NOT_RBPU 1 0 :1:7 
 ]
 "17559
-[s S455 . 1 `uc 1 RBIP 1 0 :1:0 
+[s S456 . 1 `uc 1 RBIP 1 0 :1:0 
 `uc 1 . 1 0 :1:1 
 `uc 1 TMR0IP 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -581,12 +581,12 @@ Battery4 5
 `uc 1 INTEDG0 1 0 :1:6 
 `uc 1 nRBPU 1 0 :1:7 
 ]
-[s S464 . 1 `uc 1 . 1 0 :7:0 
+[s S465 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 RBPU 1 0 :1:7 
 ]
-[u S467 . 1 `S452 1 . 1 0 `S455 1 . 1 0 `S464 1 . 1 0 ]
-[v _INTCON2bits INTCON2bits `VES467  1 e 1 @4081 ]
-[s S859 . 1 `uc 1 RBIF 1 0 :1:0 
+[u S468 . 1 `S453 1 . 1 0 `S456 1 . 1 0 `S465 1 . 1 0 ]
+[v _INTCON2bits INTCON2bits `VES468  1 e 1 @4081 ]
+[s S860 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -596,7 +596,7 @@ Battery4 5
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17650
-[s S868 . 1 `uc 1 . 1 0 :1:0 
+[s S869 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -605,14 +605,16 @@ Battery4 5
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S877 . 1 `uc 1 . 1 0 :6:0 
+[s S878 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S894 . 1 `S859 1 . 1 0 `S868 1 . 1 0 `S877 1 . 1 0 `S868 1 . 1 0 `S877 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES894  1 e 1 @4082 ]
+[u S895 . 1 `S860 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 `S869 1 . 1 0 `S878 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES895  1 e 1 @4082 ]
 "18975
 [v _LATA0 LATA0 `VEb  1 e 0 @31816 ]
+"18983
+[v _LATA4 LATA4 `VEb  1 e 0 @31820 ]
 "18987
 [v _LATA6 LATA6 `VEb  1 e 0 @31822 ]
 "18991
@@ -679,15 +681,15 @@ Battery4 5
 [v _dataAdressErrorCounter dataAdressErrorCounter `ui  1 e 2 0 ]
 "44
 [v _rx_address rx_address `uc  1 e 1 0 ]
-[s S993 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[s S994 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
 "58
-[v _ring_buffer ring_buffer `S993  1 e 206 0 ]
-[u S998 stuff 2 `[2]uc 1 parts 2 0 `ui 1 integer 2 0 ]
+[v _ring_buffer ring_buffer `S994  1 e 206 0 ]
+[u S999 stuff 2 `[2]uc 1 parts 2 0 `ui 1 integer 2 0 ]
 "64
-[v _group group `S998  1 e 2 0 ]
-[s S1001 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[v _group group `S999  1 e 2 0 ]
+[s S1002 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "70
-[v _crc_buffer crc_buffer `S1001  1 e 17 0 ]
+[v _crc_buffer crc_buffer `S1002  1 e 17 0 ]
 "13 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\Global.c
 [v _Temp_Aquire Temp_Aquire `uc  1 e 1 0 ]
 "14
@@ -712,17 +714,17 @@ Battery4 5
 [v _TmpTemp_DegF TmpTemp_DegF `[10]f  1 e 30 0 ]
 "10
 [v _PrevTemp_DegF PrevTemp_DegF `[10]f  1 e 30 0 ]
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
 "109 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\UART.h
-[v _input_buffer input_buffer `S504  1 e 206 0 ]
+[v _input_buffer input_buffer `S505  1 e 206 0 ]
 "110
-[v _output_buffer output_buffer `S504  1 e 206 0 ]
+[v _output_buffer output_buffer `S505  1 e 206 0 ]
 "112
 [v _Transmit_stall Transmit_stall `uc  1 e 1 0 ]
 "30 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\Main.c
 [v _main main `(i  1 e 2 0 ]
 {
-"104
+"105
 } 0
 "12 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\Communications.c
 [v _updateComms updateComms `(v  1 e 0 0 ]
@@ -745,8 +747,8 @@ Battery4 5
 "321
 [v _crcBufS_put crcBufS_put `(v  1 e 0 0 ]
 {
-[s S1001 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
-[v crcBufS_put@_this _this `*.39S1001  1 p 2 26 ]
+[s S1002 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[v crcBufS_put@_this _this `*.39S1002  1 p 2 26 ]
 [v crcBufS_put@address address `uc  1 p 1 28 ]
 [v crcBufS_put@oldCRC oldCRC `uc  1 p 1 29 ]
 [v crcBufS_put@status status `uc  1 p 1 30 ]
@@ -755,8 +757,8 @@ Battery4 5
 "261
 [v _FastTransfer_buffer_flush FastTransfer_buffer_flush `(v  1 e 0 0 ]
 {
-[s S993 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v FastTransfer_buffer_flush@_this _this `*.39S993  1 p 2 34 ]
+[s S994 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v FastTransfer_buffer_flush@_this _this `*.39S994  1 p 2 34 ]
 [v FastTransfer_buffer_flush@clearBuffer clearBuffer `Ci  1 p 2 36 ]
 "268
 } 0
@@ -764,9 +766,9 @@ Battery4 5
 [v _receiveData receiveData `(uc  1 e 1 0 ]
 {
 "185
-[v receiveData@holder_1129 holder `[3]uc  1 a 3 10 ]
+[v receiveData@holder_1130 holder `[3]uc  1 a 3 10 ]
 "189
-[v receiveData@crcHolder_1130 crcHolder `uc  1 a 1 14 ]
+[v receiveData@crcHolder_1131 crcHolder `uc  1 a 1 14 ]
 "160
 [v receiveData@holder holder `[3]uc  1 a 3 7 ]
 "164
@@ -788,8 +790,8 @@ Battery4 5
 "68
 [v _UART_buff_put UART_buff_put `(v  1 e 0 0 ]
 {
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v UART_buff_put@_this _this `*.39S504  1 p 2 32 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_put@_this _this `*.39S505  1 p 2 32 ]
 [v UART_buff_put@c c `Cuc  1 p 1 34 ]
 "79
 } 0
@@ -801,8 +803,8 @@ Battery4 5
 "114
 [v _UART_buff_peek UART_buff_peek `(uc  1 e 1 0 ]
 {
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v UART_buff_peek@_this _this `*.39S504  1 p 2 26 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_peek@_this _this `*.39S505  1 p 2 26 ]
 "116
 } 0
 "373 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\FastTransfer.c
@@ -823,9 +825,9 @@ Battery4 5
 {
 "341
 [v crcBufS_status_put@wantedTime wantedTime `i  1 a 2 34 ]
-[s S1001 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[s S1002 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "336
-[v crcBufS_status_put@_this _this `*.39S1001  1 p 2 26 ]
+[v crcBufS_status_put@_this _this `*.39S1002  1 p 2 26 ]
 [v crcBufS_status_put@time time `uc  1 p 1 28 ]
 [v crcBufS_status_put@status status `uc  1 p 1 29 ]
 "348
@@ -835,9 +837,9 @@ Battery4 5
 {
 "361
 [v crcBufS_get@wantedTime wantedTime `i  1 a 2 36 ]
-[s S1001 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[s S1002 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "353
-[v crcBufS_get@_this _this `*.39S1001  1 p 2 26 ]
+[v crcBufS_get@_this _this `*.39S1002  1 p 2 26 ]
 [v crcBufS_get@time time `uc  1 p 1 28 ]
 [v crcBufS_get@space space `uc  1 p 1 29 ]
 "368
@@ -852,9 +854,9 @@ Battery4 5
 {
 "82
 [v UART_buff_get@c c `uc  1 a 1 36 ]
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
 "81
-[v UART_buff_get@_this _this `*.39S504  1 p 2 32 ]
+[v UART_buff_get@_this _this `*.39S505  1 p 2 32 ]
 "91
 } 0
 "106
@@ -875,8 +877,8 @@ Battery4 5
 "102
 [v _UART_buff_size UART_buff_size `(i  1 e 2 0 ]
 {
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v UART_buff_size@_this _this `*.39S504  1 p 2 26 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_size@_this _this `*.39S505  1 p 2 26 ]
 "104
 } 0
 "34 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\FastTransfer.c
@@ -899,12 +901,12 @@ Battery4 5
 [v ___fttol __fttol `(l  1 e 4 0 ]
 {
 "47
-[v ___fttol@lval lval `ul  1 a 4 43 ]
+[v ___fttol@lval lval `ul  1 a 4 40 ]
 "46
-[v ___fttol@exp1 exp1 `uc  1 a 1 47 ]
-[v ___fttol@sign1 sign1 `uc  1 a 1 42 ]
+[v ___fttol@exp1 exp1 `uc  1 a 1 44 ]
+[v ___fttol@sign1 sign1 `uc  1 a 1 39 ]
 "44
-[v ___fttol@f1 f1 `f  1 p 3 33 ]
+[v ___fttol@f1 f1 `f  1 p 3 30 ]
 "73
 } 0
 "216 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\FastTransfer.c
@@ -912,15 +914,15 @@ Battery4 5
 {
 [v ToSend@where where `uc  1 a 1 wreg ]
 [v ToSend@where where `uc  1 a 1 wreg ]
-[v ToSend@what what `ui  1 p 2 48 ]
-[v ToSend@where where `uc  1 a 1 50 ]
+[v ToSend@what what `ui  1 p 2 45 ]
+[v ToSend@where where `uc  1 a 1 47 ]
 "218
 } 0
 "223
 [v _FastTransfer_buffer_put FastTransfer_buffer_put `(v  1 e 0 0 ]
 {
-[s S993 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v FastTransfer_buffer_put@_this _this `*.39S993  1 p 2 32 ]
+[s S994 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v FastTransfer_buffer_put@_this _this `*.39S994  1 p 2 32 ]
 [v FastTransfer_buffer_put@towhere towhere `uc  1 p 1 34 ]
 [v FastTransfer_buffer_put@towhat towhat `ui  1 p 2 35 ]
 "240
@@ -1084,8 +1086,8 @@ Battery4 5
 "56
 [v _UART_buff_init UART_buff_init `(v  1 e 0 0 ]
 {
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v UART_buff_init@_this _this `*.39S504  1 p 2 34 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v UART_buff_init@_this _this `*.39S505  1 p 2 34 ]
 "66
 } 0
 "8 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\memset.c
@@ -1108,11 +1110,11 @@ Battery4 5
 [v _RunBypas RunBypas `(i  1 e 2 0 ]
 {
 "133
-[v RunBypas@batvolt batvolt `f  1 a 3 35 ]
+[v RunBypas@batvolt batvolt `f  1 a 3 2 ]
 "132
-[v RunBypas@i i `i  1 a 2 38 ]
+[v RunBypas@i i `i  1 a 2 5 ]
 "131
-[v RunBypas@cellbyp cellbyp `i  1 a 2 33 ]
+[v RunBypas@cellbyp cellbyp `i  1 a 2 0 ]
 "150
 } 0
 "18
@@ -1125,7 +1127,7 @@ Battery4 5
 "84 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\Battery.c
 [v _Battery_Get Battery_Get `(f  1 e 3 0 ]
 {
-[v Battery_Get@channelnum channelnum `i  1 p 2 30 ]
+[v Battery_Get@channelnum channelnum `i  1 p 2 32 ]
 "87
 } 0
 "66
@@ -1148,49 +1150,8 @@ Battery4 5
 [v _Battery_Convert Battery_Convert `(v  1 e 0 0 ]
 {
 "34
-[v Battery_Convert@x x `i  1 a 2 46 ]
+[v Battery_Convert@x x `i  1 a 2 44 ]
 "39
-} 0
-"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
-[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-{
-"60
-[v ___ftdiv@f3 f3 `f  1 a 3 10 ]
-"59
-[v ___ftdiv@sign sign `uc  1 a 1 14 ]
-[v ___ftdiv@exp exp `uc  1 a 1 13 ]
-[v ___ftdiv@cntr cntr `uc  1 a 1 9 ]
-"54
-[v ___ftdiv@f1 f1 `f  1 p 3 0 ]
-[v ___ftdiv@f2 f2 `f  1 p 3 3 ]
-"86
-} 0
-"42 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altoft.c
-[v ___altoft __altoft `(f  1 e 3 0 ]
-{
-"44
-[v ___altoft@sign sign `uc  1 a 1 43 ]
-[v ___altoft@exp exp `uc  1 a 1 42 ]
-"42
-[v ___altoft@c c `l  1 p 4 34 ]
-"57
-} 0
-"48 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\Battery.c
-[v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
-{
-"50
-[v Battery_Filter@x x `i  1 a 2 42 ]
-"57
-} 0
-"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
-[v ___wmul __wmul `(ui  1 e 2 0 ]
-{
-"17
-[v ___wmul@product product `ui  1 a 2 30 ]
-"15
-[v ___wmul@multiplier multiplier `ui  1 p 2 26 ]
-[v ___wmul@multiplicand multiplicand `ui  1 p 2 28 ]
-"53
 } 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
@@ -1206,6 +1167,20 @@ Battery4 5
 [v ___ftmul@f2 f2 `f  1 p 3 18 ]
 "157
 } 0
+"54 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftdiv.c
+[v ___ftdiv __ftdiv `(f  1 e 3 0 ]
+{
+"60
+[v ___ftdiv@f3 f3 `f  1 a 3 10 ]
+"59
+[v ___ftdiv@sign sign `uc  1 a 1 14 ]
+[v ___ftdiv@exp exp `uc  1 a 1 13 ]
+[v ___ftdiv@cntr cntr `uc  1 a 1 9 ]
+"54
+[v ___ftdiv@f1 f1 `f  1 p 3 0 ]
+[v ___ftdiv@f2 f2 `f  1 p 3 3 ]
+"86
+} 0
 "86 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
 {
@@ -1218,6 +1193,16 @@ Battery4 5
 [v ___ftadd@f2 f2 `f  1 p 3 33 ]
 "148
 } 0
+"42 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\altoft.c
+[v ___altoft __altoft `(f  1 e 3 0 ]
+{
+"44
+[v ___altoft@sign sign `uc  1 a 1 43 ]
+[v ___altoft@exp exp `uc  1 a 1 42 ]
+"42
+[v ___altoft@c c `l  1 p 4 34 ]
+"57
+} 0
 "62 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
 {
@@ -1225,6 +1210,23 @@ Battery4 5
 [v ___ftpack@exp exp `uc  1 p 1 29 ]
 [v ___ftpack@sign sign `uc  1 p 1 30 ]
 "86
+} 0
+"48 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\Battery.c
+[v _Battery_Filter Battery_Filter `(v  1 e 0 0 ]
+{
+"50
+[v Battery_Filter@x x `i  1 a 2 32 ]
+"57
+} 0
+"15 C:\Program Files (x86)\Microchip\xc8\v1.34\sources\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
+{
+"17
+[v ___wmul@product product `ui  1 a 2 30 ]
+"15
+[v ___wmul@multiplier multiplier `ui  1 p 2 26 ]
+[v ___wmul@multiplicand multiplicand `ui  1 p 2 28 ]
+"53
 } 0
 "69 C:\Users\User\Desktop\EV2015 Repo\trunk\BMS-HV.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
@@ -1254,16 +1256,16 @@ Battery4 5
 "102
 [v i2_UART_buff_size UART_buff_size `(i  1 e 2 0 ]
 {
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v i2UART_buff_size@_this _this `*.39S504  1 p 2 0 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_size@_this _this `*.39S505  1 p 2 0 ]
 "104
 } 0
 "81
 [v i2_UART_buff_get UART_buff_get `(uc  1 e 1 0 ]
 {
 [v i2UART_buff_get@c UART_buff_get `uc  1 a 1 10 ]
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v i2UART_buff_get@_this _this `*.39S504  1 p 2 6 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_get@_this _this `*.39S505  1 p 2 6 ]
 "91
 } 0
 "139
@@ -1276,8 +1278,8 @@ Battery4 5
 "68
 [v i2_UART_buff_put UART_buff_put `(v  1 e 0 0 ]
 {
-[s S504 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v i2UART_buff_put@_this _this `*.39S504  1 p 2 6 ]
+[s S505 UART_ring_buff 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v i2UART_buff_put@_this _this `*.39S505  1 p 2 6 ]
 [v i2UART_buff_put@c c `Cuc  1 p 1 8 ]
 "79
 } 0

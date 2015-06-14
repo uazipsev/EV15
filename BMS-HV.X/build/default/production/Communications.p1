@@ -8295,39 +8295,39 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Communications.c: 18: Delay(5);
 "18
 [e ( _Delay (1 -> -> 5 `i `l ]
-[; ;Communications.c: 19: ToSend(0, 2);
+[; ;Communications.c: 19: ToSend(0, 1);
 "19
-[e ( _ToSend (2 , -> -> 0 `i `uc -> -> 2 `i `ui ]
-[; ;Communications.c: 20: ToSend(1, Battery_Get(0));
+[e ( _ToSend (2 , -> -> 0 `i `uc -> -> 1 `i `ui ]
+[; ;Communications.c: 20: ToSend(1, Battery_Get(0)*1000);
 "20
-[e ( _ToSend (2 , -> -> 1 `i `uc -> ( _Battery_Get (1 -> 0 `i `ui ]
-[; ;Communications.c: 21: ToSend(2, Battery_Get(1));
+[e ( _ToSend (2 , -> -> 1 `i `uc -> * ( _Battery_Get (1 -> 0 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 21: ToSend(2, Battery_Get(1)*1000);
 "21
-[e ( _ToSend (2 , -> -> 2 `i `uc -> ( _Battery_Get (1 -> 1 `i `ui ]
-[; ;Communications.c: 22: ToSend(3, Battery_Get(2));
+[e ( _ToSend (2 , -> -> 2 `i `uc -> * ( _Battery_Get (1 -> 1 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 22: ToSend(3, Battery_Get(2)*1000);
 "22
-[e ( _ToSend (2 , -> -> 3 `i `uc -> ( _Battery_Get (1 -> 2 `i `ui ]
-[; ;Communications.c: 23: ToSend(4, Battery_Get(3));
+[e ( _ToSend (2 , -> -> 3 `i `uc -> * ( _Battery_Get (1 -> 2 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 23: ToSend(4, Battery_Get(3)*1000);
 "23
-[e ( _ToSend (2 , -> -> 4 `i `uc -> ( _Battery_Get (1 -> 3 `i `ui ]
-[; ;Communications.c: 24: ToSend(5, Battery_Get(4));
+[e ( _ToSend (2 , -> -> 4 `i `uc -> * ( _Battery_Get (1 -> 3 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 24: ToSend(5, Battery_Get(4)*1000);
 "24
-[e ( _ToSend (2 , -> -> 5 `i `uc -> ( _Battery_Get (1 -> 4 `i `ui ]
-[; ;Communications.c: 25: ToSend(6, Battery_Get(5));
+[e ( _ToSend (2 , -> -> 5 `i `uc -> * ( _Battery_Get (1 -> 4 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 25: ToSend(6, Battery_Get(5)*1000);
 "25
-[e ( _ToSend (2 , -> -> 6 `i `uc -> ( _Battery_Get (1 -> 5 `i `ui ]
-[; ;Communications.c: 26: ToSend(7, Battery_Get(6));
+[e ( _ToSend (2 , -> -> 6 `i `uc -> * ( _Battery_Get (1 -> 5 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 26: ToSend(7, Battery_Get(6)*1000);
 "26
-[e ( _ToSend (2 , -> -> 7 `i `uc -> ( _Battery_Get (1 -> 6 `i `ui ]
-[; ;Communications.c: 27: ToSend(8, Battery_Get(7));
+[e ( _ToSend (2 , -> -> 7 `i `uc -> * ( _Battery_Get (1 -> 6 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 27: ToSend(8, Battery_Get(7)*1000);
 "27
-[e ( _ToSend (2 , -> -> 8 `i `uc -> ( _Battery_Get (1 -> 7 `i `ui ]
-[; ;Communications.c: 28: ToSend(9, Battery_Get(8));
+[e ( _ToSend (2 , -> -> 8 `i `uc -> * ( _Battery_Get (1 -> 7 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 28: ToSend(9, Battery_Get(8)*1000);
 "28
-[e ( _ToSend (2 , -> -> 9 `i `uc -> ( _Battery_Get (1 -> 8 `i `ui ]
-[; ;Communications.c: 29: ToSend(10, Battery_Get(9));
+[e ( _ToSend (2 , -> -> 9 `i `uc -> * ( _Battery_Get (1 -> 8 `i -> -> 1000 `i `f `ui ]
+[; ;Communications.c: 29: ToSend(10, Battery_Get(9)*1000);
 "29
-[e ( _ToSend (2 , -> -> 10 `i `uc -> ( _Battery_Get (1 -> 9 `i `ui ]
+[e ( _ToSend (2 , -> -> 10 `i `uc -> * ( _Battery_Get (1 -> 9 `i -> -> 1000 `i `f `ui ]
 [; ;Communications.c: 30: ToSend(11, Tempeture_Get(0));
 "30
 [e ( _ToSend (2 , -> -> 11 `i `uc -> ( _Tempeture_Get (1 -> 0 `i `ui ]

@@ -8523,9 +8523,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.c: 118: TMR1_Initialize();
 "118
 [e ( _TMR1_Initialize ..  ]
-[; ;mcc.c: 119: begin(receiveArray, sizeof (receiveArray), 2, 0, Send_put, Receive_get, Receive_available, Receive_peek);
+[; ;mcc.c: 119: begin(receiveArray, sizeof (receiveArray), 1, 0, Send_put, Receive_get, Receive_available, Receive_peek);
 "119
-[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 2 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
+[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 1 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
 [; ;mcc.c: 122: }
 "122
 [e :UE 1184 ]

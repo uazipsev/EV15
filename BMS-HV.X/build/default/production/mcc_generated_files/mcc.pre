@@ -10838,7 +10838,7 @@ INTERRUPT_Initialize();
 ADC_Initialize();
 EUSART1_Initialize();
 TMR1_Initialize();
-begin(receiveArray, sizeof (receiveArray), 2, 0, Send_put, Receive_get, Receive_available, Receive_peek);
+begin(receiveArray, sizeof (receiveArray), 1, 0, Send_put, Receive_get, Receive_available, Receive_peek);
 
 
 }
