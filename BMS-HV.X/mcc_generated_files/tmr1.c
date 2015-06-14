@@ -128,18 +128,18 @@ void TMR1_ISR(void)
         // reset ticker counter
         CountCallBack = 0;
     }
+//    if(CountCallBack == 1)
+//    {
+//        Current_Read();
+//    }
     if(CountCallBack == 1)
     {
-        //Current_Read();
+        Battery_Read();
     }
-//    if(CountCallBack == 2)
-//    {
-//        Battery_Read();
-//    }
-//    if(CountCallBack == 3)
-//    {
-//        Temp_Read();
-//    }
+    if(CountCallBack == 3)
+    {
+        Temp_Read();
+    }
 }
 
 void TMR1_CallBack(void)

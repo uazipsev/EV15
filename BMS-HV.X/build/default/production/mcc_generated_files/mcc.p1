@@ -2,7 +2,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 "102 mcc_generated_files/../UART.h
 [s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
 [n S1183 UART_ring_buff buf head tail count ]
-"86 mcc_generated_files/mcc.h
+"87 mcc_generated_files/mcc.h
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
 "455 mcc_generated_files/pin_manager.h
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
@@ -14,13 +14,13 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
 "95 mcc_generated_files/tmr1.h
 [v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-[v F9148 `(v ~T0 @X0 0 tf1`uc ]
-[v F9151 `(uc ~T0 @X0 0 tf ]
-[v F9154 `(i ~T0 @X0 0 tf ]
-[v F9157 `(uc ~T0 @X0 0 tf ]
-"89 mcc_generated_files/mcc.h
-[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9148`*F9151`*F9154`*F9157 ]
-"96
+[v F9156 `(v ~T0 @X0 0 tf1`uc ]
+[v F9159 `(uc ~T0 @X0 0 tf ]
+[v F9162 `(i ~T0 @X0 0 tf ]
+[v F9165 `(uc ~T0 @X0 0 tf ]
+"90 mcc_generated_files/mcc.h
+[v _begin `(v ~T0 @X0 0 ef8`*Vi`uc`uc`uc`*F9156`*F9159`*F9162`*F9165 ]
+"97
 [v _receiveArray `Vi ~T0 @X0 -> 0 `x e ]
 "126 mcc_generated_files/../UART.h
 [v _Send_put `(v ~T0 @X0 0 ef1`uc ]
@@ -8483,61 +8483,69 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
 [; ;tmr1.h: 346: void TMR1_ISR(void);
 [; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
-[; ;mcc.h: 91: extern unsigned char Receive_peek(void);
-[; ;mcc.h: 92: extern int Receive_available(void);
-[; ;mcc.h: 93: extern unsigned char Receive_get(void);
-[; ;mcc.h: 94: extern void Send_put(unsigned char _data);
-[; ;mcc.h: 96: extern volatile int receiveArray[20];
-"113 mcc_generated_files/mcc.c
+[; ;Global.h: 2: extern char Temp_Aquire;
+[; ;Global.h: 3: extern char Volt_Aquire;
+[; ;Global.h: 4: extern long int Battery_Adc[10];
+[; ;Global.h: 5: extern int Temp_Adc[10];
+[; ;Global.h: 6: extern int ADC_Buffer_Point;
+[; ;Global.h: 7: extern int Volt_Done;
+[; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
+[; ;mcc.h: 74: void SYSTEM_Initialize(void);
+[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 90: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;mcc.h: 92: extern unsigned char Receive_peek(void);
+[; ;mcc.h: 93: extern int Receive_available(void);
+[; ;mcc.h: 94: extern unsigned char Receive_get(void);
+[; ;mcc.h: 95: extern void Send_put(unsigned char _data);
+[; ;mcc.h: 97: extern volatile int receiveArray[20];
+"112 mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
 {
-[; ;mcc.c: 113: void SYSTEM_Initialize(void) {
+[; ;mcc.c: 112: void SYSTEM_Initialize(void) {
 [e :U _SYSTEM_Initialize ]
 [f ]
-[; ;mcc.c: 114: OSCILLATOR_Initialize();
-"114
+[; ;mcc.c: 113: OSCILLATOR_Initialize();
+"113
 [e ( _OSCILLATOR_Initialize ..  ]
-[; ;mcc.c: 115: PIN_MANAGER_Initialize();
-"115
+[; ;mcc.c: 114: PIN_MANAGER_Initialize();
+"114
 [e ( _PIN_MANAGER_Initialize ..  ]
-[; ;mcc.c: 116: INTERRUPT_Initialize();
-"116
+[; ;mcc.c: 115: INTERRUPT_Initialize();
+"115
 [e ( _INTERRUPT_Initialize ..  ]
-[; ;mcc.c: 117: ADC_Initialize();
-"117
+[; ;mcc.c: 116: ADC_Initialize();
+"116
 [e ( _ADC_Initialize ..  ]
-[; ;mcc.c: 118: EUSART1_Initialize();
-"118
+[; ;mcc.c: 117: EUSART1_Initialize();
+"117
 [e ( _EUSART1_Initialize ..  ]
-[; ;mcc.c: 119: TMR1_Initialize();
-"119
+[; ;mcc.c: 118: TMR1_Initialize();
+"118
 [e ( _TMR1_Initialize ..  ]
-[; ;mcc.c: 120: begin(receiveArray, sizeof (receiveArray), 1, 0, Send_put, Receive_get, Receive_available, Receive_peek);
-"120
-[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 1 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
-[; ;mcc.c: 123: }
-"123
+[; ;mcc.c: 119: begin(receiveArray, sizeof (receiveArray), 2, 0, Send_put, Receive_get, Receive_available, Receive_peek);
+"119
+[e ( _begin (4 , , , , , , , &U _receiveArray -> -> * -> 20 `i # `Vi `ui `uc -> -> 2 `i `uc -> -> 0 `i `uc &U _Send_put &U _Receive_get &U _Receive_available &U _Receive_peek ]
+[; ;mcc.c: 122: }
+"122
 [e :UE 1184 ]
 }
-"125
+"124
 [v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
 {
-[; ;mcc.c: 125: void OSCILLATOR_Initialize(void) {
+[; ;mcc.c: 124: void OSCILLATOR_Initialize(void) {
 [e :U _OSCILLATOR_Initialize ]
 [f ]
-[; ;mcc.c: 127: OSCCON = 0x62;
-"127
+[; ;mcc.c: 126: OSCCON = 0x62;
+"126
 [e = _OSCCON -> -> 98 `i `uc ]
-[; ;mcc.c: 129: OSCCON2 = 0x04;
-"129
+[; ;mcc.c: 128: OSCCON2 = 0x04;
+"128
 [e = _OSCCON2 -> -> 4 `i `uc ]
-[; ;mcc.c: 131: OSCTUNE = 0x00;
-"131
+[; ;mcc.c: 130: OSCTUNE = 0x00;
+"130
 [e = _OSCTUNE -> -> 0 `i `uc ]
-[; ;mcc.c: 134: }
-"134
+[; ;mcc.c: 133: }
+"133
 [e :UE 1185 ]
 }

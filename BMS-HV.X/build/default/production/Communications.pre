@@ -10396,6 +10396,16 @@ extern void Temp_Filter();
 extern void Temp_Convert();
 extern float Tempeture_Get(int channelnum);
 
+# 2 "Global.h"
+extern char Temp_Aquire;
+extern char Volt_Aquire;
+extern long int Battery_Adc[10];
+extern int Temp_Adc[10];
+extern int ADC_Buffer_Point;
+extern int Volt_Done;
+extern int Temp_Done;
+extern int CountCallBack;
+
 # 10 "Communications.c"
 extern void Delay(long int d_lenth);
 
@@ -10403,10 +10413,10 @@ void updateComms() {
 
 
 if (receiveData()) {
-Delay(3);
+Delay(5);
 LATEbits.LATE1 = 1;
-Delay(4);
-ToSend(0, 1);
+Delay(5);
+ToSend(0, 2);
 ToSend(1, Battery_Get(0));
 ToSend(2, Battery_Get(1));
 ToSend(3, Battery_Get(2));

@@ -9,11 +9,16 @@ void Setup(void) {
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2c
     CLKDIVbits.DOZE = 0;
     PLLFBD = 22; // pll multiplier (M) = +2
-    CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
+    CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2 
+    // Initiate Clock Switch to Primary Oscillator with PLL (NOSC = 0b011)
+    __builtin_write_OSCCONH(0x03);
+    __builtin_write_OSCCONL(OSCCON | 0x01);
+    // Wait for Clock switch to occur
+    while (OSCCONbits.COSC != 0b011);
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
 
-    //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
+    INTCON1bits.NSTDIS = 1; //no nesting of interrupts
 
     PPSUnLock;
     PPSout(_OC1, _RP5);
@@ -60,7 +65,7 @@ void PinSetMode(void) {
     S0_TRIS=OUTPUT;     //Select Comm Line Mux S0
     S1_TRIS=OUTPUT;     //Select Comm Line Mux S1
     S0 =0;
-    S1 =1;
+    S1 =0;
     
     BMS_TURN_ON = 1;
     

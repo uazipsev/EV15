@@ -11,7 +11,7 @@ void UART_init(void) {
     U1MODEbits.STSEL = 0; // 1-stop bit
     U1MODEbits.PDSEL = 0; // No parity, 8-data bits
     U1MODEbits.ABAUD = 0; // Auto-baud disabled
-    U1BRG = BAUD_RATE; // Baud Rate setting for 57600
+    U1BRG = BAUD_RATE; // Baud Rate setting for 38400
     U1STAbits.URXISEL = 0b01; // Interrupt after all TX character transmitted
     U1STAbits.URXISEL = 0b00; // Interrupt after one RX character is received
     IFS0bits.U1RXIF = 0; // Clear RX interrupt flag
@@ -112,6 +112,8 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
         U1STAbits.OERR = 0;
         U1MODEbits.UARTEN = 0; // RESTART UART
         U1MODEbits.UARTEN = 1; // Enable UART
+        IFS0bits.U1RXIF = 0; // Clear RX interrupt flag
+        return;
     }
     if (U1STAbits.FERR) {
         U1RXREG;

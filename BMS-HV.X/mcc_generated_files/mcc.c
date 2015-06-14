@@ -108,7 +108,6 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #pragma config EBTRB = OFF    // Boot Block Table Read Protection bit->Boot Block (000000-0007FFh) not protected from table reads executed in other blocks
 
 #include "mcc.h"
-#define ADDRESS 1
 
 void SYSTEM_Initialize(void) {
     OSCILLATOR_Initialize();
@@ -117,7 +116,7 @@ void SYSTEM_Initialize(void) {
     ADC_Initialize();
     EUSART1_Initialize();
     TMR1_Initialize();
-    begin(receiveArray, sizeof (receiveArray), ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
+    begin(receiveArray, sizeof (receiveArray), THIS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
 
 
 }

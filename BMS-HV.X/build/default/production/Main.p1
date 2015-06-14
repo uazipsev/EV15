@@ -3,7 +3,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [s S1183 `uc -> 200 `i `i 1 `i 1 `i 1 ]
 [n S1183 UART_ring_buff buf head tail count ]
 [p mainexit ]
-"73 mcc_generated_files/mcc.h
+"74 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "17609 C:\Program Files (x86)\Microchip\xc8\v1.34\include\pic18f45k22.h
 [s S1110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -25,6 +25,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S1109 . . . . . . ]
 "17650
 [v _INTCONbits `VS1109 ~T0 @X0 0 e@4082 ]
+"8 mcc_generated_files/../Global.h
+[v _Temp_Done `i ~T0 @X0 0 e ]
+"16 Tempeture.h
+[v _Temp_Convert `(v ~T0 @X0 0 ef ]
+"13
+[v _Temp_Fault `(uc ~T0 @X0 0 ef ]
+"7 mcc_generated_files/../Global.h
+[v _Volt_Done `i ~T0 @X0 0 e ]
+"14 Battery.h
+[v _Battery_Convert `(v ~T0 @X0 0 ef ]
+"11
+[v _Battery_Fault `(uc ~T0 @X0 0 ef ]
+"12 Bypass.h
+[v _RunBypas `(i ~T0 @X0 0 ef ]
 "29 Main.c
 [v _updateComms `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
@@ -8396,14 +8410,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr1.h: 330: uint8_t TMR1_CheckGateValueStatus(void);
 [; ;tmr1.h: 346: void TMR1_ISR(void);
 [; ;tmr1.h: 365: void TMR1_CallBack(void);
-[; ;mcc.h: 73: void SYSTEM_Initialize(void);
-[; ;mcc.h: 86: void OSCILLATOR_Initialize(void);
-[; ;mcc.h: 89: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
-[; ;mcc.h: 91: extern unsigned char Receive_peek(void);
-[; ;mcc.h: 92: extern int Receive_available(void);
-[; ;mcc.h: 93: extern unsigned char Receive_get(void);
-[; ;mcc.h: 94: extern void Send_put(unsigned char _data);
-[; ;mcc.h: 96: extern volatile int receiveArray[20];
+[; ;Global.h: 2: extern char Temp_Aquire;
+[; ;Global.h: 3: extern char Volt_Aquire;
+[; ;Global.h: 4: extern long int Battery_Adc[10];
+[; ;Global.h: 5: extern int Temp_Adc[10];
+[; ;Global.h: 6: extern int ADC_Buffer_Point;
+[; ;Global.h: 7: extern int Volt_Done;
+[; ;Global.h: 8: extern int Temp_Done;
+[; ;Global.h: 9: extern int CountCallBack;
+[; ;mcc.h: 74: void SYSTEM_Initialize(void);
+[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
+[; ;mcc.h: 90: extern void begin(volatile int * ptr, unsigned char maxSize, unsigned char givenAddress, bool error, void (*stufftosend)(unsigned char), unsigned char (*stufftoreceive)(void), int (*stuffavailable)(void), unsigned char (*stuffpeek)(void));
+[; ;mcc.h: 92: extern unsigned char Receive_peek(void);
+[; ;mcc.h: 93: extern int Receive_available(void);
+[; ;mcc.h: 94: extern unsigned char Receive_get(void);
+[; ;mcc.h: 95: extern void Send_put(unsigned char _data);
+[; ;mcc.h: 97: extern volatile int receiveArray[20];
 [; ;stdlib.h: 108: extern char * itoa(char * buf, int val, int base);
 [; ;stdlib.h: 109: extern char * utoa(char * buf, unsigned val, int base);
 [; ;stdlib.h: 114: extern char * ltoa(char * buf, long val, int base);
@@ -8455,6 +8477,41 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Main.c: 65: {
 "65
 {
+[; ;Main.c: 66: if (Temp_Done)
+"66
+[e $ ! != _Temp_Done -> 0 `i 1188  ]
+[; ;Main.c: 67: {
+"67
+{
+[; ;Main.c: 68: Temp_Convert();
+"68
+[e ( _Temp_Convert ..  ]
+[; ;Main.c: 69: Temp_Fault();
+"69
+[e ( _Temp_Fault ..  ]
+"74
+}
+[e :U 1188 ]
+[; ;Main.c: 74: }
+[; ;Main.c: 75: if (Volt_Done)
+"75
+[e $ ! != _Volt_Done -> 0 `i 1189  ]
+[; ;Main.c: 76: {
+"76
+{
+[; ;Main.c: 77: Battery_Convert();
+"77
+[e ( _Battery_Convert ..  ]
+[; ;Main.c: 78: Battery_Fault();
+"78
+[e ( _Battery_Fault ..  ]
+[; ;Main.c: 79: RunBypas();
+"79
+[e ( _RunBypas ..  ]
+"84
+}
+[e :U 1189 ]
+[; ;Main.c: 84: }
 [; ;Main.c: 85: updateComms();
 "85
 [e ( _updateComms ..  ]

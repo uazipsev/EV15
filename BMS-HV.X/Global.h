@@ -7,3 +7,4 @@ extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
 extern int CountCallBack;
+#define THIS_ADDRESS 1

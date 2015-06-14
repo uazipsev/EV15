@@ -56,7 +56,7 @@ void handleDebugRequests() {
                 if (lastDebugState != debugState) {
                     lastDebugState = debugState;
                     comms.BMM_SEND = BATTERY_FAULT;
-               
+
                 }
                 break;
             case THROTTLE_BRAKE:
@@ -78,11 +78,11 @@ void handleDebugRequests() {
                     batterySlaveNumberV = 0;
                 }
                 if (comms.BMM) {
-                    printf("Slave #%d Battery Voltage Info  \n", batterySlaveNumberV + 1);
-                    printf("B1: %dV B2: %dV B3: %dV B4: %dV \n", milliVolts[batterySlaveNumberV][0], milliVolts[batterySlaveNumberV][1], milliVolts[batterySlaveNumberV][2], milliVolts[batterySlaveNumberV][3]);
-                    printf("B5: %dV B6: %dV B7: %dV B8: %dV \n", milliVolts[batterySlaveNumberV][4], milliVolts[batterySlaveNumberV][5], milliVolts[batterySlaveNumberV][6], milliVolts[batterySlaveNumberV][7]);
-                    printf("B9: %dV B10:%dV                 \n", milliVolts[batterySlaveNumberV][8], milliVolts[batterySlaveNumberV][9]);
-                   if (batterySlaveNumberV < NUMSLAVES - 1) batterySlaveNumberV++;
+                    printf("Slave #%d Bat Voltage Info     \n", batterySlaveNumberV + 1);
+                    printf("B1: %dV B2: %dV B3: %dV B4: %dV\n", milliVolts[batterySlaveNumberV][0], milliVolts[batterySlaveNumberV][1], milliVolts[batterySlaveNumberV][2], milliVolts[batterySlaveNumberV][3]);
+                    printf("B5: %dV B6: %dV B7: %dV B8: %dV\n", milliVolts[batterySlaveNumberV][4], milliVolts[batterySlaveNumberV][5], milliVolts[batterySlaveNumberV][6], milliVolts[batterySlaveNumberV][7]);
+                    printf("B9: %dV B10:%dV                \n", milliVolts[batterySlaveNumberV][8], milliVolts[batterySlaveNumberV][9]);
+                    if (batterySlaveNumberV < NUMSLAVES - 1) batterySlaveNumberV++;
                     else batterySlaveNumberV = 0;
                 } else
                     printf("Comms with BMM are no longer online\n");
@@ -95,11 +95,11 @@ void handleDebugRequests() {
                     comms.BMM_SEND = BATTERY_TEMPS;
                     batterySlaveNumber = 0;
                 }
-                printf("Slave #%d Battery Temperature Info \n", batterySlaveNumber + 1);
-                printf("B1:  %dF B2:  %dF B3:  %dF B4:  %dF\n", temps[batterySlaveNumber][0], temps[batterySlaveNumber][1], temps[batterySlaveNumber][2], temps[batterySlaveNumber][3]);
-                printf("B5:  %dF B6:  %dF B7:  %dF B8:  %dF\n", temps[batterySlaveNumber][4], temps[batterySlaveNumber][5], temps[batterySlaveNumber][6], temps[batterySlaveNumber][7]);
-                printf("B9:  %dF B10: %dF                  \n", temps[batterySlaveNumber][8], temps[batterySlaveNumber][9]);
-               if (batterySlaveNumber < NUMSLAVES - 1) batterySlaveNumber++;
+                printf("Slave #%d Bat Temp Info    \n", batterySlaveNumber + 1);
+                printf("B1: %dF B2:  %dF B3:  %dF B4:  %dF\n", temps[batterySlaveNumber][0], temps[batterySlaveNumber][1], temps[batterySlaveNumber][2], temps[batterySlaveNumber][3]);
+                printf("B5: %dF B6:  %dF B7:  %dF B8:  %dF\n", temps[batterySlaveNumber][4], temps[batterySlaveNumber][5], temps[batterySlaveNumber][6], temps[batterySlaveNumber][7]);
+                printf("B9: %dF B10: %dF                  \n", temps[batterySlaveNumber][8], temps[batterySlaveNumber][9]);
+                if (batterySlaveNumber < NUMSLAVES - 1) batterySlaveNumber++;
                 else batterySlaveNumber = 0;
 
                 break;

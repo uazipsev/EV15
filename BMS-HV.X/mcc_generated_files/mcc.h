@@ -56,6 +56,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 //include "eusart1.h"
 #include "../UART.h"
 #include "tmr1.h"
+#include "../Global.h"
 
 #define _XTAL_FREQ  8000000
 

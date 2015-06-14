@@ -10643,12 +10643,18 @@ if (++CountCallBack >= 4)
 
 CountCallBack = 0;
 }
+
+
+
+
 if(CountCallBack == 1)
 {
-
+Battery_Read();
 }
-
-# 143
+if(CountCallBack == 3)
+{
+Temp_Read();
+}
 }
 
 void TMR1_CallBack(void)

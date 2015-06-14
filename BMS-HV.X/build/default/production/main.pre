@@ -10742,10 +10742,20 @@ void TMR1_ISR(void);
 # 365
 void TMR1_CallBack(void);
 
-# 73 "mcc_generated_files/mcc.h"
+# 2 "mcc_generated_files/../Global.h"
+extern char Temp_Aquire;
+extern char Volt_Aquire;
+extern long int Battery_Adc[10];
+extern int Temp_Adc[10];
+extern int ADC_Buffer_Point;
+extern int Volt_Done;
+extern int Temp_Done;
+extern int CountCallBack;
+
+# 74 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 86
+# 87
 void OSCILLATOR_Initialize(void);
 
 
@@ -10817,8 +10827,25 @@ SYSTEM_Initialize();
 # 64
 while (1)
 {
+if (Temp_Done)
+{
+Temp_Convert();
+Temp_Fault();
 
-# 85
+
+
+
+}
+if (Volt_Done)
+{
+Battery_Convert();
+Battery_Fault();
+RunBypas();
+
+
+
+
+}
 updateComms();
 
 # 102

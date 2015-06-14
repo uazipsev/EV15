@@ -5,17 +5,17 @@
 #include "SlaveAddressing.h"
 #include "Battery.h"
 #include "Tempeture.h"
+#include "Global.h"
 #define RS485 LATEbits.LATE1
-#define THIS_ADDRESS 1
 extern void Delay(long int d_lenth);
 
 void updateComms() {
 //        ToSend(RESPONSE_ADDRESS, THIS_ADDRESS);
 //        sendData(BMM_ADDRESS);
     if (receiveData()) {
-        Delay(3);
+        Delay(5);
         RS485 = 1;
-        Delay(4);
+        Delay(5);
         ToSend(RESPONSE_ADDRESS, THIS_ADDRESS);
         ToSend(BATTERY1V, Battery_Get(0));
         ToSend(BATTERY2V, Battery_Get(1));
