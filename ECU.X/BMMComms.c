@@ -73,16 +73,13 @@ bool requestBMMData(struct commsStates * cS) {
 bool receiveCommBMM(struct commsStates * cS) {
     int j;
     if (receiveData()) {
+        if (receiveArray[BMM_FAULT]) {
+            BMM_FAULT_CONDITION = receiveArray[BMM_FAULT];
+            batteryFault = true;
+            faultingBattery = receiveArray[FAULTINGBATTERY];
+        }
         switch ((*cS).BMM_SEND) {
             case BATTERY_FAULT:
-                BMMADC[0] = receiveArray[CURRENT_BMM1];
-                BMMADC[1] = receiveArray[CURRENT_BMM2];
-                BMMADC[2] = receiveArray[CURRENT_BMM3];
-                BMMADC[3] = receiveArray[CURRENT_BMM4];
-                if (receiveArray[BATTERYFAULT]) {
-                    batteryFault = true;
-                    faultingBattery = (receiveArray[SLAVE_ADDRESS_SEND] * BATTPERSLAVE) + receiveArray[FAULTINGBATTERY];
-                }
                 break;
             case BATTERY_VOLTS:
                 for (j = 0; j < BATTPERSLAVE; j++)
@@ -93,7 +90,10 @@ bool receiveCommBMM(struct commsStates * cS) {
                     temps[receiveArray[SLAVE_ADDRESS_SEND]][j] = receiveArray[BATTERYT_ECU + j];
                 break;
             case BATTERY_POWER:
-
+                BMMADC[0] = receiveArray[CURRENT_BMM1];
+                BMMADC[1] = receiveArray[CURRENT_BMM2];
+                BMMADC[2] = receiveArray[CURRENT_BMM3];
+                BMMADC[3] = receiveArray[CURRENT_BMM4];
                 break;
         }
         readyToSendBMM = true;

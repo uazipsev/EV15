@@ -3,6 +3,9 @@
 #include "ADDRESSING.h"
 #include "SlaveAddressing.h"
 
+#define LOW_VOLTAGE_FLAG 1
+#define HIGH_TEMPERATURE_FLAG 2
+#define COMMUNICATIONS_FAULT 3
 enum BMM {
     BATTERY_FAULT = 0,
     BATTERY_VOLTS = 1,
@@ -26,7 +29,7 @@ extern struct commsStates comms;
 
 enum debugStates debugState;
 extern int DDS_FAULT_CONDITION, MCS_FAULT_CONDITION, SAS_FAULT_CONDITION, BMM_FAULT_CONDITION, PDU_FAULT_CONDITION, ECU_FAULT_CONDITION;
-
+extern int faultingBattery;
 extern int BMMADC[4];
 extern int milliVolts[NUMSLAVES][BATTPERSLAVE];
 extern int temps[NUMSLAVES][BATTPERSLAVE];
@@ -59,11 +62,6 @@ void handleDebugRequests() {
                     comms.BMM_SEND = BATTERY_FAULT;
 
                 }
-                
-                printf("BMMADC[0]:      %d\n", BMMADC[0]);
-                printf("BMMADC[1]:      %d\n", BMMADC[1]);
-                printf("BMMADC[2]:      %d\n", BMMADC[2]);
-                printf("BMMADC[3]:      %d\n", BMMADC[3]);
                 break;
             case THROTTLE_BRAKE:
                 //This is the first time through the loop
@@ -71,6 +69,7 @@ void handleDebugRequests() {
                     lastDebugState = debugState;
                     comms.BMM_SEND = BATTERY_FAULT;
                 }
+                printf("\n-----Throttle Brake Signal Debug----\n");
                 printf("Throttle1:      %d\n", throttle1);
                 printf("Throttle2:      %d\n", throttle2);
                 printf("Brake:          %d\n", brake);
@@ -84,14 +83,14 @@ void handleDebugRequests() {
                     batterySlaveNumberV = 0;
                 }
                 if (comms.BMM) {
-                    printf("Slave #%d Bat Voltage Info     \n", batterySlaveNumberV + 1);
+                    printf("\n---Slave #%d Bat Voltage Info---\n", batterySlaveNumberV + 1);
                     printf("B1: %dV B2: %dV B3: %dV B4: %dV\n", milliVolts[batterySlaveNumberV][0], milliVolts[batterySlaveNumberV][1], milliVolts[batterySlaveNumberV][2], milliVolts[batterySlaveNumberV][3]);
                     printf("B5: %dV B6: %dV B7: %dV B8: %dV\n", milliVolts[batterySlaveNumberV][4], milliVolts[batterySlaveNumberV][5], milliVolts[batterySlaveNumberV][6], milliVolts[batterySlaveNumberV][7]);
                     printf("B9: %dV B10:%dV                \n", milliVolts[batterySlaveNumberV][8], milliVolts[batterySlaveNumberV][9]);
                     if (batterySlaveNumberV < NUMSLAVES - 1) batterySlaveNumberV++;
                     else batterySlaveNumberV = 0;
                 } else
-                    printf("Comms with BMM are no longer online\n");
+                    printf("\nComms with BMM are no longer online\n");
 
                 break;
             case BATTERY_DEBUG_TEMPS:
@@ -101,7 +100,7 @@ void handleDebugRequests() {
                     comms.BMM_SEND = BATTERY_TEMPS;
                     batterySlaveNumber = 0;
                 }
-                printf("Slave #%d Bat Temp Info    \n", batterySlaveNumber + 1);
+                printf("\n----Slave #%d Bat Temp Info---- \n", batterySlaveNumber + 1);
                 printf("B1: %dF B2:  %dF B3:  %dF B4:  %dF\n", temps[batterySlaveNumber][0], temps[batterySlaveNumber][1], temps[batterySlaveNumber][2], temps[batterySlaveNumber][3]);
                 printf("B5: %dF B6:  %dF B7:  %dF B8:  %dF\n", temps[batterySlaveNumber][4], temps[batterySlaveNumber][5], temps[batterySlaveNumber][6], temps[batterySlaveNumber][7]);
                 printf("B9: %dF B10: %dF                  \n", temps[batterySlaveNumber][8], temps[batterySlaveNumber][9]);
@@ -115,20 +114,43 @@ void handleDebugRequests() {
                     lastDebugState = debugState;
                     comms.BMM_SEND = BATTERY_POWER;
                 }
-                printf("Current Pack 1:  %d\n", current1);
-                printf("Current Pack 2:  %d\n", current2);
-                printf("HV pack voltage: %d\n", bigVolts);
+
+
+                printf("\n----BMM Power Signal Debug----\n");
+                printf("BMMADC[0]:      %d\n", BMMADC[0]);
+                printf("BMMADC[1]:      %d\n", BMMADC[1]);
+                printf("BMMADC[2]:      %d\n", BMMADC[2]);
+                printf("BMMADC[3]:      %d\n", BMMADC[3]);
+                //                printf("Current Pack 1:  %d\n", current1);
+                //                printf("Current Pack 2:  %d\n", current2);
+                //                printf("HV pack voltage: %d\n", bigVolts);
                 break;
             case FAULT_RECOVERY:
                 //This is the first time through the loop
                 if (lastDebugState != debugState) {
                     lastDebugState = debugState;
+                    comms.BMM_SEND = BATTERY_FAULT;
                 }
                 if (MCS_FAULT_CONDITION) {
 
                 }
                 if (BMM_FAULT_CONDITION) {
-
+                    switch (BMM_FAULT_CONDITION) {
+                        case 0:
+                            break;
+                        case LOW_VOLTAGE_FLAG:
+                            printf("\nLow Voltage Fault on BMM\n");
+                            printf("Faulting Battery is: %d",faultingBattery);
+                            break;
+                        case HIGH_TEMPERATURE_FLAG:
+                            printf("\nHigh Temperature Fault on BMM\n");
+                            printf("Faulting Battery is: %d",faultingBattery);
+                            break;
+                        case COMMUNICATIONS_FAULT:
+                            printf("\nCommunications Fault on BMM\n");
+                            printf("Faulting Module is: %d",faultingBattery);
+                            break;
+                    }
                 }
                 if (SAS_FAULT_CONDITION) {
 
@@ -140,7 +162,7 @@ void handleDebugRequests() {
 
                 }
                 if (ECU_FAULT_CONDITION) {
-
+                        
                 }
                 break;
             case NUM_DEBUG_STATES:

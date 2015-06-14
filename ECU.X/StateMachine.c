@@ -5,7 +5,7 @@
 #include "StateMachine.h"
 #include "debug.h"
 #include "StoppedState.h"
-
+int carActive = false;
 //Each board has a condition that says which fault it is experiencing if any
 int DDS_FAULT_CONDITION, MCS_FAULT_CONDITION, SAS_FAULT_CONDITION, BMM_FAULT_CONDITION, PDU_FAULT_CONDITION, ECU_FAULT_CONDITION;
 //Control the debug state
@@ -39,6 +39,7 @@ void updateECUState() {
                 powerSet.SAS = true;
                 powerSet.BMM = true;
                 powerSet.MCS = false;
+                carActive = false;
                 SS_RELAY = 0;
             }
             updateStoppedState();
@@ -47,9 +48,11 @@ void updateECUState() {
         case booting:
             //Means this is your first time in this state
             if (previousState != currentState) {
+                carActive = true;
                 previousState = currentState;
                 //Power up the MCS
                 powerSet.MCS = true;
+
                 //Set the safety system to boot
                 SS_RELAY = 1;
                 //reset timeout timer
@@ -73,6 +76,7 @@ void updateECUState() {
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
+                carActive = true;
             }
 
             if (faultChecker()) {
@@ -93,6 +97,7 @@ void updateECUState() {
                 previousState = currentState;
                 changeLEDState(IMD_INDICATOR, 1);
                 changeLEDState(BMS_LED, 1);
+                carActive = false;
                 BootTimer = 0;
             }
             if (BootTimer > 300) {
@@ -119,6 +124,7 @@ void updateECUState() {
             if (previousState != currentState) {
                 previousState = currentState;
                 changeLEDState(ACTIVE_LED, 1);
+                carActive = true;
             }
 
             switch (seekButtonChange()) {

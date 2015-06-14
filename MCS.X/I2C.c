@@ -51,11 +51,8 @@ void i2c_wait(unsigned int cnt) {
 //This fcn writes dat to the I@C bus
 
 void i2c_Write(char address, bool read_write, char *data, int numofbytes) {
-    char i2cData[10];
     int DataSz;
     int Index = 0;
-    unsigned char *pWrite = 0;
-    char status;
     DataSz = numofbytes;
 
     StartI2C1(); //Send the Start Bit

@@ -17,6 +17,11 @@ void Setup(void) {
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2
     PLLFBD = 22; // pll multiplier (M) = +2
     CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
+    // Initiate Clock Switch to Primary Oscillator with PLL (NOSC = 0b011)
+    __builtin_write_OSCCONH(0x03);
+    __builtin_write_OSCCONL(OSCCON | 0x01);
+    // Wait for Clock switch to occur
+    while (OSCCONbits.COSC != 0b011);
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
     PPSUnLock;

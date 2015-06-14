@@ -18,7 +18,7 @@ void Setup(void) {
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
 
-    INTCON1bits.NSTDIS = 1; //no nesting of interrupts
+    //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
 
     PPSUnLock;
     PPSout(_OC1, _RP5);
@@ -65,7 +65,7 @@ void PinSetMode(void) {
     S0_TRIS=OUTPUT;     //Select Comm Line Mux S0
     S1_TRIS=OUTPUT;     //Select Comm Line Mux S1
     S0 =0;
-    S1 =0;
+    S1 =1;
     
     BMS_TURN_ON = 1;
     

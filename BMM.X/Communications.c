@@ -2,7 +2,13 @@
 #include "Communications.h"
 #include "SlaveCommunications.h"
 
+#define LOW_VOLTAGE_FLAG 1
+#define HIGH_TEMPERATURE_FLAG 2
+#define COMMUNICATIONS_FAULT 3
+
+extern int faultingBattery;
 extern int ADCReadings[4];
+
 enum BMM {
     BATTERY_FAULT = 0,
     BATTERY_VOLTS = 1,
@@ -48,16 +54,16 @@ void updateComms() {
             case BATTERY_POWER:
                 if (lastCommState != COMM_STATE) {
                     lastCommState = COMM_STATE;
+                    ToSend(CURRENT_BMM1, ADCReadings[0]);
+                    ToSend(CURRENT_BMM2, ADCReadings[1]);
+                    ToSend(CURRENT_BMM3, ADCReadings[2]);
+                    ToSend(CURRENT_BMM4, ADCReadings[3]);
                 }
                 break;
             case BATTERY_FAULT:
                 if (lastCommState != COMM_STATE) {
                     lastCommState = COMM_STATE;
                 }
-                ToSend(CURRENT_BMM1,ADCReadings[0]);
-                ToSend(CURRENT_BMM2,ADCReadings[1]);
-                ToSend(CURRENT_BMM3,ADCReadings[2]);
-                ToSend(CURRENT_BMM4,ADCReadings[3]);
                 break;
 
             default:
@@ -66,9 +72,13 @@ void updateComms() {
         }
         ToSend(BMM_FAULT, faultFlag);
         switch (faultFlag) {
-            case 1:
-            case 2:
-            case 3:
+            case 0:
+                faultingBattery = 0;
+                break;
+            case LOW_VOLTAGE_FLAG:
+            case HIGH_TEMPERATURE_FLAG:
+            case COMMUNICATIONS_FAULT:
+                ToSend(FAULTINGBATTERY, faultingBattery);
             default:
                 break;
         }

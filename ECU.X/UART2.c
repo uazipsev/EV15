@@ -132,6 +132,7 @@ void __attribute__((interrupt, no_auto_psv)) _U3TXInterrupt(void) {
         U3TXREG = UART2_buff_get(&output_buffer2);
     } else {
         Transmit_stall2 = true;
+        UART2_buff_flush(&output_buffer2,1);
     }
     IFS5bits.U3TXIF = 0; // Clear TX interrupt flag
 }

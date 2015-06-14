@@ -1,9 +1,17 @@
 #include "SlaveCommunications.h"
 #include "PinDef.h"
+#define LOW_VOLTAGE 2000
+#define LOW_VOLTAGE_FLAG 1
+#define HIGH_TEMPERATURE 200
+#define HIGH_TEMPERATURE_FLAG 2
+#define COMMUNICATIONS_FAULT 3
+
+int faultingBattery;
 void sendSlavePacket(int slave);
 int BVolts[NUMSLAVES][BATTPERSLAVE];
 int BTemps[NUMSLAVES][TEMPPERSLAVE];
 int faultCount[NUMSLAVES];
+extern int faultFlag;
 bool pendingSend1 = true, portTalk = false;
 void updateSlaveCommunications();
 void checkSlaveCommDirection();
@@ -39,9 +47,17 @@ void updateSlaveCommunications() {
             int i = 0;
             for (i = 0; i < BATTPERSLAVE; i++) {
                 BVolts[receiveArray1[RESPONSE_ADDRESS] - 1][i] = receiveArray1[BATTERYV + i];
+                if (BVolts[receiveArray1[RESPONSE_ADDRESS] - 1][i] < LOW_VOLTAGE) {
+                    faultFlag = LOW_VOLTAGE_FLAG;                    
+                    faultingBattery=((slaveaddr-1)* BATTPERSLAVE) + i;
+                }
             }
             for (i = 0; i < BATTPERSLAVE; i++) {
                 BTemps[receiveArray1[RESPONSE_ADDRESS] - 1][i] = receiveArray1[BATTERYT + i];
+                if (BTemps[receiveArray1[RESPONSE_ADDRESS] - 1][i] > HIGH_TEMPERATURE) {
+                    faultFlag = HIGH_TEMPERATURE_FLAG;
+                    faultingBattery=((slaveaddr-1)* BATTPERSLAVE) + i;
+                }
             }
             //Increment to the next slave
             if (slaveaddr < NUMSLAVES1) {
@@ -49,13 +65,13 @@ void updateSlaveCommunications() {
             } else if (slaveaddr == NUMSLAVES1) {
                 slaveaddr++;
                 //send to slave set 2
-                //S1 = 0;
+                S1 = 0;
             } else if (slaveaddr < NUMSLAVES) {
                 slaveaddr++;
             } else {
                 slaveaddr = 1;
                 //Back to slave set 1
-                S1 = 0;
+                S1 = 1;
             }
             //            }//Else you heard from the wrong address -- try a resend
             //            else if (!wrongReturn) {
@@ -90,6 +106,8 @@ void updateSlaveCommunications() {
                         BVolts[slaveaddr - 1][i] = 0;
                         BTemps[slaveaddr - 1][i] = 0;
                     }
+                    faultFlag=COMMUNICATIONS_FAULT;
+                    faultingBattery=slaveaddr;
                 }
                 //Increment to the next slave
                 if (slaveaddr < NUMSLAVES1) {
@@ -97,13 +115,13 @@ void updateSlaveCommunications() {
                 } else if (slaveaddr == NUMSLAVES1) {
                     slaveaddr++;
                     //send to slave set 2
-                    //S1 = 0;
+                    S1 = 0;
                 } else if (slaveaddr < NUMSLAVES) {
                     slaveaddr++;
                 } else {
                     slaveaddr = 1;
                     //Back to slave set 1
-                    S1 = 0;
+                    S1 = 1;
                 }
             }
         }
