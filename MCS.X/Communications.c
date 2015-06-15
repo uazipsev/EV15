@@ -11,6 +11,12 @@ void updateComms() {
         static bool carActive = false;
         carActive=receiveArray[OUTPUT_ACTIVE];
         if (carActive) {
+            if(!PORTAbits.RA10){
+                LATAbits.LATA10=1;
+            }
+             if(!PORTAbits.RA0){
+                 LATAbits.LATA0=1;
+             }
             if (throttleOut != receiveArray[THROTTLE_OUTPUT]) {
                 throttleOut = receiveArray[THROTTLE_OUTPUT];
                 SetMotor(throttleOut, 1);
@@ -19,6 +25,18 @@ void updateComms() {
                 brakeOut = receiveArray[BRAKE_OUTPUT];
                 SetRegen(brakeOut);
             }
+        }
+        else{
+            if(brakeOut!=0){
+                brakeOut=0;
+                SetRegen(0);
+            }
+            if(throttleOut!=0){
+                throttleOut=0;
+                SetMotor(0,1);
+            }
+            LATAbits.LATA0=0;
+            LATAbits.LATA10=0;
         }
         talkTime = 0;
         safetyTime = 0;
@@ -41,6 +59,8 @@ void commSafety() {
     if (safetyTime > 200) {
         SetMotor(0, 1);
         SetRegen(0);
+        LATAbits.LATA10=0;
+            LATAbits.LATA0=0;
     }
 }
 

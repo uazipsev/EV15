@@ -83,20 +83,20 @@ int main(int argc, char** argv) {
 //            }
         }
         updateComms();
-        
-        /*
-        for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)
-        {
-            SetBypass(i,1);
-            Delay(250);
-        }
-        Delay(1000);
-        for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them off)
-        {
-            SetBypass(i,0);
-            Delay(250);
-        }
-        */
+//        
+//        
+//        for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them on)
+//        {
+//            SetBypass(i,1);
+//            Delay(250);
+//        }
+//        Delay(1000);
+//        for(int i = 0;i<10;i++)  //<! Checks bypass fcn's (turn them off)
+//        {
+//            SetBypass(i,0);
+//            Delay(250);
+//        }
+//        
         //Delay(1000);
         //("Battery 2 = %d \r\n",ADC_GetConversion(Battery2));
         //printf("Battery 8 = %d \r\n",ADC_GetConversion(Battery8));

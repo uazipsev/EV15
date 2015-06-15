@@ -131,6 +131,7 @@ void handleDebugRequests() {
                     lastDebugState = debugState;
                     comms.BMM_SEND = BATTERY_FAULT;
                 }
+                printf("\n----Fault Reporting/Recovery Mode----\n");
                 if (MCS_FAULT_CONDITION) {
 
                 }
@@ -139,16 +140,16 @@ void handleDebugRequests() {
                         case 0:
                             break;
                         case LOW_VOLTAGE_FLAG:
-                            printf("\nLow Voltage Fault on BMM\n");
-                            printf("Faulting Battery is: %d",faultingBattery);
+                            printf("Low Voltage Fault on BMM\n");
+                            printf("Faulting Battery is: %d\n",faultingBattery);
                             break;
                         case HIGH_TEMPERATURE_FLAG:
-                            printf("\nHigh Temperature Fault on BMM\n");
-                            printf("Faulting Battery is: %d",faultingBattery);
+                            printf("High Temperature Fault on BMM\n");
+                            printf("Faulting Battery is: %d\n",faultingBattery);
                             break;
                         case COMMUNICATIONS_FAULT:
-                            printf("\nCommunications Fault on BMM\n");
-                            printf("Faulting Module is: %d",faultingBattery);
+                            printf("Communications Fault on BMM\n");
+                            printf("Faulting Module is: %d\n",faultingBattery);
                             break;
                     }
                 }

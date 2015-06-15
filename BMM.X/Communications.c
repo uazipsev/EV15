@@ -73,12 +73,18 @@ void updateComms() {
         ToSend(BMM_FAULT, faultFlag);
         switch (faultFlag) {
             case 0:
+                LATBbits.LATB0=1;
+                Delay(1);
+                LATBbits.LATB0=0;
                 faultingBattery = 0;
                 break;
             case LOW_VOLTAGE_FLAG:
             case HIGH_TEMPERATURE_FLAG:
             case COMMUNICATIONS_FAULT:
                 ToSend(FAULTINGBATTERY, faultingBattery);
+                LATAbits.LATA1=1;
+                Delay(1);
+                LATAbits.LATA1=0;
             default:
                 break;
         }

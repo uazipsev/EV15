@@ -57,8 +57,10 @@ void PinSetMode(void) {
     TRISAbits.TRISA7 = OUTPUT;
     TRISBbits.TRISB13 = OUTPUT; // RS485 Direction Pin OUTPUT
     LATBbits.LATB13 = 0;
+    //SS CLEAR AND SET
+    TRISAbits.TRISA1=OUTPUT;
+    TRISBbits.TRISB0=OUTPUT;
     
-    //TRISCbits.TRISC7 = 1;
     LATCbits.LATC6=1;
     LATCbits.LATC7=1;
     
