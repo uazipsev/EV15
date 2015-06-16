@@ -332,7 +332,7 @@ void hardwareInit()
   pinMode(pin_fan, OUTPUT);
 
   setupButtons(); //attach interrupts to the buttons
-  
+  factoryReset();
   // setup ADC
   ADMUX = B01000000;  // default to AVCC VRef, ADC Right Adjust, and ADC channel 0 (current)
   ADCSRB = B00000000; // Analog Input bank 1

@@ -6,6 +6,16 @@
 #define HIGH_TEMPERATURE_FLAG 2
 #define COMMUNICATIONS_FAULT 3
 
+#define UART_BUFFER_SIZE 200
+extern struct UART_ring_buff {
+    unsigned char buf[UART_BUFFER_SIZE];
+    int head;
+    int tail;
+    int count;
+};
+
+extern struct UART_ring_buff input_buffer;
+extern void UART_buff_flush(struct UART_ring_buff* _this, const int clearBuffer);
 extern int faultingBattery;
 extern int ADCReadings[4];
 
@@ -23,6 +33,7 @@ void updateComms() {
     checkSlaveCommDirection();
     updateSlaveCommunications();
     if (receiveData()) {
+        UART_buff_flush(&input_buffer,1);
         talkTime = 0;
         COMM_STATE = receiveArray[BMM_COMM_STATE];
         pendingSend = true;

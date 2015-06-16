@@ -8285,12 +8285,12 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pin_manager.c: 25: LATE = 0x00;
 "25
 [e = _LATE -> -> 0 `i `uc ]
-[; ;pin_manager.c: 26: TRISE = 0x04;
+[; ;pin_manager.c: 26: TRISE = 0x05;
 "26
-[e = _TRISE -> -> 4 `i `uc ]
-[; ;pin_manager.c: 27: ANSELE = 0x04;
+[e = _TRISE -> -> 5 `i `uc ]
+[; ;pin_manager.c: 27: ANSELE = 0x05;
 "27
-[e = _ANSELE -> -> 4 `i `uc ]
+[e = _ANSELE -> -> 5 `i `uc ]
 [; ;pin_manager.c: 29: TRISCbits.TRISC6 = 1;
 "29
 [e = . . _TRISCbits 0 6 -> -> 1 `i `uc ]
