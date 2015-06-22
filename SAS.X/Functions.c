@@ -105,6 +105,9 @@ void PinSetMode(void) {
     RS485_1_Port = LISTEN;
     RX1_Pin_Tris = INPUT;
     RX1_Pin_Port = 1;
+    TRISAbits.TRISA0=INPUT;
+    TRISAbits.TRISA1=INPUT;
+    TRISBbits.TRISB2=INPUT;
 
     RS485_1_Port = 0;
     PPSUnLock;

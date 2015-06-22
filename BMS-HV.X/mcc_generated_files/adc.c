@@ -91,54 +91,55 @@ void ADC_ISR(void)
         {
             case 0:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(1);
+              Set_4051(2);
               ADC_StartConversion(Temp1);
               break;
             case 1:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(2);
+              Set_4051(4);
               ADC_StartConversion(Temp1);
               break;
             case 2:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(3);
+              Set_4051(5);
               ADC_StartConversion(Temp1);
               break;
             case 3:
               Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(4);
-              ADC_StartConversion(Temp1);
-              break;
-            case 4:
-              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(5);
-              ADC_StartConversion(Temp1);
-              break;
-            case 5:
-              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(6);
-              ADC_StartConversion(Temp1);
-              break;
-            case 6:
-              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(7);
-              ADC_StartConversion(Temp1);
-              break;
-            case 7:
-              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(0);
-              ADC_StartConversion(Temp1);
-              break;
-            case 8:
-              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
-              Set_4051(1);
-              ADC_StartConversion(Temp2);
-              break;
-            case 9:
-              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
               Temp_Aquire = 0;
               Temp_Done = 1;
+              //ADC_StartConversion(Temp1);
               break;
+//            case 4:
+//              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+//              Set_4051(6);
+//              ADC_StartConversion(Temp1);
+//              break;
+//            case 5:
+//              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+//              Set_4051(6);
+//              ADC_StartConversion(Temp1);
+//              break;
+//            case 6:
+//              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+//              Set_4051(7);
+//              ADC_StartConversion(Temp1);
+//              break;
+//            case 7:
+//              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+//              Set_4051(0);
+//              ADC_StartConversion(Temp1);
+//              break;
+//            case 8:
+//              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+//              Set_4051(1);
+//              ADC_StartConversion(Temp2);
+//              break;
+//            case 9:
+//              Temp_Adc[ADC_Buffer_Point] = ADC_Result;
+//              Temp_Aquire = 0;
+//              Temp_Done = 1;
+//              break;
         }
         ADC_Buffer_Point++;
     }

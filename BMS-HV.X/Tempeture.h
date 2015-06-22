@@ -9,7 +9,7 @@
 #define	TEMPETURE_H
 
 
-
+#define NUM_BATTERIES 4
 extern char Temp_Fault();
 extern void Temp_Read(void);
 extern void Temp_Filter();

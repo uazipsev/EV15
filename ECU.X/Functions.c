@@ -24,6 +24,11 @@ void Setup(void) {
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2
     PLLFBD = 22; // pll multiplier (M) = +2
     CLKDIVbits.PLLPOST = 0; // PLLPOST (N1) 0=/2
+      // Initiate Clock Switch to Primary Oscillator with PLL (NOSC = 0b011)
+    __builtin_write_OSCCONH(0x03);
+    __builtin_write_OSCCONL(OSCCON | 0x01);
+    // Wait for Clock switch to occur
+    while (OSCCONbits.COSC != 0b011);
     while (!OSCCONbits.LOCK); // wait for PLL ready
 
     INTCON1bits.NSTDIS = 1; //No nesting of interrupts
@@ -70,6 +75,7 @@ void Delay(int wait) {
 }
 
 void PinSetMode(void) {
+    TRISBbits.TRISB10=INPUT;
     TRISEbits.TRISE13 = OUTPUT; //Set LED as output
     TRISBbits.TRISB6 = OUTPUT; //Set Brake Light as OUTPUT
     TRISBbits.TRISB5 = OUTPUT; //Set HORN PWM as OUTPUT

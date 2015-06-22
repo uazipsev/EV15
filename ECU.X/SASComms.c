@@ -1,11 +1,13 @@
 #include "SASComms.h"
 
 unsigned int throttle1, throttle2, brake;
+unsigned int t1Raw, t2Raw, bRaw;
 bool receiveCommSAS();
 bool requestSASData();
 bool readyToSendSAS = true;
 bool SAS_COMMS_ERROR = false;
-
+#define THROTTLE_SANITY_CHECK 1
+#define THROTTLE_BRAKE_CHECK  2
 void debugSAS() {
     ToSend2(5, throttle1);
     ToSend2(6, throttle2);
@@ -37,45 +39,53 @@ bool requestSASData() {
     return true;
 }
 
+extern int SAS_FAULT_CONDITION;
 bool checkSASInputs(unsigned int t1, unsigned int t2, unsigned int b) {
-    
-   
+    t1Raw = t1;
+    t2Raw = t2;
+    bRaw = b;
+
     //throttle consistency check
-//    if (!((t1 + (t1 / 10) > t2) && (t1 - (t1 / 10) < t2))) {
-//        return false;
-//    }
-//    //Brake vs. throttle safety
-//    if (((t1 + t2 / 2) > TRIP_THROTTLE) && (b > TRIP_BRAKE)) {
-//        return false;
-//    }
+        if (!(((t1*1.1) > t2) && ((t1 *0.9) < t2))) {
+            SAS_FAULT_CONDITION = THROTTLE_SANITY_CHECK;
+            return false;
+        }
+
     return true;
 }
-void storeSASInputs(){
-    float brakemV, throttle1mV, throttle2mV;
-    
-    throttle1mV = (receiveArray1[THROTTLE1_SAS] / 4095.0)*3300.0;
-    throttle2mV = (receiveArray1[THROTTLE2_SAS] / 4095.0)*3300.0;
-    brakemV     = (receiveArray1[BRAKE_SAS] / 4095.0)*3300.0;
 
-    if (throttle1mV < 2200.0 && throttle1mV > 1200.0){ 
-        throttle1 = (throttle1mV-1300.0) * (100.0 / 800.0);
-        if(throttle1<0) throttle1=0;
-        if(throttle1>100) throttle1=100;
+void storeSASInputs() {
+    if (t1Raw < 2650 && t1Raw > 1575) {
+        throttle1 = (t1Raw - 1575) * (100.0 / 1075);
+        if (throttle1 < 0) throttle1 = 0;
+        if (throttle1 > 100) throttle1 = 100;
     } else throttle1 = 0;
-    if (brakemV < 2700.0 && brakemV > 1000.0) {
-        brake = (brakemV-1200.0) * (100.0 / 1650.0);
-        if(brake<0) brake=0;
-        if(brake>100) brake=100;
+    if (t2Raw < 2650 && t2Raw > 1650) {
+        throttle2 = (t2Raw - 1575) * (100.0 / 1075);
+        if (throttle2 < 0) throttle2 = 0;
+        if (throttle2 > 100) throttle2 = 100;
+    } else throttle2 = 0;
+    if (bRaw < 745 && bRaw > 510) {
+        brake = (bRaw - 510) * (100.0 / 235);
+        if (brake < 0) brake = 0;
+        if (brake > 100) brake = 100;
     } else brake = 0;
-    
+    //    //Brake vs. throttle safety
+        if ((((throttle1 + throttle2) / 2) > TRIP_THROTTLE) && (brake > TRIP_BRAKE)) {
+            SAS_FAULT_CONDITION = THROTTLE_BRAKE_CHECK;
+            throttle1=0;
+            throttle2=0;
+            brake=0;
+        }
 }
 
 bool receiveCommSAS() {
     if (receiveData1()) {
         if (receiveArray1[RESPONSE_ADDRESS] == SAS_ADDRESS) {
-            if (checkSASInputs(throttle1, throttle2, brake)) {
-                storeSASInputs();                
+            if (checkSASInputs(receiveArray1[THROTTLE1_SAS], receiveArray1[THROTTLE2_SAS], receiveArray1[BRAKE_SAS])) {
+                storeSASInputs();
             }
+
             readyToSendSAS = true;
             SASTimer = 0;
             return true;

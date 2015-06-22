@@ -65,9 +65,10 @@ enum ECUstates {
     booting = 1,
     running = 2,
     stopping = 3,
-    fault = 4,
-    override = 5,
-    NUM_STATES = 6
+    softFault=4,
+    fault = 5,
+    override = 6,
+    NUM_STATES = 7
 };
 #ifdef	__cplusplus
 }

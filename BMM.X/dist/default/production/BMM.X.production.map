@@ -689,21 +689,21 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0x65e3
+.debug_info       0x000000       0x64df
  *(.debug_info)
- .debug_info      0x000000         0xa5 build/default/production/ConfigBits.o
- .debug_info      0x0000a5        0xcd7 build/default/production/FastTransfer.o
- .debug_info      0x000d7c       0x1315 build/default/production/Function.o
- .debug_info      0x002091        0x3e3 build/default/production/main.o
- .debug_info      0x002474        0x513 build/default/production/pwm.o
- .debug_info      0x002987        0x364 build/default/production/I2C.o
- .debug_info      0x002ceb        0xb74 build/default/production/UART.o
- .debug_info      0x00385f        0x7f8 build/default/production/Timers.o
- .debug_info      0x004057        0x713 build/default/production/Communications.o
- .debug_info      0x00476a        0xc0c build/default/production/UART1.o
- .debug_info      0x005376        0xb7c build/default/production/FastTransfer1.o
- .debug_info      0x005ef2        0x5c2 build/default/production/SlaveCommunications.o
- .debug_info      0x0064b4        0x12f build/default/production/ADC.o
+ .debug_info      0x000000         0x91 build/default/production/ConfigBits.o
+ .debug_info      0x000091        0xcc3 build/default/production/FastTransfer.o
+ .debug_info      0x000d54       0x1301 build/default/production/Function.o
+ .debug_info      0x002055        0x3cf build/default/production/main.o
+ .debug_info      0x002424        0x4ff build/default/production/pwm.o
+ .debug_info      0x002923        0x350 build/default/production/I2C.o
+ .debug_info      0x002c73        0xb60 build/default/production/UART.o
+ .debug_info      0x0037d3        0x7e4 build/default/production/Timers.o
+ .debug_info      0x003fb7        0x6ff build/default/production/Communications.o
+ .debug_info      0x0046b6        0xbf8 build/default/production/UART1.o
+ .debug_info      0x0052ae        0xb68 build/default/production/FastTransfer1.o
+ .debug_info      0x005e16        0x5ae build/default/production/SlaveCommunications.o
+ .debug_info      0x0063c4        0x11b build/default/production/ADC.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000        0xf79

@@ -8486,7 +8486,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 2: extern char Temp_Aquire;
 [; ;Global.h: 3: extern char Volt_Aquire;
 [; ;Global.h: 4: extern long int Battery_Adc[10];
-[; ;Global.h: 5: extern int Temp_Adc[10];
+[; ;Global.h: 5: extern int Temp_Adc[4];
 [; ;Global.h: 6: extern int ADC_Buffer_Point;
 [; ;Global.h: 7: extern int Volt_Done;
 [; ;Global.h: 8: extern int Temp_Done;

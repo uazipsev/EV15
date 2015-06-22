@@ -44,7 +44,7 @@ void initADC(void) {
 }
 
 int ADC = 0;
-int ADCPorts[3] = {1, 2, 5};
+int ADCPorts[3] = {0, 1, 4};
 
 void __attribute__((interrupt, no_auto_psv)) _ADC1Interrupt(void) {
     if (!ADCDataReady) {
@@ -72,8 +72,8 @@ void SetADC(void) {
 }
 
 void handleADCValues() {
-    throttle1 = ADCbuffer[0];
-    throttle2 = ADCbuffer[1];
-    brake     = ADCbuffer[2];
-    
+    throttle1 = ((throttle1 * 3) + ADCbuffer[0]) / 4;
+    throttle2 = ((throttle2 * 3) + ADCbuffer[1]) / 4;
+    brake = ((brake * 3) + ADCbuffer[2]) / 4;
+
 }

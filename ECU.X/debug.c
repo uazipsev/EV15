@@ -6,6 +6,12 @@
 #define LOW_VOLTAGE_FLAG 1
 #define HIGH_TEMPERATURE_FLAG 2
 #define COMMUNICATIONS_FAULT 3
+
+
+//SAS
+#define THROTTLE_SANITY_CHECK 1
+#define THROTTLE_BRAKE_CHECK  2
+
 enum BMM {
     BATTERY_FAULT = 0,
     BATTERY_VOLTS = 1,
@@ -26,7 +32,7 @@ struct commsStates {
     int PDU_SEND;
 };
 extern struct commsStates comms;
-
+extern unsigned int t1Raw, t2Raw, bRaw;
 enum debugStates debugState;
 extern int DDS_FAULT_CONDITION, MCS_FAULT_CONDITION, SAS_FAULT_CONDITION, BMM_FAULT_CONDITION, PDU_FAULT_CONDITION, ECU_FAULT_CONDITION;
 extern int faultingBattery;
@@ -69,6 +75,10 @@ void handleDebugRequests() {
                     lastDebugState = debugState;
                     comms.BMM_SEND = BATTERY_FAULT;
                 }
+                printf("\n-----Throttle Brake Raw Debug----\n");
+                printf("Throttle1:      %d\n", t1Raw);
+                printf("Throttle2:      %d\n", t2Raw);
+                printf("Brake:          %d\n\n", bRaw);
                 printf("\n-----Throttle Brake Signal Debug----\n");
                 printf("Throttle1:      %d\n", throttle1);
                 printf("Throttle2:      %d\n", throttle2);
@@ -141,20 +151,27 @@ void handleDebugRequests() {
                             break;
                         case LOW_VOLTAGE_FLAG:
                             printf("Low Voltage Fault on BMM\n");
-                            printf("Faulting Battery is: %d\n",faultingBattery);
+                            printf("Faulting Battery is: %d\n", faultingBattery);
                             break;
                         case HIGH_TEMPERATURE_FLAG:
                             printf("High Temperature Fault on BMM\n");
-                            printf("Faulting Battery is: %d\n",faultingBattery);
+                            printf("Faulting Battery is: %d\n", faultingBattery);
                             break;
                         case COMMUNICATIONS_FAULT:
                             printf("Communications Fault on BMM\n");
-                            printf("Faulting Module is: %d\n",faultingBattery);
+                            printf("Faulting Module is: %d\n", faultingBattery);
                             break;
                     }
                 }
                 if (SAS_FAULT_CONDITION) {
 
+                    switch (SAS_FAULT_CONDITION){
+                        case THROTTLE_SANITY_CHECK:
+
+                            break;
+                        case THROTTLE_BRAKE_CHECK:
+                            break;
+                    }
                 }
                 if (DDS_FAULT_CONDITION) {
 
@@ -163,7 +180,6 @@ void handleDebugRequests() {
 
                 }
                 if (ECU_FAULT_CONDITION) {
-                        
                 }
                 break;
             case NUM_DEBUG_STATES:

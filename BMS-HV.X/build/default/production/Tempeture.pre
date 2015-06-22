@@ -1,11 +1,18 @@
 
 # 1 "Tempeture.c"
 
+# 13 "Tempeture.h"
+extern char Temp_Fault();
+extern void Temp_Read(void);
+extern void Temp_Filter();
+extern void Temp_Convert();
+extern float Tempeture_Get(int channelnum);
+
 # 2 "Global.h"
 extern char Temp_Aquire;
 extern char Volt_Aquire;
 extern long int Battery_Adc[10];
-extern int Temp_Adc[10];
+extern int Temp_Adc[4];
 extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
@@ -10545,20 +10552,18 @@ extern double fmod(double, double);
 extern double trunc(double);
 extern double round(double);
 
-# 8 "Tempeture.c"
-float Temp_DegF[10] = {70,70,70,70,70,70,70,70,70,70};
-float TmpTemp_DegF[10] = 0;
-float PrevTemp_DegF[10] = 0;
+# 7 "Tempeture.c"
+extern void Set_4051(int Channel);
+float Temp_DegF[4] = {70, 70, 70, 70};
+float TmpTemp_DegF[4] = 0;
+float PrevTemp_DegF[4] = 0;
 
 # 16
-char Temp_Fault()
-{
+char Temp_Fault() {
 
 char fault = 0;
-for(int i = 0;i<9;i++)
-{
-if (60.5 > Temp_DegF[i])
-{
+for (int i = 0; i < 4; i++) {
+if (60.5 > Temp_DegF[i]) {
 fault = 1;
 }
 }
@@ -10566,52 +10571,46 @@ fault = 1;
 return fault;
 }
 
-# 36
-void Temp_Read()
-{
+# 32
+void Temp_Read() {
 
 ADC_Buffer_Point = 0;
 Temp_Aquire = 1;
+Set_4051(1);
 ADCON1 = 0x80;
 ADC_StartConversion(Temp1);
 }
 
-# 49
-void Temp_Filter()
-{
+# 45
+void Temp_Filter() {
 
 int x;
-for(x = 0; x < 10; x++)
-{
-Temp_DegF[x] = (0.88*TmpTemp_DegF[x] + ((1- 0.88)*PrevTemp_DegF[x]));
+for (x = 0; x < 4; x++) {
+Temp_DegF[x] = (0.88 * TmpTemp_DegF[x] + ((1 - 0.88) * PrevTemp_DegF[x]));
 }
-for(x = 0; x < 10; x++)
-{
+for (x = 0; x < 4; x++) {
 PrevTemp_DegF[x] = Temp_DegF[x];
 }
 }
 
-# 68
-void Temp_Convert()
-{
+# 61
+void Temp_Convert() {
 int x;
 float steinhart;
-for(x = 0; x < 10; x++)
-{
+for (x = 0; x < 4; x++) {
 steinhart = (10000 / ((1023 / Temp_Adc[x]) - 1)) / 10000;
 steinhart = log(steinhart);
 steinhart /= 3950;
 steinhart += 1.0 / (25 + 273.15);
 steinhart = 1.0 / steinhart;
 steinhart -= 273.15;
-steinhart = (steinhart*1.800) + 32.00;
+steinhart = (steinhart * 1.800) + 32.00;
 TmpTemp_DegF[x] = steinhart;
 }
 Temp_Filter();
 }
 
-# 91
-float Tempeture_Get(int channelnum)
-{
+# 82
+float Tempeture_Get(int channelnum) {
 return Temp_DegF[channelnum];
 }

@@ -22,7 +22,11 @@ struct powerStates powerSet;
 bool bootSequenceCompleted();
 
 bool checkForBootupTimeout();
-bool faultChecker();
+int faultChecker();
+#define HARD_FAULT 1
+#define SOFT_FAULT 2
+#define THROTTLE_SANITY_CHECK 1
+#define THROTTLE_BRAKE_CHECK  2
 
 void updateECUState() {
     static enum ECUstates previousState = NUM_STATES;
@@ -78,10 +82,13 @@ void updateECUState() {
                 previousState = currentState;
                 carActive = true;
             }
-
-            if (faultChecker()) {
+            int fCheck = faultChecker();
+            if (fCheck == HARD_FAULT) {
                 currentState = fault;
+            } else if (fCheck == SOFT_FAULT) {
+                currentState = softFault;
             }
+
 
             if (seekButtonChange()) {
                 if (!buttonArray[START_BUTTON]) {
@@ -95,29 +102,64 @@ void updateECUState() {
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
-                changeLEDState(IMD_INDICATOR, 1);
-                changeLEDState(BMS_LED, 1);
+                changeLEDState(ACTIVE_LED, 0);
+                powerSet.DDS = true;
+                powerSet.SAS = true;
+                powerSet.BMM = true;
+                powerSet.MCS = false;
                 carActive = false;
-                BootTimer = 0;
+                SS_RELAY = 0;
             }
             if (BootTimer > 300) {
                 currentState = stopped;
             }
 
             break;
+            //RESUME OPERATION AFTER FAULT CLEARS
+        case softFault:
+            //Means this is your first time in this state
+            if (previousState != currentState) {
+                previousState = currentState;
+                carActive = false;
+            }
+
+
+
+            //EXIT THE FAULT MODE BY PRESSING BUTTON
+            switch (seekButtonChange()) {
+                case START_BUTTON:
+                    if (!buttonArray[START_BUTTON]) {
+                        currentState = stopping;
+                    }
+                    break;
+            }
+            break;
             //HANDLE THE FAULTS THAT BROUGHT YOU HERE
         case fault:
             //Means this is your first time in this state
             if (previousState != currentState) {
                 previousState = currentState;
+
+                changeLEDState(ACTIVE_LED, 0);
+                powerSet.DDS = true;
+                powerSet.SAS = true;
+                powerSet.BMM = true;
+                powerSet.MCS = false;
+                carActive = false;
+                SS_RELAY = 0;
             }
 
             debugState = FAULT_RECOVERY;
 
-            if (seekButtonChange()) {
-                changeLEDState(IMD_INDICATOR, !buttonArray[DEBUG_BUTTON]);
-                changeLEDState(ACTIVE_LED, !buttonArray[START_BUTTON]);
+            //EXIT THE FAULT MODE BY PRESSING BUTTON
+            switch (seekButtonChange()) {
+                case START_BUTTON:
+                    if (!buttonArray[START_BUTTON]) {
+                        currentState = stopping;
+                    }
+                    break;
             }
+
             break;
         case override:
             //Means this is your first time in this state
@@ -147,15 +189,26 @@ void updateECUState() {
     }
 }
 
-bool faultChecker() {
-    if (MCS_FAULT_CONDITION || DDS_FAULT_CONDITION || PDU_FAULT_CONDITION || SAS_FAULT_CONDITION || BMM_FAULT_CONDITION || ECU_FAULT_CONDITION)
+int faultChecker() {
+    if (MCS_FAULT_CONDITION || DDS_FAULT_CONDITION || PDU_FAULT_CONDITION || SAS_FAULT_CONDITION || BMM_FAULT_CONDITION || ECU_FAULT_CONDITION) {
+        
+        
+        
+        
+        
+        if (SAS_FAULT_CONDITION == THROTTLE_BRAKE_CHECK) {
+            return SOFT_FAULT;
+        } else if (SAS_FAULT_CONDITION == THROTTLE_SANITY_CHECK) {
+            return SOFT_FAULT;
+        }
+
         return true;
-    else
+    } else
         return false;
 }
 
 bool bootSequenceCompleted() {
-    if ((BootTimer > 3000) && comms.MCS) return true;
+    if ((BootTimer > 3000) && comms.MCS && PORTBbits.RB10 ) return true;
     else return false;
 }
 

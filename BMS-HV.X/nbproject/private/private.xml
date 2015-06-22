@@ -1,17 +1,7 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/mcc_generated_files/adc.c</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/Bypass.c</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/Define.h</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/mcc_generated_files/adc.h</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/mcc_generated_files/pin_manager.h</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/Main.c</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/Battery.c</file>
-            <file>file:/C:/Users/User/Desktop/EV2015%20Repo/trunk/BMS-HV.X/mcc_generated_files/pin_manager.c</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
