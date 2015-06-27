@@ -1,0 +1,10 @@
+fuse*rotated90 0.110 0.110
+fuse*rotated90 0.110 0.850
+fuse*rotated90 1.410 0.110
+fuse*rotated90 1.410 0.850
+fuse*rotated90 0.110 1.590
+fuse*rotated90 1.410 1.590
+fuse*rotated90 0.110 2.330
+fuse*rotated90 1.410 2.330
+fuse*rotated90 0.110 3.070
+fuse*rotated90 1.410 3.070

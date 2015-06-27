@@ -1,0 +1,53 @@
+Partlist
+
+Exported from TSAL_rev01.sch at 1/11/15 2:55 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part     Value           Device                 Package   Library                    Sheet
+
+C1       1uF             1.0UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C2       2.2uF           2.2UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C3       1uF             1.0UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C4       2.2uF           2.2UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C5       47uF            CAP0805                0805      SparkFun-Capacitors        1
+C6       10uF            CAP0805                0805      SparkFun-Capacitors        1
+C7       10uF            CAP0805                0805      SparkFun-Capacitors        1
+C8                       CAP_POL6032            EIA6032   SparkFun-Capacitors        1
+C9                       CAP_POL1206            EIA3216   SparkFun-Capacitors        1
+C10      .1uF            CAP0805                0805      SparkFun-Capacitors        1
+D1       MBRA140         DIODE-SCHOTTKY-MBRA140 SMA-DIODE SparkFun-DiscreteSemi      1
+D2                       LED                    LED-SM    FSAE Eletric               1
+D3                       LED                    LED-SM    FSAE Eletric               1
+D4                       LED                    LED-SM    FSAE Eletric               1
+D5                       LED                    LED-SM    FSAE Eletric               1
+D6                       LED                    LED-SM    FSAE Eletric               1
+D7                       LED                    LED-SM    FSAE Eletric               1
+D8                       LED                    LED-SM    FSAE Eletric               1
+D9                       LED                    LED-SM    FSAE Eletric               1
+D10      MBRA140         DIODE-SCHOTTKY-MBRA140 SMA-DIODE SparkFun-DiscreteSemi      1
+D11                      LED                    LED-SM    FSAE Eletric               1
+D12                      LED                    LED-SM    FSAE Eletric               1
+D13                      LED                    LED-SM    FSAE Eletric               1
+D14                      LED                    LED-SM    FSAE Eletric               1
+D15                      LED                    LED-SM    FSAE Eletric               1
+D16                      LED                    LED-SM    FSAE Eletric               1
+D17                      LED                    LED-SM    FSAE Eletric               1
+D18                      LED                    LED-SM    FSAE Eletric               1
+D19      TVS             TVS                    SMA-DIODE SparkFun-DiscreteSemi      1
+D20      30v             DIODE-ZENERSMB         SMB-DIODE SparkFun-DiscreteSemi      1
+JP1      M02-JST-2MM-SMT M02-JST-2MM-SMT        JST-2-SMD SparkFun-Connectors        1
+JP2      M02LOCK         M02LOCK                1X02_LOCK SparkFun-Connectors        1
+L1       33uH            INDUCTORBOURNS_SRN6045 SRN6045   SparkFun-Passives          1
+L2       33uH            INDUCTORBOURNS_SRN6045 SRN6045   SparkFun-Passives          1
+R1       5R              0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+R2       5R              0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+R3       10k             0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+R4       1k              0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+RV1                      POTTRIM                TRIM_POT  SparkFun-Electromechanical 1
+U1                       AL8805                 SOT23-5   SparkFun-PowerIC           1
+U2                       AL8805                 SOT23-5   SparkFun-PowerIC           1
+U3       LM2931D-5.0R2G  LM2931                 SO08      SparkFun-PowerIC           1
+U4                       NE555D                 SO08      SparkFun-AnalogIC          1

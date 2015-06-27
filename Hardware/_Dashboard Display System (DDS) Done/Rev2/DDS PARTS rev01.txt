@@ -1,0 +1,84 @@
+Partlist
+
+Exported from DDS_rev01.brd at 1/17/2015 7:30:55 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part     Value           Package            Library               Position (mil)        Orientation
+
+C1       .1uF            C0805              adafruit              (480 2860)            R0
+C2       .1uF            C0805              adafruit              (765 2175)            MR0
+C3       .1uF            C0805              adafruit              (910 2360)            MR180
+C4       10uF            POLC1206           RJ's_parts            (2310 2540)           R180
+C5       10uF            POLC1206           RJ's_parts            (2635 520)            R180
+C6       1uF             C0805              adafruit              (450 3070)            MR180
+C7                       EIA7343            SparkFun-Capacitors   (2740 2920)           R180
+C8       100pF           C0805              adafruit              (270 2740)            MR0
+C9       .1uF            C0805              adafruit              (442 2818)            MR180
+C10      .1uF            C0805              adafruit              (1857 1837)           MR0
+C11      10uF            POLC1206           RJ's_parts            (1836 1941)           MR0
+C40      .1uF            C0805              adafruit              (1946 3230.5)         R270
+C80      10uF            POLC1206           RJ's_parts            (2130 2270)           R180
+CASE1    581-01-48-009   581-01-48-009      FSAE Eletric          (1500 3700)           R0
+D1       1N4001          SOD123             diode                 (2620 3160)           R90
+D2       MM5Z30          SOD-523F           EmEndev               (2750 3210)           R180
+IC1      7805DT          TO252              adafruit              (2690 2630)           R270
+IC2      7805DT          TO252              adafruit              (2680 275)            R90
+JP3                      1X05_LOCK_LONGPADS SparkFun-Connectors   (125 2060)            R90
+JP19     FTDI_DEVICE     FTDI_DEVICE_SIDE   SparkFun-Connectors   (2840 820)            R270
+L1       FB              0603               EmEndev               (2620 3340)           R270
+L2       FB              0603               EmEndev               (2880 3330)           R270
+LED1                     CHIP-LED0805       adafruit              (550 2030)            R0
+LED3                     CHIP-LED0805       adafruit              (2033 2578)           R270
+LED4                     CHIP-LED0805       led                   (2150 1970)           R180
+LED5                     CHIP-LED0805       led                   (2050 1970)           R0
+LED7                     CHIP-LED0805       led                   (1540 1690)           R180
+LED8                     CHIP-LED0805       led                   (1460 1690)           R180
+LED9                     CHIP-LED0805       adafruit              (2905 3075)           R270
+LED10                    CHIP-LED0805       adafruit              (1910 1960)           R180
+Q1       Bss123          SOT23              SparkFun-DiscreteSemi (800 3250)            R0
+Q2       Bss123          SOT23              SparkFun-DiscreteSemi (950 3250)            R0
+Q3       Bss123          SOT23              SparkFun-DiscreteSemi (1100 3250)           R0
+Q4       Bss123          SOT23              SparkFun-DiscreteSemi (1400 3250)           R0
+Q5       Bss123          SOT23              SparkFun-DiscreteSemi (1250 3250)           R0
+Q6       Bss123          SOT23              SparkFun-DiscreteSemi (650 3250)            R0
+Q7       BS123           SOT23              SparkFun-DiscreteSemi (1390 1360)           R0
+Q8       BS123           SOT23              SparkFun-DiscreteSemi (1620 1360)           R0
+R1       1k              R0805              adafruit              (760 3030)            R270
+R2       2k              R0805              adafruit              (1420 2235)           R270
+R3       1k              R0805              adafruit              (910 3030)            R270
+R4       1k              R0805              adafruit              (1060 3030)           R270
+R5       1k              R0805              adafruit              (1360 3030)           R270
+R6       1k              R0805              adafruit              (1210 3030)           R270
+R7       2k              R0805              adafruit              (1275 2235)           R270
+R8       10k             0805               SparkFun-Passives     (275 2115)            MR90
+R9       1k              R0805              adafruit              (610 3025)            R270
+R10      1k              R0805              adafruit              (475 2030)            R90
+R11      330             0805               SparkFun-Passives     (2150 2110)           R90
+R12      10k             R0805              adafruit              (315 3110)            MR90
+R13      330             0805               SparkFun-Passives     (2050 2110)           R270
+R14      100k            0805               SparkFun-Passives     (2360 1425)           MR270
+R15      10k             R0805              adafruit              (265 2655)            MR180
+R16      10k             0805               SparkFun-Passives     (1460 1520)           R270
+R17      10k             0805               SparkFun-Passives     (1390 1240)           R180
+R18      10k             0805               SparkFun-Passives     (1540 1520)           R270
+R19      10k             0805               SparkFun-Passives     (1620 1240)           R180
+R20      1k              0805               SparkFun-Passives     (1540 1840)           R90
+R21      1k              0805               SparkFun-Passives     (1460 1840)           R90
+R22      499             R0805              adafruit              (1910 2115)           R90
+R23      1K              R0805              adafruit              (1934 2820)           R270
+R24      1k              R0805              adafruit              (2031 2671)           R0
+R25      1k              R0805              adafruit              (2034 2819)           R270
+R32      120             R0805              adafruit              (2482 3813)           MR270
+R43      3.3k            R0805              adafruit              (2745 3075)           R180
+RX2      RED             CHIPLED_0805       adafruit              (1934 2973)           R0
+TX2      GREEN           CHIPLED_0805       adafruit              (2036 2969)           R0
+U$2      BLUETOOTH-RN41" RN41               SparkFun-RF           (2170 1480)           R180
+U2       SN75HVD08DR     SO-8               FSAE Eletric          (2180 3173)           R0
+U4       NCP1117DT       DPAK               FSAE Eletric          (2660 2240)           R180
+U5       OPA344          SOT23-5            SparkFun-AnalogIC     (270 2910)            MR180
+U7       MAX6818         SSOP-20            NASA_LIB              (270 3080)            R180
+U8       PIC18F45K22     TQFP-44            FSAE Eletric          (825 2310)            R270
+V1       30Vdc           0603               EmEndev               (2740 3300)           R180

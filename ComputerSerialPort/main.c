@@ -17,7 +17,7 @@
 #include    <time.h>
 //#include  <windef.h>
 
-#define CommPort "COM3"
+#define CommPort "COM1"
 
 #define polynomial 0x8C  //polynomial used to calculate crc
 HANDLE hSerial;

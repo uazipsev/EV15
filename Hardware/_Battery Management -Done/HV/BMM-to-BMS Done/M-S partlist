@@ -1,0 +1,98 @@
+Partlist
+
+Exported from M-S (rev 01).brd at 6/19/2015 2:21:22 AM
+
+EAGLE Version 7.2.0 Copyright (c) 1988-2014 CadSoft
+
+Assembly variant: 
+
+Part     Value            Package            Library               Position (mm)         Orientation
+
+C1       0.1uF            C0805              rcl                   (12.7 54.356)         MR0
+C2       0.1uF            C0805              rcl                   (16.764 43.688)       MR0
+C3       100uF            C/6032-28W         rcl                   (8.128 71.374)        R180
+C4       10uF             C050-030X075       rcl                   (45.72 2.794)         R180
+C5       10uF             C0805              rcl                   (25.908 -13.716)      R270
+C6       10uF             C0805              rcl                   (25.908 -4.572)       MR270
+C7       0.1uF            0805               SparkFun-Passives     (16.891 0.508)        R270
+C9       10uF             EIA3216            SparkFun-Capacitors   (38.1 23.368)         R0
+C10      10uF             EIA3216            SparkFun-Capacitors   (38.1 30.988)         R0
+C14      10uF             EIA3216            SparkFun-Capacitors   (23.4188 22.987)      R0
+C15      0.1uF            0805               SparkFun-Capacitors   (7.62 21.336)         R270
+C16      10uF             EIA3216            SparkFun-Capacitors   (11.43 20.828)        R90
+C17      0.1uF            0805               SparkFun-Capacitors   (25.146 35.6362)      MR0
+C20      10uF             EIA3216            SparkFun-Capacitors   (25.2222 33.02)       MR180
+C25      0.1uF            C0805              rcl                   (50.8254 57.9628)     MR270
+C26      100uF            C/6032-28W         rcl                   (45.72 69.088)        R90
+C27      0.1uF            0805               SparkFun-Capacitors   (23.2918 20.4724)     R180
+D1       5v               SOD-323@1          SparkFun-DiscreteSemi (18.288 -7.874)       R270
+GN       M01PTH           1X01               SparkFun-Connectors   (52.578 46.228)       R0
+IC1      LM358            SO08               SparkFun-AnalogIC     (21.082 -1.524)       R0
+JP1                       MOLEX-1X4_LOCK     SparkFun-Connectors   (6.35 60.198)         R90
+JP2                       MOLEX-1X4_LOCK     SparkFun-Connectors   (6.35 48.768)         R90
+JP3                       MOLEX-1X3_LOCK     SparkFun-Connectors   (6.35 30.988)         R270
+JP4      LOAD             MOLEX-1X2_LOCK     SparkFun-Connectors   (23.114 14.7066)      R0
+JP5      M02POLAR_LOCK    MOLEX-1X2_LOCK     SparkFun-Connectors   (12.192 1.524)        R90
+JP6      M02POLAR_LOCK    MOLEX-1X2_LOCK     SparkFun-Connectors   (11.684 -4.826)       R270
+JP7      SDG              1X03_LOCK_LONGPADS SparkFun-Connectors   (45.72 44.958)        R90
+JP8      OUT              MOLEX-1X2_LOCK     SparkFun-Connectors   (52.07 33.528)        R0
+JP9      M02POLAR_LOCK    MOLEX-1X2_LOCK     SparkFun-Connectors   (11.684 -11.938)      R270
+JP10     Battery          MOLEX-1X2_LOCK     SparkFun-Connectors   (54.61 25.908)        R180
+JP11     BPACK            MOLEX-1X2_LOCK     SparkFun-Connectors   (52.07 18.288)        R0
+JP12                      MOLEX-1X4_LOCK     SparkFun-Connectors   (52.07 71.628)        R270
+JP13     M02POLAR_LOCK    MOLEX-1X2_LOCK     SparkFun-Connectors   (49.022 -5.334)       R90
+JP14     LOAD             MOLEX-1X2_LOCK     SparkFun-Connectors   (52.07 10.668)        R0
+JP15     M02POLAR_LOCK    MOLEX-1X2_LOCK     SparkFun-Connectors   (45.339 77.089)       R0
+JP17                      MOLEX-1X3_LOCK     SparkFun-Connectors   (6.35 39.878)         R270
+LED4     Green            CHIPLED_0805       adafruit              (54.737 51.5366)      R180
+Q1       MMBT2222A        SOT23              SparkFun-DiscreteSemi (18.288 -13.462)      R90
+R1       175k             1206               SparkFun-Passives     (48.26 33.528)        R0
+R2       175k             1206               SparkFun-Passives     (48.26 25.908)        R0
+R3       2.056k           0805               SparkFun-Passives     (28.702 -7.366)       R0
+R4       18.2k            0805               SparkFun-Passives     (28.702 -5.588)       R0
+R5       1k               0805               SparkFun-Passives     (9.906 5.334)         MR90
+R6       377              0805               SparkFun-Passives     (28.448 5.08)         R0
+R7       18.2k            0805               SparkFun-Passives     (28.448 7.366)        R0
+R8       2k               0805               SparkFun-Passives     (20.066 -7.62)        R270
+R9       10k              0805               SparkFun-Passives     (22.606 -9.398)       R0
+R10      1k               0805               SparkFun-Passives     (22.606 -7.112)       R180
+R11      1k               0805               SparkFun-Passives     (16.129 -4.953)       R270
+R12      2k               0805               SparkFun-Passives     (24.892 0)            R270
+R13      2k               0805               SparkFun-Passives     (24.892 3.302)        R270
+R15      10k              0805               SparkFun-Passives     (21.844 -13.462)      R270
+R25      DNP              R0805              adafruit              (38.1 64.008)         MR270
+R28      1k               R0805              adafruit              (54.6862 56.4642)     R270
+R30      1K               R0805              adafruit              (46.99 62.738)        MR0
+R31      1k               R0805              adafruit              (51.308 53.8988)      R0
+R33      120              R0805              adafruit              (49.53 67.818)        MR90
+R34      175k             1206               SparkFun-Passives     (43.18 33.528)        R0
+R35      2k               1206               SparkFun-Passives     (38.1 33.528)         R0
+R36      175k             1206               SparkFun-Passives     (43.18 25.908)        R0
+R37      2k               1206               SparkFun-Passives     (38.1 25.908)         R0
+R40      200k             0805               SparkFun-Passives     (34.1122 10.9982)     R0
+R41      5k               0805               SparkFun-Passives     (46.482 10.668)       R0
+R42      2k               0805               SparkFun-Passives     (25.1968 35.814)      R90
+R44      2k               0805               SparkFun-Passives     (27.2288 35.814)      R90
+R45      30.6k            0805               SparkFun-Passives     (25.1968 25.9842)     R270
+R46      10k              0805               SparkFun-Passives     (24.2824 28.3718)     R0
+R47      5k               0805               SparkFun-Passives     (46.482 18.288)       R0
+R48      200k             0805               SparkFun-Passives     (34.036 18.6182)      R0
+R49      1K               R0805              adafruit              (13.716 59.182)       MR0
+R50      5K               R0805              adafruit              (35.56 54.356)        MR270
+R51      DNP              R0805              adafruit              (38.1 54.356)         MR270
+RX3      RED              CHIPLED_0805       adafruit              (46.99 61.468)        R90
+TX3      GREEN            CHIPLED_0805       adafruit              (46.5074 53.8988)     R90
+U$3      TCMT1103-OPTO    SSOP-4             SparkFun-DiscreteSemi (27.94 58.928)        MR180
+U$11     TCMT1103-OPTO    SSOP-4             SparkFun-DiscreteSemi (12.954 10.922)       R90
+U1       ISL83077         SO08               NASA_LIB              (15.494 50.038)       MR270
+U2       LR8              DPAK               FSAE Eletric          (33.528 0.508)        R90
+U3       ISO7221ADR       SOIC-8             Gasbarre              (27.813 66.802)       MR90
+U6       LR8              DPAK               FSAE Eletric          (33.528 -12.192)      R90
+U7       SN75HVD08DR      SO-8               FSAE Eletric          (48.26 57.658)        R270
+U8       ISO7221ADR       SOIC-8             Gasbarre              (27.94 50.038)        MR90
+U10      HV7802           MSOP-8             FSAE Eletric          (39.37 18.288)        R90
+U11      HV7802           MSOP-8             FSAE Eletric          (39.37 10.668)        R90
+U13      SSTW003A0A41-SRZ SSTW003A0A41-SRZ   FSAE Eletric          (27.94 58.928)        R0
+U17      ADS1015          MSOP-10            NASA_LIB              (27.8384 30.8864)     R0
+U18      ADM3260          SSOP-20            FSAE Eletric          (17.78 28.448)        R0
+V+       M01PTH           1X01               SparkFun-Connectors   (54.61 60.198)        R270

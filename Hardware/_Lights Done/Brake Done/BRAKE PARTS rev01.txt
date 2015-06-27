@@ -1,0 +1,58 @@
+Partlist
+
+Exported from Brake_rev01.sch at 1/12/15 3:03 PM
+
+EAGLE Version 6.5.0 Copyright (c) 1988-2013 CadSoft
+
+Assembly variant: 
+
+Part     Value           Device                 Package   Library                    Sheet
+
+C1       1uF             1.0UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C3       1uF             1.0UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C7       1uF             1.0UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C8       2.2uF           2.2UF50V10%(1206)      1206      SparkFun-Capacitors        1
+C11      10uF            CAP0805                0805      SparkFun-Capacitors        1
+C12                      CAP_POL6032            EIA6032   SparkFun-Capacitors        1
+C13                      CAP_POL1206            EIA3216   SparkFun-Capacitors        1
+D1       MBRA140         DIODE-SCHOTTKY-MBRA140 SMA-DIODE SparkFun-DiscreteSemi      1
+D2       MBRA140         DIODE-SCHOTTKY-MBRA140 SMA-DIODE SparkFun-DiscreteSemi      1
+D3       TVS             TVS                    SMA-DIODE SparkFun-DiscreteSemi      1
+D4       30v             DIODE-ZENERSMB         SMB-DIODE SparkFun-DiscreteSemi      1
+D12      MBRA140         DIODE-SCHOTTKY-MBRA140 SMA-DIODE SparkFun-DiscreteSemi      1
+JP1      M02-JST-2MM-SMT M02-JST-2MM-SMT        JST-2-SMD SparkFun-Connectors        1
+L1       33uH            INDUCTORBOURNS_SRN6045 SRN6045   SparkFun-Passives          1
+L2       33uH            INDUCTORBOURNS_SRN6045 SRN6045   SparkFun-Passives          1
+L4       33uH            INDUCTORBOURNS_SRN6045 SRN6045   SparkFun-Passives          1
+LED1                     LED5MM                 LED5MM    SparkFun-LED               1
+LED2                     LED5MM                 LED5MM    SparkFun-LED               1
+LED3                     LED5MM                 LED5MM    SparkFun-LED               1
+LED4                     LED5MM                 LED5MM    SparkFun-LED               1
+LED5                     LED5MM                 LED5MM    SparkFun-LED               1
+LED6                     LED5MM                 LED5MM    SparkFun-LED               1
+LED7                     LED5MM                 LED5MM    SparkFun-LED               1
+LED8                     LED5MM                 LED5MM    SparkFun-LED               1
+LED9                     LED5MM                 LED5MM    SparkFun-LED               1
+LED10                    LED5MM                 LED5MM    SparkFun-LED               1
+LED11                    LED5MM                 LED5MM    SparkFun-LED               1
+LED12                    LED5MM                 LED5MM    SparkFun-LED               1
+LED13                    LED5MM                 LED5MM    SparkFun-LED               1
+LED14                    LED5MM                 LED5MM    SparkFun-LED               1
+LED15                    LED5MM                 LED5MM    SparkFun-LED               1
+LED16                    LED5MM                 LED5MM    SparkFun-LED               1
+LED17                    LED5MM                 LED5MM    SparkFun-LED               1
+LED18                    LED5MM                 LED5MM    SparkFun-LED               1
+LED19                    LED5MM                 LED5MM    SparkFun-LED               1
+LED20                    LED5MM                 LED5MM    SparkFun-LED               1
+LED21                    LED5MM                 LED5MM    SparkFun-LED               1
+LED22                    LED5MM                 LED5MM    SparkFun-LED               1
+LED23                    LED5MM                 LED5MM    SparkFun-LED               1
+LED24                    LED5MM                 LED5MM    SparkFun-LED               1
+R1       5R              0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+R2       5R              0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+R4       5R              0.3OHM-1/8W-1%(0805)   0805      SparkFun-Resistors         1
+RV1                      POTTRIM                TRIM_POT  SparkFun-Electromechanical 1
+U1                       AL8805                 SOT23-5   SparkFun-PowerIC           1
+U2                       AL8805                 SOT23-5   SparkFun-PowerIC           1
+U5                       AL8805                 SOT23-5   SparkFun-PowerIC           1
+U7       LM2931D-5.0R2G  LM2931                 SO08      SparkFun-PowerIC           1
