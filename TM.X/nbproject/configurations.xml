@@ -6,6 +6,8 @@
                    projectFiles="true">
       <itemPath>UART.h</itemPath>
       <itemPath>PinDef.h</itemPath>
+      <itemPath>GPS.h</itemPath>
+      <itemPath>cam-m8.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -17,6 +19,8 @@
       <itemPath>ConfigBits.c</itemPath>
       <itemPath>UART.c</itemPath>
       <itemPath>main.c</itemPath>
+      <itemPath>GPS.c</itemPath>
+      <itemPath>cam-m8.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"
