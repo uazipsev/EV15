@@ -1,377 +1,331 @@
-/**
-  TMR1 Generated Driver API Header File
-
-  @Company
-    Microchip Technology Inc.
-
-  @File Name
-    tmr1.h
-
-  @Summary
-    This is the generated header file for the TMR1 driver using MPLAB® Code Configurator
-
-  @Description
-    This header file provides APIs for driver for TMR1.
-    Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.10.3
-        Device            :  PIC18F45K22
-        Driver Version    :  2.00
-    The generated drivers are tested against the following:
-        Compiler          :  XC8 v1.34
-        MPLAB             :  MPLAB X 2.26
-*/
-
-/*
-Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
-
-Microchip licenses to you the right to use, modify, copy and distribute
-Software only when embedded on a Microchip microcontroller or digital signal
-controller that is integrated into your product or third party product
-(pursuant to the sublicense terms in the accompanying license agreement).
-
-You should refer to the license agreement accompanying this Software for
-additional information regarding your rights and obligations.
-
-SOFTWARE AND DOCUMENTATION ARE PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND,
-EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF
-MERCHANTABILITY, TITLE, NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE.
-IN NO EVENT SHALL MICROCHIP OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER
-CONTRACT, NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR
-OTHER LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
-INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
-CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
-SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
-(INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
-*/
-
 #ifndef _TMR1_H
 #define _TMR1_H
 
 /**
   Section: Included Files
-*/
+ */
 
 #include <stdbool.h>
 #include <stdint.h>
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
-    extern "C" {
+extern "C" {
 
 #endif
 
 #define TMR1_INTERRUPT_TICKER_FACTOR    4
 
-/**
-  Section: TMR1 APIs
-*/
+    /**
+      Section: TMR1 APIs
+     */
 
-/**
-  @Summary
-    Initializes the TMR1
+    /**
+      @Summary
+        Initializes the TMR1
 
-  @Description
-    This routine initializes the TMR1.
-    This routine must be called before any other TMR1 routine is called.
-    This routine should only be called once during system initialization.
+      @Description
+        This routine initializes the TMR1.
+        This routine must be called before any other TMR1 routine is called.
+        This routine should only be called once during system initialization.
 
-  @Preconditions
-    None
+      @Preconditions
+        None
 
-  @Param
-    None
+      @Param
+        None
 
-  @Returns
-    None
+      @Returns
+        None
 
-  @Comment
+      @Comment
     
 
-  @Example
-    <code>
-    TMR1_Initialize();
-    </code>
-*/
-void TMR1_Initialize(void);
+      @Example
+        <code>
+        TMR1_Initialize();
+        </code>
+     */
+    void TMR1_Initialize(void);
 
-/**
-  @Summary
-    Start TMR1
+    /**
+      @Summary
+        Start TMR1
 
-  @Description
-    This routine is used to  Start TMR1.
+      @Description
+        This routine is used to  Start TMR1.
 
-  @Preconditions
-    The TMR1_Initialize() routine should be called
-    prior to use this routine.
+      @Preconditions
+        The TMR1_Initialize() routine should be called
+        prior to use this routine.
 
-  @Param
-    None
+      @Param
+        None
 
-  @Returns
-    None
+      @Returns
+        None
 
-  @Example
-    <code>
-    // Initialize TMR1 module
+      @Example
+        <code>
+        // Initialize TMR1 module
 
-    // Start TMR1
-    TMR1_StartTimer();
+        // Start TMR1
+        TMR1_StartTimer();
 
-    while(1)
-    {
-    }
-    </code>
- */
-void TMR1_StartTimer(void);
+        while(1)
+        {
+        }
+        </code>
+     */
+    void TMR1_StartTimer(void);
 
-/**
-  @Summary
-    Stop TMR1
+    /**
+      @Summary
+        Stop TMR1
 
-  @Description
-    This routine is used to  Stop TMR1.
+      @Description
+        This routine is used to  Stop TMR1.
 
-  @Preconditions
-    The TMR1_Initialize() routine should be called
-    prior to use this routine.
+      @Preconditions
+        The TMR1_Initialize() routine should be called
+        prior to use this routine.
 
-  @Param
-    None
+      @Param
+        None
 
-  @Returns
-    None
+      @Returns
+        None
 
-  @Example
-    </code>
-    TMR1_Initialize();
+      @Example
+        </code>
+        TMR1_Initialize();
 
-    TMR1_StartTimer();
-    if(TMR1_HasOverflowOccured())
-    {
+        TMR1_StartTimer();
+        if(TMR1_HasOverflowOccured())
+        {
+            TMR1_StopTimer();
+        }
+        <code>
+     */
+    void TMR1_StopTimer(void);
+
+    /**
+      @Summary
+        Read TMR1 register.
+
+      @Description
+        This routine is used to  Read TMR1 register.
+
+      @Preconditions
+        The TMR1_Initialize() routine should be called
+        prior to use this routine.
+
+      @Param
+        None
+
+      @Returns
+        TMR1 value at the time of the function call read as a 16-bit value
+
+      @Example
+        <code>
+        uint16_t timerVal=0;
+
+        TMR1_Initialize();
+
+        TMR1_StartTimer();
+
+        // some delay or code
+
         TMR1_StopTimer();
-    }
-    <code>
- */
-void TMR1_StopTimer(void);
 
-/**
-  @Summary
-    Read TMR1 register.
+        timerVal=TMR1_ReadTimer();
+        </code>
+     */
+    uint16_t TMR1_ReadTimer(void);
 
-  @Description
-    This routine is used to  Read TMR1 register.
+    /**
+      @Summary
+        Write TMR1 register.
 
-  @Preconditions
-    The TMR1_Initialize() routine should be called
-    prior to use this routine.
+      @Description
+        This routine is used to Write TMR1 register.
 
-  @Param
-    None
+      @Preconditions
+        The TMR1_Initialize() routine should be called
+        prior to use this routine.
 
-  @Returns
-    TMR1 value at the time of the function call read as a 16-bit value
+      @Param
+        timerVal : Timer value to be loaded
 
-  @Example
-    <code>
-    uint16_t timerVal=0;
+      @Returns
+        None
 
-    TMR1_Initialize();
+      @Example
+        <code>
+        TMR1_Initialize();
+        TMR1_WriteTimer(0x055);
+        TMR1_StartTimer();
+        </code>
+     */
+    void TMR1_WriteTimer(uint16_t timerVal);
 
-    TMR1_StartTimer();
+    /**
+      @Summary
+        Reload TMR1 register.
 
-    // some delay or code
+      @Description
+        This routine is used to reload TMR1 register.
 
-    TMR1_StopTimer();
+      @Preconditions
+        The TMR1_Initialize() routine should be called
+        prior to use this routine.
 
-    timerVal=TMR1_ReadTimer();
-    </code>
- */
-uint16_t TMR1_ReadTimer(void);
+      @Param
+        None
 
-/**
-  @Summary
-    Write TMR1 register.
+      @Returns
+        None
 
-  @Description
-    This routine is used to Write TMR1 register.
+      @Example
+        <code>
+        TMR1_Initialize();
+        TMR1_StartTimer();
 
-  @Preconditions
-    The TMR1_Initialize() routine should be called
-    prior to use this routine.
+        if(TMR1_HasOverflowOccured())
+        {
+            TMR1_StopTimer();
+        }
 
-  @Param
-    timerVal : Timer value to be loaded
+        TMR1_Reload();}
+        </code>
+     */
+    void TMR1_Reload(void);
 
-  @Returns
-    None
+    /**
+      @Summary
+        Starts the single pulse acquisition in TMR1 gate operation.
 
-  @Example
-    <code>
-    TMR1_Initialize();
-    TMR1_WriteTimer(0x055);
-    TMR1_StartTimer();
-    </code>
- */
-void TMR1_WriteTimer(uint16_t timerVal);
+      @Description
+        This function starts the single pulse acquisition in TMR1 gate operation.
+        This function must be used when the TMR1 gate is enabled.
 
-/**
-  @Summary
-    Reload TMR1 register.
+      @Preconditions
+        Initialize  the TMR1 with gate enable before calling this function.
 
-  @Description
-    This routine is used to reload TMR1 register.
+      @Param
+        None
 
-  @Preconditions
-    The TMR1_Initialize() routine should be called
-    prior to use this routine.
+      @Returns
+        None
 
-  @Param
-    None
+      @Example
+        <code>
+        uint16_t xVal;
+        uint16_t yVal;
 
-  @Returns
-    None
+        //enable TMR1 singlepulse mode
+        TMR1_StartSinglePulseAcquistion();
 
-  @Example
-    <code>
-    TMR1_Initialize();
-    TMR1_StartTimer();
+        //check TMR1 gate status
+        if(TMR1_CheckGateValueStatus()== 0)
+        {
+            xVal = TMR1_ReadTimer();
+        }
 
-    if(TMR1_HasOverflowOccured())
-    {
-        TMR1_StopTimer();
-    }
+        // wait untill gate interrupt occured
+        while(TMR1GIF == 0)
+        {
+        }
 
-    TMR1_Reload();}
-    </code>
-*/
-void TMR1_Reload(void);
+        yVal = TMR1_ReadTimer();
+        </code>
+     */
+    void TMR1_StartSinglePulseAcquisition(void);
 
-/**
-  @Summary
-    Starts the single pulse acquisition in TMR1 gate operation.
+    /**
+      @Summary
+        Check the current state of Timer1 gate.
 
-  @Description
-    This function starts the single pulse acquisition in TMR1 gate operation.
-    This function must be used when the TMR1 gate is enabled.
+      @Description
+        This function reads the TMR1 gate value and return it.
+        This function must be used when the TMR1 gate is enabled.
 
-  @Preconditions
-    Initialize  the TMR1 with gate enable before calling this function.
+      @Preconditions
+        Initialize  the TMR1 with gate enable before calling this function.
 
-  @Param
-    None
+      @Param
+        None
 
-  @Returns
-    None
+      @Returns
+        None
 
-  @Example
-    <code>
-    uint16_t xVal;
-    uint16_t yVal;
+      @Example
+        <code>
+        uint16_t xVal;
+        uint16_t yVal;
 
-    //enable TMR1 singlepulse mode
-    TMR1_StartSinglePulseAcquistion();
+        //enable TMR1 singlepulse mode
+        TMR1_StartSinglePulseAcquistion();
 
-    //check TMR1 gate status
-    if(TMR1_CheckGateValueStatus()== 0)
-    {
-        xVal = TMR1_ReadTimer();
-    }
+        //check TMR1 gate status
+        if(TMR1_CheckGateValueStatus()== 0)
+        {
+            xVal = TMR1_ReadTimer();
+        }
 
-    // wait untill gate interrupt occured
-    while(TMR1GIF == 0)
-    {
-    }
+        //wait untill gate interrupt occured
+        while(TMR1IF == 0)
+        {
+        }
 
-    yVal = TMR1_ReadTimer();
-    </code>
-*/
-void TMR1_StartSinglePulseAcquisition(void);
+        yVal = TMR1_ReadTimer();
+        </code>
+     */
+    uint8_t TMR1_CheckGateValueStatus(void);
 
-/**
-  @Summary
-    Check the current state of Timer1 gate.
+    /**
+      @Summary
+        Implements ISR
 
-  @Description
-    This function reads the TMR1 gate value and return it.
-    This function must be used when the TMR1 gate is enabled.
+      @Description
+        This routine is used to implement the ISR for the interrupt-driven
+        implementations.
 
-  @Preconditions
-    Initialize  the TMR1 with gate enable before calling this function.
+      @Returns
+        None
 
-  @Param
-    None
+      @Param
+        None
+     */
+    void TMR1_ISR(void);
 
-  @Returns
-    None
+    /**
+      @Summary
+        CallBack function.
 
-  @Example
-    <code>
-    uint16_t xVal;
-    uint16_t yVal;
+      @Description
+        This routine is called by the Interrupt Manager.
 
-    //enable TMR1 singlepulse mode
-    TMR1_StartSinglePulseAcquistion();
+      @Preconditions
+        The TMR1_Initialize() routine should be called
+        prior to use this routine.
 
-    //check TMR1 gate status
-    if(TMR1_CheckGateValueStatus()== 0)
-    {
-        xVal = TMR1_ReadTimer();
-    }
+      @Param
+        None
 
-    //wait untill gate interrupt occured
-    while(TMR1IF == 0)
-    {
-    }
-
-    yVal = TMR1_ReadTimer();
-    </code>
-*/
-uint8_t TMR1_CheckGateValueStatus(void);
-
-/**
-  @Summary
-    Implements ISR
-
-  @Description
-    This routine is used to implement the ISR for the interrupt-driven
-    implementations.
-
-  @Returns
-    None
-
-  @Param
-    None
-*/
-void TMR1_ISR(void);
-
-/**
-  @Summary
-    CallBack function.
-
-  @Description
-    This routine is called by the Interrupt Manager.
-
-  @Preconditions
-    The TMR1_Initialize() routine should be called
-    prior to use this routine.
-
-  @Param
-    None
-
-  @Returns
-    None
-*/
-void TMR1_CallBack(void);
+      @Returns
+        None
+     */
+    void TMR1_CallBack(void);
 
 
 #ifdef __cplusplus  // Provide C++ Compatibility
 
-    }
+}
 
 #endif
 
 #endif // _TMR1_H
 /**
  End of File
-*/
+ */

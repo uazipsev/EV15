@@ -20,6 +20,7 @@ int ADC_Buffer_Point = 0;
 int Temp_Done = 0;
 int Volt_Done = 0;
 int Current_Done = 0;
+char CodeRuning = 0;
 
 #endif	/* GLOBAL_C */
 

@@ -12,6 +12,7 @@ extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
 extern int Current_Done;
+extern char CodeRuning;
 
 # 13 "Global.c"
 char Temp_Aquire = 0;
@@ -24,4 +25,5 @@ int ADC_Buffer_Point = 0;
 int Temp_Done = 0;
 int Volt_Done = 0;
 int Current_Done = 0;
+char CodeRuning = 0;
 

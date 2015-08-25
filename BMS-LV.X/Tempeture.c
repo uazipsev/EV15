@@ -5,22 +5,21 @@
 #include "mcc_generated_files/adc.h"
 #include "../math.h"
 
-float Temp_DegF[10] = 0;
-float TmpTemp_DegF[10] = 0;
-float PrevTemp_DegF[10] = 0;
+float Temp_DegF[8] = 0;
+float TmpTemp_DegF[8] = 0;
+float PrevTemp_DegF[8] = 0;
 
 char Temp_Fault()
 {
     // Init fault as if there is none
     char fault = 0;
-    for(int i = 0;i<9;i++)
+    for(int i = 0;i<NUMOFBATT;i++)
     {
-        if (TEMPHIGH < Temp_DegF[i])
+        if (TEMPHIGH > Temp_DegF[i])
         {
             fault = 1;
         }
     }
-
     return fault;
 }
 
@@ -36,22 +35,17 @@ void Temp_Read()
 void Temp_Filter()
 {
    // This is a exponential moving average.
-   int x;
-   for(x = 0; x < 10; x++)
+   for(int x = 0; x < NUMOFBATT; x++)
    {
        Temp_DegF[x] = (TEMPALPHA*TmpTemp_DegF[x] + ((1- TEMPALPHA)*PrevTemp_DegF[x]));
-   }
-   for(x = 0; x < 10; x++)
-   {
        PrevTemp_DegF[x] = Temp_DegF[x];
    }
 }
 
 void Temp_Convert()
 {
-   int x;
    float steinhart;
-   for(x = 0; x < 10; x++)
+   for(int x = 0; x < NUMOFBATT; x++)
    {
        steinhart = (SERIESRESISTOR / ((1023.0 / Temp_Adc[x]) - 1)) / THERMISTORNOMINAL;  //Convert ADC counts to resistance/Ro
        steinhart = log(steinhart);                       // ln(R/Ro)

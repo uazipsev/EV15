@@ -96,10 +96,10 @@ int RunBypas()
            SetBypas(i,1);
            cellbyp = 1;
         }
-        if(batvolt <= BATBYPOFF)
+        else if(batvolt <= BATBYPOFF)
         {
            SetBypas(i,0);
-           cellbyp = 1;
+           cellbyp = 0;
         }
     }
     return cellbyp;

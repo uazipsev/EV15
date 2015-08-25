@@ -1,10 +1,11 @@
 
 /**
   Section: Included Files
-*/
+ */
 
 #include <xc.h>
 #include "tmr1.h"
+#include "../Global.h"
 #include "../Tempeture.h"
 #include "../Battery.h"
 #include "../Current.h"
@@ -13,15 +14,14 @@
 
 /**
   Section: Global Variable Definitions
-*/
+ */
 volatile uint16_t timer1ReloadVal;
 
 /**
   Section: TMR1 APIs
-*/
+ */
 
-void TMR1_Initialize(void)
-{
+void TMR1_Initialize(void) {
     //Set the Timer to the options selected in the GUI
 
     //T1OSCEN disabled; T1RD16 disabled; T1CKPS 1:8; TMR1CS FOSC/4; T1SYNC do_not_synchronize; TMR1ON disabled; 
@@ -37,7 +37,7 @@ void TMR1_Initialize(void)
     TMR1L = 0xDC;
 
     // Load the TMR value to reload variable
-    timer1ReloadVal=TMR1;
+    timer1ReloadVal = TMR1;
 
     // Clearing IF flag before enabling the interrupt.
     PIR1bits.TMR1IF = 0;
@@ -49,36 +49,31 @@ void TMR1_Initialize(void)
     TMR1_StartTimer();
 }
 
-void TMR1_StartTimer(void)
-{
+void TMR1_StartTimer(void) {
     // Start the Timer by writing to TMRxON bit
     T1CONbits.TMR1ON = 1;
 }
 
-void TMR1_StopTimer(void)
-{
+void TMR1_StopTimer(void) {
     // Stop the Timer by writing to TMRxON bit
     T1CONbits.TMR1ON = 0;
 }
 
-uint16_t TMR1_ReadTimer(void)
-{
+uint16_t TMR1_ReadTimer(void) {
     uint16_t readVal;
     uint8_t readValHigh;
     uint8_t readValLow;
-    
+
     readValLow = TMR1L;
     readValHigh = TMR1H;
-    
-    readVal = ((uint16_t)readValHigh << 8) | readValLow;
+
+    readVal = ((uint16_t) readValHigh << 8) | readValLow;
 
     return readVal;
 }
 
-void TMR1_WriteTimer(uint16_t timerVal)
-{
-    if (T1CONbits.T1SYNC == 1)
-    {
+void TMR1_WriteTimer(uint16_t timerVal) {
+    if (T1CONbits.T1SYNC == 1) {
         // Stop the Timer by writing to TMRxON bit
         T1CONbits.TMR1ON = 0;
 
@@ -87,37 +82,30 @@ void TMR1_WriteTimer(uint16_t timerVal)
         TMR1L = (uint8_t) timerVal;
 
         // Start the Timer after writing to the register
-        T1CONbits.TMR1ON =1;
-    }
-    else
-    {
+        T1CONbits.TMR1ON = 1;
+    } else {
         // Write to the Timer1 register
         TMR1H = (timerVal >> 8);
         TMR1L = (uint8_t) timerVal;
     }
 }
 
-void TMR1_Reload(void)
-{
+void TMR1_Reload(void) {
     // Write to the Timer1 register
     TMR1H = (timer1ReloadVal >> 8);
     TMR1L = (uint8_t) timer1ReloadVal;
 }
 
-void TMR1_StartSinglePulseAcquisition(void)
-{
+void TMR1_StartSinglePulseAcquisition(void) {
     T1GCONbits.T1GGO = 1;
 }
 
-uint8_t TMR1_CheckGateValueStatus(void)
-{
+uint8_t TMR1_CheckGateValueStatus(void) {
     return T1GCONbits.T1GVAL;
 }
 
-void TMR1_ISR(void)
-{
+void TMR1_ISR(void) {
     static volatile unsigned int CountCallBack = 0;
-
 
     // Clear the TMR1 interrupt flag
     PIR1bits.TMR1IF = 0;
@@ -131,20 +119,22 @@ void TMR1_ISR(void)
     {
         // ticker function call
         Indicator_Toggle();
-
         // reset ticker counter
         CountCallBack = 0;
     }
-    if(CountCallBack == 1)
+    else if(CountCallBack == 1)
     {
+        CodeRuning = 1;
         Current_Read();
     }
-    if(CountCallBack == 2)
+    else if(CountCallBack == 2)
     {
+        CodeRuning = 1;
         Battery_Read();
     }
-    if(CountCallBack == 3)
+    else if(CountCallBack == 3)
     {
+        CodeRuning = 1;
         Temp_Read();
     }
 }
@@ -156,4 +146,4 @@ void TMR1_CallBack(void)
 
 /**
  End of File
-*/
+ */

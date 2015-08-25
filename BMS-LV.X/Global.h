@@ -12,5 +12,6 @@ extern int ADC_Buffer_Point;
 extern int Volt_Done;
 extern int Temp_Done;
 extern int Current_Done;
+extern char CodeRuning;
 
 #endif	/* GLOBAL_H */

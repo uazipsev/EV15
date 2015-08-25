@@ -29,7 +29,8 @@
 #include "Bypass.h"
 #include "Current.h"
 
-char fault = 0;
+char fault[3] = 0;
+char fault_flag = 0;
 char infault = 0;
 
 int main(int argc, char** argv) {
@@ -69,85 +70,107 @@ int main(int argc, char** argv) {
     //int ADCNT = 0;
     //INDICATOR_SetHigh();
     LATCbits.LATC5 =1;
-    printf("start");
+    printf("BOOT");
     while (1)
     {
-        
-    printf("start");
-        
         if (Temp_Done)
         {
             Temp_Done = 0;
             Temp_Convert();
-            Temp_Fault();
+            fault[0] = Temp_Fault();
             /*
             for (int x = 0;x<7;x++)
             {
                 printf("Battery  temp %d = %0.02f \r\n", x+1,Tempeture_Get(x));
             }
             */
+            CodeRuning = 0;
         }
+    
         if (Volt_Done)
         {
             Volt_Done = 0;
             Battery_Convert();
-            Battery_Fault();
-            
+            fault[1] = Battery_Fault();
+            /*
             for (int x = 0;x<7;x++)
             {
                 printf("Battery %d = %0.02f \r\n", x+1,Battery_Get(x));
             }
-            
+            */
             RunBypas();
+            CodeRuning = 0;
         }
+    
         if (Current_Done)
         {
             Current_Done = 0;
             Current_Convert();
-            fault = Current_Fault();
+            fault[2] = Current_Fault();
+            /*
             printf("Current %d = %0.02f \r\n",Current_Get());
+             */
+            CodeRuning = 0;
         }
-        if((fault == 1) && (infault == 0))
+    
+        if(((fault[0] == 1) || (fault[1] == 1) || (fault[2] == 1)) && (infault == 0))
         {
-            //Shut down box
+            //Shut down output
             infault = 1;
             Relay_RSET_SetHigh();
             Delay(40);
             Relay_RSET_SetLow();
             Delay(40);    
-            printf("FAULT \r\n");
+            printf("FAULT START \r\n");
         }
-        if((fault == 0) && (infault == 1))
+    
+        if(((fault[0] == 0) && (fault[1] == 0) && (fault[2] == 0)) && (infault == 1))
         {
-            //Restart box
+            //turn output back on
+            infault = 0;
             Relay_SET_SetHigh();
             Delay(40);
             Relay_SET_SetLow();
             Delay(40);
-        }
-/*
-        for(int y = 0;y<7;y++)
-        {
-            SetBypas(y,1);
-            Delay(500);
-            //BP_ENBL1_SetHigh();
+            printf("FAULT CLEARED \r\n");
         }
         
-        for(int y = 0;y<7;y++)
+        
+        if(infault == 1)
         {
-            SetBypas(y,0);
-            Delay(500);
-            //BP_ENBL1_SetLow();
+            printf("Fault:");
+            for(int next = 0 ; next < 3; next++ )
+            {
+                switch(next)
+                {
+                    case 0:
+                        if(fault[next] == 1)
+                        {
+                            printf(" Over Temp");
+                        }
+                        break;
+                    case 1:
+                        if(fault[next] == 1)
+                        {
+                            printf(" Over / under voltage");
+                        }
+                        break;
+                    case 2:
+                        if(fault[next] == 1)
+                        {
+                            printf(" Over current");
+                        }
+                        break;
+                }
+            }
+            printf(" \r\n");
         }
-*/
-        /*
-        if (Volt_Done)
+        
+        if(!infault && (CodeRuning == 0))
         {
-            Battery_Convert();
-            Battery_Fault();
+            Sleep();
         }
-        */
-        //printf("shit");
+        
     }
     return (EXIT_SUCCESS);
 }

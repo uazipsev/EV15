@@ -9,6 +9,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Global.h: 12: extern int Volt_Done;
 [; ;Global.h: 13: extern int Temp_Done;
 [; ;Global.h: 14: extern int Current_Done;
+[; ;Global.h: 15: extern char CodeRuning;
 "13 Global.c
 [v _Temp_Aquire `uc ~T0 @X0 1 e ]
 [i _Temp_Aquire
@@ -75,3 +76,9 @@ Version 3.2 HI-TECH Software Intermediate Code
 -> 0 `i
 ]
 [; ;Global.c: 22: int Current_Done = 0;
+"23
+[v _CodeRuning `uc ~T0 @X0 1 e ]
+[i _CodeRuning
+-> -> 0 `i `uc
+]
+[; ;Global.c: 23: char CodeRuning = 0;
