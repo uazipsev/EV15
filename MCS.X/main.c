@@ -21,9 +21,11 @@ extern void i2cUpdate();
  */
 int main(int argc, char** argv) {
     Setup();
+    //RS485 direction
     LATBbits.LATB13 = 0;
+    //DAC relay
     LATAbits.LATA0 = 1;
-
+    //Set outputs to motor controller to 0's
     SetDAC1(0);
     SetDAC2(0);
     while (1) {
