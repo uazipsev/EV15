@@ -8,11 +8,6 @@
 #ifndef ADDRESSING_H
 #define	ADDRESSING_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
-
     //Addresses
 #define ECU_ADDRESS 1
 #define SAS_ADDRESS 2
@@ -68,10 +63,6 @@ extern "C" {
 
 #define TALK 1
 #define LISTEN 0
-
-#ifdef	__cplusplus
-}
-#endif
 
 #endif	/* ADDRESSING_H */
 

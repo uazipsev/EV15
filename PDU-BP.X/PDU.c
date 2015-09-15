@@ -8,6 +8,7 @@
  */
 #include "PDU.h"
 #include "Shift595.h"
+#include "mcc_generated_files/pin_manager.h" 
 #include "mcc_generated_files/adc.h"
 #include "mcc_generated_files/memory.h"
 
@@ -51,7 +52,7 @@ void EnableSlavePower(device slave, int onof) {
     }
 }
 
-//sets up to read the current from the difrent mosfet drivers
+//sets up to read the current from the different mosfet drivers
 
 void ReadCurrent(char gather) {
     if (gather) {
@@ -103,17 +104,37 @@ void ComputeStorageData(void) {
 
 }
 
-//This is our software "fuse" code to shut off outputs when uder stress
+//This is our software "fuse" code to shut off outputs when under stress
 
 void FuseSystem() {
     for (int i = 0; i < 6; i++) {
-        Current[i] = CurrentADC[i]*146; //all numbers ath this point are mult by 10000
-        //So to get real nubers divide by 10000
+        Current[i] = CurrentADC[i]*146; //all numbers at this point are mult by 10000
+        //So to get real numbers divide by 10000
     }
     for (int i = 0; i < 6; i++) {
         if (Current[i] > Currentcomp[i]) {
             //over current condition
-
+            LED1_SetHigh();
+            switch(i){
+                case 0:
+                    EnableSlavePower(SAS, 0);
+                    break;
+                case 1:
+                    EnableSlavePower(BMM, 0);
+                    break;
+                case 2:
+                    EnableSlavePower(MCS, 0);
+                    break;
+                case 3:
+                    EnableSlavePower(DDS, 0);
+                    break;
+                case 4:
+                    EnableSlavePower(TSS, 0);
+                    break;
+                case 5:
+                    EnableSlavePower(AUX, 0);
+                    break;
+            }
         }
     }
 }

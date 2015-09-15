@@ -10,16 +10,17 @@
 void StartUp595() {
     //Shut off outputs to get ready for config!
     OUTEN_SetHigh();
+    CLEAR_SetHigh();
     //clear all shift reg's
     Delay(2);
-    CLEAR_SetHigh();
-    Delay(2);
+    OUTEN_SetLow();
+    Delay(2); 
     CLEAR_SetLow();
     Delay(2);
-    CLEAR_SetHigh();
+    OUTEN_SetHigh();
     Delay(2);
+    CLEAR_SetHigh();
     //Init Config Done! Set for regular updates
-    OUTEN_SetLow();
     Clear595();
 }
 
@@ -33,7 +34,7 @@ void SetPin595(int Reg, int pin, int value) {
 }
 
 /*
- *  This will clear the aray and set all outputs to zero
+ *  This will clear the array and set all outputs to zero
  */
 void Clear595(void) {
     for (int i = RegPins - 1; i >= 0; i--) {
@@ -47,13 +48,9 @@ void Clear595(void) {
  *  This is a fcn that will set outputs based the private array of this c file
  */
 void writeRegisters(void) {
-    OUTEN_SetHigh();
     int val = 0;
-    LAT_SetLow(); // set select low
-    //Delay(2);
     for (int i = RegPins - 1; i >= 0; i--) {
         CLK_SetLow(); //Set clock low (data is shifted in on rising edge)
-        LAT_SetLow(); // set select low
         //Delay(2);
         val = registers[i];
         if (val == HIGH) {
@@ -61,13 +58,15 @@ void writeRegisters(void) {
         } else if (val == LOW) {
             DATA_OUT_SetLow();
         }
-        //Delay(2);
+        //Delay(1);
         CLK_SetHigh(); //shift data in
-        LAT_SetHigh();
         //Delay(2);
     }
-    LAT_SetLow(); //Set latch high puting sent data to output
+    //shift data over from sift reg to storage reg. 
     CLK_SetLow();
-    OUTEN_SetLow();
+    Delay(1);
+    LAT_SetHigh();
+    Delay(1);
+    LAT_SetLow(); // set select low
 }
 
