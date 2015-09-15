@@ -25,6 +25,8 @@ int main(int argc, char** argv) {
     LATBbits.LATB13 = 0;
     //DAC relay
     LATAbits.LATA0 = 1;
+    //Motor 12 V 
+    LATAbits.LATA10=1;
     //Set outputs to motor controller to 0's
     SetDAC1(0);
     SetDAC2(0);

@@ -12,9 +12,9 @@ void updateComms() {
         carActive=receiveArray[OUTPUT_ACTIVE];
         if (carActive) {
             //If 12 volts to motor controller is not on, turn it on
-            if(!PORTAbits.RA10){
-                LATAbits.LATA10=1;
-            }
+//            if(!PORTAbits.RA10){
+//                LATAbits.LATA10=1;
+//            }
             //If DAC relay is not on, turn it on
              if(!PORTAbits.RA0){
                  LATAbits.LATA0=1;
@@ -45,7 +45,7 @@ void updateComms() {
             //Relay control.
             LATAbits.LATA0=0;
             //12 volts to motor controller 
-            LATAbits.LATA10=0;
+            //LATAbits.LATA10=0;
         }
         talkTime = 0;
         safetyTime = 0;
@@ -69,11 +69,11 @@ void updateComms() {
 
 //If the safety timer overruns 200 then shut off outputs and set DACs to 0
 void commSafety() {
-    if (safetyTime > 200) {
+    if (safetyTime > 1000) {
         SetMotor(0, 1);
         SetRegen(0);
         //Motor controller 12V
-        LATAbits.LATA10=0;
+        //LATAbits.LATA10=0;
         //Relay for DAC
         LATAbits.LATA0=0;
     }
