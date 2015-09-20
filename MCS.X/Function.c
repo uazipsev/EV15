@@ -7,11 +7,14 @@
 #include "I2C.h"
 #include "pwm.h"
 #include "CoolingControl.h"
+#include "MotorControler.h"
 #include "DigiPot.h"
 #include "PinDef.h"
 #include "ADDRESSING.h"
+#include "Timers.h"
 
 void Setup(void) {
+    MotorDisable();
     // setup internal clock for 66MHz/33MIPS
     // 12/2=6*22=132/2=66
     CLKDIVbits.PLLPRE = 0; // PLLPRE (N2) 0=/2
@@ -45,15 +48,22 @@ void Setup(void) {
     PotClear();
     PWM_Init();
     CoolingStart();
-
+    SetMotorDefaults();
 }
 
 void Delay(int wait) {
-    int x;
-    for (x = 0; x < wait; x++) {
-        delay_ms(1); //using predif fcn
+    for (int x = 0; x < wait; x++) {
+        delay_ms(1); //using predef fcn
     }
 }
+
+void ledDebug() {
+    if (getLEDTime() > 1000) {
+        ClearLEDTime();
+        INDICATOR ^= 1;
+    }
+}
+    
 
 void PinSetMode(void) {
     AD1PCFGLbits.PCFG11 = 1;
@@ -72,4 +82,11 @@ void PinSetMode(void) {
     TRISAbits.TRISA7 = 0; //DigiPot UP_DN OUT
 
     TRISBbits.TRISB5 = 0; //Fan control OUT
+    
+    FORWARD_TRIS =0;
+    REVERSE_TRIS =0;
+    BRAKE_TRIS   =0;
+    PROGEN_TRIS  =0;
+    REGENEN_TRIS =0;
+    
 }

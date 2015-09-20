@@ -19,9 +19,12 @@ typedef enum Directionality {
 #define backward    2
 #define stop        3
 void SetMotor(int speed, int direction);
+void SetMotorDefaults();
+void MotorEnable();
 void SetRegen(int amount);
 void Regen(bool enable);
 bool motorControllerValuesCheck(int t, int b);
+void directionMismatchCheck(int direction);
 
 #endif	/* MOTORCONTROLER_H */
 

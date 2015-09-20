@@ -36,3 +36,15 @@ void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
 void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
     IFS0bits.T2IF = 0; // clear timer interrupt flag
 }
+
+int getLEDTime(){
+    return LEDtime++;
+}
+
+void ClearLEDTime(){
+    LEDtime = 0;
+}
+
+void setLEDTime(int value){
+    LEDtime = value;
+}

@@ -30,6 +30,12 @@
 #define PROGEN  PORTBbits.RB4
 #define REGENEN PORTAbits.RA4
 
+#define FORWARD_TRIS TRISCbits.TRISC1
+#define REVERSE_TRIS TRISCbits.TRISC2
+#define BRAKE_TRIS   TRISAbits.TRISA8
+#define PROGEN_TRIS  TRISBbits.TRISB4
+#define REGENEN_TRIS TRISAbits.TRISA4
+
 /*
  *   DigiPot control lines
  */
@@ -46,7 +52,7 @@
 /*
  *    12 DC/DC
  */
-#define DC12EN _LATA10
+#define DC12EN !LATAbits.LATA10
 
 /*
  *    FAN PWM

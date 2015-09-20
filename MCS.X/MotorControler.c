@@ -19,17 +19,26 @@
 
 int past_dirrection = 0;
 
-void directionMismatchCheck(int direction);
+void SetMotorDefaults() {
+    SetDAC1(0);
+    SetDAC2(0);
+}
+
+void MotorEnable() {
+    BRAKE =1;
+    DC12EN=1;
+}
+
+void MotorDisable() {
+    DC12EN=0;
+    BRAKE =0;
+}
+
 //sets the direction of the motor and sets speed
 
 void SetMotor(int speed, int direction) {
     directionMismatchCheck(direction);
-    static int lastSetSpeed;
-    if (speed != lastSetSpeed) {
-        lastSetSpeed = speed;
-        SetDAC1(speed);
-    }
-
+    SetDAC1(speed);
 }
 
 bool motorControllerValuesCheck(int t, int b) {
@@ -60,6 +69,7 @@ void directionMismatchCheck(int direction) {
         past_direction = direction;
     }
 }
+
 //Set Regen amout ( to DAC)
 
 void SetRegen(int amount) {

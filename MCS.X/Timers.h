@@ -8,18 +8,12 @@
 #ifndef TIMERS_H
 #define	TIMERS_H
 
-#ifdef	__cplusplus
-extern "C" {
-#endif
-
     void timerTwo(void);
     void timerOne(void);
     volatile unsigned int talkTime, LEDtime,safetyTime;
-
-
-#ifdef	__cplusplus
-}
-#endif
+    int getLEDTime(void);
+    void ClearLEDTime();
+    void setLEDTime(int value);
 
 #endif	/* TIMERS_H */
 
