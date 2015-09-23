@@ -30,12 +30,13 @@ void Battery_Read() {
  * @note            this fcn needs to take account of the -vref (configgured by above fcn)
  *******************************************************************/
 
-void Battery_Convert() {
-    int x;
-    for (x = 0; x <= NUMOFBATT; x++) {
-        TempBattery_Volt[x] = ((Battery_Adc[x] / 1024.0)*5.0) + 0.05; //Normal converson w/ 2.5v offset (vref neg = 2.5v)
-    }
-    Battery_Filter();
+void Battery_Convert()
+{
+   for(int x = 0; x < NUMOFBATT; x++)
+   {
+       TempBattery_Volt[x] = ((Battery_Adc[x]/1024.0)*5.0); //Normal converson w/ 2.5v offset (vref neg = 2.5v)
+   }
+   Battery_Filter();
 }
 
 /*******************************************************************
@@ -45,15 +46,14 @@ void Battery_Convert() {
  * @note            May require adjustment (in define.h)
  *******************************************************************/
 
-void Battery_Filter() {
-    // This is a exponential moving average. 
-    int x;
-    for (x = 0; x <= NUMOFBATT; x++) {
-        Battery_Volt[x] = TempBattery_Volt[x];// (BATALPHA * TempBattery_Volt[x] + ((1 - BATALPHA) * PrevBattery_Volt[x]));
-    }
-    for (x = 0; x <= NUMOFBATT; x++) {
-        PrevBattery_Volt[x] = Battery_Volt[x];
-    }
+void Battery_Filter()
+{
+   // This is a exponential moving average. 
+   for(int x = 0; x < NUMOFBATT; x++)
+   {
+       Battery_Volt[x] = (BATALPHA*TempBattery_Volt[x] + ((1- BATALPHA)*PrevBattery_Volt[x]));
+       PrevBattery_Volt[x] = Battery_Volt[x];
+   }
 }
 
 /*******************************************************************
@@ -63,11 +63,14 @@ void Battery_Filter() {
  * @note            used for serial comm. 
  *******************************************************************/
 
-char Battery_Fault() {
-    char fault = 0; // Init fault as if there is none
-    for (int i = 0; i <= NUMOFBATT; i++) {
-        if ((BATLOW < Battery_Volt[i]) && (BATHIGH > Battery_Volt[i])) {
-            fault = 1; // Set fault if found! Uh-Oh!!!!
+char Battery_Fault()
+{
+    char fault = 0;      // Init fault as if there is none
+    for(int i = 0;i<NUMOFBATT;i++)
+    {
+        if ((BATLOW > Battery_Volt[i]) || (BATHIGH > Battery_Volt[i]))
+        {
+            fault = 1;   // Set fault if found! Uh-Oh!!!!
         }
     }
     return fault;

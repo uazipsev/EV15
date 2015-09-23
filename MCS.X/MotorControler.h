@@ -15,9 +15,11 @@ typedef enum Directionality {
     backward = 2,
     stop = 3
 } dirr;
+
 #define forward     1
 #define backward    2
 #define stop        3
+
 void SetMotor(int speed, int direction);
 void SetMotorDefaults();
 void MotorEnable();

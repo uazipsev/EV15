@@ -8,6 +8,13 @@ float Battery_Volt[8];
 float TempBattery_Volt[8];
 float PrevBattery_Volt[8];
 
+/*******************************************************************
+ * @brief           Controls Fault
+ * @brief           takes battery volts and determans over / under conditions
+ * @return          returns 1 if over / under is met
+ * @note            used for serial comm. 
+ *******************************************************************/
+
 char Battery_Fault()
 {
     char fault = 0;      // Init fault as if there is none
@@ -30,6 +37,13 @@ void Battery_Read()
    ADC_StartConversion(AN_CELL1);  //We need to get the ball rolling...
 }
 
+/*******************************************************************
+ * @brief           Battery_Filter
+ * @brief           takes battery volts and does a exp. filter
+ * @return          nothing
+ * @note            May require adjustment (in define.h)
+ *******************************************************************/
+
 void Battery_Filter()
 {
    // This is a exponential moving average. 
@@ -39,6 +53,13 @@ void Battery_Filter()
        PrevBattery_Volt[x] = Battery_Volt[x];
    }
 }
+
+/*******************************************************************
+ * @brief           Battery_Convert
+ * @brief           takes battery cell ADC counts and converts to volts
+ * @return          nothing
+ * @note            this fcn needs to take account of the -vref (configgured by above fcn)
+ *******************************************************************/
 
 void Battery_Convert()
 {
