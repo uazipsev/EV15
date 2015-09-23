@@ -79,7 +79,7 @@ bool receiveData() {
     //start off by looking for the header bytes. If they were already found in a previous call, skip it.
     if (rx_len == 0) {
         //this size check may be redundant due to the size check below, but for now I'll leave it the way it is.
-        if (serial_available() > 4) {
+        if (serial_available() > 10) {
             //this will block until a 0x06 is found or buffer size becomes less then 3.
             while (serial_read() != 0x06) {
                 //This will trash any preamble junk in the serial buffer
@@ -95,13 +95,7 @@ bool receiveData() {
                 rx_len = serial_read(); // pulls the length
                 //make sure the address received is a match for this module if not throw the packet away
                 if (rx_address != moduleAddress) {
-                    addressErrorCounter++; // increments a counter whenever the wrong address is received
-                    //if the address does not match the buffer is flushed for the size of
-                    //the data packet plus one for the CRC
-                    int u;
-                    for (u = 0; u <= (rx_len + 1); u++) {
-                        serial_read();
-                    }
+                    addressErrorCounter++; // increments a counter whenever the wrong address is received               
                     rx_len = 0; // reset length
                     return false;
                 }
@@ -114,17 +108,17 @@ bool receiveData() {
     //we get here if we already found the header bytes, the address matched what we know, and now we are byte aligned.
     if (rx_len != 0) {
 
-        //this check is preformed to see if the first data address is a 255, if it is then this packet is an AKNAK
-        if (rx_array_inx == 0) {
-            while (!(serial_available() >= 1));
-            if (255 == serial_peek()) {
-                CRCcheck();
-                rx_len = 0;
-                rx_array_inx = 0;
-                free(rx_buffer);
-                return receiveData();
-            }
-        }
+//        //this check is preformed to see if the first data address is a 255, if it is then this packet is an AKNAK
+//        if (rx_array_inx == 0) {
+//            while (!(serial_available() >= 1));
+//            if (255 == serial_peek()) {
+//                CRCcheck();
+//                rx_len = 0;
+//                rx_array_inx = 0;
+//                free(rx_buffer);
+//                return receiveData();
+//            }
+//        }
 
 
         while (serial_available() && rx_array_inx <= rx_len) {
@@ -153,23 +147,22 @@ bool receiveData() {
                 }
 
 
-                if (AKNAKsend) { // if enabled sends an AK
-                    unsigned char holder[3];
-                    holder[0] = 255;
-                    holder[1] = 1;
-                    holder[2] = rx_buffer[rx_array_inx - 1];
-                    unsigned char crcHolder = CRC8(holder, 3);
-                    serial_write(0x06);
-                    serial_write(0x85);
-                    serial_write(returnAddress);
-                    serial_write(moduleAddress);
-                    serial_write(3);
-                    serial_write(255);
-                    serial_write(1);
-                    serial_write(rx_buffer[rx_array_inx - 1]);
-                    serial_write(crcHolder);
-                }
-
+//                if (AKNAKsend) { // if enabled sends an AK
+//                    unsigned char holder[3];
+//                    holder[0] = 255;
+//                    holder[1] = 1;
+//                    holder[2] = rx_buffer[rx_array_inx - 1];
+//                    unsigned char crcHolder = CRC8(holder, 3);
+//                    serial_write(0x06);
+//                    serial_write(0x85);
+//                    serial_write(returnAddress);
+//                    serial_write(moduleAddress);
+//                    serial_write(3);
+//                    serial_write(255);
+//                    serial_write(1);
+//                    serial_write(rx_buffer[rx_array_inx - 1]);
+//                    serial_write(crcHolder);
+//                }
 
 
                 rx_len = 0;
@@ -179,22 +172,22 @@ bool receiveData() {
             } else {
                 crcErrorCounter++; //increments the counter every time a crc fails
 
-                if (AKNAKsend) { // if enabled sends NAK
-                    unsigned char holder[3];
-                    holder[0] = 255;
-                    holder[1] = 2;
-                    holder[2] = rx_buffer[rx_array_inx - 1];
-                    unsigned char crcHolder = CRC8(holder, 3);
-                    serial_write(0x06);
-                    serial_write(0x85);
-                    serial_write(returnAddress);
-                    serial_write(moduleAddress);
-                    serial_write(3);
-                    serial_write(255);
-                    serial_write(2);
-                    serial_write(rx_buffer[rx_array_inx - 1]);
-                    serial_write(crcHolder);
-                }
+//                if (AKNAKsend) { // if enabled sends NAK
+//                    unsigned char holder[3];
+//                    holder[0] = 255;
+//                    holder[1] = 2;
+//                    holder[2] = rx_buffer[rx_array_inx - 1];
+//                    unsigned char crcHolder = CRC8(holder, 3);
+//                    serial_write(0x06);
+//                    serial_write(0x85);
+//                    serial_write(returnAddress);
+//                    serial_write(moduleAddress);
+//                    serial_write(3);
+//                    serial_write(255);
+//                    serial_write(2);
+//                    serial_write(rx_buffer[rx_array_inx - 1]);
+//                    serial_write(crcHolder);
+//                }
 
                 //failed checksum, need to clear this out
                 rx_len = 0;
