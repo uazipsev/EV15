@@ -6,8 +6,10 @@ bool readyToSendMCS = true;
 bool MCS_COMMS_ERROR = false;
 extern int carActive;
 bool requestMCSData() {
-    if (((MCSTimer > BOARD_RESEND_MIN) && (readyToSendMCS)) || (MCSTimer > BOARD_TIMEOUT)) {
+    if (((MCSTimer > BOARD_RESEND_MIN+100) && (readyToSendMCS)) || (MCSTimer > BOARD_TIMEOUT)) {
         static int MCSErrorCounter = 0;
+        
+        RS485_Direction2(TALK);
         if (!readyToSendMCS) {
             MCSErrorCounter++;
             if (MCSErrorCounter > 1) {
@@ -18,7 +20,6 @@ bool requestMCSData() {
             readyToSendMCS = false;
             MCSErrorCounter = 0;
         }
-        RS485_Direction2(TALK);
         ToSend(RESPONSE_ADDRESS, ECU_ADDRESS);
         ToSend(OUTPUT_ACTIVE, carActive);
         ToSend(THROTTLE_OUTPUT, throttle1 * 40.95);

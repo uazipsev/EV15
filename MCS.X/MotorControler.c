@@ -17,7 +17,6 @@
 #include "MCP4725.h"
 #include <xc.h>
 
-int past_dirrection = 0;
 
 void SetMotorDefaults() {
     SetDAC1(0);
@@ -25,20 +24,23 @@ void SetMotorDefaults() {
 }
 
 void MotorEnable() {
-    BRAKE =1;
-    DC12EN=1;
+    LATAbits.LATA0=1;
+    //BRAKE =1;
+    DC12ENABLE;
+    FORWARD=1;
+    REVERSE=0;
 }
 
 void MotorDisable() {
-    DC12EN=0;
-    BRAKE =0;
+    //DC12DISABLE;
+    //BRAKE =0;
 }
 
 //sets the direction of the motor and sets speed
 
 void SetMotor(int speed, int direction) {
-    directionMismatchCheck(direction);
-    SetDAC1(speed);
+    //directionMismatchCheck(direction);
+    SetDAC2(speed);
 }
 
 bool motorControllerValuesCheck(int t, int b) {
@@ -51,21 +53,21 @@ bool motorControllerValuesCheck(int t, int b) {
 
 void directionMismatchCheck(int direction) {
     static int past_direction = backward;
-    if ((direction == forward) && (past_dirrection == backward)) {
-        SetDAC1(0);
-        Delay(100);
+    if ((direction == forward) && (past_direction == backward)) {
+        SetDAC2(0);
+        //Delay(100);
         REVERSE = 0;
-        Delay(100);
+        //Delay(100);
         FORWARD = 1;
-        Delay(100);
         past_direction = direction;
-    } else if ((direction == backward) && (past_dirrection == forward)) {
-        SetDAC1(0);
-        Delay(2000);
+        
+        //BRAKE =0;
+    } else if ((direction == backward) && (past_direction == forward)) {
+        SetDAC2(0);
+        Delay(100);
         FORWARD = 0;
-        Delay(6000);
-        REVERSE = 1;
-        Delay(2000);
+        Delay(100);
+        //REVERSE = 1;
         past_direction = direction;
     }
 }
@@ -75,7 +77,7 @@ void directionMismatchCheck(int direction) {
 void SetRegen(int amount) {
     static int lastRegen;
     if(amount != lastRegen){
-    SetDAC2(amount);
+    SetDAC1(amount);
     lastRegen=amount;
     }
 }

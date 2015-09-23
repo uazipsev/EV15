@@ -1,4 +1,5 @@
 #include "Communications.h"
+#include "Timers.h"
 #include "MotorControler.h"
 int throttleOut = 0, brakeOut = 0;
 bool pendingSend = false;
@@ -8,26 +9,32 @@ void commSafety();
 void updateComms() {
     checkCommDirection();
     if (receiveData()) {
-        static bool carActive = false;
-        carActive=receiveArray[OUTPUT_ACTIVE];
-        if (carActive) {
-            //If 12 volts to motor controller is not on, turn it on
-//            if(!PORTAbits.RA10){
-//                LATAbits.LATA10=1;
-//            }
-            //If DAC relay is not on, turn it on
-             if(!PORTAbits.RA0){
-                 LATAbits.LATA0=1;
-             }
-            //if the output is not what we received, set it correctly 
-            if (throttleOut != receiveArray[THROTTLE_OUTPUT]) {
-                throttleOut = receiveArray[THROTTLE_OUTPUT];
-                SetMotor(throttleOut, 1);
+        static bool carActive = false;        
+        if (receiveArray[OUTPUT_ACTIVE]) {
+            if(!carActive){
+                bootTime=0;
+                
+                MotorEnable();
+                carActive=receiveArray[OUTPUT_ACTIVE];
             }
-            //if the output is not what we received, set it correctly 
-            if (brakeOut != receiveArray[BRAKE_OUTPUT]) {
-                brakeOut = receiveArray[BRAKE_OUTPUT];
-                SetRegen(brakeOut);
+            static bool started=false;
+            if(((bootTime>5000)||started) && carActive){
+                started=true;
+                //If DAC relay is not on, turn it on
+                
+                //if the output is not what we received, set it correctly 
+                if (throttleOut != receiveArray[THROTTLE_OUTPUT]) {
+                    throttleOut = receiveArray[THROTTLE_OUTPUT];
+                    //if(throttleOut>100)
+                        SetMotor(throttleOut, forward);
+                    //else
+                        //SetMotor(0,forward);
+                }
+                //if the output is not what we received, set it correctly 
+                if (brakeOut != receiveArray[BRAKE_OUTPUT]) {
+                    brakeOut = receiveArray[BRAKE_OUTPUT];
+                    //SetRegen(brakeOut);
+                }
             }
         }
         //else we have received a request to not be active
@@ -40,12 +47,15 @@ void updateComms() {
             //if throttle is non-zero, wipe it
             if(throttleOut!=0){
                 throttleOut=0;
-                SetMotor(0,1);
+                //SetMotor(0,1);
             }
+            //Turn of motor contoller
+            MotorDisable();
+            carActive=false;
             //Relay control.
-            LATAbits.LATA0=0;
-            //12 volts to motor controller 
-            //LATAbits.LATA10=0;
+            //LATAbits.LATA0=0;
+            bootTime=0;
+            
         }
         talkTime = 0;
         safetyTime = 0;
@@ -75,7 +85,7 @@ void commSafety() {
         //Motor controller 12V
         //LATAbits.LATA10=0;
         //Relay for DAC
-        LATAbits.LATA0=0;
+        //LATAbits.LATA0=0;
     }
 }
 //Shoot a packet to the ECU

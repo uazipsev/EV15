@@ -1,6 +1,6 @@
 #include "Timers.h"
 #include <xc.h>
-
+volatile unsigned int talkTime, LEDtime,safetyTime,bootTime;
 void timerOne(void) {
     T1CONbits.TON = 0; // turn off timer
     T1CONbits.TCS = 0; //internal instruction clock (36,000,000 Hertz)
@@ -28,6 +28,9 @@ void timerTwo(void) {
 
 void __attribute__((interrupt, no_auto_psv)) _T1Interrupt(void) {
     LEDtime++;
+    if(bootTime<5005){
+        bootTime++;
+    }
     talkTime++;
     safetyTime++;
     IFS0bits.T1IF = 0; // clear interrupt flag
@@ -38,7 +41,7 @@ void __attribute__((interrupt, no_auto_psv)) _T2Interrupt(void) {
 }
 
 int getLEDTime(){
-    return LEDtime++;
+    return LEDtime;
 }
 
 void ClearLEDTime(){

@@ -24,11 +24,20 @@
 /*
  *   Motor Control Pins
  */
-#define FORWARD PORTCbits.RC1
-#define REVERSE PORTCbits.RC2
-#define BRAKE   PORTAbits.RA8
-#define PROGEN  PORTBbits.RB4
-#define REGENEN PORTAbits.RA4
+
+
+#define FORWARD _LATC1
+#define REVERSE _LATC2
+#define BRAKE   _LATA8
+#define PROGEN  _LATB4
+#define REGENEN _LATA4
+
+
+#define FORWARD_R PORTCbits.RC1
+#define REVERSE_R PORTCbits.RC2
+#define BRAKE_R   PORTAbits.RA8
+#define PROGEN_R  PORTBbits.RB4
+#define REGENEN_R PORTAbits.RA4
 
 #define FORWARD_TRIS TRISCbits.TRISC1
 #define REVERSE_TRIS TRISCbits.TRISC2
@@ -52,7 +61,8 @@
 /*
  *    12 DC/DC
  */
-#define DC12EN !LATAbits.LATA10
+#define DC12DISABLE LATAbits.LATA10=1
+#define DC12ENABLE  LATAbits.LATA10=0
 
 /*
  *    FAN PWM

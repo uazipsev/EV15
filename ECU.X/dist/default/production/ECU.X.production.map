@@ -156,10 +156,10 @@ section                    address   length (PC units)   length (bytes) (dec)
 .const                      0x1266               0x2f0           0x468  (1128)
 .text                       0x1556              0x336c          0x4d22  (19746)
 .dinit                      0x48c2               0x1be           0x29d  (669)
-.text                       0x4a80               0x900           0xd80  (3456)
-.init.delay32               0x5380                0x1c            0x2a  (42)
+.text                       0x4a80               0x902           0xd83  (3459)
+.init.delay32               0x5382                0x1c            0x2a  (42)
 
-                     Total program memory used (bytes):         0x7a6a  (31338) 11%
+                     Total program memory used (bytes):         0x7a6d  (31341) 11%
 
 
 Data Memory  [Origin = 0x1000, Length = 0x8000]
@@ -747,23 +747,23 @@ External Symbols in Program Memory (by address):
                   0x004f6a                  _doStuff
                   0x004fba                  _easterEggs
                   0x004fd4                  _requestMCSData
-                  0x00507c                  _receiveCommMCS
-                  0x0050a8                  _requestDDSData
-                  0x00511c                  _receiveCommDDS
-                  0x00514c                  _initTimerOne
-                  0x005168                  __T1Interrupt
-                  0x0051e4                  __T2Interrupt
-                  0x0051ec                  _seekButtonChange
-                  0x005242                  _changeLEDState
-                  0x00527a                  _PWM_Init
-                  0x0052ac                  _Timmer2Init
-                  0x0052ca                  _PWMupdate
-                  0x0052f4                  _PERupdate
-                  0x005304                  _ledDebug
-                  0x005330                  _main
-                  0x005346                  _updateBrakeLight
-                  0x005358                  _RTD
-                  0x005380                  ___delay32
+                  0x00507e                  _receiveCommMCS
+                  0x0050aa                  _requestDDSData
+                  0x00511e                  _receiveCommDDS
+                  0x00514e                  _initTimerOne
+                  0x00516a                  __T1Interrupt
+                  0x0051e6                  __T2Interrupt
+                  0x0051ee                  _seekButtonChange
+                  0x005244                  _changeLEDState
+                  0x00527c                  _PWM_Init
+                  0x0052ae                  _Timmer2Init
+                  0x0052cc                  _PWMupdate
+                  0x0052f6                  _PERupdate
+                  0x005306                  _ledDebug
+                  0x005332                  _main
+                  0x005348                  _updateBrakeLight
+                  0x00535a                  _RTD
+                  0x005382                  ___delay32
                   0x02abfa                  __FGS.sec
 
 External Symbols in Program Memory (by name):
@@ -801,13 +801,13 @@ External Symbols in Program Memory (by name):
                   0x0020d2                  _FastTransfer_buffer_put1
                   0x002834                  _FastTransfer_buffer_put2
                   0x002f96                  _FastTransfer_buffer_put3
-                  0x0052f4                  _PERupdate
-                  0x00527a                  _PWM_Init
-                  0x0052ca                  _PWMupdate
+                  0x0052f6                  _PERupdate
+                  0x00527c                  _PWM_Init
+                  0x0052cc                  _PWMupdate
                   0x004d54                  _PinSetMode
                   0x003c10                  _RS485_Direction1
                   0x003d6a                  _RS485_Direction2
-                  0x005358                  _RTD
+                  0x00535a                  _RTD
                   0x0043cc                  _Receive_available
                   0x0045f0                  _Receive_available1
                   0x0041a6                  _Receive_available2
@@ -825,7 +825,7 @@ External Symbols in Program Memory (by name):
                   0x0041c2                  _Send_put2
                   0x004830                  _Send_put3
                   0x004bfa                  _Setup
-                  0x0052ac                  _Timmer2Init
+                  0x0052ae                  _Timmer2Init
                   0x00195e                  _ToSend
                   0x0020c0                  _ToSend1
                   0x002822                  _ToSend2
@@ -864,8 +864,8 @@ External Symbols in Program Memory (by name):
                   0x00425a                  _UART_init
                   0x000312                  __DefaultInterrupt
                   0x02abfa                  __FGS.sec
-                  0x005168                  __T1Interrupt
-                  0x0051e4                  __T2Interrupt
+                  0x00516a                  __T1Interrupt
+                  0x0051e6                  __T2Interrupt
                   0x004410                  __U1RXInterrupt
                   0x004440                  __U1TXInterrupt
                   0x004634                  __U2RXInterrupt
@@ -874,7 +874,7 @@ External Symbols in Program Memory (by name):
                   0x00421a                  __U3TXInterrupt
                   0x004858                  __U4RXInterrupt
                   0x004888                  __U4TXInterrupt
-                  0x005380                  ___delay32
+                  0x005382                  ___delay32
                   0x001108                  ___divdi3
                   0x000362                  ___eqsf2
                   0x00036a                  ___fixunssfsi
@@ -923,7 +923,7 @@ External Symbols in Program Memory (by name):
                   0x00356a                  _bootSequenceCompleted
                   0x003aee                  _bus1Update
                   0x003c8a                  _bus2Update
-                  0x005242                  _changeLEDState
+                  0x005244                  _changeLEDState
                   0x003be6                  _checkCommDirection
                   0x003d44                  _checkCommDirection1
                   0x003592                  _checkForBootupTimeout
@@ -953,9 +953,9 @@ External Symbols in Program Memory (by name):
                   0x00065e                  _free
                   0x003dca                  _getch
                   0x0036f6                  _handleDebugRequests
-                  0x00514c                  _initTimerOne
-                  0x005304                  _ledDebug
-                  0x005330                  _main
+                  0x00514e                  _initTimerOne
+                  0x005306                  _ledDebug
+                  0x005332                  _main
                   0x000546                  _malloc
                   0x0006fa                  _memcpy
                   0x00070c                  _memset
@@ -964,8 +964,8 @@ External Symbols in Program Memory (by name):
                   0x00073e                  _puts
                   0x000678                  _realloc
                   0x004e0c                  _receiveCommBMM
-                  0x00511c                  _receiveCommDDS
-                  0x00507c                  _receiveCommMCS
+                  0x00511e                  _receiveCommDDS
+                  0x00507e                  _receiveCommMCS
                   0x004aee                  _receiveCommPDU
                   0x003fee                  _receiveCommSAS
                   0x00167a                  _receiveData
@@ -973,13 +973,13 @@ External Symbols in Program Memory (by name):
                   0x00253e                  _receiveData2
                   0x002ca0                  _receiveData3
                   0x004d70                  _requestBMMData
-                  0x0050a8                  _requestDDSData
+                  0x0050aa                  _requestDDSData
                   0x004fd4                  _requestMCSData
                   0x004a80                  _requestPDUData
                   0x003e06                  _requestSASData
                   0x003bfe                  _resetCommTimers
                   0x003d5c                  _resetCommTimers2
-                  0x0051ec                  _seekButtonChange
+                  0x0051ee                  _seekButtonChange
                   0x00160a                  _sendData
                   0x001d6c                  _sendData1
                   0x0024ce                  _sendData2
@@ -987,7 +987,7 @@ External Symbols in Program Memory (by name):
                   0x003c32                  _sendErrorCode
                   0x003d8c                  _sendErrorCode2
                   0x003efe                  _storeSASInputs
-                  0x005346                  _updateBrakeLight
+                  0x005348                  _updateBrakeLight
                   0x003a5a                  _updateComms
                   0x0032de                  _updateECUState
                   0x004ed0                  _updateStoppedState
@@ -1217,32 +1217,32 @@ __FUID3
 .comment
  *(.comment)
 
-.debug_info       0x000000       0xb668
+.debug_info       0x000000       0xb7b8
  *(.debug_info)
- .debug_info      0x000000        0x3cd build/default/production/main.o
- .debug_info      0x0003cd         0x91 build/default/production/ConfigBits.o
- .debug_info      0x00045e        0x4e0 build/default/production/pwm.o
- .debug_info      0x00093e        0x254 build/default/production/Horn.o
- .debug_info      0x000b92        0xb9d build/default/production/UART.o
- .debug_info      0x00172f        0xb53 build/default/production/FastTransfer.o
- .debug_info      0x002282       0x1c9d build/default/production/Functions.o
- .debug_info      0x003f1f        0xbd3 build/default/production/UART1.o
- .debug_info      0x004af2        0xae6 build/default/production/UART2.o
- .debug_info      0x0055d8        0xad1 build/default/production/UART3.o
- .debug_info      0x0060a9        0xb66 build/default/production/FastTransfer1.o
- .debug_info      0x006c0f        0xb66 build/default/production/FastTransfer2.o
- .debug_info      0x007775        0xb6d build/default/production/FastTransfer3.o
- .debug_info      0x0082e2        0x6bf build/default/production/Timers.o
- .debug_info      0x0089a1        0x928 build/default/production/Communications.o
- .debug_info      0x0092c9        0x1fe build/default/production/DDS_Interface.o
- .debug_info      0x0094c7        0x300 build/default/production/SASComms.o
- .debug_info      0x0097c7        0x1ef build/default/production/MCSComms.o
- .debug_info      0x0099b6        0x211 build/default/production/DDSComms.o
- .debug_info      0x009bc7        0x2c4 build/default/production/PDUComms.o
- .debug_info      0x009e8b        0x401 build/default/production/BMMComms.o
- .debug_info      0x00a28c        0x57f build/default/production/debug.o
- .debug_info      0x00a80b        0x8f7 build/default/production/StateMachine.o
- .debug_info      0x00b102        0x566 build/default/production/StoppedState.o
+ .debug_info      0x000000        0x3db build/default/production/main.o
+ .debug_info      0x0003db         0x9f build/default/production/ConfigBits.o
+ .debug_info      0x00047a        0x4ee build/default/production/pwm.o
+ .debug_info      0x000968        0x262 build/default/production/Horn.o
+ .debug_info      0x000bca        0xbab build/default/production/UART.o
+ .debug_info      0x001775        0xb61 build/default/production/FastTransfer.o
+ .debug_info      0x0022d6       0x1cab build/default/production/Functions.o
+ .debug_info      0x003f81        0xbe1 build/default/production/UART1.o
+ .debug_info      0x004b62        0xaf4 build/default/production/UART2.o
+ .debug_info      0x005656        0xadf build/default/production/UART3.o
+ .debug_info      0x006135        0xb74 build/default/production/FastTransfer1.o
+ .debug_info      0x006ca9        0xb74 build/default/production/FastTransfer2.o
+ .debug_info      0x00781d        0xb7b build/default/production/FastTransfer3.o
+ .debug_info      0x008398        0x6cd build/default/production/Timers.o
+ .debug_info      0x008a65        0x936 build/default/production/Communications.o
+ .debug_info      0x00939b        0x20c build/default/production/DDS_Interface.o
+ .debug_info      0x0095a7        0x30e build/default/production/SASComms.o
+ .debug_info      0x0098b5        0x1fd build/default/production/MCSComms.o
+ .debug_info      0x009ab2        0x21f build/default/production/DDSComms.o
+ .debug_info      0x009cd1        0x2d2 build/default/production/PDUComms.o
+ .debug_info      0x009fa3        0x40f build/default/production/BMMComms.o
+ .debug_info      0x00a3b2        0x58d build/default/production/debug.o
+ .debug_info      0x00a93f        0x905 build/default/production/StateMachine.o
+ .debug_info      0x00b244        0x574 build/default/production/StoppedState.o
  *(.gnu.linkonce.wi.*)
 
 .debug_abbrev     0x000000       0x1c52
@@ -1471,11 +1471,11 @@ __FUID3
                   0x000014          0x4 LONG 0x312 DEFINED (__INT0Interrupt)?ABSOLUTE (__INT0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000016          0x4 LONG 0x312 DEFINED (__IC1Interrupt)?ABSOLUTE (__IC1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000018          0x4 LONG 0x312 DEFINED (__OC1Interrupt)?ABSOLUTE (__OC1Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x00001a          0x4 LONG 0x5168 DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x00001a          0x4 LONG 0x516a DEFINED (__T1Interrupt)?ABSOLUTE (__T1Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001c          0x4 LONG 0x312 DEFINED (__DMA0Interrupt)?ABSOLUTE (__DMA0Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x00001e          0x4 LONG 0x312 DEFINED (__IC2Interrupt)?ABSOLUTE (__IC2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000020          0x4 LONG 0x312 DEFINED (__OC2Interrupt)?ABSOLUTE (__OC2Interrupt):ABSOLUTE (__DefaultInterrupt)
-                  0x000022          0x4 LONG 0x51e4 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
+                  0x000022          0x4 LONG 0x51e6 DEFINED (__T2Interrupt)?ABSOLUTE (__T2Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000024          0x4 LONG 0x312 DEFINED (__T3Interrupt)?ABSOLUTE (__T3Interrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000026          0x4 LONG 0x312 DEFINED (__SPI1ErrInterrupt)?ABSOLUTE (__SPI1ErrInterrupt):ABSOLUTE (__DefaultInterrupt)
                   0x000028          0x4 LONG 0x312 DEFINED (__SPI1Interrupt)?ABSOLUTE (__SPI1Interrupt):ABSOLUTE (__DefaultInterrupt)
@@ -4054,7 +4054,7 @@ __c30_signature
 .dinit            0x0048c2        0x1be
  .dinit           0x0048c2        0x1be data_init
 
-.text             0x004a80        0x900
+.text             0x004a80        0x902
  .text            0x004a80        0x17a build/default/production/PDUComms.o
                   0x004a80                  _requestPDUData
                   0x004aee                  _receiveCommPDU
@@ -4071,31 +4071,31 @@ __c30_signature
                   0x004ed0                  _updateStoppedState
                   0x004f6a                  _doStuff
                   0x004fba                  _easterEggs
- .text            0x004fd4         0xd4 build/default/production/MCSComms.o
+ .text            0x004fd4         0xd6 build/default/production/MCSComms.o
                   0x004fd4                  _requestMCSData
-                  0x00507c                  _receiveCommMCS
- .text            0x0050a8         0xa4 build/default/production/DDSComms.o
-                  0x0050a8                  _requestDDSData
-                  0x00511c                  _receiveCommDDS
- .text            0x00514c         0xa0 build/default/production/Timers.o
-                  0x00514c                  _initTimerOne
-                  0x005168                  __T1Interrupt
-                  0x0051e4                  __T2Interrupt
- .text            0x0051ec         0x8e build/default/production/DDS_Interface.o
-                  0x0051ec                  _seekButtonChange
-                  0x005242                  _changeLEDState
- .text            0x00527a         0x8a build/default/production/pwm.o
-                  0x00527a                  _PWM_Init
-                  0x0052ac                  _Timmer2Init
-                  0x0052ca                  _PWMupdate
-                  0x0052f4                  _PERupdate
- .text            0x005304         0x54 build/default/production/main.o
-                  0x005304                  _ledDebug
-                  0x005330                  _main
-                  0x005346                  _updateBrakeLight
- .text            0x005358         0x28 build/default/production/Horn.o
-                  0x005358                  _RTD
+                  0x00507e                  _receiveCommMCS
+ .text            0x0050aa         0xa4 build/default/production/DDSComms.o
+                  0x0050aa                  _requestDDSData
+                  0x00511e                  _receiveCommDDS
+ .text            0x00514e         0xa0 build/default/production/Timers.o
+                  0x00514e                  _initTimerOne
+                  0x00516a                  __T1Interrupt
+                  0x0051e6                  __T2Interrupt
+ .text            0x0051ee         0x8e build/default/production/DDS_Interface.o
+                  0x0051ee                  _seekButtonChange
+                  0x005244                  _changeLEDState
+ .text            0x00527c         0x8a build/default/production/pwm.o
+                  0x00527c                  _PWM_Init
+                  0x0052ae                  _Timmer2Init
+                  0x0052cc                  _PWMupdate
+                  0x0052f6                  _PERupdate
+ .text            0x005306         0x54 build/default/production/main.o
+                  0x005306                  _ledDebug
+                  0x005332                  _main
+                  0x005348                  _updateBrakeLight
+ .text            0x00535a         0x28 build/default/production/Horn.o
+                  0x00535a                  _RTD
 
-.init.delay32     0x005380         0x1c
- .init.delay32    0x005380         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
-                  0x005380                  ___delay32
+.init.delay32     0x005382         0x1c
+ .init.delay32    0x005382         0x1c c:/program files (x86)/microchip/xc16/v1.24/bin/bin/../../lib\libpic30-elf.a(delay32ep.eo)
+                  0x005382                  ___delay32

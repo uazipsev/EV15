@@ -21,6 +21,7 @@ typedef enum Directionality {
 void SetMotor(int speed, int direction);
 void SetMotorDefaults();
 void MotorEnable();
+void MotorDisable();
 void SetRegen(int amount);
 void Regen(bool enable);
 bool motorControllerValuesCheck(int t, int b);

@@ -39,5 +39,6 @@ extern void Setup(void);
 extern void Delay(int wait);
 void PinSetMode(void);
 
+void ledDebug();
 #endif	/* FUNCTION_H */
 
