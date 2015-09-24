@@ -12,6 +12,8 @@ extern void PWM_Init(void);
 void Timmer2Init(void);
 extern void PWMupdate(int output);
 extern void PERupdate(int output);
+extern void PWMoff();
+extern void PWMon();
 
 #endif	/* PWM_H */
 

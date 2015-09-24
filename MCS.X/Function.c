@@ -52,8 +52,8 @@ void Setup(void) {
 }
 
 void Delay(int wait) {
-    int x = 0;
-    for (x = 0; x < wait; x++) {
+    int x;
+    for ( x = 0; x < wait; x++) {
         delay_ms(1); //using predef fcn
     }
 }

@@ -63,7 +63,7 @@ void Setup(void) {
     begin2(receiveArray2, sizeof (receiveArray2), ECU_ADDRESS, false, Send_put2, Receive_get2, Receive_available2, Receive_peek2);
     begin3(receiveArray3, sizeof (receiveArray3), ECU_ADDRESS, false, Send_put3, Receive_get3, Receive_available3, Receive_peek3);
 
-    //PWM_Init();
+    PWM_Init();
     initTimerOne();
 }
 
@@ -79,6 +79,7 @@ void PinSetMode(void) {
     TRISEbits.TRISE13 = OUTPUT; //Set LED as output
     TRISBbits.TRISB6 = OUTPUT; //Set Brake Light as OUTPUT
     TRISBbits.TRISB5 = OUTPUT; //Set HORN PWM as OUTPUT
+    SS_state_TRS = OUTPUT;     //Set Safty feedback as input
     RS485_1_Direction_Tris = OUTPUT;
     RS485_2_Direction_Tris = OUTPUT;
     RS485_1_Direction = LISTEN;

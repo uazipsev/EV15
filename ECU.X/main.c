@@ -13,10 +13,12 @@
 #include "ADDRESSING.h"
 #include "main.h"
 #include "StateMachine.h"
+#include "horn.h"
 
 int main(int argc, char** argv) {
     Setup();
     Delay(1000);
+    Boot(100);
     while (1) {
         ledDebug();
         updateComms();

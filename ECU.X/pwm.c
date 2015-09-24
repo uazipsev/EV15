@@ -47,3 +47,11 @@ void PERupdate(int output) {
     PR2 = output;
     //T2CONbits.TON = 1;
 }
+
+void PWMoff(){
+    T2CONbits.TON = 0;
+}
+
+void PWMon(){
+    T2CONbits.TON = 1;
+}

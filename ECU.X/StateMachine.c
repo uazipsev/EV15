@@ -64,7 +64,10 @@ void updateECUState() {
             }
 
             //Wait for complete or for timeout
-            if (bootSequenceCompleted()) currentState++;
+            if (bootSequenceCompleted()){
+                RTD(5);
+                currentState++;
+            }
             else checkForBootupTimeout();
 
             //if start button changes to depressed here, exit boot sequence
@@ -140,6 +143,7 @@ void updateECUState() {
             if (previousState != currentState) {
                 previousState = currentState;
 
+                Fault(4);
                 changeLEDState(ACTIVE_LED, 0);
                 powerSet.DDS = true;
                 powerSet.SAS = true;

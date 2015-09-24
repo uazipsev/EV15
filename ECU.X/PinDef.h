@@ -23,15 +23,10 @@
 
 #define SS_RELAY _LATC10
 /*
- *    Relay control 
+ *   Safty Read in
  */
-#define Analog_Relay _LATA0
-#define Analog_Relay_Port PORTAbits.RA0
-
-/*
- *    12 DC/DC
- */
-#define DC12EN _LATA10
+#define SS_state PORTAbits.RA4
+#define SS_state_TRS TRISAbits.TRISA4
 
 /*
  *    HORN

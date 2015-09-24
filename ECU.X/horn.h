@@ -9,7 +9,9 @@
 #define	HORN_H
 
 extern void Delay(int ms);
-void RTD(int lenth);
+extern void RTD(int lenth);
+extern void Boot(int lenth);
+extern void Fault(int lenth);
 
 #endif	/* HORN_H */
 
