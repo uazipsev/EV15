@@ -4,6 +4,7 @@
 int throttleOut = 0, brakeOut = 0;
 bool pendingSend = false;
 bool portClosed = true;
+static bool started=false;
 
 void commSafety();
 void updateComms() {
@@ -25,11 +26,11 @@ void updateComms() {
             }
             else if(receiveArray[OUTPUT_ACTIVE]){
                 //flag for timerOverride after timer completes
-                static bool started=false;
-                //if bootTime has completed before now and the car is supposed to be active
-                if(((bootTime>5000)||started) && carActive){
-                    //Note that we have finished boot
-                    started=true;            
+                
+//                //if bootTime has completed before now and the car is supposed to be active
+//                if(((bootTime>5000)||started) && carActive){
+//                    //Note that we have finished boot
+//                    started=true;
                     //if the current output is not what we received, set it correctly 
                     if (throttleOut != receiveArray[THROTTLE_OUTPUT]) {
                         throttleOut = receiveArray[THROTTLE_OUTPUT];
@@ -40,8 +41,8 @@ void updateComms() {
                         brakeOut = receiveArray[BRAKE_OUTPUT];
                         //SetRegen(brakeOut);
                     }
-                }
-            }            
+                //}
+            }
         }
         //else carActive is false
         else{

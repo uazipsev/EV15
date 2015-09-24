@@ -31,6 +31,7 @@ extern unsigned char Receive_get(void);
 extern void Send_put(unsigned char _data);
 
 extern void UART_init(void);
+void ledDebug();
 
 extern void timerOne();
 extern void timerTwo();
