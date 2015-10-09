@@ -20,8 +20,8 @@
 #pragma config GSS = OFF                // General Segment Code Protection (User program memory is not code-protected)
 
 // FOSCSEL
-#pragma config FNOSC = PRIPLL           // Oscillator Mode (Primary Oscillator (XT, HS, EC) w/ PLL)
-#pragma config IESO = ON                // Internal External Switch Over Mode (Start-up device with FRC, then automatically switch to user-selected oscillator source when ready)
+#pragma config FNOSC = FRC           // Oscillator Mode (Primary Oscillator (XT, HS, EC) w/ PLL)
+#pragma config IESO = OFF                // Internal External Switch Over Mode (Start-up device with FRC, then automatically switch to user-selected oscillator source when ready)
 
 // FOSC
 #pragma config POSCMD = XT              // Primary Oscillator Source (XT Oscillator Mode)

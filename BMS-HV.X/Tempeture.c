@@ -3,7 +3,8 @@
 #include "Tempeture.h"
 #include "Global.h"
 #include "mcc_generated_files/adc.h"
-#include "../math.h"
+#include "math.h"
+//#include "../math.h"
 extern void Set_4051(int Channel);
 float Temp_DegF[NUM_BATTERIES] = {70, 70, 70, 70};
 float TmpTemp_DegF[NUM_BATTERIES] = 0;

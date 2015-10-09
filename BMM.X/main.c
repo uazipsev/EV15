@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     int l = 0, j = 0;
     for (l = 0; l < NUMSLAVES; l++) {
         for (j = 0; j < BATTPERSLAVE; j++) {
-            BVolts[l][j] = 3000;
+            BVolts[l][j] = 0;
         }
         for (j = 0; j < TEMPPERSLAVE; j++) {
             BTemps[l][j] = 70;

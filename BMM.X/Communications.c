@@ -52,7 +52,7 @@ void updateComms() {
                     slaveaddr = 0;
                 }
                 populateBatteryV(slaveaddr++);
-                if (slaveaddr >= NUMSLAVES) slaveaddr = 0;
+                if (slaveaddr >= NUMSLAVES1) slaveaddr = 0;
                 break;
             case BATTERY_TEMPS:
                 if (lastCommState != COMM_STATE) {
@@ -60,7 +60,7 @@ void updateComms() {
                     slaveaddr = 0;
                 }
                 populateBatteryT(slaveaddr++);
-                if (slaveaddr >= NUMSLAVES) slaveaddr = 0;
+                if (slaveaddr >= NUMSLAVES1) slaveaddr = 0;
                 break;
             case BATTERY_POWER:
                 if (lastCommState != COMM_STATE) {

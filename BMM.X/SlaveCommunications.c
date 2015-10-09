@@ -60,19 +60,23 @@ void updateSlaveCommunications() {
                 }
             }
             //Increment to the next slave
-            if (slaveaddr < NUMSLAVES1) {
+//            if (slaveaddr < NUMSLAVES1) {
+//                slaveaddr++;
+//            } else if (slaveaddr == NUMSLAVES1) {
+//                slaveaddr++;
+//                //send to slave set 2
+//                S1 = 1;
+//            } else if (slaveaddr < NUMSLAVES) {
+//                slaveaddr++;
+//            } else {
+//                slaveaddr = 1;
+//                //Back to slave set 1
+//                S1 = 0;
+//            }
+            if(slaveaddr < NUMSLAVES1)
                 slaveaddr++;
-            } else if (slaveaddr == NUMSLAVES1) {
-                slaveaddr++;
-                //send to slave set 2
-                S1 = 1;
-            } else if (slaveaddr < NUMSLAVES) {
-                slaveaddr++;
-            } else {
-                slaveaddr = 1;
-                //Back to slave set 1
-                S1 = 0;
-            }
+            else
+                slaveaddr=1;
             //            }//Else you heard from the wrong address -- try a resend
             //            else if (!wrongReturn) {
             //                wrongReturn = true;
@@ -110,19 +114,23 @@ void updateSlaveCommunications() {
                     faultingBattery=slaveaddr;
                 }
                 //Increment to the next slave
-                if (slaveaddr < NUMSLAVES1) {
-                    slaveaddr++;
-                } else if (slaveaddr == NUMSLAVES1) {
-                    slaveaddr++;
-                    //send to slave set 2
-                    S1 = 1;
-                } else if (slaveaddr < NUMSLAVES) {
-                    slaveaddr++;
-                } else {
-                    slaveaddr = 1;
-                    //Back to slave set 1
-                    S1 = 0;
-                }
+//                if (slaveaddr < NUMSLAVES1) {
+//                    slaveaddr++;
+//                } else if (slaveaddr == NUMSLAVES1) {
+//                    slaveaddr++;
+//                    //send to slave set 2
+//                    S1 = 1;
+//                } else if (slaveaddr < NUMSLAVES) {
+//                    slaveaddr++;
+//                } else {
+//                    slaveaddr = 1;
+//                    //Back to slave set 1
+//                    S1 = 0;
+//                }
+            if(slaveaddr <  NUMSLAVES1)
+                slaveaddr++;
+            else
+                slaveaddr=1;
             }
         }
     }
