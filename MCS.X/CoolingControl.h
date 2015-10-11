@@ -9,7 +9,7 @@
 #define	COOLINGCONTROL_H
 
 #define TempSetMax 70
-#define pumpMAX 20
+#define pumpMAX 100
 #define fanMAX 75
 
 #define fanStart 20

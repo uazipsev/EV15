@@ -8,4 +8,5 @@ MotorControler.h  \
 DigiPot.h  \
 PinDef.h  \
 ADDRESSING.h  \
- Timers.h 
+ Timers.h  \
+UART_2.h 

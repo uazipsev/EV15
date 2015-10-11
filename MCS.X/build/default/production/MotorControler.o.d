@@ -3,4 +3,5 @@ MotorControler.c  \
  MotorControler.h  \
 PinDef.h  \
 Function.h  \
-MCP4725.h 
+MCP4725.h  \
+UART_2.h 

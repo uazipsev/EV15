@@ -4,7 +4,7 @@
 int throttleOut = 0, brakeOut = 0;
 bool pendingSend = false;
 bool portClosed = true;
-static bool started=false;
+//static bool started=false;
 
 void commSafety();
 void updateComms() {

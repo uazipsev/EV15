@@ -12,6 +12,7 @@
 #include "PinDef.h"
 #include "ADDRESSING.h"
 #include "Timers.h"
+#include "UART_2.h"
 
 void Setup(void) {
     MotorDisable();
@@ -41,6 +42,7 @@ void Setup(void) {
 
     PinSetMode();
     UART_init();
+    UART2_init();
     begin(receiveArray, sizeof (receiveArray), MCS_ADDRESS, false, Send_put, Receive_get, Receive_available, Receive_peek);
 
     i2c_init();

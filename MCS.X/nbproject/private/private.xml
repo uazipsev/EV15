@@ -1,11 +1,20 @@
-<?xml version="1.0" encoding="UTF-8"?><project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Zac/Desktop/EV%20Code/EV15_2/EV15/MCS.X/Communications.c</file>
-            <file>file:/C:/Users/Zac/Desktop/EV%20Code/EV15_2/EV15/MCS.X/UART.c</file>
-            <file>file:/C:/Users/Zac/Desktop/EV%20Code/EV15_2/EV15/MCS.X/UART.h</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/PinDef.h</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/CoolingControl.c</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/MotorControler.c</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/DigiPot.h</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/UART.h</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/UART_2.h</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/Function.c</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/UART_2.c</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/DigiPot.c</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/CoolingControl.h</file>
+            <file>file:/C:/Zips%20EV%2015/trunk/MCS.X/Function.h</file>
         </group>
     </open-files>
 </project-private>

@@ -15,6 +15,7 @@
 #include "PinDef.h"
 #include "Function.h"
 #include "MCP4725.h"
+#include "UART_2.h"
 #include <xc.h>
 
 
@@ -94,7 +95,17 @@ void Regen(bool enable) {
 // Turns on data and analize input
 //needs work
 
-void GetMCData(void) {
+void StartMCData(void) {
     //send "+CRLF" + is in askii
+    char Start[] = "+\r\n";
+    Send2_put(Start);
+}
 
+void GetMCData(void) {
+    char data[60];
+    int x = 0;
+    while(Receive2_available()){
+        data[x] = Receive2_get();
+        x+=1;
+    }
 }
