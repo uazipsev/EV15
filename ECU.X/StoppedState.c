@@ -2,6 +2,7 @@
 #include "StoppedState.h"
 #include "PinDef.h"
 #include "debug.h"
+#include "horn.h"
 
 #define BMS_LED        5
 #define ACTIVE_LED     3

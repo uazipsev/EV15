@@ -2,4 +2,5 @@ build/default/production/StoppedState.o:  \
 StoppedState.c  \
 StoppedState.h  \
  debug.h  \
-PinDef.h 
+PinDef.h  \
+horn.h 

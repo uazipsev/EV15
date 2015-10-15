@@ -143,7 +143,7 @@ void updateECUState() {
             if (previousState != currentState) {
                 previousState = currentState;
 
-                Fault(4);
+                //Fault(4);
                 changeLEDState(ACTIVE_LED, 0);
                 powerSet.DDS = true;
                 powerSet.SAS = true;
@@ -175,7 +175,7 @@ void updateECUState() {
 
             switch (seekButtonChange()) {
                 case START_BUTTON:
-                    if (!buttonArray[START_BUTTON]) {
+                    if (!buttonArray[START_BUTTON]&&!buttonArray[DEBUG_BUTTON]) {
                         changeLEDState(ACTIVE_LED, buttonArray[START_BUTTON]);
                         currentState = stopping;
                     }
