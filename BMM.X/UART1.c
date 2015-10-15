@@ -114,12 +114,12 @@ void __attribute__((interrupt, no_auto_psv)) _U2RXInterrupt(void) {
     }
     if (U2STAbits.FERR) {
         U2RXREG;
-    IFS1bits.U2RXIF = 0; // Clear RX interrupt flag    
+        IFS1bits.U2RXIF = 0; // Clear RX interrupt flag    
         return;
     }
     if (U2STAbits.PERR) {
         U2RXREG;
-    IFS1bits.U2RXIF = 0; // Clear RX interrupt flag
+        IFS1bits.U2RXIF = 0; // Clear RX interrupt flag
         return;
     }
     if(U2STAbits.URXDA){

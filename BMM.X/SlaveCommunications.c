@@ -19,12 +19,12 @@ void checkSlaveCommDirection();
 void updateSlaveCommunications() {
     static int slaveaddr = 1;
 
-    if (pendingSend1 && slaveTime > 11 && !portTalk) {
+    if (pendingSend1 && (slaveTime > 15) && !portTalk) {
         RS485_SLAVE_Port = !TALK;
         RS485_SLAVE_Port1 = !TALK;
         portTalk = true;
     }
-    if (pendingSend1 && slaveTime > 15 && portTalk) {
+    if (pendingSend1 && (slaveTime > 17) && portTalk) {
         sendSlavePacket(slaveaddr);
         pendingSend1 = false;
         slaveTime = 0;
@@ -32,7 +32,7 @@ void updateSlaveCommunications() {
 
 
     if (receiveData1()) {
-        //INDICATOR = !INDICATOR;
+        INDICATOR = !INDICATOR;
         static bool wrongReturn = false;
         //Received when expecting it
         //        if (!pendingSend1) {
@@ -98,7 +98,7 @@ void updateSlaveCommunications() {
     } else {
         //You didnt receive after sending
         if (!pendingSend1) {
-            if (slaveTime > 75) { //if timed out
+            if (slaveTime > 200) { //if timed out
                 slaveTime = 0; //reset timer
                 pendingSend1 = true; //set to send to the next slave
 
@@ -107,8 +107,8 @@ void updateSlaveCommunications() {
                     //FAULT?
                     int i = 0;
                     for (i = 0; i < BATTPERSLAVE; i++) { //wipe current slave data to indicate a loss
-                        BVolts[slaveaddr - 1][i] = 0;
-                        BTemps[slaveaddr - 1][i] = 0;
+                        //BVolts[slaveaddr - 1][i] = 0;
+                        //BTemps[slaveaddr - 1][i] = 0;
                     }
                     faultFlag=COMMUNICATIONS_FAULT;
                     faultingBattery=slaveaddr;

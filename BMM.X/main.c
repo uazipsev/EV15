@@ -24,7 +24,7 @@ int main(int argc, char** argv) {
     int l = 0, j = 0;
     for (l = 0; l < NUMSLAVES; l++) {
         for (j = 0; j < BATTPERSLAVE; j++) {
-            BVolts[l][j] = 0;
+            BVolts[l][j] = 100;
         }
         for (j = 0; j < TEMPPERSLAVE; j++) {
             BTemps[l][j] = 70;
@@ -34,12 +34,13 @@ int main(int argc, char** argv) {
         updateTimers();
         if (ADCTime > 50) {
             static int counter = 0;
-            if (counter < 4)
-                ADCReadings[counter]=readADC(counter++);
+            if (counter < 4){
+                //ADCReadings[counter]=readADC(counter++);
+            }
             else counter = 0;
             ADCTime = 0;
         }
-        ledDebug();
+        //ledDebug();
         updateComms();
     }
 
