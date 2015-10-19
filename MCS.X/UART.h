@@ -10,22 +10,26 @@
 #ifndef UART_HANDLER_H
 #define	UART_HANDLER_H
 
+#include "PinDef.h"
 
 #define BAUD_SET 38400
-#define UART_BUFFER_SIZE 200
-#define CLOCK_RATE   36000000
+#define UART_BUFFER_SIZE_OUT 200
+#define UART_BUFFER_SIZE_IN 200
 #define BAUD_RATE (((CLOCK_RATE/BAUD_SET)/16)-1)
-void *memset(void *s, int c, size_t n);
 
-struct UART_ring_buff {
-    unsigned char buf[UART_BUFFER_SIZE];
+struct UART_ring_buff_In {
+    unsigned char buf[UART_BUFFER_SIZE_IN];
     int head;
     int tail;
     int count;
 };
 
-struct UART_ring_buff input_buffer;
-struct UART_ring_buff output_buffer;
+struct UART_ring_buff_Out {
+    unsigned char buf[UART_BUFFER_SIZE_OUT];
+    int head;
+    int tail;
+    int count;
+};
 
 bool Transmit_stall = true;
 

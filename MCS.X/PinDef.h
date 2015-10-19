@@ -8,6 +8,8 @@
 #ifndef PINDEF_H
 #define	PINDEF_H
 
+#define CLOCK_RATE   36000000
+
 #define true 1
 #define false 0
 
