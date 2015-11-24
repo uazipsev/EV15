@@ -1,61 +1,282 @@
+
 /* 
  * File:   DDSBoardMain.c
- * Author: Rick
+ * Author: Andrew T
  *
  * Created on March 6, 2015, 1:51 AM
  */
 #include "mcc_generated_files/mcc.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-
-
+// Arrays to recorded the button and LED state.
+int LED_array[8];
 bool butnarray[8];
 
-// 1. Added Enums as state values. State 0 is the default value so if the function gets a number that is not known it will give it a zero. 
-//          This can help for debug purposes and have a catch for any junk that goes into the function.
-// 2. The other states are defined as a Enum to represent what each state meaning is.
- enum States { State_0_Default,State_1_LED_0_HIGH, State_2_LED_0_LOW, State_3_LED_1_HIGH,State_4_LED_1_LOW, State_5_LED_2_HIGH, State_6_LED_2_LOW, 
-               State_7_LED_3_HIGH, State_8_LED_3_LOW, State_9_LED_4_HIGH,State_10_LED_4_LOW, State_11_LED_5_HIGH, State_12_LED_6_LOW
- };
 
-// 1. This function gets the Lednum and the state of that led (on=1 or off=0) and then determines what state that the LED/function needs to be in. 
-//      Then the  function will return the state value.
-int SetLEDOut(int lednum, bool state) {
-    int Current_State=0;
-    
+/* Sets a certain LED to the appropriate state given as a argument and then records the state of that LED that it is in.
+ Arguments:  
+   lednum= the led you specified that will change its state.
+   State= the state of that LED is in. State=1(LED On),2 (LED Off),3 (LED is blinking)
+ 
+ After this function changes the LED's state in then records that state it just changed to. */
+  
+void SetLEDOut(int lednum, bool state) {
     switch (lednum) {
         case 0:
-            if (state) Current_State=State_1_LED_0_HIGH;
-            else Current_State=State_2_LED_0_LOW;
+            if (state == 1) {
+                LED0_SetHigh();
+                LED_array[0] = 1;
+            }
+            else if (state == 0) {
+                LED0_SetLow();
+                LED_array[0] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum) which will start the 
+                 timer and specify which led should go off */
+                LED_array[0] = 2;
+
+            }
             break;
+
         case 1:
-            if (state) Current_State=State_3_LED_1_HIGH;
-            else Current_State=State_4_LED_1_LOW;
+            if (state == 1) {
+                LED1_SetHigh();
+                LED_array[1] = 1;
+            }
+            else if (state == 0) {
+                LED1_SetLow();
+                LED_array[1] = 0;
+            }
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum) which will start the 
+                 timer and specify which led should go off */
+                LED_array[1] = 2;
+
+            }
             break;
         case 2:
-            if (state) Current_State=State_5_LED_2_HIGH;
-            else Current_State=State_6_LED_2_LOW;
+            if (state == 1) {
+                LED2_SetHigh();
+                LED_array[2] = 1;
+            }
+            else if (state == 0) {
+                LED2_SetLow();
+                LED_array[2] = 0;
+            }
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum) which will start the 
+                 timer and specify which led should go off */
+                LED_array[2] = 2;
+
+            }
+
+
             break;
+
         case 3:
-            if (state) Current_State=State_7_LED_3_HIGH;
-            else Current_State=State_8_LED_3_LOW;
+            if (state == 1) {
+                LED3_SetHigh();
+                LED_array[3] = 1;
+            }
+            else if (state == 0) {
+                LED3_SetLow();
+                LED_array[3] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum) which will start the 
+                 timer and specify which led should go off */
+                LED_array[3] = 2;
+
+            }
+
             break;
         case 4:
-            if (state) Current_State=State_9_LED_4_HIGH;
-            else Current_State=State_10_LED_4_LOW;
+            if (state == 1) {
+                LED4_SetHigh();
+                LED_array[4] = 1;
+            }
+            else if (state == 0) {
+                LED4_SetLow();
+                LED_array[4] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum) which will start the 
+                 timer and specify which led should go off */
+                LED_array[4] = 2;
+            }
+
             break;
         case 5:
-            if (state) Current_State=State_11_LED_5_HIGH;
-            else Current_State=State_12_LED_6_LOW;
+            if (state == 1) {
+                LED5_SetHigh();
+                LED_array[5] = 1;
+            }
+            else if (state == 0) {
+                LED5_SetLow();
+                LED_array[5] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum) which will start the 
+                 timer and specify which led should go off */
+                LED_array[5] = 2;
+
+            }
+
+
             break;
-        default :
-                Current_State=  State_0_Default;
-                break;
     }
-    
-    return Current_State;
 }
+
+// Added another function with a different set of arguments.
+// This function is the same as the first SetLEDOut() function 
+// However the difference is 
+void SetLEDOut(int lednum, bool state, int time) {
+    switch (lednum) {
+        case 0:
+            if (state == 1) {
+                LED0_SetHigh();
+                LED_array[0] = 1;
+            }
+            else if (state == 0) {
+                LED0_SetLow();
+                LED_array[0] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum,timer) which will start the 
+                 timer and specify which led should go off how long does it take to switch states.*/
+                LED_array[0] = 2;
+
+            }
+            break;
+
+        case 1:
+            if (state == 1) {
+                LED1_SetHigh();
+                LED_array[1] = 1;
+            }
+            else if (state == 0) {
+                LED1_SetLow();
+                LED_array[1] = 0;
+            }
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum,timer) which will start the 
+                 timer and specify which led should go off how long does it take to switch states.*/
+                LED_array[1] = 2;
+
+            }
+            break;
+        case 2:
+            if (state == 1) {
+                LED2_SetHigh();
+                LED_array[2] = 1;
+            }
+            else if (state == 0) {
+                LED2_SetLow();
+                LED_array[2] = 0;
+            }
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum,timer) which will start the 
+                 timer and specify which led should go off how long does it take to switch states.*/
+                LED_array[2] = 2;
+
+            }
+
+
+            break;
+
+        case 3:
+            if (state == 1) {
+                LED3_SetHigh();
+                LED_array[3] = 1;
+            }
+            else if (state == 0) {
+                LED3_SetLow();
+                LED_array[3] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum,timer) which will start the 
+                 timer and specify which led should go off how long does it take to switch states.*/
+                LED_array[3] = 2;
+
+            }
+
+            break;
+        case 4:
+            if (state == 1) {
+                LED4_SetHigh();
+                LED_array[4] = 1;
+            }
+            else if (state == 0) {
+                LED4_SetLow();
+                LED_array[4] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum,timer) which will start the 
+                 timer and specify which led should go off how long does it take to switch states.*/
+                LED_array[4] = 2;
+            }
+
+            break;
+        case 5:
+            if (state == 1) {
+                LED5_SetHigh();
+                LED_array[5] = 1;
+            }
+            else if (state == 0) {
+                LED5_SetLow();
+                LED_array[5] = 0;
+            }
+
+            else if (state == 2) {
+                /*Setup timer here for interupts or enable interupt flag for timer.
+                 Thinking that the function will be like 
+                 Blinkstart(lednum,timer) which will start the 
+                 timer and specify which led should go off how long does it take to switch states.*/
+                LED_array[5] = 2;
+
+            }
+
+
+            break;
+    }
+}
+// Gets the LED state of the desired led number the state can currently be on(1) off(0) or blinking(2))
+  int GetLEDState(int lednum)
+  {
+      return LED_array[lednum];
+  }  
+    
+    
 
 void ReadButtonState(int btnnum) {
     switch (btnnum) {
@@ -90,3 +311,6 @@ void ReadButtonState(int btnnum) {
 bool GetButtonState(int btnnum) {
     return butnarray[btnnum - 1];
 }
+
+
+
