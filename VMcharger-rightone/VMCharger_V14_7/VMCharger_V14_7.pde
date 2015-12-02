@@ -1328,7 +1328,7 @@ int runChargeStep() {
       timer=millis();
       
       // check HVC signal from BMS
-      if(digitalRead(pin_BMS)==LOW
+      if(digitalRead(pin_BMS)==HIGH  ///modified RJ - suposed to be LOW
 #ifdef DELTAQ
             || digitalRead(pin_DELTAQ)
 #endif
@@ -1336,7 +1336,7 @@ int runChargeStep() {
         // BMS commanding charger to stop
         // noise protection - ensure signal stays on for 100ms or so
         delay(100);
-        if(digitalRead(pin_BMS)==LOW
+        if(digitalRead(pin_BMS)==HIGH
 #ifdef DELTAQ
             || digitalRead(pin_DELTAQ)
 #endif        

@@ -20,7 +20,7 @@ bool butnarray[8];
  
  After this function changes the LED's state in then records that state it just changed to. */
   
-void SetLEDOut(int lednum, bool state) {
+void SetLEDOut(int lednum, int state) {
     switch (lednum) {
         case 0:
             if (state == 1) {
@@ -147,7 +147,7 @@ void SetLEDOut(int lednum, bool state) {
 // Added another function with a different set of arguments.
 // This function is the same as the first SetLEDOut() function 
 // However the difference is 
-void SetLEDOut(int lednum, bool state, int time) {
+void SetLEDOut(int lednum, int state, int time) {
     switch (lednum) {
         case 0:
             if (state == 1) {
