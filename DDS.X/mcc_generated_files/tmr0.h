@@ -13,7 +13,7 @@
   @Description
     This header file provides APIs for TMR0.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25
+        Product Revision  :  MPLAB® Code Configurator - v2.25.2
         Device            :  PIC18F45K22
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -313,7 +313,6 @@ extern "C" {
      */
     void TMR0_CallBack(void);
 
-    volatile unsigned int time;
 #ifdef __cplusplus  // Provide C++ Compatibility
 
 }
