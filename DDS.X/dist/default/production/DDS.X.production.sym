@@ -939,7 +939,7 @@ bssBANK1 100 152 BANK1 100 1
 %locals
 dist/default/production\DDS.X.production.obj
 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
-C:\Users\Andrew\AppData\Local\Temp\sa5g.
+C:\Users\Andrew\AppData\Local\Temp\sd3c.
 7072 2638 0 CODE 0
 7074 2638 0 CODE 0
 7077 2638 0 CODE 0
@@ -1386,7 +1386,7 @@ IO.c
 132 DE8 0 CODE 0
 138 DF2 0 CODE 0
 26 DF4 0 CODE 0
-timer2.c
+mcc_generated_files/timer2.c
 153 1EFE 0 CODE 0
 154 1EFE 0 CODE 0
 156 1F00 0 CODE 0
@@ -1408,7 +1408,7 @@ timer2.c
 177 1F78 0 CODE 0
 179 1F82 0 CODE 0
 154 1F84 0 CODE 0
-timer2.c
+mcc_generated_files/timer2.c
 181 24AE 0 CODE 0
 182 24AE 0 CODE 0
 184 24B0 0 CODE 0

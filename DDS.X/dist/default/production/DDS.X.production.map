@@ -5,7 +5,7 @@ Linker command line:
 --edf=C:\Program Files (x86)\Microchip\xc8\v1.35\dat\en_msgs.txt -cs \
   -h+dist/default/production\DDS.X.production.sym \
   --cmf=dist/default/production\DDS.X.production.cmf -z -Q18F45K22 \
-  -oC:\Users\Andrew\AppData\Local\Temp\sa5g.2 \
+  -oC:\Users\Andrew\AppData\Local\Temp\sd3c.2 \
   -Mdist/default/production/DDS.X.production.map -E1 -ver=XC8 \
   -ASTACK=0153h-01ffh -pstack=STACK -ACODE=00h-07FFFh -ACONST=00h-07FFFh \
   -ASMALLCONST=0600h-06FFhx122 -AMEDIUMCONST=0600h-07FFFh -ACOMRAM=01h-05Fh \
@@ -22,7 +22,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Andrew\AppData\Local\Temp\sa5g.obj \
+  C:\Users\Andrew\AppData\Local\Temp\sd3c.obj \
   dist/default/production\DDS.X.production.obj 
 
 Object code version is 3.11
@@ -35,7 +35,7 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Andrew\AppData\Local\Temp\sa5g.obj
+C:\Users\Andrew\AppData\Local\Temp\sd3c.obj
                 end_init                             C4       C4        4        4       0
                 reset_vec                             0        0        4        0       0
                 idloc                            200000   200000        8   200000       0
@@ -2167,7 +2167,7 @@ Total ram usage:        6 bytes
 
  *************** function _setLED *****************
  Defined at:
-		line 153 in file "timer2.c"
+		line 153 in file "mcc_generated_files/timer2.c"
  Parameters:    Size  Location     Type
   led             2   26[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -2197,7 +2197,7 @@ Total ram usage:        4 bytes
 
  *************** function _Off_Led *****************
  Defined at:
-		line 181 in file "timer2.c"
+		line 181 in file "mcc_generated_files/timer2.c"
  Parameters:    Size  Location     Type
   led             2   26[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -3624,6 +3624,12 @@ mcc_generated_files/interrupt_manager.c
 
 mcc_generated_files/interrupt_manager.c estimated size: 206
 
+mcc_generated_files/timer2.c
+		_setLED        		CODE           	1EFE	0000	191
+		_Off_Led       		CODE           	24AE	0000	143
+
+mcc_generated_files/timer2.c estimated size: 334
+
 mcc_generated_files/tmr0.c
 		_TMR0_CallBack 		CODE           	2DFC	0000	3
 		_TMR0_StartTimer		CODE           	2DF4	0000	5
@@ -3660,12 +3666,6 @@ IO.c
 		_ReadButtonState		CODE           	1A64	0000	279
 
 IO.c estimated size: 1003
-
-timer2.c
-		_setLED        		CODE           	1EFE	0000	191
-		_Off_Led       		CODE           	24AE	0000	143
-
-timer2.c estimated size: 334
 
 C:\Program Files (x86)\Microchip\xc8\v1.35\sources\common\memset.c
 		_memset        		CODE           	2BA2	0000	45

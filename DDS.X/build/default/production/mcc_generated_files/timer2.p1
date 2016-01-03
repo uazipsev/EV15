@@ -2,13 +2,52 @@ Version 3.2 HI-TECH Software Intermediate Code
 "102 mcc_generated_files/..\UART.h
 [s S1145 `uc -> 200 `i `i 1 `i 1 `i 1 ]
 [n S1145 UART_ring_buff buf head tail count ]
-"333 mcc_generated_files/timer2.h
-[v _Off_Led `(v ~T0 @X0 0 ef1`i ]
+"13681 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
+[v _T2CON `Vuc ~T0 @X0 0 e@4026 ]
+"13751
+[v _PR2 `Vuc ~T0 @X0 0 e@4027 ]
+"13770
+[v _TMR2 `Vuc ~T0 @X0 0 e@4028 ]
+"9835
+[s S570 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S570 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
+"9844
+[s S571 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S571 . . SSPIF TXIF RCIF ]
+"9834
+[u S569 `S570 1 `S571 1 ]
+[n S569 . . . ]
+"9851
+[v _PIR1bits `VS569 ~T0 @X0 0 e@3998 ]
+"9759
+[s S567 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S567 . TMR1IE TMR2IE CCP1IE SSP1IE TX1IE RC1IE ADIE ]
+"9768
+[s S568 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S568 . . SSPIE TXIE RCIE ]
+"9758
+[u S566 `S567 1 `S568 1 ]
+[n S566 . . . ]
+"9775
+[v _PIE1bits `VS566 ~T0 @X0 0 e@3997 ]
+"135 mcc_generated_files/timer2.h
+[v _TMR2_StartTimer `(v ~T0 @X0 0 ef ]
+"13687 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
+[s S815 :2 `uc 1 :1 `uc 1 :4 `uc 1 ]
+[n S815 . T2CKPS TMR2ON T2OUTPS ]
+"13692
+[s S816 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S816 . T2CKPS0 T2CKPS1 . T2OUTPS0 T2OUTPS1 T2OUTPS2 T2OUTPS3 ]
+"13686
+[u S814 `S815 1 `S816 1 ]
+[n S814 . . . ]
+"13702
+[v _T2CONbits `VS814 ~T0 @X0 0 e@4026 ]
+"329 mcc_generated_files/timer2.h
+[v _TMR2_CallBack `(v ~T0 @X0 0 ef ]
 "18997 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
 [v _LATB3 `Vb ~T0 @X0 0 e@31827 ]
-"332 mcc_generated_files/timer2.h
-[v _setLED `(v ~T0 @X0 0 ef1`i ]
-"19001 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
+"19001
 [v _LATB5 `Vb ~T0 @X0 0 e@31829 ]
 "19025
 [v _LATD1 `Vb ~T0 @X0 0 e@31841 ]
@@ -18,113 +57,89 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATE1 `Vb ~T0 @X0 0 e@31849 ]
 "19039
 [v _LATE0 `Vb ~T0 @X0 0 e@31848 ]
-"334 mcc_generated_files/timer2.h
-[v _Change_Blink_Rate `(v ~T0 @X0 0 ef1`i ]
-"7240 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
-[s S434 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S434 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"7250
-[s S435 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S435 . . P2B P2C P2D P1B P1C P1D ]
-"7259
-[s S436 :1 `uc 1 :1 `uc 1 :4 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S436 . . CCP4 . TX2 RX2 ]
-"7266
-[s S437 :3 `uc 1 :1 `uc 1 ]
-[n S437 . . NOT_SS2 ]
-"7270
-[s S438 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S438 . SCK2 SDI2 . nSS2 SDO2 . CK2 DT2 ]
-"7280
-[s S439 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S439 . SCL2 SDA2 . SS2 ]
-"7286
-[s S440 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S440 . AN20 AN21 AN22 AN23 AN24 AN25 AN26 AN27 ]
-"7239
-[u S433 `S434 1 `S435 1 `S436 1 `S437 1 `S438 1 `S439 1 `S440 1 ]
-[n S433 . . . . . . . . ]
-"7297
-[v _PORTDbits `VS433 ~T0 @X0 0 e@3971 ]
-"6662
-[s S416 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S416 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
-"6672
-[s S417 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S417 . INT0 INT1 INT2 CCP2 KBI0 KBI1 KBI2 KBI3 ]
-"6682
-[s S418 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S418 . AN12 AN10 AN8 AN9 AN11 AN13 PGC PGD ]
-"6692
-[s S419 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S419 . FLT0 C12IN3M . C12IN2M T5G T1G ]
-"6700
-[s S420 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S420 . SRI C12IN3N . C12IN2N . CCP3 ]
-"6708
-[s S421 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S421 . . CTED1 CTED2 . T3CKI ]
-"6715
-[s S422 :3 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S422 . . P2A . P3A ]
-"6721
-[s S423 :3 `uc 1 :1 `uc 1 ]
-[n S423 . . CCP2_PA2 ]
-"6661
-[u S415 `S416 1 `S417 1 `S418 1 `S419 1 `S420 1 `S421 1 `S422 1 `S423 1 ]
-[n S415 . . . . . . . . . ]
-"6726
-[v _PORTBbits `VS415 ~T0 @X0 0 e@3969 ]
-"6376
-[s S401 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S401 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
-"6386
-[s S402 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S402 . AN0 AN1 AN2 AN3 . AN4 ]
-"6394
-[s S403 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S403 . C12IN0M C12IN1M C2INP C1INP C1OUT C2OUT ]
-"6402
-[s S404 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S404 . C12IN0N C12IN1N VREFM VREFP T0CKI SS ]
-"6410
-[s S405 :5 `uc 1 :1 `uc 1 ]
-[n S405 . . NOT_SS ]
-"6414
-[s S406 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S406 . . VREFN . SRQ nSS ]
-"6421
-[s S407 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S407 . . CVREF . LVDIN ]
-"6427
-[s S408 :2 `uc 1 :1 `uc 1 :2 `uc 1 :1 `uc 1 ]
-[n S408 . . DACOUT . HLVDIN ]
-"6433
-[s S409 :5 `uc 1 :1 `uc 1 ]
-[n S409 . . SS1 ]
-"6437
-[s S410 :5 `uc 1 :1 `uc 1 ]
-[n S410 . . NOT_SS1 ]
-"6441
-[s S411 :5 `uc 1 :1 `uc 1 ]
-[n S411 . . nSS1 ]
-"6445
-[s S412 :5 `uc 1 :1 `uc 1 ]
-[n S412 . . SRNQ ]
-"6449
-[s S413 :7 `uc 1 :1 `uc 1 ]
-[n S413 . . RJPU ]
-"6453
-[s S414 :1 `uc 1 ]
-[n S414 . ULPWUIN ]
-"6375
-[u S400 `S401 1 `S402 1 `S403 1 `S404 1 `S405 1 `S406 1 `S407 1 `S408 1 `S409 1 `S410 1 `S411 1 `S412 1 `S413 1 `S414 1 ]
-[n S400 . . . . . . . . . . . . . . . ]
-"6457
-[v _PORTAbits `VS400 ~T0 @X0 0 e@3968 ]
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stdarg.h: 7: typedef void * va_list[1];
+[; ;stdarg.h: 10: extern void * __va_start(void);
+[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
+[; ;stdio.h: 43: struct __prbuf
+[; ;stdio.h: 44: {
+[; ;stdio.h: 45: char * ptr;
+[; ;stdio.h: 46: void (* func)(char);
+[; ;stdio.h: 47: };
+[; ;errno.h: 25: extern int errno;
+[; ;conio.h: 12: extern void init_uart(void);
+[; ;conio.h: 14: extern char getch(void);
+[; ;conio.h: 15: extern char getche(void);
+[; ;conio.h: 16: extern void putch(char);
+[; ;conio.h: 17: extern void ungetch(char);
+[; ;conio.h: 19: extern __bit kbhit(void);
+[; ;conio.h: 23: extern char * cgets(char *);
+[; ;conio.h: 24: extern void cputs(const char *);
+[; ;stdio.h: 88: extern int cprintf(char *, ...);
+[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
+[; ;stdio.h: 183: extern char * gets(char *);
+[; ;stdio.h: 184: extern int puts(const char *);
+[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
+[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
+[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
+[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
+[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
+[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
+[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
+[; ;stdio.h: 195: extern int printf(const char *, ...);
+[; ;stdlib.h: 7: typedef unsigned short wchar_t;
+[; ;stdlib.h: 15: typedef struct {
+[; ;stdlib.h: 16: int rem;
+[; ;stdlib.h: 17: int quot;
+[; ;stdlib.h: 18: } div_t;
+[; ;stdlib.h: 19: typedef struct {
+[; ;stdlib.h: 20: unsigned rem;
+[; ;stdlib.h: 21: unsigned quot;
+[; ;stdlib.h: 22: } udiv_t;
+[; ;stdlib.h: 23: typedef struct {
+[; ;stdlib.h: 24: long quot;
+[; ;stdlib.h: 25: long rem;
+[; ;stdlib.h: 26: } ldiv_t;
+[; ;stdlib.h: 27: typedef struct {
+[; ;stdlib.h: 28: unsigned long quot;
+[; ;stdlib.h: 29: unsigned long rem;
+[; ;stdlib.h: 30: } uldiv_t;
+[; ;stdlib.h: 53: extern double atof(const char *);
+[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
+[; ;stdlib.h: 55: extern int atoi(const char *);
+[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
+[; ;stdlib.h: 57: extern long atol(const char *);
+[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
+[; ;stdlib.h: 60: extern int rand(void);
+[; ;stdlib.h: 61: extern void srand(unsigned int);
+[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
+[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
+[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
+[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
+[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
+[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
+[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
+[; ;stdlib.h: 75: extern void * malloc(size_t);
+[; ;stdlib.h: 76: extern void free(void *);
+[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
+[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
+[; ;stdlib.h: 86: extern int atexit(void (*)(void));
+[; ;stdlib.h: 87: extern char * getenv(const char *);
+[; ;stdlib.h: 88: extern char ** environ;
+[; ;stdlib.h: 89: extern int system(char *);
+[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
+[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
+[; ;stdlib.h: 92: extern int abs(int);
+[; ;stdlib.h: 93: extern long labs(long);
+[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
+[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
+[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
+[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
+[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
-[; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 49: extern volatile unsigned char ANSELA @ 0xF38;
 "51 C:\Program Files (x86)\Microchip\xc8\v1.35\include\pic18f45k22.h
 [; ;pic18f45k22.h: 51: asm("ANSELA equ 0F38h");
@@ -7548,8 +7563,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 152: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 154: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 156: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 386: void PIN_MANAGER_Initialize (void);
-[; ;pin_manager.h: 398: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -7579,6 +7592,19 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;timer2.h: 106: void TMR2_Initialize(void);
+[; ;timer2.h: 135: void TMR2_StartTimer(void);
+[; ;timer2.h: 167: void TMR2_StopTimer(void);
+[; ;timer2.h: 202: uint8_t TMR2_ReadTimer(void);
+[; ;timer2.h: 241: void TMR2_WriteTimer(uint8_t timerVal);
+[; ;timer2.h: 293: void TMR2_LoadPeriodRegister(uint8_t periodVal);
+[; ;timer2.h: 311: void TMR2_ISR(void);
+[; ;timer2.h: 329: void TMR2_CallBack(void);
+[; ;timer2.h: 332: void setLED(int);
+[; ;timer2.h: 333: void Off_Led(int);
+[; ;timer2.h: 334: void Change_Blink_Rate(int);
+[; ;pin_manager.h: 386: void PIN_MANAGER_Initialize (void);
+[; ;pin_manager.h: 398: void PIN_MANAGER_IOC(void);
 [; ;interrupt_manager.h: 110: void INTERRUPT_Initialize (void);
 [; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager (void);
 [; ;adc.h: 72: typedef uint16_t adc_result_t;
@@ -7606,86 +7632,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 "316 mcc_generated_files/tmr0.h
 [v _time `Vui ~T0 @X0 1 e ]
 [; ;tmr0.h: 316: volatile unsigned int time;
-[; ;__size_t.h: 4: typedef unsigned size_t;
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 43: struct __prbuf
-[; ;stdio.h: 44: {
-[; ;stdio.h: 45: char * ptr;
-[; ;stdio.h: 46: void (* func)(char);
-[; ;stdio.h: 47: };
-[; ;errno.h: 25: extern int errno;
-[; ;conio.h: 12: extern void init_uart(void);
-[; ;conio.h: 14: extern char getch(void);
-[; ;conio.h: 15: extern char getche(void);
-[; ;conio.h: 16: extern void putch(char);
-[; ;conio.h: 17: extern void ungetch(char);
-[; ;conio.h: 19: extern __bit kbhit(void);
-[; ;conio.h: 23: extern char * cgets(char *);
-[; ;conio.h: 24: extern void cputs(const char *);
-[; ;stdio.h: 88: extern int cprintf(char *, ...);
-[; ;stdio.h: 93: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 183: extern char * gets(char *);
-[; ;stdio.h: 184: extern int puts(const char *);
-[; ;stdio.h: 185: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 186: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 187: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 188: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 189: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 190: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 195: extern int printf(const char *, ...);
-[; ;stdlib.h: 7: typedef unsigned short wchar_t;
-[; ;stdlib.h: 15: typedef struct {
-[; ;stdlib.h: 16: int rem;
-[; ;stdlib.h: 17: int quot;
-[; ;stdlib.h: 18: } div_t;
-[; ;stdlib.h: 19: typedef struct {
-[; ;stdlib.h: 20: unsigned rem;
-[; ;stdlib.h: 21: unsigned quot;
-[; ;stdlib.h: 22: } udiv_t;
-[; ;stdlib.h: 23: typedef struct {
-[; ;stdlib.h: 24: long quot;
-[; ;stdlib.h: 25: long rem;
-[; ;stdlib.h: 26: } ldiv_t;
-[; ;stdlib.h: 27: typedef struct {
-[; ;stdlib.h: 28: unsigned long quot;
-[; ;stdlib.h: 29: unsigned long rem;
-[; ;stdlib.h: 30: } uldiv_t;
-[; ;stdlib.h: 53: extern double atof(const char *);
-[; ;stdlib.h: 54: extern double strtod(const char *, const char **);
-[; ;stdlib.h: 55: extern int atoi(const char *);
-[; ;stdlib.h: 56: extern unsigned xtoi(const char *);
-[; ;stdlib.h: 57: extern long atol(const char *);
-[; ;stdlib.h: 58: extern long strtol(const char *, char **, int);
-[; ;stdlib.h: 60: extern int rand(void);
-[; ;stdlib.h: 61: extern void srand(unsigned int);
-[; ;stdlib.h: 62: extern void * calloc(size_t, size_t);
-[; ;stdlib.h: 63: extern div_t div(int numer, int denom);
-[; ;stdlib.h: 64: extern udiv_t udiv(unsigned numer, unsigned denom);
-[; ;stdlib.h: 65: extern ldiv_t ldiv(long numer, long denom);
-[; ;stdlib.h: 66: extern uldiv_t uldiv(unsigned long numer,unsigned long denom);
-[; ;stdlib.h: 67: extern unsigned long _lrotl(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 68: extern unsigned long _lrotr(unsigned long value, unsigned int shift);
-[; ;stdlib.h: 69: extern unsigned int _rotl(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 70: extern unsigned int _rotr(unsigned int value, unsigned int shift);
-[; ;stdlib.h: 75: extern void * malloc(size_t);
-[; ;stdlib.h: 76: extern void free(void *);
-[; ;stdlib.h: 77: extern void * realloc(void *, size_t);
-[; ;stdlib.h: 86: extern int atexit(void (*)(void));
-[; ;stdlib.h: 87: extern char * getenv(const char *);
-[; ;stdlib.h: 88: extern char ** environ;
-[; ;stdlib.h: 89: extern int system(char *);
-[; ;stdlib.h: 90: extern void qsort(void *, size_t, size_t, int (*)(const void *, const void *));
-[; ;stdlib.h: 91: extern void * bsearch(const void *, void *, size_t, size_t, int(*)(const void *, const void *));
-[; ;stdlib.h: 92: extern int abs(int);
-[; ;stdlib.h: 93: extern long labs(long);
-[; ;stdlib.h: 95: extern char * itoa(char * buf, int val, int base);
-[; ;stdlib.h: 96: extern char * utoa(char * buf, unsigned val, int base);
-[; ;stdlib.h: 101: extern char * ltoa(char * buf, long val, int base);
-[; ;stdlib.h: 102: extern char * ultoa(char * buf, unsigned long val, int base);
-[; ;stdlib.h: 104: extern char * ftoa(float f, int * status);
 [; ;..\UART.h: 23: uint8_t EUSART1_Read(void);
 [; ;..\UART.h: 48: void EUSART1_Write(uint8_t txData);
 [; ;..\UART.h: 69: void EUSART1_Transmit_ISR(void);
@@ -7778,625 +7724,480 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;mcc.h: 91: extern unsigned char Receive_get(void);
 [; ;mcc.h: 92: extern void Send_put(unsigned char _data);
 [; ;mcc.h: 94: extern volatile int receiveArray[20];
-[; ;timer2.h: 106: void TMR2_Initialize(void);
-[; ;timer2.h: 135: void TMR2_StartTimer(void);
-[; ;timer2.h: 167: void TMR2_StopTimer(void);
-[; ;timer2.h: 202: uint8_t TMR2_ReadTimer(void);
-[; ;timer2.h: 241: void TMR2_WriteTimer(uint8_t timerVal);
-[; ;timer2.h: 293: void TMR2_LoadPeriodRegister(uint8_t periodVal);
-[; ;timer2.h: 311: void TMR2_ISR(void);
-[; ;timer2.h: 329: void TMR2_CallBack(void);
-[; ;timer2.h: 332: void setLED(int);
-[; ;timer2.h: 333: void Off_Led(int);
-[; ;timer2.h: 334: void Change_Blink_Rate(int);
-"14 IO.c
-[v _LED_array `i ~T0 @X0 -> 8 `i e ]
-[; ;IO.c: 14: int LED_array[8];
-"15
-[v _butnarray `uc ~T0 @X0 -> 8 `i e ]
-[; ;IO.c: 15: bool butnarray[8];
-"25
-[v _SetLEDOut `(v ~T0 @X0 1 ef2`i`i ]
-{
-[; ;IO.c: 25: void SetLEDOut(int lednum, int state) {
-[e :U _SetLEDOut ]
-[v _lednum `i ~T0 @X0 1 r1 ]
-[v _state `i ~T0 @X0 1 r2 ]
-[f ]
-[; ;IO.c: 26: switch (lednum) {
-"26
-[e $U 1149  ]
-{
-[; ;IO.c: 27: case 0:
-"27
-[e :U 1150 ]
-[; ;IO.c: 28: if (state == 1) {
-"28
-[e $ ! == _state -> 1 `i 1151  ]
-{
-[; ;IO.c: 29: Off_Led(0);
-"29
-[e ( _Off_Led (1 -> 0 `i ]
-[; ;IO.c: 30: do { LATB3 = 1; } while(0);
-"30
-[e :U 1154 ]
-{
-[e = _LATB3 -> -> 1 `i `b ]
-}
-[e :U 1153 ]
-[; ;IO.c: 31: LED_array[0] = 1;
-"31
-[e = *U + &U _LED_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 1 `i ]
-"32
-}
-[; ;IO.c: 32: } else if (state == 0) {
-[e $U 1155  ]
-[e :U 1151 ]
-[e $ ! == _state -> 0 `i 1156  ]
-{
-[; ;IO.c: 33: Off_Led(0);
-"33
-[e ( _Off_Led (1 -> 0 `i ]
-[; ;IO.c: 34: do { LATB3 = 0; } while(0);
-"34
-[e :U 1159 ]
-{
-[e = _LATB3 -> -> 0 `i `b ]
-}
-[e :U 1158 ]
-[; ;IO.c: 35: LED_array[0] = 0;
-"35
-[e = *U + &U _LED_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 0 `i ]
-"36
-}
-[; ;IO.c: 36: }
-[e $U 1160  ]
-"37
-[e :U 1156 ]
-[; ;IO.c: 37: else if (state == 2) {
-[e $ ! == _state -> 2 `i 1161  ]
-{
-[; ;IO.c: 39: do { LATB3 = 0; } while(0);
-"39
-[e :U 1164 ]
-{
-[e = _LATB3 -> -> 0 `i `b ]
-}
-[e :U 1163 ]
-[; ;IO.c: 40: setLED(0);
-"40
-[e ( _setLED (1 -> 0 `i ]
-[; ;IO.c: 41: LED_array[0] = 2;
-"41
-[e = *U + &U _LED_array * -> -> -> 0 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 2 `i ]
-"43
-}
-[e :U 1161 ]
-"44
-[e :U 1160 ]
-[e :U 1155 ]
-[; ;IO.c: 43: }
-[; ;IO.c: 44: break;
-[e $U 1148  ]
-[; ;IO.c: 46: case 1:
-"46
-[e :U 1165 ]
-[; ;IO.c: 47: if (state == 1) {
-"47
-[e $ ! == _state -> 1 `i 1166  ]
-{
-[; ;IO.c: 48: Off_Led(1);
-"48
-[e ( _Off_Led (1 -> 1 `i ]
-[; ;IO.c: 49: do { LATB5 = 1; } while(0);
-"49
-[e :U 1169 ]
-{
-[e = _LATB5 -> -> 1 `i `b ]
-}
-[e :U 1168 ]
-[; ;IO.c: 50: LED_array[1] = 1;
-"50
-[e = *U + &U _LED_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 1 `i ]
-"51
-}
-[; ;IO.c: 51: } else if (state == 0) {
-[e $U 1170  ]
-[e :U 1166 ]
-[e $ ! == _state -> 0 `i 1171  ]
-{
-[; ;IO.c: 52: Off_Led(1);
-"52
-[e ( _Off_Led (1 -> 1 `i ]
-[; ;IO.c: 53: do { LATB5 = 0; } while(0);
-"53
-[e :U 1174 ]
-{
-[e = _LATB5 -> -> 0 `i `b ]
-}
-[e :U 1173 ]
-[; ;IO.c: 54: LED_array[1] = 0;
-"54
-[e = *U + &U _LED_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 0 `i ]
-"55
-}
-[; ;IO.c: 55: } else if (state == 2) {
-[e $U 1175  ]
-[e :U 1171 ]
-[e $ ! == _state -> 2 `i 1176  ]
-{
-[; ;IO.c: 57: do { LATB5 = 0; } while(0);
-"57
-[e :U 1179 ]
-{
-[e = _LATB5 -> -> 0 `i `b ]
-}
-[e :U 1178 ]
-[; ;IO.c: 58: setLED(1);
+"57 mcc_generated_files/timer2.c
+[v _LEDNUM_ENAB `i ~T0 @X0 -> 6 `i e ]
+[i _LEDNUM_ENAB
+:U ..
+-> 0 `i
+..
+]
+[; ;timer2.c: 57: int LEDNUM_ENAB[6]=0;
 "58
-[e ( _setLED (1 -> 1 `i ]
-[; ;IO.c: 59: LED_array[1] = 2;
+[v _LEDState `i ~T0 @X0 -> 6 `i e ]
+[i _LEDState
+:U ..
+-> 0 `i
+..
+]
+[; ;timer2.c: 58: int LEDState[6]=0;
 "59
-[e = *U + &U _LED_array * -> -> -> 1 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 2 `i ]
-"61
-}
-[e :U 1176 ]
-"62
-[e :U 1175 ]
-[e :U 1170 ]
-[; ;IO.c: 61: }
-[; ;IO.c: 62: break;
-[e $U 1148  ]
-[; ;IO.c: 63: case 2:
+[v _TMR2_Initialize `(v ~T0 @X0 1 ef ]
+{
+[; ;timer2.c: 59: void TMR2_Initialize(void) {
+[e :U _TMR2_Initialize ]
+[f ]
+[; ;timer2.c: 63: T2CON = 0x02;
 "63
-[e :U 1180 ]
-[; ;IO.c: 64: if (state == 1) {
-"64
-[e $ ! == _state -> 1 `i 1181  ]
-{
-[; ;IO.c: 65: Off_Led(2);
-"65
-[e ( _Off_Led (1 -> 2 `i ]
-[; ;IO.c: 66: do { LATD1 = 1; } while(0);
+[e = _T2CON -> -> 2 `i `uc ]
+[; ;timer2.c: 66: PR2 = 0xF9;
 "66
-[e :U 1184 ]
-{
-[e = _LATD1 -> -> 1 `i `b ]
-}
-[e :U 1183 ]
-[; ;IO.c: 67: LED_array[2] = 1;
-"67
-[e = *U + &U _LED_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 1 `i ]
-"68
-}
-[; ;IO.c: 68: } else if (state == 0) {
-[e $U 1185  ]
-[e :U 1181 ]
-[e $ ! == _state -> 0 `i 1186  ]
-{
-[; ;IO.c: 69: Off_Led(2);
+[e = _PR2 -> -> 249 `i `uc ]
+[; ;timer2.c: 69: TMR2 = 0x00;
 "69
-[e ( _Off_Led (1 -> 2 `i ]
-[; ;IO.c: 70: do { LATD1 = 0; } while(0);
-"70
-[e :U 1189 ]
-{
-[e = _LATD1 -> -> 0 `i `b ]
-}
-[e :U 1188 ]
-[; ;IO.c: 71: LED_array[2] = 0;
-"71
-[e = *U + &U _LED_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 0 `i ]
+[e = _TMR2 -> -> 0 `i `uc ]
+[; ;timer2.c: 72: PIR1bits.TMR2IF = 0;
 "72
-}
-[; ;IO.c: 72: } else if (state == 2) {
-[e $U 1190  ]
-[e :U 1186 ]
-[e $ ! == _state -> 2 `i 1191  ]
-{
-[; ;IO.c: 74: do { LATD1 = 0; } while(0);
-"74
-[e :U 1194 ]
-{
-[e = _LATD1 -> -> 0 `i `b ]
-}
-[e :U 1193 ]
-[; ;IO.c: 75: setLED(2);
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;timer2.c: 75: PIE1bits.TMR2IE = 1;
 "75
-[e ( _setLED (1 -> 2 `i ]
-[; ;IO.c: 77: LED_array[2] = 2;
-"77
-[e = *U + &U _LED_array * -> -> -> 2 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 2 `i ]
+[e = . . _PIE1bits 0 1 -> -> 1 `i `uc ]
+[; ;timer2.c: 78: TMR2_StartTimer();
+"78
+[e ( _TMR2_StartTimer ..  ]
+[; ;timer2.c: 79: }
 "79
-}
-[e :U 1191 ]
-"82
-[e :U 1190 ]
-[e :U 1185 ]
-[; ;IO.c: 79: }
-[; ;IO.c: 82: break;
-[e $U 1148  ]
-[; ;IO.c: 84: case 3:
-"84
-[e :U 1195 ]
-[; ;IO.c: 85: if (state == 1) {
-"85
-[e $ ! == _state -> 1 `i 1196  ]
-{
-[; ;IO.c: 86: Off_Led(3);
-"86
-[e ( _Off_Led (1 -> 3 `i ]
-[; ;IO.c: 87: do { LATE2 = 1; } while(0);
-"87
-[e :U 1199 ]
-{
-[e = _LATE2 -> -> 1 `i `b ]
-}
-[e :U 1198 ]
-[; ;IO.c: 88: LED_array[3] = 1;
-"88
-[e = *U + &U _LED_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 1 `i ]
-"89
-}
-[; ;IO.c: 89: } else if (state == 0) {
-[e $U 1200  ]
-[e :U 1196 ]
-[e $ ! == _state -> 0 `i 1201  ]
-{
-[; ;IO.c: 90: Off_Led(3);
-"90
-[e ( _Off_Led (1 -> 3 `i ]
-[; ;IO.c: 91: do { LATE2 = 0; } while(0);
-"91
-[e :U 1204 ]
-{
-[e = _LATE2 -> -> 0 `i `b ]
-}
-[e :U 1203 ]
-[; ;IO.c: 92: LED_array[3] = 0;
-"92
-[e = *U + &U _LED_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 0 `i ]
-"93
-}
-[; ;IO.c: 93: }
-[e $U 1205  ]
-"94
-[e :U 1201 ]
-[; ;IO.c: 94: else if (state == 2) {
-[e $ ! == _state -> 2 `i 1206  ]
-{
-[; ;IO.c: 95: do { LATE2 = 0; } while(0);
-"95
-[e :U 1209 ]
-{
-[e = _LATE2 -> -> 0 `i `b ]
-}
-[e :U 1208 ]
-[; ;IO.c: 96: setLED(3);
-"96
-[e ( _setLED (1 -> 3 `i ]
-[; ;IO.c: 97: LED_array[3] = 2;
-"97
-[e = *U + &U _LED_array * -> -> -> 3 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 2 `i ]
-"99
-}
-[e :U 1206 ]
-"101
-[e :U 1205 ]
-[e :U 1200 ]
-[; ;IO.c: 99: }
-[; ;IO.c: 101: break;
-[e $U 1148  ]
-[; ;IO.c: 102: case 4:
-"102
-[e :U 1210 ]
-[; ;IO.c: 103: if (state == 1) {
-"103
-[e $ ! == _state -> 1 `i 1211  ]
-{
-[; ;IO.c: 104: Off_Led(4);
-"104
-[e ( _Off_Led (1 -> 4 `i ]
-[; ;IO.c: 105: do { LATE1 = 1; } while(0);
-"105
-[e :U 1214 ]
-{
-[e = _LATE1 -> -> 1 `i `b ]
-}
-[e :U 1213 ]
-[; ;IO.c: 106: LED_array[4] = 1;
-"106
-[e = *U + &U _LED_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 1 `i ]
-"107
-}
-[; ;IO.c: 107: } else if (state == 0) {
-[e $U 1215  ]
-[e :U 1211 ]
-[e $ ! == _state -> 0 `i 1216  ]
-{
-[; ;IO.c: 108: Off_Led(4);
-"108
-[e ( _Off_Led (1 -> 4 `i ]
-[; ;IO.c: 109: do { LATE1 = 0; } while(0);
-"109
-[e :U 1219 ]
-{
-[e = _LATE1 -> -> 0 `i `b ]
-}
-[e :U 1218 ]
-[; ;IO.c: 110: LED_array[4] = 0;
-"110
-[e = *U + &U _LED_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 0 `i ]
-"111
-}
-[; ;IO.c: 111: }
-[e $U 1220  ]
-"112
-[e :U 1216 ]
-[; ;IO.c: 112: else if (state == 2) {
-[e $ ! == _state -> 2 `i 1221  ]
-{
-[; ;IO.c: 113: do { LATE1 = 0; } while(0);
-"113
-[e :U 1224 ]
-{
-[e = _LATE1 -> -> 0 `i `b ]
-}
-[e :U 1223 ]
-[; ;IO.c: 114: setLED(4);
-"114
-[e ( _setLED (1 -> 4 `i ]
-[; ;IO.c: 115: LED_array[4] = 2;
-"115
-[e = *U + &U _LED_array * -> -> -> 4 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 2 `i ]
-"116
-}
-[e :U 1221 ]
-"118
-[e :U 1220 ]
-[e :U 1215 ]
-[; ;IO.c: 116: }
-[; ;IO.c: 118: break;
-[e $U 1148  ]
-[; ;IO.c: 119: case 5:
-"119
-[e :U 1225 ]
-[; ;IO.c: 120: if (state == 1) {
-"120
-[e $ ! == _state -> 1 `i 1226  ]
-{
-[; ;IO.c: 121: Off_Led(5);
-"121
-[e ( _Off_Led (1 -> 5 `i ]
-[; ;IO.c: 122: do { LATE0 = 1; } while(0);
-"122
-[e :U 1229 ]
-{
-[e = _LATE0 -> -> 1 `i `b ]
-}
-[e :U 1228 ]
-[; ;IO.c: 123: LED_array[5] = 1;
-"123
-[e = *U + &U _LED_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 1 `i ]
-"124
-}
-[; ;IO.c: 124: } else if (state == 0) {
-[e $U 1230  ]
-[e :U 1226 ]
-[e $ ! == _state -> 0 `i 1231  ]
-{
-[; ;IO.c: 125: Off_Led(5);
-"125
-[e ( _Off_Led (1 -> 5 `i ]
-[; ;IO.c: 126: do { LATE0 = 0; } while(0);
-"126
-[e :U 1234 ]
-{
-[e = _LATE0 -> -> 0 `i `b ]
-}
-[e :U 1233 ]
-[; ;IO.c: 127: LED_array[5] = 0;
-"127
-[e = *U + &U _LED_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 0 `i ]
-"128
-}
-[; ;IO.c: 128: }
-[e $U 1235  ]
-"129
-[e :U 1231 ]
-[; ;IO.c: 129: else if (state == 2) {
-[e $ ! == _state -> 2 `i 1236  ]
-{
-[; ;IO.c: 130: do { LATE0 = 0; } while(0);
-"130
-[e :U 1239 ]
-{
-[e = _LATE0 -> -> 0 `i `b ]
-}
-[e :U 1238 ]
-[; ;IO.c: 131: setLED(5);
-"131
-[e ( _setLED (1 -> 5 `i ]
-[; ;IO.c: 132: LED_array[5] = 2;
-"132
-[e = *U + &U _LED_array * -> -> -> 5 `i `ui `ux -> -> # *U &U _LED_array `ui `ux -> 2 `i ]
-"134
-}
-[e :U 1236 ]
-"137
-[e :U 1235 ]
-[e :U 1230 ]
-[; ;IO.c: 134: }
-[; ;IO.c: 137: break;
-[e $U 1148  ]
-"138
-}
-[; ;IO.c: 138: }
-[e $U 1148  ]
-"26
-[e :U 1149 ]
-[e [\ _lednum , $ -> 0 `i 1150
- , $ -> 1 `i 1165
- , $ -> 2 `i 1180
- , $ -> 3 `i 1195
- , $ -> 4 `i 1210
- , $ -> 5 `i 1225
- 1148 ]
-"138
-[e :U 1148 ]
-[; ;IO.c: 139: }
-"139
 [e :UE 1147 ]
 }
-"141
-[v _Change_Blink `(v ~T0 @X0 1 ef1`i ]
+"81
+[v _TMR2_StartTimer `(v ~T0 @X0 1 ef ]
 {
-[; ;IO.c: 141: void Change_Blink(int time){
-[e :U _Change_Blink ]
+[; ;timer2.c: 81: void TMR2_StartTimer(void) {
+[e :U _TMR2_StartTimer ]
+[f ]
+[; ;timer2.c: 83: T2CONbits.TMR2ON = 1;
+"83
+[e = . . _T2CONbits 0 1 -> -> 1 `i `uc ]
+[; ;timer2.c: 84: }
+"84
+[e :UE 1148 ]
+}
+"86
+[v _TMR2_StopTimer `(v ~T0 @X0 1 ef ]
+{
+[; ;timer2.c: 86: void TMR2_StopTimer(void) {
+[e :U _TMR2_StopTimer ]
+[f ]
+[; ;timer2.c: 88: T2CONbits.TMR2ON = 0;
+"88
+[e = . . _T2CONbits 0 1 -> -> 0 `i `uc ]
+[; ;timer2.c: 89: }
+"89
+[e :UE 1149 ]
+}
+"91
+[v _TMR2_ReadTimer `(uc ~T0 @X0 1 ef ]
+{
+[; ;timer2.c: 91: uint8_t TMR2_ReadTimer(void) {
+[e :U _TMR2_ReadTimer ]
+[f ]
+"92
+[v _readVal `uc ~T0 @X0 1 a ]
+[; ;timer2.c: 92: uint8_t readVal;
+[; ;timer2.c: 94: readVal = TMR2;
+"94
+[e = _readVal _TMR2 ]
+[; ;timer2.c: 96: return readVal;
+"96
+[e ) _readVal ]
+[e $UE 1150  ]
+[; ;timer2.c: 97: }
+"97
+[e :UE 1150 ]
+}
+"99
+[v _TMR2_WriteTimer `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;timer2.c: 99: void TMR2_WriteTimer(uint8_t timerVal) {
+[e :U _TMR2_WriteTimer ]
+[v _timerVal `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;timer2.c: 101: TMR2 = timerVal;
+"101
+[e = _TMR2 _timerVal ]
+[; ;timer2.c: 102: }
+"102
+[e :UE 1151 ]
+}
+"104
+[v _TMR2_LoadPeriodRegister `(v ~T0 @X0 1 ef1`uc ]
+{
+[; ;timer2.c: 104: void TMR2_LoadPeriodRegister(uint8_t periodVal) {
+[e :U _TMR2_LoadPeriodRegister ]
+[v _periodVal `uc ~T0 @X0 1 r1 ]
+[f ]
+[; ;timer2.c: 105: PR2 = periodVal;
+"105
+[e = _PR2 _periodVal ]
+[; ;timer2.c: 106: }
+"106
+[e :UE 1152 ]
+}
+"108
+[v _TMR2_ISR `(v ~T0 @X0 1 ef ]
+{
+[; ;timer2.c: 108: void TMR2_ISR(void) {
+[e :U _TMR2_ISR ]
+[f ]
+"109
+[v F8236 `Vui ~T0 @X0 1 s CountCallBack ]
+[i F8236
+-> -> 0 `i `ui
+]
+[; ;timer2.c: 109: static volatile unsigned int CountCallBack = 0;
+[; ;timer2.c: 112: PIR1bits.TMR2IF = 0;
+"112
+[e = . . _PIR1bits 0 1 -> -> 0 `i `uc ]
+[; ;timer2.c: 115: if (++CountCallBack >= 500) {
+"115
+[e $ ! >= =+ F8236 -> -> 1 `i `ui -> -> 500 `i `ui 1154  ]
+{
+[; ;timer2.c: 117: TMR2_CallBack();
+"117
+[e ( _TMR2_CallBack ..  ]
+[; ;timer2.c: 120: CountCallBack = 0;
+"120
+[e = F8236 -> -> 0 `i `ui ]
+"121
+}
+[e :U 1154 ]
+[; ;timer2.c: 121: }
+[; ;timer2.c: 124: }
+"124
+[e :UE 1153 ]
+}
+"126
+[v _TMR2_CallBack `(v ~T0 @X0 1 ef ]
+{
+[; ;timer2.c: 126: void TMR2_CallBack(void) {
+[e :U _TMR2_CallBack ]
+[f ]
+"127
+[v _i `i ~T0 @X0 1 a ]
+[; ;timer2.c: 127: int i=0;
+[e = _i -> 0 `i ]
+[; ;timer2.c: 128: while(i<=5){
+"128
+[e $U 1156  ]
+[e :U 1157 ]
+{
+[; ;timer2.c: 130: if(LEDNUM_ENAB[i]==1){
+"130
+[e $ ! == *U + &U _LEDNUM_ENAB * -> -> _i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i 1159  ]
+{
+[; ;timer2.c: 131: switch (LEDState[i]) {
+"131
+[e $U 1161  ]
+{
+[; ;timer2.c: 132: case 0:
+"132
+[e :U 1162 ]
+[; ;timer2.c: 133: do { LATB3 = ~LATB3; } while(0);
+"133
+[e :U 1165 ]
+{
+[e = _LATB3 -> ~ -> _LATB3 `ui `b ]
+}
+[e :U 1164 ]
+[; ;timer2.c: 134: LEDState[i]=1;
+"134
+[e = *U + &U _LEDState * -> -> _i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 1 `i ]
+[; ;timer2.c: 135: break;
+"135
+[e $U 1160  ]
+[; ;timer2.c: 136: case 1:
+"136
+[e :U 1166 ]
+[; ;timer2.c: 137: do { LATB3 = ~LATB3; } while(0);
+"137
+[e :U 1169 ]
+{
+[e = _LATB3 -> ~ -> _LATB3 `ui `b ]
+}
+[e :U 1168 ]
+[; ;timer2.c: 138: LEDState[i]=0;
+"138
+[e = *U + &U _LEDState * -> -> _i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 139: break;
+"139
+[e $U 1160  ]
+"140
+}
+[; ;timer2.c: 140: }
+[e $U 1160  ]
+"131
+[e :U 1161 ]
+[e [\ *U + &U _LEDState * -> -> _i `ui `ux -> -> # *U &U _LEDState `ui `ux , $ -> 0 `i 1162
+ , $ -> 1 `i 1166
+ 1160 ]
+"140
+[e :U 1160 ]
+"141
+}
+[e :U 1159 ]
+[; ;timer2.c: 141: }
+[; ;timer2.c: 142: i=i+1;
+"142
+[e = _i + _i -> 1 `i ]
+"143
+}
+[e :U 1156 ]
+"128
+[e $ <= _i -> 5 `i 1157  ]
+[e :U 1158 ]
+[; ;timer2.c: 143: }
+[; ;timer2.c: 149: }
+"149
+[e :UE 1155 ]
+}
+"153
+[v _setLED `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;timer2.c: 153: void setLED(int led){
+[e :U _setLED ]
+[v _led `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;timer2.c: 154: switch (led){
+"154
+[e $U 1172  ]
+{
+[; ;timer2.c: 155: case 0:
+"155
+[e :U 1173 ]
+[; ;timer2.c: 156: LEDNUM_ENAB[0]=1;
+"156
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 0 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i ]
+[; ;timer2.c: 157: LEDState[0]=0;
+"157
+[e = *U + &U _LEDState * -> -> -> 0 `i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 158: break;
+"158
+[e $U 1171  ]
+[; ;timer2.c: 159: case 1:
+"159
+[e :U 1174 ]
+[; ;timer2.c: 160: LEDNUM_ENAB[1]=1;
+"160
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 1 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i ]
+[; ;timer2.c: 161: LEDState[1]=0;
+"161
+[e = *U + &U _LEDState * -> -> -> 1 `i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 162: break;
+"162
+[e $U 1171  ]
+[; ;timer2.c: 163: case 2:
+"163
+[e :U 1175 ]
+[; ;timer2.c: 164: LEDNUM_ENAB[2]=1;
+"164
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 2 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i ]
+[; ;timer2.c: 165: LEDState[2]=0;
+"165
+[e = *U + &U _LEDState * -> -> -> 2 `i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 166: break;
+"166
+[e $U 1171  ]
+[; ;timer2.c: 167: case 3:
+"167
+[e :U 1176 ]
+[; ;timer2.c: 168: LEDNUM_ENAB[3]=1;
+"168
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 3 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i ]
+[; ;timer2.c: 169: LEDState[3]=0;
+"169
+[e = *U + &U _LEDState * -> -> -> 3 `i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 170: break;
+"170
+[e $U 1171  ]
+[; ;timer2.c: 171: case 4:
+"171
+[e :U 1177 ]
+[; ;timer2.c: 172: LEDNUM_ENAB[4]=1;
+"172
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 4 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i ]
+[; ;timer2.c: 173: LEDState[4]=0;
+"173
+[e = *U + &U _LEDState * -> -> -> 4 `i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 174: break;
+"174
+[e $U 1171  ]
+[; ;timer2.c: 175: case 5:
+"175
+[e :U 1178 ]
+[; ;timer2.c: 176: LEDNUM_ENAB[5]=1;
+"176
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 5 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 1 `i ]
+[; ;timer2.c: 177: LEDState[5]=0;
+"177
+[e = *U + &U _LEDState * -> -> -> 5 `i `ui `ux -> -> # *U &U _LEDState `ui `ux -> 0 `i ]
+[; ;timer2.c: 178: break;
+"178
+[e $U 1171  ]
+"179
+}
+[; ;timer2.c: 179: }
+[e $U 1171  ]
+"154
+[e :U 1172 ]
+[e [\ _led , $ -> 0 `i 1173
+ , $ -> 1 `i 1174
+ , $ -> 2 `i 1175
+ , $ -> 3 `i 1176
+ , $ -> 4 `i 1177
+ , $ -> 5 `i 1178
+ 1171 ]
+"179
+[e :U 1171 ]
+[; ;timer2.c: 180: }
+"180
+[e :UE 1170 ]
+}
+"181
+[v _Off_Led `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;timer2.c: 181: void Off_Led(int led){
+[e :U _Off_Led ]
+[v _led `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;timer2.c: 182: switch (led){
+"182
+[e $U 1181  ]
+{
+[; ;timer2.c: 183: case 0:
+"183
+[e :U 1182 ]
+[; ;timer2.c: 184: LEDNUM_ENAB[0]=0;
+"184
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 0 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 0 `i ]
+[; ;timer2.c: 185: do { LATB3 = 0; } while(0);
+"185
+[e :U 1185 ]
+{
+[e = _LATB3 -> -> 0 `i `b ]
+}
+[e :U 1184 ]
+[; ;timer2.c: 186: break;
+"186
+[e $U 1180  ]
+[; ;timer2.c: 187: case 1:
+"187
+[e :U 1186 ]
+[; ;timer2.c: 188: LEDNUM_ENAB[1]=0;
+"188
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 1 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 0 `i ]
+[; ;timer2.c: 189: do { LATB5 = 0; } while(0);
+"189
+[e :U 1189 ]
+{
+[e = _LATB5 -> -> 0 `i `b ]
+}
+[e :U 1188 ]
+[; ;timer2.c: 190: break;
+"190
+[e $U 1180  ]
+[; ;timer2.c: 191: case 2:
+"191
+[e :U 1190 ]
+[; ;timer2.c: 192: LEDNUM_ENAB[2]=0;
+"192
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 2 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 0 `i ]
+[; ;timer2.c: 193: do { LATD1 = 0; } while(0);
+"193
+[e :U 1193 ]
+{
+[e = _LATD1 -> -> 0 `i `b ]
+}
+[e :U 1192 ]
+[; ;timer2.c: 194: break;
+"194
+[e $U 1180  ]
+[; ;timer2.c: 195: case 3:
+"195
+[e :U 1194 ]
+[; ;timer2.c: 196: LEDNUM_ENAB[3]=0;
+"196
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 3 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 0 `i ]
+[; ;timer2.c: 197: do { LATE2 = 0; } while(0);
+"197
+[e :U 1197 ]
+{
+[e = _LATE2 -> -> 0 `i `b ]
+}
+[e :U 1196 ]
+[; ;timer2.c: 198: break;
+"198
+[e $U 1180  ]
+[; ;timer2.c: 199: case 4:
+"199
+[e :U 1198 ]
+[; ;timer2.c: 200: LEDNUM_ENAB[4]=0;
+"200
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 4 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 0 `i ]
+[; ;timer2.c: 201: do { LATE1 = 0; } while(0);
+"201
+[e :U 1201 ]
+{
+[e = _LATE1 -> -> 0 `i `b ]
+}
+[e :U 1200 ]
+[; ;timer2.c: 202: break;
+"202
+[e $U 1180  ]
+[; ;timer2.c: 203: case 5:
+"203
+[e :U 1202 ]
+[; ;timer2.c: 204: LEDNUM_ENAB[5]=0;
+"204
+[e = *U + &U _LEDNUM_ENAB * -> -> -> 5 `i `ui `ux -> -> # *U &U _LEDNUM_ENAB `ui `ux -> 0 `i ]
+[; ;timer2.c: 205: do { LATE0 = 0; } while(0) ;
+"205
+[e :U 1205 ]
+{
+[e = _LATE0 -> -> 0 `i `b ]
+}
+[e :U 1204 ]
+[; ;timer2.c: 206: break;
+"206
+[e $U 1180  ]
+"207
+}
+[; ;timer2.c: 207: }
+[e $U 1180  ]
+"182
+[e :U 1181 ]
+[e [\ _led , $ -> 0 `i 1182
+ , $ -> 1 `i 1186
+ , $ -> 2 `i 1190
+ , $ -> 3 `i 1194
+ , $ -> 4 `i 1198
+ , $ -> 5 `i 1202
+ 1180 ]
+"207
+[e :U 1180 ]
+[; ;timer2.c: 208: }
+"208
+[e :UE 1179 ]
+}
+"211
+[v _Change_Blink_Rate `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;timer2.c: 211: void Change_Blink_Rate(int time){
+[e :U _Change_Blink_Rate ]
 [v _time `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;IO.c: 142: Change_Blink_Rate(time);
-"142
-[e ( _Change_Blink_Rate (1 _time ]
-[; ;IO.c: 143: }
-"143
-[e :UE 1240 ]
-}
-"147
-[v _GetLEDState `(i ~T0 @X0 1 ef1`i ]
-"148
-{
-[; ;IO.c: 147: int GetLEDState(int lednum)
-[; ;IO.c: 148: {
-[e :U _GetLEDState ]
-"147
-[v _lednum `i ~T0 @X0 1 r1 ]
-"148
-[f ]
-[; ;IO.c: 149: return LED_array[lednum];
-"149
-[e ) *U + &U _LED_array * -> -> _lednum `ui `ux -> -> # *U &U _LED_array `ui `ux ]
-[e $UE 1241  ]
-[; ;IO.c: 150: }
-"150
-[e :UE 1241 ]
-}
-"154
-[v _ReadButtonState `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;IO.c: 154: void ReadButtonState(int btnnum) {
-[e :U _ReadButtonState ]
-[v _btnnum `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;IO.c: 155: switch (btnnum) {
-"155
-[e $U 1244  ]
-{
-[; ;IO.c: 156: case 0:
-"156
-[e :U 1245 ]
-[; ;IO.c: 157: butnarray[btnnum] = PORTDbits.RD5;
-"157
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTDbits 0 5 ]
-[; ;IO.c: 158: break;
-"158
-[e $U 1243  ]
-[; ;IO.c: 159: case 1:
-"159
-[e :U 1246 ]
-[; ;IO.c: 160: butnarray[btnnum] = PORTBbits.RB0;
-"160
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 0 ]
-[; ;IO.c: 161: break;
-"161
-[e $U 1243  ]
-[; ;IO.c: 162: case 2:
-"162
-[e :U 1247 ]
-[; ;IO.c: 163: butnarray[btnnum] = PORTBbits.RB1;
-"163
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 1 ]
-[; ;IO.c: 164: break;
-"164
-[e $U 1243  ]
-[; ;IO.c: 165: case 3:
-"165
-[e :U 1248 ]
-[; ;IO.c: 166: butnarray[btnnum] = PORTBbits.RB2;
-"166
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 2 ]
-[; ;IO.c: 167: break;
-"167
-[e $U 1243  ]
-[; ;IO.c: 168: case 4:
-"168
-[e :U 1249 ]
-[; ;IO.c: 169: butnarray[btnnum] = PORTBbits.RB4;
-"169
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTBbits 0 4 ]
-[; ;IO.c: 170: break;
-"170
-[e $U 1243  ]
-[; ;IO.c: 171: case 5:
-"171
-[e :U 1250 ]
-[; ;IO.c: 172: butnarray[btnnum] = PORTAbits.RA0;
-"172
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 0 ]
-[; ;IO.c: 173: break;
-"173
-[e $U 1243  ]
-[; ;IO.c: 174: case 6:
-"174
-[e :U 1251 ]
-[; ;IO.c: 175: butnarray[btnnum] = PORTAbits.RA1;
-"175
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 1 ]
-[; ;IO.c: 176: break;
-"176
-[e $U 1243  ]
-[; ;IO.c: 177: case 7:
-"177
-[e :U 1252 ]
-[; ;IO.c: 178: butnarray[btnnum] = PORTAbits.RA2;
-"178
-[e = *U + &U _butnarray * -> -> _btnnum `ui `ux -> -> # *U &U _butnarray `ui `ux . . _PORTAbits 0 2 ]
-[; ;IO.c: 179: break;
-"179
-[e $U 1243  ]
-"181
-}
-[; ;IO.c: 181: }
-[e $U 1243  ]
-"155
-[e :U 1244 ]
-[e [\ _btnnum , $ -> 0 `i 1245
- , $ -> 1 `i 1246
- , $ -> 2 `i 1247
- , $ -> 3 `i 1248
- , $ -> 4 `i 1249
- , $ -> 5 `i 1250
- , $ -> 6 `i 1251
- , $ -> 7 `i 1252
- 1243 ]
-"181
-[e :U 1243 ]
-[; ;IO.c: 182: }
-"182
-[e :UE 1242 ]
-}
-"184
-[v _GetButtonState `(uc ~T0 @X0 1 ef1`i ]
-{
-[; ;IO.c: 184: bool GetButtonState(int btnnum) {
-[e :U _GetButtonState ]
-[v _btnnum `i ~T0 @X0 1 r1 ]
-[f ]
-[; ;IO.c: 185: return butnarray[btnnum - 1];
-"185
-[e ) *U + &U _butnarray * -> -> - _btnnum -> 1 `i `ui `ux -> -> # *U &U _butnarray `ui `ux ]
-[e $UE 1253  ]
-[; ;IO.c: 186: }
-"186
-[e :UE 1253 ]
+[; ;timer2.c: 212: time=500;
+"212
+[e = _time -> 500 `i ]
+[; ;timer2.c: 213: }
+"213
+[e :UE 1206 ]
 }
