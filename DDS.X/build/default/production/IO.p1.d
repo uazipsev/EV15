@@ -1,6 +1,7 @@
  build/default/production/IO.d  \
  build/default/production/IO.p1:  \
  IO.c  \
+timer2.h  \
 mcc_generated_files/mcc.h  \
 mcc_generated_files/../UART.h  \
 mcc_generated_files/adc.h  \

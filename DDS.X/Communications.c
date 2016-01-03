@@ -25,7 +25,7 @@ void respondECU() {
     LATCbits.LATC5 = 0;
 }
 
-extern void SetLEDOut(int lednum, bool state);
+extern void SetLEDOut(int lednum, int state);
 #define NUM_INDICATORS 6
 
 void handleIndicators(int receivedIndicators) {

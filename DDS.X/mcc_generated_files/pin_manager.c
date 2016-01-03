@@ -13,13 +13,13 @@
   Description:
     This header file provides implementations for pin APIs for all pins selected in the GUI.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25.2
+        Product Revision  :  MPLAB® Code Configurator - v2.25
         Device            :  PIC18F45K22
         Driver Version    :  1.02
     The generated drivers are tested against the following:
         Compiler          :  XC8 v1.34
         MPLAB             :  MPLAB X v2.35 or v3.00
- */
+*/
 
 /*
 Copyright (c) 2013 - 2015 released Microchip Technology Inc.  All rights reserved.
@@ -42,12 +42,13 @@ INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE OR
 CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT OF
 SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
- */
+*/
 
 #include <xc.h>
 #include "pin_manager.h"
 
-void PIN_MANAGER_Initialize(void) {
+void PIN_MANAGER_Initialize(void)
+{
     LATA = 0x00;
     TRISA = 0xF7;
     ANSELA = 0x20;
@@ -69,10 +70,8 @@ void PIN_MANAGER_Initialize(void) {
     TRISE = 0x00;
     ANSELE = 0x00;
     TRISCbits.TRISC5=0;
-    INTCON2bits.nRBPU = 0x01;
-
-
+    INTCON2bits.nRBPU = 0x01;        
 }
 /**
  End of File
- */
+*/

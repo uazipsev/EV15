@@ -1,19 +1,19 @@
 /**
-  TMR0 Generated Driver API Header File
+  TMR2 Generated Driver API Header File
 
   @Company
     Microchip Technology Inc.
 
   @File Name
-    tmr0.h
+    tmr2.h
 
   @Summary
-    This is the generated header file for the TMR0 driver using MPLAB® Code Configurator
+    This is the generated header file for the TMR2 driver using MPLAB® Code Configurator
 
   @Description
-    This header file provides APIs for TMR0.
+    This header file provides APIs for TMR2.
     Generation Information :
-        Product Revision  :  MPLAB® Code Configurator - v2.25
+        Product Revision  :  MPLAB® Code Configurator - v2.25.2
         Device            :  PIC18F45K22
         Driver Version    :  2.00
     The generated drivers are tested against the following:
@@ -44,41 +44,41 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
  */
 
-#ifndef _TMR0_H
-#define _TMR0_H
+#ifndef _TMR2_H
+#define _TMR2_H
 
 /**
   Section: Included Files
  */
-
-#include <stdint.h>
-#include <stdbool.h>
-
 #ifdef __cplusplus  // Provide C++ Compatibility
 
 extern "C" {
 
 #endif
+#include <stdint.h>
+#include <stdbool.h>
+#include <stdlib.h>
+#include <xc.h>
+#include "mcc_generated_files/pin_manager.h"
 
 
 
     /**
       Section: Macro Declarations
      */
-
-#define TMR0_INTERRUPT_TICKER_FACTOR    5
+#define TMR2_INTERRUPT_TICKER_FACTOR    500  // Blinks for half a second.
 
     /**
-      Section: TMR0 APIs
+      Section: TMR2 APIs
      */
 
     /**
       @Summary
-        Initializes the TMR0.
+        Initializes the TMR2 module.
 
       @Description
-        This function initializes the TMR0 Registers.
-        This function must be called before any other TMR0 function is called.
+        This function initializes the TMR2 Registers.
+        This function must be called before any other TMR2 function is called.
 
       @Preconditions
         None
@@ -90,31 +90,31 @@ extern "C" {
         None
 
       @Comment
-    
+        BLINK_LED
 
       @Example
         <code>
         main()
         {
-            // Initialize TMR0 module
-            TMR0_Initialize();
+            // Initialize TMR2 module
+            TMR2_Initialize();
 
             // Do something else...
         }
         </code>
      */
-    void TMR0_Initialize(void);
+    void TMR2_Initialize(void);
 
     /**
       @Summary
-        This function starts the TMR0.
+        This function starts the TMR2.
 
       @Description
-        This function starts the TMR0 operation.
-        This function must be called after the initialization of TMR0.
+        This function starts the TMR2 operation.
+        This function must be called after the initialization of TMR2.
 
       @Preconditions
-        Initialize  the TMR0 before calling this function.
+        Initialize  the TMR2 before calling this function.
 
       @Param
         None
@@ -124,26 +124,26 @@ extern "C" {
 
       @Example
         <code>
-        // Initialize TMR0 module
+        // Initialize TMR2 module
 
-        // Start TMR0
-        TMR0_StartTimer();
+        // Start TMR2
+        TMR2_StartTimer();
 
         // Do something else...
         </code>
      */
-    void TMR0_StartTimer(void);
+    void TMR2_StartTimer(void);
 
     /**
       @Summary
-        This function stops the TMR0.
+        This function stops the TMR2.
 
       @Description
-        This function stops the TMR0 operation.
-        This function must be called after the start of TMR0.
+        This function stops the TMR2 operation.
+        This function must be called after the start of TMR2.
 
       @Preconditions
-        Initialize  the TMR0 before calling this function.
+        Initialize  the TMR2 before calling this function.
 
       @Param
         None
@@ -153,129 +153,144 @@ extern "C" {
 
       @Example
         <code>
-        // Initialize TMR0 module
+        // Initialize TMR2 module
 
-        // Start TMR0
-        TMR0_StartTimer();
+        // Start TMR2
+        TMR2_StartTimer();
 
         // Do something else...
 
-        // Stop TMR0;
-        TMR0_StopTimer();
+        // Stop TMR2;
+        TMR2_StopTimer();
         </code>
      */
-    void TMR0_StopTimer(void);
-
+    void TMR2_StopTimer(void);
 
     /**
       @Summary
-        Reads the 16 bits TMR0 register value.
+        Reads the TMR2 register.
 
       @Description
-        This function reads the 16 bits TMR0 register value and return it.
+        This function reads the TMR2 register value and return it.
 
       @Preconditions
-        Initialize  the TMR0 before calling this function.
+        Initialize  the TMR2 before calling this function.
 
       @Param
         None
 
       @Returns
-        This function returns the 16 bits value of TMR0 register.
+        This function returns the current value of TMR2 register.
 
       @Example
         <code>
-        // Initialize TMR0 module
+        // Initialize TMR2 module
 
-        // Start TMR0
-        TMR0_StartTimer();
+        // Start TMR2
+        TMR2_StartTimer();
 
-        // Read the current value of TMR0
-        if(0 == TMR0_Read16bitTimer())
+        // Read the current value of TMR2
+        if(0 == TMR2_ReadTimer())
         {
             // Do something else...
 
             // Reload the TMR value
-            TMR0_Reload();
+            TMR2_Reload();
         }
         </code>
      */
-    uint16_t TMR0_Read16bitTimer(void);
+    uint8_t TMR2_ReadTimer(void);
 
     /**
       @Summary
-        Writes the 16 bits value to TMR0 register.
+        Writes the TMR2 register.
 
       @Description
-        This function writes the 16 bits value to TMR0 register.
-        This function must be called after the initialization of TMR0.
+        This function writes the TMR2 register.
+        This function must be called after the initialization of TMR2.
 
       @Preconditions
-        Initialize  the TMR0 before calling this function.
+        Initialize  the TMR2 before calling this function.
 
       @Param
-        timerVal - Value to write into TMR0 register.
+        timerVal - Value to write into TMR2 register.
 
       @Returns
         None
 
       @Example
         <code>
-        #define PERIOD 0x8000
-        #define ZERO   0x0000
+        #define PERIOD 0x80
+        #define ZERO   0x00
 
         while(1)
         {
-            //Read the TMR0 register
-            if(ZERO == TMR0_Read16bitTimer())
+            // Read the TMR2 register
+            if(ZERO == TMR2_ReadTimer())
             {
                 // Do something else...
 
-                // Write the TMR0 register
-                TMR0_Write16bitTimer(PERIOD);
+                // Write the TMR2 register
+                TMR2_WriteTimer(PERIOD);
             }
 
             // Do something else...
         }
         </code>
      */
-    void TMR0_Write16bitTimer(uint16_t timerVal);
+    void TMR2_WriteTimer(uint8_t timerVal);
 
     /**
       @Summary
-        Reload the 16 bits value to TMR0 register.
+        Load value to Period Register.
 
       @Description
-        This function reloads the 16 bit value to TMR0 register.
-        This function must be called to write initial value into TMR0 register.
+        This function writes the value to PR2 register.
+        This function must be called after the initialization of TMR2.
 
       @Preconditions
-        Initialize  the TMR0 before calling this function.
+        Initialize  the TMR2 before calling this function.
 
       @Param
-        None
+        periodVal - Value to load into TMR2 register.
 
       @Returns
         None
 
       @Example
         <code>
+        #define PERIOD1 0x80
+        #define PERIOD2 0x40
+        #define ZERO    0x00
+
         while(1)
         {
-            if(TMR0IF)
+            // Read the TMR2 register
+            if(ZERO == TMR2_ReadTimer())
             {
                 // Do something else...
 
-                // clear the TMR0 interrupt flag
-                TMR0IF = 0;
+                if(flag)
+                {
+                    flag = 0;
 
-                // Reload the initial value of TMR0
-                TMR0_Reload16bit();
+                    // Load Period 1 value
+                    TMR2_LoadPeriodRegister(PERIOD1);
+                }
+                else
+                {
+                     flag = 1;
+
+                    // Load Period 2 value
+                    TMR2_LoadPeriodRegister(PERIOD2);
+                }
             }
+
+            // Do something else...
         }
         </code>
      */
-    void TMR0_Reload16bit(void);
+    void TMR2_LoadPeriodRegister(uint8_t periodVal);
 
     /**
       @Summary
@@ -285,7 +300,7 @@ extern "C" {
         Timer Interrupt Service Routine is called by the Interrupt Manager.
 
       @Preconditions
-        Initialize  the TMR0 module with interrupt before calling this isr.
+        Initialize  the TMR2 module with interrupt before calling this isr.
 
       @Param
         None
@@ -293,7 +308,7 @@ extern "C" {
       @Returns
         None
      */
-    void TMR0_ISR(void);
+    void TMR2_ISR(void);
 
     /**
       @Summary
@@ -303,7 +318,7 @@ extern "C" {
         This function is called from the timer ISR. User can write your code in this function.
 
       @Preconditions
-        Initialize  the TMR0 module with interrupt before calling this function.
+        Initialize  the TMR2 module with interrupt before calling this function.
 
       @Param
         None
@@ -311,16 +326,14 @@ extern "C" {
       @Returns
         None
      */
-    void TMR0_CallBack(void);
-
-    volatile unsigned int time;
-#ifdef __cplusplus  // Provide C++ Compatibility
-
+    void TMR2_CallBack(void);
+    
+    
+    void setLED(int); //Custom Function to set which LEDs are blinking.
+    void Off_Led(int); //Custom Function to turn off which LEDs that were blinking.
+    void Change_Blink_Rate(int); //Custom Function to change time of clock.
+#ifdef	__cplusplus
 }
-
 #endif
 
-#endif // _TMR0_H
-/**
- End of File
- */
+#endif // _TMR2_H
