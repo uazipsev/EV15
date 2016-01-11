@@ -25,63 +25,75 @@ void UART_init(void) {
     U1STAbits.UTXEN = 1; // Enable UART TX
     IEC0bits.U1RXIE = 1; // Enable RX interrupt
     IEC0bits.U1TXIE = 1; // Enable TX interrupt
+    UARTBuffInit(1,1,UART_BUFFER_SIZE_OUT,UART_BUFFER_SIZE_IN);
 }
 
+
 /*******************************************************************
- * @brief           UART1 TX Interupt
- * @brief           Interupt function on UART 1 Transmit buffer empty for reload
- * @return          None
+ * @brief           UART buffer init
+ * @brief           This function inits the two ring buffers
+ * @return          returns a 1 if sucsess
  * @note            used for serial comm.
  *******************************************************************/
-
-char UART_buff_put(const unsigned char data) {
-    if (UART_ring_buff_In.count < UART_BUFFER_SIZE_IN) {
-        UART_ring_buff_In.buf[UART_ring_buff_In.head] = data;
-        UART_ring_buff_In.head = UART_ring_buff_In.head + 1;
-        ++UART_ring_buff_In.count;
-    } else {
-        UART_ring_buff_In.buf[UART_ring_buff_In.head] = data;
-        UART_ring_buff_In.head = UART_buff_modulo_inc(_this->head, UART_BUFFER_SIZE);
-        UART_ring_buff_In.tail = UART_buff_modulo_inc(_this->tail, UART_BUFFER_SIZE);
+char UARTBuffInit(bool txbuff, bool rxbuff, int sizetx, int sizerx){
+    if(txbuff){
+        //RingBuffOut *myRingBuffer = (RingBuffOut *)calloc(1, sizeof(RingBuffOut));
+        RingBuffOut.sizeOfBuffer = sizetx;
+        RingBuffOut.currentIndex = 0;
+    }
+    if(rxbuff){
+        //RingBuffIn *myRingBuffer = (RingBuffIn *)calloc(1, sizeof(RingBuffIn));
+        RingBuffIn.sizeOfBuffer = sizerx;
+        RingBuffIn.currentIndex = 0;
     }
     return 1;
 }
 
 /*******************************************************************
- * @brief           UART1 TX Interupt
- * @brief           Interupt function on UART 1 Transmit buffer empty for reload
- * @return          None
+ * @brief           UART buffer stuffer :)
+ * @brief           This function takes a char and addes it to the ring buffer
+ * @return          returns a 1.
+ * @note            used for serial comm.
+ *******************************************************************/
+
+char UART_buff_put(char myData) {
+    // -1 for our binary modulo in a moment
+    int buffLen = RingBuffOut.sizeOfBuffer - 1;
+    int lastWrittenSample = RingBuffOut.currentIndex;
+
+    int idx;
+    // modulo will automagically wrap around our index
+    idx = (1 + lastWrittenSample) & buffLen;
+    RingBuffOut.data[idx] = myData;
+    
+    // Update the current index of our ring buffer.
+    RingBuffOut.currentIndex += 1;
+    RingBuffOut.currentIndex &= RingBuffOut.sizeOfBuffer - 1;
+
+    return 1;
+}
+
+/*******************************************************************
+ * @brief           UART1 TX buff pull (FIFO)
+ * @brief           Grabs the "oldest" data in the buffer
+ * @return          unsigned char
  * @note            used for serial comm.
  *******************************************************************/
 
 unsigned char UART_Tx_buff_get() {
-    unsigned char c;
-    if (UART_ring_buff_Out.count > 0) {
-        c = UART_ring_buff_Out.buf[UART_ring_buff_Out.tail];
-        UART_ring_buff_Out.tail = UART_ring_buff_Out.tail - 1;
-        --UART_ring_buff_Out.count;
-    } else {
-        c = NULL;
-    }
+    unsigned char c = 1;
     return (c);
 }
 
 /*******************************************************************
- * @brief           UART1 TX Interupt
- * @brief           Interupt function on UART 1 Transmit buffer empty for reload
- * @return          None
+ * @brief           UART1 RX buff pull (FIFO)
+ * @brief           Grabs the "oldest" data in the buffer
+ * @return          unsigned char
  * @note            used for serial comm.
  *******************************************************************/
 
 unsigned char UART_Rx_buff_get() {
-    unsigned char c;
-    if (UART_ring_buff_In.count > 0) {
-        c = UART_ring_buff_In.buf[UART_ring_buff_In.tail];
-        UART_ring_buff_In.tail = UART_ring_buff_In.tail - 1;
-        --UART_ring_buff_In.count;
-    } else {
-        c = NULL;
-    }
+    unsigned char c = 1;
     return (c);
 }
 
@@ -93,9 +105,7 @@ unsigned char UART_Rx_buff_get() {
  *******************************************************************/
 
 void UART_Input_buff_flush() {
-    UART_ring_buff_In.count = 0;
-    UART_ring_buff_In.head = 0;
-    UART_ring_buff_In.tail = 0;
+
 }
 
 /*******************************************************************
@@ -106,7 +116,8 @@ void UART_Input_buff_flush() {
  *******************************************************************/
 
 unsigned char UART_buff_peek() {
-    return UART_ring_buff_In.buf[UART_ring_buff_In.tail];
+    //return UART_ring_buff_In.buf[UART_ring_buff_In.tail];
+    return 1;
 }
 
 /*******************************************************************
@@ -117,7 +128,7 @@ unsigned char UART_buff_peek() {
  *******************************************************************/
 
 unsigned char Receive_peek(void) {
-    return UART_buff_peek(&input_buffer);
+    return 1; //UART_buff_peek(&input_buffer);
 }
 
 /*******************************************************************
@@ -127,8 +138,8 @@ unsigned char Receive_peek(void) {
  * @note            used for serial comm.
  *******************************************************************/
 
-int Receive_available(void) {
-    return UART_buff_size(&input_buffer);
+int Receive_available() {
+    return RingBuffIn.sizeOfBuffer;
 }
 
 /*******************************************************************
@@ -138,8 +149,8 @@ int Receive_available(void) {
  * @note            used for serial comm.
  *******************************************************************/
 
-int Transmit_available(void) {
-    return UART_buff_size(&input_buffer);
+int Transmit_available() {
+    return RingBuffOut.sizeOfBuffer;
 }
 
 /*******************************************************************
@@ -149,8 +160,8 @@ int Transmit_available(void) {
  * @note            used for serial comm.
  *******************************************************************/
 
-unsigned char Receive_get(void) {
-    return UART_buff_get(&input_buffer);
+unsigned char Receive_get() {
+    return 1; //UART_buff_get(&input_buffer);
 }
 
 /*******************************************************************
@@ -160,12 +171,12 @@ unsigned char Receive_get(void) {
  * @note            used for serial comm.
  *******************************************************************/
 
-char Send_put(unsigned char _data) {
-    UART_buff_put(&output_buffer, _data);
-    if (Transmit_stall == true) {
-        Transmit_stall = false;
-        U1TXREG = UART_buff_get(&output_buffer);
-    }
+char Send(unsigned char _data) {
+//    UART_buff_put(&output_buffer, _data);
+//    if (Transmit_stall == true) {
+//        Transmit_stall = false;
+//        U1TXREG = UART_buff_get(&output_buffer);
+//    }
     return 1;
 }
 
@@ -186,8 +197,8 @@ void __attribute__((interrupt, no_auto_psv)) _U1RXInterrupt(void) {
 }
 
 /*******************************************************************
- * @brief           UART1 TX Interupt
- * @brief           Interupt function on UART 1 Transmit buffer empty for reload
+ * @brief           UART1 RX Interupt
+ * @brief           Interupt function on UART 1 TX
  * @return          None
  * @note            used for serial comm. 
  *******************************************************************/
