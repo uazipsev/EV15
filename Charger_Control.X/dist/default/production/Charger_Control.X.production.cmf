@@ -11,7 +11,7 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+$C:\Users\Rick\AppData\Local\Temp\s51k.obj
 end_init CODE 0 A8 A8 4 1
 reset_vec CODE 0 0 0 4 1
 idloc IDLOC 0 200000 200000 8 1
@@ -213,18 +213,18 @@ $dist/default/production\Charger_Control.X.production.obj
 "C:\Zips EV 15\trunk\Charger_Control.X\mcc_generated_files/tmr0.c":80 2FC text2 CODE
 "C:\Zips EV 15\trunk\Charger_Control.X\mcc_generated_files/tmr0.c":83 2FE text2 CODE
 "C:\Zips EV 15\trunk\Charger_Control.X\mcc_generated_files/tmr0.c":84 302 text2 CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3913 304 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3915 304 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3918 304 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3959 304 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3960 308 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3961 30A cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3962 30A cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3963 30C cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3964 30E cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3970 310 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3971 310 cinit CODE
-"C:\Users\Rick\AppData\Local\Temp\s4vs.":3972 312 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3913 304 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3915 304 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3918 304 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3959 304 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3960 308 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3961 30A cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3962 30A cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3963 30C cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3964 30E cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3970 310 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3971 310 cinit CODE
+"C:\Users\Rick\AppData\Local\Temp\s51k.":3972 312 cinit CODE
 "C:\Zips EV 15\trunk\Charger_Control.X\mcc_generated_files/mcc.c":121 316 text5 CODE
 "C:\Zips EV 15\trunk\Charger_Control.X\mcc_generated_files/mcc.c":123 316 text5 CODE
 "C:\Zips EV 15\trunk\Charger_Control.X\mcc_generated_files/mcc.c":125 31A text5 CODE
@@ -271,8 +271,8 @@ _LATE F8D 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 _WPUB F61 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __end_of_PIN_MANAGER_Initialize 1B2 0 CODE 0 text4 dist/default/production\Charger_Control.X.production.obj
 _main AC 0 CODE 0 text0 dist/default/production\Charger_Control.X.production.obj
-___sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s4vs.obj
-start A8 0 CODE 0 init C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+___sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s51k.obj
+start A8 0 CODE 0 init C:\Users\Rick\AppData\Local\Temp\s51k.obj
 _LATC0 7C58 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 _LATC1 7C59 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 _LATB3 7C53 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
@@ -385,10 +385,10 @@ _eusart2RxCount 28 0 COMRAM 1 bssCOMRAM dist/default/production\Charger_Control.
 __Hdata 0 0 ABS 0 data dist/default/production\Charger_Control.X.production.obj
 __Ldata 0 0 ABS 0 data dist/default/production\Charger_Control.X.production.obj
 __CFG_EBTR3$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
-stackhi 5FF 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+stackhi 5FF 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s51k.obj
 __Htemp 0 0 COMRAM 1 temp dist/default/production\Charger_Control.X.production.obj
 __Ltemp 0 0 COMRAM 1 temp dist/default/production\Charger_Control.X.production.obj
-stacklo 60 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+stacklo 60 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s51k.obj
 __Hrbit 0 0 COMRAM 1 rbit dist/default/production\Charger_Control.X.production.obj
 __Lrbit 0 0 COMRAM 1 rbit dist/default/production\Charger_Control.X.production.obj
 __Hinit A8 0 CODE 0 init dist/default/production\Charger_Control.X.production.obj
@@ -509,8 +509,8 @@ __Lcinit 0 0 ABS 0 cinit dist/default/production\Charger_Control.X.production.ob
 __pcinit 304 0 CODE 0 cinit dist/default/production\Charger_Control.X.production.obj
 __CFG_EBTRB$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 _eusart1RxHead 24 0 COMRAM 1 bssCOMRAM dist/default/production\Charger_Control.X.production.obj
-__ramtop 600 0 RAM 0 ramtop C:\Users\Rick\AppData\Local\Temp\s4vs.obj
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+__ramtop 600 0 RAM 0 ramtop C:\Users\Rick\AppData\Local\Temp\s51k.obj
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\Rick\AppData\Local\Temp\s51k.obj
 _eusart2RxHead 29 0 COMRAM 1 bssCOMRAM dist/default/production\Charger_Control.X.production.obj
 __end_of_EUSART2_Transmit_ISR 24A 0 CODE 0 text11 dist/default/production\Charger_Control.X.production.obj
 __size_of_main 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
@@ -546,11 +546,11 @@ __ptext13 24A 0 CODE 0 text13 dist/default/production\Charger_Control.X.producti
 __Htext14 0 0 ABS 0 text14 dist/default/production\Charger_Control.X.production.obj
 __Ltext14 0 0 ABS 0 text14 dist/default/production\Charger_Control.X.production.obj
 __ptext14 2A6 0 CODE 0 text14 dist/default/production\Charger_Control.X.production.obj
-___inthi_sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+___inthi_sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s51k.obj
 _RC1STAbits FAB 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 _RC2STAbits F71 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __CFG_WDTEN$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
-___intlo_sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+___intlo_sp 0 0 STACK 2 stack C:\Users\Rick\AppData\Local\Temp\s51k.obj
 _eusart1RxTail 25 0 COMRAM 1 bssCOMRAM dist/default/production\Charger_Control.X.production.obj
 _eusart2RxTail 2A 0 COMRAM 1 bssCOMRAM dist/default/production\Charger_Control.X.production.obj
 _INTCONbits FF2 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
@@ -561,7 +561,7 @@ _eusart2TxTail 2C 0 COMRAM 1 bssCOMRAM dist/default/production\Charger_Control.X
 __end_of_Delay 336 0 CODE 0 text9 dist/default/production\Charger_Control.X.production.obj
 _OSCILLATOR_Initialize 316 0 CODE 0 text5 dist/default/production\Charger_Control.X.production.obj
 __CFG_CP0$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\Rick\AppData\Local\Temp\s51k.obj
 __CFG_CP1$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __size_of_INTERRUPT_InterruptManager 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/production\Charger_Control.X.production.obj
@@ -576,15 +576,15 @@ __size_of_EUSART1_Initialize 0 0 ABS 0 - dist/default/production\Charger_Control
 __size_of_EUSART2_Initialize 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __CFG_BORV$190 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 _timer0ReloadVal16bit 41 0 COMRAM 1 nvCOMRAM dist/default/production\Charger_Control.X.production.obj
-__accesstop 60 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+__accesstop 60 0 ABS 0 - C:\Users\Rick\AppData\Local\Temp\s51k.obj
 __Hintcode_body 0 0 ABS 0 intcode_body dist/default/production\Charger_Control.X.production.obj
 __Lintcode_body 0 0 ABS 0 intcode_body dist/default/production\Charger_Control.X.production.obj
 __CFG_PBADEN$ON 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
-intlevel0 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s4vs.obj
-intlevel1 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+intlevel0 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s51k.obj
+intlevel1 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s51k.obj
 __CFG_WRTB$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
-intlevel2 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s4vs.obj
-intlevel3 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s4vs.obj
+intlevel2 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s51k.obj
+intlevel3 0 0 CODE 0 text C:\Users\Rick\AppData\Local\Temp\s51k.obj
 __CFG_WRTC$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __CFG_WRTD$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj
 __CFG_CPB$OFF 0 0 ABS 0 - dist/default/production\Charger_Control.X.production.obj

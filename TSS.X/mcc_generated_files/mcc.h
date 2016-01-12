@@ -57,6 +57,7 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #include "eccp2.h"
 #include "i2c1.h"
 #include "tmr2.h"
+#include "adc.h"
 
 #define _XTAL_FREQ  16000000
 

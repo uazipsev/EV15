@@ -28,6 +28,22 @@ S_MASTER_NOACK_STOP 9
 S_MASTER_SEND_ADDR_10BIT_LSB 10
 S_MASTER_10BIT_RESTART 11
 ]
+"80 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/adc.c
+[e E8837 . `uc
+channel_CTMU 29
+channel_DAC 30
+channel_FVRBuf2 31
+Temp1 0
+Temp2 1
+]
+"43 C:\Zips EV 15\trunk\TSS.X\CarTempSens.c
+[e E8837 . `uc
+channel_CTMU 29
+channel_DAC 30
+channel_FVRBuf2 31
+Temp1 0
+Temp2 1
+]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abdiv.c
 [v ___abdiv __abdiv `(c  1 e 1 0 ]
 "4 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\abmod.c
@@ -152,6 +168,12 @@ S_MASTER_10BIT_RESTART 11
 [v ___asftsub __asftsub `(f  1 e 3 0 ]
 "6 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\pic18\aslmul.c
 [v ___aslmul __aslmul `(ul  1 e 4 0 ]
+"25 C:\Zips EV 15\trunk\TSS.X\CarTempSens.c
+[v _TempInit TempInit `(v  1 e 0 0 ]
+"41
+[v _TempCalc TempCalc `(v  1 e 0 0 ]
+"59
+[v _TempGet TempGet `(i  1 e 2 0 ]
 "7 C:\Zips EV 15\trunk\TSS.X\Communications.c
 [v _updateComms updateComms `(v  1 e 0 0 ]
 "18
@@ -198,10 +220,22 @@ S_MASTER_10BIT_RESTART 11
 [v _crcBufS_get crcBufS_get `(uc  1 e 1 0 ]
 "373
 [v _CRCcheck CRCcheck `(v  1 e 0 0 ]
-"30 C:\Zips EV 15\trunk\TSS.X\main.c
+"38 C:\Zips EV 15\trunk\TSS.X\main.c
 [v _main main `(v  1 e 0 0 ]
-"69
+"86
 [v _Delay Delay `(v  1 e 0 0 ]
+"58 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
+"80
+[v _ADC_StartConversion ADC_StartConversion `(v  1 e 0 0 ]
+"92
+[v _ADC_IsConversionDone ADC_IsConversionDone `(uc  1 e 1 0 ]
+"97
+[v _ADC_GetConversionResult ADC_GetConversionResult `(ui  1 e 2 0 ]
+"102
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
+"121
+[v _ADC_ISR ADC_ISR `(v  1 e 0 0 ]
 "58 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/eccp1.c
 [v _ECCP1_Initialize ECCP1_Initialize `(v  1 e 0 0 ]
 "80
@@ -256,11 +290,11 @@ S_MASTER_10BIT_RESTART 11
 [v _I2C1_BusCollisionISR I2C1_BusCollisionISR `(v  1 e 0 0 ]
 "52 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 0 0 ]
-"74
+"76
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
 "112 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
-"124
+"125
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 "50 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize PIN_MANAGER_Initialize `(v  1 e 0 0 ]
@@ -340,7 +374,7 @@ S_MASTER_10BIT_RESTART 11
 [v _LATB LATB `VEuc  1 e 1 @3978 ]
 "8038
 [v _LATC LATC `VEuc  1 e 1 @3979 ]
-[s S1481 . 1 `uc 1 LATC0 1 0 :1:0 
+[s S1489 . 1 `uc 1 LATC0 1 0 :1:0 
 `uc 1 LATC1 1 0 :1:1 
 `uc 1 LATC2 1 0 :1:2 
 `uc 1 LATC3 1 0 :1:3 
@@ -350,31 +384,31 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 LATC7 1 0 :1:7 
 ]
 "8086
-[s S1490 . 1 `uc 1 LC0 1 0 :1:0 
+[s S1498 . 1 `uc 1 LC0 1 0 :1:0 
 ]
-[s S1492 . 1 `uc 1 . 1 0 :1:0 
+[s S1500 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 LC1 1 0 :1:1 
 ]
-[s S1495 . 1 `uc 1 . 1 0 :2:0 
+[s S1503 . 1 `uc 1 . 1 0 :2:0 
 `uc 1 LC2 1 0 :1:2 
 ]
-[s S1498 . 1 `uc 1 . 1 0 :3:0 
+[s S1506 . 1 `uc 1 . 1 0 :3:0 
 `uc 1 LC3 1 0 :1:3 
 ]
-[s S1501 . 1 `uc 1 . 1 0 :4:0 
+[s S1509 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 LC4 1 0 :1:4 
 ]
-[s S1504 . 1 `uc 1 . 1 0 :5:0 
+[s S1512 . 1 `uc 1 . 1 0 :5:0 
 `uc 1 LC5 1 0 :1:5 
 ]
-[s S1507 . 1 `uc 1 . 1 0 :6:0 
+[s S1515 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 LC6 1 0 :1:6 
 ]
-[s S1510 . 1 `uc 1 . 1 0 :7:0 
+[s S1518 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 LC7 1 0 :1:7 
 ]
-[u S1513 . 1 `S1481 1 . 1 0 `S1490 1 . 1 0 `S1492 1 . 1 0 `S1495 1 . 1 0 `S1498 1 . 1 0 `S1501 1 . 1 0 `S1504 1 . 1 0 `S1507 1 . 1 0 `S1510 1 . 1 0 ]
-[v _LATCbits LATCbits `VES1513  1 e 1 @3979 ]
+[u S1521 . 1 `S1489 1 . 1 0 `S1498 1 . 1 0 `S1500 1 . 1 0 `S1503 1 . 1 0 `S1506 1 . 1 0 `S1509 1 . 1 0 `S1512 1 . 1 0 `S1515 1 . 1 0 `S1518 1 . 1 0 ]
+[v _LATCbits LATCbits `VES1521  1 e 1 @3979 ]
 "8170
 [v _LATD LATD `VEuc  1 e 1 @3980 ]
 "8302
@@ -485,12 +519,12 @@ S_MASTER_10BIT_RESTART 11
 [v _BAUD1CON BAUD1CON `VEuc  1 e 1 @4024 ]
 "13679
 [v _T2CON T2CON `VEuc  1 e 1 @4026 ]
-[s S1401 . 1 `uc 1 T2CKPS 1 0 :2:0 
+[s S1409 . 1 `uc 1 T2CKPS 1 0 :2:0 
 `uc 1 TMR2ON 1 0 :1:2 
 `uc 1 T2OUTPS 1 0 :4:3 
 ]
 "13700
-[s S1405 . 1 `uc 1 T2CKPS0 1 0 :1:0 
+[s S1413 . 1 `uc 1 T2CKPS0 1 0 :1:0 
 `uc 1 T2CKPS1 1 0 :1:1 
 `uc 1 . 1 0 :1:2 
 `uc 1 T2OUTPS0 1 0 :1:3 
@@ -498,8 +532,8 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 T2OUTPS2 1 0 :1:5 
 `uc 1 T2OUTPS3 1 0 :1:6 
 ]
-[u S1413 . 1 `S1401 1 . 1 0 `S1405 1 . 1 0 ]
-[v _T2CONbits T2CONbits `VES1413  1 e 1 @4026 ]
+[u S1421 . 1 `S1409 1 . 1 0 `S1413 1 . 1 0 ]
+[v _T2CONbits T2CONbits `VES1421  1 e 1 @4026 ]
 "13749
 [v _PR2 PR2 `VEuc  1 e 1 @4027 ]
 "13768
@@ -510,6 +544,49 @@ S_MASTER_10BIT_RESTART 11
 [v _CCPR1L CCPR1L `VEuc  1 e 1 @4030 ]
 "13893
 [v _CCPR1H CCPR1H `VEuc  1 e 1 @4031 ]
+"13912
+[v _ADCON2 ADCON2 `VEuc  1 e 1 @4032 ]
+"13982
+[v _ADCON1 ADCON1 `VEuc  1 e 1 @4033 ]
+"14049
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @4034 ]
+[s S2031 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_NOT_DONE 1 0 :1:1 
+]
+"14094
+[s S2034 . 1 `uc 1 ADON 1 0 :1:0 
+`uc 1 GO_nDONE 1 0 :1:1 
+`uc 1 CHS 1 0 :5:2 
+]
+[s S2038 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO 1 0 :1:1 
+`uc 1 CHS0 1 0 :1:2 
+`uc 1 CHS1 1 0 :1:3 
+`uc 1 CHS2 1 0 :1:4 
+`uc 1 CHS3 1 0 :1:5 
+`uc 1 CHS4 1 0 :1:6 
+]
+[s S2046 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 DONE 1 0 :1:1 
+]
+[s S2049 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 NOT_DONE 1 0 :1:1 
+]
+[s S2052 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 nDONE 1 0 :1:1 
+]
+[s S2055 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GO_DONE 1 0 :1:1 
+]
+[s S2058 . 1 `uc 1 . 1 0 :1:0 
+`uc 1 GODONE 1 0 :1:1 
+]
+[u S2061 . 1 `S2031 1 . 1 0 `S2034 1 . 1 0 `S2038 1 . 1 0 `S2046 1 . 1 0 `S2049 1 . 1 0 `S2052 1 . 1 0 `S2055 1 . 1 0 `S2058 1 . 1 0 ]
+[v _ADCON0bits ADCON0bits `VES2061  1 e 1 @4034 ]
+"14179
+[v _ADRESL ADRESL `VEuc  1 e 1 @4035 ]
+"14198
+[v _ADRESH ADRESH `VEuc  1 e 1 @4036 ]
 [s S207 . 1 `uc 1 SEN 1 0 :1:0 
 `uc 1 RSEN 1 0 :1:1 
 `uc 1 PEN 1 0 :1:2 
@@ -733,7 +810,7 @@ S_MASTER_10BIT_RESTART 11
 ]
 [u S1052 . 1 `S1037 1 . 1 0 `S1040 1 . 1 0 `S1049 1 . 1 0 ]
 [v _INTCON2bits INTCON2bits `VES1052  1 e 1 @4081 ]
-[s S1842 . 1 `uc 1 RBIF 1 0 :1:0 
+[s S1850 . 1 `uc 1 RBIF 1 0 :1:0 
 `uc 1 INT0IF 1 0 :1:1 
 `uc 1 TMR0IF 1 0 :1:2 
 `uc 1 RBIE 1 0 :1:3 
@@ -743,7 +820,7 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 GIE_GIEH 1 0 :1:7 
 ]
 "17648
-[s S1851 . 1 `uc 1 . 1 0 :1:0 
+[s S1859 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 INT0F 1 0 :1:1 
 `uc 1 T0IF 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
@@ -752,12 +829,18 @@ S_MASTER_10BIT_RESTART 11
 `uc 1 PEIE 1 0 :1:6 
 `uc 1 GIE 1 0 :1:7 
 ]
-[s S1860 . 1 `uc 1 . 1 0 :6:0 
+[s S1868 . 1 `uc 1 . 1 0 :6:0 
 `uc 1 GIEL 1 0 :1:6 
 `uc 1 GIEH 1 0 :1:7 
 ]
-[u S1877 . 1 `S1842 1 . 1 0 `S1851 1 . 1 0 `S1860 1 . 1 0 `S1851 1 . 1 0 `S1860 1 . 1 0 ]
-[v _INTCONbits INTCONbits `VES1877  1 e 1 @4082 ]
+[u S1885 . 1 `S1850 1 . 1 0 `S1859 1 . 1 0 `S1868 1 . 1 0 `S1859 1 . 1 0 `S1868 1 . 1 0 ]
+[v _INTCONbits INTCONbits `VES1885  1 e 1 @4082 ]
+"14 C:\Zips EV 15\trunk\TSS.X\CarTempSens.c
+[v _TempData TempData `[10]uc  1 e 10 0 ]
+"15
+[v _TempOne TempOne `i  1 e 2 0 ]
+"16
+[v _TempTwo TempTwo `i  1 e 2 0 ]
 "14 C:\Zips EV 15\trunk\TSS.X\Communications.h
 [v _throttle throttle `ui  1 e 2 0 ]
 [v _brake brake `ui  1 e 2 0 ]
@@ -801,15 +884,15 @@ S_MASTER_10BIT_RESTART 11
 [v _dataAdressErrorCounter dataAdressErrorCounter `ui  1 e 2 0 ]
 "44
 [v _rx_address rx_address `uc  1 e 1 0 ]
-[s S1451 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[s S1459 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
 "58
-[v _ring_buffer ring_buffer `S1451  1 e 206 0 ]
-[u S1456 stuff 2 `[2]uc 1 parts 2 0 `ui 1 integer 2 0 ]
+[v _ring_buffer ring_buffer `S1459  1 e 206 0 ]
+[u S1464 stuff 2 `[2]uc 1 parts 2 0 `ui 1 integer 2 0 ]
 "64
-[v _group group `S1456  1 e 2 0 ]
-[s S1459 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[v _group group `S1464  1 e 2 0 ]
+[s S1467 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "70
-[v _crc_buffer crc_buffer `S1459  1 e 17 0 ]
+[v _crc_buffer crc_buffer `S1467  1 e 17 0 ]
 "62 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/eusart1.c
 [v _eusart1TxHead eusart1TxHead `uc  1 s 1 eusart1TxHead ]
 "63
@@ -848,10 +931,10 @@ S_MASTER_10BIT_RESTART 11
 [v _p_i2c1_current p_i2c1_current `*.39S33  1 s 2 p_i2c1_current ]
 "57 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/tmr1.c
 [v _timer1ReloadVal timer1ReloadVal `VEui  1 e 2 0 ]
-"30 C:\Zips EV 15\trunk\TSS.X\main.c
+"38 C:\Zips EV 15\trunk\TSS.X\main.c
 [v _main main `(v  1 e 0 0 ]
 {
-"67
+"77
 } 0
 "7 C:\Zips EV 15\trunk\TSS.X\Communications.c
 [v _updateComms updateComms `(v  1 e 0 0 ]
@@ -879,8 +962,8 @@ S_MASTER_10BIT_RESTART 11
 "321
 [v _crcBufS_put crcBufS_put `(v  1 e 0 0 ]
 {
-[s S1459 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
-[v crcBufS_put@_this _this `*.39S1459  1 p 2 20 ]
+[s S1467 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[v crcBufS_put@_this _this `*.39S1467  1 p 2 20 ]
 [v crcBufS_put@address address `uc  1 p 1 22 ]
 [v crcBufS_put@oldCRC oldCRC `uc  1 p 1 23 ]
 [v crcBufS_put@status status `uc  1 p 1 24 ]
@@ -889,8 +972,8 @@ S_MASTER_10BIT_RESTART 11
 "261
 [v _FastTransfer_buffer_flush FastTransfer_buffer_flush `(v  1 e 0 0 ]
 {
-[s S1451 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v FastTransfer_buffer_flush@_this _this `*.39S1451  1 p 2 28 ]
+[s S1459 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v FastTransfer_buffer_flush@_this _this `*.39S1459  1 p 2 28 ]
 [v FastTransfer_buffer_flush@clearBuffer clearBuffer `Ci  1 p 2 30 ]
 "268
 } 0
@@ -926,8 +1009,8 @@ S_MASTER_10BIT_RESTART 11
 "223
 [v _FastTransfer_buffer_put FastTransfer_buffer_put `(v  1 e 0 0 ]
 {
-[s S1451 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
-[v FastTransfer_buffer_put@_this _this `*.39S1451  1 p 2 26 ]
+[s S1459 ringBufS 206 `[200]uc 1 buf 200 0 `i 1 head 2 200 `i 1 tail 2 202 `i 1 count 2 204 ]
+[v FastTransfer_buffer_put@_this _this `*.39S1459  1 p 2 26 ]
 [v FastTransfer_buffer_put@towhere towhere `uc  1 p 1 28 ]
 [v FastTransfer_buffer_put@towhat towhat `ui  1 p 2 29 ]
 "240
@@ -942,22 +1025,22 @@ S_MASTER_10BIT_RESTART 11
 [v FastTransfer_buffer_modulo_inc@modulus modulus `Cui  1 p 2 22 ]
 "279
 } 0
-"69 C:\Zips EV 15\trunk\TSS.X\main.c
+"86 C:\Zips EV 15\trunk\TSS.X\main.c
 [v _Delay Delay `(v  1 e 0 0 ]
 {
-"70
+"87
 [v Delay@x x `i  1 a 2 23 ]
-"69
+"86
 [v Delay@wait wait `i  1 p 2 20 ]
-"74
+"91
 } 0
 "82 C:\Zips EV 15\trunk\TSS.X\FastTransfer.c
 [v _receiveData receiveData `(uc  1 e 1 0 ]
 {
 "185
-[v receiveData@holder_1776 holder `[3]uc  1 a 3 12 ]
+[v receiveData@holder_1784 holder `[3]uc  1 a 3 12 ]
 "189
-[v receiveData@crcHolder_1777 crcHolder `uc  1 a 1 8 ]
+[v receiveData@crcHolder_1785 crcHolder `uc  1 a 1 8 ]
 "160
 [v receiveData@holder holder `[3]uc  1 a 3 9 ]
 "164
@@ -986,9 +1069,9 @@ S_MASTER_10BIT_RESTART 11
 {
 "341
 [v crcBufS_status_put@wantedTime wantedTime `i  1 a 2 28 ]
-[s S1459 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[s S1467 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "336
-[v crcBufS_status_put@_this _this `*.39S1459  1 p 2 20 ]
+[v crcBufS_status_put@_this _this `*.39S1467  1 p 2 20 ]
 [v crcBufS_status_put@time time `uc  1 p 1 22 ]
 [v crcBufS_status_put@status status `uc  1 p 1 23 ]
 "348
@@ -998,9 +1081,9 @@ S_MASTER_10BIT_RESTART 11
 {
 "361
 [v crcBufS_get@wantedTime wantedTime `i  1 a 2 30 ]
-[s S1459 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
+[s S1467 crcBufS 17 `[15]uc 1 buf 15 0 `i 1 head 2 15 ]
 "353
-[v crcBufS_get@_this _this `*.39S1459  1 p 2 20 ]
+[v crcBufS_get@_this _this `*.39S1467  1 p 2 20 ]
 [v crcBufS_get@time time `uc  1 p 1 22 ]
 [v crcBufS_get@space space `uc  1 p 1 23 ]
 "368
@@ -1039,10 +1122,43 @@ S_MASTER_10BIT_RESTART 11
 [v TBbarGraphs@b b `i  1 p 2 22 ]
 "46
 } 0
+"59 C:\Zips EV 15\trunk\TSS.X\CarTempSens.c
+[v _TempGet TempGet `(i  1 e 2 0 ]
+{
+[v TempGet@x x `i  1 p 2 20 ]
+"68
+} 0
+"41
+[v _TempCalc TempCalc `(v  1 e 0 0 ]
+{
+[v TempCalc@x x `i  1 p 2 32 ]
+"50
+} 0
+"8 C:\Program Files (x86)\Microchip\xc8\v1.33\sources\common\lwdiv.c
+[v ___lwdiv __lwdiv `(ui  1 e 2 0 ]
+{
+"11
+[v ___lwdiv@quotient quotient `ui  1 a 2 29 ]
+"12
+[v ___lwdiv@counter counter `uc  1 a 1 31 ]
+"8
+[v ___lwdiv@dividend dividend `ui  1 p 2 25 ]
+[v ___lwdiv@divisor divisor `ui  1 p 2 27 ]
+"31
+} 0
+"102 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/adc.c
+[v _ADC_GetConversion ADC_GetConversion `(ui  1 e 2 0 ]
+{
+[v ADC_GetConversion@channel channel `E8837  1 a 1 wreg ]
+[v ADC_GetConversion@channel channel `E8837  1 a 1 wreg ]
+"104
+[v ADC_GetConversion@channel channel `E8837  1 a 1 24 ]
+"119
+} 0
 "112 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/mcc.c
 [v _SYSTEM_Initialize SYSTEM_Initialize `(v  1 e 0 0 ]
 {
-"122
+"123
 } 0
 "58 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/tmr2.c
 [v _TMR2_Initialize TMR2_Initialize `(v  1 e 0 0 ]
@@ -1069,15 +1185,15 @@ S_MASTER_10BIT_RESTART 11
 {
 "75
 } 0
-"124 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/mcc.c
+"125 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/mcc.c
 [v _OSCILLATOR_Initialize OSCILLATOR_Initialize `(v  1 e 0 0 ]
 {
-"133
+"134
 } 0
 "52 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_Initialize INTERRUPT_Initialize `(v  1 e 0 0 ]
 {
-"72
+"74
 } 0
 "194 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/i2c1.c
 [v _I2C1_Initialize I2C1_Initialize `(v  1 e 0 0 ]
@@ -1099,10 +1215,15 @@ S_MASTER_10BIT_RESTART 11
 {
 "78
 } 0
-"74 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/interrupt_manager.c
+"58 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/adc.c
+[v _ADC_Initialize ADC_Initialize `(v  1 e 0 0 ]
+{
+"78
+} 0
+"76 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/interrupt_manager.c
 [v _INTERRUPT_InterruptManager INTERRUPT_InterruptManager `II(v  1 e 0 0 ]
 {
-"93
+"97
 } 0
 "107 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/tmr2.c
 [v _TMR2_ISR TMR2_ISR `(v  1 e 0 0 ]
@@ -1187,4 +1308,9 @@ S_MASTER_10BIT_RESTART 11
 {
 [v ECCP1_CallBack@capturedValue capturedValue `ui  1 p 2 0 ]
 "96
+} 0
+"121 C:\Zips EV 15\trunk\TSS.X\mcc_generated_files/adc.c
+[v _ADC_ISR ADC_ISR `(v  1 e 0 0 ]
+{
+"124
 } 0

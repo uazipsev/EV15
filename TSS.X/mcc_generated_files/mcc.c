@@ -119,6 +119,7 @@ void SYSTEM_Initialize(void) {
     ECCP2_Initialize();
     I2C1_Initialize();
     TMR2_Initialize();
+    ADC_Initialize();
 }
 
 void OSCILLATOR_Initialize(void) {

@@ -1,108 +1,11 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"88 mcc_generated_files/mcc.h
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 0 ef ]
-"182 mcc_generated_files/pin_manager.h
-[v _PIN_MANAGER_Initialize `(v ~T0 @X0 0 ef ]
-"110 mcc_generated_files/interrupt_manager.h
-[v _INTERRUPT_Initialize `(v ~T0 @X0 0 ef ]
-"107 mcc_generated_files/eusart1.h
-[v _EUSART1_Initialize `(v ~T0 @X0 0 ef ]
-"94 mcc_generated_files/tmr1.h
-[v _TMR1_Initialize `(v ~T0 @X0 0 ef ]
-"117 mcc_generated_files/eccp1.h
-[v _ECCP1_Initialize `(v ~T0 @X0 0 ef ]
-"117 mcc_generated_files/eccp2.h
-[v _ECCP2_Initialize `(v ~T0 @X0 0 ef ]
-"219 mcc_generated_files/i2c1.h
-[v _I2C1_Initialize `(v ~T0 @X0 0 ef ]
-"103 mcc_generated_files/tmr2.h
-[v _TMR2_Initialize `(v ~T0 @X0 0 ef ]
 "127 mcc_generated_files/adc.h
 [v _ADC_Initialize `(v ~T0 @X0 0 ef ]
-"16747 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
-[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
-"16691
-[v _OSCCON2 `Vuc ~T0 @X0 0 e@4050 ]
-"9403
-[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
-"50 mcc_generated_files/mcc.c
-[p x IESO=OFF ]
-"51
-[p x PLLCFG=OFF ]
-"52
-[p x PRICLKEN=OFF ]
-"53
-[p x FOSC=INTIO67 ]
-"54
-[p x FCMEN=OFF ]
-"57
-[p x BOREN=SBORDIS ]
-"58
-[p x BORV=190 ]
-"59
-[p x PWRTEN=OFF ]
-"62
-[p x WDTPS=32768 ]
-"63
-[p x WDTEN=OFF ]
-"66
-[p x CCP2MX=PORTC1 ]
-"67
-[p x P2BMX=PORTD2 ]
-"68
-[p x HFOFST=ON ]
-"69
-[p x PBADEN=ON ]
-"70
-[p x CCP3MX=PORTB5 ]
-"71
-[p x MCLRE=EXTMCLR ]
-"72
-[p x T3CMX=PORTC0 ]
-"75
-[p x LVP=OFF ]
-"76
-[p x STVREN=ON ]
-"77
-[p x XINST=OFF ]
-"78
-[p x DEBUG=OFF ]
-"81
-[p x CP2=OFF ]
-"82
-[p x CP1=OFF ]
-"83
-[p x CP3=OFF ]
-"84
-[p x CP0=OFF ]
-"87
-[p x CPB=OFF ]
-"88
-[p x CPD=OFF ]
-"91
-[p x WRT0=OFF ]
-"92
-[p x WRT1=OFF ]
-"93
-[p x WRT2=OFF ]
-"94
-[p x WRT3=OFF ]
-"97
-[p x WRTC=OFF ]
-"98
-[p x WRTD=OFF ]
-"99
-[p x WRTB=OFF ]
-"102
-[p x EBTR3=OFF ]
-"103
-[p x EBTR1=OFF ]
-"104
-[p x EBTR2=OFF ]
-"105
-[p x EBTR0=OFF ]
-"108
-[p x EBTRB=OFF ]
+"43 CarTempSens.c
+[c E8837 29 30 31 0 1 .. ]
+[n E8837 . channel_CTMU channel_DAC channel_FVRBuf2 Temp1 Temp2  ]
+"251 mcc_generated_files/adc.h
+[v _ADC_GetConversion `(ui ~T0 @X0 0 ef1`E8837 ]
 [; ;htc.h: 21: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 24: extern void __builtin_software_breakpoint(void);
 [; ;pic18f45k22.h: 47: extern volatile unsigned char ANSELA @ 0xF38;
@@ -8280,8 +8183,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 182: void PIN_MANAGER_Initialize(void);
-[; ;pin_manager.h: 194: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8311,130 +8212,6 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdint.h: 210: typedef int16_t intptr_t;
 [; ;stdint.h: 215: typedef uint16_t uintptr_t;
 [; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;interrupt_manager.h: 110: void INTERRUPT_Initialize(void);
-[; ;interrupt_manager.h: 122: void interrupt INTERRUPT_InterruptManager(void);
-[; ;stdarg.h: 7: typedef void * va_list[1];
-[; ;stdarg.h: 10: extern void * __va_start(void);
-[; ;stdarg.h: 13: extern void * __va_arg(void *, ...);
-[; ;stdio.h: 23: extern int errno;
-[; ;stdio.h: 54: struct __prbuf
-[; ;stdio.h: 55: {
-[; ;stdio.h: 56: char * ptr;
-[; ;stdio.h: 57: void (* func)(char);
-[; ;stdio.h: 58: };
-[; ;conio.h: 17: extern int errno;
-[; ;conio.h: 20: extern void init_uart(void);
-[; ;conio.h: 22: extern char getch(void);
-[; ;conio.h: 23: extern char getche(void);
-[; ;conio.h: 24: extern void putch(char);
-[; ;conio.h: 25: extern void ungetch(char);
-[; ;conio.h: 27: extern __bit kbhit(void);
-[; ;conio.h: 31: extern char * cgets(char *);
-[; ;conio.h: 32: extern void cputs(const char *);
-[; ;stdio.h: 99: extern int cprintf(char *, ...);
-[; ;stdio.h: 104: extern int _doprnt(struct __prbuf *, const register char *, register va_list);
-[; ;stdio.h: 194: extern char * gets(char *);
-[; ;stdio.h: 195: extern int puts(const char *);
-[; ;stdio.h: 196: extern int scanf(const char *, ...) __attribute__((unsupported("scanf() is not supported by this compiler")));
-[; ;stdio.h: 197: extern int sscanf(const char *, const char *, ...) __attribute__((unsupported("sscanf() is not supported by this compiler")));
-[; ;stdio.h: 198: extern int vprintf(const char *, va_list) __attribute__((unsupported("vprintf() is not supported by this compiler")));
-[; ;stdio.h: 199: extern int vsprintf(char *, const char *, va_list) __attribute__((unsupported("vsprintf() is not supported by this compiler")));
-[; ;stdio.h: 200: extern int vscanf(const char *, va_list ap) __attribute__((unsupported("vscanf() is not supported by this compiler")));
-[; ;stdio.h: 201: extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupported("vsscanf() is not supported by this compiler")));
-[; ;stdio.h: 205: extern int sprintf(char *, const char *, ...);
-[; ;stdio.h: 206: extern int printf(const char *, ...);
-[; ;eusart1.h: 78: extern volatile uint8_t eusart1TxBufferRemaining;
-[; ;eusart1.h: 79: extern volatile uint8_t eusart1RxCount;
-[; ;eusart1.h: 107: void EUSART1_Initialize(void);
-[; ;eusart1.h: 156: uint8_t EUSART1_Read(void);
-[; ;eusart1.h: 181: void EUSART1_Write(uint8_t txData);
-[; ;eusart1.h: 202: void EUSART1_Transmit_ISR(void);
-[; ;eusart1.h: 223: void EUSART1_Receive_ISR(void);
-[; ;tmr1.h: 94: void TMR1_Initialize(void);
-[; ;tmr1.h: 125: void TMR1_StartTimer(void);
-[; ;tmr1.h: 155: void TMR1_StopTimer(void);
-[; ;tmr1.h: 189: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 215: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 247: void TMR1_Reload(void);
-[; ;tmr1.h: 288: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 329: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 367: bool TMR1_HasOverflowOccured(void);
-[; ;eccp1.h: 75: typedef union CCPR1Reg_tag {
-[; ;eccp1.h: 77: struct {
-[; ;eccp1.h: 78: uint8_t ccpr1l;
-[; ;eccp1.h: 79: uint8_t ccpr1h;
-[; ;eccp1.h: 80: };
-[; ;eccp1.h: 82: struct {
-[; ;eccp1.h: 83: uint16_t ccpr1_16Bit;
-[; ;eccp1.h: 84: };
-[; ;eccp1.h: 85: } CCP_PERIOD_REG_T;
-[; ;eccp1.h: 117: void ECCP1_Initialize(void);
-[; ;eccp1.h: 133: void ECCP1_CaptureISR(void);
-[; ;eccp1.h: 154: void ECCP1_CallBack(uint16_t capturedValue);
-[; ;eccp2.h: 75: typedef union CCPR2Reg_tag {
-[; ;eccp2.h: 77: struct {
-[; ;eccp2.h: 78: uint8_t ccpr2l;
-[; ;eccp2.h: 79: uint8_t ccpr2h;
-[; ;eccp2.h: 80: };
-[; ;eccp2.h: 82: struct {
-[; ;eccp2.h: 83: uint16_t ccpr2_16Bit;
-[; ;eccp2.h: 84: };
-[; ;eccp2.h: 85: } CCP_PERIOD_REG_T;
-[; ;eccp2.h: 117: void ECCP2_Initialize(void);
-[; ;eccp2.h: 133: void ECCP2_CaptureISR(void);
-[; ;eccp2.h: 154: void ECCP2_CallBack(uint16_t capturedValue);
-[; ;stddef.h: 13: extern int errno;
-[; ;i2c1.h: 84: typedef enum {
-[; ;i2c1.h: 85: I2C1_MESSAGE_COMPLETE,
-[; ;i2c1.h: 86: I2C1_MESSAGE_FAIL,
-[; ;i2c1.h: 87: I2C1_MESSAGE_PENDING,
-[; ;i2c1.h: 88: I2C1_STUCK_START,
-[; ;i2c1.h: 89: I2C1_MESSAGE_ADDRESS_NO_ACK,
-[; ;i2c1.h: 90: I2C1_DATA_NO_ACK,
-[; ;i2c1.h: 91: I2C1_LOST_STATE
-[; ;i2c1.h: 92: } I2C1_MESSAGE_STATUS;
-[; ;i2c1.h: 108: typedef struct {
-[; ;i2c1.h: 109: uint16_t address;
-[; ;i2c1.h: 112: uint8_t length;
-[; ;i2c1.h: 113: uint8_t *pbuffer;
-[; ;i2c1.h: 114: } I2C1_TRANSACTION_REQUEST_BLOCK;
-[; ;i2c1.h: 219: void I2C1_Initialize(void);
-[; ;i2c1.h: 258: void I2C1_MasterWrite(
-[; ;i2c1.h: 259: uint8_t *pdata,
-[; ;i2c1.h: 260: uint8_t length,
-[; ;i2c1.h: 261: uint16_t address,
-[; ;i2c1.h: 262: I2C1_MESSAGE_STATUS *pstatus);
-[; ;i2c1.h: 405: void I2C1_MasterRead(
-[; ;i2c1.h: 406: uint8_t *pdata,
-[; ;i2c1.h: 407: uint8_t length,
-[; ;i2c1.h: 408: uint16_t address,
-[; ;i2c1.h: 409: I2C1_MESSAGE_STATUS *pstatus);
-[; ;i2c1.h: 515: void I2C1_MasterTRBInsert(
-[; ;i2c1.h: 516: uint8_t count,
-[; ;i2c1.h: 517: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
-[; ;i2c1.h: 518: I2C1_MESSAGE_STATUS *pflag);
-[; ;i2c1.h: 559: void I2C1_MasterReadTRBBuild(
-[; ;i2c1.h: 560: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
-[; ;i2c1.h: 561: uint8_t *pdata,
-[; ;i2c1.h: 562: uint8_t length,
-[; ;i2c1.h: 563: uint16_t address);
-[; ;i2c1.h: 604: void I2C1_MasterWriteTRBBuild(
-[; ;i2c1.h: 605: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
-[; ;i2c1.h: 606: uint8_t *pdata,
-[; ;i2c1.h: 607: uint8_t length,
-[; ;i2c1.h: 608: uint16_t address);
-[; ;i2c1.h: 646: bool I2C1_MasterQueueIsEmpty(void);
-[; ;i2c1.h: 684: bool I2C1_MasterQueueIsFull(void);
-[; ;i2c1.h: 685: void I2C1_BusCollisionISR(void);
-[; ;i2c1.h: 686: void I2C1_ISR(void);
-[; ;tmr2.h: 103: void TMR2_Initialize(void);
-[; ;tmr2.h: 132: void TMR2_StartTimer(void);
-[; ;tmr2.h: 164: void TMR2_StopTimer(void);
-[; ;tmr2.h: 199: uint8_t TMR2_ReadTimer(void);
-[; ;tmr2.h: 238: void TMR2_WriteTimer(uint8_t timerVal);
-[; ;tmr2.h: 290: void TMR2_LoadPeriodRegister(uint8_t periodVal);
-[; ;tmr2.h: 308: void TMR2_ISR(void);
-[; ;tmr2.h: 326: void TMR2_CallBack(void);
 [; ;adc.h: 72: typedef uint16_t adc_result_t;
 [; ;adc.h: 86: typedef enum {
 [; ;adc.h: 87: channel_CTMU = 0x1D,
@@ -8449,64 +8226,138 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;adc.h: 221: adc_result_t ADC_GetConversionResult(void);
 [; ;adc.h: 251: adc_result_t ADC_GetConversion(adc_channel_t channel);
 [; ;adc.h: 267: void ADC_ISR(void);
-[; ;mcc.h: 75: void SYSTEM_Initialize(void);
-[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
-"112 mcc_generated_files/mcc.c
-[v _SYSTEM_Initialize `(v ~T0 @X0 1 ef ]
+[; ;CarTempSens.h: 11: extern void TempInit();
+[; ;CarTempSens.h: 12: extern void TempCalc(int x);
+[; ;CarTempSens.h: 13: extern int TempGet(int x);
+"14 CarTempSens.c
+[v _TempData `uc ~T0 @X0 -> 10 `i e ]
+[i _TempData
+:U ..
+-> -> 0 `i `uc
+..
+]
+[; ;CarTempSens.c: 14: char TempData[10] = 0;
+"15
+[v _TempOne `i ~T0 @X0 1 e ]
+[i _TempOne
+-> 0 `i
+]
+[; ;CarTempSens.c: 15: int TempOne = 0;
+"16
+[v _TempTwo `i ~T0 @X0 1 e ]
+[i _TempTwo
+-> 0 `i
+]
+[; ;CarTempSens.c: 16: int TempTwo = 0;
+"25
+[v _TempInit `(v ~T0 @X0 1 ef ]
 {
-[; ;mcc.c: 112: void SYSTEM_Initialize(void) {
-[e :U _SYSTEM_Initialize ]
+[; ;CarTempSens.c: 25: void TempInit() {
+[e :U _TempInit ]
 [f ]
-[; ;mcc.c: 113: OSCILLATOR_Initialize();
-"113
-[e ( _OSCILLATOR_Initialize ..  ]
-[; ;mcc.c: 114: PIN_MANAGER_Initialize();
-"114
-[e ( _PIN_MANAGER_Initialize ..  ]
-[; ;mcc.c: 115: INTERRUPT_Initialize();
-"115
-[e ( _INTERRUPT_Initialize ..  ]
-[; ;mcc.c: 116: EUSART1_Initialize();
-"116
-[e ( _EUSART1_Initialize ..  ]
-[; ;mcc.c: 117: TMR1_Initialize();
-"117
-[e ( _TMR1_Initialize ..  ]
-[; ;mcc.c: 118: ECCP1_Initialize();
-"118
-[e ( _ECCP1_Initialize ..  ]
-[; ;mcc.c: 119: ECCP2_Initialize();
-"119
-[e ( _ECCP2_Initialize ..  ]
-[; ;mcc.c: 120: I2C1_Initialize();
-"120
-[e ( _I2C1_Initialize ..  ]
-[; ;mcc.c: 121: TMR2_Initialize();
-"121
-[e ( _TMR2_Initialize ..  ]
-[; ;mcc.c: 122: ADC_Initialize();
-"122
+[; ;CarTempSens.c: 27: ADC_Initialize();
+"27
 [e ( _ADC_Initialize ..  ]
-[; ;mcc.c: 123: }
-"123
-[e :UE 1186 ]
-}
-"125
-[v _OSCILLATOR_Initialize `(v ~T0 @X0 1 ef ]
+"28
+[v _i `i ~T0 @X0 1 a ]
+[; ;CarTempSens.c: 28: int i = 0;
+[e = _i -> 0 `i ]
+[; ;CarTempSens.c: 29: for(;i<10;i++){
+"29
 {
-[; ;mcc.c: 125: void OSCILLATOR_Initialize(void) {
-[e :U _OSCILLATOR_Initialize ]
+[e $ < _i -> 10 `i 1179  ]
+[e $U 1180  ]
+[e :U 1179 ]
+{
+[; ;CarTempSens.c: 30: TempData[i]=0;
+"30
+[e = *U + &U _TempData * -> -> _i `ui `ux -> -> # *U &U _TempData `ui `ux -> -> 0 `i `uc ]
+"31
+}
+"29
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 10 `i 1179  ]
+[e :U 1180 ]
+"31
+}
+[; ;CarTempSens.c: 31: }
+[; ;CarTempSens.c: 32: }
+"32
+[e :UE 1178 ]
+}
+"41
+[v _TempCalc `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;CarTempSens.c: 41: void TempCalc(int x){
+[e :U _TempCalc ]
+[v _x `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;mcc.c: 127: OSCCON = 0x70;
-"127
-[e = _OSCCON -> -> 112 `i `uc ]
-[; ;mcc.c: 129: OSCCON2 = 0x04;
-"129
-[e = _OSCCON2 -> -> 4 `i `uc ]
-[; ;mcc.c: 131: OSCTUNE = 0x00;
-"131
-[e = _OSCTUNE -> -> 0 `i `uc ]
-[; ;mcc.c: 134: }
-"134
-[e :UE 1187 ]
+[; ;CarTempSens.c: 42: if(x == 1){
+"42
+[e $ ! == _x -> 1 `i 1183  ]
+{
+[; ;CarTempSens.c: 43: TempOne = ADC_GetConversion(Temp1)/12;
+"43
+[e = _TempOne -> / ( _ADC_GetConversion (1 -> . `E8837 3 `E8837 -> -> 12 `i `ui `i ]
+"44
+}
+[e :U 1183 ]
+[; ;CarTempSens.c: 44: }
+[; ;CarTempSens.c: 45: if(x == 2){
+"45
+[e $ ! == _x -> 2 `i 1184  ]
+{
+[; ;CarTempSens.c: 46: TempTwo = ADC_GetConversion(Temp2)/12;
+"46
+[e = _TempTwo -> / ( _ADC_GetConversion (1 -> . `E8837 4 `E8837 -> -> 12 `i `ui `i ]
+"47
+}
+[e :U 1184 ]
+[; ;CarTempSens.c: 47: }
+[; ;CarTempSens.c: 50: }
+"50
+[e :UE 1182 ]
+}
+"59
+[v _TempGet `(i ~T0 @X0 1 ef1`i ]
+{
+[; ;CarTempSens.c: 59: int TempGet(int x){
+[e :U _TempGet ]
+[v _x `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;CarTempSens.c: 60: if(x == 1){
+"60
+[e $ ! == _x -> 1 `i 1186  ]
+{
+[; ;CarTempSens.c: 61: return TempOne;
+"61
+[e ) _TempOne ]
+[e $UE 1185  ]
+"62
+}
+[e :U 1186 ]
+[; ;CarTempSens.c: 62: }
+[; ;CarTempSens.c: 63: if(x == 2){
+"63
+[e $ ! == _x -> 2 `i 1187  ]
+{
+[; ;CarTempSens.c: 64: return TempTwo;
+"64
+[e ) _TempTwo ]
+[e $UE 1185  ]
+"65
+}
+[; ;CarTempSens.c: 65: }
+[e $U 1188  ]
+"66
+[e :U 1187 ]
+[; ;CarTempSens.c: 66: else
+[; ;CarTempSens.c: 67: return 0;
+"67
+[e ) -> 0 `i ]
+[e $UE 1185  ]
+[e :U 1188 ]
+[; ;CarTempSens.c: 68: }
+"68
+[e :UE 1185 ]
 }

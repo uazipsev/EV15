@@ -4,6 +4,8 @@
         <manager generated="true" name="Pin Manager" reloadPin="manual">
             <setting name="package" option="PDIP40"/>
             <setting name="sorting" option="true"/>
+            <resource customName="Temp1" digital="false" direction="INPUT" function="AN0" module="ADC" name="RA0" start="false" type="pin" wpu="false"/>
+            <resource customName="Temp2" digital="false" direction="INPUT" function="AN1" module="ADC" name="RA1" start="false" type="pin" wpu="false"/>
             <resource customName="CCP2" digital="true" direction="INPUT" function="CCP2" module="ECCP2" name="RC1" start="false" type="pin" wpu="false"/>
             <resource customName="CCP1" digital="true" direction="INPUT" function="CCP1" module="ECCP1" name="RC2" start="false" type="pin" wpu="false"/>
             <resource customName="SCL1" digital="true" direction="BIDIRECTIONAL" function="SCL1" module="MSSP1" name="RC3" start="true" type="pin" wpu="false"/>
@@ -11,13 +13,13 @@
             <resource customName="TX1" digital="true" direction="INPUT" function="TX1" module="EUSART1" name="RC6" start="false" type="pin" wpu="false"/>
             <resource customName="RX1" digital="true" direction="INPUT" function="RX1" module="EUSART1" name="RC7" start="false" type="pin" wpu="false"/>
             <file checksum="1019061135" modified="false" name="pin_manager.c" path="mcc_generated_files/pin_manager.c"/>
-            <file checksum="3063536742" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
+            <file checksum="997346590" modified="false" name="pin_manager.h" path="mcc_generated_files/pin_manager.h"/>
         </manager>
         <manager generated="true" name="Interrupt Manager" reloadPin="manual">
             <setting name="preemptHigh" option="true"/>
             <setting name="preemptLow" option="true"/>
             <setting name="useIPEN" option="false"/>
-            <file checksum="2444084078" modified="false" name="interrupt_manager.c" path="mcc_generated_files/interrupt_manager.c"/>
+            <file checksum="2429607406" modified="false" name="interrupt_manager.c" path="mcc_generated_files/interrupt_manager.c"/>
             <file checksum="1490174825" modified="false" name="interrupt_manager.h" path="mcc_generated_files/interrupt_manager.h"/>
             <interrupt module="MSSP1" name="SSPI" priority="2"/>
             <interrupt module="MSSP1" name="BCLI" priority="2"/>
@@ -26,6 +28,7 @@
             <interrupt module="ECCP1" name="CCPI" priority="2"/>
             <interrupt module="ECCP2" name="CCPI" priority="2"/>
             <interrupt module="TMR2" name="TMRI" priority="2"/>
+            <interrupt module="ADC" name="ADI" priority="2"/>
         </manager>
         <manager generated="true" name="System" reloadPin="manual">
             <initializer comment="" name="Initialize">
@@ -81,8 +84,8 @@
             <setting name="EBTR0" option="OFF"/>
             <setting name="EBTRB" option="OFF"/>
             <setting name="generateConfigBits" option="true"/>
-            <file checksum="2404931905" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
-            <file checksum="587543502" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
+            <file checksum="979328925" modified="false" name="mcc.c" path="mcc_generated_files/mcc.c"/>
+            <file checksum="2754296078" modified="false" name="mcc.h" path="mcc_generated_files/mcc.h"/>
         </manager>
     </managers>
     <modules>
@@ -247,6 +250,26 @@
             <setting name="ticker" option="1"/>
             <file checksum="3161381828" modified="false" name="tmr2.c" path="mcc_generated_files/tmr2.c"/>
             <file checksum="2939223499" modified="false" name="tmr2.h" path="mcc_generated_files/tmr2.h"/>
+        </module>
+        <module generated="true" mode="ADC" name="ADC" order="7" reloadPin="manual_auto" type="adc_sarcore_10bit">
+            <initializer comment="" name="Initialize">
+                <setting name="GO_nDONE" option="stop" register="ADCON0"/>
+                <setting name="ADON" option="enabled" register="ADCON0"/>
+                <setting name="CHS" option="AN0" register="ADCON0"/>
+                <setting name="PVCFG" option="VDD" register="ADCON1"/>
+                <setting name="TRIGSEL" option="CTMU" register="ADCON1"/>
+                <setting name="NVCFG" option="VSS" register="ADCON1"/>
+                <setting name="ADFM" option="right" register="ADCON2"/>
+                <setting name="ADCS" option="FOSC/32" register="ADCON2"/>
+                <setting name="ACQT" option="2" register="ADCON2"/>
+                <setting name="ADRESL" option="0x0" register="ADRESL"/>
+                <setting name="ADRESH" option="0x0" register="ADRESH"/>
+            </initializer>
+            <setting name="ADI" option="true"/>
+            <resource customName="Temp1" function="AN0" name="RA0" type="pin"/>
+            <resource customName="Temp2" function="AN1" name="RA1" type="pin"/>
+            <file checksum="3028412218" modified="false" name="adc.c" path="mcc_generated_files/adc.c"/>
+            <file checksum="2367287840" modified="false" name="adc.h" path="mcc_generated_files/adc.h"/>
         </module>
     </modules>
 </configuration>

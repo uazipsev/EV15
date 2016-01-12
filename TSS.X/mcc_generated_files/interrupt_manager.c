@@ -69,6 +69,8 @@ void INTERRUPT_Initialize(void) {
     IPR2bits.CCP2IP = 0;
     // TMRI
     IPR1bits.TMR2IP = 0;
+    // ADI
+    IPR1bits.ADIP = 0;
 }
 
 void interrupt INTERRUPT_InterruptManager(void) {
@@ -87,6 +89,8 @@ void interrupt INTERRUPT_InterruptManager(void) {
         ECCP2_CaptureISR();
     } else if (PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1) {
         TMR2_ISR();
+    } else if (PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1) {
+        ADC_ISR();
     } else {
         //Unhandled Interrupt
     }

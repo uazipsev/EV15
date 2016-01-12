@@ -1,6 +1,6 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
-"74 mcc_generated_files/mcc.h
+"75 mcc_generated_files/mcc.h
 [v _SYSTEM_Initialize `(v ~T0 @X0 0 ef ]
 "17607 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18f45k22.h
 [s S1110 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
@@ -56,6 +56,10 @@ Version 3.2 HI-TECH Software Intermediate Code
 [v _LATCbits `VS488 ~T0 @X0 0 e@3979 ]
 "15 Communications.h
 [v _updateComms `(v ~T0 @X0 0 ef ]
+"12 CarTempSens.h
+[v _TempCalc `(v ~T0 @X0 0 ef1`i ]
+"13
+[v _TempGet `(i ~T0 @X0 0 ef1`i ]
 [v F8800 `(v ~T0 @X0 1 tf1`ul ]
 "147 C:\Program Files (x86)\Microchip\xc8\v1.33\include\pic18.h
 [v __delay `JF8800 ~T0 @X0 0 e ]
@@ -8237,8 +8241,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 154: void PIN_MANAGER_Initialize(void);
-[; ;pin_manager.h: 166: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 182: void PIN_MANAGER_Initialize(void);
+[; ;pin_manager.h: 194: void PIN_MANAGER_IOC(void);
 [; ;stdint.h: 13: typedef signed char int8_t;
 [; ;stdint.h: 20: typedef signed int int16_t;
 [; ;stdint.h: 28: typedef signed short long int int24_t;
@@ -8392,8 +8396,22 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;tmr2.h: 290: void TMR2_LoadPeriodRegister(uint8_t periodVal);
 [; ;tmr2.h: 308: void TMR2_ISR(void);
 [; ;tmr2.h: 326: void TMR2_CallBack(void);
-[; ;mcc.h: 74: void SYSTEM_Initialize(void);
-[; ;mcc.h: 87: void OSCILLATOR_Initialize(void);
+[; ;adc.h: 72: typedef uint16_t adc_result_t;
+[; ;adc.h: 86: typedef enum {
+[; ;adc.h: 87: channel_CTMU = 0x1D,
+[; ;adc.h: 88: channel_DAC = 0x1E,
+[; ;adc.h: 89: channel_FVRBuf2 = 0x1F,
+[; ;adc.h: 90: Temp1 = 0x00,
+[; ;adc.h: 91: Temp2 = 0x01
+[; ;adc.h: 92: } adc_channel_t;
+[; ;adc.h: 127: void ADC_Initialize(void);
+[; ;adc.h: 156: void ADC_StartConversion(adc_channel_t channel);
+[; ;adc.h: 188: bool ADC_IsConversionDone();
+[; ;adc.h: 221: adc_result_t ADC_GetConversionResult(void);
+[; ;adc.h: 251: adc_result_t ADC_GetConversion(adc_channel_t channel);
+[; ;adc.h: 267: void ADC_ISR(void);
+[; ;mcc.h: 75: void SYSTEM_Initialize(void);
+[; ;mcc.h: 88: void OSCILLATOR_Initialize(void);
 [; ;stdlib.h: 27: typedef struct {
 [; ;stdlib.h: 28: int rem;
 [; ;stdlib.h: 29: int quot;
@@ -8455,73 +8473,88 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Communications.h: 18: void respondECU();
 [; ;Communications.h: 19: void handleIndicators(int receivedIndicators);
 [; ;Communications.h: 20: void TBbarGraphs(int t, int b);
-"30 main.c
+[; ;CarTempSens.h: 11: extern void TempInit();
+[; ;CarTempSens.h: 12: extern void TempCalc(int x);
+[; ;CarTempSens.h: 13: extern int TempGet(int x);
+"38 main.c
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;main.c: 30: void main(void) {
+[; ;main.c: 38: void main(void) {
 [e :U _main ]
 [f ]
-[; ;main.c: 32: SYSTEM_Initialize();
-"32
+[; ;main.c: 40: SYSTEM_Initialize();
+"40
 [e ( _SYSTEM_Initialize ..  ]
-[; ;main.c: 51: (INTCONbits.GIE = 1);
-"51
+[; ;main.c: 59: (INTCONbits.GIE = 1);
+"59
 [e = . . _INTCONbits 1 7 -> -> 1 `i `uc ]
-[; ;main.c: 54: (INTCONbits.PEIE = 1);
-"54
-[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
-[; ;main.c: 62: LATCbits.LATC5 = 0;
+[; ;main.c: 62: (INTCONbits.PEIE = 1);
 "62
+[e = . . _INTCONbits 1 6 -> -> 1 `i `uc ]
+[; ;main.c: 69: LATCbits.LATC5 = 0;
+"69
 [e = . . _LATCbits 0 5 -> -> 0 `i `uc ]
-[; ;main.c: 63: while (1) {
-"63
+[; ;main.c: 70: while (1) {
+"70
 [e :U 1192 ]
 {
-[; ;main.c: 64: updateComms();
-"64
+[; ;main.c: 71: updateComms();
+"71
 [e ( _updateComms ..  ]
-"66
+[; ;main.c: 72: TempCalc(1);
+"72
+[e ( _TempCalc (1 -> 1 `i ]
+[; ;main.c: 73: TempCalc(2);
+"73
+[e ( _TempCalc (1 -> 2 `i ]
+[; ;main.c: 74: TempGet(1);
+"74
+[e ( _TempGet (1 -> 1 `i ]
+[; ;main.c: 75: TempGet(2);
+"75
+[e ( _TempGet (1 -> 2 `i ]
+"76
 }
 [e :U 1191 ]
-"63
+"70
 [e $U 1192  ]
 [e :U 1193 ]
-[; ;main.c: 66: }
-[; ;main.c: 67: }
-"67
+[; ;main.c: 76: }
+[; ;main.c: 77: }
+"77
 [e :UE 1190 ]
 }
-"69
+"86
 [v _Delay `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;main.c: 69: void Delay(int wait) {
+[; ;main.c: 86: void Delay(int wait) {
 [e :U _Delay ]
 [v _wait `i ~T0 @X0 1 r1 ]
 [f ]
-"70
+"87
 [v _x `i ~T0 @X0 1 a ]
-[; ;main.c: 70: int x;
-[; ;main.c: 71: for (x = 0; x < wait; x++) {
-"71
+[; ;main.c: 87: int x;
+[; ;main.c: 88: for (x = 0; x < wait; x++) {
+"88
 {
 [e = _x -> 0 `i ]
 [e $U 1198  ]
 [e :U 1195 ]
 {
-[; ;main.c: 72: _delay((unsigned long)((1)*(16000000/4000.0)));
-"72
+[; ;main.c: 89: _delay((unsigned long)((1)*(16000000/4000.0)));
+"89
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 16000000 `l `d .4000.0 `ul ]
-"73
+"90
 }
-"71
+"88
 [e ++ _x -> 1 `i ]
 [e :U 1198 ]
 [e $ < _x _wait 1195  ]
 [e :U 1196 ]
-"73
+"90
 }
-[; ;main.c: 73: }
-[; ;main.c: 74: }
-"74
+[; ;main.c: 90: }
+[; ;main.c: 91: }
+"91
 [e :UE 1194 ]
 }

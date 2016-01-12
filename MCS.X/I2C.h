@@ -1,5 +1,5 @@
 /* 
- * File:   I2C_API.h
+ * File:   I2C.h
  * Author: Igor
  *
  * Created on December 14, 2014, 8:04 PM

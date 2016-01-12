@@ -10377,10 +10377,10 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 154 "mcc_generated_files/pin_manager.h"
+# 182 "mcc_generated_files/pin_manager.h"
 void PIN_MANAGER_Initialize(void);
 
-# 166
+# 194
 void PIN_MANAGER_IOC(void);
 
 # 13 "C:\Program Files (x86)\Microchip\xc8\v1.33\include\stdint.h"
@@ -10721,10 +10721,40 @@ void TMR2_ISR(void);
 # 326
 void TMR2_CallBack(void);
 
-# 74 "mcc_generated_files/mcc.h"
+# 72 "mcc_generated_files/adc.h"
+typedef uint16_t adc_result_t;
+
+# 86
+typedef enum {
+channel_CTMU = 0x1D,
+channel_DAC = 0x1E,
+channel_FVRBuf2 = 0x1F,
+Temp1 = 0x00,
+Temp2 = 0x01
+} adc_channel_t;
+
+# 127
+void ADC_Initialize(void);
+
+# 156
+void ADC_StartConversion(adc_channel_t channel);
+
+# 188
+bool ADC_IsConversionDone();
+
+# 221
+adc_result_t ADC_GetConversionResult(void);
+
+# 251
+adc_result_t ADC_GetConversion(adc_channel_t channel);
+
+# 267
+void ADC_ISR(void);
+
+# 75 "mcc_generated_files/mcc.h"
 void SYSTEM_Initialize(void);
 
-# 87
+# 88
 void OSCILLATOR_Initialize(void);
 
 # 52 "mcc_generated_files/interrupt_manager.c"
@@ -10748,6 +10778,8 @@ IPR1bits.CCP1IP = 0;
 IPR2bits.CCP2IP = 0;
 
 IPR1bits.TMR2IP = 0;
+
+IPR1bits.ADIP = 0;
 }
 
 void interrupt INTERRUPT_InterruptManager(void) {
@@ -10766,6 +10798,8 @@ ECCP1_CaptureISR();
 ECCP2_CaptureISR();
 } else if (PIE1bits.TMR2IE == 1 && PIR1bits.TMR2IF == 1) {
 TMR2_ISR();
+} else if (PIE1bits.ADIE == 1 && PIR1bits.ADIF == 1) {
+ADC_ISR();
 } else {
 
 }

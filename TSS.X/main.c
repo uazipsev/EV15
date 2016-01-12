@@ -2,17 +2,17 @@
 /**
  *********************************************************************************************************
  *
- * @brief        DDS - This device reads in button presses and sets LEDS / bar graph
+ * @brief        TS - This device reads in sensors and converts them to EU 
  * @file         main.c
- * @author       Richard Johnson - Mark K
+ * @author       Richard Johnson - Joey
  * @moduleID
  * @ingroup
  *
  *********************************************************************************************************
  * @note  The Firmware shall:
- *               -Read in button inputs (O1-O8)
- *               -Set LED status (LED1-LED6)
- *               -Set LED Bar Graph - http://www.adafruit.com/products/1721
+ *               -Read in IMU and convert to EU
+ *               -Read in roter temp 
+ *               -Wheel speed
  *               -Read RS485 BUS for data and reply with expectied data (set requested LED states and rely with button states)
  *********************************************************************************************************
 
@@ -26,6 +26,14 @@
 #include <stdlib.h>
 #include "IO.h"
 #include "Communications.h"
+#include "CarTempSens.h"
+
+/*******************************************************************
+ * @brief           Main
+ * @brief           The main fcn of the code
+ * @return          None
+ * @note            The main loop is here
+ *******************************************************************/
 
 void main(void) {
     // Initialize the device
@@ -58,13 +66,22 @@ void main(void) {
 
     // Disable the Peripheral Interrupts
     //INTERRUPT_PeripheralInterruptDisable();
-
-    LATCbits.LATC5 = 0;
+    LATCbits.LATC5 = 0; //Sets pin C5 to zero 
     while (1) {
-        updateComms();
-
+        updateComms(); // This is for the RS485 communication. 
+        TempCalc(1);   //Gets ADC vales and convert them
+        TempCalc(2);
+        TempGet(1);    // Gets EU
+        TempGet(2);
     }
 }
+
+/*******************************************************************
+ * @brief           Delay
+ * @brief           This fcn is used to convert _delay_ms to longer periods of time
+ * @return          None
+ * @note            the shortest delay is 1mS
+ *******************************************************************/
 
 void Delay(int wait) {
     int x;
@@ -73,5 +90,6 @@ void Delay(int wait) {
     }
 }
 /**
- End of File
+ End of File 
+ 
  */

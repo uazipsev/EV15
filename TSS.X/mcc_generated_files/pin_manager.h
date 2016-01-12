@@ -59,6 +59,34 @@ SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
 #define PULL_UP_ENABLED      1
 #define PULL_UP_DISABLED     0
 
+// get/set Temp1 aliases
+#define Temp1_TRIS               TRISA0
+#define Temp1_LAT                LATA0
+#define Temp1_PORT               PORTAbits.RA0
+#define Temp1_ANS                ANSA0
+#define Temp1_SetHigh()    do { LATA0 = 1; } while(0)
+#define Temp1_SetLow()   do { LATA0 = 0; } while(0)
+#define Temp1_Toggle()   do { LATA0 = ~LATA0; } while(0)
+#define Temp1_GetValue()         PORTAbits.RA0
+#define Temp1_SetDigitalInput()    do { TRISA0 = 1; } while(0)
+#define Temp1_SetDigitalOutput()   do { TRISA0 = 0; } while(0)
+
+#define Temp1_SetAnalogMode()   do { ANSA0 = 1; } while(0)
+#define Temp1_SetDigitalMode()   do { ANSA0 = 0; } while(0)
+// get/set Temp2 aliases
+#define Temp2_TRIS               TRISA1
+#define Temp2_LAT                LATA1
+#define Temp2_PORT               PORTAbits.RA1
+#define Temp2_ANS                ANSA1
+#define Temp2_SetHigh()    do { LATA1 = 1; } while(0)
+#define Temp2_SetLow()   do { LATA1 = 0; } while(0)
+#define Temp2_Toggle()   do { LATA1 = ~LATA1; } while(0)
+#define Temp2_GetValue()         PORTAbits.RA1
+#define Temp2_SetDigitalInput()    do { TRISA1 = 1; } while(0)
+#define Temp2_SetDigitalOutput()   do { TRISA1 = 0; } while(0)
+
+#define Temp2_SetAnalogMode()   do { ANSA1 = 1; } while(0)
+#define Temp2_SetDigitalMode()   do { ANSA1 = 0; } while(0)
 // get/set CCP2 aliases
 #define CCP2_TRIS               TRISC1
 #define CCP2_LAT                LATC1

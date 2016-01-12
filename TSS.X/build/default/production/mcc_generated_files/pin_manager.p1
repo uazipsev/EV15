@@ -8222,8 +8222,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 147: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 149: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 151: extern __nonreentrant void _delay3(unsigned char);
-[; ;pin_manager.h: 154: void PIN_MANAGER_Initialize(void);
-[; ;pin_manager.h: 166: void PIN_MANAGER_IOC(void);
+[; ;pin_manager.h: 182: void PIN_MANAGER_Initialize(void);
+[; ;pin_manager.h: 194: void PIN_MANAGER_IOC(void);
 "50 mcc_generated_files/pin_manager.c
 [v _PIN_MANAGER_Initialize `(v ~T0 @X0 1 ef ]
 {
