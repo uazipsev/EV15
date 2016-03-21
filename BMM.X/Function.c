@@ -16,7 +16,15 @@ void Setup(void) {
     // Wait for Clock switch to occur
     while (OSCCONbits.COSC != 0b011);
     while (!OSCCONbits.LOCK); // wait for PLL ready
-
+    TRISBbits.TRISB9=0;
+    TRISBbits.TRISB8=0;
+    
+//    
+//    LATBbits.LATB9=0;
+//    LATBbits.LATB8=0;
+//    delay_ms(1000);
+//    LATBbits.LATB9=1;
+//    LATBbits.LATB8=1;
 
     //INTCON1bits.NSTDIS = 1; //no nesting of interrupts
 
@@ -36,7 +44,7 @@ void Setup(void) {
     UART_init();
     begin1(receiveArray1, sizeof (receiveArray1), BMM_MASTER_ADDRESS, false, Send_put1, Receive_get1, Receive_available1, Receive_peek1);
     UART1_init();
-    //i2c_init();
+    i2c_init();
     //PWM_Init();
 }
 

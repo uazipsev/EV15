@@ -16,12 +16,14 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes) {
     DataSz = numofbytes;
 
     StartI2C1(); //Send the Start Bit
+    //I2C1CONbits.SEN=1;
     IdleI2C1(); //Wait to complete
     if (read_write == 1) //write address
     {
         MasterWriteI2C1(((address << 1) | 0));
         IdleI2C1(); //Wait to complete    
-        while (DataSz) {
+        while (DataSz) 
+        {
             MasterWriteI2C1(data[Index++]);
             IdleI2C1(); //Wait to complete
 
@@ -36,7 +38,8 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes) {
     {
         MasterWriteI2C1(((address << 1) | 1));
         IdleI2C1(); //Wait to complete
-        while (DataSz) {
+        while (DataSz) 
+        {
             data[Index++]=MasterReadI2C1();
             AckI2C1();
             IdleI2C1(); //Wait to complete
@@ -57,10 +60,22 @@ void i2c_Write(char address, bool read_write, char *data, int numofbytes) {
 }
 
 void i2c_init(void) {
+    //
     I2C1BRG = 0x0258;
+    //SCL RELEASE 1 
+    //DISSLW 1
     I2C1CON = 0x1200;
-    I2C1RCV = 0x0000;
-    I2C1TRN = 0x0000;
+    
+    //receive buffer write/read buffr
+   // I2C1RCV = 0x0000;
+    
+    //Transmit register
+   // I2C1TRN = 0x0000;
+    
+    //I2C1BRG = 0x0258;
     //Now we can enable the peripheral
+    //ENABLE
+    //SCL release
+    //DISSLW 1
     I2C1CON = 0x9200;
 }
