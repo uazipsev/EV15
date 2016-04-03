@@ -1,14 +1,33 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"16225 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f45k22.h
-[v _T1CON `Vuc ~T0 @X0 0 e@4045 ]
-"16131
-[v _T1GCON `Vuc ~T0 @X0 0 e@4044 ]
-"16362
-[v _TMR1H `Vuc ~T0 @X0 0 e@4047 ]
-"16343
-[v _TMR1L `Vuc ~T0 @X0 0 e@4046 ]
-"16337
-[v _TMR1 `Vus ~T0 @X0 0 e@4046 ]
+"110 mcc_generated_files/i2c1.h
+[s S1121 `ui 1 `uc 1 `*uc 1 ]
+[n S1121 . address length pbuffer ]
+"185 mcc_generated_files/i2c1.c
+[c E7739 0 1 2 3 4 5 6 .. ]
+[n E7739 . I2C1_MESSAGE_COMPLETE I2C1_MESSAGE_FAIL I2C1_MESSAGE_PENDING I2C1_STUCK_START I2C1_MESSAGE_ADDRESS_NO_ACK I2C1_DATA_NO_ACK I2C1_LOST_STATE  ]
+"86
+[s S1124 `uc 1 `*S1121 1 `*E7739 1 ]
+[n S1124 . count ptrb_list pTrFlag ]
+"66
+[s S1123 :1 `uc 1 :1 `uc 1 :6 `uc 1 ]
+[n S1123 . full empty reserved ]
+"64
+[u S1122 `S1123 1 `uc 1 ]
+[n S1122 . s status ]
+"106
+[s S1125 `*S1124 1 `*S1124 1 `S1122 1 `uc 1 `uc 1 ]
+[n S1125 . pTrTail pTrHead trStatus i2cDoneFlag i2cErrors ]
+"187
+[c E7807 0 1 2 3 4 5 6 7 8 9 10 11 .. ]
+[n E7807 . S_MASTER_IDLE S_MASTER_RESTART S_MASTER_SEND_ADDR S_MASTER_SEND_DATA S_MASTER_SEND_STOP S_MASTER_ACK_ADDR S_MASTER_RCV_DATA S_MASTER_RCV_STOP S_MASTER_ACK_RCV_DATA S_MASTER_NOACK_STOP S_MASTER_SEND_ADDR_10BIT_LSB S_MASTER_10BIT_RESTART  ]
+"14788 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f45k22.h
+[v _SSP1STAT `Vuc ~T0 @X0 0 e@4039 ]
+"14509
+[v _SSP1CON1 `Vuc ~T0 @X0 0 e@4038 ]
+"16010
+[v _SSP1CON3 `Vuc ~T0 @X0 0 e@4043 ]
+"15499
+[v _SSP1ADD `Vuc ~T0 @X0 0 e@4040 ]
 "9682
 [s S548 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
 [n S548 . TMR1IF TMR2IF CCP1IF SSP1IF TX1IF RC1IF ADIF ]
@@ -31,52 +50,146 @@ Version 3.2 HI-TECH Software Intermediate Code
 [n S544 . . . ]
 "9622
 [v _PIE1bits `VS544 ~T0 @X0 0 e@3997 ]
-"80 mcc_generated_files/tmr1.h
-[v _TMR1_StartTimer `(v ~T0 @X0 0 ef ]
-"16231 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f45k22.h
-[s S1008 :2 `uc 1 :1 `uc 1 ]
-[n S1008 . . NOT_T1SYNC ]
-"16235
-[s S1009 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :2 `uc 1 :2 `uc 1 ]
-[n S1009 . TMR1ON T1RD16 nT1SYNC T1SOSCEN T1CKPS TMR1CS ]
-"16243
-[s S1010 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1010 . . RD16 T1SYNC T1OSCEN T1CKPS0 T1CKPS1 TMR1CS0 TMR1CS1 ]
-"16253
-[s S1011 :3 `uc 1 :1 `uc 1 ]
-[n S1011 . . SOSCEN ]
-"16230
-[u S1007 `S1008 1 `S1009 1 `S1010 1 `S1011 1 ]
-[n S1007 . . . . . ]
-"16258
-[v _T1CONbits `VS1007 ~T0 @X0 0 e@4045 ]
-"16137
-[s S1003 :3 `uc 1 :1 `uc 1 ]
-[n S1003 . . T1GGO_NOT_DONE ]
-"16141
-[s S1004 :2 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1004 . T1GSS T1GVAL T1GGO_nDONE T1GSPM T1GTM T1GPOL TMR1GE ]
-"16150
-[s S1005 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S1005 . T1GSS0 T1GSS1 . T1G_DONE ]
-"16156
-[s S1006 :3 `uc 1 :1 `uc 1 ]
-[n S1006 . . T1GGO ]
-"16136
-[u S1002 `S1003 1 `S1004 1 `S1005 1 `S1006 1 ]
-[n S1002 . . . . . ]
-"16161
-[v _T1GCONbits `VS1002 ~T0 @X0 0 e@4044 ]
-"18807
-[v _LATA4 `Vb ~T0 @X0 0 e@31820 ]
-"15 mcc_generated_files/../Global.h
-[v _CodeRuning `uc ~T0 @X0 0 e ]
-"16 mcc_generated_files/../Current.h
-[v _Current_Read `(v ~T0 @X0 0 ef ]
-"13 mcc_generated_files/../Battery.h
-[v _Battery_Read `(v ~T0 @X0 0 ef ]
-"14 mcc_generated_files/../Tempeture.h
-[v _Temp_Read `(v ~T0 @X0 0 ef ]
+"14520
+[s S867 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S867 . SSPM CKP SSPEN SSPOV WCOL ]
+"14527
+[s S868 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S868 . SSPM0 SSPM1 SSPM2 SSPM3 ]
+"14533
+[s S869 :4 `uc 1 :1 `uc 1 ]
+[n S869 . . CKP1 ]
+"14537
+[s S870 :5 `uc 1 :1 `uc 1 ]
+[n S870 . . SSPEN1 ]
+"14541
+[s S871 :1 `uc 1 ]
+[n S871 . SSPM01 ]
+"14544
+[s S872 :1 `uc 1 :1 `uc 1 ]
+[n S872 . . SSPM11 ]
+"14548
+[s S873 :2 `uc 1 :1 `uc 1 ]
+[n S873 . . SSPM21 ]
+"14552
+[s S874 :3 `uc 1 :1 `uc 1 ]
+[n S874 . . SSPM31 ]
+"14556
+[s S875 :6 `uc 1 :1 `uc 1 ]
+[n S875 . . SSPOV1 ]
+"14560
+[s S876 :7 `uc 1 :1 `uc 1 ]
+[n S876 . . WCOL1 ]
+"14519
+[u S866 `S867 1 `S868 1 `S869 1 `S870 1 `S871 1 `S872 1 `S873 1 `S874 1 `S875 1 `S876 1 ]
+[n S866 . . . . . . . . . . . ]
+"14565
+[v _SSP1CON1bits `VS866 ~T0 @X0 0 e@4038 ]
+"14077
+[s S827 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S827 . SEN RSEN PEN RCEN ACKEN ACKDT ACKSTAT GCEN ]
+"14087
+[s S828 :5 `uc 1 :1 `uc 1 ]
+[n S828 . . ACKDT1 ]
+"14091
+[s S829 :4 `uc 1 :1 `uc 1 ]
+[n S829 . . ACKEN1 ]
+"14095
+[s S830 :6 `uc 1 :1 `uc 1 ]
+[n S830 . . ACKSTAT1 ]
+"14099
+[s S831 :1 `uc 1 :1 `uc 1 ]
+[n S831 . . ADMSK1 ]
+"14103
+[s S832 :1 `uc 1 :1 `uc 1 ]
+[n S832 . . ADMSK11 ]
+"14107
+[s S833 :2 `uc 1 :1 `uc 1 ]
+[n S833 . . ADMSK2 ]
+"14111
+[s S834 :2 `uc 1 :1 `uc 1 ]
+[n S834 . . ADMSK21 ]
+"14115
+[s S835 :3 `uc 1 :1 `uc 1 ]
+[n S835 . . ADMSK3 ]
+"14119
+[s S836 :3 `uc 1 :1 `uc 1 ]
+[n S836 . . ADMSK31 ]
+"14123
+[s S837 :4 `uc 1 :1 `uc 1 ]
+[n S837 . . ADMSK4 ]
+"14127
+[s S838 :4 `uc 1 :1 `uc 1 ]
+[n S838 . . ADMSK41 ]
+"14131
+[s S839 :5 `uc 1 :1 `uc 1 ]
+[n S839 . . ADMSK5 ]
+"14135
+[s S840 :5 `uc 1 :1 `uc 1 ]
+[n S840 . . ADMSK51 ]
+"14139
+[s S841 :7 `uc 1 :1 `uc 1 ]
+[n S841 . . GCEN1 ]
+"14143
+[s S842 :2 `uc 1 :1 `uc 1 ]
+[n S842 . . PEN1 ]
+"14147
+[s S843 :3 `uc 1 :1 `uc 1 ]
+[n S843 . . RCEN1 ]
+"14151
+[s S844 :1 `uc 1 :1 `uc 1 ]
+[n S844 . . RSEN1 ]
+"14155
+[s S845 :1 `uc 1 ]
+[n S845 . SEN1 ]
+"14076
+[u S826 `S827 1 `S828 1 `S829 1 `S830 1 `S831 1 `S832 1 `S833 1 `S834 1 `S835 1 `S836 1 `S837 1 `S838 1 `S839 1 `S840 1 `S841 1 `S842 1 `S843 1 `S844 1 `S845 1 ]
+[n S826 . . . . . . . . . . . . . . . . . . . . ]
+"14159
+[v _SSP1CON2bits `VS826 ~T0 @X0 0 e@4037 ]
+"179 mcc_generated_files/i2c1.c
+[v _I2C1_Stop `(v ~T0 @X0 0 ef1`E7739 ]
+"15836 C:\Program Files (x86)\Microchip\xc8\v1.36\include\pic18f45k22.h
+[v _SSP1BUF `Vuc ~T0 @X0 0 e@4041 ]
+"178 mcc_generated_files/i2c1.c
+[v _I2C1_FunctionComplete `(v ~T0 @X0 0 ef ]
+"606 mcc_generated_files/i2c1.h
+[v _I2C1_MasterWriteTRBBuild `(v ~T0 @X0 0 ef4`*S1121`*uc`uc`ui ]
+"517
+[v _I2C1_MasterTRBInsert `(v ~T0 @X0 0 ef3`uc`*S1121`*E7739 ]
+"561
+[v _I2C1_MasterReadTRBBuild `(v ~T0 @X0 0 ef4`*S1121`*uc`uc`ui ]
+[; ;stdint.h: 13: typedef signed char int8_t;
+[; ;stdint.h: 20: typedef signed int int16_t;
+[; ;stdint.h: 28: typedef signed short long int int24_t;
+[; ;stdint.h: 36: typedef signed long int int32_t;
+[; ;stdint.h: 43: typedef unsigned char uint8_t;
+[; ;stdint.h: 49: typedef unsigned int uint16_t;
+[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
+[; ;stdint.h: 63: typedef unsigned long int uint32_t;
+[; ;stdint.h: 71: typedef signed char int_least8_t;
+[; ;stdint.h: 78: typedef signed int int_least16_t;
+[; ;stdint.h: 90: typedef signed short long int int_least24_t;
+[; ;stdint.h: 98: typedef signed long int int_least32_t;
+[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
+[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
+[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
+[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
+[; ;stdint.h: 137: typedef signed char int_fast8_t;
+[; ;stdint.h: 144: typedef signed int int_fast16_t;
+[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
+[; ;stdint.h: 164: typedef signed long int int_fast32_t;
+[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
+[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
+[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
+[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
+[; ;stdint.h: 200: typedef int32_t intmax_t;
+[; ;stdint.h: 205: typedef uint32_t uintmax_t;
+[; ;stdint.h: 210: typedef int16_t intptr_t;
+[; ;stdint.h: 215: typedef uint16_t uintptr_t;
+[; ;stdbool.h: 12: typedef unsigned char bool;
+[; ;__size_t.h: 4: typedef unsigned size_t;
+[; ;stddef.h: 6: typedef int ptrdiff_t;
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
@@ -7403,364 +7516,1195 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 156: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 158: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 160: extern __nonreentrant void _delay3(unsigned char);
-[; ;stdbool.h: 12: typedef unsigned char bool;
-[; ;stdint.h: 13: typedef signed char int8_t;
-[; ;stdint.h: 20: typedef signed int int16_t;
-[; ;stdint.h: 28: typedef signed short long int int24_t;
-[; ;stdint.h: 36: typedef signed long int int32_t;
-[; ;stdint.h: 43: typedef unsigned char uint8_t;
-[; ;stdint.h: 49: typedef unsigned int uint16_t;
-[; ;stdint.h: 56: typedef unsigned short long int uint24_t;
-[; ;stdint.h: 63: typedef unsigned long int uint32_t;
-[; ;stdint.h: 71: typedef signed char int_least8_t;
-[; ;stdint.h: 78: typedef signed int int_least16_t;
-[; ;stdint.h: 90: typedef signed short long int int_least24_t;
-[; ;stdint.h: 98: typedef signed long int int_least32_t;
-[; ;stdint.h: 105: typedef unsigned char uint_least8_t;
-[; ;stdint.h: 111: typedef unsigned int uint_least16_t;
-[; ;stdint.h: 121: typedef unsigned short long int uint_least24_t;
-[; ;stdint.h: 128: typedef unsigned long int uint_least32_t;
-[; ;stdint.h: 137: typedef signed char int_fast8_t;
-[; ;stdint.h: 144: typedef signed int int_fast16_t;
-[; ;stdint.h: 156: typedef signed short long int int_fast24_t;
-[; ;stdint.h: 164: typedef signed long int int_fast32_t;
-[; ;stdint.h: 171: typedef unsigned char uint_fast8_t;
-[; ;stdint.h: 177: typedef unsigned int uint_fast16_t;
-[; ;stdint.h: 187: typedef unsigned short long int uint_fast24_t;
-[; ;stdint.h: 194: typedef unsigned long int uint_fast32_t;
-[; ;stdint.h: 200: typedef int32_t intmax_t;
-[; ;stdint.h: 205: typedef uint32_t uintmax_t;
-[; ;stdint.h: 210: typedef int16_t intptr_t;
-[; ;stdint.h: 215: typedef uint16_t uintptr_t;
-[; ;tmr1.h: 49: void TMR1_Initialize(void);
-[; ;tmr1.h: 80: void TMR1_StartTimer(void);
-[; ;tmr1.h: 110: void TMR1_StopTimer(void);
-[; ;tmr1.h: 144: uint16_t TMR1_ReadTimer(void);
-[; ;tmr1.h: 170: void TMR1_WriteTimer(uint16_t timerVal);
-[; ;tmr1.h: 202: void TMR1_Reload(void);
-[; ;tmr1.h: 243: void TMR1_StartSinglePulseAcquisition(void);
-[; ;tmr1.h: 284: uint8_t TMR1_CheckGateValueStatus(void);
-[; ;tmr1.h: 300: void TMR1_ISR(void);
-[; ;tmr1.h: 319: void TMR1_CallBack(void);
-[; ;Global.h: 5: extern char Temp_Aquire;
-[; ;Global.h: 6: extern char Volt_Aquire;
-[; ;Global.h: 7: extern char Current_Aquire;
-[; ;Global.h: 8: extern int Battery_Adc[10];
-[; ;Global.h: 9: extern int Temp_Adc[10];
-[; ;Global.h: 10: extern int Current_Adc[10];
-[; ;Global.h: 11: extern int ADC_Buffer_Point;
-[; ;Global.h: 12: extern int Volt_Done;
-[; ;Global.h: 13: extern int Temp_Done;
-[; ;Global.h: 14: extern int Current_Done;
-[; ;Global.h: 15: extern char CodeRuning;
-[; ;Tempeture.h: 13: extern char Temp_Fault();
-[; ;Tempeture.h: 14: extern void Temp_Read();
-[; ;Tempeture.h: 15: extern void Temp_Filter();
-[; ;Tempeture.h: 16: extern void Temp_Convert();
-[; ;Tempeture.h: 17: extern float Tempeture_Get(int channelnum);
-[; ;Battery.h: 12: extern char Battery_Fault();
-[; ;Battery.h: 13: extern void Battery_Read();
-[; ;Battery.h: 14: extern void Battery_Filter();
-[; ;Battery.h: 15: extern void Battery_Convert();
-[; ;Battery.h: 16: extern float Battery_Get(int channelnum);
-[; ;Current.h: 13: extern float Current_Get();
-[; ;Current.h: 14: void Current_Convert();
-[; ;Current.h: 15: void Current_Filter();
-[; ;Current.h: 16: void Current_Read();
-[; ;Current.h: 17: extern char Current_Fault();
-[; ;pin_manager.h: 454: void PIN_MANAGER_Initialize(void);
-[; ;pin_manager.h: 466: void PIN_MANAGER_IOC(void);
-[; ;Functions.h: 11: extern void Set_4051(int Channel,char enable);
-[; ;Functions.h: 12: extern void Delay(int wait);
-"18 mcc_generated_files/tmr1.c
-[v _timer1ReloadVal `Vui ~T0 @X0 1 e ]
-[; ;tmr1.c: 18: volatile uint16_t timer1ReloadVal;
-"24
-[v _TMR1_Initialize `(v ~T0 @X0 1 ef ]
+[; ;i2c1.h: 84: typedef enum
+[; ;i2c1.h: 85: {
+[; ;i2c1.h: 86: I2C1_MESSAGE_COMPLETE,
+[; ;i2c1.h: 87: I2C1_MESSAGE_FAIL,
+[; ;i2c1.h: 88: I2C1_MESSAGE_PENDING,
+[; ;i2c1.h: 89: I2C1_STUCK_START,
+[; ;i2c1.h: 90: I2C1_MESSAGE_ADDRESS_NO_ACK,
+[; ;i2c1.h: 91: I2C1_DATA_NO_ACK,
+[; ;i2c1.h: 92: I2C1_LOST_STATE
+[; ;i2c1.h: 93: } I2C1_MESSAGE_STATUS;
+[; ;i2c1.h: 109: typedef struct
+[; ;i2c1.h: 110: {
+[; ;i2c1.h: 111: uint16_t address;
+[; ;i2c1.h: 114: uint8_t length;
+[; ;i2c1.h: 115: uint8_t *pbuffer;
+[; ;i2c1.h: 116: } I2C1_TRANSACTION_REQUEST_BLOCK;
+[; ;i2c1.h: 221: void I2C1_Initialize(void);
+[; ;i2c1.h: 260: void I2C1_MasterWrite(
+[; ;i2c1.h: 261: uint8_t *pdata,
+[; ;i2c1.h: 262: uint8_t length,
+[; ;i2c1.h: 263: uint16_t address,
+[; ;i2c1.h: 264: I2C1_MESSAGE_STATUS *pstatus);
+[; ;i2c1.h: 407: void I2C1_MasterRead(
+[; ;i2c1.h: 408: uint8_t *pdata,
+[; ;i2c1.h: 409: uint8_t length,
+[; ;i2c1.h: 410: uint16_t address,
+[; ;i2c1.h: 411: I2C1_MESSAGE_STATUS *pstatus);
+[; ;i2c1.h: 517: void I2C1_MasterTRBInsert(
+[; ;i2c1.h: 518: uint8_t count,
+[; ;i2c1.h: 519: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
+[; ;i2c1.h: 520: I2C1_MESSAGE_STATUS *pflag);
+[; ;i2c1.h: 561: void I2C1_MasterReadTRBBuild(
+[; ;i2c1.h: 562: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.h: 563: uint8_t *pdata,
+[; ;i2c1.h: 564: uint8_t length,
+[; ;i2c1.h: 565: uint16_t address);
+[; ;i2c1.h: 606: void I2C1_MasterWriteTRBBuild(
+[; ;i2c1.h: 607: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.h: 608: uint8_t *pdata,
+[; ;i2c1.h: 609: uint8_t length,
+[; ;i2c1.h: 610: uint16_t address);
+[; ;i2c1.h: 648: bool I2C1_MasterQueueIsEmpty(void);
+[; ;i2c1.h: 686: bool I2C1_MasterQueueIsFull(void);
+[; ;i2c1.h: 687: void I2C1_BusCollisionISR( void );
+[; ;i2c1.h: 688: void I2C1_ISR ( void );
+[; ;i2c1.c: 63: typedef union
+[; ;i2c1.c: 64: {
+[; ;i2c1.c: 65: struct
+[; ;i2c1.c: 66: {
+[; ;i2c1.c: 67: uint8_t full:1;
+[; ;i2c1.c: 68: uint8_t empty:1;
+[; ;i2c1.c: 69: uint8_t reserved:6;
+[; ;i2c1.c: 70: }s;
+[; ;i2c1.c: 71: uint8_t status;
+[; ;i2c1.c: 72: }I2C_TR_QUEUE_STATUS;
+[; ;i2c1.c: 85: typedef struct
+[; ;i2c1.c: 86: {
+[; ;i2c1.c: 87: uint8_t count;
+[; ;i2c1.c: 88: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list;
+[; ;i2c1.c: 89: I2C1_MESSAGE_STATUS *pTrFlag;
+[; ;i2c1.c: 92: } I2C_TR_QUEUE_ENTRY;
+[; ;i2c1.c: 105: typedef struct
+[; ;i2c1.c: 106: {
+[; ;i2c1.c: 108: I2C_TR_QUEUE_ENTRY *pTrTail;
+[; ;i2c1.c: 109: I2C_TR_QUEUE_ENTRY *pTrHead;
+[; ;i2c1.c: 110: I2C_TR_QUEUE_STATUS trStatus;
+[; ;i2c1.c: 111: uint8_t i2cDoneFlag;
+[; ;i2c1.c: 113: uint8_t i2cErrors;
+[; ;i2c1.c: 116: } I2C_OBJECT ;
+[; ;i2c1.c: 129: typedef enum
+[; ;i2c1.c: 130: {
+[; ;i2c1.c: 131: S_MASTER_IDLE,
+[; ;i2c1.c: 132: S_MASTER_RESTART,
+[; ;i2c1.c: 133: S_MASTER_SEND_ADDR,
+[; ;i2c1.c: 134: S_MASTER_SEND_DATA,
+[; ;i2c1.c: 135: S_MASTER_SEND_STOP,
+[; ;i2c1.c: 136: S_MASTER_ACK_ADDR,
+[; ;i2c1.c: 137: S_MASTER_RCV_DATA,
+[; ;i2c1.c: 138: S_MASTER_RCV_STOP,
+[; ;i2c1.c: 139: S_MASTER_ACK_RCV_DATA,
+[; ;i2c1.c: 140: S_MASTER_NOACK_STOP,
+[; ;i2c1.c: 141: S_MASTER_SEND_ADDR_10BIT_LSB,
+[; ;i2c1.c: 142: S_MASTER_10BIT_RESTART,
+[; ;i2c1.c: 144: } I2C_MASTER_STATES;
+[; ;i2c1.c: 178: void I2C1_FunctionComplete(void);
+[; ;i2c1.c: 179: void I2C1_Stop(I2C1_MESSAGE_STATUS completion_code);
+"185 mcc_generated_files/i2c1.c
+[v _i2c1_tr_queue `S1124 ~T0 @X0 -> -> 1 `i `ux s ]
+[; ;i2c1.c: 185: static I2C_TR_QUEUE_ENTRY i2c1_tr_queue[1];
+"186
+[v _i2c1_object `S1125 ~T0 @X0 1 s ]
+[; ;i2c1.c: 186: static I2C_OBJECT i2c1_object;
+"187
+[v _i2c1_state `E7807 ~T0 @X0 1 s ]
+[i _i2c1_state
+. `E7807 0
+]
+[; ;i2c1.c: 187: static I2C_MASTER_STATES i2c1_state = S_MASTER_IDLE;
+"188
+[v _i2c1_trb_count `uc ~T0 @X0 1 s ]
+[i _i2c1_trb_count
+-> -> 0 `i `uc
+]
+[; ;i2c1.c: 188: static uint8_t i2c1_trb_count = 0;
+"190
+[v _p_i2c1_trb_current `*S1121 ~T0 @X0 1 s ]
+[i _p_i2c1_trb_current
+-> -> 0 `i `*S1121
+]
+[; ;i2c1.c: 190: static I2C1_TRANSACTION_REQUEST_BLOCK *p_i2c1_trb_current = (0);
+"191
+[v _p_i2c1_current `*S1124 ~T0 @X0 1 s ]
+[i _p_i2c1_current
+-> -> 0 `i `*S1124
+]
+[; ;i2c1.c: 191: static I2C_TR_QUEUE_ENTRY *p_i2c1_current = (0);
+"199
+[v _I2C1_Initialize `(v ~T0 @X0 1 ef ]
+"200
 {
-[; ;tmr1.c: 24: void TMR1_Initialize(void) {
-[e :U _TMR1_Initialize ]
+[; ;i2c1.c: 199: void I2C1_Initialize(void)
+[; ;i2c1.c: 200: {
+[e :U _I2C1_Initialize ]
 [f ]
-[; ;tmr1.c: 28: T1CON = 0x34;
-"28
-[e = _T1CON -> -> 52 `i `uc ]
-[; ;tmr1.c: 31: T1GCON = 0x00;
-"31
-[e = _T1GCON -> -> 0 `i `uc ]
-[; ;tmr1.c: 34: TMR1H = 0x0B;
-"34
-[e = _TMR1H -> -> 11 `i `uc ]
-[; ;tmr1.c: 37: TMR1L = 0xDC;
-"37
-[e = _TMR1L -> -> 220 `i `uc ]
-[; ;tmr1.c: 40: timer1ReloadVal = TMR1;
-"40
-[e = _timer1ReloadVal -> _TMR1 `ui ]
-[; ;tmr1.c: 43: PIR1bits.TMR1IF = 0;
-"43
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;tmr1.c: 46: PIE1bits.TMR1IE = 1;
-"46
-[e = . . _PIE1bits 0 0 -> -> 1 `i `uc ]
-[; ;tmr1.c: 49: TMR1_StartTimer();
-"49
-[e ( _TMR1_StartTimer ..  ]
-[; ;tmr1.c: 50: }
-"50
-[e :UE 1121 ]
+[; ;i2c1.c: 201: i2c1_object.pTrHead = i2c1_tr_queue;
+"201
+[e = . _i2c1_object 1 &U _i2c1_tr_queue ]
+[; ;i2c1.c: 202: i2c1_object.pTrTail = i2c1_tr_queue;
+"202
+[e = . _i2c1_object 0 &U _i2c1_tr_queue ]
+[; ;i2c1.c: 203: i2c1_object.trStatus.s.empty = 1;
+"203
+[e = . . . _i2c1_object 2 0 1 -> -> 1 `i `uc ]
+[; ;i2c1.c: 204: i2c1_object.trStatus.s.full = 0;
+"204
+[e = . . . _i2c1_object 2 0 0 -> -> 0 `i `uc ]
+[; ;i2c1.c: 206: i2c1_object.i2cErrors = 0;
+"206
+[e = . _i2c1_object 4 -> -> 0 `i `uc ]
+[; ;i2c1.c: 209: SSP1STAT = 0x00;
+"209
+[e = _SSP1STAT -> -> 0 `i `uc ]
+[; ;i2c1.c: 211: SSP1CON1 = 0x28;
+"211
+[e = _SSP1CON1 -> -> 40 `i `uc ]
+[; ;i2c1.c: 213: SSP1CON3 = 0x00;
+"213
+[e = _SSP1CON3 -> -> 0 `i `uc ]
+[; ;i2c1.c: 215: SSP1ADD = 0x03;
+"215
+[e = _SSP1ADD -> -> 3 `i `uc ]
+[; ;i2c1.c: 219: PIR1bits.SSP1IF = 0;
+"219
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;i2c1.c: 221: PIE1bits.SSP1IE = 1;
+"221
+[e = . . _PIE1bits 0 3 -> -> 1 `i `uc ]
+[; ;i2c1.c: 223: }
+"223
+[e :UE 1126 ]
 }
-"52
-[v _TMR1_StartTimer `(v ~T0 @X0 1 ef ]
+"226
+[v _I2C1_ErrorCountGet `(uc ~T0 @X0 1 ef ]
+"227
 {
-[; ;tmr1.c: 52: void TMR1_StartTimer(void) {
-[e :U _TMR1_StartTimer ]
+[; ;i2c1.c: 226: uint8_t I2C1_ErrorCountGet(void)
+[; ;i2c1.c: 227: {
+[e :U _I2C1_ErrorCountGet ]
 [f ]
-[; ;tmr1.c: 54: T1CONbits.TMR1ON = 1;
-"54
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-[; ;tmr1.c: 55: }
-"55
-[e :UE 1122 ]
+"228
+[v _ret `uc ~T0 @X0 1 a ]
+[; ;i2c1.c: 228: uint8_t ret;
+[; ;i2c1.c: 230: ret = i2c1_object.i2cErrors;
+"230
+[e = _ret . _i2c1_object 4 ]
+[; ;i2c1.c: 231: return ret;
+"231
+[e ) _ret ]
+[e $UE 1127  ]
+[; ;i2c1.c: 232: }
+"232
+[e :UE 1127 ]
 }
-"57
-[v _TMR1_StopTimer `(v ~T0 @X0 1 ef ]
+"234
+[v _I2C1_ISR `(v ~T0 @X0 1 ef ]
+"235
 {
-[; ;tmr1.c: 57: void TMR1_StopTimer(void) {
-[e :U _TMR1_StopTimer ]
+[; ;i2c1.c: 234: void I2C1_ISR ( void )
+[; ;i2c1.c: 235: {
+[e :U _I2C1_ISR ]
 [f ]
-[; ;tmr1.c: 59: T1CONbits.TMR1ON = 0;
-"59
-[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;tmr1.c: 60: }
-"60
-[e :UE 1123 ]
-}
-"62
-[v _TMR1_ReadTimer `(ui ~T0 @X0 1 ef ]
-{
-[; ;tmr1.c: 62: uint16_t TMR1_ReadTimer(void) {
-[e :U _TMR1_ReadTimer ]
-[f ]
-"63
-[v _readVal `ui ~T0 @X0 1 a ]
-"64
-[v _readValHigh `uc ~T0 @X0 1 a ]
-"65
-[v _readValLow `uc ~T0 @X0 1 a ]
-[; ;tmr1.c: 63: uint16_t readVal;
-[; ;tmr1.c: 64: uint8_t readValHigh;
-[; ;tmr1.c: 65: uint8_t readValLow;
-[; ;tmr1.c: 67: readValLow = TMR1L;
-"67
-[e = _readValLow _TMR1L ]
-[; ;tmr1.c: 68: readValHigh = TMR1H;
-"68
-[e = _readValHigh _TMR1H ]
-[; ;tmr1.c: 70: readVal = ((uint16_t) readValHigh << 8) | readValLow;
-"70
-[e = _readVal | << -> _readValHigh `ui -> 8 `i -> _readValLow `ui ]
-[; ;tmr1.c: 72: return readVal;
-"72
-[e ) _readVal ]
-[e $UE 1124  ]
-[; ;tmr1.c: 73: }
-"73
-[e :UE 1124 ]
-}
-"75
-[v _TMR1_WriteTimer `(v ~T0 @X0 1 ef1`ui ]
-{
-[; ;tmr1.c: 75: void TMR1_WriteTimer(uint16_t timerVal) {
-[e :U _TMR1_WriteTimer ]
-[v _timerVal `ui ~T0 @X0 1 r1 ]
-[f ]
-[; ;tmr1.c: 76: if (T1CONbits.T1SYNC == 1) {
-"76
-[e $ ! == -> . . _T1CONbits 2 2 `i -> 1 `i 1126  ]
-{
-[; ;tmr1.c: 78: T1CONbits.TMR1ON = 0;
-"78
-[e = . . _T1CONbits 1 0 -> -> 0 `i `uc ]
-[; ;tmr1.c: 81: TMR1H = (timerVal >> 8);
-"81
-[e = _TMR1H -> >> _timerVal -> 8 `i `uc ]
-[; ;tmr1.c: 82: TMR1L = (uint8_t) timerVal;
-"82
-[e = _TMR1L -> _timerVal `uc ]
-[; ;tmr1.c: 85: T1CONbits.TMR1ON = 1;
-"85
-[e = . . _T1CONbits 1 0 -> -> 1 `i `uc ]
-"86
-}
-[; ;tmr1.c: 86: } else {
-[e $U 1127  ]
-[e :U 1126 ]
-{
-[; ;tmr1.c: 88: TMR1H = (timerVal >> 8);
-"88
-[e = _TMR1H -> >> _timerVal -> 8 `i `uc ]
-[; ;tmr1.c: 89: TMR1L = (uint8_t) timerVal;
-"89
-[e = _TMR1L -> _timerVal `uc ]
-"90
-}
-[e :U 1127 ]
-[; ;tmr1.c: 90: }
-[; ;tmr1.c: 91: }
-"91
-[e :UE 1125 ]
-}
-"93
-[v _TMR1_Reload `(v ~T0 @X0 1 ef ]
-{
-[; ;tmr1.c: 93: void TMR1_Reload(void) {
-[e :U _TMR1_Reload ]
-[f ]
-[; ;tmr1.c: 95: TMR1H = (timer1ReloadVal >> 8);
-"95
-[e = _TMR1H -> >> _timer1ReloadVal -> 8 `i `uc ]
-[; ;tmr1.c: 96: TMR1L = (uint8_t) timer1ReloadVal;
-"96
-[e = _TMR1L -> _timer1ReloadVal `uc ]
-[; ;tmr1.c: 97: }
-"97
-[e :UE 1128 ]
-}
-"99
-[v _TMR1_StartSinglePulseAcquisition `(v ~T0 @X0 1 ef ]
-{
-[; ;tmr1.c: 99: void TMR1_StartSinglePulseAcquisition(void) {
-[e :U _TMR1_StartSinglePulseAcquisition ]
-[f ]
-[; ;tmr1.c: 100: T1GCONbits.T1GGO = 1;
-"100
-[e = . . _T1GCONbits 3 1 -> -> 1 `i `uc ]
-[; ;tmr1.c: 101: }
-"101
-[e :UE 1129 ]
-}
-"103
-[v _TMR1_CheckGateValueStatus `(uc ~T0 @X0 1 ef ]
-{
-[; ;tmr1.c: 103: uint8_t TMR1_CheckGateValueStatus(void) {
-[e :U _TMR1_CheckGateValueStatus ]
-[f ]
-[; ;tmr1.c: 104: return T1GCONbits.T1GVAL;
-"104
-[e ) . . _T1GCONbits 1 1 ]
-[e $UE 1130  ]
-[; ;tmr1.c: 105: }
-"105
-[e :UE 1130 ]
-}
-"107
-[v _TMR1_ISR `(v ~T0 @X0 1 ef ]
-{
-[; ;tmr1.c: 107: void TMR1_ISR(void) {
-[e :U _TMR1_ISR ]
-[f ]
-"108
-[v F7811 `Vui ~T0 @X0 1 s CountCallBack ]
-[i F7811
+"237
+[v F7836 `*uc ~T0 @X0 1 s pi2c_buf_ptr ]
+"238
+[v F7837 `ui ~T0 @X0 1 s i2c_address ]
+[i F7837
 -> -> 0 `i `ui
 ]
-[; ;tmr1.c: 108: static volatile unsigned int CountCallBack = 0;
-[; ;tmr1.c: 111: PIR1bits.TMR1IF = 0;
-"111
-[e = . . _PIR1bits 0 0 -> -> 0 `i `uc ]
-[; ;tmr1.c: 114: TMR1H = (timer1ReloadVal >> 8);
-"114
-[e = _TMR1H -> >> _timer1ReloadVal -> 8 `i `uc ]
-[; ;tmr1.c: 115: TMR1L = (uint8_t) timer1ReloadVal;
-"115
-[e = _TMR1L -> _timer1ReloadVal `uc ]
-[; ;tmr1.c: 118: if (++CountCallBack >= 4)
-"118
-[e $ ! >= =+ F7811 -> -> 1 `i `ui -> -> 4 `i `ui 1132  ]
-[; ;tmr1.c: 119: {
-"119
+"239
+[v F7838 `uc ~T0 @X0 1 s i2c_bytes_left ]
+[i F7838
+-> -> 0 `i `uc
+]
+"240
+[v F7839 `uc ~T0 @X0 1 s i2c_10bit_address_restart ]
+[i F7839
+-> -> 0 `i `uc
+]
+[; ;i2c1.c: 237: static uint8_t *pi2c_buf_ptr;
+[; ;i2c1.c: 238: static uint16_t i2c_address = 0;
+[; ;i2c1.c: 239: static uint8_t i2c_bytes_left = 0;
+[; ;i2c1.c: 240: static uint8_t i2c_10bit_address_restart = 0;
+[; ;i2c1.c: 242: PIR1bits.SSP1IF = 0;
+"242
+[e = . . _PIR1bits 0 3 -> -> 0 `i `uc ]
+[; ;i2c1.c: 246: if(SSP1CON1bits.WCOL)
+"246
+[e $ ! != -> . . _SSP1CON1bits 0 4 `i -> -> -> 0 `i `Vuc `i 1129  ]
+[; ;i2c1.c: 247: {
+"247
 {
-[; ;tmr1.c: 121: do { LATA4 = ~LATA4; } while(0);
-"121
-[e :U 1135 ]
+[; ;i2c1.c: 249: SSP1CON1bits.WCOL = 0;
+"249
+[e = . . _SSP1CON1bits 0 4 -> -> 0 `i `uc ]
+[; ;i2c1.c: 250: i2c1_state = S_MASTER_IDLE;
+"250
+[e = _i2c1_state . `E7807 0 ]
+[; ;i2c1.c: 251: *(p_i2c1_current->pTrFlag) = I2C1_MESSAGE_FAIL;
+"251
+[e = *U . *U _p_i2c1_current 2 . `E7739 1 ]
+[; ;i2c1.c: 254: p_i2c1_current = (0);
+"254
+[e = _p_i2c1_current -> -> 0 `i `*S1124 ]
+[; ;i2c1.c: 256: return;
+"256
+[e $UE 1128  ]
+"257
+}
+[e :U 1129 ]
+[; ;i2c1.c: 257: }
+[; ;i2c1.c: 260: switch(i2c1_state)
+"260
+[e $U 1131  ]
+[; ;i2c1.c: 261: {
+"261
 {
-[e = _LATA4 -> ~ -> _LATA4 `ui `b ]
+[; ;i2c1.c: 262: case S_MASTER_IDLE:
+"262
+[e :U 1132 ]
+[; ;i2c1.c: 264: if(i2c1_object.trStatus.s.empty != 1)
+"264
+[e $ ! != -> . . . _i2c1_object 2 0 1 `i -> 1 `i 1133  ]
+[; ;i2c1.c: 265: {
+"265
+{
+[; ;i2c1.c: 267: p_i2c1_current = i2c1_object.pTrHead;
+"267
+[e = _p_i2c1_current . _i2c1_object 1 ]
+[; ;i2c1.c: 268: i2c1_trb_count = i2c1_object.pTrHead->count;
+"268
+[e = _i2c1_trb_count . *U . _i2c1_object 1 0 ]
+[; ;i2c1.c: 269: p_i2c1_trb_current = i2c1_object.pTrHead->ptrb_list;
+"269
+[e = _p_i2c1_trb_current . *U . _i2c1_object 1 1 ]
+[; ;i2c1.c: 271: i2c1_object.pTrHead++;
+"271
+[e ++ . _i2c1_object 1 * -> -> 1 `i `x -> -> # *U . _i2c1_object 1 `i `x ]
+[; ;i2c1.c: 274: if(i2c1_object.pTrHead == (i2c1_tr_queue + 1))
+"274
+[e $ ! == . _i2c1_object 1 + &U _i2c1_tr_queue * -> -> 1 `i `x -> -> # *U &U _i2c1_tr_queue `i `x 1134  ]
+[; ;i2c1.c: 275: {
+"275
+{
+[; ;i2c1.c: 277: i2c1_object.pTrHead = i2c1_tr_queue;
+"277
+[e = . _i2c1_object 1 &U _i2c1_tr_queue ]
+"278
 }
 [e :U 1134 ]
-[; ;tmr1.c: 123: CountCallBack = 0;
-"123
-[e = F7811 -> -> 0 `i `ui ]
-"124
-}
-[; ;tmr1.c: 124: }
-[e $U 1136  ]
-"125
-[e :U 1132 ]
-[; ;tmr1.c: 125: else if(CountCallBack == 1)
-[e $ ! == F7811 -> -> 1 `i `ui 1137  ]
-[; ;tmr1.c: 126: {
-"126
+[; ;i2c1.c: 278: }
+[; ;i2c1.c: 282: i2c1_object.trStatus.s.full = 0;
+"282
+[e = . . . _i2c1_object 2 0 0 -> -> 0 `i `uc ]
+[; ;i2c1.c: 285: if(i2c1_object.pTrHead == i2c1_object.pTrTail)
+"285
+[e $ ! == . _i2c1_object 1 . _i2c1_object 0 1135  ]
+[; ;i2c1.c: 286: {
+"286
 {
-[; ;tmr1.c: 127: CodeRuning = 1;
-"127
-[e = _CodeRuning -> -> 1 `i `uc ]
-[; ;tmr1.c: 128: Current_Read();
-"128
-[e ( _Current_Read ..  ]
-"129
+[; ;i2c1.c: 288: i2c1_object.trStatus.s.empty = 1;
+"288
+[e = . . . _i2c1_object 2 0 1 -> -> 1 `i `uc ]
+"289
 }
-[; ;tmr1.c: 129: }
-[e $U 1138  ]
-"130
+[e :U 1135 ]
+[; ;i2c1.c: 289: }
+[; ;i2c1.c: 292: SSP1CON2bits.SEN = 1;
+"292
+[e = . . _SSP1CON2bits 0 0 -> -> 1 `i `uc ]
+[; ;i2c1.c: 295: i2c1_state = S_MASTER_SEND_ADDR;
+"295
+[e = _i2c1_state . `E7807 2 ]
+"296
+}
+[e :U 1133 ]
+[; ;i2c1.c: 296: }
+[; ;i2c1.c: 298: break;
+"298
+[e $U 1130  ]
+[; ;i2c1.c: 300: case S_MASTER_RESTART:
+"300
+[e :U 1136 ]
+[; ;i2c1.c: 305: SSP1CON2bits.RSEN = 1;
+"305
+[e = . . _SSP1CON2bits 0 1 -> -> 1 `i `uc ]
+[; ;i2c1.c: 308: i2c1_state = S_MASTER_SEND_ADDR;
+"308
+[e = _i2c1_state . `E7807 2 ]
+[; ;i2c1.c: 310: break;
+"310
+[e $U 1130  ]
+[; ;i2c1.c: 312: case S_MASTER_SEND_ADDR_10BIT_LSB:
+"312
 [e :U 1137 ]
-[; ;tmr1.c: 130: else if(CountCallBack == 2)
-[e $ ! == F7811 -> -> 2 `i `ui 1139  ]
-[; ;tmr1.c: 131: {
-"131
+[; ;i2c1.c: 314: if(SSP1CON2bits.ACKSTAT)
+"314
+[e $ ! != -> . . _SSP1CON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 1138  ]
+[; ;i2c1.c: 315: {
+"315
 {
-[; ;tmr1.c: 132: CodeRuning = 1;
-"132
-[e = _CodeRuning -> -> 1 `i `uc ]
-[; ;tmr1.c: 133: Battery_Read();
-"133
-[e ( _Battery_Read ..  ]
-"134
+[; ;i2c1.c: 316: i2c1_object.i2cErrors++;
+"316
+[e ++ . _i2c1_object 4 -> -> 1 `i `uc ]
+[; ;i2c1.c: 317: I2C1_Stop(I2C1_MESSAGE_ADDRESS_NO_ACK);
+"317
+[e ( _I2C1_Stop (1 . `E7739 4 ]
+"318
 }
-[; ;tmr1.c: 134: }
-[e $U 1140  ]
-"135
-[e :U 1139 ]
-[; ;tmr1.c: 135: else if(CountCallBack == 3)
-[e $ ! == F7811 -> -> 3 `i `ui 1141  ]
-[; ;tmr1.c: 136: {
-"136
+[; ;i2c1.c: 318: }
+[e $U 1139  ]
+"319
+[e :U 1138 ]
+[; ;i2c1.c: 319: else
+[; ;i2c1.c: 320: {
+"320
 {
-[; ;tmr1.c: 137: CodeRuning = 1;
-"137
-[e = _CodeRuning -> -> 1 `i `uc ]
-[; ;tmr1.c: 138: Temp_Read();
-"138
-[e ( _Temp_Read ..  ]
-"139
+[; ;i2c1.c: 322: SSP1BUF = (i2c_address >> 1) & 0x00FF;
+"322
+[e = _SSP1BUF -> & >> F7837 -> 1 `i -> -> 255 `i `ui `uc ]
+[; ;i2c1.c: 325: if(i2c_address & 0x01)
+"325
+[e $ ! != & F7837 -> -> 1 `i `ui -> -> 0 `i `ui 1140  ]
+[; ;i2c1.c: 326: {
+"326
+{
+[; ;i2c1.c: 329: i2c1_state = S_MASTER_10BIT_RESTART;
+"329
+[e = _i2c1_state . `E7807 11 ]
+"330
+}
+[; ;i2c1.c: 330: }
+[e $U 1141  ]
+"331
+[e :U 1140 ]
+[; ;i2c1.c: 331: else
+[; ;i2c1.c: 332: {
+"332
+{
+[; ;i2c1.c: 334: i2c1_state = S_MASTER_SEND_DATA;
+"334
+[e = _i2c1_state . `E7807 3 ]
+"335
 }
 [e :U 1141 ]
-"140
-[e :U 1140 ]
-[e :U 1138 ]
-[e :U 1136 ]
-[; ;tmr1.c: 139: }
-[; ;tmr1.c: 140: }
-[e :UE 1131 ]
+"336
 }
-"142
-[v _TMR1_CallBack `(v ~T0 @X0 1 ef ]
-"143
+[e :U 1139 ]
+[; ;i2c1.c: 335: }
+[; ;i2c1.c: 336: }
+[; ;i2c1.c: 338: break;
+"338
+[e $U 1130  ]
+[; ;i2c1.c: 340: case S_MASTER_10BIT_RESTART:
+"340
+[e :U 1142 ]
+[; ;i2c1.c: 342: if(SSP1CON2bits.ACKSTAT)
+"342
+[e $ ! != -> . . _SSP1CON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 1143  ]
+[; ;i2c1.c: 343: {
+"343
 {
-[; ;tmr1.c: 142: void TMR1_CallBack(void)
-[; ;tmr1.c: 143: {
-[e :U _TMR1_CallBack ]
+[; ;i2c1.c: 344: i2c1_object.i2cErrors++;
+"344
+[e ++ . _i2c1_object 4 -> -> 1 `i `uc ]
+[; ;i2c1.c: 345: I2C1_Stop(I2C1_MESSAGE_ADDRESS_NO_ACK);
+"345
+[e ( _I2C1_Stop (1 . `E7739 4 ]
+"346
+}
+[; ;i2c1.c: 346: }
+[e $U 1144  ]
+"347
+[e :U 1143 ]
+[; ;i2c1.c: 347: else
+[; ;i2c1.c: 348: {
+"348
+{
+[; ;i2c1.c: 351: SSP1CON2bits.RSEN = 1;
+"351
+[e = . . _SSP1CON2bits 0 1 -> -> 1 `i `uc ]
+[; ;i2c1.c: 355: i2c_address = 0x00F0 | ((i2c_address >> 8) & 0x0006);
+"355
+[e = F7837 | -> -> 240 `i `ui & >> F7837 -> 8 `i -> -> 6 `i `ui ]
+[; ;i2c1.c: 358: i2c_address |= 0x0001;
+"358
+[e =| F7837 -> -> 1 `i `ui ]
+[; ;i2c1.c: 361: i2c_10bit_address_restart = 1;
+"361
+[e = F7839 -> -> 1 `i `uc ]
+[; ;i2c1.c: 364: i2c1_state = S_MASTER_SEND_ADDR;
+"364
+[e = _i2c1_state . `E7807 2 ]
+"365
+}
+[e :U 1144 ]
+[; ;i2c1.c: 365: }
+[; ;i2c1.c: 367: break;
+"367
+[e $U 1130  ]
+[; ;i2c1.c: 369: case S_MASTER_SEND_ADDR:
+"369
+[e :U 1145 ]
+[; ;i2c1.c: 382: if(i2c_10bit_address_restart != 1)
+"382
+[e $ ! != -> F7839 `i -> 1 `i 1146  ]
+[; ;i2c1.c: 383: {
+"383
+{
+[; ;i2c1.c: 385: i2c_address = p_i2c1_trb_current->address;
+"385
+[e = F7837 . *U _p_i2c1_trb_current 0 ]
+[; ;i2c1.c: 386: pi2c_buf_ptr = p_i2c1_trb_current->pbuffer;
+"386
+[e = F7836 . *U _p_i2c1_trb_current 2 ]
+[; ;i2c1.c: 387: i2c_bytes_left = p_i2c1_trb_current->length;
+"387
+[e = F7838 . *U _p_i2c1_trb_current 1 ]
+"388
+}
+[e :U 1146 ]
+[; ;i2c1.c: 388: }
+[; ;i2c1.c: 391: if(!1 && (0x0 != i2c_address))
+"391
+[e $ ! && ! != -> 1 `i -> 0 `i != -> -> 0 `i `ui F7837 1147  ]
+[; ;i2c1.c: 392: {
+"392
+{
+[; ;i2c1.c: 393: if (0 == i2c_10bit_address_restart)
+"393
+[e $ ! == -> 0 `i -> F7839 `i 1148  ]
+[; ;i2c1.c: 394: {
+"394
+{
+[; ;i2c1.c: 398: SSP1BUF = 0xF0 | ((i2c_address >> 8) & 0x0006);
+"398
+[e = _SSP1BUF -> | -> -> 240 `i `ui & >> F7837 -> 8 `i -> -> 6 `i `ui `uc ]
+[; ;i2c1.c: 399: i2c1_state = S_MASTER_SEND_ADDR_10BIT_LSB;
+"399
+[e = _i2c1_state . `E7807 10 ]
+"400
+}
+[; ;i2c1.c: 400: }
+[e $U 1149  ]
+"401
+[e :U 1148 ]
+[; ;i2c1.c: 401: else
+[; ;i2c1.c: 402: {
+"402
+{
+[; ;i2c1.c: 404: SSP1BUF = i2c_address;
+"404
+[e = _SSP1BUF -> F7837 `uc ]
+[; ;i2c1.c: 405: i2c1_state = S_MASTER_ACK_ADDR;
+"405
+[e = _i2c1_state . `E7807 5 ]
+[; ;i2c1.c: 407: i2c_10bit_address_restart = 0;
+"407
+[e = F7839 -> -> 0 `i `uc ]
+"408
+}
+[e :U 1149 ]
+"409
+}
+[; ;i2c1.c: 408: }
+[; ;i2c1.c: 409: }
+[e $U 1150  ]
+"410
+[e :U 1147 ]
+[; ;i2c1.c: 410: else
+[; ;i2c1.c: 411: {
+"411
+{
+[; ;i2c1.c: 413: SSP1BUF = i2c_address;
+"413
+[e = _SSP1BUF -> F7837 `uc ]
+[; ;i2c1.c: 414: if(i2c_address & 0x01)
+"414
+[e $ ! != & F7837 -> -> 1 `i `ui -> -> 0 `i `ui 1151  ]
+[; ;i2c1.c: 415: {
+"415
+{
+[; ;i2c1.c: 417: i2c1_state = S_MASTER_ACK_ADDR;
+"417
+[e = _i2c1_state . `E7807 5 ]
+"418
+}
+[; ;i2c1.c: 418: }
+[e $U 1152  ]
+"419
+[e :U 1151 ]
+[; ;i2c1.c: 419: else
+[; ;i2c1.c: 420: {
+"420
+{
+[; ;i2c1.c: 422: i2c1_state = S_MASTER_SEND_DATA;
+"422
+[e = _i2c1_state . `E7807 3 ]
+"423
+}
+[e :U 1152 ]
+"424
+}
+[e :U 1150 ]
+[; ;i2c1.c: 423: }
+[; ;i2c1.c: 424: }
+[; ;i2c1.c: 425: break;
+"425
+[e $U 1130  ]
+[; ;i2c1.c: 427: case S_MASTER_SEND_DATA:
+"427
+[e :U 1153 ]
+[; ;i2c1.c: 430: if(SSP1CON2bits.ACKSTAT)
+"430
+[e $ ! != -> . . _SSP1CON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 1154  ]
+[; ;i2c1.c: 431: {
+"431
+{
+[; ;i2c1.c: 433: i2c1_object.i2cErrors++;
+"433
+[e ++ . _i2c1_object 4 -> -> 1 `i `uc ]
+[; ;i2c1.c: 436: SSP1CON2bits.ACKSTAT = 0;
+"436
+[e = . . _SSP1CON2bits 0 6 -> -> 0 `i `uc ]
+[; ;i2c1.c: 439: I2C1_Stop(I2C1_DATA_NO_ACK);
+"439
+[e ( _I2C1_Stop (1 . `E7739 5 ]
+"441
+}
+[; ;i2c1.c: 441: }
+[e $U 1155  ]
+"442
+[e :U 1154 ]
+[; ;i2c1.c: 442: else
+[; ;i2c1.c: 443: {
+"443
+{
+[; ;i2c1.c: 445: if(i2c_bytes_left-- == 0U)
+"445
+[e $ ! == -> -- F7838 -> -> 1 `i `uc `ui -> 0 `ui 1156  ]
+[; ;i2c1.c: 446: {
+"446
+{
+[; ;i2c1.c: 450: p_i2c1_trb_current++;
+"450
+[e ++ _p_i2c1_trb_current * -> -> 1 `i `x -> -> # *U _p_i2c1_trb_current `i `x ]
+[; ;i2c1.c: 453: if(--i2c1_trb_count == 0)
+"453
+[e $ ! == -> =- _i2c1_trb_count -> -> 1 `i `uc `i -> 0 `i 1157  ]
+[; ;i2c1.c: 454: {
+"454
+{
+[; ;i2c1.c: 455: I2C1_Stop(I2C1_MESSAGE_COMPLETE);
+"455
+[e ( _I2C1_Stop (1 . `E7739 0 ]
+"456
+}
+[; ;i2c1.c: 456: }
+[e $U 1158  ]
+"457
+[e :U 1157 ]
+[; ;i2c1.c: 457: else
+[; ;i2c1.c: 458: {
+"458
+{
+[; ;i2c1.c: 465: SSP1CON2bits.RSEN = 1;
+"465
+[e = . . _SSP1CON2bits 0 1 -> -> 1 `i `uc ]
+[; ;i2c1.c: 468: i2c1_state = S_MASTER_SEND_ADDR;
+"468
+[e = _i2c1_state . `E7807 2 ]
+"470
+}
+[e :U 1158 ]
+"471
+}
+[; ;i2c1.c: 470: }
+[; ;i2c1.c: 471: }
+[e $U 1159  ]
+"472
+[e :U 1156 ]
+[; ;i2c1.c: 472: else
+[; ;i2c1.c: 473: {
+"473
+{
+[; ;i2c1.c: 475: SSP1BUF = *pi2c_buf_ptr++;
+"475
+[e = _SSP1BUF *U ++ F7836 * -> -> 1 `i `x -> -> # *U F7836 `i `x ]
+"476
+}
+[e :U 1159 ]
+"477
+}
+[e :U 1155 ]
+[; ;i2c1.c: 476: }
+[; ;i2c1.c: 477: }
+[; ;i2c1.c: 478: break;
+"478
+[e $U 1130  ]
+[; ;i2c1.c: 480: case S_MASTER_ACK_ADDR:
+"480
+[e :U 1160 ]
+[; ;i2c1.c: 483: if(SSP1CON2bits.ACKSTAT)
+"483
+[e $ ! != -> . . _SSP1CON2bits 0 6 `i -> -> -> 0 `i `Vuc `i 1161  ]
+[; ;i2c1.c: 484: {
+"484
+{
+[; ;i2c1.c: 487: i2c1_object.i2cErrors++;
+"487
+[e ++ . _i2c1_object 4 -> -> 1 `i `uc ]
+[; ;i2c1.c: 490: I2C1_Stop(I2C1_MESSAGE_ADDRESS_NO_ACK);
+"490
+[e ( _I2C1_Stop (1 . `E7739 4 ]
+[; ;i2c1.c: 493: SSP1CON2bits.ACKSTAT = 0;
+"493
+[e = . . _SSP1CON2bits 0 6 -> -> 0 `i `uc ]
+"494
+}
+[; ;i2c1.c: 494: }
+[e $U 1162  ]
+"495
+[e :U 1161 ]
+[; ;i2c1.c: 495: else
+[; ;i2c1.c: 496: {
+"496
+{
+[; ;i2c1.c: 497: SSP1CON2bits.RCEN = 1;
+"497
+[e = . . _SSP1CON2bits 0 3 -> -> 1 `i `uc ]
+[; ;i2c1.c: 498: i2c1_state = S_MASTER_ACK_RCV_DATA;
+"498
+[e = _i2c1_state . `E7807 8 ]
+"499
+}
+[e :U 1162 ]
+[; ;i2c1.c: 499: }
+[; ;i2c1.c: 500: break;
+"500
+[e $U 1130  ]
+[; ;i2c1.c: 502: case S_MASTER_RCV_DATA:
+"502
+[e :U 1163 ]
+[; ;i2c1.c: 507: i2c1_state = S_MASTER_ACK_RCV_DATA;
+"507
+[e = _i2c1_state . `E7807 8 ]
+[; ;i2c1.c: 510: SSP1CON2bits.RCEN = 1;
+"510
+[e = . . _SSP1CON2bits 0 3 -> -> 1 `i `uc ]
+[; ;i2c1.c: 512: break;
+"512
+[e $U 1130  ]
+[; ;i2c1.c: 514: case S_MASTER_ACK_RCV_DATA:
+"514
+[e :U 1164 ]
+[; ;i2c1.c: 517: *pi2c_buf_ptr++ = SSP1BUF;
+"517
+[e = *U ++ F7836 * -> -> 1 `i `x -> -> # *U F7836 `i `x _SSP1BUF ]
+[; ;i2c1.c: 520: if(--i2c_bytes_left)
+"520
+[e $ ! != -> =- F7838 -> -> 1 `i `uc `i -> -> -> 0 `i `uc `i 1165  ]
+[; ;i2c1.c: 521: {
+"521
+{
+[; ;i2c1.c: 527: SSP1CON2bits.ACKDT = 0;
+"527
+[e = . . _SSP1CON2bits 0 5 -> -> 0 `i `uc ]
+[; ;i2c1.c: 530: i2c1_state = S_MASTER_RCV_DATA;
+"530
+[e = _i2c1_state . `E7807 6 ]
+"531
+}
+[; ;i2c1.c: 531: }
+[e $U 1166  ]
+"532
+[e :U 1165 ]
+[; ;i2c1.c: 532: else
+[; ;i2c1.c: 533: {
+"533
+{
+[; ;i2c1.c: 537: SSP1CON2bits.ACKDT = 1;
+"537
+[e = . . _SSP1CON2bits 0 5 -> -> 1 `i `uc ]
+[; ;i2c1.c: 539: I2C1_FunctionComplete();
+"539
+[e ( _I2C1_FunctionComplete ..  ]
+"540
+}
+[e :U 1166 ]
+[; ;i2c1.c: 540: }
+[; ;i2c1.c: 543: SSP1CON2bits.ACKEN = 1;
+"543
+[e = . . _SSP1CON2bits 0 4 -> -> 1 `i `uc ]
+[; ;i2c1.c: 544: break;
+"544
+[e $U 1130  ]
+[; ;i2c1.c: 546: case S_MASTER_RCV_STOP:
+"546
+[e :U 1167 ]
+"547
+[e :U 1168 ]
+[; ;i2c1.c: 547: case S_MASTER_SEND_STOP:
+[; ;i2c1.c: 550: I2C1_Stop(I2C1_MESSAGE_COMPLETE);
+"550
+[e ( _I2C1_Stop (1 . `E7739 0 ]
+[; ;i2c1.c: 551: break;
+"551
+[e $U 1130  ]
+[; ;i2c1.c: 553: default:
+"553
+[e :U 1169 ]
+[; ;i2c1.c: 557: i2c1_object.i2cErrors++;
+"557
+[e ++ . _i2c1_object 4 -> -> 1 `i `uc ]
+[; ;i2c1.c: 558: I2C1_Stop(I2C1_LOST_STATE);
+"558
+[e ( _I2C1_Stop (1 . `E7739 6 ]
+[; ;i2c1.c: 559: break;
+"559
+[e $U 1130  ]
+"561
+}
+[; ;i2c1.c: 561: }
+[e $U 1130  ]
+"260
+[e :U 1131 ]
+[e [\ _i2c1_state , $ . `E7807 0 1132
+ , $ . `E7807 1 1136
+ , $ . `E7807 10 1137
+ , $ . `E7807 11 1142
+ , $ . `E7807 2 1145
+ , $ . `E7807 3 1153
+ , $ . `E7807 5 1160
+ , $ . `E7807 6 1163
+ , $ . `E7807 8 1164
+ , $ . `E7807 7 1167
+ , $ . `E7807 4 1168
+ 1169 ]
+"561
+[e :U 1130 ]
+[; ;i2c1.c: 562: }
+"562
+[e :UE 1128 ]
+}
+"564
+[v _I2C1_FunctionComplete `(v ~T0 @X0 1 ef ]
+"565
+{
+[; ;i2c1.c: 564: void I2C1_FunctionComplete(void)
+[; ;i2c1.c: 565: {
+[e :U _I2C1_FunctionComplete ]
 [f ]
-[; ;tmr1.c: 145: }
-"145
-[e :UE 1142 ]
+[; ;i2c1.c: 568: p_i2c1_trb_current++;
+"568
+[e ++ _p_i2c1_trb_current * -> -> 1 `i `x -> -> # *U _p_i2c1_trb_current `i `x ]
+[; ;i2c1.c: 571: if(--i2c1_trb_count == 0)
+"571
+[e $ ! == -> =- _i2c1_trb_count -> -> 1 `i `uc `i -> 0 `i 1171  ]
+[; ;i2c1.c: 572: {
+"572
+{
+[; ;i2c1.c: 573: i2c1_state = S_MASTER_SEND_STOP;
+"573
+[e = _i2c1_state . `E7807 4 ]
+"574
+}
+[; ;i2c1.c: 574: }
+[e $U 1172  ]
+"575
+[e :U 1171 ]
+[; ;i2c1.c: 575: else
+[; ;i2c1.c: 576: {
+"576
+{
+[; ;i2c1.c: 577: i2c1_state = S_MASTER_RESTART;
+"577
+[e = _i2c1_state . `E7807 1 ]
+"578
+}
+[e :U 1172 ]
+[; ;i2c1.c: 578: }
+[; ;i2c1.c: 580: }
+"580
+[e :UE 1170 ]
+}
+"582
+[v _I2C1_Stop `(v ~T0 @X0 1 ef1`E7739 ]
+"583
+{
+[; ;i2c1.c: 582: void I2C1_Stop(I2C1_MESSAGE_STATUS completion_code)
+[; ;i2c1.c: 583: {
+[e :U _I2C1_Stop ]
+"582
+[v _completion_code `E7739 ~T0 @X0 1 r1 ]
+"583
+[f ]
+[; ;i2c1.c: 585: SSP1CON2bits.PEN = 1;
+"585
+[e = . . _SSP1CON2bits 0 2 -> -> 1 `i `uc ]
+[; ;i2c1.c: 588: if (p_i2c1_current->pTrFlag != (0))
+"588
+[e $ ! != . *U _p_i2c1_current 2 -> -> 0 `i `*E7739 1174  ]
+[; ;i2c1.c: 589: {
+"589
+{
+[; ;i2c1.c: 591: *(p_i2c1_current->pTrFlag) = completion_code;
+"591
+[e = *U . *U _p_i2c1_current 2 _completion_code ]
+"592
+}
+[e :U 1174 ]
+[; ;i2c1.c: 592: }
+[; ;i2c1.c: 595: i2c1_state = S_MASTER_IDLE;
+"595
+[e = _i2c1_state . `E7807 0 ]
+[; ;i2c1.c: 597: }
+"597
+[e :UE 1173 ]
+}
+"599
+[v _I2C1_MasterWrite `(v ~T0 @X0 1 ef4`*uc`uc`ui`*E7739 ]
+"604
+{
+[; ;i2c1.c: 599: void I2C1_MasterWrite(
+[; ;i2c1.c: 600: uint8_t *pdata,
+[; ;i2c1.c: 601: uint8_t length,
+[; ;i2c1.c: 602: uint16_t address,
+[; ;i2c1.c: 603: I2C1_MESSAGE_STATUS *pflag)
+[; ;i2c1.c: 604: {
+[e :U _I2C1_MasterWrite ]
+"600
+[v _pdata `*uc ~T0 @X0 1 r1 ]
+"601
+[v _length `uc ~T0 @X0 1 r2 ]
+"602
+[v _address `ui ~T0 @X0 1 r3 ]
+"603
+[v _pflag `*E7739 ~T0 @X0 1 r4 ]
+"604
+[f ]
+"605
+[v F7846 `S1121 ~T0 @X0 1 s trBlock ]
+[; ;i2c1.c: 605: static I2C1_TRANSACTION_REQUEST_BLOCK trBlock;
+[; ;i2c1.c: 608: if (i2c1_object.trStatus.s.full != 1)
+"608
+[e $ ! != -> . . . _i2c1_object 2 0 0 `i -> 1 `i 1176  ]
+[; ;i2c1.c: 609: {
+"609
+{
+[; ;i2c1.c: 610: I2C1_MasterWriteTRBBuild(&trBlock, pdata, length, address);
+"610
+[e ( _I2C1_MasterWriteTRBBuild (4 , , , &U F7846 _pdata _length _address ]
+[; ;i2c1.c: 611: I2C1_MasterTRBInsert(1, &trBlock, pflag);
+"611
+[e ( _I2C1_MasterTRBInsert (3 , , -> -> 1 `i `uc &U F7846 _pflag ]
+"612
+}
+[; ;i2c1.c: 612: }
+[e $U 1177  ]
+"613
+[e :U 1176 ]
+[; ;i2c1.c: 613: else
+[; ;i2c1.c: 614: {
+"614
+{
+[; ;i2c1.c: 615: *pflag = I2C1_MESSAGE_FAIL;
+"615
+[e = *U _pflag . `E7739 1 ]
+"616
+}
+[e :U 1177 ]
+[; ;i2c1.c: 616: }
+[; ;i2c1.c: 618: }
+"618
+[e :UE 1175 ]
+}
+"620
+[v _I2C1_MasterRead `(v ~T0 @X0 1 ef4`*uc`uc`ui`*E7739 ]
+"625
+{
+[; ;i2c1.c: 620: void I2C1_MasterRead(
+[; ;i2c1.c: 621: uint8_t *pdata,
+[; ;i2c1.c: 622: uint8_t length,
+[; ;i2c1.c: 623: uint16_t address,
+[; ;i2c1.c: 624: I2C1_MESSAGE_STATUS *pflag)
+[; ;i2c1.c: 625: {
+[e :U _I2C1_MasterRead ]
+"621
+[v _pdata `*uc ~T0 @X0 1 r1 ]
+"622
+[v _length `uc ~T0 @X0 1 r2 ]
+"623
+[v _address `ui ~T0 @X0 1 r3 ]
+"624
+[v _pflag `*E7739 ~T0 @X0 1 r4 ]
+"625
+[f ]
+"626
+[v F7851 `S1121 ~T0 @X0 1 s trBlock ]
+[; ;i2c1.c: 626: static I2C1_TRANSACTION_REQUEST_BLOCK trBlock;
+[; ;i2c1.c: 630: if (i2c1_object.trStatus.s.full != 1)
+"630
+[e $ ! != -> . . . _i2c1_object 2 0 0 `i -> 1 `i 1179  ]
+[; ;i2c1.c: 631: {
+"631
+{
+[; ;i2c1.c: 632: I2C1_MasterReadTRBBuild(&trBlock, pdata, length, address);
+"632
+[e ( _I2C1_MasterReadTRBBuild (4 , , , &U F7851 _pdata _length _address ]
+[; ;i2c1.c: 633: I2C1_MasterTRBInsert(1, &trBlock, pflag);
+"633
+[e ( _I2C1_MasterTRBInsert (3 , , -> -> 1 `i `uc &U F7851 _pflag ]
+"634
+}
+[; ;i2c1.c: 634: }
+[e $U 1180  ]
+"635
+[e :U 1179 ]
+[; ;i2c1.c: 635: else
+[; ;i2c1.c: 636: {
+"636
+{
+[; ;i2c1.c: 637: *pflag = I2C1_MESSAGE_FAIL;
+"637
+[e = *U _pflag . `E7739 1 ]
+"638
+}
+[e :U 1180 ]
+[; ;i2c1.c: 638: }
+[; ;i2c1.c: 640: }
+"640
+[e :UE 1178 ]
+}
+"642
+[v _I2C1_MasterTRBInsert `(v ~T0 @X0 1 ef3`uc`*S1121`*E7739 ]
+"646
+{
+[; ;i2c1.c: 642: void I2C1_MasterTRBInsert(
+[; ;i2c1.c: 643: uint8_t count,
+[; ;i2c1.c: 644: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
+[; ;i2c1.c: 645: I2C1_MESSAGE_STATUS *pflag)
+[; ;i2c1.c: 646: {
+[e :U _I2C1_MasterTRBInsert ]
+"643
+[v _count `uc ~T0 @X0 1 r1 ]
+"644
+[v _ptrb_list `*S1121 ~T0 @X0 1 r2 ]
+"645
+[v _pflag `*E7739 ~T0 @X0 1 r3 ]
+"646
+[f ]
+[; ;i2c1.c: 649: if (i2c1_object.trStatus.s.full != 1)
+"649
+[e $ ! != -> . . . _i2c1_object 2 0 0 `i -> 1 `i 1182  ]
+[; ;i2c1.c: 650: {
+"650
+{
+[; ;i2c1.c: 651: *pflag = I2C1_MESSAGE_PENDING;
+"651
+[e = *U _pflag . `E7739 2 ]
+[; ;i2c1.c: 653: i2c1_object.pTrTail->ptrb_list = ptrb_list;
+"653
+[e = . *U . _i2c1_object 0 1 _ptrb_list ]
+[; ;i2c1.c: 654: i2c1_object.pTrTail->count = count;
+"654
+[e = . *U . _i2c1_object 0 0 _count ]
+[; ;i2c1.c: 655: i2c1_object.pTrTail->pTrFlag = pflag;
+"655
+[e = . *U . _i2c1_object 0 2 _pflag ]
+[; ;i2c1.c: 656: i2c1_object.pTrTail++;
+"656
+[e ++ . _i2c1_object 0 * -> -> 1 `i `x -> -> # *U . _i2c1_object 0 `i `x ]
+[; ;i2c1.c: 659: if (i2c1_object.pTrTail == (i2c1_tr_queue + 1))
+"659
+[e $ ! == . _i2c1_object 0 + &U _i2c1_tr_queue * -> -> 1 `i `x -> -> # *U &U _i2c1_tr_queue `i `x 1183  ]
+[; ;i2c1.c: 660: {
+"660
+{
+[; ;i2c1.c: 662: i2c1_object.pTrTail = i2c1_tr_queue;
+"662
+[e = . _i2c1_object 0 &U _i2c1_tr_queue ]
+"663
+}
+[e :U 1183 ]
+[; ;i2c1.c: 663: }
+[; ;i2c1.c: 667: i2c1_object.trStatus.s.empty = 0;
+"667
+[e = . . . _i2c1_object 2 0 1 -> -> 0 `i `uc ]
+[; ;i2c1.c: 670: if (i2c1_object.pTrHead == i2c1_object.pTrTail)
+"670
+[e $ ! == . _i2c1_object 1 . _i2c1_object 0 1184  ]
+[; ;i2c1.c: 671: {
+"671
+{
+[; ;i2c1.c: 673: i2c1_object.trStatus.s.full = 1;
+"673
+[e = . . . _i2c1_object 2 0 0 -> -> 1 `i `uc ]
+"674
+}
+[e :U 1184 ]
+"676
+}
+[; ;i2c1.c: 674: }
+[; ;i2c1.c: 676: }
+[e $U 1185  ]
+"677
+[e :U 1182 ]
+[; ;i2c1.c: 677: else
+[; ;i2c1.c: 678: {
+"678
+{
+[; ;i2c1.c: 679: *pflag = I2C1_MESSAGE_FAIL;
+"679
+[e = *U _pflag . `E7739 1 ]
+"680
+}
+[e :U 1185 ]
+[; ;i2c1.c: 680: }
+[; ;i2c1.c: 683: if (*pflag == I2C1_MESSAGE_PENDING)
+"683
+[e $ ! == -> *U _pflag `i -> . `E7739 2 `i 1186  ]
+[; ;i2c1.c: 684: {
+"684
+{
+[; ;i2c1.c: 685: while(i2c1_state != S_MASTER_IDLE);
+"685
+[e $U 1187  ]
+[e :U 1188 ]
+[e :U 1187 ]
+[e $ != -> _i2c1_state `i -> . `E7807 0 `i 1188  ]
+[e :U 1189 ]
+[; ;i2c1.c: 686: {
+"686
+{
+[; ;i2c1.c: 689: PIR1bits.SSP1IF = 1;
+"689
+[e = . . _PIR1bits 0 3 -> -> 1 `i `uc ]
+"690
+}
+"691
+}
+[e :U 1186 ]
+[; ;i2c1.c: 690: }
+[; ;i2c1.c: 691: }
+[; ;i2c1.c: 693: }
+"693
+[e :UE 1181 ]
+}
+"695
+[v _I2C1_MasterReadTRBBuild `(v ~T0 @X0 1 ef4`*S1121`*uc`uc`ui ]
+"700
+{
+[; ;i2c1.c: 695: void I2C1_MasterReadTRBBuild(
+[; ;i2c1.c: 696: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.c: 697: uint8_t *pdata,
+[; ;i2c1.c: 698: uint8_t length,
+[; ;i2c1.c: 699: uint16_t address)
+[; ;i2c1.c: 700: {
+[e :U _I2C1_MasterReadTRBBuild ]
+"696
+[v _ptrb `*S1121 ~T0 @X0 1 r1 ]
+"697
+[v _pdata `*uc ~T0 @X0 1 r2 ]
+"698
+[v _length `uc ~T0 @X0 1 r3 ]
+"699
+[v _address `ui ~T0 @X0 1 r4 ]
+"700
+[f ]
+[; ;i2c1.c: 701: ptrb->address = address << 1;
+"701
+[e = . *U _ptrb 0 << _address -> 1 `i ]
+[; ;i2c1.c: 703: ptrb->address |= 0x01;
+"703
+[e =| . *U _ptrb 0 -> -> 1 `i `ui ]
+[; ;i2c1.c: 704: ptrb->length = length;
+"704
+[e = . *U _ptrb 1 _length ]
+[; ;i2c1.c: 705: ptrb->pbuffer = pdata;
+"705
+[e = . *U _ptrb 2 _pdata ]
+[; ;i2c1.c: 706: }
+"706
+[e :UE 1190 ]
+}
+"708
+[v _I2C1_MasterWriteTRBBuild `(v ~T0 @X0 1 ef4`*S1121`*uc`uc`ui ]
+"713
+{
+[; ;i2c1.c: 708: void I2C1_MasterWriteTRBBuild(
+[; ;i2c1.c: 709: I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+[; ;i2c1.c: 710: uint8_t *pdata,
+[; ;i2c1.c: 711: uint8_t length,
+[; ;i2c1.c: 712: uint16_t address)
+[; ;i2c1.c: 713: {
+[e :U _I2C1_MasterWriteTRBBuild ]
+"709
+[v _ptrb `*S1121 ~T0 @X0 1 r1 ]
+"710
+[v _pdata `*uc ~T0 @X0 1 r2 ]
+"711
+[v _length `uc ~T0 @X0 1 r3 ]
+"712
+[v _address `ui ~T0 @X0 1 r4 ]
+"713
+[f ]
+[; ;i2c1.c: 714: ptrb->address = address << 1;
+"714
+[e = . *U _ptrb 0 << _address -> 1 `i ]
+[; ;i2c1.c: 715: ptrb->length = length;
+"715
+[e = . *U _ptrb 1 _length ]
+[; ;i2c1.c: 716: ptrb->pbuffer = pdata;
+"716
+[e = . *U _ptrb 2 _pdata ]
+[; ;i2c1.c: 717: }
+"717
+[e :UE 1191 ]
+}
+"719
+[v _I2C1_MasterQueueIsEmpty `(uc ~T0 @X0 1 ef ]
+"720
+{
+[; ;i2c1.c: 719: bool I2C1_MasterQueueIsEmpty(void)
+[; ;i2c1.c: 720: {
+[e :U _I2C1_MasterQueueIsEmpty ]
+[f ]
+[; ;i2c1.c: 721: return(i2c1_object.trStatus.s.empty);
+"721
+[e ) . . . _i2c1_object 2 0 1 ]
+[e $UE 1192  ]
+[; ;i2c1.c: 722: }
+"722
+[e :UE 1192 ]
+}
+"724
+[v _I2C1_MasterQueueIsFull `(uc ~T0 @X0 1 ef ]
+"725
+{
+[; ;i2c1.c: 724: bool I2C1_MasterQueueIsFull(void)
+[; ;i2c1.c: 725: {
+[e :U _I2C1_MasterQueueIsFull ]
+[f ]
+[; ;i2c1.c: 726: return(i2c1_object.trStatus.s.full);
+"726
+[e ) . . . _i2c1_object 2 0 0 ]
+[e $UE 1193  ]
+[; ;i2c1.c: 727: }
+"727
+[e :UE 1193 ]
+}
+"729
+[v _I2C1_BusCollisionISR `(v ~T0 @X0 1 ef ]
+"730
+{
+[; ;i2c1.c: 729: void I2C1_BusCollisionISR( void )
+[; ;i2c1.c: 730: {
+[e :U _I2C1_BusCollisionISR ]
+[f ]
+[; ;i2c1.c: 732: }
+"732
+[e :UE 1194 ]
 }

@@ -1,5 +1,104 @@
 
-# 1 "mcc_generated_files/tmr1.c"
+# 1 "mcc_generated_files/i2c1.c"
+
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdint.h"
+typedef signed char int8_t;
+
+# 20
+typedef signed int int16_t;
+
+# 28
+typedef signed short long int int24_t;
+
+# 36
+typedef signed long int int32_t;
+
+# 43
+typedef unsigned char uint8_t;
+
+# 49
+typedef unsigned int uint16_t;
+
+# 56
+typedef unsigned short long int uint24_t;
+
+# 63
+typedef unsigned long int uint32_t;
+
+# 71
+typedef signed char int_least8_t;
+
+# 78
+typedef signed int int_least16_t;
+
+# 90
+typedef signed short long int int_least24_t;
+
+# 98
+typedef signed long int int_least32_t;
+
+# 105
+typedef unsigned char uint_least8_t;
+
+# 111
+typedef unsigned int uint_least16_t;
+
+# 121
+typedef unsigned short long int uint_least24_t;
+
+# 128
+typedef unsigned long int uint_least32_t;
+
+# 137
+typedef signed char int_fast8_t;
+
+# 144
+typedef signed int int_fast16_t;
+
+# 156
+typedef signed short long int int_fast24_t;
+
+# 164
+typedef signed long int int_fast32_t;
+
+# 171
+typedef unsigned char uint_fast8_t;
+
+# 177
+typedef unsigned int uint_fast16_t;
+
+# 187
+typedef unsigned short long int uint_fast24_t;
+
+# 194
+typedef unsigned long int uint_fast32_t;
+
+# 200
+typedef int32_t intmax_t;
+
+
+
+
+typedef uint32_t uintmax_t;
+
+
+
+
+typedef int16_t intptr_t;
+
+
+
+
+typedef uint16_t uintptr_t;
+
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdbool.h"
+typedef unsigned char bool;
+
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\__size_t.h"
+typedef unsigned size_t;
+
+# 6 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stddef.h"
+typedef int ptrdiff_t;
 
 # 26 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -9199,296 +9298,655 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
-# 12 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdbool.h"
-typedef unsigned char bool;
+# 84 "mcc_generated_files/i2c1.h"
+typedef enum
+{
+I2C1_MESSAGE_COMPLETE,
+I2C1_MESSAGE_FAIL,
+I2C1_MESSAGE_PENDING,
+I2C1_STUCK_START,
+I2C1_MESSAGE_ADDRESS_NO_ACK,
+I2C1_DATA_NO_ACK,
+I2C1_LOST_STATE
+} I2C1_MESSAGE_STATUS;
 
-# 13 "C:\Program Files (x86)\Microchip\xc8\v1.36\include\stdint.h"
-typedef signed char int8_t;
+# 109
+typedef struct
+{
+uint16_t address;
 
-# 20
-typedef signed int int16_t;
 
-# 28
-typedef signed short long int int24_t;
+uint8_t length;
+uint8_t *pbuffer;
+} I2C1_TRANSACTION_REQUEST_BLOCK;
 
-# 36
-typedef signed long int int32_t;
+# 221
+void I2C1_Initialize(void);
 
-# 43
-typedef unsigned char uint8_t;
+# 260
+void I2C1_MasterWrite(
+uint8_t *pdata,
+uint8_t length,
+uint16_t address,
+I2C1_MESSAGE_STATUS *pstatus);
 
-# 49
-typedef unsigned int uint16_t;
+# 407
+void I2C1_MasterRead(
+uint8_t *pdata,
+uint8_t length,
+uint16_t address,
+I2C1_MESSAGE_STATUS *pstatus);
 
-# 56
-typedef unsigned short long int uint24_t;
+# 517
+void I2C1_MasterTRBInsert(
+uint8_t count,
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
+I2C1_MESSAGE_STATUS *pflag);
 
-# 63
-typedef unsigned long int uint32_t;
+# 561
+void I2C1_MasterReadTRBBuild(
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+uint8_t *pdata,
+uint8_t length,
+uint16_t address);
 
-# 71
-typedef signed char int_least8_t;
+# 606
+void I2C1_MasterWriteTRBBuild(
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+uint8_t *pdata,
+uint8_t length,
+uint16_t address);
 
-# 78
-typedef signed int int_least16_t;
+# 648
+bool I2C1_MasterQueueIsEmpty(void);
 
-# 90
-typedef signed short long int int_least24_t;
+# 686
+bool I2C1_MasterQueueIsFull(void);
+void I2C1_BusCollisionISR( void );
+void I2C1_ISR ( void );
 
-# 98
-typedef signed long int int_least32_t;
+# 63 "mcc_generated_files/i2c1.c"
+typedef union
+{
+struct
+{
+uint8_t full:1;
+uint8_t empty:1;
+uint8_t reserved:6;
+}s;
+uint8_t status;
+}I2C_TR_QUEUE_STATUS;
+
+# 85
+typedef struct
+{
+uint8_t count;
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list;
+I2C1_MESSAGE_STATUS *pTrFlag;
+
+
+} I2C_TR_QUEUE_ENTRY;
 
 # 105
-typedef unsigned char uint_least8_t;
-
-# 111
-typedef unsigned int uint_least16_t;
-
-# 121
-typedef unsigned short long int uint_least24_t;
-
-# 128
-typedef unsigned long int uint_least32_t;
-
-# 137
-typedef signed char int_fast8_t;
-
-# 144
-typedef signed int int_fast16_t;
-
-# 156
-typedef signed short long int int_fast24_t;
-
-# 164
-typedef signed long int int_fast32_t;
-
-# 171
-typedef unsigned char uint_fast8_t;
-
-# 177
-typedef unsigned int uint_fast16_t;
-
-# 187
-typedef unsigned short long int uint_fast24_t;
-
-# 194
-typedef unsigned long int uint_fast32_t;
-
-# 200
-typedef int32_t intmax_t;
-
-
-
-
-typedef uint32_t uintmax_t;
-
-
-
-
-typedef int16_t intptr_t;
-
-
-
-
-typedef uint16_t uintptr_t;
-
-# 49 "mcc_generated_files/tmr1.h"
-void TMR1_Initialize(void);
-
-# 80
-void TMR1_StartTimer(void);
-
-# 110
-void TMR1_StopTimer(void);
-
-# 144
-uint16_t TMR1_ReadTimer(void);
-
-# 170
-void TMR1_WriteTimer(uint16_t timerVal);
-
-# 202
-void TMR1_Reload(void);
-
-# 243
-void TMR1_StartSinglePulseAcquisition(void);
-
-# 284
-uint8_t TMR1_CheckGateValueStatus(void);
-
-# 300
-void TMR1_ISR(void);
-
-# 319
-void TMR1_CallBack(void);
-
-# 5 "mcc_generated_files/../Global.h"
-extern char Temp_Aquire;
-extern char Volt_Aquire;
-extern char Current_Aquire;
-extern int Battery_Adc[10];
-extern int Temp_Adc[10];
-extern int Current_Adc[10];
-extern int ADC_Buffer_Point;
-extern int Volt_Done;
-extern int Temp_Done;
-extern int Current_Done;
-extern char CodeRuning;
-
-# 13 "mcc_generated_files/../Tempeture.h"
-extern char Temp_Fault();
-extern void Temp_Read();
-extern void Temp_Filter();
-extern void Temp_Convert();
-extern float Tempeture_Get(int channelnum);
-
-# 12 "mcc_generated_files/../Battery.h"
-extern char Battery_Fault();
-extern void Battery_Read();
-extern void Battery_Filter();
-extern void Battery_Convert();
-extern float Battery_Get(int channelnum);
-
-# 13 "mcc_generated_files/../Current.h"
-extern float Current_Get();
-void Current_Convert();
-void Current_Filter();
-void Current_Read();
-extern char Current_Fault();
-
-# 454 "mcc_generated_files/pin_manager.h"
-void PIN_MANAGER_Initialize(void);
-
-# 466
-void PIN_MANAGER_IOC(void);
-
-# 11 "mcc_generated_files/../Functions.h"
-extern void Set_4051(int Channel,char enable);
-extern void Delay(int wait);
-
-# 18 "mcc_generated_files/tmr1.c"
-volatile uint16_t timer1ReloadVal;
-
-# 24
-void TMR1_Initialize(void) {
-
-
-
-T1CON = 0x34;
-
-
-T1GCON = 0x00;
-
-
-TMR1H = 0x0B;
-
-
-TMR1L = 0xDC;
-
-
-timer1ReloadVal = TMR1;
-
-
-PIR1bits.TMR1IF = 0;
-
-
-PIE1bits.TMR1IE = 1;
-
-
-TMR1_StartTimer();
-}
-
-void TMR1_StartTimer(void) {
-
-T1CONbits.TMR1ON = 1;
-}
-
-void TMR1_StopTimer(void) {
-
-T1CONbits.TMR1ON = 0;
-}
-
-uint16_t TMR1_ReadTimer(void) {
-uint16_t readVal;
-uint8_t readValHigh;
-uint8_t readValLow;
-
-readValLow = TMR1L;
-readValHigh = TMR1H;
-
-readVal = ((uint16_t) readValHigh << 8) | readValLow;
-
-return readVal;
-}
-
-void TMR1_WriteTimer(uint16_t timerVal) {
-if (T1CONbits.T1SYNC == 1) {
-
-T1CONbits.TMR1ON = 0;
-
-
-TMR1H = (timerVal >> 8);
-TMR1L = (uint8_t) timerVal;
-
-
-T1CONbits.TMR1ON = 1;
-} else {
-
-TMR1H = (timerVal >> 8);
-TMR1L = (uint8_t) timerVal;
-}
-}
-
-void TMR1_Reload(void) {
-
-TMR1H = (timer1ReloadVal >> 8);
-TMR1L = (uint8_t) timer1ReloadVal;
-}
-
-void TMR1_StartSinglePulseAcquisition(void) {
-T1GCONbits.T1GGO = 1;
-}
-
-uint8_t TMR1_CheckGateValueStatus(void) {
-return T1GCONbits.T1GVAL;
-}
-
-void TMR1_ISR(void) {
-static volatile unsigned int CountCallBack = 0;
-
-
-PIR1bits.TMR1IF = 0;
-
-
-TMR1H = (timer1ReloadVal >> 8);
-TMR1L = (uint8_t) timer1ReloadVal;
-
-
-if (++CountCallBack >= 4)
+typedef struct
 {
 
-do { LATA4 = ~LATA4; } while(0);
+I2C_TR_QUEUE_ENTRY *pTrTail;
+I2C_TR_QUEUE_ENTRY *pTrHead;
+I2C_TR_QUEUE_STATUS trStatus;
+uint8_t i2cDoneFlag;
 
-CountCallBack = 0;
-}
-else if(CountCallBack == 1)
+uint8_t i2cErrors;
+
+
+} I2C_OBJECT ;
+
+# 129
+typedef enum
 {
-CodeRuning = 1;
-Current_Read();
-}
-else if(CountCallBack == 2)
+S_MASTER_IDLE,
+S_MASTER_RESTART,
+S_MASTER_SEND_ADDR,
+S_MASTER_SEND_DATA,
+S_MASTER_SEND_STOP,
+S_MASTER_ACK_ADDR,
+S_MASTER_RCV_DATA,
+S_MASTER_RCV_STOP,
+S_MASTER_ACK_RCV_DATA,
+S_MASTER_NOACK_STOP,
+S_MASTER_SEND_ADDR_10BIT_LSB,
+S_MASTER_10BIT_RESTART,
+
+} I2C_MASTER_STATES;
+
+# 178
+void I2C1_FunctionComplete(void);
+void I2C1_Stop(I2C1_MESSAGE_STATUS completion_code);
+
+# 185
+static I2C_TR_QUEUE_ENTRY i2c1_tr_queue[1];
+static I2C_OBJECT i2c1_object;
+static I2C_MASTER_STATES i2c1_state = S_MASTER_IDLE;
+static uint8_t i2c1_trb_count = 0;
+
+static I2C1_TRANSACTION_REQUEST_BLOCK *p_i2c1_trb_current = (0);
+static I2C_TR_QUEUE_ENTRY *p_i2c1_current = (0);
+
+# 199
+void I2C1_Initialize(void)
 {
-CodeRuning = 1;
-Battery_Read();
+i2c1_object.pTrHead = i2c1_tr_queue;
+i2c1_object.pTrTail = i2c1_tr_queue;
+i2c1_object.trStatus.s.empty = 1;
+i2c1_object.trStatus.s.full = 0;
+
+i2c1_object.i2cErrors = 0;
+
+
+SSP1STAT = 0x00;
+
+SSP1CON1 = 0x28;
+
+SSP1CON3 = 0x00;
+
+SSP1ADD = 0x03;
+
+
+
+PIR1bits.SSP1IF = 0;
+
+PIE1bits.SSP1IE = 1;
+
 }
-else if(CountCallBack == 3)
+
+
+uint8_t I2C1_ErrorCountGet(void)
 {
-CodeRuning = 1;
-Temp_Read();
+uint8_t ret;
+
+ret = i2c1_object.i2cErrors;
+return ret;
+}
+
+void I2C1_ISR ( void )
+{
+
+static uint8_t *pi2c_buf_ptr;
+static uint16_t i2c_address = 0;
+static uint8_t i2c_bytes_left = 0;
+static uint8_t i2c_10bit_address_restart = 0;
+
+PIR1bits.SSP1IF = 0;
+
+
+
+if(SSP1CON1bits.WCOL)
+{
+
+SSP1CON1bits.WCOL = 0;
+i2c1_state = S_MASTER_IDLE;
+*(p_i2c1_current->pTrFlag) = I2C1_MESSAGE_FAIL;
+
+
+p_i2c1_current = (0);
+
+return;
+}
+
+
+switch(i2c1_state)
+{
+case S_MASTER_IDLE:
+
+if(i2c1_object.trStatus.s.empty != 1)
+{
+
+p_i2c1_current = i2c1_object.pTrHead;
+i2c1_trb_count = i2c1_object.pTrHead->count;
+p_i2c1_trb_current = i2c1_object.pTrHead->ptrb_list;
+
+i2c1_object.pTrHead++;
+
+
+if(i2c1_object.pTrHead == (i2c1_tr_queue + 1))
+{
+
+i2c1_object.pTrHead = i2c1_tr_queue;
+}
+
+
+
+i2c1_object.trStatus.s.full = 0;
+
+
+if(i2c1_object.pTrHead == i2c1_object.pTrTail)
+{
+
+i2c1_object.trStatus.s.empty = 1;
+}
+
+
+SSP1CON2bits.SEN = 1;
+
+
+i2c1_state = S_MASTER_SEND_ADDR;
+}
+
+break;
+
+case S_MASTER_RESTART:
+
+
+
+
+SSP1CON2bits.RSEN = 1;
+
+
+i2c1_state = S_MASTER_SEND_ADDR;
+
+break;
+
+case S_MASTER_SEND_ADDR_10BIT_LSB:
+
+if(SSP1CON2bits.ACKSTAT)
+{
+i2c1_object.i2cErrors++;
+I2C1_Stop(I2C1_MESSAGE_ADDRESS_NO_ACK);
+}
+else
+{
+
+SSP1BUF = (i2c_address >> 1) & 0x00FF;
+
+
+if(i2c_address & 0x01)
+{
+
+
+i2c1_state = S_MASTER_10BIT_RESTART;
+}
+else
+{
+
+i2c1_state = S_MASTER_SEND_DATA;
 }
 }
 
-void TMR1_CallBack(void)
+break;
+
+case S_MASTER_10BIT_RESTART:
+
+if(SSP1CON2bits.ACKSTAT)
+{
+i2c1_object.i2cErrors++;
+I2C1_Stop(I2C1_MESSAGE_ADDRESS_NO_ACK);
+}
+else
+{
+
+
+SSP1CON2bits.RSEN = 1;
+
+
+
+i2c_address = 0x00F0 | ((i2c_address >> 8) & 0x0006);
+
+
+i2c_address |= 0x0001;
+
+
+i2c_10bit_address_restart = 1;
+
+
+i2c1_state = S_MASTER_SEND_ADDR;
+}
+
+break;
+
+case S_MASTER_SEND_ADDR:
+
+# 382
+if(i2c_10bit_address_restart != 1)
+{
+
+i2c_address = p_i2c1_trb_current->address;
+pi2c_buf_ptr = p_i2c1_trb_current->pbuffer;
+i2c_bytes_left = p_i2c1_trb_current->length;
+}
+
+
+if(!1 && (0x0 != i2c_address))
+{
+if (0 == i2c_10bit_address_restart)
+{
+
+
+
+SSP1BUF = 0xF0 | ((i2c_address >> 8) & 0x0006);
+i2c1_state = S_MASTER_SEND_ADDR_10BIT_LSB;
+}
+else
+{
+
+SSP1BUF = i2c_address;
+i2c1_state = S_MASTER_ACK_ADDR;
+
+i2c_10bit_address_restart = 0;
+}
+}
+else
+{
+
+SSP1BUF = i2c_address;
+if(i2c_address & 0x01)
+{
+
+i2c1_state = S_MASTER_ACK_ADDR;
+}
+else
+{
+
+i2c1_state = S_MASTER_SEND_DATA;
+}
+}
+break;
+
+case S_MASTER_SEND_DATA:
+
+
+if(SSP1CON2bits.ACKSTAT)
+{
+
+i2c1_object.i2cErrors++;
+
+
+SSP1CON2bits.ACKSTAT = 0;
+
+
+I2C1_Stop(I2C1_DATA_NO_ACK);
+
+}
+else
+{
+
+if(i2c_bytes_left-- == 0U)
+{
+
+
+
+p_i2c1_trb_current++;
+
+
+if(--i2c1_trb_count == 0)
+{
+I2C1_Stop(I2C1_MESSAGE_COMPLETE);
+}
+else
+{
+
+# 465
+SSP1CON2bits.RSEN = 1;
+
+
+i2c1_state = S_MASTER_SEND_ADDR;
+
+}
+}
+else
+{
+
+SSP1BUF = *pi2c_buf_ptr++;
+}
+}
+break;
+
+case S_MASTER_ACK_ADDR:
+
+
+if(SSP1CON2bits.ACKSTAT)
+{
+
+
+i2c1_object.i2cErrors++;
+
+
+I2C1_Stop(I2C1_MESSAGE_ADDRESS_NO_ACK);
+
+
+SSP1CON2bits.ACKSTAT = 0;
+}
+else
+{
+SSP1CON2bits.RCEN = 1;
+i2c1_state = S_MASTER_ACK_RCV_DATA;
+}
+break;
+
+case S_MASTER_RCV_DATA:
+
+
+
+
+i2c1_state = S_MASTER_ACK_RCV_DATA;
+
+
+SSP1CON2bits.RCEN = 1;
+
+break;
+
+case S_MASTER_ACK_RCV_DATA:
+
+
+*pi2c_buf_ptr++ = SSP1BUF;
+
+
+if(--i2c_bytes_left)
+{
+
+# 527
+SSP1CON2bits.ACKDT = 0;
+
+
+i2c1_state = S_MASTER_RCV_DATA;
+}
+else
+{
+
+
+
+SSP1CON2bits.ACKDT = 1;
+
+I2C1_FunctionComplete();
+}
+
+
+SSP1CON2bits.ACKEN = 1;
+break;
+
+case S_MASTER_RCV_STOP:
+case S_MASTER_SEND_STOP:
+
+
+I2C1_Stop(I2C1_MESSAGE_COMPLETE);
+break;
+
+default:
+
+
+
+i2c1_object.i2cErrors++;
+I2C1_Stop(I2C1_LOST_STATE);
+break;
+
+}
+}
+
+void I2C1_FunctionComplete(void)
+{
+
+
+p_i2c1_trb_current++;
+
+
+if(--i2c1_trb_count == 0)
+{
+i2c1_state = S_MASTER_SEND_STOP;
+}
+else
+{
+i2c1_state = S_MASTER_RESTART;
+}
+
+}
+
+void I2C1_Stop(I2C1_MESSAGE_STATUS completion_code)
+{
+
+SSP1CON2bits.PEN = 1;
+
+
+if (p_i2c1_current->pTrFlag != (0))
+{
+
+*(p_i2c1_current->pTrFlag) = completion_code;
+}
+
+
+i2c1_state = S_MASTER_IDLE;
+
+}
+
+void I2C1_MasterWrite(
+uint8_t *pdata,
+uint8_t length,
+uint16_t address,
+I2C1_MESSAGE_STATUS *pflag)
+{
+static I2C1_TRANSACTION_REQUEST_BLOCK trBlock;
+
+
+if (i2c1_object.trStatus.s.full != 1)
+{
+I2C1_MasterWriteTRBBuild(&trBlock, pdata, length, address);
+I2C1_MasterTRBInsert(1, &trBlock, pflag);
+}
+else
+{
+*pflag = I2C1_MESSAGE_FAIL;
+}
+
+}
+
+void I2C1_MasterRead(
+uint8_t *pdata,
+uint8_t length,
+uint16_t address,
+I2C1_MESSAGE_STATUS *pflag)
+{
+static I2C1_TRANSACTION_REQUEST_BLOCK trBlock;
+
+
+
+if (i2c1_object.trStatus.s.full != 1)
+{
+I2C1_MasterReadTRBBuild(&trBlock, pdata, length, address);
+I2C1_MasterTRBInsert(1, &trBlock, pflag);
+}
+else
+{
+*pflag = I2C1_MESSAGE_FAIL;
+}
+
+}
+
+void I2C1_MasterTRBInsert(
+uint8_t count,
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb_list,
+I2C1_MESSAGE_STATUS *pflag)
+{
+
+
+if (i2c1_object.trStatus.s.full != 1)
+{
+*pflag = I2C1_MESSAGE_PENDING;
+
+i2c1_object.pTrTail->ptrb_list = ptrb_list;
+i2c1_object.pTrTail->count = count;
+i2c1_object.pTrTail->pTrFlag = pflag;
+i2c1_object.pTrTail++;
+
+
+if (i2c1_object.pTrTail == (i2c1_tr_queue + 1))
+{
+
+i2c1_object.pTrTail = i2c1_tr_queue;
+}
+
+
+
+i2c1_object.trStatus.s.empty = 0;
+
+
+if (i2c1_object.pTrHead == i2c1_object.pTrTail)
+{
+
+i2c1_object.trStatus.s.full = 1;
+}
+
+}
+else
+{
+*pflag = I2C1_MESSAGE_FAIL;
+}
+
+
+if (*pflag == I2C1_MESSAGE_PENDING)
+{
+while(i2c1_state != S_MASTER_IDLE);
+{
+
+
+PIR1bits.SSP1IF = 1;
+}
+}
+
+}
+
+void I2C1_MasterReadTRBBuild(
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+uint8_t *pdata,
+uint8_t length,
+uint16_t address)
+{
+ptrb->address = address << 1;
+
+ptrb->address |= 0x01;
+ptrb->length = length;
+ptrb->pbuffer = pdata;
+}
+
+void I2C1_MasterWriteTRBBuild(
+I2C1_TRANSACTION_REQUEST_BLOCK *ptrb,
+uint8_t *pdata,
+uint8_t length,
+uint16_t address)
+{
+ptrb->address = address << 1;
+ptrb->length = length;
+ptrb->pbuffer = pdata;
+}
+
+bool I2C1_MasterQueueIsEmpty(void)
+{
+return(i2c1_object.trStatus.s.empty);
+}
+
+bool I2C1_MasterQueueIsFull(void)
+{
+return(i2c1_object.trStatus.s.full);
+}
+
+void I2C1_BusCollisionISR( void )
 {
 
 }
