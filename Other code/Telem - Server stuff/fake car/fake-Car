@@ -1,0 +1,13 @@
+import serial
+
+ser = serial.Serial('COM6', 115200, timeout=1)
+
+while True:
+    ser.write("DD")
+    time.sleep(2)
+    data = ser.read()
+    if data = "ok"
+        break
+
+
+ser.close()

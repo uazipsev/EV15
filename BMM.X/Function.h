@@ -18,7 +18,7 @@
 #endif
 #include <xc.h>
 #include <stdbool.h>
-#include "pps.h"
+#include <pps.h>
 #include "PinDef.h"
 #include "SlaveAddressing.h"
 #include "ADDRESSING.h"

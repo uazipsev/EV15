@@ -1,7 +1,7 @@
 #include <xc.h>
 #include <stdbool.h>
 #include "I2C.h"
-#include <i2c.h>
+//#include <i2c.h>
 
 void i2c_wait(unsigned int cnt) {
     while (--cnt) {
